@@ -1,9 +1,8 @@
 'use client';
 
-import { WifiIcon } from '@heroicons/react/outline';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, type MotionValue, useScroll, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
-import { Smile } from 'react-feather';
+import { Smile, Wifi } from 'react-feather';
 
 export const DisappearingFeatures = () => {
   return (
@@ -64,7 +63,7 @@ const Carousel = () => {
     {
       title: 'Free WiFi',
       description: 'Stay connected while you wait with our complimentary WiFi.',
-      icon: <WifiIcon className='w-12 h-12 mb-4 text-gold' />,
+      icon: <Wifi className='w-12 h-12 mb-4 text-gold' />,
     },
     {
       title: 'Ample Parking',
@@ -94,7 +93,17 @@ const Carousel = () => {
   );
 };
 
-const CarouselItem = ({ scrollYProgress, position, numItems, feature }) => {
+const CarouselItem = ({
+  scrollYProgress,
+  position,
+  numItems,
+  feature,
+}: {
+  scrollYProgress: MotionValue<number>;
+  position: number;
+  numItems: number;
+  feature: any;
+}) => {
   const stepSize = 1 / numItems;
   const end = stepSize * position;
   const start = end - stepSize;
