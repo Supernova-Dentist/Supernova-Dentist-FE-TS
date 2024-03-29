@@ -1,7 +1,11 @@
+import Cta from './components/blocks/Cta/Cta';
+import GoogleMap from './components/blocks/GoogleMap/GoogleMap';
+
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <h1>Supernova Dentist</h1>
+    <main className='min-h-screen flex flex-col gap-4'>
+      <Cta />
+      <GoogleMap />
     </main>
   );
 }
