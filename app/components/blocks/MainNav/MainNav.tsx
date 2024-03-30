@@ -14,7 +14,6 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 
-// Assuming NavigationMenuLink is designed to handle navigation internally or does not wrap well with <Link>
 const ListItem = ({ href, title }) => (
   <NavigationMenuLink href={href} className={navigationMenuTriggerStyle()}>
     {title}
@@ -23,53 +22,67 @@ const ListItem = ({ href, title }) => (
 
 const MainNav = () => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className='mx-auto flex flex-row justify-end my-6'>
       <NavigationMenuList>
+        {/* Non-dropdown items do not need to be wrapped */}
         <NavigationMenuItem>
           <Link href='/' legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className='grid w-full gap-3 p-4'>
-              <ListItem href='/about/clinic' title='Our Clinic' />
-              <ListItem href='/about/team' title='Meet the Team' />
-              <ListItem href='/about/careers' title='Careers' />
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Our Services</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className='grid w-full gap-3 p-4'>
-              <ListItem href='/services/general-dentistry' title='General Dentistry' />
-              <ListItem href='/services/cosmetic-dentistry' title='Cosmetic Dentistry' />
-              <ListItem href='/services/orthodontics' title='Orthodontics' />
-              <ListItem href='/services/pediatric-dentistry' title='Pediatric Dentistry' />
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Patient Info</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className='grid w-full gap-3 p-4'>
-              <ListItem href='/patient-info/forms' title='Patient Forms' />
-              <ListItem href='/patient-info/insurance' title='Insurance and Payment' />
-              <ListItem href='/patient-info/faq' title='FAQs' />
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className='grid w-full gap-3 p-4'>
-              <ListItem href='/contact/location' title='Location' />
-              <ListItem href='/contact/schedule' title='Schedule an Appointment' />
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+
+        {/* Wrap dropdown items in their own NavigationMenu for positioning */}
+        <NavigationMenu>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className='grid w-full gap-3 p-4'>
+                <ListItem href='/about/clinic' title='Our Clinic' />
+                <ListItem href='/about/team' title='Meet the Team' />
+                <ListItem href='/about/careers' title='Careers' />
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenu>
+
+        <NavigationMenu>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Our Services</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className='grid w-full gap-3 p-4'>
+                <ListItem href='/services/general-dentistry' title='General Dentistry' />
+                <ListItem href='/services/cosmetic-dentistry' title='Cosmetic Dentistry' />
+                <ListItem href='/services/orthodontics' title='Orthodontics' />
+                <ListItem href='/services/pediatric-dentistry' title='Pediatric Dentistry' />
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenu>
+
+        <NavigationMenu>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Patient Info</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className='grid w-full gap-3 p-4'>
+                <ListItem href='/patient-info/forms' title='Patient Forms' />
+                <ListItem href='/patient-info/insurance' title='Insurance and Payment' />
+                <ListItem href='/patient-info/faq' title='FAQs' />
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenu>
+
+        <NavigationMenu>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className='grid w-full gap-3 p-4'>
+                <ListItem href='/contact/location' title='Location' />
+                <ListItem href='/contact/schedule' title='Schedule an Appointment' />
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenu>
       </NavigationMenuList>
     </NavigationMenu>
   );
