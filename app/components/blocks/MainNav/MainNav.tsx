@@ -14,7 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 
-const ListItem = ({ href, title }) => (
+const ListItem = ({ href, title }: { href: string, title: string }) => (
   <NavigationMenuLink href={href} className={navigationMenuTriggerStyle()}>
     {title}
   </NavigationMenuLink>
