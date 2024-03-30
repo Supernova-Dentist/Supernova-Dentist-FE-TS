@@ -14,28 +14,37 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 
-const ListItem = ({ href, title }: { href: string, title: string }) => (
-  <NavigationMenuLink href={href} className={navigationMenuTriggerStyle()}>
+// Styled ListItem component for menu links
+const ListItem = ({ href, title }: { href: string; title: string }) => (
+  <NavigationMenuLink
+    href={href}
+    className={`${navigationMenuTriggerStyle()} text-amber-500 hover:bg-black hover:text-white p-2`}
+  >
     {title}
   </NavigationMenuLink>
 );
 
+// MainNav component with the full navigation structure
 const MainNav = () => {
   return (
-    <NavigationMenu className='mx-auto flex flex-row justify-end my-6'>
-      <NavigationMenuList>
-        {/* Non-dropdown items do not need to be wrapped */}
+    <NavigationMenu className='h-screen min-w-full mx-auto justify-end bg-black py-6 px-4'>
+      <NavigationMenuList className='text-white'>
+        {/* Home link */}
         <NavigationMenuItem>
           <Link href='/' legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
+            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
+              Home
+            </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
 
-        {/* Wrap dropdown items in their own NavigationMenu for positioning */}
+        {/* About Us dropdown */}
         <NavigationMenu>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
+              About Us
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className='bg-white text-black'>
               <ul className='grid w-full gap-3 p-4'>
                 <ListItem href='/about/clinic' title='Our Clinic' />
                 <ListItem href='/about/team' title='Meet the Team' />
@@ -45,10 +54,13 @@ const MainNav = () => {
           </NavigationMenuItem>
         </NavigationMenu>
 
+        {/* Our Services dropdown */}
         <NavigationMenu>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Our Services</NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
+              Our Services
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className='bg-white text-black'>
               <ul className='grid w-full gap-3 p-4'>
                 <ListItem href='/services/general-dentistry' title='General Dentistry' />
                 <ListItem href='/services/cosmetic-dentistry' title='Cosmetic Dentistry' />
@@ -59,10 +71,13 @@ const MainNav = () => {
           </NavigationMenuItem>
         </NavigationMenu>
 
+        {/* Patient Info dropdown */}
         <NavigationMenu>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Patient Info</NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
+              Patient Info
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className='bg-white text-black'>
               <ul className='grid w-full gap-3 p-4'>
                 <ListItem href='/patient-info/forms' title='Patient Forms' />
                 <ListItem href='/patient-info/insurance' title='Insurance and Payment' />
@@ -72,15 +87,26 @@ const MainNav = () => {
           </NavigationMenuItem>
         </NavigationMenu>
 
+        {/* Contact dropdown */}
         <NavigationMenu>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
+              Contact
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className='bg-white text-black'>
               <ul className='grid w-full gap-3 p-4'>
                 <ListItem href='/contact/location' title='Location' />
-                <ListItem href='/contact/schedule' title='Schedule an Appointment' />
+                <ListItem href='/contact/schedule' title='Contact Us' />
               </ul>
             </NavigationMenuContent>
+          </NavigationMenuItem>
+          {/* Book an Appointment */}
+          <NavigationMenuItem>
+            {/* <Link href='/contact/schedule' passHref> */}
+            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
+              Book an Appointment
+            </NavigationMenuLink>
+            {/* </Link> */}
           </NavigationMenuItem>
         </NavigationMenu>
       </NavigationMenuList>
