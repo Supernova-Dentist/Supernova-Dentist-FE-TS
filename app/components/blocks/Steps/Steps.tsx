@@ -39,7 +39,7 @@ export default function Steps() {
           >
             <div className='relative'>
               <Image src={step.image} alt={step.title} width={400} height={300} />
-              <div className='rounded-full text-2xl text-slate-50 bg-[#C29470] absolute bottom-0 translate-y-1/2 left-1/2 w-[3.5rem] h-[3.5rem] flex items-center justify-center -translate-x-1/2'>
+              <div className='rounded-full text-2xl text-slate-50 bg-gold absolute bottom-0 translate-y-1/2 left-1/2 w-[3.5rem] h-[3.5rem] flex items-center justify-center -translate-x-1/2'>
                 {step.id}
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function Steps() {
           </div>
         ))}
       </div>
-      <Button text='Request Appointment' className='px-8 py-2 bg-[#C29470] uppercase mt-8' />
+      <Button text='Request Appointment' className='px-8 py-2 bg-gold uppercase mt-8' />
     </section>
   );
 }
