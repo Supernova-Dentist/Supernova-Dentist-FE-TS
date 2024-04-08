@@ -13,9 +13,9 @@ export default function GoogleMap() {
       {isLoading && <p>Loading...</p>}
       <iframe
         width='100%'
-        height='250'
+        height='350'
         referrerPolicy='no-referrer-when-downgrade'
-        src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=Eiffel+Tower,Paris+France`}
+        src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=marsh+lane+huntworth+bridgwater+TA6 6LQ`} // Will need tweaking to get actual building location or more specific with lat and lon
         onLoad={() => setLoading(false)}
         allowFullScreen
       ></iframe>

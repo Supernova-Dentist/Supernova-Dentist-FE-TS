@@ -1,11 +1,15 @@
 import Cta from './components/blocks/Cta/Cta';
 import GoogleMap from './components/blocks/GoogleMap/GoogleMap';
+import Reviews from './components/blocks/Reviews/Review';
+import Steps from './components/blocks/Steps/Steps';
 
 export default function Home() {
   return (
-    <main className='min-h-screen flex flex-col gap-4'>
+    <div>
       <Cta />
+      <Reviews />
+      <Steps />
       <GoogleMap />
-    </main>
+    </div>
   );
 }

@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './reset.css';
+
+@layer base {
+  :root {
+    --gold: #c29470;
+    --grey: #121c26;
+    --light-grey: #404244;
+    --cream: #f6efe9;
+  }
+}
