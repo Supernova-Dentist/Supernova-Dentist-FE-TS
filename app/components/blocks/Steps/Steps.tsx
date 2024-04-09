@@ -10,17 +10,17 @@ type Step = {
 const stepsData: Step[] = [
   {
     id: 1,
-    image: '/assets/front-office-skyline-dental.png',
+    image: '/assets/images/front-office-skyline-dental.png',
     title: 'Schedule an exam',
   },
   {
     id: 2,
-    image: '/assets/patient-exam-skyline-dental.png',
+    image: '/assets/images/patient-exam-skyline-dental.png',
     title: 'Speak with a dentist about your goals',
   },
   {
     id: 3,
-    image: '/assets/big-smiles-skyline-dental.png',
+    image: '/assets/images/big-smiles-skyline-dental.png',
     title: 'Create a plan and start your smile journey',
   },
 ];
