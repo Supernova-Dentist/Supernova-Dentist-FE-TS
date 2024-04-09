@@ -27,7 +27,7 @@ const ListItem = ({ href, title }: { href: string; title: string }) => (
 // MainNav component with the full navigation structure
 const MainNav = () => {
   return (
-    <NavigationMenu className='w-screen mx-auto justify-end bg-black py-6 px-4'>
+    <NavigationMenu className='mx-auto justify-end bg-black py-6 px-4'>
       <NavigationMenuList className='text-white'>
         {/* Home link */}
         <NavigationMenuItem>
