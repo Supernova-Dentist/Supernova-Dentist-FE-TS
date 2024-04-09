@@ -1,21 +1,22 @@
 import dynamic from 'next/dynamic';
-import CrispChat from './components/blocks/CrispChat/CrispChat';
 import Cta from './components/blocks/Cta/Cta';
-import Footer from './components/blocks/Footer/Footer';
-import MainNav from './components/blocks/MainNav/MainNav';
+import Reviews from './components/blocks/Reviews/Review';
+import Steps from './components/blocks/Steps/Steps';
+import GalleryCarousel from './components/GalleryCarousel/GalleryCarousel';
+import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton';
 const GoogleMap = dynamic(async () => await import('./components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
 });
 
 export default function Home() {
   return (
-    <main className='min-h-screen flex flex-col'>
-      <MainNav />
+    <main>
       <Cta />
+      <Steps />
+      <Reviews />
+      <GalleryCarousel />
       <GoogleMap />
-      <Footer />
-      {/* Could possibly add an aria-hidden='true' to a div and put the CrispChat component inside  */}
-      <CrispChat />
+      <ScrollToTopButton />
     </main>
   );
 }
