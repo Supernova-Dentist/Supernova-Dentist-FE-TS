@@ -15,7 +15,7 @@ export default function GoogleMap() {
         width='100%'
         height='350'
         referrerPolicy='no-referrer-when-downgrade'
-        src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=marsh+lane+huntworth+bridgwater+TA6 6LQ`} // Will need tweaking to get actual building location or more specific with lat and lon
+        src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=supernovea+dental+marsh+lane+huntworth+bridgwater+TA6 6LQ`} // Will need tweaking to get actual building location or more specific with lat and lon
         onLoad={() => setLoading(false)}
         allowFullScreen
       ></iframe>

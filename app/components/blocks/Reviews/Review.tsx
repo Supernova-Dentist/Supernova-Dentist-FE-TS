@@ -7,17 +7,17 @@ type ReviewData = {
 
 const reviewData: ReviewData[] = [
   {
-    image: '/assets/review-1.jpeg',
+    image: '/assets/images/review-1.jpeg',
     reviewText:
       'I love my new smile. Wish I did this sooner. The process was easy and I had complete confidence in Dr. Raymond and his team from start to finish.',
   },
   {
-    image: '/assets/review-2.jpeg',
+    image: '/assets/images/review-2.jpeg',
     reviewText:
       "What truly impressed me was the technology and software he and his staff operate. Unlike anything I've ever seen in other dental offices.",
   },
   {
-    image: '/assets/review-3.jpeg',
+    image: '/assets/images/review-3.jpeg',
     reviewText:
       "Dr. Raymond and his team are amazing. I'm so happy with my new smile and Skyline Dental made it affordable by allowing me to make payments over time.",
   },
