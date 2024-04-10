@@ -19,6 +19,7 @@ export default function Button({
   disabled = false,
   children,
 }: ButtonProps) {
+  console.log({ text });
   return (
     <button className={className} onClick={onClick} type={type} disabled={disabled}>
       {children !== undefined ? children : text}
