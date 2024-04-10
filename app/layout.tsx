@@ -8,7 +8,7 @@ import CrispChat from './components/blocks/CrispChat/CrispChat';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Supernova Dentist',
+  title: 'Supernova Dental',
   description: 'Description here',
 };
 
