@@ -11,7 +11,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/components/ui/drawer'; 
+} from '@/components/ui/drawer';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -145,40 +145,62 @@ const MainNav = () => {
     </NavigationMenu>
   );
 
-  // Prepare mobile navigation links, similar to desktop but formatted for the Drawer
-  const mobileNavigationLinks = (
-    <>
-      <DrawerClose asChild>
-        <Button variant='outline' className='m-4'>
-          Close Menu
+  // Accordion component for mobile dropdown
+  const Accordion = ({ title, links }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+      <div>
+        <Button className='w-full justify-between' onClick={() => setIsOpen(!isOpen)}>
+          {title}
+          <span className='font-bold'>{isOpen ? '-' : '+'}</span>
         </Button>
-      </DrawerClose>
-      {/* Adapt your navigation structure for mobile here */}
-      <ListItem href='/' title='Home' />
-      <ListItem href='/about/clinic' title='Our Clinic' />
-      <ListItem href='/about/team' title='Meet the Team' />
-      {/* Add the rest of your links */}
-    </>
-  );
+        {isOpen && (
+          <div className='flex flex-col'>
+            {links.map((link) => (
+              <Link href={link.href} key={link.title} passHref>
+                <Button as='a' className='text-amber-500 hover:bg-black hover:text-white p-2 block'>
+                  {link.title}
+                </Button>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   // Mobile drawer navigation setup
   const mobileNavigation = (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button variant='outline'>Edit Profile</Button>
+        <Button variant='outline' className='m-4'>
+          Menu
+        </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className='text-left'>
-          <DrawerTitle>Edit profile</DrawerTitle>
-          <DrawerDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DrawerDescription>
-        </DrawerHeader>
-        <DrawerFooter className='pt-2'>
+          <DrawerTitle>Navigation</DrawerTitle>
           <DrawerClose asChild>
-            <Button variant='outline'>Cancel</Button>
+            <Button variant='outline' className='m-4'>
+              Close
+            </Button>
           </DrawerClose>
-        </DrawerFooter>
+        </DrawerHeader>
+        <Accordion
+          title='About Us'
+          links={[
+            { href: '/about/clinic', title: 'Our Clinic' },
+            { href: '/about/team', title: 'Meet the Team' },
+            { href: '/about/careers', title: 'Careers' },
+          ]}
+        />
+        {/* Repeat Accordion for other top-level items */}
+        {/* <Link href='/appointment' passHref>
+          <Button as='a' className='w-full mt-4 bg-amber-500 hover:bg-amber-600 text-white'>
+            Request Appointment
+          </Button>
+        </Link> */}
       </DrawerContent>
     </Drawer>
   );
