@@ -1,7 +1,17 @@
 'use client';
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer'; 
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,10 +22,28 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
+} from '@/components/ui/navigation-menu'; // Ensure these imports match your project structure
+import { Button } from '@/components/ui/button'; // Update import path as necessary
 
-// Styled ListItem component for menu links
-const ListItem = ({ href, title }: { href: string; title: string }) => (
+// Simple implementation of useMediaQuery hook
+const useMediaQuery = (query) => {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    media.addListener(listener);
+    return () => media.removeListener(listener);
+  }, [matches, query]);
+
+  return matches;
+};
+
+// Styled ListItem component for menu links, reused from your first snippet
+const ListItem = ({ href, title }) => (
   <NavigationMenuLink
     href={href}
     className={`${navigationMenuTriggerStyle()} text-amber-500 hover:bg-black hover:text-white p-2`}
@@ -24,9 +52,13 @@ const ListItem = ({ href, title }: { href: string; title: string }) => (
   </NavigationMenuLink>
 );
 
-// MainNav component with the full navigation structure
+// MainNav component for responsive navigation
 const MainNav = () => {
-  return (
+  const [open, setOpen] = useState(false);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
+  // Reuse your original desktop navigation structure
+  const desktopNavigation = (
     <NavigationMenu className='mx-auto justify-end bg-black py-6 px-4'>
       <NavigationMenuList className='text-white'>
         {/* Home link */}
@@ -112,6 +144,46 @@ const MainNav = () => {
       </NavigationMenuList>
     </NavigationMenu>
   );
+
+  // Prepare mobile navigation links, similar to desktop but formatted for the Drawer
+  const mobileNavigationLinks = (
+    <>
+      <DrawerClose asChild>
+        <Button variant='outline' className='m-4'>
+          Close Menu
+        </Button>
+      </DrawerClose>
+      {/* Adapt your navigation structure for mobile here */}
+      <ListItem href='/' title='Home' />
+      <ListItem href='/about/clinic' title='Our Clinic' />
+      <ListItem href='/about/team' title='Meet the Team' />
+      {/* Add the rest of your links */}
+    </>
+  );
+
+  // Mobile drawer navigation setup
+  const mobileNavigation = (
+    <Drawer open={open} onOpenChange={setOpen}>
+      <DrawerTrigger asChild>
+        <Button variant='outline'>Edit Profile</Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader className='text-left'>
+          <DrawerTitle>Edit profile</DrawerTitle>
+          <DrawerDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DrawerDescription>
+        </DrawerHeader>
+        <DrawerFooter className='pt-2'>
+          <DrawerClose asChild>
+            <Button variant='outline'>Cancel</Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  );
+
+  return isDesktop ? desktopNavigation : mobileNavigation;
 };
 
 export default MainNav;
