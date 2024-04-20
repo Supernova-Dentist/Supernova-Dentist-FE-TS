@@ -22,6 +22,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
@@ -183,7 +184,13 @@ const MainNav = () => {
   const mobileNavigation = (
     <Drawer open={open} onOpenChange={setOpen} className='relative z-10'>
       <DrawerTrigger asChild>
-        <Button className='m-4 text-white bg-black hover:bg-gray-700'>Menu</Button>
+        <Button className='m-4'>
+          {open ? (
+            <XIcon className='h-6 w-6 text-white' />
+          ) : (
+            <MenuIcon className='h-6 w-6 text-white' />
+          )}
+        </Button>
       </DrawerTrigger>
       <DrawerContent className='flex flex-col bg-slate-700 shadow-xl p-8'>
         <Accordion
