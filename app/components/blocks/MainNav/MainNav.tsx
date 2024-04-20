@@ -182,51 +182,57 @@ const MainNav = () => {
 
   // Mobile drawer navigation setup
   const mobileNavigation = (
-    <Drawer open={open} onOpenChange={setOpen} className='relative z-10'>
-      <DrawerTrigger asChild>
-        <Button className='m-4'>
-          {open ? (
-            <XIcon className='h-6 w-6 text-white' />
-          ) : (
-            <MenuIcon className='h-6 w-6 text-white' />
-          )}
-        </Button>
-      </DrawerTrigger>
-      <DrawerContent className='flex flex-col bg-slate-700 shadow-xl p-8'>
-        <Accordion
-          title='About Us'
-          links={[
-            { href: '/about/clinic', title: 'Our Clinic' },
-            { href: '/about/team', title: 'Meet the Team' },
-            { href: '/about/careers', title: 'Careers' },
-          ]}
-        />
-        <Accordion
-          title='Our Services'
-          links={[
-            { href: '/services/general-dentistry', title: 'General Dentistry' },
-            { href: '/services/cosmetic-dentistry', title: 'Cosmetic Dentistry' },
-            { href: '/services/orthodontics', title: 'Orthodontics' },
-            { href: '/services/pediatric-dentistry', title: 'Pediatric Dentistry' },
-          ]}
-        />
-        <Accordion
-          title='Patient Info'
-          links={[
-            { href: '/patient-info/forms', title: 'Patient Forms' },
-            { href: '/patient-info/insurance', title: 'Insurance and Payment' },
-            { href: '/patient-info/faq', title: 'FAQs' },
-          ]}
-        />
-        <Accordion
-          title='Contact'
-          links={[
-            { href: '/contact/location', title: 'Location' },
-            { href: '/contact/schedule', title: 'Schedule Appointment' },
-          ]}
-        />
-      </DrawerContent>
-    </Drawer>
+    <div className='bg-black'>
+      <Drawer open={open} onOpenChange={setOpen} className='relative z-10'>
+        <div className='flex justify-end'>
+          {' '}
+          {/* Flex container to push the button to the right */}
+          <DrawerTrigger asChild>
+            <Button className='m-4'>
+              {open ? (
+                <XIcon className='h-6 w-6 text-white' />
+              ) : (
+                <MenuIcon className='h-6 w-6 text-white' />
+              )}
+            </Button>
+          </DrawerTrigger>
+        </div>
+        <DrawerContent className='flex flex-col bg-slate-700 shadow-xl p-8'>
+          <Accordion
+            title='About Us'
+            links={[
+              { href: '/about/clinic', title: 'Our Clinic' },
+              { href: '/about/team', title: 'Meet the Team' },
+              { href: '/about/careers', title: 'Careers' },
+            ]}
+          />
+          <Accordion
+            title='Our Services'
+            links={[
+              { href: '/services/general-dentistry', title: 'General Dentistry' },
+              { href: '/services/cosmetic-dentistry', title: 'Cosmetic Dentistry' },
+              { href: '/services/orthodontics', title: 'Orthodontics' },
+              { href: '/services/pediatric-dentistry', title: 'Pediatric Dentistry' },
+            ]}
+          />
+          <Accordion
+            title='Patient Info'
+            links={[
+              { href: '/patient-info/forms', title: 'Patient Forms' },
+              { href: '/patient-info/insurance', title: 'Insurance and Payment' },
+              { href: '/patient-info/faq', title: 'FAQs' },
+            ]}
+          />
+          <Accordion
+            title='Contact'
+            links={[
+              { href: '/contact/location', title: 'Location' },
+              { href: '/contact/schedule', title: 'Schedule Appointment' },
+            ]}
+          />
+        </DrawerContent>
+      </Drawer>
+    </div>
   );
 
   return isDesktop ? desktopNavigation : mobileNavigation;
