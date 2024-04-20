@@ -1,7 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 import {
   Drawer,
   DrawerClose,
@@ -22,8 +20,10 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu'; // Ensure these imports match your project structure
-import { Button } from '@/components/ui/button'; // Update import path as necessary
+} from '@/components/ui/navigation-menu';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
 // Simple implementation of useMediaQuery hook
 const useMediaQuery = (query) => {
@@ -151,15 +151,24 @@ const MainNav = () => {
 
     return (
       <div>
-        <Button className='w-full justify-between' onClick={() => setIsOpen(!isOpen)}>
+        <Button
+          onClick={() => setIsOpen(!isOpen)}
+          className='w-full flex justify-between items-center mt-2 px-4 py-6 text-white bg-black hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-300'
+        >
           {title}
-          <span className='font-bold'>{isOpen ? '-' : '+'}</span>
+          <span
+            className={`text-2xl transform transition-transform duration-300 ${
+              isOpen ? 'rotate-180' : 'rotate-0'
+            }`}
+          >
+            {isOpen ? '-' : '+'}
+          </span>
         </Button>
         {isOpen && (
-          <div className='flex flex-col'>
+          <div className='flex flex-col mt-2 ml-6 '>
             {links.map((link) => (
-              <Link href={link.href} key={link.title} passHref>
-                <Button as='a' className='text-amber-500 hover:bg-black hover:text-white p-2 block'>
+              <Link href={link.href} key={link.title} passHref className=''>
+                <Button as='a' className='text-white my-1 hover:text-gray-200 block'>
                   {link.title}
                 </Button>
               </Link>
@@ -172,21 +181,11 @@ const MainNav = () => {
 
   // Mobile drawer navigation setup
   const mobileNavigation = (
-    <Drawer open={open} onOpenChange={setOpen}>
+    <Drawer open={open} onOpenChange={setOpen} className='relative z-10'>
       <DrawerTrigger asChild>
-        <Button variant='outline' className='m-4'>
-          Menu
-        </Button>
+        <Button className='m-4 text-white bg-black hover:bg-gray-700'>Menu</Button>
       </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader className='text-left'>
-          <DrawerTitle>Navigation</DrawerTitle>
-          <DrawerClose asChild>
-            <Button variant='outline' className='m-4'>
-              Close
-            </Button>
-          </DrawerClose>
-        </DrawerHeader>
+      <DrawerContent className='flex flex-col bg-slate-700 shadow-xl p-8'>
         <Accordion
           title='About Us'
           links={[
@@ -195,12 +194,30 @@ const MainNav = () => {
             { href: '/about/careers', title: 'Careers' },
           ]}
         />
-        {/* Repeat Accordion for other top-level items */}
-        {/* <Link href='/appointment' passHref>
-          <Button as='a' className='w-full mt-4 bg-amber-500 hover:bg-amber-600 text-white'>
-            Request Appointment
-          </Button>
-        </Link> */}
+        <Accordion
+          title='Our Services'
+          links={[
+            { href: '/services/general-dentistry', title: 'General Dentistry' },
+            { href: '/services/cosmetic-dentistry', title: 'Cosmetic Dentistry' },
+            { href: '/services/orthodontics', title: 'Orthodontics' },
+            { href: '/services/pediatric-dentistry', title: 'Pediatric Dentistry' },
+          ]}
+        />
+        <Accordion
+          title='Patient Info'
+          links={[
+            { href: '/patient-info/forms', title: 'Patient Forms' },
+            { href: '/patient-info/insurance', title: 'Insurance and Payment' },
+            { href: '/patient-info/faq', title: 'FAQs' },
+          ]}
+        />
+        <Accordion
+          title='Contact'
+          links={[
+            { href: '/contact/location', title: 'Location' },
+            { href: '/contact/schedule', title: 'Schedule Appointment' },
+          ]}
+        />
       </DrawerContent>
     </Drawer>
   );
