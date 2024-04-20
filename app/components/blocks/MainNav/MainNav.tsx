@@ -1,33 +1,21 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from '@/components/ui/drawer';
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 // Simple implementation of useMediaQuery hook
-const useMediaQuery = (query) => {
+const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
@@ -44,7 +32,7 @@ const useMediaQuery = (query) => {
 };
 
 // Styled ListItem component for menu links, reused from your first snippet
-const ListItem = ({ href, title }) => (
+const ListItem = ({ href, title }: { href: string; title: string }) => (
   <NavigationMenuLink
     href={href}
     className={`${navigationMenuTriggerStyle()} text-amber-500 hover:bg-black hover:text-white p-2`}
@@ -147,7 +135,13 @@ const MainNav = () => {
   );
 
   // Accordion component for mobile dropdown
-  const Accordion = ({ title, links }) => {
+  const Accordion = ({
+    title,
+    links,
+  }: {
+    title: string;
+    links: Array<{ href: string; title: string }>;
+  }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -169,9 +163,7 @@ const MainNav = () => {
           <div className='flex flex-col mt-2 ml-6 '>
             {links.map((link) => (
               <Link href={link.href} key={link.title} passHref className=''>
-                <Button as='a' className='text-white my-1 hover:text-gray-200 block'>
-                  {link.title}
-                </Button>
+                <Button className='text-white my-1 hover:text-gray-200 block'>{link.title}</Button>
               </Link>
             ))}
           </div>
@@ -183,7 +175,7 @@ const MainNav = () => {
   // Mobile drawer navigation setup
   const mobileNavigation = (
     <div className='bg-black'>
-      <Drawer open={open} onOpenChange={setOpen} className='relative z-10'>
+      <Drawer open={open} onOpenChange={setOpen}>
         <div className='flex justify-end'>
           {' '}
           {/* Flex container to push the button to the right */}
