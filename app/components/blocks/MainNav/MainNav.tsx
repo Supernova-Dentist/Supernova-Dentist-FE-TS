@@ -1,20 +1,37 @@
 'use client';
-import * as React from 'react';
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
-// Styled ListItem component for menu links
+// Simple implementation of useMediaQuery hook
+const useMediaQuery = (query: string) => {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    media.addListener(listener);
+    return () => media.removeListener(listener);
+  }, [matches, query]);
+
+  return matches;
+};
+
+// Styled ListItem component for menu links, reused from your first snippet
 const ListItem = ({ href, title }: { href: string; title: string }) => (
   <NavigationMenuLink
     href={href}
@@ -24,9 +41,13 @@ const ListItem = ({ href, title }: { href: string; title: string }) => (
   </NavigationMenuLink>
 );
 
-// MainNav component with the full navigation structure
+// MainNav component for responsive navigation
 const MainNav = () => {
-  return (
+  const [open, setOpen] = useState(false);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
+  // Reuse your original desktop navigation structure
+  const desktopNavigation = (
     <NavigationMenu className='mx-auto justify-end bg-black py-6 px-4'>
       <NavigationMenuList className='text-white'>
         {/* Home link */}
@@ -112,6 +133,101 @@ const MainNav = () => {
       </NavigationMenuList>
     </NavigationMenu>
   );
+
+  // Accordion component for mobile dropdown
+  const Accordion = ({
+    title,
+    links,
+  }: {
+    title: string;
+    links: Array<{ href: string; title: string }>;
+  }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+      <div>
+        <Button
+          onClick={() => setIsOpen(!isOpen)}
+          className='w-full flex justify-between items-center mt-2 px-4 py-6 text-white bg-black hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-300'
+        >
+          {title}
+          <span
+            className={`text-2xl transform transition-transform duration-300 ${
+              isOpen ? 'rotate-180' : 'rotate-0'
+            }`}
+          >
+            {isOpen ? '-' : '+'}
+          </span>
+        </Button>
+        {isOpen && (
+          <div className='flex flex-col mt-2 ml-6 '>
+            {links.map((link) => (
+              <Link href={link.href} key={link.title} passHref className=''>
+                <Button className='text-white my-1 hover:text-gray-200 block'>{link.title}</Button>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // Mobile drawer navigation setup
+  const mobileNavigation = (
+    <div className='bg-black'>
+      <Drawer open={open} onOpenChange={setOpen}>
+        <div className='flex justify-end'>
+          {' '}
+          {/* Flex container to push the button to the right */}
+          <DrawerTrigger asChild>
+            <Button className='m-4'>
+              {open ? (
+                <XIcon className='h-6 w-6 text-white' />
+              ) : (
+                <MenuIcon className='h-6 w-6 text-white' />
+              )}
+            </Button>
+          </DrawerTrigger>
+        </div>
+        <DrawerContent className='flex flex-col bg-slate-700 shadow-xl p-8'>
+          <Accordion
+            title='About Us'
+            links={[
+              { href: '/about/clinic', title: 'Our Clinic' },
+              { href: '/about/team', title: 'Meet the Team' },
+              { href: '/about/careers', title: 'Careers' },
+            ]}
+          />
+          <Accordion
+            title='Our Services'
+            links={[
+              { href: '/services/general-dentistry', title: 'General Dentistry' },
+              { href: '/services/cosmetic-dentistry', title: 'Cosmetic Dentistry' },
+              { href: '/services/orthodontics', title: 'Orthodontics' },
+              { href: '/services/pediatric-dentistry', title: 'Pediatric Dentistry' },
+            ]}
+          />
+          <Accordion
+            title='Patient Info'
+            links={[
+              { href: '/patient-info/forms', title: 'Patient Forms' },
+              { href: '/patient-info/insurance', title: 'Insurance and Payment' },
+              { href: '/patient-info/faq', title: 'FAQs' },
+            ]}
+          />
+          <Accordion
+            title='Contact'
+            links={[
+              { href: '/contact/location', title: 'Location' },
+              { href: '/contact/schedule', title: 'Schedule Appointment' },
+            ]}
+          />
+        </DrawerContent>
+      </Drawer>
+    </div>
+  );
+
+  return isDesktop ? desktopNavigation : mobileNavigation;
 };
 
 export default MainNav;
