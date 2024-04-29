@@ -13,7 +13,27 @@ import {
 } from '@/components/ui/navigation-menu';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+const useWindowSize = () => {
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call handler right away so state gets updated with initial window size
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return size;
+};
 
 // Styled ListItem component for menu links, reused from your first snippet
 const ListItem = ({ href, title }: { href: string; title: string }) => (
@@ -29,6 +49,14 @@ const ListItem = ({ href, title }: { href: string; title: string }) => (
 // MainNav component for responsive navigation
 const MainNav = () => {
   const [open, setOpen] = useState(false);
+  const { width } = useWindowSize();
+
+  // Close the navigation drawer when the window is resized to desktop width
+  useEffect(() => {
+    if (width >= 768 && open) {
+      setOpen(false);
+    }
+  }, [width, open]);
 
   // Reuse your original desktop navigation structure
   const desktopNavigation = (
