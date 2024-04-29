@@ -1,4 +1,8 @@
 'use client';
+
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Button } from '@/components/ui/button';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import {
@@ -10,9 +14,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
 
 // Simple implementation of useMediaQuery hook
 const useMediaQuery = (query: string) => {
@@ -33,12 +34,13 @@ const useMediaQuery = (query: string) => {
 
 // Styled ListItem component for menu links, reused from your first snippet
 const ListItem = ({ href, title }: { href: string; title: string }) => (
-  <NavigationMenuLink
-    href={href}
-    className={`${navigationMenuTriggerStyle()} text-amber-500 hover:bg-black hover:text-white p-2`}
-  >
-    {title}
-  </NavigationMenuLink>
+  <Link href={href} legacyBehavior passHref>
+    <NavigationMenuLink
+      className={`${navigationMenuTriggerStyle()} text-amber-500 hover:bg-black hover:text-white p-2`}
+    >
+      {title}
+    </NavigationMenuLink>
+  </Link>
 );
 
 // MainNav component for responsive navigation
@@ -67,9 +69,9 @@ const MainNav = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent className='bg-white text-black'>
               <ul className='grid w-full gap-3 p-4'>
-                <ListItem href='/about/clinic' title='Our Clinic' />
-                <ListItem href='/about/team' title='Meet the Team' />
-                <ListItem href='/about/careers' title='Careers' />
+                <ListItem href='/clinic' title='Our Clinic' />
+                <ListItem href='/team' title='Meet the Team' />
+                <ListItem href='/careers' title='Careers' />
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -83,10 +85,10 @@ const MainNav = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent className='bg-white text-black'>
               <ul className='grid w-full gap-3 p-4'>
-                <ListItem href='/services/general-dentistry' title='General Dentistry' />
-                <ListItem href='/services/cosmetic-dentistry' title='Cosmetic Dentistry' />
-                <ListItem href='/services/orthodontics' title='Orthodontics' />
-                <ListItem href='/services/pediatric-dentistry' title='Pediatric Dentistry' />
+                <ListItem href='/general-dentistry' title='General Dentistry' />
+                <ListItem href='/cosmetic-dentistry' title='Cosmetic Dentistry' />
+                <ListItem href='/orthodontics' title='Orthodontics' />
+                <ListItem href='/pediatric-dentistry' title='Pediatric Dentistry' />
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -100,9 +102,9 @@ const MainNav = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent className='bg-white text-black'>
               <ul className='grid w-full gap-3 p-4'>
-                <ListItem href='/patient-info/forms' title='Patient Forms' />
-                <ListItem href='/patient-info/insurance' title='Insurance and Payment' />
-                <ListItem href='/patient-info/faq' title='FAQs' />
+                <ListItem href='/forms' title='Patient Forms' />
+                <ListItem href='/insurance' title='Insurance and Payment' />
+                <ListItem href='/faq' title='FAQs' />
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -116,8 +118,8 @@ const MainNav = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent className='bg-white text-black'>
               <ul className='grid w-full gap-3 p-4'>
-                <ListItem href='/contact/location' title='Location' />
-                <ListItem href='/contact/schedule' title='Contact Us' />
+                <ListItem href='/location' title='Location' />
+                <ListItem href='/schedule' title='Contact Us' />
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
