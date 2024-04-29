@@ -13,7 +13,27 @@ import {
 } from '@/components/ui/navigation-menu';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+const useWindowSize = () => {
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call handler right away so state gets updated with initial window size
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return size;
+};
 
 // Styled ListItem component for menu links, reused from your first snippet
 const ListItem = ({ href, title }: { href: string; title: string }) => (
@@ -29,6 +49,14 @@ const ListItem = ({ href, title }: { href: string; title: string }) => (
 // MainNav component for responsive navigation
 const MainNav = () => {
   const [open, setOpen] = useState(false);
+  const { width } = useWindowSize();
+
+  // Close the navigation drawer when the window is resized to desktop width
+  useEffect(() => {
+    if (width >= 768 && open) {
+      setOpen(false);
+    }
+  }, [width, open]);
 
   // Reuse your original desktop navigation structure
   const desktopNavigation = (
@@ -183,33 +211,33 @@ const MainNav = () => {
           <Accordion
             title='About Us'
             links={[
-              { href: '/about/clinic', title: 'Our Clinic' },
-              { href: '/about/team', title: 'Meet the Team' },
-              { href: '/about/careers', title: 'Careers' },
+              { href: 'clinic', title: 'Our Clinic' },
+              { href: 'team', title: 'Meet the Team' },
+              { href: 'careers', title: 'Careers' },
             ]}
           />
           <Accordion
             title='Our Services'
             links={[
-              { href: '/services/general-dentistry', title: 'General Dentistry' },
-              { href: '/services/cosmetic-dentistry', title: 'Cosmetic Dentistry' },
-              { href: '/services/orthodontics', title: 'Orthodontics' },
-              { href: '/services/pediatric-dentistry', title: 'Pediatric Dentistry' },
+              { href: 'general-dentistry', title: 'General Dentistry' },
+              { href: 'cosmetic-dentistry', title: 'Cosmetic Dentistry' },
+              { href: 'orthodontics', title: 'Orthodontics' },
+              { href: 'pediatric-dentistry', title: 'Pediatric Dentistry' },
             ]}
           />
           <Accordion
             title='Patient Info'
             links={[
-              { href: '/patient-info/forms', title: 'Patient Forms' },
-              { href: '/patient-info/insurance', title: 'Insurance and Payment' },
-              { href: '/patient-info/faq', title: 'FAQs' },
+              { href: 'forms', title: 'Patient Forms' },
+              { href: 'insurance', title: 'Insurance and Payment' },
+              { href: 'faq', title: 'FAQs' },
             ]}
           />
           <Accordion
             title='Contact'
             links={[
-              { href: '/contact/location', title: 'Location' },
-              { href: '/contact/schedule', title: 'Schedule Appointment' },
+              { href: 'location', title: 'Location' },
+              { href: 'schedule', title: 'Schedule Appointment' },
             ]}
           />
         </DrawerContent>
