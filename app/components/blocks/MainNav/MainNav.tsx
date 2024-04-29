@@ -183,33 +183,33 @@ const MainNav = () => {
           <Accordion
             title='About Us'
             links={[
-              { href: '/about/clinic', title: 'Our Clinic' },
-              { href: '/about/team', title: 'Meet the Team' },
-              { href: '/about/careers', title: 'Careers' },
+              { href: 'clinic', title: 'Our Clinic' },
+              { href: 'team', title: 'Meet the Team' },
+              { href: 'careers', title: 'Careers' },
             ]}
           />
           <Accordion
             title='Our Services'
             links={[
-              { href: '/services/general-dentistry', title: 'General Dentistry' },
-              { href: '/services/cosmetic-dentistry', title: 'Cosmetic Dentistry' },
-              { href: '/services/orthodontics', title: 'Orthodontics' },
-              { href: '/services/pediatric-dentistry', title: 'Pediatric Dentistry' },
+              { href: 'general-dentistry', title: 'General Dentistry' },
+              { href: 'cosmetic-dentistry', title: 'Cosmetic Dentistry' },
+              { href: 'orthodontics', title: 'Orthodontics' },
+              { href: 'pediatric-dentistry', title: 'Pediatric Dentistry' },
             ]}
           />
           <Accordion
             title='Patient Info'
             links={[
-              { href: '/patient-info/forms', title: 'Patient Forms' },
-              { href: '/patient-info/insurance', title: 'Insurance and Payment' },
-              { href: '/patient-info/faq', title: 'FAQs' },
+              { href: 'forms', title: 'Patient Forms' },
+              { href: 'insurance', title: 'Insurance and Payment' },
+              { href: 'faq', title: 'FAQs' },
             ]}
           />
           <Accordion
             title='Contact'
             links={[
-              { href: '/contact/location', title: 'Location' },
-              { href: '/contact/schedule', title: 'Schedule Appointment' },
+              { href: 'location', title: 'Location' },
+              { href: 'schedule', title: 'Schedule Appointment' },
             ]}
           />
         </DrawerContent>
