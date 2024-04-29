@@ -1,4 +1,8 @@
 'use client';
+
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Button } from '@/components/ui/button';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import {
@@ -10,9 +14,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
 
 // Simple implementation of useMediaQuery hook
 const useMediaQuery = (query: string) => {
@@ -33,12 +34,13 @@ const useMediaQuery = (query: string) => {
 
 // Styled ListItem component for menu links, reused from your first snippet
 const ListItem = ({ href, title }: { href: string; title: string }) => (
-  <NavigationMenuLink
-    href={href}
-    className={`${navigationMenuTriggerStyle()} text-amber-500 hover:bg-black hover:text-white p-2`}
-  >
-    {title}
-  </NavigationMenuLink>
+  <Link href={href} legacyBehavior passHref>
+    <NavigationMenuLink
+      className={`${navigationMenuTriggerStyle()} text-amber-500 hover:bg-black hover:text-white p-2`}
+    >
+      {title}
+    </NavigationMenuLink>
+  </Link>
 );
 
 // MainNav component for responsive navigation
