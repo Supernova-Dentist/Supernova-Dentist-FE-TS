@@ -1,8 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Button } from '@/components/ui/button';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import {
@@ -14,23 +11,9 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-
-// Simple implementation of useMediaQuery hook
-const useMediaQuery = (query: string) => {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
-    const listener = () => setMatches(media.matches);
-    media.addListener(listener);
-    return () => media.removeListener(listener);
-  }, [matches, query]);
-
-  return matches;
-};
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
 // Styled ListItem component for menu links, reused from your first snippet
 const ListItem = ({ href, title }: { href: string; title: string }) => (
@@ -46,94 +29,99 @@ const ListItem = ({ href, title }: { href: string; title: string }) => (
 // MainNav component for responsive navigation
 const MainNav = () => {
   const [open, setOpen] = useState(false);
-  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   // Reuse your original desktop navigation structure
   const desktopNavigation = (
-    <NavigationMenu className='mx-auto justify-end bg-black py-6 px-4'>
-      <NavigationMenuList className='text-white'>
-        {/* Home link */}
-        <NavigationMenuItem>
-          <Link href='/' legacyBehavior passHref>
-            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
-              Home
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
+    <div className='hidden md:block'>
+      <NavigationMenu className='mx-auto justify-end bg-black py-6 px-4'>
+        <NavigationMenuList className='text-white'>
+          {/* Home link */}
+          <NavigationMenuItem>
+            <Link href='/' legacyBehavior passHref>
+              <NavigationMenuLink
+                className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}
+              >
+                Home
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
 
-        {/* About Us dropdown */}
-        <NavigationMenu>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
-              About Us
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className='bg-white text-black'>
-              <ul className='grid w-full gap-3 p-4'>
-                <ListItem href='/clinic' title='Our Clinic' />
-                <ListItem href='/team' title='Meet the Team' />
-                <ListItem href='/careers' title='Careers' />
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenu>
+          {/* About Us dropdown */}
+          <NavigationMenu>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
+                About Us
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className='bg-white text-black'>
+                <ul className='grid w-full gap-3 p-4'>
+                  <ListItem href='/clinic' title='Our Clinic' />
+                  <ListItem href='/team' title='Meet the Team' />
+                  <ListItem href='/careers' title='Careers' />
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenu>
 
-        {/* Our Services dropdown */}
-        <NavigationMenu>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
-              Our Services
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className='bg-white text-black'>
-              <ul className='grid w-full gap-3 p-4'>
-                <ListItem href='/general-dentistry' title='General Dentistry' />
-                <ListItem href='/cosmetic-dentistry' title='Cosmetic Dentistry' />
-                <ListItem href='/orthodontics' title='Orthodontics' />
-                <ListItem href='/pediatric-dentistry' title='Pediatric Dentistry' />
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenu>
+          {/* Our Services dropdown */}
+          <NavigationMenu>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
+                Our Services
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className='bg-white text-black'>
+                <ul className='grid w-full gap-3 p-4'>
+                  <ListItem href='/general-dentistry' title='General Dentistry' />
+                  <ListItem href='/cosmetic-dentistry' title='Cosmetic Dentistry' />
+                  <ListItem href='/orthodontics' title='Orthodontics' />
+                  <ListItem href='/pediatric-dentistry' title='Pediatric Dentistry' />
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenu>
 
-        {/* Patient Info dropdown */}
-        <NavigationMenu>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
-              Patient Info
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className='bg-white text-black'>
-              <ul className='grid w-full gap-3 p-4'>
-                <ListItem href='/forms' title='Patient Forms' />
-                <ListItem href='/insurance' title='Insurance and Payment' />
-                <ListItem href='/faq' title='FAQs' />
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenu>
+          {/* Patient Info dropdown */}
+          <NavigationMenu>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
+                Patient Info
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className='bg-white text-black'>
+                <ul className='grid w-full gap-3 p-4'>
+                  <ListItem href='/forms' title='Patient Forms' />
+                  <ListItem href='/insurance' title='Insurance and Payment' />
+                  <ListItem href='/faq' title='FAQs' />
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenu>
 
-        {/* Contact dropdown */}
-        <NavigationMenu>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
-              Contact
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className='bg-white text-black'>
-              <ul className='grid w-full gap-3 p-4'>
-                <ListItem href='/location' title='Location' />
-                <ListItem href='/schedule' title='Contact Us' />
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          {/* Book an Appointment */}
-          <NavigationMenuItem>
-            {/* <Link href='/contact/schedule' passHref> */}
-            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
-              Book an Appointment
-            </NavigationMenuLink>
-            {/* </Link> */}
-          </NavigationMenuItem>
-        </NavigationMenu>
-      </NavigationMenuList>
-    </NavigationMenu>
+          {/* Contact dropdown */}
+          <NavigationMenu>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
+                Contact
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className='bg-white text-black'>
+                <ul className='grid w-full gap-3 p-4'>
+                  <ListItem href='/location' title='Location' />
+                  <ListItem href='/schedule' title='Contact Us' />
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            {/* Book an Appointment */}
+            <NavigationMenuItem>
+              {/* <Link href='/contact/schedule' passHref> */}
+              <NavigationMenuLink
+                className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}
+              >
+                Book an Appointment
+              </NavigationMenuLink>
+              {/* </Link> */}
+            </NavigationMenuItem>
+          </NavigationMenu>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   );
 
   // Accordion component for mobile dropdown
@@ -176,7 +164,7 @@ const MainNav = () => {
 
   // Mobile drawer navigation setup
   const mobileNavigation = (
-    <div className='bg-black'>
+    <div className='md:hidden bg-black'>
       <Drawer open={open} onOpenChange={setOpen}>
         <div className='flex justify-end'>
           {' '}
@@ -229,7 +217,12 @@ const MainNav = () => {
     </div>
   );
 
-  return isDesktop ? desktopNavigation : mobileNavigation;
+  return (
+    <nav>
+      {desktopNavigation}
+      {mobileNavigation}
+    </nav>
+  );
 };
 
 export default MainNav;
