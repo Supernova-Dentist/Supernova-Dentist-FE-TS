@@ -83,6 +83,7 @@ const MainNav = () => {
               <NavigationMenuContent className='bg-white text-black'>
                 <ul className='grid w-full gap-3 p-4'>
                   <ListItem href='/clinic' title='Our Clinic' />
+                  <ListItem href='/meet-dr-young' title='Meet Dr. Young' />
                   <ListItem href='/team' title='Meet the Team' />
                   <ListItem href='/careers' title='Careers' />
                 </ul>
@@ -212,6 +213,7 @@ const MainNav = () => {
             title='About Us'
             links={[
               { href: 'clinic', title: 'Our Clinic' },
+              { href: 'meet-dr-young', title: 'Meet Dr. Young' },
               { href: 'team', title: 'Meet the Team' },
               { href: 'careers', title: 'Careers' },
             ]}
