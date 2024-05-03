@@ -1,10 +1,16 @@
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import CtaText from '@/components/blocks/Cta/CtaText';
 import CtaButtons from '@/components/blocks/Cta/CtaButtons';
 import Button from '@/components/Button/Button';
 import Steps from '@/components/blocks/Steps/Steps';
-import GoogleMap from '@/components/blocks/GoogleMap/GoogleMap';
 import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
+import dummyDentist from '../../../public/assets/images/dummy-dentist.jpeg';
+import dummyTeam from '../../../public/assets/images/dummy-team-2.jpeg';
+const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Team',
@@ -13,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function Team() {
   return (
-    <div className=''>
+    <>
       <div className='bg-team-cta h-[650px] w-full bg-no-repeat bg-cover bg-center-top'>
         <div className='flex flex-col justify-center items-center gap-20 h-full'>
           <CtaText title='Meet the team' description='Behind Supernova Dental' />
@@ -23,7 +29,7 @@ export default function Team() {
       <div className='mb-8'>
         <div className='lg:flex-row flex flex-col'>
           <div className='lg:w-1/2 h-[500px]'>
-            <img src='/assets/images/dummy-team-2.jpeg' alt='Team' className='object-cover h-full w-full' />
+            <Image className='w-full object-cover h-full' src={dummyTeam} alt='Team' />
           </div>
           <div className='bg-grey lg:w-1/2 p-12 flex flex-col justify-center'>
             <h3 className='text-cream text-3xl mb-8'>
@@ -59,15 +65,7 @@ export default function Team() {
             />
           </div>
           <div className='lg:w-1/2'>
-            <img src='/assets/images/dummy-dentist.jpeg' alt='Team' className='h-full object-cover w-full' />
-            {/* <Image
-              className='w-full'
-              src='/assets/images/dummy-dentist.jpeg'
-              alt='Team'
-              width={500}
-              height={500}
-              layout='responsive'
-            /> */}
+            <Image className='w-full' src={dummyDentist} alt='Dentist' />
           </div>
         </div>
       </div>
@@ -78,6 +76,6 @@ export default function Team() {
         <GalleryCarousel />
       </div>
       <GoogleMap />
-    </div>
+    </>
   );
 }
