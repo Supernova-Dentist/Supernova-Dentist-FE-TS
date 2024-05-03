@@ -61,14 +61,12 @@ const MainNav = () => {
   // Reuse your original desktop navigation structure
   const desktopNavigation = (
     <div className='hidden md:block'>
-      <NavigationMenu className='mx-auto justify-end bg-black py-6 px-4'>
+      <NavigationMenu className='mx-auto justify-end bg-grey py-6 px-4'>
         <NavigationMenuList className='text-white'>
           {/* Home link */}
           <NavigationMenuItem>
             <Link href='/' legacyBehavior passHref>
-              <NavigationMenuLink
-                className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}
-              >
+              <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
                 Home
               </NavigationMenuLink>
             </Link>
@@ -77,9 +75,7 @@ const MainNav = () => {
           {/* About Us dropdown */}
           <NavigationMenu>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
-                About Us
-              </NavigationMenuTrigger>
+              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>About Us</NavigationMenuTrigger>
               <NavigationMenuContent className='bg-white text-black'>
                 <ul className='grid w-full gap-3 p-4'>
                   <ListItem href='/clinic' title='Our Clinic' />
@@ -94,9 +90,7 @@ const MainNav = () => {
           {/* Our Services dropdown */}
           <NavigationMenu>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
-                Our Services
-              </NavigationMenuTrigger>
+              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>Our Services</NavigationMenuTrigger>
               <NavigationMenuContent className='bg-white text-black'>
                 <ul className='grid w-full gap-3 p-4'>
                   <ListItem href='/general-dentistry' title='General Dentistry' />
@@ -111,9 +105,7 @@ const MainNav = () => {
           {/* Patient Info dropdown */}
           <NavigationMenu>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
-                Patient Info
-              </NavigationMenuTrigger>
+              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>Patient Info</NavigationMenuTrigger>
               <NavigationMenuContent className='bg-white text-black'>
                 <ul className='grid w-full gap-3 p-4'>
                   <ListItem href='/forms' title='Patient Forms' />
@@ -127,9 +119,7 @@ const MainNav = () => {
           {/* Contact dropdown */}
           <NavigationMenu>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>
-                Contact
-              </NavigationMenuTrigger>
+              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>Contact</NavigationMenuTrigger>
               <NavigationMenuContent className='bg-white text-black'>
                 <ul className='grid w-full gap-3 p-4'>
                   <ListItem href='/location' title='Location' />
@@ -140,9 +130,7 @@ const MainNav = () => {
             {/* Book an Appointment */}
             <NavigationMenuItem>
               {/* <Link href='/contact/schedule' passHref> */}
-              <NavigationMenuLink
-                className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}
-              >
+              <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
                 Book an Appointment
               </NavigationMenuLink>
               {/* </Link> */}
@@ -154,26 +142,18 @@ const MainNav = () => {
   );
 
   // Accordion component for mobile dropdown
-  const Accordion = ({
-    title,
-    links,
-  }: {
-    title: string;
-    links: Array<{ href: string; title: string }>;
-  }) => {
+  const Accordion = ({ title, links }: { title: string; links: Array<{ href: string; title: string }> }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
       <div>
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className='w-full flex justify-between items-center mt-2 px-4 py-6 text-white bg-black hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-300'
+          className='w-full flex justify-between items-center mt-2 px-4 py-6 text-white bg-grey hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-300'
         >
           {title}
           <span
-            className={`text-2xl transform transition-transform duration-300 ${
-              isOpen ? 'rotate-180' : 'rotate-0'
-            }`}
+            className={`text-2xl transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
           >
             {isOpen ? '-' : '+'}
           </span>
@@ -193,18 +173,14 @@ const MainNav = () => {
 
   // Mobile drawer navigation setup
   const mobileNavigation = (
-    <div className='md:hidden bg-black'>
+    <div className='md:hidden bg-grey'>
       <Drawer open={open} onOpenChange={setOpen}>
         <div className='flex justify-end'>
           {' '}
           {/* Flex container to push the button to the right */}
           <DrawerTrigger asChild>
             <Button className='m-4'>
-              {open ? (
-                <XIcon className='h-6 w-6 text-white' />
-              ) : (
-                <MenuIcon className='h-6 w-6 text-white' />
-              )}
+              {open ? <XIcon className='h-6 w-6 text-white' /> : <MenuIcon className='h-6 w-6 text-white' />}
             </Button>
           </DrawerTrigger>
         </div>
