@@ -7,12 +7,12 @@ type ImageAndTextProps = {
   descriptionOne: string;
   descriptionTwo?: string;
   imagePosition?: 'left' | 'right';
-  title: {
+  title?: {
     main: string;
     emphasis?: string;
   };
   containerBg?: string;
-  descriptionOneColor?: string;
+  descriptionColor?: string;
   titleColor?: string;
 };
 
@@ -24,7 +24,7 @@ export default function ImageAndText({
   descriptionTwo,
   imagePosition = 'left',
   containerBg,
-  descriptionOneColor,
+  descriptionColor,
   titleColor,
 }: ImageAndTextProps) {
   return (
@@ -37,12 +37,12 @@ export default function ImageAndText({
         <Image className='object-cover' fill src={src} alt={alt} />
       </div>
       <TextBox
-        main={title.main}
-        emphasis={title.emphasis}
+        main={title?.main}
+        emphasis={title?.emphasis}
         descriptionOne={descriptionOne}
         descriptionTwo={descriptionTwo}
         containerBg={containerBg}
-        descriptionOneColor={descriptionOneColor}
+        descriptionColor={descriptionColor}
         titleColor={titleColor}
       />
     </div>
