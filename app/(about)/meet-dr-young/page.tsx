@@ -42,6 +42,43 @@ export default function MeetDoctorYoung() {
           <TextBox textOne={textBoxContent.textOne} textTwo={textBoxContent.textTwo} />
         </ImageAndText>
       </div>
+      <div className='flex flex-col justify-center items-center'>
+        <h3 className='text-center text-2xl max-w-[25rem] mb-16'>CERTIFICATIONS & PROFESSIONAL ORGANIZATIONS</h3>
+        <div className='flex flex-wrap flex-col md:flex-row gap-4 px-16'>
+          <div className='flex flex-col gap-4 flex-1'>
+            <h4 className='text-2xl font-light'>American Academy of Cosmetic Dentistry</h4>
+            <p className='font-light text-lg'>
+              The American Academy of Cosmetic Dentistry (AACD) strives to advance excellence in the field of cosmetic
+              dentistry. AACD members have support from other experts around the globe. The organization is also at the
+              cutting edge of dental technology.
+            </p>
+          </div>
+          <div className='flex flex-col gap-3 flex-1 mb-8'>
+            <h4 className='text-2xl font-light'>Digital Smile Design</h4>
+            <p className='font-light text-lg'>
+              DSD is a planning protocol that allows for complete analysis of the patient&apos;s facial and dental
+              structures through state-of-the-art videography, photo, and 3d imaging digital technology. The DSD
+              approach is considered the most modern, patient-centered process for smile design and transformation.
+            </p>
+          </div>
+          <div className='flex flex-col gap-3 flex-1'>
+            <h4 className='text-2xl font-light'>American Dental Association</h4>
+            <p className='font-light text-lg'>
+              The American Dental Association (ADA) is committed to driving dentistry forward with innovation and a
+              focus on patient care. Dr. Raymond is an ADA dentist and is also a member of the Arizona Dental
+              Association (AZDA).
+            </p>
+          </div>
+          <div className='flex flex-col gap-3 flex-1'>
+            <h4 className='text-2xl font-light'>Continuing Dental Education</h4>
+            <p className='font-light text-lg'>
+              In the constantly evolving field of dentistry, continued education is important. Dr. Raymond attends
+              various courses at Spear Education, the Kois Center, and other learning centers nationwide. He uses
+              advanced techniques and provides his patients with the highest standard of care
+            </p>
+          </div>
+        </div>
+      </div>
       <div className='my-24'>
         <Steps />
       </div>
