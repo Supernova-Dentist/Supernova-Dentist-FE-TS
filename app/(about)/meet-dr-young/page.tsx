@@ -8,7 +8,8 @@ import DefaultTextBox from '@/components/blocks/ImageAndText/DefaultTextBox';
 import TextBox from '@/components/TextBoxContainer/TextBox';
 import dummyDentist from '../../../public/assets/images/dummy-dentist.jpeg';
 import dummyDentistTwo from '../../../public/assets/images/meet-dr-young-2.png';
-import textBoxContent from './textBoxContent';
+import textBoxContent from './utils/textBoxContent';
+import Certifications from '@/components/blocks/Certifications/Certifications';
 const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
 });
@@ -44,44 +45,7 @@ export default function MeetDoctorYoung() {
       </div>
       <div className='flex flex-col justify-center items-center px-8 md:px-16 xl:px-36'>
         <h3 className='text-center text-2xl max-w-[25rem] mb-16'>CERTIFICATIONS & PROFESSIONAL ORGANIZATIONS</h3>
-        <div className='flex flex-col gap-8'>
-          <div className='flex flex-col justify-center flex-1 gap-4 md:flex-row'>
-            <div className='flex flex-col text-center sm:text-left gap-2 flex-1'>
-              <h4 className='text-xl font-light'>American Academy of Cosmetic Dentistry</h4>
-              <p className='font-light text-[16px] text-center sm:text-left'>
-                The American Academy of Cosmetic Dentistry (AACD) strives to advance excellence in the field of cosmetic
-                dentistry. AACD members have support from other experts around the globe. The organization is also at
-                the cutting edge of dental technology.
-              </p>
-            </div>
-            <div className='flex flex-col text-center sm:text-left gap-2 flex-1'>
-              <h4 className='text-xl font-light'>Digital Smile Design</h4>
-              <p className='font-light text-[16px] text-center sm:text-left'>
-                DSD is a planning protocol that allows for complete analysis of the patient&apos;s facial and dental
-                structures through state-of-the-art videography, photo, and 3d imaging digital technology. The DSD
-                approach is considered the most modern, patient-centered process for smile design and transformation.
-              </p>
-            </div>
-          </div>
-          <div className='flex flex-col justify-center flex-1 gap-4 md:flex-row'>
-            <div className='flex flex-col text-center sm:text-left gap-2 flex-1'>
-              <h4 className='text-xl font-light'>American Dental Association</h4>
-              <p className='font-light text-[16px] text-center sm:text-left'>
-                The American Dental Association (ADA) is committed to driving dentistry forward with innovation and a
-                focus on patient care. Dr. Raymond is an ADA dentist and is also a member of the Arizona Dental
-                Association (AZDA).
-              </p>
-            </div>
-            <div className='flex flex-col text-center sm:text-left gap-2 flex-1'>
-              <h4 className='text-xl font-light'>Continuing Dental Education</h4>
-              <p className='font-light text-[16px] text-center sm:text-left'>
-                In the constantly evolving field of dentistry, continued education is important. Dr. Raymond attends
-                various courses at Spear Education, the Kois Center, and other learning centers nationwide. He uses
-                advanced techniques and provides his patients with the highest standard of care
-              </p>
-            </div>
-          </div>
-        </div>
+        <Certifications />
       </div>
       <div className='my-24'>
         <Steps />
