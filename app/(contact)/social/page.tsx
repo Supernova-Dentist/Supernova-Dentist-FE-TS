@@ -1,8 +1,28 @@
 'use client';
 
 import Head from 'next/head';
+// import React, { useEffect, useState } from 'react';
+// import ProfileInfo from './ProfileInfo';
+// import { fetchProfileData } from './api';
 
 const SocialPage = () => {
+    // const [profile, setProfile] = useState(null);
+
+    // useEffect(() => {
+    //     fetchProfileData()
+    //       .then(data => {
+    //         setProfileData(data);
+    //       })
+    //       .catch(error => {
+    //         console.error('Error fetching profile data:', error);
+    //       });
+    //   }, []);
+    
+    //   if (!profileData) {
+    //     return <div>Loading...</div>;
+    //   }
+
+
   return (
     <div className='min-h-screen bg-gray-100'>
       <Head>
