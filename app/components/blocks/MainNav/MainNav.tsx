@@ -124,6 +124,7 @@ const MainNav = () => {
                 <ul className='grid w-full gap-3 p-4'>
                   <ListItem href='/location' title='Location' />
                   <ListItem href='/schedule' title='Contact Us' />
+                  <ListItem href='/social' title='Social Media' />
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -216,6 +217,7 @@ const MainNav = () => {
             links={[
               { href: 'location', title: 'Location' },
               { href: 'schedule', title: 'Schedule Appointment' },
+              { href: 'social', title: 'Social Media' },
             ]}
           />
         </DrawerContent>
