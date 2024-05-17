@@ -30,33 +30,21 @@ const SocialPage = () => {
 
       <section className='py-20 bg-white'>
         <div className='container mx-auto px-4'>
-          <h2 className='text-3xl font-semibold text-gray-800 text-center'>Instagram Posts</h2>
-          <p className='mt-2 text-lg text-gray-600 text-center'>
-            Follow us on Instagram for the latest updates and promotions!
-          </p>
-
-          <div className='mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-            {/* Placeholder Instagram posts */}
-            <div className='aspect-w-1 aspect-h-1'>
-              <div className='bg-gray-300 rounded-lg flex items-center justify-center'>
-                <span className='text-gray-500'>Instagram Post 1</span>
-              </div>
-            </div>
-            <div className='aspect-w-1 aspect-h-1'>
-              <div className='bg-gray-300 rounded-lg flex items-center justify-center'>
-                <span className='text-gray-500'>Instagram Post 2</span>
-              </div>
-            </div>
-            <div className='aspect-w-1 aspect-h-1'>
-              <div className='bg-gray-300 rounded-lg flex items-center justify-center'>
-                <span className='text-gray-500'>Instagram Post 3</span>
-              </div>
-            </div>
-            <div className='aspect-w-1 aspect-h-1'>
-              <div className='bg-gray-300 rounded-lg flex items-center justify-center'>
-                <span className='text-gray-500'>Instagram Post 4</span>
-              </div>
-            </div>
+          <h2 className='text-3xl font-semibold text-gray-800 text-center'>Instagram Profile</h2>
+          <div className='flex items-center justify-center mt-6'>
+            <img src='/profile.jpg' alt='Profile Picture' className='w-20 h-20 rounded-full border-4 border-pink-500' />
+          </div>
+          <div className='text-center mt-4'>
+            <h3 className='text-xl font-semibold'>Supernova Dental</h3>
+            <p className='text-gray-600'>@supernova_dental</p>
+          </div>
+          <div className='flex justify-center mt-6'>
+            <button className='px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition'>Follow</button>
+          </div>
+          <div className='grid grid-cols-3 gap-4 mt-8'>
+            <div className='bg-gray-300 aspect-w-1 aspect-h-1 rounded-lg'></div>
+            <div className='bg-gray-300 aspect-w-1 aspect-h-1 rounded-lg'></div>
+            <div className='bg-gray-300 aspect-w-1 aspect-h-1 rounded-lg'></div>
           </div>
         </div>
       </section>
