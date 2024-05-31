@@ -4,6 +4,7 @@ import './globals.css';
 import MainNav from './components/blocks/MainNav/MainNav';
 import Footer from './components/blocks/Footer/Footer';
 import CrispChat from './components/blocks/CrispChat/CrispChat';
+import TidioChat from './components/blocks/TidioChat/TidioChat';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,7 +25,8 @@ export default function RootLayout({
         {children}
         <Footer />
         <div aria-hidden='true'>
-          <CrispChat />
+          {/* <CrispChat /> */}
+          <TidioChat />
         </div>
       </body>
     </html>
