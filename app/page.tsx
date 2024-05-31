@@ -4,6 +4,7 @@ import Reviews from './components/blocks/Reviews/Review';
 import Steps from './components/blocks/Steps/Steps';
 import GalleryCarousel from './components/blocks/GalleryCarousel/GalleryCarousel';
 import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton';
+import GoogleReviews from './components/blocks/GoogleReviews/GoogleReviews';
 const GoogleMap = dynamic(async () => await import('./components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
 });
@@ -15,6 +16,7 @@ export default function Home() {
       <Steps />
       <Reviews />
       <GalleryCarousel />
+      <GoogleReviews />
       <GoogleMap />
       <ScrollToTopButton />
     </main>
