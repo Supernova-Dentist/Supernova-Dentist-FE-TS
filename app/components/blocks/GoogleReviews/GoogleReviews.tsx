@@ -3,7 +3,7 @@ import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarouse
 
 export default function GoogleReviews() {
   return (
-    <div className='flex my-24 bg-cream px-4 py-12'>
+    <div className='flex flex-col lg:flex-row my-24 bg-cream px-4 py-12'>
       <OverallGoogleRating />
       <GoogleReviewsCarousel />
     </div>

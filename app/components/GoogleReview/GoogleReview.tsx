@@ -20,7 +20,7 @@ export default function GoogleReview({ name, date, review, rating }: GoogleRevie
   };
 
   return (
-    <div className='min-w-[230px] flex flex-col justify-between'>
+    <div className='min-w-[180px] flex flex-col justify-between'>
       <div className='bg-slate-50 p-5 shadow-md cursor-pointer rounded-sm transform transition-transform duration-300 ease-in-out hover:-translate-y-2'>
         <div className='flex flex-col'>
           <div className='flex justify-between gap-2'>
