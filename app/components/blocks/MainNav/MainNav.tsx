@@ -59,87 +59,141 @@ const MainNav = () => {
   }, [width, open]);
 
   // Reuse your original desktop navigation structure
-  const desktopNavigation = (
-    <div className='hidden md:block'>
-      <NavigationMenu className='mx-auto justify-end bg-grey py-6 px-4'>
-        <NavigationMenuList className='text-white'>
-          {/* Home link */}
-          <NavigationMenuItem>
-            <Link href='/' legacyBehavior passHref>
-              <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
-                Home
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
+  const DesktopNavigation = () => {
+    const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
-          {/* About Us dropdown */}
-          <NavigationMenu>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>About Us</NavigationMenuTrigger>
-              <NavigationMenuContent className='bg-white text-black'>
-                <ul className='grid w-full gap-3 p-4'>
-                  <ListItem href='/clinic' title='Our Clinic' />
-                  <ListItem href='/meet-dr-young' title='Meet Dr. Young' />
-                  <ListItem href='/team' title='Meet the Team' />
-                  <ListItem href='/careers' title='Careers' />
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenu>
+    const handleMenuHover = (menuName: string | null) => {
+      setActiveMenu(menuName);
+    };
 
-          {/* Our Services dropdown */}
-          <NavigationMenu>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>Our Services</NavigationMenuTrigger>
-              <NavigationMenuContent className='bg-white text-black'>
-                <ul className='grid w-full gap-3 p-4'>
-                  <ListItem href='/general-dentistry' title='General Dentistry' />
-                  <ListItem href='/cosmetic-dentistry' title='Cosmetic Dentistry' />
-                  <ListItem href='/orthodontics' title='Orthodontics' />
-                  <ListItem href='/pediatric-dentistry' title='Pediatric Dentistry' />
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenu>
+    const handleCloseMenu = () => {
+      setActiveMenu(null);
+    };
 
-          {/* Patient Info dropdown */}
-          <NavigationMenu>
+    return (
+      <div className='hidden md:block'>
+        <NavigationMenu delayDuration={0} className='mx-auto justify-end bg-grey py-6 px-4'>
+          <NavigationMenuList className='text-white'>
+            {/* Home link */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>Patient Info</NavigationMenuTrigger>
-              <NavigationMenuContent className='bg-white text-black'>
-                <ul className='grid w-full gap-3 p-4'>
-                  <ListItem href='/forms' title='Patient Forms' />
-                  <ListItem href='/insurance' title='Insurance and Payment' />
-                  <ListItem href='/faq' title='FAQs' />
-                </ul>
-              </NavigationMenuContent>
+              <Link href='/' legacyBehavior passHref>
+                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
+                  Home
+                </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
-          </NavigationMenu>
 
-          {/* Contact dropdown */}
-          <NavigationMenu>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className='hover:text-amber-500 text-white'>Contact</NavigationMenuTrigger>
-              <NavigationMenuContent className='bg-white text-black'>
-                <ul className='grid w-full gap-3 p-4'>
-                  <ListItem href='/location' title='Location' />
-                  <ListItem href='/schedule' title='Contact Us' />
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            {/* Book an Appointment */}
-            <NavigationMenuItem>
-              {/* <Link href='/contact/schedule' passHref> */}
-              <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
-                Book an Appointment
-              </NavigationMenuLink>
-              {/* </Link> */}
-            </NavigationMenuItem>
-          </NavigationMenu>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
-  );
+            {/* About Us dropdown */}
+            <NavigationMenu
+              delayDuration={0}
+              onMouseEnter={() => handleMenuHover('about')}
+              onMouseLeave={handleCloseMenu}
+            >
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  onClick={(event) => event.preventDefault()}
+                  className='hover:text-amber-500 text-white '
+                >
+                  About Us
+                </NavigationMenuTrigger>
+                {activeMenu === 'about' && (
+                  <NavigationMenuContent className='bg-white text-black opacity-100 visible'>
+                    <ul className='grid w-full gap-3 p-4'>
+                      <ListItem href='/clinic' title='Our Clinic' />
+                      <ListItem href='/meet-dr-young' title='Meet Dr. Young' />
+                      <ListItem href='/team' title='Meet the Team' />
+                      <ListItem href='/careers' title='Careers' />
+                    </ul>
+                  </NavigationMenuContent>
+                )}
+              </NavigationMenuItem>
+            </NavigationMenu>
+
+            {/* Our Services dropdown */}
+            <NavigationMenu
+              delayDuration={0}
+              onMouseEnter={() => handleMenuHover('services')}
+              onMouseLeave={handleCloseMenu}
+            >
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  onClick={(event) => event.preventDefault()}
+                  className='hover:text-amber-500 text-white'
+                >
+                  Our Services
+                </NavigationMenuTrigger>
+                {activeMenu === 'services' && (
+                  <NavigationMenuContent className='bg-white text-black opacity-100 visible'>
+                    <ul className='grid w-full gap-3 p-4'>
+                      <ListItem href='/general-dentistry' title='General Dentistry' />
+                      <ListItem href='/cosmetic-dentistry' title='Cosmetic Dentistry' />
+                      <ListItem href='/orthodontics' title='Orthodontics' />
+                      <ListItem href='/pediatric-dentistry' title='Pediatric Dentistry' />
+                    </ul>
+                  </NavigationMenuContent>
+                )}
+              </NavigationMenuItem>
+            </NavigationMenu>
+
+            {/* Patient Info dropdown */}
+            <NavigationMenu
+              delayDuration={0}
+              onMouseEnter={() => handleMenuHover('patient')}
+              onMouseLeave={handleCloseMenu}
+            >
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  onClick={(event) => event.preventDefault()}
+                  className='hover:text-amber-500 text-white'
+                >
+                  Patient Info
+                </NavigationMenuTrigger>
+                {activeMenu === 'patient' && (
+                  <NavigationMenuContent className='bg-white text-black opacity-100 visible'>
+                    <ul className='grid w-full gap-3 p-4'>
+                      <ListItem href='/forms' title='Patient Forms' />
+                      <ListItem href='/insurance' title='Insurance and Payment' />
+                      <ListItem href='/faq' title='FAQs' />
+                    </ul>
+                  </NavigationMenuContent>
+                )}
+              </NavigationMenuItem>
+            </NavigationMenu>
+
+            {/* Contact dropdown */}
+            <NavigationMenu
+              delayDuration={0}
+              onMouseEnter={() => handleMenuHover('contact')}
+              onMouseLeave={handleCloseMenu}
+            >
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  onClick={(event) => event.preventDefault()}
+                  className='hover:text-amber-500 text-white'
+                >
+                  Contact
+                </NavigationMenuTrigger>
+                {activeMenu === 'contact' && (
+                  <NavigationMenuContent className='bg-white text-black opacity-100 visible'>
+                    <ul className='grid w-full gap-3 p-4'>
+                      <ListItem href='/location' title='Location' />
+                      <ListItem href='/schedule' title='Contact Us' />
+                    </ul>
+                  </NavigationMenuContent>
+                )}
+              </NavigationMenuItem>
+              {/* Book an Appointment */}
+              <NavigationMenuItem>
+                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-amber-500`}>
+                  Book an Appointment
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenu>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+    );
+  };
 
   // Accordion component for mobile dropdown
   const Accordion = ({ title, links }: { title: string; links: Array<{ href: string; title: string }> }) => {
@@ -149,14 +203,10 @@ const MainNav = () => {
       <div>
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className='w-full flex justify-between items-center mt-2 px-4 py-6 text-white bg-grey hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-300'
+          className='w-full flex justify-between items-center mt-2 px-4 py-6 text-white bg-grey hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 '
         >
           {title}
-          <span
-            className={`text-2xl transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
-          >
-            {isOpen ? '-' : '+'}
-          </span>
+          <span className={`text-2xl ${isOpen ? 'rotate-180' : 'rotate-0'}`}>{isOpen ? '-' : '+'}</span>
         </Button>
         {isOpen && (
           <div className='flex flex-col mt-2 ml-6 '>
@@ -225,7 +275,7 @@ const MainNav = () => {
 
   return (
     <nav>
-      {desktopNavigation}
+      {DesktopNavigation()}
       {mobileNavigation}
     </nav>
   );
