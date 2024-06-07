@@ -226,7 +226,6 @@ const MainNav = () => {
     <div className='md:hidden bg-grey'>
       <Drawer open={open} onOpenChange={setOpen}>
         <div className='flex justify-end'>
-          {' '}
           {/* Flex container to push the button to the right */}
           <DrawerTrigger asChild>
             <Button className='m-4'>
@@ -234,7 +233,7 @@ const MainNav = () => {
             </Button>
           </DrawerTrigger>
         </div>
-        <DrawerContent className='flex flex-col bg-slate-700 shadow-xl p-8'>
+        <DrawerContent className='flex flex-col bg-slate-700 shadow-xl p-8 mb-12'>
           <Accordion
             title='About Us'
             links={[
