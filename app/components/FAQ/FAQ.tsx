@@ -1,15 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import React from 'react';
 
-type FAQItem = {
-  question: string;
-  answer: string;
-};
-
-type FAQProps = {
-  faqItems: FAQItem[];
-};
-
 const FAQ = ({ faqItems }: FAQProps) => {
   return (
     <Accordion type='single' collapsible>
