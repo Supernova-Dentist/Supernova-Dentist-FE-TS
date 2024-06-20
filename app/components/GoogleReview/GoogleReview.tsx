@@ -1,5 +1,5 @@
-'use client';
-
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { AccordionHeader } from '@radix-ui/react-accordion';
 import Image from 'next/image';
 import { useState } from 'react';
 import { IoStar } from 'react-icons/io5';
@@ -11,13 +11,18 @@ type GoogleReviewProps = {
   rating: number;
 };
 
+const trimReview = (review: string, maxLength: number) => {
+  if (review.length <= maxLength) return review;
+  const trimmedText = review.substring(0, maxLength);
+  return trimmedText.substring(0, trimmedText.lastIndexOf(' ')) + '...';
+};
+
 export default function GoogleReview({ name, date, review, rating }: GoogleReviewProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const reviewStars = Array(rating).fill(0);
+  const trimmedReview = trimReview(review, 300);
 
-  const toggleReadMore = () => {
-    setIsExpanded(!isExpanded);
-  };
+  const reviewText = isExpanded ? review : trimmedReview;
 
   return (
     <div className='min-w-[180px] flex flex-col justify-between'>
@@ -40,23 +45,24 @@ export default function GoogleReview({ name, date, review, rating }: GoogleRevie
             <IoStar color='#F6BB06' key={i} />
           ))}
         </div>
-        <div>
-          <p
-            className={`text-[15px] ${
-              isExpanded ? 'max-h-auto' : 'max-h-[87px] overflow-hidden'
-            } transition-all duration-300`}
-          >
-            {review}
-          </p>
-        </div>
-        <div>
-          <span
-            className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
-            onClick={toggleReadMore}
-          >
-            {isExpanded ? 'Hide' : 'Read more'}
-          </span>
-        </div>
+        {review.length > 300 ? (
+          <Accordion type='single' collapsible>
+            <AccordionItem value='review'>
+              <AccordionHeader className='text-[15px] leading-none'>
+                {isExpanded ? review : trimmedReview}
+              </AccordionHeader>
+
+              <AccordionTrigger
+                className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                {isExpanded ? 'Hide' : 'Read more'}
+              </AccordionTrigger>
+            </AccordionItem>
+          </Accordion>
+        ) : (
+          <div className='text-[15px]'>{review}</div>
+        )}
       </div>
     </div>
   );
