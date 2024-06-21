@@ -69,7 +69,7 @@ export default function SocialMedia() {
                   className='rounded-md shadow-lg'
                 />
                 <p className='text-lg mt-4 text-gray-700'>
-                  &quot;Supernova Dental Clinic transformed my smile! Thank you for the amazing care.&quot;
+                  &ldquo;Supernova Dental Clinic transformed my smile! Thank you for the amazing care.&rdquo;
                 </p>
               </div>
               <div>
@@ -81,7 +81,7 @@ export default function SocialMedia() {
                   className='rounded-md shadow-lg'
                 />
                 <p className='text-lg mt-4 text-gray-700'>
-                  "I highly recommend Supernova Dental Clinic. Professional and caring team!"
+                  &ldquo;I highly recommend Supernova Dental Clinic. Professional and caring team!&rdquo;
                 </p>
               </div>
             </div>
