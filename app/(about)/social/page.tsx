@@ -69,7 +69,7 @@ export default function SocialMedia() {
                   className='rounded-md shadow-lg'
                 />
                 <p className='text-lg mt-4 text-gray-700'>
-                  "Supernova Dental Clinic transformed my smile! Thank you for the amazing care."
+                  &quot;Supernova Dental Clinic transformed my smile! Thank you for the amazing care.&quot;
                 </p>
               </div>
               <div>
