@@ -99,8 +99,8 @@ const MainNav = () => {
                 {activeMenu === 'cosmetic-services' && (
                   <NavigationMenuContent className='bg-white text-black opacity-100 visible'>
                     <ul className='grid w-full gap-3 p-4'>
-                      <ListItem href='/teeth-whitening' title='Teeth Whitening' />
                       <ListItem href='/invisalign' title='Invisalign' />
+                      <ListItem href='/composite-bonding' title='Composite Bonding' />
                     </ul>
                   </NavigationMenuContent>
                 )}
@@ -238,8 +238,8 @@ const MainNav = () => {
           <Accordion
             title='Cosmetic Services'
             links={[
-              { href: 'teeth-whitening', title: 'Teeth Whitening' },
               { href: 'invisalign', title: 'Invisalign' },
+              { href: 'composite-bonding', title: 'Composite Bonding' },
             ]}
           />
           <Accordion
