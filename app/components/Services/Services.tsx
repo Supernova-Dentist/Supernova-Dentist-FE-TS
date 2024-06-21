@@ -10,7 +10,7 @@ const Services = () => {
         <div className='grid-cols-2 mt-12 grid gap-8 lg:grid-cols-3'>
           <div className='space-y-8'>
             {serviceData.slice(0, 3).map((service, index) => (
-              <Card key={index} className='flex flex-col h-1/3 items-center p-6 bg-white shadow-lg rounded-lg'>
+              <Card key={index} className='flex flex-col h-1/3 items-center p-6 bg-cream shadow-lg rounded-lg'>
                 <div className='mb-4'>
                   <img
                     src={service.icon}
@@ -38,7 +38,7 @@ const Services = () => {
           </div>
           <div className='space-y-8'>
             {serviceData.slice(3).map((service, index) => (
-              <Card key={index} className='flex flex-col h-1/3 items-center p-6 bg-white shadow-lg rounded-lg'>
+              <Card key={index} className='flex flex-col h-1/3 items-center p-6 bg-cream shadow-lg rounded-lg'>
                 <div className='mb-4'>
                   <img
                     src={service.icon}

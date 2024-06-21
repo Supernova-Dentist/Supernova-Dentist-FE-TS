@@ -2,7 +2,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Question: What dental services does Dr. Scott Young offer?',
     answer:
-      'Answer: Dr. Scott Young offers a comprehensive range of dental services including preventive care, cosmetic dentistry, restorative treatments, orthodontics, and emergency dental care. Whether you need a routine cleaning, teeth whitening, dental implants, or braces, our clinic is equipped to meet all your dental needs.',
+      'Answer: Dr. Scott Young offers a comprehensive range of dental services including preventive care, cosmetic dentistry, restorative treatments, orthodontics, and emergency dental care. Whether you need a routine cleaning, teeth creamning, dental implants, or braces, our clinic is equipped to meet all your dental needs.',
   },
   {
     question: 'Question: What should I expect during my first visit?',
@@ -27,6 +27,6 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Question: What cosmetic dental treatments does Dr. Scott Young offer?',
     answer:
-      'Answer: Dr. Scott Young offers a variety of cosmetic dental treatments to enhance your smile, including teeth whitening, veneers, bonding, and Invisalign. During your consultation, Dr. Young will discuss the best options to achieve your desired results.',
+      'Answer: Dr. Scott Young offers a variety of cosmetic dental treatments to enhance your smile, including teeth creamning, veneers, bonding, and Invisalign. During your consultation, Dr. Young will discuss the best options to achieve your desired results.',
   },
 ];

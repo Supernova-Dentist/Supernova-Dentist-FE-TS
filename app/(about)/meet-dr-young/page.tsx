@@ -51,7 +51,7 @@ export default function MeetDoctorYoung() {
       </div>
       <div className='min-h-60 flex flex-col items-center justify-center bg-gray-100 py-10'>
         <h1 className='text-4xl font-bold text-gray-800 mb-8'>Frequently Asked Questions</h1>
-        <div className='w-full max-w-2xl bg-white shadow-lg rounded-lg p-6'>
+        <div className='w-full max-w-2xl bg-cream shadow-lg rounded-lg p-6'>
           <FAQ faqItems={faqItems} />
         </div>
       </div>

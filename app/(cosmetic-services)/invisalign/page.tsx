@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 export default function Invisalign() {
   return (
+    <>
     <div className='min-h-screen flex flex-col items-center justify-start py-12 bg-gray-50'>
       <div className='w-full max-w-6xl px-4 sm:px-6 lg:px-8'>
         <BreadCrumb />
@@ -91,18 +92,19 @@ export default function Invisalign() {
               </p>
             </div>
           </div>
-          <p className='text-lg mt-12 text-left'>
+          <p className='text-lg my-12 text-left'>
             Ready to transform your smile? Contact us today to schedule your Invisalign consultation and take the first
             step towards a confident, beautiful smile.
           </p>
         </div>
       </div>
-      <div className='min-h-60 min-w-full flex flex-col items-center justify-center bg-gray-100 py-10'>
+    </div>
+      <div className='min-h-full min-w-full flex flex-col items-center justify-center bg-gray-100 py-10'>
         <h1 className='text-4xl font-bold text-gray-800 mb-8'>Frequently Asked Questions</h1>
-        <div className='w-full max-w-2xl bg-white shadow-lg rounded-lg p-6'>
+        <div className='w-full max-w-2xl bg-cream shadow-lg rounded-lg p-6'>
           <FAQ faqItems={faqItems} />
         </div>
       </div>
-    </div>
+      </>
   );
 }
