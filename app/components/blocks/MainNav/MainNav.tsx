@@ -46,15 +46,15 @@ const ListItem = ({ href, title }: { href: string; title: string }) => (
 
 // MainNav component for responsive navigation
 const MainNav = () => {
-  const [open, setOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const { width } = useWindowSize();
 
   // Close the navigation drawer when the window is resized to desktop width
   useEffect(() => {
-    if (width >= 768 && open) {
-      setOpen(false);
+    if (width >= 768 && drawerOpen) {
+      setDrawerOpen(false);
     }
-  }, [width, open]);
+  }, [width, drawerOpen]);
 
   // Reuse your original desktop navigation structure
   const DesktopNavigation = () => {
@@ -195,8 +195,21 @@ const MainNav = () => {
   };
 
   // Accordion component for mobile dropdown
-  const Accordion = ({ title, links }: { title: string; links: Array<{ href: string; title: string }> }) => {
+  const Accordion = ({
+    title,
+    links,
+    closeDrawer,
+  }: {
+    title: string;
+    links: Array<{ href: string; title: string }>;
+    closeDrawer: () => void;
+  }) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const handleLinkClick = () => {
+      setIsOpen(false); // Close the accordion
+      closeDrawer(); // Close the drawer
+    };
 
     return (
       <div>
@@ -210,8 +223,10 @@ const MainNav = () => {
         {isOpen && (
           <div className='flex flex-col mt-2 ml-6 '>
             {links.map((link) => (
-              <Link href={link.href} key={link.title} passHref className=''>
-                <Button className='text-cream my-1 hover:text-gray-200 block'>{link.title}</Button>
+              <Link href={link.href} key={link.title} passHref>
+                <Button className='text-cream my-1 hover:text-gray-200 block' onClick={handleLinkClick}>
+                  {link.title}
+                </Button>
               </Link>
             ))}
           </div>
@@ -223,12 +238,14 @@ const MainNav = () => {
   // Mobile drawer navigation setup
   const mobileNavigation = (
     <div className='md:hidden bg-grey'>
-      <Drawer open={open} onOpenChange={setOpen}>
+      <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
         <div className='flex justify-end'>
           {/* Flex container to push the button to the right */}
           <DrawerTrigger asChild>
-            <Button className='m-4'>
-              {open ? <XIcon className='h-6 w-6 text-cream' /> : <MenuIcon className='h-6 w-6 text-cream' />}
+            <Button className='m-4' onClick={() => setDrawerOpen(!drawerOpen)}>
+              {' '}
+              {/* Toggle open state */}
+              {drawerOpen ? <XIcon className='h-6 w-6 text-cream' /> : <MenuIcon className='h-6 w-6 text-cream' />}
             </Button>
           </DrawerTrigger>
         </div>
@@ -236,40 +253,34 @@ const MainNav = () => {
           <Accordion
             title='Cosmetic Services'
             links={[
-              { href: 'invisalign', title: 'Invisalign' },
-              { href: 'composite-bonding', title: 'Composite Bonding' },
+              { href: '/invisalign', title: 'Invisalign' },
+              { href: '/composite-bonding', title: 'Composite Bonding' },
             ]}
+            closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
           <Accordion
             title='General Services'
             links={[
-              { href: 'implants', title: 'Implants' },
-              { href: 'emergency-dentist', title: 'Emergency Dentist' },
+              { href: '/implants', title: 'Implants' },
+              { href: '/emergency-dentist', title: 'Emergency Dentist' },
             ]}
+            closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
-          {/* <Accordion
-            title='Patient Info'
-            links={[
-              { href: 'forms', title: 'Patient Forms' },
-              { href: 'insurance', title: 'Insurance and Payment' },
-              { href: 'faq', title: 'FAQs' },
-            ]}
-          /> */}
+          {/* Additional Accordion components */}
           <Accordion
             title='About'
             links={[
-              { href: 'clinic', title: 'Our Clinic' },
-              { href: 'meet-dr-young', title: 'Meet Dr. Young' },
-              { href: 'team', title: 'Meet the Team' },
-              { href: 'find-us', title: 'Find Us' },
-              { href: 'social', title: 'Social' },
+              { href: '/clinic', title: 'Our Clinic' },
+              { href: '/meet-dr-young', title: 'Meet Dr. Young' },
+              { href: '/team', title: 'Meet the Team' },
+              { href: '/find-us', title: 'Find Us' },
+              { href: '/social', title: 'Social' },
             ]}
+            closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
-          <div className='flex justify-center '>
+          <div className='flex justify-center'>
             <Link href='/'>
-              <Button className=' text-lg bg-gold hover:bg-amber-700 text-cream px-8 py-6 rounded mt-6'>
-                Book Now
-              </Button>
+              <Button className='text-lg bg-gold hover:bg-amber-700 text-cream px-8 py-6 rounded mt-6'>Book Now</Button>
             </Link>
           </div>
         </DrawerContent>

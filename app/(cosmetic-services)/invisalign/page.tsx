@@ -1,5 +1,10 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ from '@/components/FAQ/FAQ';
+import {
+  SliderWithImageComparison,
+} from '@/components/SliderWithImageComparison/SliderWithImageComparison';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { faqItems } from './utils/faqItems';
@@ -45,6 +50,7 @@ export default function Invisalign() {
                   <li>Enjoy regular check-ins to monitor your progress.</li>
                   <li>Achieve your perfect smile!</li>
                 </ol>
+                <Button className='mt-4'>Schedule a Consultation</Button>
               </div>
               <div className='md:w-1/2'>
                 <Image
@@ -60,7 +66,7 @@ export default function Invisalign() {
           <section className='mb-12'>
             <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Invisalign Benefits</h2>
             <div className='flex flex-col space-y-8'>
-              <div className='flex flex-col md:flex-row items-center md:space-x-8'>
+              <Card className='flex flex-col md:flex-row items-center md:space-x-8 p-6'>
                 <Image
                   src='/assets/images/invisalign.jpg'
                   alt='Invisalign Aligners'
@@ -71,8 +77,8 @@ export default function Invisalign() {
                 <p className='text-xl text-left w-full md:w-1/2 mt-4 md:mt-0 text-gray-700'>
                   Invisalign aligners are clear, making them a discreet option for teeth straightening.
                 </p>
-              </div>
-              <div className='flex flex-col md:flex-row items-center md:space-x-8'>
+              </Card>
+              <Card className='flex flex-col md:flex-row items-center md:space-x-8 p-6'>
                 <p className='text-xl text-left w-full md:w-1/2 text-gray-700'>
                   Our digital scan ensures a perfect fit for your custom aligners.
                 </p>
@@ -81,8 +87,8 @@ export default function Invisalign() {
                   alt='Digital Scan'
                   className='w-full md:w-1/2 rounded-md shadow-lg'
                 />
-              </div>
-              <div className='flex flex-col md:flex-row items-center md:space-x-8'>
+              </Card>
+              <Card className='flex flex-col md:flex-row items-center md:space-x-8 p-6'>
                 <img
                   src='/assets/images/invisalign-ball.jpg'
                   alt='Invisalign Lifestyle'
@@ -91,7 +97,93 @@ export default function Invisalign() {
                 <p className='text-xl text-left w-full md:w-1/2 mt-4 md:mt-0 text-gray-700'>
                   Experience minimal disruption to your daily life with Invisalign.
                 </p>
-              </div>
+              </Card>
+            </div>
+          </section>
+          <section className='mb-12'>
+            <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Patient Testimonials</h2>
+            <div className='flex flex-col space-y-8'>
+              <Card className='p-6'>
+                <p className='text-xl text-gray-700'>
+                  &ldquo;Supernova Dental made my Invisalign experience so easy and stress-free. Highly
+                  recommend!&rdquo;
+                </p>
+                <p className='text-right text-gray-500 mt-4'>- John Doe</p>
+              </Card>
+              <Card className='p-6'>
+                <p className='text-xl text-gray-700'>
+                  &ldquo;I love my new smile! The team at Supernova Dental was fantastic.&rdquo;
+                </p>
+                <p className='text-right text-gray-500 mt-4'>- Jane Smith</p>
+              </Card>
+            </div>
+          </section>
+          <section className='mb-12'>
+            <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Before and After Gallery</h2>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+              <SliderWithImageComparison
+                beforeImageSrc='/assets/images/teeth-before.jpg'
+                beforeImageAlt='Before Invisalign'
+                afterImageSrc='/assets/images/teeth-after.png'
+                afterImageAlt='After Invisalign'
+                imageWidth={800}
+                imageHeight={600}
+              />
+              <SliderWithImageComparison
+                beforeImageSrc='/assets/images/teeth-before.jpg'
+                beforeImageAlt='Before Invisalign'
+                afterImageSrc='/assets/images/teeth-after.png'
+                afterImageAlt='After Invisalign'
+                imageWidth={800}
+                imageHeight={600}
+              />
+              <SliderWithImageComparison
+                beforeImageSrc='/assets/images/teeth-before.jpg'
+                beforeImageAlt='Before Invisalign'
+                afterImageSrc='/assets/images/teeth-after.png'
+                afterImageAlt='After Invisalign'
+                imageWidth={800}
+                imageHeight={600}
+              />
+            </div>
+          </section>
+          <section className='mb-12'>
+            <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Meet Our Team</h2>
+            <div className='flex flex-col md:flex-row md:space-x-8'>
+              <Card className='flex flex-col md:flex-row items-center md:space-x-8 p-6'>
+                <Image
+                  src='/assets/images/service-icon-4.png'
+                  alt='Dr. John Smith'
+                  width={200}
+                  height={200}
+                  className='rounded-full shadow-lg'
+                />
+                <div className='mt-4 md:mt-0'>
+                  <h3 className='text-2xl font-semibold text-gray-800'>Dr. John Smith</h3>
+                  <p className='text-xl text-gray-700'>Orthodontist</p>
+                  <p className='text-lg text-gray-600 mt-2'>
+                    Dr. Smith has over 20 years of experience in orthodontics and has helped hundreds of patients
+                    achieve their perfect smile with Invisalign.
+                  </p>
+                </div>
+              </Card>
+              <Card className='flex flex-col md:flex-row items-center md:space-x-8 p-6'>
+                <Image
+                  src='/assets/images/service-icon-4.png'
+                  alt='Dr. Jane Doe'
+                  width={200}
+                  height={200}
+                  className='rounded-full shadow-lg'
+                />
+                <div className='mt-4 md:mt-0'>
+                  <h3 className='text-2xl font-semibold text-gray-800'>Dr. Jane Doe</h3>
+                  <p className='text-xl text-gray-700'>Dental Specialist</p>
+                  <p className='text-lg text-gray-600 mt-2'>
+                    With a passion for patient care, Dr. Doe ensures every Invisalign treatment is tailored to meet
+                    individual needs and deliver the best results.
+                  </p>
+                </div>
+              </Card>
             </div>
           </section>
           <p className='text-xl my-12 text-left text-gray-700'>
