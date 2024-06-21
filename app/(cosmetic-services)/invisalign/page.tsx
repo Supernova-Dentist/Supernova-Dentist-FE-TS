@@ -1,3 +1,4 @@
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ from '@/components/FAQ/FAQ';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -13,7 +14,8 @@ export default function Invisalign() {
   return (
     <div className='min-h-screen flex flex-col items-center justify-start py-12 bg-gray-50'>
       <div className='w-full max-w-5xl'>
-        <h1 className='text-4xl font-semibold mb-6 text-left'>Invisalign at Supernova Dental</h1>
+        <BreadCrumb />
+        <h1 className='text-4xl font-semibold my-6 text-left'>Invisalign at Supernova Dental</h1>
         <p className='text-lg mb-4 text-left'>
           At Supernova Dental, we offer Invisalign, the clear alternative to traditional braces. Invisalign aligners are
           custom-made for your teeth, providing a comfortable and nearly invisible way to straighten your smile.
@@ -95,7 +97,7 @@ export default function Invisalign() {
           </p>
         </div>
       </div>
-        <div className='min-h-60 min-w-full flex flex-col items-center justify-center bg-gray-100 py-10'>
+      <div className='min-h-60 min-w-full flex flex-col items-center justify-center bg-gray-100 py-10'>
         <h1 className='text-4xl font-bold text-gray-800 mb-8'>Frequently Asked Questions</h1>
         <div className='w-full max-w-2xl bg-white shadow-lg rounded-lg p-6'>
           <FAQ faqItems={faqItems} />
