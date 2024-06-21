@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Invisalign() {
   return (
     <div className='min-h-screen flex flex-col items-center justify-start py-12 bg-gray-50'>
-      <div className='w-full max-w-5xl'>
+      <div className='w-full max-w-6xl px-4 sm:px-6 lg:px-8'>
         <BreadCrumb />
         <h1 className='text-4xl font-semibold my-6 text-left'>Invisalign at Supernova Dental</h1>
         <p className='text-lg mb-4 text-left'>
