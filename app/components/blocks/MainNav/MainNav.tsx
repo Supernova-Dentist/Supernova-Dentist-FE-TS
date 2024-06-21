@@ -129,7 +129,7 @@ const MainNav = () => {
               </NavigationMenuItem>
             </NavigationMenu>
 
-            {/* Patient Info dropdown */}
+            {/* Patient Info dropdown
             <NavigationMenu
               delayDuration={0}
               onMouseEnter={() => handleMenuHover('patient')}
@@ -152,7 +152,7 @@ const MainNav = () => {
                   </NavigationMenuContent>
                 )}
               </NavigationMenuItem>
-            </NavigationMenu>
+            </NavigationMenu> */}
 
             {/* About Us dropdown */}
             <NavigationMenu
@@ -247,14 +247,14 @@ const MainNav = () => {
               { href: 'emergency-dentist', title: 'Emergency Dentist' },
             ]}
           />
-          <Accordion
+          {/* <Accordion
             title='Patient Info'
             links={[
               { href: 'forms', title: 'Patient Forms' },
               { href: 'insurance', title: 'Insurance and Payment' },
               { href: 'faq', title: 'FAQs' },
             ]}
-          />
+          /> */}
           <Accordion
             title='About'
             links={[
