@@ -1,15 +1,17 @@
+import FAQ from '@/components/FAQ/FAQ';
+import TextBox from '@/components/TextBoxContainer/TextBox';
+import Certifications from '@/components/blocks/Certifications/Certifications';
+import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
+import DefaultTextBox from '@/components/blocks/ImageAndText/DefaultTextBox';
+import ImageAndText from '@/components/blocks/ImageAndText/ImageAndText';
+import PageHero from '@/components/blocks/PageHero/PageHero';
+import Steps from '@/components/blocks/Steps/Steps';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import Steps from '@/components/blocks/Steps/Steps';
-import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
-import PageHero from '@/components/blocks/PageHero/PageHero';
-import ImageAndText from '@/components/blocks/ImageAndText/ImageAndText';
-import DefaultTextBox from '@/components/blocks/ImageAndText/DefaultTextBox';
-import TextBox from '@/components/TextBoxContainer/TextBox';
 import dummyDentist from '../../../public/assets/images/dummy-dentist.jpeg';
 import dummyDentistTwo from '../../../public/assets/images/meet-dr-young-2.png';
+import { faqItems } from './utils/faqItems';
 import textBoxContent from './utils/textBoxContent';
-import Certifications from '@/components/blocks/Certifications/Certifications';
 const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
 });
@@ -43,9 +45,15 @@ export default function MeetDoctorYoung() {
           <TextBox textOne={textBoxContent.textOne} textTwo={textBoxContent.textTwo} />
         </ImageAndText>
       </div>
-      <div className='flex flex-col justify-center items-center px-8 md:px-16 xl:px-36'>
+      <div className='flex flex-col justify-center items-center px-8 py-12 md:px-16 xl:px-36'>
         <h3 className='text-center text-2xl max-w-[25rem] mb-16'>CERTIFICATIONS & PROFESSIONAL ORGANIZATIONS</h3>
         <Certifications />
+      </div>
+      <div className='min-h-60 flex flex-col items-center justify-center bg-gray-100 py-10'>
+        <h1 className='text-4xl font-bold text-gray-800 mb-8'>Frequently Asked Questions</h1>
+        <div className='w-full max-w-2xl bg-cream shadow-lg rounded-lg p-6'>
+          <FAQ faqItems={faqItems} />
+        </div>
       </div>
       <div className='my-24'>
         <Steps />

@@ -44,7 +44,7 @@ export default function Team() {
         <ImageAndText src={dummyDentist} alt='Dentist' imagePosition='right'>
           <TextBox title={textBoxContent.title} textOne={textBoxContent.textOne}>
             <Button
-              className='hover:opacity-90 transition-opacity duration-150 uppercase text-xl bg-gold text-black px-4 py-2 sm:w-fit w-full mt-8'
+              className='hover:opacity-90 transition-opacity duration-150 uppercase text-xl bg-gold text-grey px-4 py-2 sm:w-fit w-full mt-8'
               text="Read Dr. Young's bio"
             />
           </TextBox>
