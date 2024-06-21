@@ -1,10 +1,11 @@
 'use client';
 
-import Autoplay from 'embla-carousel-autoplay';
 import GoogleReview from '@/components/GoogleReview/GoogleReview';
 import googleReviewMockData from '@/components/GoogleReview/googleReviewMockData';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import Link from 'next/link';
 
 export default function GoogleReviewsCarousel() {
   return (
@@ -28,6 +29,13 @@ export default function GoogleReviewsCarousel() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
+      <div className='flex justify-center p-4 mt-4'>
+        <Link href='https://g.page/r/Cd1EdVyvZxVIEAI/review'>
+          <button className='bg-primary text-white px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-700'>
+            Write a Review
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
