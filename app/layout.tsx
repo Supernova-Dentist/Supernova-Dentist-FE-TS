@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import MainNav from './components/blocks/MainNav/MainNav';
-import Footer from './components/blocks/Footer/Footer';
 import CrispChat from './components/blocks/CrispChat/CrispChat';
+import Footer from './components/blocks/Footer/Footer';
+import MainNav from './components/blocks/MainNav/MainNav';
+import './globals.css';
+import './reset.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
