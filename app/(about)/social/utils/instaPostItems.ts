@@ -7,7 +7,8 @@ export const instaPostItems = [
   },
   {
     image: '/placeholder.svg',
-    caption: 'Dental hygiene is the key to a healthy smile! 🦷',
+    caption:
+      'Dental hygiene is the key to a healthy smile!  Dental hygiene is the key to a healthy smileDental hygiene is the key to a healthy smileDental hygiene is the key to a healthy smileDental hygiene is the key to a healthy smileDental hygiene is the key to a healthy smile🦷',
     likes: 89,
     comments: 7,
   },
