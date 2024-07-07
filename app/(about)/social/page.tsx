@@ -1,17 +1,17 @@
+'use client';
+
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { ChatBubbleIcon, HeartIcon, InstagramLogoIcon } from '@radix-ui/react-icons';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
+import InstagramPostModal from './utils/InstagramPostModal';
 import { instaPostItems } from './utils/instaPostItems';
 
-export const metadata: Metadata = {
-  title: 'Supernova Dental | Social Media',
-  description:
-    'Explore Supernova Dental Clinic on social media. Stay updated with patient stories, dental tips, and community involvement.',
-};
-
 export default function SocialMedia() {
+  const [selectedPost, setSelectedPost] = useState(null);
+
   return (
     <>
       <div className='min-h-screen flex flex-col items-center justify-start py-12 bg-gray-50'>
@@ -44,7 +44,20 @@ export default function SocialMedia() {
                   className='w-full h-64 object-cover'
                 />
                 <div className='p-4 bg-lightGrey'>
-                  <p className='text-sm text-cream mb-2'>{post.caption}</p>
+                  <div className='h-20 overflow-y-auto'>
+                    <p className='text-sm text-cream mb-2'>
+                      {post.caption.length > 75 ? (
+                        <>
+                          {post.caption.substring(0, 75)}...
+                          <button onClick={() => setSelectedPost(post)} className='text-blue-500 underline ml-1'>
+                            Show More
+                          </button>
+                        </>
+                      ) : (
+                        post.caption
+                      )}
+                    </p>
+                  </div>
                   <div className='flex items-center justify-between'>
                     <div className='flex items-center gap-2'>
                       <HeartIcon className='w-5 h-5 text-red-500' />
@@ -61,6 +74,8 @@ export default function SocialMedia() {
           </div>
         </div>
       </div>
+
+      {selectedPost && <InstagramPostModal post={selectedPost} onClose={() => setSelectedPost(null)} />}
     </>
   );
 }
