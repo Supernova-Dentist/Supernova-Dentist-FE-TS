@@ -1,6 +1,9 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import { ChatBubbleIcon, HeartIcon, InstagramLogoIcon } from '@radix-ui/react-icons';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
+import { instaPostItems } from './utils/instaPostItems';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Social Media',
@@ -15,143 +18,47 @@ export default function SocialMedia() {
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <BreadCrumb />
 
-          <section className='mb-12'>
-            <h1 className='text-5xl font-bold my-8 text-left text-gray-800'>Supernova Dental on Social Media</h1>
-            <p className='text-xl mb-6 text-left text-gray-700'>
-              Connect with Supernova Dental Clinic on social media to stay updated with our latest news, patient
-              stories, dental tips, and community events.
-            </p>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              <div className='mb-6'>
-                <a href='https://www.facebook.com/supernovadentalclinic' target='_blank' rel='noopener noreferrer'>
-                  <Image
-                    src='https://via.placeholder.com/800x500.png?text=Facebook'
-                    alt='Facebook Page'
-                    width={800}
-                    height={500}
-                    className='rounded-md shadow-lg'
-                  />
-                </a>
-                <p className='text-lg mt-4 text-gray-700'>
-                  Follow us on Facebook for updates on dental care tips, patient testimonials, and community events.
-                </p>
-              </div>
-              <div className='mb-6'>
-                <a href='https://www.instagram.com/supernovadentalclinic' target='_blank' rel='noopener noreferrer'>
-                  <Image
-                    src='https://via.placeholder.com/800x500.png?text=Instagram'
-                    alt='Instagram Feed'
-                    width={800}
-                    height={500}
-                    className='rounded-md shadow-lg'
-                  />
-                </a>
-                <p className='text-lg mt-4 text-gray-700'>
-                  Explore our Instagram feed for visual updates, behind-the-scenes glimpses, and dental health tips.
-                </p>
-              </div>
+          <div className='flex items-center justify-between mb-8'>
+            <div>
+              <h1 className='text-3xl font-bold'>Our Instagram</h1>
+              <p className='text-muted-foreground'>Follow us on Instagram for the latest updates and dental tips.</p>
             </div>
-          </section>
+            <Link
+              href='#'
+              className='inline-flex items-center gap-2 bg-secondary text-primary rounded-md px-4 py-2 hover:bg-primary/90 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring'
+              prefetch={false}
+            >
+              <InstagramLogoIcon className='w-5 h-5' />
+              <span>Follow</span>
+            </Link>
+          </div>
 
-          <section className='mb-12'>
-            <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Patient Stories and Testimonials</h2>
-            <p className='text-xl mb-6 text-left text-gray-700'>
-              Read inspiring stories from our patients about their experiences at Supernova Dental Clinic.
-            </p>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              <div>
+          <div className='container mx-auto py-12 px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+            {instaPostItems.map((post, index) => (
+              <div key={index} className='bg-card rounded-lg overflow-hidden shadow-lg'>
                 <Image
-                  src='https://via.placeholder.com/800x500.png?text=Patient+Testimonial'
-                  alt='Patient Testimonial'
-                  width={800}
-                  height={500}
-                  className='rounded-md shadow-lg'
+                  src={post.image}
+                  alt='Instagram Post'
+                  width={400}
+                  height={400}
+                  className='w-full h-64 object-cover'
                 />
-                <p className='text-lg mt-4 text-gray-700'>
-                  &ldquo;Supernova Dental Clinic transformed my smile! Thank you for the amazing care.&rdquo;
-                </p>
+                <div className='p-4'>
+                  <p className='text-sm text-muted-foreground mb-2'>{post.caption}</p>
+                  <div className='flex items-center justify-between'>
+                    <div className='flex items-center gap-2'>
+                      <HeartIcon className='w-5 h-5 text-red-500' />
+                      <span className='text-sm font-medium'>{post.likes}</span>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                      <ChatBubbleIcon className='w-5 h-5 text-muted-foreground' />
+                      <span className='text-sm font-medium'>{post.comments}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <Image
-                  src='https://via.placeholder.com/800x500.png?text=Patient+Testimonial'
-                  alt='Patient Testimonial'
-                  width={800}
-                  height={500}
-                  className='rounded-md shadow-lg'
-                />
-                <p className='text-lg mt-4 text-gray-700'>
-                  &ldquo;I highly recommend Supernova Dental Clinic. Professional and caring team!&rdquo;
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className='mb-12'>
-            <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Community Involvement</h2>
-            <p className='text-xl mb-6 text-left text-gray-700'>
-              Learn about our efforts to give back to the community and participate in local events.
-            </p>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              <div>
-                <Image
-                  src='https://via.placeholder.com/800x500.png?text=Community+Event'
-                  alt='Community Event'
-                  width={800}
-                  height={500}
-                  className='rounded-md shadow-lg'
-                />
-                <p className='text-lg mt-4 text-gray-700'>
-                  Supporting local health fairs to promote dental awareness in our community.
-                </p>
-              </div>
-              <div>
-                <Image
-                  src='https://via.placeholder.com/800x500.png?text=Community+Event'
-                  alt='Community Event'
-                  width={800}
-                  height={500}
-                  className='rounded-md shadow-lg'
-                />
-                <p className='text-lg mt-4 text-gray-700'>
-                  Hosting educational sessions at local schools to teach children about oral hygiene.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className='mb-12'>
-            <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Educational Content</h2>
-            <p className='text-xl mb-6 text-left text-gray-700'>
-              Access valuable dental health tips and educational articles shared by Supernova Dental Clinic.
-            </p>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              <div>
-                <Image
-                  src='https://via.placeholder.com/800x500.png?text=Educational+Content'
-                  alt='Educational Content'
-                  width={800}
-                  height={500}
-                  className='rounded-md shadow-lg'
-                />
-                <p className='text-lg mt-4 text-gray-700'>
-                  Tips for maintaining healthy gums and preventing gum disease.
-                </p>
-              </div>
-              <div>
-                <Image
-                  src='https://via.placeholder.com/800x500.png?text=Educational+Content'
-                  alt='Educational Content'
-                  width={800}
-                  height={500}
-                  className='rounded-md shadow-lg'
-                />
-                <p className='text-lg mt-4 text-gray-700'>
-                  Importance of regular dental check-ups and preventive care.
-                </p>
-              </div>
-            </div>
-          </section>
+            ))}
+          </div>
         </div>
       </div>
     </>
