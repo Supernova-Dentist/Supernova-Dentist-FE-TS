@@ -1,4 +1,4 @@
-export const instaPostItems = [
+export const instaPostItems: InstagramPost[] = [
   {
     image: '/placeholder.svg',
     caption: 'Keeping your smile healthy and bright! 😁',

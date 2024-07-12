@@ -4,12 +4,16 @@ import { useEffect, useRef } from 'react';
 // Mock image URL for testing
 const mockImageUrl = 'https://via.placeholder.com/600'; // Replace with an actual image URL
 
-export default function InstagramPostModal({ post, onClose }) {
+export default function InstagramPostModal({ post, onClose }: { post: any; onClose: () => void }) {
   const modalRef = useRef(null);
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        modalRef.current !== null &&
+        modalRef.current !== undefined &&
+        !(modalRef.current as HTMLElement).contains(event.target as Node)
+      ) {
         onClose();
       }
     }

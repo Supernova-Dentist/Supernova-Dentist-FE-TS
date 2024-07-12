@@ -1,13 +1,13 @@
 'use client';
 
-import { ChatBubbleIcon, HeartIcon, InstagramLogoIcon } from '@radix-ui/react-icons';
+import { ChatBubbleIcon, HeartIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import InstagramPostModal from './InstagramPostModal';
 import { instaPostItems } from './instaPostItems';
 
 export default function InstagramPostGrid() {
-  const [selectedPost, setSelectedPost] = useState(null);
+  const [selectedPost, setSelectedPost] = useState<InstagramPost | null>(null);
 
   return (
     <div className='container mx-auto py-12 px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
@@ -42,7 +42,7 @@ export default function InstagramPostGrid() {
           </div>
         </div>
       ))}
-      {selectedPost && <InstagramPostModal post={selectedPost} onClose={() => setSelectedPost(null)} />}
+      {(selectedPost != null) && <InstagramPostModal post={selectedPost} onClose={() => setSelectedPost(null)} />}
     </div>
   );
 }
