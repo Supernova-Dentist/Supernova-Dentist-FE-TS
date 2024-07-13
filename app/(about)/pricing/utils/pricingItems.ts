@@ -1,17 +1,25 @@
-export const pricingItems: PricingItem[] = [
+// utils/pricingItems.js
+
+export const pricingItems = [
   {
-    title: 'Basic',
-    price: '$10',
-    description: 'This is a basic plan',
+    title: 'Examinations',
+    products: [
+      { description: 'Examination without panoramic radiograph (OPG)', price: 100 },
+      { description: 'Examination with panoramic radiograph (OPG)', price: 190 },
+    ],
   },
   {
-    title: 'Pro',
-    price: '$20',
-    description: 'This is a pro plan',
+    title: 'Consultations',
+    products: [
+      { description: 'Specialist Consultation (Implantology, Prosthodontics, Endodontics, Periodontics)', price: 200 },
+    ],
   },
   {
-    title: 'Enterprise',
-    price: '$30',
-    description: 'This is an enterprise plan',
+    title: 'Radiology',
+    products: [
+      { description: 'Tomography, CBCT', price: 290 },
+      { description: '3D Image', price: 200 },
+      { description: '3D Scan in Treatment Planning', price: 200 },
+    ],
   },
 ];
