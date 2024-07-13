@@ -5,7 +5,11 @@ import React from 'react';
 
 export const PricingAccordion: React.FC<PricingAccordionProps> = ({ pricingItems }) => {
   return (
-    <Accordion type='single' collapsible className='border border-gray-300 rounded-xl shadow-lg max-w-3xl mx-auto'>
+    <Accordion
+      type='single'
+      collapsible
+      className='border border-gray-300 space-y-4 rounded-xl shadow-lg max-w-3xl mx-auto'
+    >
       {pricingItems.map((pricingItem, index) => (
         <AccordionItem value={index.toString()} key={index} className='border-t border-gray-300'>
           <AccordionTrigger className='flex justify-between items-center py-4 px-6 bg-gray-200 hover:bg-gray-300 cursor-pointer rounded-t-xl'>
