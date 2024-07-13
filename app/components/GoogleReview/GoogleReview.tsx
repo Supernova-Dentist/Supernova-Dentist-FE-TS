@@ -1,23 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
 import { IoStar } from 'react-icons/io5';
 
-type GoogleReviewProps = {
-  name: string;
-  date: string;
-  review: string;
-  rating: number;
-};
-
 export default function GoogleReview({ name, date, review, rating }: GoogleReviewProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
   const reviewStars = Array(rating).fill(0);
-
-  const toggleReadMore = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   return (
     <div className='min-w-[180px] flex flex-col justify-between'>
@@ -41,20 +28,11 @@ export default function GoogleReview({ name, date, review, rating }: GoogleRevie
           ))}
         </div>
         <div>
-          <p
-            className={`text-[15px] ${
-              isExpanded ? 'max-h-auto' : 'max-h-[87px] overflow-hidden'
-            } transition-all duration-300`}
-          >
-            {review}
-          </p>
+          <p className='text-[15px] max-h-[87px] overflow-hidden'>{review}</p>
         </div>
         <div>
-          <span
-            className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
-            onClick={toggleReadMore}
-          >
-            {isExpanded ? 'Hide' : 'Read more'}
+          <span className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'>
+            Read more
           </span>
         </div>
       </div>
