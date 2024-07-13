@@ -30,7 +30,7 @@ export default function GoogleReviewsCarousel() {
         <CarouselNext />
       </Carousel>
       <div className='flex justify-center p-4 mt-4'>
-        <Link href='https://g.page/r/Cd1EdVyvZxVIEAI/review'>
+        <Link href='https://g.page/r/Cd1EdVyvZxVIEAI/review' target='_blank' rel='noopener noreferrer'>
           <button className='bg-primary text-white px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-700'>
             Write a Review
           </button>
