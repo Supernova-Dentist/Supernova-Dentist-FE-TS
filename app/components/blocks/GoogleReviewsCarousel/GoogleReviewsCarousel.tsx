@@ -6,9 +6,9 @@ import Modal from '@/components/Modal/Modal';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
-import Link from 'next/link';
 import { useState } from 'react';
 import { IoStar } from 'react-icons/io5';
+import ReviewLink from '../ReviewLink/ReviewLink';
 
 export default function GoogleReviewsCarousel() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,11 +45,7 @@ export default function GoogleReviewsCarousel() {
         <CarouselNext />
       </Carousel>
       <div className='flex justify-center p-4 mt-4'>
-        <Link href='https://g.page/r/Cd1EdVyvZxVIEAI/review'>
-          <button className='bg-primary text-white px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-700'>
-            Write a Review
-          </button>
-        </Link>
+        <ReviewLink />
       </div>
 
       {isModalOpen && selectedReview != null && (
