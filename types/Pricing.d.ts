@@ -1,9 +1,13 @@
-type PricingItem = {
-  title: string;
-  price: string;
+type Product = {
   description: string;
+  price: number;
 };
 
-type PricingProps = {
+type PricingItem = {
+  title: string;
+  products: Product[];
+};
+
+type PricingAccordionProps = {
   pricingItems: PricingItem[];
 };
