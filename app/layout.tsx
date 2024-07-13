@@ -5,6 +5,7 @@ import Footer from './components/blocks/Footer/Footer';
 import MainNav from './components/blocks/MainNav/MainNav';
 import './globals.css';
 import './reset.css';
+import { AccessibilityWidget } from './components/blocks/AccessibilityWidget/AccessibilityWidget';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <div aria-hidden='true'>
           <CrispChat />
         </div>
+        <AccessibilityWidget />
       </body>
     </html>
   );
