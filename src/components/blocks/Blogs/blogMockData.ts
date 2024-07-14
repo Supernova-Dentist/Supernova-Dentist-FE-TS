@@ -14,91 +14,91 @@ const blogMockData: Blog[] = [
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 2,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 3,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 4,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 5,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 6,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 7,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 8,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 9,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 10,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 11,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 12,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 13,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
     date: 'Aug 12, 2021',
   },
   {
-    id: 1,
+    id: 14,
     title: 'WHAT CAUSES SHORT TEETH?',
     description:
       'Short teeth can impact your confidence and also cause problems with eating and speaking. This issue can be caused by...',
