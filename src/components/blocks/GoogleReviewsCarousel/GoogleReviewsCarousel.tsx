@@ -1,13 +1,13 @@
 'use client';
 
-import GoogleReview from '../../GoogleReview/GoogleReview';
-import googleReviewMockData from '../../GoogleReview/googleReviewMockData';
-import Modal from '../../Modal/Modal';
-import { Card, CardContent } from '../../ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../../ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
 import { useState } from 'react';
 import { IoStar } from 'react-icons/io5';
+import Autoplay from 'embla-carousel-autoplay';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Card, CardContent } from '@/components/ui/card';
+import googleReviewMockData from '@/components/GoogleReview/googleReviewMockData';
+import GoogleReview from '@/components/GoogleReview/GoogleReview';
+import Modal from '@/components/Modal/Modal';
 import ReviewLink from '../ReviewLink/ReviewLink';
 
 export default function GoogleReviewsCarousel() {

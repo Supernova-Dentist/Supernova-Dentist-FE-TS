@@ -1,9 +1,9 @@
 'use client';
 
-import { Slider } from '../ui/slider';
-import { cn } from '../../lib/utils';
 import Image from 'next/image';
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
+import { Slider } from '../ui/slider';
 import { Card } from '../ui/card';
 
 type SliderDemoProps = {

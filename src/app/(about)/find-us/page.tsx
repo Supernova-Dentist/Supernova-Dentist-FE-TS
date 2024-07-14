@@ -1,7 +1,6 @@
-import BreadCrumb from '../../../components/BreadCrumb/BreadCrumb';
-import GoogleMap from '../../../components/blocks/GoogleMap/GoogleMap';
-
 import type { Metadata } from 'next';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import GoogleMap from '@/components/blocks/GoogleMap/GoogleMap';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Find Us',

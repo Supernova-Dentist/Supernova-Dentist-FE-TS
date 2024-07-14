@@ -1,5 +1,5 @@
-import CertificationBox from '../../CertificationBox/CertificationBox';
-import certificationsContent from '../../../app/(about)/meet-dr-young/utils/certificationsContent';
+import CertificationBox from '@/components/CertificationBox/CertificationBox';
+import certificationsContent from '@/app/(about)/meet-dr-young/utils/certificationsContent';
 
 export default function Certifications() {
   const { certificationsContentTop, certificationsContentBottom } = certificationsContent;

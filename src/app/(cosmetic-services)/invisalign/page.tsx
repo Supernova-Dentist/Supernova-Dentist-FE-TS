@@ -1,10 +1,10 @@
-import BreadCrumb from '../../../components/BreadCrumb/BreadCrumb';
-import FAQ from '../../../components/FAQ/FAQ';
-import { SliderWithImageComparison } from '../../../components/SliderWithImageComparison/SliderWithImageComparison';
-import { Button } from '../../../components/ui/button';
-import { Card } from '../../../components/ui/card';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import FAQ from '@/components/FAQ/FAQ';
+import { SliderWithImageComparison } from '@/components/SliderWithImageComparison/SliderWithImageComparison';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { faqItems } from './utils/faqItems';
 
 export const metadata: Metadata = {

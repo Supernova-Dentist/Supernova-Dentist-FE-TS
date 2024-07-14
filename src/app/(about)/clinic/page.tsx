@@ -1,6 +1,6 @@
-import BreadCrumb from '../../../components/BreadCrumb/BreadCrumb';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Our Clinic',

@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import CrispChat from '../components/blocks/CrispChat/CrispChat';
-import Footer from '../components/blocks/Footer/Footer';
-import MainNav from '../components/blocks/MainNav/MainNav';
+import CrispChat from '@/components/blocks/CrispChat/CrispChat';
+import Footer from '@/components/blocks/Footer/Footer';
+import MainNav from '@/components/blocks/MainNav/MainNav';
+import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
 import './globals.css';
 import './reset.css';
-import { AccessibilityWidget } from '../components/blocks/AccessibilityWidget/AccessibilityWidget';
 
 const inter = Inter({ subsets: ['latin'] });
 

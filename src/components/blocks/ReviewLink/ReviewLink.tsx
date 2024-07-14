@@ -1,6 +1,6 @@
 'use client';
 
-import { LinkPreview } from '../../ui/link-preview';
+import { LinkPreview } from '@/components/ui/link-preview';
 
 export default function ReviewLink() {
   const handleButtonClick = (e: { preventDefault: () => void }) => {

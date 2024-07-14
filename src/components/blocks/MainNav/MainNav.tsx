@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { Button } from '../../ui/button';
-import { Drawer, DrawerContent, DrawerTrigger } from '../../ui/drawer';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,7 +11,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '../../ui/navigation-menu';
+} from '@/components/ui/navigation-menu';
+import { Button } from '@/components/ui/button';
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 
 const useWindowSize = () => {
   const [size, setSize] = useState({ width: 0, height: 0 });

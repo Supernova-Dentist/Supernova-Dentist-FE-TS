@@ -1,7 +1,7 @@
-import BreadCrumb from '../../../components/BreadCrumb/BreadCrumb';
-import FAQ from '../../../components/FAQ/FAQ';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import FAQ from '@/components/FAQ/FAQ';
 import { faqItems } from './utils/faqItems';
 
 export const metadata: Metadata = {

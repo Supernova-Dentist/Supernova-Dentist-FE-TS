@@ -1,8 +1,8 @@
 'use client';
 
-import { Card, CardContent } from '../../ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../../ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 export default function GalleryCarousel() {
   return (

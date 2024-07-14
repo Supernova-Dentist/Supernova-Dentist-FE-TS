@@ -5,7 +5,7 @@ import { encode } from 'qss';
 import React from 'react';
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion';
 import Link from 'next/link';
-import { cn } from '../../lib/utils';
+import { cn } from '@/lib/utils';
 
 type LinkPreviewProps = {
   children: React.ReactNode;

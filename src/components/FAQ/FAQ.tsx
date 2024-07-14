@@ -1,5 +1,4 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
-import React from 'react';
 
 const FAQ = ({ faqItems }: FAQProps) => {
   return (

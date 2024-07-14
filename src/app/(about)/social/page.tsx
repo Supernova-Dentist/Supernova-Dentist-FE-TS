@@ -1,7 +1,7 @@
-import BreadCrumb from '../../../components/BreadCrumb/BreadCrumb';
-import { InstagramLogoIcon } from '@radix-ui/react-icons';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { InstagramLogoIcon } from '@radix-ui/react-icons';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import InstagramPostGrid from './utils/InstagramPostGrid';
 
 export const metadata: Metadata = {
