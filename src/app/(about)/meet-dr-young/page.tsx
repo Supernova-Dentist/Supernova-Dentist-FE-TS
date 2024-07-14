@@ -10,7 +10,7 @@ import Certifications from '@/components/blocks/Certifications/Certifications';
 import FAQ from '@/components/FAQ/FAQ';
 import Steps from '@/components/blocks/Steps/Steps';
 import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
-const GoogleMap = dynamic(async () => await import('../../../components/blocks/GoogleMap/GoogleMap'), {
+const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
 });
 
