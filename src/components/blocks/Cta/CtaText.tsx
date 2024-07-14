@@ -12,9 +12,11 @@ export default function CtaText({ title, description, uppercase }: CtaTextProps)
     <div className='flex justify-center'>
       <div className='flex flex-col items-center gap-4 max-w-[50rem] px-4'>
         <h1 className='uppercase text-6xl text-slate-100 text-center'>{title ?? defaultTitle}</h1>
-        <p className={`${uppercase !== undefined ? 'uppercase' : null} text-2xl text-slate-100 text-center`}>
-          {description ?? defaultDescription}
-        </p>
+        {description !== undefined ? (
+          <p className={`${uppercase !== undefined ? 'uppercase' : null} text-2xl text-slate-100 text-center`}>
+            {description ?? defaultDescription}
+          </p>
+        ) : null}
       </div>
     </div>
   );
