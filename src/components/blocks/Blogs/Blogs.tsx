@@ -2,6 +2,7 @@ import React from 'react';
 import BlogBox from '@/components/BlogBox/BlogBox';
 import blogMockData from './blogMockData';
 
+// Layout for blogs is a hacky atm. Consider using 3 columns instead or a grid system
 export default function Blogs() {
   return (
     <section className='mx-auto max-w-[1556px] my-20 px-6 sm:px-12'>
