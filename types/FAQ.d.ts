@@ -1,6 +1,6 @@
 type FAQItem = {
   question: string;
-answer: string;
+  answer: string;
 };
 
 type FAQProps = {
