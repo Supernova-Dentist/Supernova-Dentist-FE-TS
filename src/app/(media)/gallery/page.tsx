@@ -1,15 +1,16 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTitle } from '@/components/ui/dialog';
 import { useMemo, useState } from 'react';
+import { FaShareAlt } from 'react-icons/fa';
 import { imageItems } from './utils/galleryItems';
 
 export default function Gallery() {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('All');
 
   const filteredImages = useMemo(() => {
-    if (activeFilter === 'all') {
+    if (activeFilter === 'All') {
       return imageItems;
     } else {
       return imageItems.filter((imageItem) => imageItem.category === activeFilter);
@@ -30,7 +31,7 @@ export default function Gallery() {
     <div className='w-full max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16'>
       <div className='flex justify-center mb-8 md:mb-12'>
         <div className='flex flex-wrap gap-4 md:gap-6'>
-          {['all', 'before-after', 'testimonials', 'facilities', 'staff', 'procedures'].map((filter) => (
+          {['All', 'before-after', 'testimonials', 'facilities', 'staff', 'procedures'].map((filter) => (
             <Button
               key={filter}
               variant={activeFilter === filter ? 'primary' : 'outline'}
@@ -63,6 +64,10 @@ export default function Gallery() {
       </div>
       {selectedImage && (
         <Dialog open onOpenChange={handleClose}>
+          <DialogClose>
+            <FaShareAlt size={24} />
+            <span className='sr-only'>Close</span>
+          </DialogClose>
           <DialogContent className='p-0 max-w-[90vw] max-h-[90vh] overflow-auto'>
             <img
               src={selectedImage.src}
@@ -73,8 +78,19 @@ export default function Gallery() {
             />
             <div className='p-4 bg-background'>
               <DialogTitle className='text-center text-2xl font-bold mb-4'>{selectedImage.caption}</DialogTitle>
-              <h3 className='text-lg font-semibold text-center'>{selectedImage.description}</h3>
+
+              {selectedImage.description && (
+                <h3 className='text-lg font-semibold text-center'>{selectedImage.description}</h3>
+              )}
             </div>
+            <DialogFooter className='sm:justify-start'>
+              <div className='p-4'>
+                <Button type='button' variant='secondary' className='flex items-center space-x-2'>
+                  <FaShareAlt size={16} /> {/* Share icon */}
+                  <span>Share</span>
+                </Button>
+              </div>
+            </DialogFooter>
           </DialogContent>
         </Dialog>
       )}
