@@ -1,10 +1,10 @@
 import React from 'react';
 import BlogBox from '@/components/BlogBox/BlogBox';
+import fetchBlogPosts from '@/services/wordpress/fetchPosts';
 
 // Layout for blogs is a hacky atm. Consider using 3 columns instead or a grid system
 export default async function Blogs() {
-  const res = await fetch('https://public-api.wordpress.com/wp/v2/sites/0xkamecd6.wordpress.com/posts');
-  const data = await res.json();
+  const data = await fetchBlogPosts();
 
   return (
     <section className='mx-auto max-w-[1556px] my-20 px-6 sm:px-12'>

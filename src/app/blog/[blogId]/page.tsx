@@ -1,8 +1,9 @@
+import fetchBlogPostById from '@/services/wordpress/fetchPostById';
+
 export default async function BlogArticle({ params }: { params: { blogId: string } }) {
   const { blogId } = params;
 
-  const res = await fetch(`https://public-api.wordpress.com/wp/v2/sites/0xkamecd6.wordpress.com/posts/${blogId}`);
-  const data = await res.json();
+  const data = await fetchBlogPostById(blogId);
 
   return (
     <article className='flex flex-col justify-center max-w-[800px] mx-auto my-12'>
