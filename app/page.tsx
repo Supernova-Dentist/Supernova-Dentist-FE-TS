@@ -6,6 +6,7 @@ import GalleryCarousel from './components/blocks/GalleryCarousel/GalleryCarousel
 import GoogleReviews from './components/blocks/GoogleReviews/GoogleReviews';
 import Reviews from './components/blocks/Reviews/Review';
 import Steps from './components/blocks/Steps/Steps';
+import { HeroParallax } from './components/ui/hero-parralax';
 const GoogleMap = dynamic(async () => await import('./components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
 });
@@ -13,6 +14,7 @@ const GoogleMap = dynamic(async () => await import('./components/blocks/GoogleMa
 export default function Home() {
   return (
     <main>
+      <HeroParallax />
       <Cta />
       <Services />
       <Steps />
