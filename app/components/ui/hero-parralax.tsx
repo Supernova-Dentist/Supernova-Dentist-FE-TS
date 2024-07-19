@@ -60,12 +60,17 @@ const products = [
     link: '/blog',
     thumbnail: 'https://via.placeholder.com/600x600.png?text=Periodontics',
   },
+  {
+    title: 'Find Us',
+    link: '/find-us',
+    thumbnail: 'https://via.placeholder.com/600x600.png?text=Periodontics',
+  },
 ];
 
 export const HeroParallax = () => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  const firstRow = products.slice(0, 4);
+  const secondRow = products.slice(4, 8);
+  const thirdRow = products.slice(8, 12);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
