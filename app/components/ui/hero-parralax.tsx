@@ -79,8 +79,8 @@ export const HeroParallax = () => {
 
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
-  const translateX = useSpring(useTransform(scrollYProgress, [0, 1], [0, 1000]), springConfig);
-  const translateXReverse = useSpring(useTransform(scrollYProgress, [0, 1], [0, -1000]), springConfig);
+  const translateX = useSpring(useTransform(scrollYProgress, [0, 4], [0, 1000]), springConfig);
+  const translateXReverse = useSpring(useTransform(scrollYProgress, [0, 4], [0, -1000]), springConfig);
   const rotateX = useSpring(useTransform(scrollYProgress, [0, 0.2], [15, 0]), springConfig);
   const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0.2, 1]), springConfig);
   const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
@@ -88,7 +88,7 @@ export const HeroParallax = () => {
   return (
     <div
       ref={ref}
-      className='h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]'
+      className='h-[220vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]'
     >
       <Header />
       <motion.div
@@ -156,7 +156,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className='group/product h-96 w-[30rem] relative flex-shrink-0'
+      className='group/product lg:h-96 md:h-64 md:w-[15rem] lg:w-[30rem] h-48 w-[12rem] relative flex-shrink-0'
     >
       <Link href={product.link} className='block group-hover/product:shadow-2xl '>
         <Image
