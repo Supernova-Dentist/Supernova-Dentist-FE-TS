@@ -13,12 +13,12 @@ const products = [
   {
     title: 'Composite Bonding',
     link: '/composite-bonding',
-    thumbnail: 'https://via.placeholder.com/600x600.png?text=Dental+Implants',
+    thumbnail: 'https://via.placeholder.com/600x600.png?text=Cosmetic+Dentistry',
   },
   {
     title: 'Implants',
     link: '/implants',
-    thumbnail: 'https://via.placeholder.com/600x600.png?text=Cosmetic+Dentistry',
+    thumbnail: 'https://via.placeholder.com/600x600.png?text=Dental+Implants',
   },
   {
     title: 'General Dentistry',
@@ -70,7 +70,7 @@ const products = [
 export const HeroParallax = () => {
   const firstRow = products.slice(0, 4);
   const secondRow = products.slice(4, 8);
-  const thirdRow = products.slice(8, 12);
+  const thirdRow = products.slice(8, 11);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
