@@ -69,7 +69,7 @@ const MainNav = () => {
     };
 
     return (
-      <div className='hidden md:block'>
+      <div className='hidden lg:block'>
         <NavigationMenu delayDuration={0} className='mx-auto justify-end bg-grey py-6 px-4'>
           <NavigationMenuList className='text-cream'>
             {/* Home link */}
@@ -238,7 +238,7 @@ const MainNav = () => {
 
   // Mobile drawer navigation setup
   const mobileNavigation = (
-    <div className='md:hidden bg-grey'>
+    <div className='lg:hidden bg-grey'>
       <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
         <div className='flex justify-end'>
           {/* Flex container to push the button to the right */}
