@@ -2,7 +2,7 @@ export type Blog = {
   id: number;
   title: string;
   date: string;
-  description: string;
+  description?: string;
 };
 
 const blogMockData: Blog[] = [
