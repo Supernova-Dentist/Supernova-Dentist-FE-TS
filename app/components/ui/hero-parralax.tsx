@@ -3,6 +3,7 @@ import { motion, useScroll, useSpring, useTransform, type MotionValue } from 'fr
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const products = [
   {
@@ -68,6 +69,10 @@ const products = [
 ];
 
 export const HeroParallax = () => {
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 767px)' });
+  const isMediumScreen = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1023px)' });
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 1024px)' });
+
   const firstRow = products.slice(0, 4);
   const secondRow = products.slice(4, 8);
   const thirdRow = products.slice(8, 11);
@@ -84,11 +89,24 @@ export const HeroParallax = () => {
   const rotateX = useSpring(useTransform(scrollYProgress, [0, 0.2], [15, 0]), springConfig);
   const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0.2, 1]), springConfig);
   const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
-  const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 500]), springConfig);
+
+  const translateYSmall = useSpring(useTransform(scrollYProgress, [0, 0.2], [-200, 200]), springConfig);
+  const translateYMedium = useSpring(useTransform(scrollYProgress, [0, 0.2], [-500, 300]), springConfig);
+  const translateYLarge = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 500]), springConfig);
+
+  let translateY;
+  if (isSmallScreen) {
+    translateY = translateYSmall;
+  } else if (isMediumScreen) {
+    translateY = translateYMedium;
+  } else if (isLargeScreen) {
+    translateY = translateYLarge;
+  }
+
   return (
     <div
       ref={ref}
-      className='h-[220vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]'
+      className='h-[150vh] md:h-[220vh] lg:h-[250vh] py-20 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]'
     >
       <Header />
       <motion.div
@@ -100,17 +118,17 @@ export const HeroParallax = () => {
         }}
         className=''
       >
-        <motion.div className='flex flex-row-reverse space-x-reverse space-x-20 mb-20'>
+        <motion.div className='flex flex-wrap justify-center space-x-4 mb-8'>
           {firstRow.map((product) => (
             <ProductCard product={product} translate={translateX} key={product.title} />
           ))}
         </motion.div>
-        <motion.div className='flex flex-row  mb-20 space-x-20 '>
+        <motion.div className='flex flex-wrap justify-center space-x-4 mb-8'>
           {secondRow.map((product) => (
             <ProductCard product={product} translate={translateXReverse} key={product.title} />
           ))}
         </motion.div>
-        <motion.div className='flex flex-row-reverse space-x-reverse space-x-20'>
+        <motion.div className='flex flex-wrap justify-center space-x-4'>
           {thirdRow.map((product) => (
             <ProductCard product={product} translate={translateX} key={product.title} />
           ))}
@@ -122,12 +140,12 @@ export const HeroParallax = () => {
 
 export const Header = () => {
   return (
-    <div className='max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0'>
-      <h1 className='text-2xl md:text-7xl font-bold dark:text-white'>
+    <div className='max-w-7xl mx-auto py-10 md:py-20 px-4 w-full'>
+      <h1 className='text-2xl md:text-5xl font-bold dark:text-white text-center'>
         SUPERNOVA DENTAL
         <br />A SUPERNOVA STAR SMILE
       </h1>
-      <p className='max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200'>
+      <p className='max-w-2xl text-base md:text-xl mt-4 md:mt-8 dark:text-neutral-200 mx-auto text-center'>
         At Supernova Dental, we provide top-notch dental services to give you a stellar smile. Our team of expert
         dentists and specialists use the latest technologies to ensure your dental health and enhance your natural
         beauty.
@@ -153,12 +171,12 @@ export const ProductCard = ({
         x: translate,
       }}
       whileHover={{
-        y: -20,
+        y: -10,
       }}
       key={product.title}
-      className='group/product lg:h-96 md:h-64 md:w-[15rem] lg:w-[30rem] h-48 w-[12rem] relative flex-shrink-0'
+      className='group/product h-32 w-32 md:h-64 md:w-48 lg:h-96 lg:w-64 relative flex-shrink-0'
     >
-      <Link href={product.link} className='block group-hover/product:shadow-2xl '>
+      <Link href={product.link} className='block group-hover/product:shadow-2xl'>
         <Image
           src={product.thumbnail}
           height='600'
