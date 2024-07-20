@@ -1,4 +1,4 @@
-export default async function fetchMediaById(id) {
+export default async function fetchMediaPostsById(id) {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL}/posts/${id}`);
     if (!res.ok) {
