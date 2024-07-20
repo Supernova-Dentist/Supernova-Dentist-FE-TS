@@ -115,7 +115,7 @@ export default function Gallery() {
               alt={selectedImage.alt_text}
               width={800}
               height={600}
-              className='max-w-full h-auto object-contain'
+              className='w-full h-auto object-contain'
             />
             <div className='p-4 bg-background'>
               <DialogTitle className='text-center text-2xl font-bold mb-4'>{selectedImage.title.rendered}</DialogTitle>
