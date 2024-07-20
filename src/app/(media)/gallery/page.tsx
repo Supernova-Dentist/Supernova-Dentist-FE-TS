@@ -62,7 +62,7 @@ export default function Gallery() {
     <div className='w-full max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16'>
       <div className='flex justify-center mb-8 md:mb-12'>
         <div className='flex flex-wrap gap-4 md:gap-6'>
-          {['All', 'practice-image'].map(
+          {['All', 'practice', 'invisalign'].map(
             (
               filter // Adjust category names here
             ) => (
@@ -71,7 +71,13 @@ export default function Gallery() {
                 variant={activeFilter === filter ? 'primary' : 'outline'}
                 onClick={() => setActiveFilter(filter)}
               >
-                {filter === 'image' ? 'Image' : filter === 'practice-image' ? 'Practice Image' : 'All'}
+                {filter === 'image'
+                  ? 'Image'
+                  : filter === 'practice'
+                  ? 'Practice'
+                  : filter === 'invisalign'
+                  ? 'Invisalign'
+                  : 'All'}
               </Button>
             )
           )}
@@ -109,7 +115,7 @@ export default function Gallery() {
               alt={selectedImage.alt_text}
               width={800}
               height={600}
-              className='w-full h-auto object-contain'
+              className='max-w-full h-auto object-contain'
             />
             <div className='p-4 bg-background'>
               <DialogTitle className='text-center text-2xl font-bold mb-4'>{selectedImage.title.rendered}</DialogTitle>
