@@ -64,7 +64,7 @@ export default function CompositeBonding() {
           </div>
         </div>
       </section>
-      <div className='mx-auto px-4 md:px-6 container py-4 md:py-12 lg:py-8'>
+      <div className='mx-auto px-4 md:px-6 container py-4 md:py-12'>
         <BreadCrumb />
       </div>
       <section className='py-12 md:py-18 lg:pb-28'>
