@@ -5,7 +5,7 @@ export default async function fetchMediaPosts() {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
 
-    let data = await res.json();
+    const data = await res.json();
 
     // Ensure data is an array
     if (!Array.isArray(data)) {
@@ -24,14 +24,7 @@ export default async function fetchMediaPosts() {
     console.log('Filtered posts:', filteredPosts);
 
     // Map the filtered posts to the desired format
-    return filteredPosts.map((post) => ({
-      id: post.id,
-      title: post.title,
-      content: post.content,
-      class_list: post.class_list, // Include class_list
-      jetpack_featured_media_url: post.jetpack_featured_media_url,
-      alt_text: post.alt_text,
-    }));
+    return filteredPosts;
   } catch (error) {
     console.error('Error fetching media files:', error);
     throw error;
