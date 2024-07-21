@@ -153,9 +153,9 @@ export default function CompositeBonding() {
             <Card>
               <CardContent>
                 <Image
-                  src='/assets/images/composite-bonding-consultation.jpg'
+                  src='/assets/images/composite-bonding-process.jpg'
                   alt='Consultation'
-                  className='w-full h-48 object-cover'
+                  className='w-full h-56 px-2 py-4 object-cover'
                   width={400}
                   height={300}
                 />
@@ -169,9 +169,9 @@ export default function CompositeBonding() {
             <Card>
               <CardContent>
                 <Image
-                  src='/assets/images/composite-bonding-preparation.jpg'
+                  src='/assets/images/composite-bonding-process.jpg'
                   alt='Preparation'
-                  className='w-full h-48 object-cover'
+                  className='w-full h-56 px-2 py-4 object-cover'
                   width={400}
                   height={300}
                 />
@@ -185,9 +185,9 @@ export default function CompositeBonding() {
             <Card>
               <CardContent>
                 <Image
-                  src='/assets/images/composite-bonding-application.jpg'
+                  src='/assets/images/composite-bonding-process.jpg'
                   alt='Application'
-                  className='w-full h-48 object-cover'
+                  className='w-full h-56 px-2 py-4 object-cover'
                   width={400}
                   height={300}
                 />
