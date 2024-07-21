@@ -201,7 +201,36 @@ export default function CompositeBonding() {
           </div>
         </div>
       </section>
-      <section className='bg-lightGrey py-12 md:py-20 lg:py-28 flex justify-center'>
+      <section className='py-12 md:py-20 lg:py-28 bg-lightGrey'>
+        <div className='container mx-auto px-4 md:px-6'>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl mb-6 text-center'>Client Testimonials</h2>
+          <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+            <div className='bg-white p-6 rounded-lg shadow-lg'>
+              <p className='text-lightGrey'>
+                "I couldn't be happier with my composite bonding treatment! The team was professional, and the results
+                were fantastic. My smile has never looked better!"
+              </p>
+              <p className='mt-4 font-medium text-gold'>Emily R.</p>
+            </div>
+            <div className='bg-white p-6 rounded-lg shadow-lg'>
+              <p className='text-lightGrey'>
+                "The procedure was quick and painless. I was impressed with how natural the composite bonding looks.
+                Highly recommend it to anyone looking to enhance their smile."
+              </p>
+              <p className='mt-4 font-medium text-gold'>James T.</p>
+            </div>
+            <div className='bg-white p-6 rounded-lg shadow-lg'>
+              <p className='text-lightGrey'>
+                "I had gaps between my teeth that were bothering me for years. The composite bonding transformed my
+                smile completely. Excellent service and results!"
+              </p>
+              <p className='mt-4 font-medium text-gold'>Sophia L.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='bg-white py-12 md:py-20 lg:py-28 flex justify-center'>
         <div className='w-full max-w-4xl px-4 md:px-6 text-center'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl mb-6'>Frequently Asked Questions</h2>
           <div className='bg-cream p-6 rounded-lg shadow-lg'>
