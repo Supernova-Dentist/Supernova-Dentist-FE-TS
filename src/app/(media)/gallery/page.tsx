@@ -9,8 +9,8 @@ import { FaShareAlt } from 'react-icons/fa';
 
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [mediaItems, setMediaItems] = useState([]);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [mediaItems, setMediaItems] = useState<MediaPost[]>([]);
+  const [selectedImage, setSelectedImage] = useState<MediaPost | null>(null);
 
   // Fetch media items when the component mounts
   useEffect(() => {
@@ -33,16 +33,16 @@ export default function Gallery() {
     if (activeFilter === 'All') {
       return mediaItems;
     } else {
-      return mediaItems.filter((mediaItem) => {
+      return mediaItems.filter((mediaItem: MediaPost) => {
         // Check if the class_list includes the class for the active filter
         return mediaItem.class_list.some((className) => className === `category-${activeFilter}`);
       });
     }
   }, [activeFilter, mediaItems]);
 
-  const handleImageClick = async (mediaItem) => {
+  const handleImageClick = async (mediaItem: MediaPost) => {
     try {
-      const data = await fetchMediaPostsById(mediaItem.id);
+      const data: MediaPost = await fetchMediaPostsById(mediaItem.id);
       setSelectedImage(data);
     } catch (error) {
       console.error('Error fetching media details:', error);
@@ -53,7 +53,7 @@ export default function Gallery() {
     setSelectedImage(null);
   };
 
-  function ImageContent({ content }) {
+  function ImageContent({ content }: { content: string }) {
     // Example of a simple React component rendering HTML content
     return <div className='post-content' dangerouslySetInnerHTML={{ __html: content }} />;
   }
@@ -68,7 +68,7 @@ export default function Gallery() {
             ) => (
               <Button
                 key={filter}
-                variant={activeFilter === filter ? 'primary' : 'outline'}
+                variant={activeFilter === filter ? 'secondary' : 'outline'}
                 onClick={() => setActiveFilter(filter)}
               >
                 {filter === 'image'
@@ -88,7 +88,16 @@ export default function Gallery() {
           <div
             key={image.id}
             className='relative overflow-hidden rounded-lg cursor-pointer group'
-            onClick={() => handleImageClick(image)}
+            onClick={() => {
+              handleImageClick(image)
+                .then(() => {
+                  // Handle successful resolution of the promise, if needed
+                })
+                .catch((error) => {
+                  // Handle any errors that occurred during the execution of handleImageClick
+                  console.error('Error handling image click:', error);
+                });
+            }}
           >
             <img
               src={image.jetpack_featured_media_url}
@@ -103,7 +112,7 @@ export default function Gallery() {
           </div>
         ))}
       </div>
-      {selectedImage && (
+      {selectedImage != null && (
         <Dialog open onOpenChange={handleClose}>
           <DialogClose>
             <FaShareAlt size={24} />
