@@ -10,7 +10,7 @@ export function truncateText(text: string, maxLength: number) {
   }
 
   // Truncate and add ellipsis
-  const truncatedText = strippedText.substring(0, maxLength) + '...';
+  const truncatedText = strippedText.substring(0, maxLength).trimEnd() + '...';
 
   return truncatedText;
 }
