@@ -1,9 +1,11 @@
 import { type Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import Steps from '@/components/blocks/Steps/Steps';
 import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
 import PageHero from '@/components/blocks/PageHero/PageHero';
 import Blogs from '@/components/blocks/Blogs/Blogs';
+import BlogLoadingSkeleton from '@/components/BlogLoadingSkeleton/BlogLoadingSkeleton';
 const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
 });
@@ -18,7 +20,9 @@ export default function BlogPage() {
   return (
     <>
       <PageHero bgImage='bg-blog' title='Blog' showButtons={false} className='bg-center' />
-      <Blogs />
+      <Suspense fallback={<BlogLoadingSkeleton />}>
+        <Blogs />
+      </Suspense>
       <Steps />
       <GalleryCarousel />
       <GoogleMap />
