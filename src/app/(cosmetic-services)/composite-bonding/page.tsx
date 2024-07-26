@@ -33,7 +33,7 @@ export default function CompositeBonding() {
     <div className='flex flex-col min-h-[100dvh]'>
       <section className="relative w-full bg-[url('/assets/images/composite-bonding-process.jpg')] bg-cover bg-center bg-no-repeat py-20 md:py-32 lg:py-40">
         <div className='container mx-auto px-4 md:px-6'>
-          <div className='max-w-3xl rounded-lg bg-white p-8 shadow-lg md:p-12'>
+          <div className='relative max-w-3xl rounded-lg bg-white p-8 shadow-lg md:p-12'>
             <h1 className='text-3xl font-bold text-gold md:text-4xl'>Composite Bonding</h1>
             <p className='mt-2 text-lg font-medium text-grey'>Enhance your smile with our expert dental services</p>
             <p className='mt-4 text-lightGrey'>
@@ -42,22 +42,27 @@ export default function CompositeBonding() {
               natural-looking and seamless smile.
             </p>
 
-            <p className='text-lg mt-6 text-lightGrey font-medium'>On average:</p>
-            <div className='mt-2 flex flex-col gap-4 sm:flex-row'>
-              <div className='flex flex-col gap-1'>
-                <span className='text-lg font-bold text-gold'>1 hour</span>
-                <span className='text-sm text-lightGrey'>treatment duration</span>
-              </div>
-              <div className='flex flex-col gap-1'>
-                <span className='text-lg font-bold text-gold'>2-3</span>
-                <span className='text-sm text-lightGrey'>treatments required</span>
+            <div className='mt-6 mb-8'>
+              <p className='text-lightGrey'>
+                Boost your confidence and achieve the smile you&apos;ve always wanted with our composite bonding
+                services. Book your appointment today!
+              </p>
+            </div>
+
+            <div className='absolute right-0 bottom-0 p-6'>
+              <p className='text-lg text-lightGrey text-center font-medium'>On average:</p>
+              <div className='mt-2 flex flex-col gap-4 sm:flex-row'>
+                <div className='flex flex-col gap-1'>
+                  <span className='text-lg font-bold text-gold'>1 hour</span>
+                  <span className='text-sm text-lightGrey'>treatment duration</span>
+                </div>
+                <div className='flex flex-col gap-1'>
+                  <span className='text-lg font-bold text-gold'>2-3</span>
+                  <span className='text-sm text-lightGrey'>treatments required</span>
+                </div>
               </div>
             </div>
 
-            <p className='mt-6 text-lightGrey'>
-              Boost your confidence and achieve the smile you&apos;ve always wanted with our composite bonding services.
-              Book your appointment today!
-            </p>
             <div className='mt-6 flex flex-col gap-4 sm:flex-row'>
               <Link
                 href='#'
@@ -76,6 +81,7 @@ export default function CompositeBonding() {
           </div>
         </div>
       </section>
+
       <div className='mx-auto px-4 md:px-6 container py-4 md:py-12'>
         <BreadCrumb />
       </div>
@@ -265,8 +271,8 @@ export default function CompositeBonding() {
             <div className='bg-cream p-6 rounded-lg shadow-lg'>
               <p className='text-lightGrey'>
                 &quot;The composite bonding treatment exceeded my expectations. The results were noticeable almost
-                immediately, and the process was smoother than I anticipated. It&apos;s a fantastic option for anyone wanting
-                to improve their smile with minimal fuss.&quot;
+                immediately, and the process was smoother than I anticipated. It&apos;s a fantastic option for anyone
+                wanting to improve their smile with minimal fuss.&quot;
               </p>
               <p className='my-4 font-medium text-gold'>Sophia M.</p>
 
