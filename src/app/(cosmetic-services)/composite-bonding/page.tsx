@@ -40,11 +40,9 @@ export default function CompositeBonding() {
               skilled dentists use a tooth-colored resin material to fill in gaps, chips, or discoloration, creating a
               natural-looking and seamless smile.
             </p>
-            <div className='mt-6 flex flex-col gap-4 sm:flex-row'>
-              <div className='flex flex-col gap-1'>
-                <span className='text-lg font-bold text-gold'>$299</span>
-                <span className='text-sm text-lightGrey'>per treatment</span>
-              </div>
+
+            <p className='text-lg mt-6 text-lightGrey'>On average:</p>
+            <div className='mt-2 flex flex-col gap-4 sm:flex-row'>
               <div className='flex flex-col gap-1'>
                 <span className='text-lg font-bold text-gold'>1 hour</span>
                 <span className='text-sm text-lightGrey'>treatment duration</span>
