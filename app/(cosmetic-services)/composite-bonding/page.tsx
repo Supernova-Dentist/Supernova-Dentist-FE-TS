@@ -1,5 +1,6 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ from '@/components/FAQ/FAQ';
+import { SliderWithImageComparison } from '@/components/SliderWithImageComparison/SliderWithImageComparison';
 import { Card, CardContent } from '@/components/ui/card';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -210,21 +211,53 @@ export default function CompositeBonding() {
                 &quot;I couldn&apos;t be happier with my composite bonding treatment! The team was professional, and the
                 results were fantastic. My smile has never looked better!&quot;
               </p>
-              <p className='mt-4 font-medium text-gold'>Emily R.</p>
+              <p className='my-4 font-medium text-gold'>Emily R.</p>
+              <SliderWithImageComparison
+                beforeImageSrc='/assets/images/teeth-before.jpg'
+                beforeImageAlt='Before Invisalign'
+                afterImageSrc='/assets/images/teeth-after.png'
+                afterImageAlt='After Invisalign'
+                imageWidth={400}
+                imageHeight={300}
+              />
             </div>
             <div className='bg-white p-6 rounded-lg shadow-lg'>
               <p className='text-lightGrey'>
                 &quot;The procedure was quick and painless. I was impressed with how natural the composite bonding
                 looks. Highly recommend it to anyone looking to enhance their smile.&quot;
               </p>
-              <p className='mt-4 font-medium text-gold'>James T.</p>
+              <p className='my-4 font-medium text-gold'>James T.</p>
+
+              <SliderWithImageComparison
+                beforeImageSrc='/assets/images/teeth-before.jpg'
+                beforeImageAlt='Before Invisalign'
+                afterImageSrc='/assets/images/teeth-after.png'
+                afterImageAlt='After Invisalign'
+                imageWidth={400}
+                imageHeight={300}
+              />
             </div>
+
             <div className='bg-white p-6 rounded-lg shadow-lg'>
               <p className='text-lightGrey'>
-                &quot;I had gaps between my teeth that were bothering me for years. The composite bonding transformed my
-                smile completely. Excellent service and results!&quot;
+                &quot;The procedure was quick and painless. I was impressed with how natural the composite bonding
+                looks. Highly recommend it to anyone looking to enhance their smile.&quot;
               </p>
-              <p className='mt-4 font-medium text-gold'>Sophia L.</p>
+              <p className='mt-4 font-medium text-gold'>James T.</p>
+
+              <div>
+                
+              </div>
+                <SliderWithImageComparison
+                  beforeImageSrc='/assets/images/teeth-before.jpg'
+                  beforeImageAlt='Before Invisalign'
+                  afterImageSrc='/assets/images/teeth-after.png'
+                  afterImageAlt='After Invisalign'
+                  imageWidth={200}
+                  imageHeight={300}
+                  
+                />
+            
             </div>
           </div>
         </div>
