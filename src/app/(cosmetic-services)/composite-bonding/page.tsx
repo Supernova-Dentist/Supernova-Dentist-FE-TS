@@ -264,18 +264,18 @@ export default function CompositeBonding() {
 
             <div className='bg-cream p-6 rounded-lg shadow-lg'>
               <p className='text-lightGrey'>
-                &quot;The procedure was quick and painless. I was impressed with how natural the composite bonding
-                looks. Highly recommend it to anyone looking to enhance their smile.&quot;
+                &quot;The composite bonding treatment exceeded my expectations. The results were noticeable almost
+                immediately, and the process was smoother than I anticipated. It's a fantastic option for anyone wanting
+                to improve their smile with minimal fuss.&quot;
               </p>
-              <p className='mt-4 font-medium text-gold'>James T.</p>
+              <p className='my-4 font-medium text-gold'>Sophia M.</p>
 
-              <div></div>
               <SliderWithImageComparison
                 beforeImageSrc='/assets/images/teeth-before.jpg'
-                beforeImageAlt='Before Invisalign'
+                beforeImageAlt='Before Treatment'
                 afterImageSrc='/assets/images/teeth-after.png'
-                afterImageAlt='After Invisalign'
-                imageWidth={200}
+                afterImageAlt='After Treatment'
+                imageWidth={400}
                 imageHeight={300}
               />
             </div>
