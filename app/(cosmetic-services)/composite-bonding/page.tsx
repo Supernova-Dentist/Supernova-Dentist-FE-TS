@@ -1,11 +1,11 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ from '@/components/FAQ/FAQ';
+import { Card, CardContent } from '@/components/ui/card';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { faqItems } from './utils/faqItems';
 import Link from 'next/link';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { CheckIcon } from '@radix-ui/react-icons';
+import { type JSX, type SVGProps } from 'react';
+import { faqItems } from './utils/faqItems';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Composite Bonding',
@@ -42,8 +42,8 @@ export default function CompositeBonding() {
             </div>
 
             <p className='mt-6 text-lightGrey'>
-              Boost your confidence and achieve the smile you've always wanted with our composite bonding services. Book
-              your appointment today!
+              Boost your confidence and achieve the smile you&apos;ve always wanted with our composite bonding services.
+              Book your appointment today!
             </p>
             <div className='mt-6 flex flex-col gap-4 sm:flex-row'>
               <Link
@@ -119,8 +119,8 @@ export default function CompositeBonding() {
               <SmileIcon className='h-12 w-12 text-gold' />
               <h3 className='mt-4 text-lg font-medium'>Cosmetic Concerns</h3>
               <p className='mt-2 text-lightGrey'>
-                If you're self-conscious about the appearance of your teeth, composite bonding can help you achieve a
-                more confident, beautiful smile.
+                If you&apos;re self-conscious about the appearance of your teeth, composite bonding can help you achieve
+                a more confident, beautiful smile.
               </p>
             </div>
             <div className='rounded-lg bg-white p-6 shadow-lg'>
@@ -207,22 +207,22 @@ export default function CompositeBonding() {
           <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
             <div className='bg-white p-6 rounded-lg shadow-lg'>
               <p className='text-lightGrey'>
-                "I couldn't be happier with my composite bonding treatment! The team was professional, and the results
-                were fantastic. My smile has never looked better!"
+                &quot;I couldn&apos;t be happier with my composite bonding treatment! The team was professional, and the
+                results were fantastic. My smile has never looked better!&quot;
               </p>
               <p className='mt-4 font-medium text-gold'>Emily R.</p>
             </div>
             <div className='bg-white p-6 rounded-lg shadow-lg'>
               <p className='text-lightGrey'>
-                "The procedure was quick and painless. I was impressed with how natural the composite bonding looks.
-                Highly recommend it to anyone looking to enhance their smile."
+                &quot;The procedure was quick and painless. I was impressed with how natural the composite bonding
+                looks. Highly recommend it to anyone looking to enhance their smile.&quot;
               </p>
               <p className='mt-4 font-medium text-gold'>James T.</p>
             </div>
             <div className='bg-white p-6 rounded-lg shadow-lg'>
               <p className='text-lightGrey'>
-                "I had gaps between my teeth that were bothering me for years. The composite bonding transformed my
-                smile completely. Excellent service and results!"
+                &quot;I had gaps between my teeth that were bothering me for years. The composite bonding transformed my
+                smile completely. Excellent service and results!&quot;
               </p>
               <p className='mt-4 font-medium text-gold'>Sophia L.</p>
             </div>
@@ -241,27 +241,7 @@ export default function CompositeBonding() {
     </div>
   );
 
-  function BrushIcon(props) {
-    return (
-      <svg
-        {...props}
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      >
-        <path d='m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08' />
-        <path d='M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z' />
-      </svg>
-    );
-  }
-
-  function CalendarIcon(props) {
+  function CalendarIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
@@ -283,7 +263,7 @@ export default function CompositeBonding() {
     );
   }
 
-  function CheckIcon(props) {
+  function CheckIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
@@ -302,7 +282,7 @@ export default function CompositeBonding() {
     );
   }
 
-  function SmileIcon(props) {
+  function SmileIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
@@ -324,26 +304,7 @@ export default function CompositeBonding() {
     );
   }
 
-  function SparkleIcon(props) {
-    return (
-      <svg
-        {...props}
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      >
-        <path d='M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z' />
-      </svg>
-    );
-  }
-
-  function ThumbsUpIcon(props) {
+  function ThumbsUpIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     return (
       <svg
         {...props}
@@ -359,45 +320,6 @@ export default function CompositeBonding() {
       >
         <path d='M7 10v12' />
         <path d='M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z' />
-      </svg>
-    );
-  }
-
-  function WrenchIcon(props) {
-    return (
-      <svg
-        {...props}
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      >
-        <path d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' />
-      </svg>
-    );
-  }
-
-  function XIcon(props) {
-    return (
-      <svg
-        {...props}
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      >
-        <path d='M18 6 6 18' />
-        <path d='m6 6 12 12' />
       </svg>
     );
   }
