@@ -1,3 +1,5 @@
+'use client';
+
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ from '@/components/FAQ/FAQ';
 import { SliderWithImageComparison } from '@/components/SliderWithImageComparison/SliderWithImageComparison';
@@ -5,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { type JSX, type SVGProps } from 'react';
+import { useRef, type JSX, type SVGProps } from 'react';
 
 import { XIcon } from '@heroicons/react/outline';
 import { FaThumbsUp, FaTooth } from 'react-icons/fa6';
@@ -13,13 +15,19 @@ import { GrLikeFill } from 'react-icons/gr';
 import { IoHappy, IoHappyOutline } from 'react-icons/io5';
 import { faqItems } from './utils/faqItems';
 
-export const metadata: Metadata = {
-  title: 'Supernova Dental | Composite Bonding',
-  description:
-    'Learn about composite bonding at Supernova Dental. Enhance your smile with this cosmetic dental procedure.',
-};
+// export const metadata: Metadata = {
+//   title: 'Supernova Dental | Composite Bonding',
+//   description:
+//     'Learn about composite bonding at Supernova Dental. Enhance your smile with this cosmetic dental procedure.',
+// };
 
 export default function CompositeBonding() {
+  const faqRef = useRef(null);
+
+  // Function to handle scroll
+  const scrollToFaq = () => {
+    faqRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <div className='flex flex-col min-h-[100dvh]'>
       <section className="relative w-full bg-[url('/assets/images/composite-bonding-process.jpg')] bg-cover bg-center bg-no-repeat py-20 md:py-32 lg:py-40">
@@ -54,18 +62,17 @@ export default function CompositeBonding() {
             <div className='mt-6 flex flex-col gap-4 sm:flex-row'>
               <Link
                 href='#'
-                className='inline-flex h-10 items-center justify-center rounded-md bg-gold px-6 text-sm font-medium text-white shadow transition-colors hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
+                className='inline-flex h-10 items-center justify-center rounded-md bg-gold px-6 text-sm font-medium text-white shadow transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
                 prefetch={false}
               >
                 Book Now
               </Link>
-              <Link
-                href='#'
-                className='inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-6 text-sm font-medium shadow-sm transition-colors hover:bg-cream hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
-                prefetch={false}
+              <button
+                onClick={scrollToFaq}
+                className='inline-flex h-10 items-center justify-center rounded-md border border-input bg-grey text-cream px-6 text-sm font-medium shadow-sm transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
               >
                 Learn More
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -416,7 +423,7 @@ export default function CompositeBonding() {
         </div>
       </section>
 
-      <section className='bg-white py-12 md:py-20 lg:py-28 flex justify-center'>
+      <section ref={faqRef} className='bg-white py-12 md:py-20 lg:py-28 flex justify-center'>
         <div className='w-full max-w-4xl px-4 md:px-6 text-center'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl mb-6'>Frequently Asked Questions</h2>
           <div className='bg-cream p-6 rounded-lg shadow-lg'>
