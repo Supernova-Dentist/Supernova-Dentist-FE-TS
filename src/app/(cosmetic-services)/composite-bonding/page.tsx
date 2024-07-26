@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { useRef, type JSX, type SVGProps } from 'react';
 
 import { XIcon } from '@heroicons/react/outline';
+import { CheckIcon } from '@radix-ui/react-icons';
 import { FaThumbsUp, FaTooth } from 'react-icons/fa6';
 import { GrLikeFill } from 'react-icons/gr';
 import { IoHappy, IoHappyOutline } from 'react-icons/io5';
@@ -22,12 +23,12 @@ import { faqItems } from './utils/faqItems';
 // };
 
 export default function CompositeBonding() {
-  const faqRef = useRef(null);
-
+  const faqRef = useRef<HTMLElement | null>(null);
   // Function to handle scroll
   const scrollToFaq = () => {
     faqRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
   return (
     <div className='flex flex-col min-h-[100dvh]'>
       <section className="relative w-full bg-[url('/assets/images/composite-bonding-process.jpg')] bg-cover bg-center bg-no-repeat py-20 md:py-32 lg:py-40">
@@ -41,7 +42,7 @@ export default function CompositeBonding() {
               natural-looking and seamless smile.
             </p>
 
-            <p className='text-lg mt-6 text-lightGrey'>On average:</p>
+            <p className='text-lg mt-6 text-lightGrey font-medium'>On average:</p>
             <div className='mt-2 flex flex-col gap-4 sm:flex-row'>
               <div className='flex flex-col gap-1'>
                 <span className='text-lg font-bold text-gold'>1 hour</span>
@@ -431,87 +432,4 @@ export default function CompositeBonding() {
       </section>
     </div>
   );
-
-  function CalendarIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-    return (
-      <svg
-        {...props}
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      >
-        <path d='M8 2v4' />
-        <path d='M16 2v4' />
-        <rect width='18' height='18' x='3' y='4' rx='2' />
-        <path d='M3 10h18' />
-      </svg>
-    );
-  }
-
-  function CheckIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-    return (
-      <svg
-        {...props}
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      >
-        <path d='M20 6 9 17l-5-5' />
-      </svg>
-    );
-  }
-
-  function SmileIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-    return (
-      <svg
-        {...props}
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      >
-        <circle cx='12' cy='12' r='10' />
-        <path d='M8 14s1.5 2 4 2 4-2 4-2' />
-        <line x1='9' x2='9.01' y1='9' y2='9' />
-        <line x1='15' x2='15.01' y1='9' y2='9' />
-      </svg>
-    );
-  }
-
-  function ThumbsUpIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-    return (
-      <svg
-        {...props}
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      >
-        <path d='M7 10v12' />
-        <path d='M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z' />
-      </svg>
-    );
-  }
 }
