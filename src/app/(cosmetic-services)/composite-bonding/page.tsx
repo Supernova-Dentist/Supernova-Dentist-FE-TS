@@ -265,7 +265,7 @@ export default function CompositeBonding() {
             <div className='bg-cream p-6 rounded-lg shadow-lg'>
               <p className='text-lightGrey'>
                 &quot;The composite bonding treatment exceeded my expectations. The results were noticeable almost
-                immediately, and the process was smoother than I anticipated. It's a fantastic option for anyone wanting
+                immediately, and the process was smoother than I anticipated. It&apos;s a fantastic option for anyone wanting
                 to improve their smile with minimal fuss.&quot;
               </p>
               <p className='my-4 font-medium text-gold'>Sophia M.</p>
