@@ -49,34 +49,36 @@ export default function CompositeBonding() {
               </p>
             </div>
 
-            <div className='absolute right-0 bottom-0 p-6'>
-              <p className='text-lg text-lightGrey text-center font-medium'>On average:</p>
-              <div className='mt-2 flex flex-col gap-4 sm:flex-row'>
-                <div className='flex flex-col gap-1'>
-                  <span className='text-lg font-bold text-gold'>1 hour</span>
-                  <span className='text-sm text-lightGrey'>treatment duration</span>
-                </div>
-                <div className='flex flex-col gap-1'>
-                  <span className='text-lg font-bold text-gold'>2-3</span>
-                  <span className='text-sm text-lightGrey'>treatments required</span>
+            <div className='flex flex-col-reverse md:flex-row md:justify-between'>
+              <div className='flex flex-col gap-4 md:absolute md:right-0 md:bottom-0 md:w-auto md:p-6 '>
+                <p className='text-lg text-lightGrey font-medium text-center'>On average:</p>
+                <div className='mt-2 flex flex-col gap-4 sm:flex-row justify-center'>
+                  <div className='flex flex-col gap-1'>
+                    <span className='text-lg font-bold text-gold text-center '>1 hour</span>
+                    <span className='text-sm text-lightGrey text-center'>treatment duration</span>
+                  </div>
+                  <div className='flex flex-col gap-1'>
+                    <span className='text-lg font-bold text-gold text-center'>2-3</span>
+                    <span className='text-sm text-lightGrey text-center'>treatments required</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className='mt-6 flex flex-col gap-4 sm:flex-row'>
-              <Link
-                href='#'
-                className='inline-flex h-10 items-center justify-center rounded-md bg-gold px-6 text-sm font-medium text-white shadow transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
-                prefetch={false}
-              >
-                Book Now
-              </Link>
-              <button
-                onClick={scrollToFaq}
-                className='inline-flex h-10 items-center justify-center rounded-md border border-input bg-grey text-cream px-6 text-sm font-medium shadow-sm transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
-              >
-                Learn More
-              </button>
+              <div className='mb-6 flex flex-col gap-4 sm:flex-row sm:justify-center'>
+                <Link
+                  href='#'
+                  className='inline-flex h-10 items-center justify-center rounded-md bg-gold px-6 text-sm font-medium text-white shadow transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
+                  prefetch={false}
+                >
+                  Book Now
+                </Link>
+                <button
+                  onClick={scrollToFaq}
+                  className='inline-flex h-10 items-center justify-center rounded-md border border-input bg-grey text-cream px-6 text-sm font-medium shadow-sm transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
+                >
+                  Learn More
+                </button>
+              </div>
             </div>
           </div>
         </div>
