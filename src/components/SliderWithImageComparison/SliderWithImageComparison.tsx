@@ -1,10 +1,10 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
-import { Slider } from '../ui/slider';
 import { Card } from '../ui/card';
+import { Slider } from '../ui/slider';
 
 type SliderDemoProps = {
   className?: string;
@@ -63,7 +63,7 @@ export function SliderWithImageComparison({
 
       <div className='flex items-center justify-center mt-4'>
         <Slider
-          className={cn('w-[60%]', className)}
+          className={cn('w-[60%] hover:cursor-pointer', className)}
           step={1}
           defaultValue={sliderValue}
           onValueChange={handleSliderChange}
