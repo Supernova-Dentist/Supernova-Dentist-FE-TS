@@ -99,21 +99,42 @@ export default function CompositeBonding() {
             shaped and polished to match the surrounding teeth for a natural look.
           </p>
           <p className='mt-4 text-lightGrey'>
-            One of the key advantages of composite bonding over other treatments is its minimally invasive nature.
-            Unlike veneers or crowns, composite bonding usually requires little to no removal of the natural tooth
-            structure. This preserves the integrity of your teeth while still providing a dramatic improvement in
-            appearance.
-          </p>
-          <ul className='mt-4 text-lightGrey list-disc list-inside'>
-            <li>Minimally invasive</li>
-            <li>Preserves natural tooth structure</li>
-            <li>Long-lasting results</li>
-          </ul>
-          <p className='mt-4 text-lightGrey'>
-            Composite bonding has been in use for several decades and has a well-established safety record. Advances in
+            This treatment has been in use for several decades and has a well-established safety record. Advances in
             dental materials and techniques have made this procedure more effective and longer-lasting than ever before.
           </p>
-          <p className='mt-6 text-lightGrey font-bold'>This versatile treatment can be used to:</p>
+          <p className='mt-6 text-lightGrey font-bold'>Advantages of Composite Bonding:</p>
+          <ul className='mt-6 grid gap-4 md:grid-cols-2'>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Minimally Invasive</h3>
+                <p className='text-lightGrey'>Preserves the integrity of your natural teeth.</p>
+              </div>
+            </li>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Preserves Natural Tooth Structure</h3>
+                <p className='text-lightGrey'>Requires little to no removal of the natural tooth structure.</p>
+              </div>
+            </li>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Improvement in Appearance</h3>
+                <p className='text-lightGrey'>Provides a dramatic improvement in the appearance of your smile.</p>
+              </div>
+            </li>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Long-Lasting Results</h3>
+                <p className='text-lightGrey'>Offers durable and long-lasting results.</p>
+              </div>
+            </li>
+          </ul>
+
+          <p className='mt-6 text-lightGrey font-bold'>Use Cases of Composite Bonding:</p>
           <ul className='mt-6 grid gap-4 md:grid-cols-2'>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
