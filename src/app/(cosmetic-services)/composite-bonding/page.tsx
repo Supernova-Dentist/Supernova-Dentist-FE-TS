@@ -34,9 +34,11 @@ export default function CompositeBonding() {
       <section className="relative w-full bg-[url('/assets/images/composite-bonding-process.jpg')] bg-cover bg-center bg-no-repeat py-20 md:py-32 lg:py-40">
         <div className='container mx-auto px-4 md:px-6'>
           <div className='relative max-w-3xl rounded-lg bg-white p-8 shadow-lg md:p-12'>
-            <h1 className='text-3xl font-bold text-gold md:text-4xl'>Composite Bonding</h1>
-            <p className='mt-2 text-lg font-medium text-grey'>Enhance your smile with our expert dental services</p>
-            <p className='mt-4 text-lightGrey'>
+            <h1 className='text-3xl font-bold text-gold md:text-4xl text-center'>Composite Bonding</h1>
+            <p className='mt-4 text-lg font-medium text-grey text-center'>
+              Enhance your smile with our expert dental services
+            </p>
+            <p className='mt-6 text-lightGrey'>
               Composite bonding is a cosmetic dental procedure that can improve the appearance of your teeth. Our
               skilled dentists use a tooth-colored resin material to fill in gaps, chips, or discoloration, creating a
               natural-looking and seamless smile.
@@ -63,22 +65,22 @@ export default function CompositeBonding() {
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div className='mb-6 flex flex-col gap-4 sm:flex-row sm:justify-center'>
-                <Link
-                  href='#'
-                  className='inline-flex h-10 items-center justify-center rounded-md bg-gold px-6 text-sm font-medium text-white shadow transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
-                  prefetch={false}
-                >
-                  Book Now
-                </Link>
-                <button
-                  onClick={scrollToFaq}
-                  className='inline-flex h-10 items-center justify-center rounded-md border border-input bg-grey text-cream px-6 text-sm font-medium shadow-sm transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
-                >
-                  Learn More
-                </button>
-              </div>
+            <div className='lg:mt-6 mt-10 flex flex-col  gap-4 sm:flex-row md:justify-start sm:justify-center'>
+              <Link
+                href='#'
+                className='inline-flex h-10 items-center justify-center rounded-md bg-gold px-6 text-sm font-medium text-white shadow transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
+                prefetch={false}
+              >
+                Book Now
+              </Link>
+              <button
+                onClick={scrollToFaq}
+                className='inline-flex h-10 items-center justify-center rounded-md border border-input bg-grey text-cream px-6 text-sm font-medium shadow-sm transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
+              >
+                Learn More
+              </button>
             </div>
           </div>
         </div>
