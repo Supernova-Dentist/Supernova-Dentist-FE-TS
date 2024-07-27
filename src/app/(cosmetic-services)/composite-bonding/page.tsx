@@ -54,10 +54,11 @@ export default function CompositeBonding() {
             <div className='flex flex-col-reverse md:flex-row md:justify-between'>
               <div className='flex flex-col gap-4 md:absolute md:right-0 md:bottom-0 md:w-auto md:p-6 '>
                 <p className='text-lg text-lightGrey font-medium text-center'>On average:</p>
-                <div className='mt-2 flex flex-col gap-4 sm:flex-row justify-center'>
+                <div className='flex flex-col gap-4 sm:flex-row justify-center'>
                   <div className='flex flex-col gap-1'>
-                    <span className='text-lg font-bold text-gold text-center '>45 - 60 minutes</span>
+                    <span className='text-lg font-bold text-gold text-center '>30 - 60 minutes</span>
                     <span className='text-sm text-lightGrey text-center'>treatment duration</span>
+                    <span className='text-sm text-lightGrey text-center'>per tooth</span>
                   </div>
                   <div className='flex flex-col gap-1'>
                     <span className='text-lg font-bold text-gold text-center'>1</span>
