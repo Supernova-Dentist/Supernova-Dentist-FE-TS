@@ -36,7 +36,7 @@ export default function CompositeBonding() {
           <div className='relative max-w-3xl rounded-lg bg-white p-8 shadow-lg md:p-12'>
             <h1 className='text-3xl font-bold text-gold md:text-4xl text-center'>Composite Bonding</h1>
             <p className='mt-4 text-lg font-medium text-grey text-center'>
-              Enhance your smile with our expert dental services
+              Transform your smile with our expert composite bonding services.
             </p>
             <p className='mt-6 text-lightGrey'>
               Composite bonding is a cosmetic dental procedure that can improve the appearance of your teeth. Our
@@ -104,6 +104,11 @@ export default function CompositeBonding() {
             structure. This preserves the integrity of your teeth while still providing a dramatic improvement in
             appearance.
           </p>
+          <ul className='mt-4 text-lightGrey list-disc list-inside'>
+            <li>Minimally invasive</li>
+            <li>Preserves natural tooth structure</li>
+            <li>Long-lasting results</li>
+          </ul>
           <p className='mt-4 text-lightGrey'>
             Composite bonding has been in use for several decades and has a well-established safety record. Advances in
             dental materials and techniques have made this procedure more effective and longer-lasting than ever before.
@@ -143,6 +148,7 @@ export default function CompositeBonding() {
           </ul>
         </div>
       </section>
+
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-grey'>
         <div className='container mx-auto px-4 md:px-6'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl'>Who Can Benefit from Composite Bonding?</h2>
@@ -391,16 +397,10 @@ export default function CompositeBonding() {
                   </td>
                 </tr>
                 <tr>
-                  <td className='py-4 px-4 text-sm font-medium text-gold'>Long-lasting</td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
-                  </td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
-                  </td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
-                  </td>
+                  <td className='py-4 px-4 text-sm font-medium text-gold'>Estimated Longevity</td>
+                  <td className='py-4 px-4 text-sm text-center'>5-7 years</td>
+                  <td className='py-4 px-4 text-sm text-center'>10 years</td>
+                  <td className='py-4 px-4 text-sm text-center'>15 years</td>
                 </tr>
                 <tr>
                   <td className='py-4 px-4 text-sm font-medium text-gold'>Cost-effective</td>
