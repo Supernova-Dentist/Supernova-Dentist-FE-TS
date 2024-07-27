@@ -54,10 +54,11 @@ export default function CompositeBonding() {
             <div className='flex flex-col-reverse md:flex-row md:justify-between'>
               <div className='flex flex-col gap-4 md:absolute md:right-0 md:bottom-0 md:w-auto md:p-6 '>
                 <p className='text-lg text-lightGrey font-medium text-center'>On average:</p>
-                <div className='mt-2 flex flex-col gap-4 sm:flex-row justify-center'>
+                <div className='flex flex-col gap-4 sm:flex-row justify-center'>
                   <div className='flex flex-col gap-1'>
-                    <span className='text-lg font-bold text-gold text-center '>45 - 60 minutes</span>
+                    <span className='text-lg font-bold text-gold text-center '>30 - 60 minutes</span>
                     <span className='text-sm text-lightGrey text-center'>treatment duration</span>
+                    <span className='text-sm text-lightGrey text-center'>per tooth</span>
                   </div>
                   <div className='flex flex-col gap-1'>
                     <span className='text-lg font-bold text-gold text-center'>1</span>
@@ -89,11 +90,11 @@ export default function CompositeBonding() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <section className='py-12 px-4 md:py-18 lg:pb-28'>
+      <section className='py-8 px-4 md:py-18 lg:pb-28 '>
         <div className='container mx-auto px-4 md:px-6'>
-          <h2 className='text-2xl font-bold text-gold md:text-3xl'>What is Composite Bonding?</h2>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl '>What is Composite Bonding?</h2>
 
-          <p className='mt-4 text-lightGrey text-left'>
+          <p className='mt-6 text-lightGrey text-left'>
             Composite bonding is a highly versatile and popular cosmetic dental procedure used to enhance the appearance
             of teeth. It involves applying a tooth-colored resin material to the surface of the teeth, which is then
             shaped and polished to match the surrounding teeth for a natural look.
