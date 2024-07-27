@@ -36,7 +36,7 @@ export default function CompositeBonding() {
           <div className='relative max-w-3xl rounded-lg bg-white p-8 shadow-lg md:p-12'>
             <h1 className='text-3xl font-bold text-gold md:text-4xl text-center'>Composite Bonding</h1>
             <p className='mt-4 text-lg font-medium text-grey text-center'>
-              Enhance your smile with our expert dental services
+              Transform your smile with our expert composite bonding services.
             </p>
             <p className='mt-6 text-lightGrey'>
               Composite bonding is a cosmetic dental procedure that can improve the appearance of your teeth. Our
@@ -89,7 +89,7 @@ export default function CompositeBonding() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <section className='py-12 md:py-18 lg:pb-28'>
+      <section className='py-12 px-4 md:py-18 lg:pb-28'>
         <div className='container mx-auto px-4 md:px-6'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl'>What is Composite Bonding?</h2>
 
@@ -99,16 +99,42 @@ export default function CompositeBonding() {
             shaped and polished to match the surrounding teeth for a natural look.
           </p>
           <p className='mt-4 text-lightGrey'>
-            One of the key advantages of composite bonding over other treatments is its minimally invasive nature.
-            Unlike veneers or crowns, composite bonding usually requires little to no removal of the natural tooth
-            structure. This preserves the integrity of your teeth while still providing a dramatic improvement in
-            appearance.
-          </p>
-          <p className='mt-4 text-lightGrey'>
-            Composite bonding has been in use for several decades and has a well-established safety record. Advances in
+            This treatment has been in use for several decades and has a well-established safety record. Advances in
             dental materials and techniques have made this procedure more effective and longer-lasting than ever before.
           </p>
-          <p className='mt-6 text-lightGrey font-bold'>This versatile treatment can be used to:</p>
+          <p className='mt-6 text-lightGrey font-bold'>Advantages of Composite Bonding:</p>
+          <ul className='mt-6 grid gap-4 md:grid-cols-2'>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Minimally Invasive</h3>
+                <p className='text-lightGrey'>Preserves the integrity of your natural teeth.</p>
+              </div>
+            </li>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Preserves Natural Tooth Structure</h3>
+                <p className='text-lightGrey'>Requires little to no removal of the natural tooth structure.</p>
+              </div>
+            </li>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Improvement in Appearance</h3>
+                <p className='text-lightGrey'>Provides a dramatic improvement in the appearance of your smile.</p>
+              </div>
+            </li>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Long-Lasting Results</h3>
+                <p className='text-lightGrey'>Offers durable and long-lasting results.</p>
+              </div>
+            </li>
+          </ul>
+
+          <p className='mt-6 text-lightGrey font-bold'>Use Cases of Composite Bonding:</p>
           <ul className='mt-6 grid gap-4 md:grid-cols-2'>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
@@ -143,6 +169,7 @@ export default function CompositeBonding() {
           </ul>
         </div>
       </section>
+
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-grey'>
         <div className='container mx-auto px-4 md:px-6'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl'>Who Can Benefit from Composite Bonding?</h2>
@@ -155,7 +182,7 @@ export default function CompositeBonding() {
               <h3 className='mt-4 text-lg font-medium'>Cosmetic Concerns</h3>
               <p className='mt-2 text-lightGrey'>
                 If you&apos;re self-conscious about the appearance of your teeth, composite bonding can help you achieve
-                a more confident, beautiful smile.
+                a more confident, beautiful smile by addressing specific aesthetic issues.
               </p>
             </div>
             <div className='rounded-lg bg-white p-6 shadow-lg'>
@@ -168,15 +195,16 @@ export default function CompositeBonding() {
             </div>
             <div className='rounded-lg bg-white p-6 shadow-lg'>
               <FaThumbsUp className='h-12 w-12 text-gold' />
-              <h3 className='mt-4 text-lg font-medium'>Confidence Boost</h3>
+              <h3 className='mt-4 text-lg font-medium'>Quick and Non-Invasive</h3>
               <p className='mt-2 text-lightGrey'>
-                By improving the appearance of your teeth, composite bonding can help you feel more confident and
-                comfortable in social and professional settings.
+                Composite bonding is a quick and non-invasive procedure, allowing you to enhance your smile with minimal
+                discomfort and downtime.
               </p>
             </div>
           </div>
         </div>
       </section>
+
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-lightGrey'>
         <div className='container mx-auto px-4 md:px-6'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl'>The Composite Bonding Process</h2>
@@ -391,16 +419,10 @@ export default function CompositeBonding() {
                   </td>
                 </tr>
                 <tr>
-                  <td className='py-4 px-4 text-sm font-medium text-gold'>Long-lasting</td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
-                  </td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
-                  </td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
-                  </td>
+                  <td className='py-4 px-4 text-sm font-medium text-gold'>Estimated Longevity</td>
+                  <td className='py-4 px-4 text-sm text-center'>5-7 years</td>
+                  <td className='py-4 px-4 text-sm text-center'>10 years</td>
+                  <td className='py-4 px-4 text-sm text-center'>15 years</td>
                 </tr>
                 <tr>
                   <td className='py-4 px-4 text-sm font-medium text-gold'>Cost-effective</td>
