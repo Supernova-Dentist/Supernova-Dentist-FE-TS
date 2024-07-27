@@ -89,11 +89,11 @@ export default function CompositeBonding() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <section className='py-12 px-4 md:py-18 lg:pb-28'>
+      <section className='py-8 px-4 md:py-18 lg:pb-28 '>
         <div className='container mx-auto px-4 md:px-6'>
-          <h2 className='text-2xl font-bold text-gold md:text-3xl'>What is Composite Bonding?</h2>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl '>What is Composite Bonding?</h2>
 
-          <p className='mt-4 text-lightGrey text-left'>
+          <p className='mt-6 text-lightGrey text-left'>
             Composite bonding is a highly versatile and popular cosmetic dental procedure used to enhance the appearance
             of teeth. It involves applying a tooth-colored resin material to the surface of the teeth, which is then
             shaped and polished to match the surrounding teeth for a natural look.
