@@ -89,7 +89,7 @@ export default function CompositeBonding() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <section className='py-12 md:py-18 lg:pb-28'>
+      <section className='py-12 px-4 md:py-18 lg:pb-28'>
         <div className='container mx-auto px-4 md:px-6'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl'>What is Composite Bonding?</h2>
 
