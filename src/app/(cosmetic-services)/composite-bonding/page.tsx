@@ -56,11 +56,11 @@ export default function CompositeBonding() {
                 <p className='text-lg text-lightGrey font-medium text-center'>On average:</p>
                 <div className='mt-2 flex flex-col gap-4 sm:flex-row justify-center'>
                   <div className='flex flex-col gap-1'>
-                    <span className='text-lg font-bold text-gold text-center '>1 hour</span>
+                    <span className='text-lg font-bold text-gold text-center '>45 - 60 minutes</span>
                     <span className='text-sm text-lightGrey text-center'>treatment duration</span>
                   </div>
                   <div className='flex flex-col gap-1'>
-                    <span className='text-lg font-bold text-gold text-center'>2-3</span>
+                    <span className='text-lg font-bold text-gold text-center'>1</span>
                     <span className='text-sm text-lightGrey text-center'>treatments required</span>
                   </div>
                 </div>
