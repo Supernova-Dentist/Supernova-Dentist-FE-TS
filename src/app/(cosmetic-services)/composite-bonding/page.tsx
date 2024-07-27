@@ -182,7 +182,7 @@ export default function CompositeBonding() {
               <h3 className='mt-4 text-lg font-medium'>Cosmetic Concerns</h3>
               <p className='mt-2 text-lightGrey'>
                 If you&apos;re self-conscious about the appearance of your teeth, composite bonding can help you achieve
-                a more confident, beautiful smile.
+                a more confident, beautiful smile by addressing specific aesthetic issues.
               </p>
             </div>
             <div className='rounded-lg bg-white p-6 shadow-lg'>
@@ -195,15 +195,16 @@ export default function CompositeBonding() {
             </div>
             <div className='rounded-lg bg-white p-6 shadow-lg'>
               <FaThumbsUp className='h-12 w-12 text-gold' />
-              <h3 className='mt-4 text-lg font-medium'>Confidence Boost</h3>
+              <h3 className='mt-4 text-lg font-medium'>Quick and Non-Invasive</h3>
               <p className='mt-2 text-lightGrey'>
-                By improving the appearance of your teeth, composite bonding can help you feel more confident and
-                comfortable in social and professional settings.
+                Composite bonding is a quick and non-invasive procedure, allowing you to enhance your smile with minimal
+                discomfort and downtime.
               </p>
             </div>
           </div>
         </div>
       </section>
+
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-lightGrey'>
         <div className='container mx-auto px-4 md:px-6'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl'>The Composite Bonding Process</h2>
