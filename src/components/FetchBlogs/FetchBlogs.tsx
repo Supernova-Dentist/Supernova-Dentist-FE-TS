@@ -8,7 +8,7 @@ export default async function FetchBlogsWrapper({
 }) {
   const pageParam = Array.isArray(searchParams.page) ? searchParams.page[0] : searchParams.page;
   let page = pageParam && !isNaN(parseInt(pageParam, 10)) ? parseInt(pageParam, 10) : 1;
-  const limit = 6;
+  const limit = 9;
 
   const res = await fetch(`${process.env.WORDPRESS_API_BASE_URL}/posts`);
   const totalPages = res.headers.get('X-WP-TotalPages');

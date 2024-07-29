@@ -1,6 +1,6 @@
 import { truncateText } from '@/utils/format/truncateString';
 
-export default async function fetchBlogPosts(limit = 6, page = 1): Promise<Post[]> {
+export default async function fetchBlogPosts(limit = 9, page = 1): Promise<Post[]> {
   try {
     const res = await fetch(`${process.env.WORDPRESS_API_BASE_URL}/posts?per_page=${limit}&page=${page}`);
 
