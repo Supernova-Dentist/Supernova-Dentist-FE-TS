@@ -1,45 +1,18 @@
-'use client';
-
-import React, { useCallback, useEffect, useState } from 'react';
-import fetchBlogPosts from '@/services/wordpress/fetchPosts';
 import { decodeHtmlEntities } from '@/utils/format/decodeHtmlEntities';
 import BlogBox from '@/components/BlogBox/BlogBox';
-import PaginationWrapper from '@/components/PaginationWrapper/PaginationWrapper';
+import PaginationControls from '@/components/PaginationControls/PaginationControls';
 
-export default function Blogs() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const limit = 6;
+type BlogsProps = {
+  data: Post[];
+  page: number;
+  totalPages: number;
+};
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const posts = await fetchBlogPosts(limit, currentPage);
-        setPosts(posts);
-
-        const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL}/posts`);
-        const totalPosts = res.headers.get('x-wp-total');
-
-        if (totalPosts !== null) {
-          setTotalPages(Math.ceil(+totalPosts / limit));
-        }
-      } catch (error) {
-        console.log({ error });
-      }
-    };
-
-    void fetchData();
-  }, [currentPage]);
-
-  const handlePageChange = useCallback((page: number) => {
-    setCurrentPage(page);
-  }, []);
-
+export default async function Blogs({ data, page, totalPages }: BlogsProps) {
   return (
     <section className='container mx-auto max-w-[1500px] px-4 py-12 sm:px-10'>
       <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-12'>
-        {posts?.map((post: Post) => (
+        {data?.map((post: Post) => (
           <BlogBox
             key={post.id}
             id={post.id}
@@ -49,7 +22,7 @@ export default function Blogs() {
           />
         ))}
       </div>
-      <PaginationWrapper currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+      <PaginationControls currentPage={page} totalPages={totalPages} />
     </section>
   );
 }
