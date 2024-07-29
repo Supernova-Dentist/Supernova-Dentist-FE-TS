@@ -1,13 +1,12 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
-import BlogBox from '@/components/BlogBox/BlogBox';
 import fetchBlogPosts from '@/services/wordpress/fetchPosts';
 import { decodeHtmlEntities } from '@/utils/format/decodeHtmlEntities';
-import PaginationWrapper from '@/components/Pagination/Pagination';
+import BlogBox from '@/components/BlogBox/BlogBox';
+import PaginationWrapper from '@/components/PaginationWrapper/PaginationWrapper';
 
 export default function Blogs() {
-  // const data: Post[] = await fetchBlogPosts();
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -21,7 +20,6 @@ export default function Blogs() {
 
         const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL}/posts`);
         const totalPosts = res.headers.get('x-wp-total');
-        console.log({ totalPages, limit });
 
         if (totalPosts !== null) {
           setTotalPages(Math.ceil(+totalPosts / limit));
@@ -35,8 +33,6 @@ export default function Blogs() {
   }, [currentPage]);
 
   const handlePageChange = useCallback((page: number) => {
-    console.log({ page });
-
     setCurrentPage(page);
   }, []);
 
