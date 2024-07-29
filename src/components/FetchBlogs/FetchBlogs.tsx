@@ -11,7 +11,7 @@ export default async function FetchBlogsWrapper({
   const limit = 6;
 
   const data = await fetchBlogPosts(limit, page);
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL}/posts`);
+  const res = await fetch(`${process.env.WORDPRESS_API_BASE_URL}/posts`);
   const totalPages = res.headers.get('X-WP-TotalPages');
 
   return <Blogs data={data} page={page} totalPages={Number(totalPages)} />;
