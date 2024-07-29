@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import * as React from 'react';
 import { ChevronLeftIcon, ChevronRightIcon, DotsHorizontalIcon } from '@radix-ui/react-icons';
 import { cn } from '@/lib/utils';
@@ -27,22 +28,43 @@ PaginationItem.displayName = 'PaginationItem';
 
 type PaginationLinkProps = {
   isActive?: boolean;
+  disabled?: boolean;
+  scroll?: boolean;
+  href: string;
 } & Pick<ButtonProps, 'size'> &
-  React.ComponentProps<'a'>;
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
 
-const PaginationLink = ({ className, isActive, size = 'icon', ...props }: PaginationLinkProps) => (
-  <a
-    aria-current={isActive ? 'page' : undefined}
-    className={cn(
+const PaginationLink = ({
+  className,
+  isActive = false,
+  disabled = false,
+  size = 'icon',
+  scroll = true,
+  href,
+  ...props
+}: PaginationLinkProps) => {
+  const isInternalLink = href.startsWith('/') || href.startsWith('?');
+
+  const linkProps = {
+    'aria-current': isActive ? 'page' : undefined,
+    className: cn(
       buttonVariants({
         variant: isActive ? 'outline' : 'ghost',
         size,
       }),
       className
-    )}
-    {...props}
-  />
-);
+    ),
+    ...props,
+  };
+
+  if (disabled) return <span {...linkProps} />;
+
+  if (isInternalLink) {
+    return <Link href={href} scroll={scroll} {...linkProps} aria-disabled={disabled.toString()} />;
+  }
+
+  return <a href={href} {...linkProps} aria-disabled={disabled.toString()} />;
+};
 PaginationLink.displayName = 'PaginationLink';
 
 const PaginationPrevious = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
