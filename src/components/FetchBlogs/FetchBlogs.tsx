@@ -14,7 +14,7 @@ export default async function FetchBlogsWrapper({
   const totalPages = res.headers.get('X-WP-TotalPages');
 
   // Not ideal. Be better to redirect user in the blogs component or show some out of bounds UI
-  if (totalPages !== null && page > +totalPages) {
+  if ((totalPages !== null && page > +totalPages) || page < 1) {
     page = 1;
   }
 

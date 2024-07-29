@@ -46,7 +46,7 @@ const PaginationLink = ({
   const isInternalLink = href.startsWith('/') || href.startsWith('?');
 
   const linkProps = {
-    'aria-current': isActive ? 'page' : undefined,
+    ...(isActive && { 'aria-current': 'page' as const }),
     className: cn(
       buttonVariants({
         variant: isActive ? 'outline' : 'ghost',
@@ -57,13 +57,13 @@ const PaginationLink = ({
     ...props,
   };
 
-  if (disabled) return <span {...linkProps} />;
+  if (disabled) return <span {...linkProps} aria-disabled='true' />;
 
   if (isInternalLink) {
-    return <Link href={href} scroll={scroll} {...linkProps} aria-disabled={disabled.toString()} />;
+    return <Link href={href} scroll={scroll} {...linkProps} aria-disabled={disabled ? 'true' : 'false'} />;
   }
 
-  return <a href={href} {...linkProps} aria-disabled={disabled.toString()} />;
+  return <a href={href} {...linkProps} aria-disabled={disabled ? 'true' : 'false'} />;
 };
 PaginationLink.displayName = 'PaginationLink';
 
