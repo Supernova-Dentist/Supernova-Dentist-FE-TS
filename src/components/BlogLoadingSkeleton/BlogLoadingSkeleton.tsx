@@ -2,7 +2,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export default function BlogLoadingSkeleton() {
   const renderSkeletons = () => {
-    return Array.from({ length: 6 }).map((_, index) => (
+    return Array.from({ length: 9 }).map((_, index) => (
       <div key={index} className='flex flex-col p-6 border border-solid border-gray-200 rounded-sm shadow-lg'>
         <Skeleton className='h-6 w-3/4 mb-2' />
         <Skeleton className='h-4 w-1/4 mb-4' />
