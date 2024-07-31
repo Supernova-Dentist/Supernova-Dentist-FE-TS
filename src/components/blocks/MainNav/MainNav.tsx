@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { Button } from '@/components/ui/button';
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,8 +11,9 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { Button } from '@/components/ui/button';
-import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
 const useWindowSize = () => {
   const [size, setSize] = useState({ width: 0, height: 0 });
@@ -99,6 +99,8 @@ const MainNav = () => {
                     <ul className='grid w-full gap-3 p-4'>
                       <ListItem href='/invisalign' title='Invisalign' />
                       <ListItem href='/composite-bonding' title='Composite Bonding' />
+                      <ListItem href='/tooth-whitening' title='Tooth Whitening' />
+                      <ListItem href='/dental-implants' title='Dental Implants' />
                     </ul>
                   </NavigationMenuContent>
                 )}
@@ -262,6 +264,8 @@ const MainNav = () => {
             links={[
               { href: '/invisalign', title: 'Invisalign' },
               { href: '/composite-bonding', title: 'Composite Bonding' },
+              { href: '/tooth-whitening', title: 'Tooth Whitening' },
+              { href: '/dental-implants', title: 'Dental Implants' },
             ]}
             closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
