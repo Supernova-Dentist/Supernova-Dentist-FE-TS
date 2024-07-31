@@ -2,18 +2,17 @@
 
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ from '@/components/FAQ/FAQ';
+import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import { SliderWithImageComparison } from '@/components/SliderWithImageComparison/SliderWithImageComparison';
 import { Card, CardContent } from '@/components/ui/card';
+import { XIcon } from '@heroicons/react/outline';
+import { CheckIcon } from '@radix-ui/react-icons';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef, type JSX, type SVGProps } from 'react';
-
-import { XIcon } from '@heroicons/react/outline';
-import { CheckIcon } from '@radix-ui/react-icons';
+import { useRef } from 'react';
 import { FaThumbsUp, FaTooth } from 'react-icons/fa6';
-import { GrLikeFill } from 'react-icons/gr';
-import { IoHappy, IoHappyOutline } from 'react-icons/io5';
+import { IoHappy } from 'react-icons/io5';
 import { faqItems } from './utils/faqItems';
 
 // export const metadata: Metadata = {
@@ -39,9 +38,9 @@ export default function CompositeBonding() {
               Transform your smile with our expert composite bonding services.
             </p>
             <p className='mt-6 text-lightGrey'>
-              Composite bonding is a cosmetic dental procedure that can improve the appearance of your teeth. Our
-              skilled dentists use a tooth-colored resin material to fill in gaps, chips, or discoloration, creating a
-              natural-looking and seamless smile.
+              Composite bonding is a cosmetic dental procedure that enhances the appearance of your teeth. Our skilled
+              dentists use tooth-colored resin to fill in gaps, chips, or discoloration, creating a natural-looking,
+              seamless smile. This treatment improves aesthetics and helps restore your teeth’s function and beauty.
             </p>
 
             <div className='mt-6 mb-8'>
@@ -208,7 +207,7 @@ export default function CompositeBonding() {
 
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-lightGrey'>
         <div className='container mx-auto px-4 md:px-6'>
-          <h2 className='text-2xl font-bold text-gold md:text-3xl'>The Composite Bonding Process</h2>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl'>Your Composite Bonding Process</h2>
           <p className='mt-4 text-cream'>
             Our experienced dentists follow a simple and straightforward process to ensure your composite bonding
             treatment is comfortable and effective:
@@ -325,7 +324,7 @@ export default function CompositeBonding() {
       {/* Aftercare Instructions */}
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-grey'>
         <div className='container mx-auto px-4 md:px-6'>
-          <h2 className='text-2xl font-bold text-gold md:text-3xl'>Aftercare Instructions</h2>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl'>Composite Bonding Aftercare Instructions</h2>
           <p className='mt-4 text-cream'>
             Proper aftercare is crucial to ensure the longevity and appearance of your composite bonding. Here are some
             tips to help you maintain your new smile:
@@ -377,6 +376,7 @@ export default function CompositeBonding() {
           </p>
         </div>
       </section>
+
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-lightGrey'>
         <div className='container mx-auto px-4 md:px-6'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl mb-6 text-center'>Treatment Comparison</h2>
@@ -463,6 +463,7 @@ export default function CompositeBonding() {
           </div>
         </div>
       </section>
+      <ScrollToTopButton />
     </div>
   );
 }
