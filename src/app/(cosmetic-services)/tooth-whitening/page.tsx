@@ -11,8 +11,9 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
-import { FaThumbsUp, FaTooth } from 'react-icons/fa6';
+import { FaStar } from 'react-icons/fa6';
 import { IoHappy } from 'react-icons/io5';
+import { MdCoffeeMaker } from 'react-icons/md';
 import { faqItems } from './utils/faqItems';
 
 // export const metadata: Metadata = {
@@ -21,7 +22,7 @@ import { faqItems } from './utils/faqItems';
 //     'Learn about composite bonding at Supernova Dental. Enhance your smile with this cosmetic dental procedure.',
 // };
 
-export default function CompositeBonding() {
+export default function ToothWhitening() {
   const faqRef = useRef<HTMLElement | null>(null);
   // Function to handle scroll
   const scrollToFaq = () => {
@@ -33,41 +34,41 @@ export default function CompositeBonding() {
       <section className="relative w-full bg-[url('/assets/images/composite-bonding-process.jpg')] bg-cover bg-center bg-no-repeat py-20 md:py-32 lg:py-40">
         <div className='container mx-auto px-4 md:px-6'>
           <div className='relative max-w-3xl rounded-lg bg-white p-8 shadow-lg md:p-12'>
-            <h1 className='text-3xl font-bold text-gold md:text-4xl text-center'>Composite Bonding</h1>
+            <h1 className='text-3xl font-bold text-gold md:text-4xl text-center'>Tooth Whitening</h1>
             <p className='mt-4 text-lg font-medium text-grey text-center'>
-              Transform your smile with our expert composite bonding services.
+              Brighten your smile with our professional tooth whitening services.
             </p>
             <p className='mt-6 text-lightGrey'>
-              Composite bonding is a cosmetic dental procedure that enhances the appearance of your teeth. Our skilled
-              dentists use tooth-colored resin to fill in gaps, chips, or discoloration, creating a natural-looking,
-              seamless smile. This treatment improves aesthetics and helps restore your teeth’s function and beauty.
+              Our tooth whitening treatments use advanced technology to effectively remove stains and discoloration,
+              giving you a dazzling, whiter smile. Whether you’re preparing for a special event or just looking to
+              enhance your everyday look, our expert team is here to help you achieve your desired results.
             </p>
 
             <div className='mt-6 mb-8'>
               <p className='text-lightGrey'>
-                Boost your confidence and achieve the smile you&apos;ve always wanted with our composite bonding
-                services. Book your appointment today!
+                Experience a radiant smile and increased confidence with our top-quality tooth whitening services.
+                Schedule your consultation today!
               </p>
             </div>
 
             <div className='flex flex-col-reverse md:flex-row md:justify-between'>
-              <div className='flex flex-col gap-4 md:absolute md:right-0 md:bottom-0 md:w-auto md:p-6 '>
+              <div className='flex flex-col gap-4 md:absolute md:right-0 md:bottom-0 md:w-auto md:p-6'>
                 <p className='text-lg text-lightGrey font-medium text-center'>On average:</p>
                 <div className='flex flex-col gap-4 sm:flex-row justify-center'>
                   <div className='flex flex-col gap-1'>
-                    <span className='text-lg font-bold text-gold text-center '>30 - 60 minutes</span>
+                    <span className='text-lg font-bold text-gold text-center'>60 - 90 minutes</span>
                     <span className='text-sm text-lightGrey text-center'>treatment duration</span>
-                    <span className='text-sm text-lightGrey text-center'>per tooth</span>
+                    <span className='text-sm text-lightGrey text-center'>per session</span>
                   </div>
                   <div className='flex flex-col gap-1'>
-                    <span className='text-lg font-bold text-gold text-center'>1</span>
-                    <span className='text-sm text-lightGrey text-center'>treatments required</span>
+                    <span className='text-lg font-bold text-gold text-center'>1 - 3</span>
+                    <span className='text-sm text-lightGrey text-center'>sessions required</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className='lg:mt-6 mt-10 flex flex-col  gap-4 sm:flex-row md:justify-start sm:justify-center'>
+            <div className='lg:mt-6 mt-10 flex flex-col gap-4 sm:flex-row md:justify-start sm:justify-center'>
               <Link
                 href='#'
                 className='inline-flex h-10 items-center justify-center rounded-md bg-gold px-6 text-sm font-medium text-white shadow transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
@@ -77,7 +78,7 @@ export default function CompositeBonding() {
               </Link>
               <button
                 onClick={scrollToFaq}
-                className='inline-flex h-10 items-center justify-center rounded-md border border-input bg-grey text-cream px-6 text-sm font-medium shadow-sm transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
+                className='inline-flex h-10 items-center justify-center rounded-md border border-grey bg-grey text-cream px-6 text-sm font-medium shadow-sm transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
               >
                 Learn More
               </button>
@@ -89,81 +90,83 @@ export default function CompositeBonding() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <section className='py-8 px-4 md:py-18 lg:pb-28 '>
+
+      <section className='py-8 px-4 md:py-18 lg:pb-28'>
         <div className='container mx-auto px-4 md:px-6'>
-          <h2 className='text-2xl font-bold text-gold md:text-3xl '>What is Composite Bonding?</h2>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl'>What is Tooth Whitening?</h2>
 
           <p className='mt-6 text-lightGrey text-left'>
-            Composite bonding is a highly versatile and popular cosmetic dental procedure used to enhance the appearance
-            of teeth. It involves applying a tooth-colored resin material to the surface of the teeth, which is then
-            shaped and polished to match the surrounding teeth for a natural look.
+            Tooth whitening is a popular cosmetic dental procedure designed to brighten the color of your teeth. It
+            involves using advanced whitening agents to remove stains and discoloration, resulting in a whiter, more
+            radiant smile.
           </p>
           <p className='mt-4 text-lightGrey'>
-            This treatment has been in use for several decades and has a well-established safety record. Advances in
-            dental materials and techniques have made this procedure more effective and longer-lasting than ever before.
+            With numerous techniques available, including in-office treatments and take-home options, tooth whitening
+            can be tailored to meet your specific needs and preferences. Our experienced team ensures safe, effective,
+            and noticeable results.
           </p>
-          <p className='mt-6 text-lightGrey font-bold'>Advantages of Composite Bonding:</p>
+          <p className='mt-6 text-lightGrey font-bold'>Advantages of Tooth Whitening:</p>
           <ul className='mt-6 grid gap-4 md:grid-cols-2'>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
               <div>
-                <h3 className='text-lg font-medium'>Minimally Invasive</h3>
-                <p className='text-lightGrey'>Preserves the integrity of your natural teeth.</p>
+                <h3 className='text-lg font-medium'>Enhanced Aesthetics</h3>
+                <p className='text-lightGrey'>Brightens teeth for a more youthful and vibrant appearance.</p>
               </div>
             </li>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
               <div>
-                <h3 className='text-lg font-medium'>Preserves Natural Tooth Structure</h3>
-                <p className='text-lightGrey'>Requires little to no removal of the natural tooth structure.</p>
+                <h3 className='text-lg font-medium'>Quick Results</h3>
+                <p className='text-lightGrey'>Achieve noticeable whitening effects in a short period of time.</p>
               </div>
             </li>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
               <div>
-                <h3 className='text-lg font-medium'>Improvement in Appearance</h3>
-                <p className='text-lightGrey'>Provides a dramatic improvement in the appearance of your smile.</p>
+                <h3 className='text-lg font-medium'>Safe and Effective</h3>
+                <p className='text-lightGrey'>Uses clinically proven methods to ensure safety and effectiveness.</p>
               </div>
             </li>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
               <div>
-                <h3 className='text-lg font-medium'>Long-Lasting Results</h3>
-                <p className='text-lightGrey'>Offers durable and long-lasting results.</p>
+                <h3 className='text-lg font-medium'>Customizable Options</h3>
+                <p className='text-lightGrey'>Choose from in-office treatments or take-home whitening kits.</p>
               </div>
             </li>
           </ul>
 
-          <p className='mt-6 text-lightGrey font-bold'>Use Cases of Composite Bonding:</p>
+          <p className='mt-6 text-lightGrey font-bold'>Use Cases of Tooth Whitening:</p>
           <ul className='mt-6 grid gap-4 md:grid-cols-2'>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
               <div>
-                <h3 className='text-lg font-medium'>Fill in Gaps</h3>
-                <p className='text-lightGrey'>Close gaps and spaces between teeth for a more uniform smile.</p>
+                <h3 className='text-lg font-medium'>Brighten Stained Teeth</h3>
+                <p className='text-lightGrey'>Effectively removes stains caused by coffee, tea, and tobacco.</p>
               </div>
             </li>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
               <div>
-                <h3 className='text-lg font-medium'>Repair Chips</h3>
-                <p className='text-lightGrey'>Restore the shape and appearance of chipped or cracked teeth.</p>
-              </div>
-            </li>
-            <li className='flex items-start gap-3'>
-              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
-              <div>
-                <h3 className='text-lg font-medium'>Whiten Discolored Teeth</h3>
-                <p className='text-lightGrey'>Improve the color and brightness of stained or discolored teeth.</p>
-              </div>
-            </li>
-            <li className='flex items-start gap-3'>
-              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
-              <div>
-                <h3 className='text-lg font-medium'>Reshape Teeth</h3>
+                <h3 className='text-lg font-medium'>Prepare for Special Events</h3>
                 <p className='text-lightGrey'>
-                  Alter the shape and size of teeth for a more balanced, symmetrical smile.
+                  Get a brighter smile for weddings, interviews, or other important occasions.
                 </p>
+              </div>
+            </li>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Enhance Overall Smile</h3>
+                <p className='text-lightGrey'>Complete your smile makeover with a whitening treatment.</p>
+              </div>
+            </li>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg font-medium'>Boost Self-Confidence</h3>
+                <p className='text-lightGrey'>Enjoy a brighter smile and increased self-esteem.</p>
               </div>
             </li>
           </ul>
@@ -172,33 +175,34 @@ export default function CompositeBonding() {
 
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-grey'>
         <div className='container mx-auto px-4 md:px-6'>
-          <h2 className='text-2xl font-bold text-gold md:text-3xl'>Who Can Benefit from Composite Bonding?</h2>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl'>Who Can Benefit from Tooth Whitening?</h2>
           <p className='mt-4 text-cream'>
-            Composite bonding is a versatile treatment that can benefit a wide range of patients:
+            Tooth whitening is a popular cosmetic treatment that can enhance your smile and boost your confidence. It’s
+            ideal for a variety of patients:
           </p>
           <div className='mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
             <div className='rounded-lg bg-white p-6 shadow-lg'>
               <IoHappy className='h-12 w-12 text-gold' />
-              <h3 className='mt-4 text-lg font-medium'>Cosmetic Concerns</h3>
+              <h3 className='mt-4 text-lg font-medium'>Brighten Your Smile</h3>
               <p className='mt-2 text-lightGrey'>
-                If you&apos;re self-conscious about the appearance of your teeth, composite bonding can help you achieve
-                a more confident, beautiful smile by addressing specific aesthetic issues.
+                If you&apos;re looking to brighten your smile and reduce the appearance of stains and discoloration,
+                tooth whitening can offer a dramatic improvement and enhance your overall appearance.
               </p>
             </div>
             <div className='rounded-lg bg-white p-6 shadow-lg'>
-              <FaTooth className='h-12 w-12 text-gold' />
-              <h3 className='mt-4 text-lg font-medium'>Dental Imperfections</h3>
+              <MdCoffeeMaker className='h-12 w-12 text-gold' />
+              <h3 className='mt-4 text-lg font-medium'>Remove Stains</h3>
               <p className='mt-2 text-lightGrey'>
-                Composite bonding can address a variety of dental issues, such as gaps, chips, cracks, and
-                discoloration, for a more uniform and healthy-looking smile.
+                Whether caused by coffee, tea, red wine, or tobacco, tooth whitening can effectively address and remove
+                stubborn stains, giving your teeth a cleaner, brighter look.
               </p>
             </div>
             <div className='rounded-lg bg-white p-6 shadow-lg'>
-              <FaThumbsUp className='h-12 w-12 text-gold' />
-              <h3 className='mt-4 text-lg font-medium'>Quick and Non-Invasive</h3>
+              <FaStar className='h-12 w-12 text-gold' />
+              <h3 className='mt-4 text-lg font-medium'>Quick Results</h3>
               <p className='mt-2 text-lightGrey'>
-                Composite bonding is a quick and non-invasive procedure, allowing you to enhance your smile with minimal
-                discomfort and downtime.
+                With in-office treatments, you can see significant results in just one visit. At-home options also offer
+                flexibility with noticeable improvements over time.
               </p>
             </div>
           </div>
@@ -207,10 +211,10 @@ export default function CompositeBonding() {
 
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-lightGrey'>
         <div className='container mx-auto px-4 md:px-6'>
-          <h2 className='text-2xl font-bold text-gold md:text-3xl'>Your Composite Bonding Process</h2>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl'>Your Tooth Whitening Process</h2>
           <p className='mt-4 text-cream'>
-            Our experienced dentists follow a simple and straightforward process to ensure your composite bonding
-            treatment is comfortable and effective:
+            Our professional tooth whitening process is designed to safely and effectively brighten your smile. Here’s
+            how we ensure a smooth and successful treatment:
           </p>
           <div className='mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
             <Card>
@@ -224,8 +228,8 @@ export default function CompositeBonding() {
                 />
                 <h3 className='mt-4 text-lg font-medium text-gold'>Consultation</h3>
                 <p className='mt-2 text-lightGrey'>
-                  During your initial consultation, we’ll discuss your goals and evaluate your dental health to
-                  determine if composite bonding is the right solution for you.
+                  During your initial consultation, we’ll assess your dental health and discuss your whitening goals to
+                  determine the best treatment plan for you.
                 </p>
               </CardContent>
             </Card>
@@ -240,8 +244,8 @@ export default function CompositeBonding() {
                 />
                 <h3 className='mt-4 text-lg font-medium text-gold'>Preparation</h3>
                 <p className='mt-2 text-lightGrey'>
-                  We prepare your teeth by cleaning and etching the surface to ensure the bonding material adheres
-                  properly.
+                  We prepare your teeth by thoroughly cleaning them and, if needed, applying a protective gel to
+                  safeguard your gums during the whitening process.
                 </p>
               </CardContent>
             </Card>
@@ -256,14 +260,15 @@ export default function CompositeBonding() {
                 />
                 <h3 className='mt-4 text-lg font-medium text-gold'>Application</h3>
                 <p className='mt-2 text-lightGrey'>
-                  The composite resin is applied and shaped to match the natural contours of your teeth. It is then
-                  cured using a special light.
+                  The whitening gel is applied to your teeth and activated using a special light or laser, which
+                  accelerates the whitening process for noticeable results.
                 </p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
+
       <section className='py-12 px-4 md:py-20 lg:py-28'>
         <div className='container mx-auto px-4 md:px-6'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl mb-6 text-center'>Client Testimonials</h2>
@@ -276,9 +281,9 @@ export default function CompositeBonding() {
               <p className='my-4 font-medium text-gold'>Emily R.</p>
               <SliderWithImageComparison
                 beforeImageSrc='/assets/images/teeth-before.jpg'
-                beforeImageAlt='Before Invisalign'
+                beforeImageAlt='Before Composite Bonding'
                 afterImageSrc='/assets/images/teeth-after.png'
-                afterImageAlt='After Invisalign'
+                afterImageAlt='After Composite Bonding'
                 imageWidth={400}
                 imageHeight={300}
               />
@@ -289,17 +294,15 @@ export default function CompositeBonding() {
                 looks. Highly recommend it to anyone looking to enhance their smile.&quot;
               </p>
               <p className='my-4 font-medium text-gold'>James T.</p>
-
               <SliderWithImageComparison
                 beforeImageSrc='/assets/images/teeth-before.jpg'
-                beforeImageAlt='Before Invisalign'
+                beforeImageAlt='Before Composite Bonding'
                 afterImageSrc='/assets/images/teeth-after.png'
-                afterImageAlt='After Invisalign'
+                afterImageAlt='After Composite Bonding'
                 imageWidth={400}
                 imageHeight={300}
               />
             </div>
-
             <div className='bg-cream p-6 rounded-lg shadow-lg'>
               <p className='text-lightGrey'>
                 &quot;The composite bonding treatment exceeded my expectations. The results were noticeable almost
@@ -307,12 +310,11 @@ export default function CompositeBonding() {
                 wanting to improve their smile with minimal fuss.&quot;
               </p>
               <p className='my-4 font-medium text-gold'>Sophia M.</p>
-
               <SliderWithImageComparison
                 beforeImageSrc='/assets/images/teeth-before.jpg'
-                beforeImageAlt='Before Treatment'
+                beforeImageAlt='Before Composite Bonding'
                 afterImageSrc='/assets/images/teeth-after.png'
-                afterImageAlt='After Treatment'
+                afterImageAlt='After Composite Bonding'
                 imageWidth={400}
                 imageHeight={300}
               />
@@ -321,40 +323,41 @@ export default function CompositeBonding() {
         </div>
       </section>
 
-      {/* Aftercare Instructions */}
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-grey'>
         <div className='container mx-auto px-4 md:px-6'>
-          <h2 className='text-2xl font-bold text-gold md:text-3xl'>Composite Bonding Aftercare Instructions</h2>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl'>Tooth Whitening Aftercare Instructions</h2>
           <p className='mt-4 text-cream'>
-            Proper aftercare is crucial to ensure the longevity and appearance of your composite bonding. Here are some
-            tips to help you maintain your new smile:
+            Proper aftercare is crucial to ensure the longevity and appearance of your tooth whitening results. Follow
+            these tips to keep your smile bright and healthy:
           </p>
           <ul className='mt-6 grid gap-4 md:grid-cols-2'>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
               <div>
-                <h3 className='text-lg text-gold'>Maintain Good Oral Hygiene</h3>
-                <p className='text-cream'>
-                  Brush your teeth at least twice a day and floss daily to keep your teeth and gums healthy.
-                </p>
-              </div>
-            </li>
-            <li className='flex items-start gap-3'>
-              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
-              <div>
                 <h3 className='text-lg text-gold'>Avoid Staining Foods and Drinks</h3>
                 <p className='text-cream'>
-                  Limit your intake of coffee, tea, red wine, and tobacco to prevent staining of the composite resin.
+                  Limit your consumption of coffee, tea, red wine, and other staining foods or beverages to preserve the
+                  brightness of your teeth.
                 </p>
               </div>
             </li>
             <li className='flex items-start gap-3'>
               <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
               <div>
-                <h3 className='text-lg text-gold'>Be Gentle</h3>
+                <h3 className='text-lg text-gold'>Maintain Good Oral Hygiene</h3>
                 <p className='text-cream'>
-                  Avoid biting your nails, chewing on pens, or using your teeth as tools, as these actions can damage
-                  the composite bonding.
+                  Brush your teeth twice daily with a fluoride toothpaste and floss regularly to keep your teeth and
+                  gums healthy.
+                </p>
+              </div>
+            </li>
+            <li className='flex items-start gap-3'>
+              <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
+              <div>
+                <h3 className='text-lg text-gold'>Use a Straw</h3>
+                <p className='text-cream'>
+                  When consuming beverages that can stain teeth, such as coffee or tea, use a straw to minimize contact
+                  with your teeth.
                 </p>
               </div>
             </li>
@@ -363,70 +366,70 @@ export default function CompositeBonding() {
               <div>
                 <h3 className='text-lg text-gold'>Regular Dental Check-ups</h3>
                 <p className='text-cream'>
-                  Visit your dentist regularly for check-ups and cleanings to ensure your bonded teeth remain in good
-                  condition.
+                  Schedule regular visits to your dentist for check-ups and cleanings to maintain your whitening results
+                  and overall oral health.
                 </p>
               </div>
             </li>
           </ul>
           <p className='mt-8 text-cream'>
-            Common side effects of composite bonding may include slight sensitivity to hot and cold foods or drinks
-            shortly after the procedure. This is usually temporary and should resolve within a few days. If you
-            experience any prolonged discomfort or notice any damage to the bonded area, contact your dentist promptly.
+            It&apos;s common to experience some temporary sensitivity to hot or cold foods and beverages after tooth
+            whitening. This sensitivity usually subsides within a few days. If you experience prolonged discomfort or
+            any other issues, contact your dentist for advice.
           </p>
         </div>
       </section>
 
       <section className='py-12 px-4 md:py-20 lg:py-28 bg-lightGrey'>
         <div className='container mx-auto px-4 md:px-6'>
-          <h2 className='text-2xl font-bold text-gold md:text-3xl mb-6 text-center'>Treatment Comparison</h2>
+          <h2 className='text-2xl font-bold text-gold md:text-3xl mb-6 text-center'>Cosmetic Treatment Comparison</h2>
           <p className='text-center text-cream mb-8'>
-            Compare our composite bonding treatment with other common dental treatments to find the best option for your
-            needs.
+            Compare our professional tooth whitening with veneers and teeth bonding to discover the ideal solution for
+            your smile enhancement.
           </p>
           <div className='overflow-x-auto'>
             <table className='min-w-full divide-y divide-gray-200'>
               <thead className='bg-grey text-gold'>
                 <tr>
-                  <th className='py-3 px-4 text-left text-sm font-medium '>Feature</th>
-                  <th className='py-3 px-4 text-left text-sm font-medium'>Composite Bonding</th>
+                  <th className='py-3 px-4 text-left text-sm font-medium'>Feature</th>
+                  <th className='py-3 px-4 text-left text-sm font-medium'>Professional Tooth Whitening</th>
                   <th className='py-3 px-4 text-left text-sm font-medium'>Veneers</th>
-                  <th className='py-3 px-4 text-left text-sm font-medium'>Dental Crowns</th>
+                  <th className='py-3 px-4 text-left text-sm font-medium'>Composite Bonding</th>
                 </tr>
               </thead>
-              <tbody className='bg-white divide-y divide-black-200'>
+              <tbody className='bg-white divide-y divide-gray-200'>
                 <tr>
-                  <td className='py-4 px-4 text-sm font-medium text-gold'>Quick Application</td>
+                  <td className='py-4 px-4 text-sm font-medium text-gold'>Immediate Results</td>
                   <td className='py-4 px-4 text-sm text-center'>
                     <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
                   </td>
                   <td className='py-4 px-4 text-sm text-center'>
-                    <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
+                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
                   </td>
                   <td className='py-4 px-4 text-sm text-center'>
-                    <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
+                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
                   </td>
                 </tr>
                 <tr>
-                  <td className='py-4 px-4 text-sm font-medium text-gold'>Minimal Tooth Reduction</td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
-                  </td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
-                  </td>
+                  <td className='py-4 px-4 text-sm font-medium text-gold'>Customizable Treatment</td>
                   <td className='py-4 px-4 text-sm text-center'>
                     <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
                   </td>
+                  <td className='py-4 px-4 text-sm text-center'>
+                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
+                  </td>
+                  <td className='py-4 px-4 text-sm text-center'>
+                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
+                  </td>
                 </tr>
                 <tr>
-                  <td className='py-4 px-4 text-sm font-medium text-gold'>Estimated Longevity</td>
+                  <td className='py-4 px-4 text-sm font-medium text-gold'>Longevity of Results</td>
+                  <td className='py-4 px-4 text-sm text-center'>6-12 months (with touch-ups)</td>
+                  <td className='py-4 px-4 text-sm text-center'>10-15 years</td>
                   <td className='py-4 px-4 text-sm text-center'>5-7 years</td>
-                  <td className='py-4 px-4 text-sm text-center'>10 years</td>
-                  <td className='py-4 px-4 text-sm text-center'>15 years</td>
                 </tr>
                 <tr>
-                  <td className='py-4 px-4 text-sm font-medium text-gold'>Cost-effective</td>
+                  <td className='py-4 px-4 text-sm font-medium text-gold'>Cost-Effective</td>
                   <td className='py-4 px-4 text-sm text-center'>
                     <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
                   </td>
@@ -434,19 +437,31 @@ export default function CompositeBonding() {
                     <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
                   </td>
                   <td className='py-4 px-4 text-sm text-center'>
+                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
+                  </td>
+                </tr>
+                <tr>
+                  <td className='py-4 px-4 text-sm font-medium text-gold'>Coverage for Imperfections</td>
+                  <td className='py-4 px-4 text-sm text-center'>
                     <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
+                  </td>
+                  <td className='py-4 px-4 text-sm text-center'>
+                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
+                  </td>
+                  <td className='py-4 px-4 text-sm text-center'>
+                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
                   </td>
                 </tr>
                 <tr>
                   <td className='py-4 px-4 text-sm font-medium text-gold'>Stain Resistance</td>
                   <td className='py-4 px-4 text-sm text-center'>
+                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
+                  </td>
+                  <td className='py-4 px-4 text-sm text-center'>
+                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
+                  </td>
+                  <td className='py-4 px-4 text-sm text-center'>
                     <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
-                  </td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
-                  </td>
-                  <td className='py-4 px-4 text-sm text-center'>
-                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
                   </td>
                 </tr>
               </tbody>
