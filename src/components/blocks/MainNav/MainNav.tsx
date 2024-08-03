@@ -152,7 +152,6 @@ const MainNav = () => {
                       <ListItem href='/team' title='Meet the Team' />
                       <ListItem href='/find-us' title='Find Us' />
                       <ListItem href='/pricing' title='Pricing' />
-                      <ListItem href='/social' title='Social' />
                     </ul>
                   </NavigationMenuContent>
                 )}
@@ -176,6 +175,7 @@ const MainNav = () => {
                     <ul className='grid w-full gap-3 p-4'>
                       <ListItem href='/blog' title='Blog' />
                       <ListItem href='/gallery' title='Gallery' />
+                      <ListItem href='/social' title='Social' />
                     </ul>
                   </NavigationMenuContent>
                 )}
@@ -277,7 +277,6 @@ const MainNav = () => {
               { href: '/team', title: 'Meet the Team' },
               { href: '/find-us', title: 'Find Us' },
               { href: '/pricing', title: 'Pricing' },
-              { href: '/social', title: 'Social' },
             ]}
             closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
@@ -286,6 +285,7 @@ const MainNav = () => {
             links={[
               { href: '/blog', title: 'Blog' },
               { href: '/gallery', title: 'Gallery' },
+              { href: '/social', title: 'Social' },
             ]}
             closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
