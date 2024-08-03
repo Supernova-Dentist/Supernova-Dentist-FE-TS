@@ -1,20 +1,28 @@
-import React from 'react';
+import { decodeHtmlEntities } from '@/utils/format/decodeHtmlEntities';
 import BlogBox from '@/components/BlogBox/BlogBox';
-import blogMockData from './blogMockData';
+import PaginationControls from '@/components/PaginationControls/PaginationControls';
 
-// Layout for blogs is a hacky atm. Consider using 3 columns instead or a grid system
-export default function Blogs() {
+type BlogsProps = {
+  data: Post[];
+  page: number;
+  totalPages: number;
+};
+
+export default async function Blogs({ data, page, totalPages }: BlogsProps) {
   return (
-    <section className='mx-auto max-w-[1556px] my-20 px-6 sm:px-12'>
-      <div className='flex justify-center'>
-        <div className='flex flex-wrap gap-12 justify-center'>
-          {blogMockData.map(({ id, title, date, description }) => (
-            <React.Fragment key={id}>
-              <BlogBox id={id} title={title} date={date} description={description} />
-            </React.Fragment>
-          ))}
-        </div>
+    <section className='container mx-auto max-w-[1500px] px-4 py-12 sm:px-10'>
+      <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-12'>
+        {data?.map((post: Post) => (
+          <BlogBox
+            key={post.id}
+            id={post.id}
+            title={decodeHtmlEntities(post.title.rendered)}
+            date={post.date}
+            excerpt={post.excerpt.rendered}
+          />
+        ))}
       </div>
+      <PaginationControls currentPage={page} totalPages={totalPages} />
     </section>
   );
 }

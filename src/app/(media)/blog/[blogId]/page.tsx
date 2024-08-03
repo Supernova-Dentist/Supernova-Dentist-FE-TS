@@ -1,12 +1,15 @@
-export default function BlogArticle({ params }: { params: { blogId: string } }) {
+import fetchBlogPostById from '@/services/wordpress/fetchPostById';
+import { decodeHtmlEntities } from '@/utils/format/decodeHtmlEntities';
+
+export default async function BlogArticle({ params }: { params: { blogId: string } }) {
   const { blogId } = params;
 
+  const data: Post = await fetchBlogPostById(blogId);
+
   return (
-    <article className='h-screen flex justify-center items-center text-3xl'>
-      <div className='flex flex-col'>
-        <h1>blog: {blogId}</h1>
-        <span>Fetch data for specific blog here...</span>
-      </div>
+    <article className='flex flex-col justify-center max-w-[800px] mx-auto my-12'>
+      <h1 className='text-2xl'>{decodeHtmlEntities(data.title.rendered)}</h1>
+      <div className='flex flex-col gap-4' dangerouslySetInnerHTML={{ __html: data?.content?.rendered }}></div>
     </article>
   );
 }

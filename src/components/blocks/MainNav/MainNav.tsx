@@ -99,6 +99,8 @@ const MainNav = () => {
                     <ul className='grid w-full gap-3 p-4'>
                       <ListItem href='/invisalign' title='Invisalign' />
                       <ListItem href='/composite-bonding' title='Composite Bonding' />
+                      <ListItem href='/tooth-whitening' title='Tooth Whitening' />
+                      <ListItem href='/dental-implants' title='Dental Implants' />
                     </ul>
                   </NavigationMenuContent>
                 )}
@@ -253,6 +255,8 @@ const MainNav = () => {
             links={[
               { href: '/invisalign', title: 'Invisalign' },
               { href: '/composite-bonding', title: 'Composite Bonding' },
+              { href: '/tooth-whitening', title: 'Tooth Whitening' },
+              { href: '/dental-implants', title: 'Dental Implants' },
             ]}
             closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
