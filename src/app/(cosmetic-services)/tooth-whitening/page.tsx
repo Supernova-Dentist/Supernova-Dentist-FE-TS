@@ -13,6 +13,7 @@ import { IoHappy } from 'react-icons/io5';
 import { MdCoffeeMaker } from 'react-icons/md';
 import { faqItems } from './utils/faqItems';
 import LearnMoreButton from '@/components/LearnMoreButton/LearnMoreButton';
+import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Composite Bonding',
@@ -465,6 +466,9 @@ export default function ToothWhitening() {
           </div>
         </div>
       </section>
+      <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 md:right-40 flex justify-center md:justify-end'>
+        <EnquiryButton referringPage={'tooth-whitening'} />
+      </div>
       <ScrollToTopButton />
     </div>
   );
