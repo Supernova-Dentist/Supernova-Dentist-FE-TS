@@ -4,14 +4,13 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { useEffect, useState } from 'react';
-import { FaBackward } from 'react-icons/fa6';
+import { type JSX, type SVGProps, useEffect, useState } from 'react';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -31,15 +30,25 @@ const formSchema = z.object({
   }),
 });
 
+const urlToReadableMap: { [key: string]: string } = {
+  invisalign: 'Invisalign',
+  'composite-bonding': 'Composite Bonding',
+  'tooth-whitening': 'Tooth Whitening',
+  'dental-implants': 'Dental Implants',
+};
+
 export default function EnquiryForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [referringPage, setReferringPage] = useState('');
+  const [referringPage, setReferringPage] = useState<string>('');
+  const [referringPageDisplay, setReferringPageDisplay] = useState<string>('');
 
   useEffect(() => {
     const ref = searchParams.get('ref');
     if (ref) {
+      const readableRef = urlToReadableMap[ref] || ref; // Directly use ref as the fallback
       setReferringPage(ref);
+      setReferringPageDisplay(readableRef); // TypeScript now understands readableRef is a string
     }
   }, [searchParams]);
 
@@ -47,13 +56,13 @@ export default function EnquiryForm() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     // Handle form submission
     console.log(data);
     // You can also handle your form submission here, such as sending data to an API
   };
 
-  const handleSubmit = (data) => {
+  const handleSubmit = (data: any) => {
     onSubmit(data).catch(console.error);
   };
 
@@ -75,13 +84,16 @@ export default function EnquiryForm() {
       </section>
 
       {referringPage && (
-        <div className='container mx-auto px-4 md:px-6 mb-4'>
+        <div className='flex items-center mb-8'>
           <Button
-            onClick={() => router.back()}
-            className='bg-blue-500 text-white py-3 px-6 rounded-full shadow-lg transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-xl'
+            onClick={(e) => {
+              e.preventDefault();
+              router.push(`/${encodeURIComponent(referringPage)}`);
+            }}
+            className='inline-flex items-center gap-2 text-cream text-lg hover:text-gold hover:bg-cream transition'
           >
-            <FaBackward className='w-6 h-6 mr-2' />
-            Back to {referringPage}
+            <ArrowLeftIcon className='h-5 w-5' />
+            Back to {referringPageDisplay}
           </Button>
         </div>
       )}
@@ -222,5 +234,25 @@ export default function EnquiryForm() {
         </div>
       </section>
     </div>
+  );
+}
+
+function ArrowLeftIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    >
+      <path d='m12 19-7-7 7-7' />
+      <path d='M19 12H5' />
+    </svg>
   );
 }
