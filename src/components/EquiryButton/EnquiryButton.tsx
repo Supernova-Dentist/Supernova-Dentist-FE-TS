@@ -6,7 +6,7 @@ const EnquiryButton = () => {
   return (
     <Link
       href='/enquiry'
-      className='fixed bottom-10 right-40 bg-blue-500 text-white py-3 px-6 rounded-full shadow-lg transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-xl'
+      className='bg-blue-500 text-white py-3 px-6 rounded-full shadow-lg transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-xl'
     >
       Enquiry
     </Link>
