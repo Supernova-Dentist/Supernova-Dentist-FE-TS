@@ -1,15 +1,12 @@
-'use client';
-
-import { useState } from 'react';
 import type { Metadata } from 'next';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import GoogleMap from '@/components/blocks/GoogleMap/GoogleMap';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
 
-// export const metadata: Metadata = {
-//   title: 'Supernova Dental | Find Us',
-//   description: 'Locate Supernova Dental Clinic on the map. Find our address, contact information, and directions.',
-// };
+export const metadata: Metadata = {
+  title: 'Supernova Dental | Find Us',
+  description: 'Locate Supernova Dental Clinic on the map. Find our address, contact information, and directions.',
+};
 
 export default function Location() {
   return (
@@ -19,8 +16,10 @@ export default function Location() {
           <BreadCrumb />
 
           <section className='mb-12'>
-            <h1 className='text-5xl font-bold my-8 text-left text-grey'>Find Supernova Dental Clinic</h1>
-            <p className='text-xl mb-6 text-left text-lightGrey'>
+            <h1 className='text-4xl sm:text-5xl font-bold my-8 text-center sm:text-left text-grey'>
+              Find Supernova Dental Clinic
+            </h1>
+            <p className='text-lg sm:text-xl mb-6 text-center sm:text-left text-lightGrey'>
               Locate Supernova Dental Clinic on the map. Find our address, contact information, and directions.
             </p>
 
@@ -28,28 +27,47 @@ export default function Location() {
               <GoogleMap />
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
               <div className='md:col-span-1 mt-12'>
-                <h2 className='text-3xl font-semibold mb-4 text-left text-gray'>Our Address</h2>
-                <ul>
-                  <li className='mb-3 text-center sm:text-left'>Marsh Lane, Huntworth,</li>
-                  <li className='mb-3 text-center sm:text-left'>Bridgwater, Alliance Building</li>
-                  <li className='mb-3 text-center sm:text-left'>TA6 6LQ</li>
+                <h2 className='text-2xl sm:text-3xl font-semibold mb-4 text-center sm:text-left text-gray'>
+                  Our Address
+                </h2>
+                <ul className='text-center sm:text-left'>
+                  <li className='mb-3'>Marsh Lane, Huntworth,</li>
+                  <li className='mb-3'>Bridgwater, Alliance Building</li>
+                  <li className='mb-3'>TA6 6LQ</li>
+                  <li className='mb-3'>
+                    <GetDirectionsForm />
+                  </li>
                 </ul>
               </div>
 
-              <div className='md:col-span-1'>
-                <section className='mt-12'>
-                  <h2 className='text-3xl font-semibold mb-4 text-center md:text-left text-gray'>Get Directions</h2>
-                  <GetDirectionsForm />
-                </section>
-              </div>
-
               <div className='md:col-span-1 mt-12'>
-                <h2 className='text-3xl font-semibold mb-4 text-left text-gray'>Contact Information</h2>
-                <p className='text-lg mb-2 text-left text-lightGrey'>Phone: (123) 456-7890</p>
-                <p className='text-lg mb-2 text-left text-lightGrey'>Email: info@supernovadentalclinic.com</p>
-                <p className='text-lg mb-2 text-left text-lightGrey'>Website: www.supernovadentalclinic.com</p>
+                <h2 className='text-2xl sm:text-3xl font-semibold mb-4 text-center sm:text-left text-gray'>
+                  Contact Us
+                </h2>
+                <div className='flex flex-col items-center sm:items-start'>
+                  <p className='text-base sm:text-lg mb-2 text-center sm:text-left text-lightGrey'>
+                    Phone: (123) 456-7890
+                  </p>
+                  <p className='text-base sm:text-lg mb-2 text-center sm:text-left text-lightGrey'>
+                    Email:{' '}
+                    <a href='mailto:info@supernovadentalclinic.com' className='underline'>
+                      info@supernovadentalclinic.com
+                    </a>
+                  </p>
+                  <p className='text-base sm:text-lg mb-2 text-center sm:text-left text-lightGrey'>
+                    Website:{' '}
+                    <a
+                      href='http://www.supernovadentalclinic.com'
+                      className='underline'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      www.supernovadentalclinic.com
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </section>
