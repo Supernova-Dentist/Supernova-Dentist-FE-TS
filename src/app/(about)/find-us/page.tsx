@@ -1,16 +1,20 @@
+'use client';
+
+import { useState } from 'react';
 import type { Metadata } from 'next';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import GoogleMap from '@/components/blocks/GoogleMap/GoogleMap';
+import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
 
-export const metadata: Metadata = {
-  title: 'Supernova Dental | Find Us',
-  description: 'Locate Supernova Dental Clinic on the map. Find our address, contact information, and directions.',
-};
+// export const metadata: Metadata = {
+//   title: 'Supernova Dental | Find Us',
+//   description: 'Locate Supernova Dental Clinic on the map. Find our address, contact information, and directions.',
+// };
 
 export default function Location() {
   return (
     <>
-      <div className=' flex flex-col items-center justify-start py-12 bg-gray-50'>
+      <div className='flex flex-col items-center justify-start py-12 bg-gray-50'>
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <BreadCrumb />
 
@@ -24,15 +28,24 @@ export default function Location() {
               <GoogleMap />
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              <div>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+              <div className='md:col-span-1 mt-12'>
                 <h2 className='text-3xl font-semibold mb-4 text-left text-gray'>Our Address</h2>
-                <p className='text-lg mb-2 text-left text-lightGrey'>Supernova Dental Clinic</p>
-                <p className='text-lg mb-2 text-left text-lightGrey'>123 Dental Street</p>
-                <p className='text-lg mb-2 text-left text-lightGrey'>City, State, Zip Code</p>
-                <p className='text-lg mb-2 text-left text-lightGrey'>Country</p>
+                <ul>
+                  <li className='mb-3 text-center sm:text-left'>Marsh Lane, Huntworth,</li>
+                  <li className='mb-3 text-center sm:text-left'>Bridgwater, Alliance Building</li>
+                  <li className='mb-3 text-center sm:text-left'>TA6 6LQ</li>
+                </ul>
               </div>
-              <div>
+
+              <div className='md:col-span-1'>
+                <section className='mt-12'>
+                  <h2 className='text-3xl font-semibold mb-4 text-center md:text-left text-gray'>Get Directions</h2>
+                  <GetDirectionsForm />
+                </section>
+              </div>
+
+              <div className='md:col-span-1 mt-12'>
                 <h2 className='text-3xl font-semibold mb-4 text-left text-gray'>Contact Information</h2>
                 <p className='text-lg mb-2 text-left text-lightGrey'>Phone: (123) 456-7890</p>
                 <p className='text-lg mb-2 text-left text-lightGrey'>Email: info@supernovadentalclinic.com</p>
