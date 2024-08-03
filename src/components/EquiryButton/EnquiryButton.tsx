@@ -2,7 +2,11 @@
 
 import Link from 'next/link';
 
-const EnquiryButton = ({ referringPage }) => {
+interface Props {
+  referringPage: string;
+}
+
+const EnquiryButton = ({ referringPage }: Props) => {
   return (
     <Link
       href={`/enquiry?ref=${encodeURIComponent(referringPage)}`}
