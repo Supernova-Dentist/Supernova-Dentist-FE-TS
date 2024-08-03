@@ -152,6 +152,7 @@ const MainNav = () => {
                       <ListItem href='/team' title='Meet the Team' />
                       <ListItem href='/find-us' title='Find Us' />
                       <ListItem href='/pricing' title='Pricing' />
+                      <ListItem href='/enquiry' title='Enquiry' />
                     </ul>
                   </NavigationMenuContent>
                 )}
@@ -277,6 +278,7 @@ const MainNav = () => {
               { href: '/team', title: 'Meet the Team' },
               { href: '/find-us', title: 'Find Us' },
               { href: '/pricing', title: 'Pricing' },
+              { href: '/enquiry', title: 'Enquiry' },
             ]}
             closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
