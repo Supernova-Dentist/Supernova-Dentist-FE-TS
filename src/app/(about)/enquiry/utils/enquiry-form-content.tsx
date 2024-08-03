@@ -37,7 +37,7 @@ const formSchema = z.object({
   }),
 });
 
-export function EnquiryFormContent() {
+function Search() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [referringPage, setReferringPage] = useState<string>('');
@@ -52,13 +52,30 @@ export function EnquiryFormContent() {
     }
   }, [searchParams]);
 
+  return referringPage ? (
+    <div className='flex items-center mb-8'>
+      <Button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push(`/${encodeURIComponent(referringPage)}`);
+        }}
+        className='inline-flex items-center gap-2 text-cream text-lg hover:text-gold hover:bg-cream transition'
+      >
+        <ArrowLeftIcon className='h-5 w-5' />
+        Back to {referringPageDisplay}
+      </Button>
+    </div>
+  ) : null;
+}
+
+export function EnquiryFormContent() {
   const form = useForm({
     resolver: zodResolver(formSchema),
   });
 
   const onSubmit = async (data: any) => {
     console.log(data);
-    // You can also handle your form submission here, such as sending data to an API
+    // Handle form submission here
   };
 
   const handleSubmit = (data: any) => {
@@ -67,22 +84,9 @@ export function EnquiryFormContent() {
 
   return (
     <>
-      {referringPage && (
-        <Suspense>
-          <div className='flex items-center mb-8'>
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                router.push(`/${encodeURIComponent(referringPage)}`);
-              }}
-              className='inline-flex items-center gap-2 text-cream text-lg hover:text-gold hover:bg-cream transition'
-            >
-              <ArrowLeftIcon className='h-5 w-5' />
-              Back to {referringPageDisplay}
-            </Button>
-          </div>
-        </Suspense>
-      )}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Search />
+      </Suspense>
 
       <section className='px-16 pt-4 pb-24 md:pb-32'>
         <div className='container mx-auto px-4 md:px-6'>
