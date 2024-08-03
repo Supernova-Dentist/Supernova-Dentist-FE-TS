@@ -1,4 +1,3 @@
-// components/GetDirectionsForm.tsx
 'use client';
 import { useState } from 'react';
 
@@ -12,13 +11,13 @@ const GetDirectionsForm = () => {
   };
 
   return (
-    <div className='flex items-center gap-4'>
+    <div className='flex flex-col sm:flex-row items-center gap-4'>
       <input
         type='text'
         value={postcode}
         onChange={(e) => setPostcode(e.target.value)}
         placeholder='Enter your postcode'
-        className='p-2 border border-gray-300 rounded-md'
+        className='p-2 border border-gray-300 rounded-md w-full sm:w-auto'
       />
       <button onClick={handleGetDirections} className='bg-gold text-white px-4 py-2 rounded-md'>
         Go
