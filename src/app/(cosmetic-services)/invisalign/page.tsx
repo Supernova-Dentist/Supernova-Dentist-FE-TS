@@ -13,6 +13,7 @@ import { FaBriefcase, FaCakeCandles, FaFaceSmileBeam, FaPersonWalking, FaPlane }
 import { IoHappy } from 'react-icons/io5';
 import { faqItems } from './utils/faqItems';
 import LearnMoreButton from '@/components/LearnMoreButton/LearnMoreButton';
+import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Invisalign',
@@ -480,6 +481,9 @@ export default function Invisalign() {
           </div>
         </div>
       </section>
+      <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 md:right-40 flex justify-center md:justify-end'>
+        <EnquiryButton referringPage={'invisalign'} />
+      </div>
       <ScrollToTopButton />
     </div>
   );
