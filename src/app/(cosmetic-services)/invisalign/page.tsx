@@ -482,7 +482,7 @@ export default function Invisalign() {
         </div>
       </section>
       <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 md:right-40 flex justify-center md:justify-end'>
-        <EnquiryButton />
+        <EnquiryButton referringPage={'Invisalign'} />
       </div>
       <ScrollToTopButton />
     </div>
