@@ -69,7 +69,7 @@ const MainNav = () => {
     };
 
     return (
-      <div className='hidden md:block'>
+      <div className='hidden lg:block'>
         <NavigationMenu delayDuration={0} className='mx-auto justify-end bg-grey py-6 px-4'>
           <NavigationMenuList className='text-cream text-lg'>
             {/* Home link */}
@@ -131,31 +131,6 @@ const MainNav = () => {
               </NavigationMenuItem>
             </NavigationMenu>
 
-            {/* Patient Info dropdown
-            <NavigationMenu
-              delayDuration={0}
-              onMouseEnter={() => handleMenuHover('patient')}
-              onMouseLeave={handleCloseMenu}
-            >
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  onClick={(event) => event.preventDefault()}
-                  className='hover:text-gold text-cream text-lg'
-                >
-                  Patient Info
-                </NavigationMenuTrigger>
-                {activeMenu === 'patient' && (
-                  <NavigationMenuContent className='bg-cream text-grey opacity-100 visible'>
-                    <ul className='grid w-full gap-3 p-4'>
-                      <ListItem href='/forms' title='Patient Forms' />
-                      <ListItem href='/insurance' title='Insurance and Payment' />
-                      <ListItem href='/faq' title='FAQs' />
-                    </ul>
-                  </NavigationMenuContent>
-                )}
-              </NavigationMenuItem>
-            </NavigationMenu> */}
-
             {/* About Us dropdown */}
             <NavigationMenu
               delayDuration={0}
@@ -183,13 +158,29 @@ const MainNav = () => {
                 )}
               </NavigationMenuItem>
             </NavigationMenu>
-            <NavigationMenuItem>
-              <Link href='/blog' legacyBehavior passHref>
-                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} hover:text-gold`}>
-                  Blog
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
+            {/* Patient Info dropdown */}
+            <NavigationMenu
+              delayDuration={0}
+              onMouseEnter={() => handleMenuHover('media')}
+              onMouseLeave={handleCloseMenu}
+            >
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  onClick={(event) => event.preventDefault()}
+                  className='hover:text-gold text-cream text-lg'
+                >
+                  Media
+                </NavigationMenuTrigger>
+                {activeMenu === 'media' && (
+                  <NavigationMenuContent className='bg-cream text-grey opacity-100 visible'>
+                    <ul className='grid w-full gap-3 p-4'>
+                      <ListItem href='/blog' title='Blog' />
+                      <ListItem href='/gallery' title='Gallery' />
+                    </ul>
+                  </NavigationMenuContent>
+                )}
+              </NavigationMenuItem>
+            </NavigationMenu>
 
             {/* Book Button */}
             <div>
@@ -246,7 +237,7 @@ const MainNav = () => {
 
   // Mobile drawer navigation setup
   const mobileNavigation = (
-    <div className='md:hidden bg-grey'>
+    <div className='lg:hidden bg-grey'>
       <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
         <div className='flex justify-end'>
           {/* Flex container to push the button to the right */}
@@ -287,6 +278,14 @@ const MainNav = () => {
               { href: '/find-us', title: 'Find Us' },
               { href: '/pricing', title: 'Pricing' },
               { href: '/social', title: 'Social' },
+            ]}
+            closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
+          />
+          <Accordion
+            title='Media'
+            links={[
+              { href: '/blog', title: 'Blog' },
+              { href: '/gallery', title: 'Gallery' },
             ]}
             closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
