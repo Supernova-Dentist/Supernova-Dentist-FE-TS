@@ -1,5 +1,7 @@
 import { IoLogoInstagram } from 'react-icons/io';
 import { GrFacebookOption } from 'react-icons/gr';
+import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
+import GoogleMap from '../GoogleMap/GoogleMap';
 
 export default function Footer() {
   return (
@@ -11,7 +13,7 @@ export default function Footer() {
             <li>General</li>
             <li>Cosmetic</li>
             <li>Surgical</li>
-            <li>Family Desntistry</li>
+            <li>Family Dentistry</li>
           </ul>
           <ul className='w-[15rem] flex flex-col items-center sm:items-start'>
             <li className='text-gold text-2xl mb-2'>Practice Info</li>
@@ -26,9 +28,11 @@ export default function Footer() {
             <li className='mb-3 text-center sm:text-left'>
               Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ
             </li>
-            <li className='mb-3 text-gold underline'>Get Directions</li>
-            <li className='mb-3'>Call (816) 555-5555</li>
-            <li className='mb-3'>Text (816) 555-4444</li>
+            <li className='mb-3'>
+              <GoogleMap />
+            </li>
+
+            <GetDirectionsForm />
           </ul>
           <ul className='w-[15rem] flex flex-col items-center sm:items-start'>
             <li className='text-gold text-2xl mb-2'>Review Us</li>
@@ -44,11 +48,26 @@ export default function Footer() {
               </div>
             </li>
           </ul>
+          {/* New "Contact Us" Column */}
+          <ul className='w-[15rem] flex flex-col items-center sm:items-start'>
+            <li className='text-gold text-2xl mb-2'>Contact Us</li>
+            <li className='mb-3'>Email: contact@supernovadental.com</li>
+            <li className='mb-3'>Phone: (123) 456-7890</li>
+
+            <li className='flex gap-2'>
+              <a href='mailto:contact@supernovadental.com' className='bg-gold p-1 rounded-sm text-white'>
+                Email Us
+              </a>
+              <a href='tel:+1234567890' className='bg-gold p-1 rounded-sm text-white'>
+                Call Us
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <div className='flex justify-between px-8'>
         <span className='pb-3 text-slate-50'>
-          © 2021 All Rights Reserved | <span className='underline text-gold'>Privacy Policy</span>
+          © 2024 All Rights Reserved | <span className='underline text-gold'>Privacy Policy</span>
         </span>
       </div>
     </footer>
