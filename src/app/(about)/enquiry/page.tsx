@@ -1,15 +1,17 @@
 'use client';
 
+import { useSearchParams, useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-
-import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { useEffect, useState } from 'react';
+import { FaBackward } from 'react-icons/fa6';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -30,6 +32,17 @@ const formSchema = z.object({
 });
 
 export default function EnquiryForm() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [referringPage, setReferringPage] = useState('');
+
+  useEffect(() => {
+    const ref = searchParams.get('ref');
+    if (ref) {
+      setReferringPage(ref);
+    }
+  }, [searchParams]);
+
   const form = useForm({
     resolver: zodResolver(formSchema),
   });
@@ -45,24 +58,35 @@ export default function EnquiryForm() {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center bg-lightGrey min-h-screen'>
-      <section className='py-20 md:py-32 w-full '>
+    <div className='flex flex-col items-center justify-center bg-lightGrey'>
+      <section className='p-16 md:pt-32 w-full '>
         <div className='container mx-auto px-4 md:px-6'>
           <div className='max-w-2xl mx-auto space-y-4 text-center'>
             <h1 className='text-5xl font-bold tracking-tight text-gold sm:text-6xl lg:text-7xl'>
               Get in touch with our dental experts
             </h1>
-            <p className='text-xl text-cream'>
+            <p className='text-xl text-cream mt-64'>
               Our team of experienced dentists is here to provide you with top-notch dental care. Fill out the form
               below to schedule an appointment or inquire about our services.
             </p>
           </div>
         </div>
+        <hr className='border-t-2 border-gold my-16 w-1/2 mx-auto' />
       </section>
 
-      <hr className='border-t-2 border-gray-300 my-8'/>
+      {referringPage && (
+        <div className='container mx-auto px-4 md:px-6 mb-4'>
+          <Button
+            onClick={() => router.back()}
+            className='bg-blue-500 text-white py-3 px-6 rounded-full shadow-lg transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-xl'
+          >
+            <FaBackward className='w-6 h-6 mr-2' />
+            Back to {referringPage}
+          </Button>
+        </div>
+      )}
 
-      <section className='py-12 md:py-20 w-full'>
+      <section className='px-16 pt-4 pb-24 md:pb-32'>
         <div className='container mx-auto px-4 md:px-6'>
           <div className='mx-auto max-w-2xl space-y-6 bg-white p-12 rounded-lg shadow-lg'>
             <Form {...form}>
