@@ -1,5 +1,3 @@
-'use client';
-
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ from '@/components/FAQ/FAQ';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
@@ -10,25 +8,20 @@ import { CheckIcon } from '@radix-ui/react-icons';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef } from 'react';
 import { FaStar } from 'react-icons/fa6';
 import { IoHappy } from 'react-icons/io5';
 import { MdCoffeeMaker } from 'react-icons/md';
 import { faqItems } from './utils/faqItems';
+import LearnMoreButton from '@/components/LearnMoreButton/LearnMoreButton';
+import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
 
-// export const metadata: Metadata = {
-//   title: 'Supernova Dental | Composite Bonding',
-//   description:
-//     'Learn about composite bonding at Supernova Dental. Enhance your smile with this cosmetic dental procedure.',
-// };
+export const metadata: Metadata = {
+  title: 'Supernova Dental | Composite Bonding',
+  description:
+    'Learn about composite bonding at Supernova Dental. Enhance your smile with this cosmetic dental procedure.',
+};
 
 export default function ToothWhitening() {
-  const faqRef = useRef<HTMLElement | null>(null);
-  // Function to handle scroll
-  const scrollToFaq = () => {
-    faqRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className='flex flex-col min-h-[100dvh]'>
       <section className="relative w-full bg-[url('/assets/images/composite-bonding-process.jpg')] bg-cover bg-center bg-no-repeat py-20 md:py-32 lg:py-40">
@@ -76,12 +69,7 @@ export default function ToothWhitening() {
               >
                 Book Now
               </Link>
-              <button
-                onClick={scrollToFaq}
-                className='inline-flex h-10 items-center justify-center rounded-md border border-grey bg-grey text-cream px-6 text-sm font-medium shadow-sm transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
-              >
-                Learn More
-              </button>
+              <LearnMoreButton />
             </div>
           </div>
         </div>
@@ -470,7 +458,7 @@ export default function ToothWhitening() {
         </div>
       </section>
 
-      <section ref={faqRef} className='bg-white py-12 px-4 md:py-20 lg:py-28 flex justify-center'>
+      <section id='faq' className='bg-white py-12 px-4 md:py-20 lg:py-28 flex justify-center'>
         <div className='w-full max-w-4xl px-4 md:px-6 text-center'>
           <h2 className='text-2xl font-bold text-gold md:text-3xl mb-6'>Frequently Asked Questions</h2>
           <div className='bg-cream p-6 rounded-lg shadow-lg'>
@@ -478,6 +466,9 @@ export default function ToothWhitening() {
           </div>
         </div>
       </section>
+      <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 md:right-40 flex justify-center md:justify-end'>
+        <EnquiryButton referringPage={'tooth-whitening'} />
+      </div>
       <ScrollToTopButton />
     </div>
   );
