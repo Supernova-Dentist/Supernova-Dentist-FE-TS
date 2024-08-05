@@ -1,8 +1,10 @@
 import { truncateText } from '@/utils/format/truncateString';
 
-export default async function fetchBlogPosts(limit = 9, page = 1): Promise<Post[]> {
+export default async function fetchBlogPosts(limit = 9, page = 1, query = ''): Promise<Post[]> {
   try {
-    const res = await fetch(`${process.env.WORDPRESS_API_BASE_URL}/posts?per_page=${limit}&page=${page}`);
+    const res = await fetch(
+      `${process.env.WORDPRESS_API_BASE_URL}/posts?per_page=${limit}&page=${page}&search=${query}`
+    );
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
