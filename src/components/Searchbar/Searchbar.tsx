@@ -22,7 +22,7 @@ export default function Searchbar({ className, placeholder = 'Search...' }: Sear
     } else {
       params.delete('search');
     }
-    void router.replace(`${pathname}?${params.toString()}`);
+    void router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   return (
