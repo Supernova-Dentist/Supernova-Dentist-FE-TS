@@ -1,48 +1,29 @@
 'use client';
 
-import { type ChangeEvent, useEffect, useMemo } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import debounce from 'lodash.debounce';
 import { cn } from '@/lib/utils';
-// import { useSearchParams } from 'next/navigation';
 
 type SearchbarProps = {
-  value: string;
-  onChange: (value: string) => void;
   placeholder?: string;
-  onSearch: (value: string) => void;
-  debounceDelay?: number;
   className?: string;
 };
 
-export default function Searchbar({
-  value,
-  onChange,
-  onSearch,
-  className,
-  debounceDelay = 300,
-  placeholder = 'Search...',
-}: SearchbarProps) {
-  // const searchParams = useSearchParams();
-  // const debouncedOnChange = useMemo(() => debounce(onChange, debounceDelay), [onChange, debounceDelay]);
+export default function Searchbar({ className, placeholder = 'Search...' }: SearchbarProps) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    console.log({ typedVal: e.target.value });
-    onChange(e.target.value);
+  const handleChange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
 
-    // debouncedOnChange(e.target.value);
-  }
-
-  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === 'Enter') {
-      onSearch(value);
+    if (value !== '') {
+      params.set('search', value);
+    } else {
+      params.delete('search');
     }
-  }
-
-  // useEffect(() => {
-  //   return () => {
-  //     debouncedOnChange.cancel();
-  //   };
-  // }, [debouncedOnChange]);
+    void router.replace(`${pathname}?${params.toString()}`);
+  };
 
   return (
     <input
@@ -51,10 +32,9 @@ export default function Searchbar({
         className
       )}
       type='text'
-      value={value}
-      onChange={handleChange}
-      onKeyDown={handleKeyDown}
+      onChange={(e) => handleChange(e.target.value)}
       placeholder={placeholder}
+      defaultValue={searchParams.get('search')?.toString()}
     />
   );
 }
