@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import debounce from 'lodash.debounce';
+import { useDebouncedCallback } from 'use-debounce';
 import { cn } from '@/lib/utils';
 
 type SearchbarProps = {
@@ -14,7 +14,7 @@ export default function Searchbar({ className, placeholder = 'Search...' }: Sear
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleChange = (value: string) => {
+  const handleChange = useDebouncedCallback((value: string) => {
     const params = new URLSearchParams(searchParams.toString());
 
     if (value !== '') {
@@ -23,12 +23,12 @@ export default function Searchbar({ className, placeholder = 'Search...' }: Sear
       params.delete('search');
     }
     void router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-  };
+  }, 300);
 
   return (
     <input
       className={cn(
-        'outline-none border border-gray-300 px-4 py-2 hover:border-gray-400 focus:border-gray-400',
+        'outline-none border border-gray-300 px-4 py-2 hover:border-gray-400 focus:border-gray-400 rounded-sm duration-150',
         className
       )}
       type='text'
