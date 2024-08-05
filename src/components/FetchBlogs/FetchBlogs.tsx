@@ -6,10 +6,8 @@ export default async function FetchBlogsWrapper({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  console.log({ searchParams });
-
   const pageParam = Array.isArray(searchParams.page) ? searchParams.page[0] : searchParams.page;
-  const searchQuery = Array.isArray(searchParams.q) ? searchParams.q[0] : searchParams.q;
+  const searchQuery = Array.isArray(searchParams.search) ? searchParams.search[0] : searchParams.search;
   let page = pageParam && !isNaN(parseInt(pageParam, 10)) ? parseInt(pageParam, 10) : 1;
   const limit = 9;
 
