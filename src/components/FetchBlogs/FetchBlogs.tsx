@@ -6,7 +6,10 @@ export default async function FetchBlogsWrapper({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
+  console.log({ searchParams });
+
   const pageParam = Array.isArray(searchParams.page) ? searchParams.page[0] : searchParams.page;
+  const searchQuery = Array.isArray(searchParams.q) ? searchParams.q[0] : searchParams.q;
   let page = pageParam && !isNaN(parseInt(pageParam, 10)) ? parseInt(pageParam, 10) : 1;
   const limit = 9;
 
@@ -18,7 +21,7 @@ export default async function FetchBlogsWrapper({
     page = 1;
   }
 
-  const data = await fetchBlogPosts(limit, page);
+  const posts = await fetchBlogPosts(limit, page, searchQuery);
 
-  return <Blogs data={data} page={page} totalPages={Number(totalPages)} />;
+  return <Blogs posts={posts} page={page} totalPages={Number(totalPages)} />;
 }
