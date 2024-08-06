@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import GoogleMap from '@/components/blocks/GoogleMap/GoogleMap';
+import GetDirectionsButton from '@/components/GetDirectionsButton/GetDirectionsButton';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Find Us',
@@ -31,6 +32,7 @@ export default function Location() {
                 <p className='text-lg mb-2 text-left text-lightGrey'>123 Dental Street</p>
                 <p className='text-lg mb-2 text-left text-lightGrey'>City, State, Zip Code</p>
                 <p className='text-lg mb-2 text-left text-lightGrey'>Country</p>
+                <GetDirectionsButton className='text-lg' />
               </div>
               <div>
                 <h2 className='text-3xl font-semibold mb-4 text-left text-gray'>Contact Information</h2>
