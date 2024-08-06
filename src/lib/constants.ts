@@ -1,1 +1,3 @@
 export const BLOG_LIMIT = 9;
+export const GOOGLE_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+export const WORDPRESS_API_BASE_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL;
