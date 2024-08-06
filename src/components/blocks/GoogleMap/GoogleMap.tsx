@@ -1,8 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-
-const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+import { GOOGLE_API_KEY } from '@/lib/constants';
 
 export default function GoogleMap() {
   const [isLoading, setLoading] = useState(true);
@@ -15,7 +14,7 @@ export default function GoogleMap() {
         width='100%'
         height='350'
         referrerPolicy='no-referrer-when-downgrade'
-        src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=supernovea+dental+marsh+lane+huntworth+bridgwater+TA6 6LQ`} // Will need tweaking to get actual building location or more specific with lat and lon
+        src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_API_KEY}&q=supernovea+dental+marsh+lane+huntworth+bridgwater+TA6 6LQ`} // Will need tweaking to get actual building location or more specific with lat and lon
         onLoad={() => setLoading(false)}
         allowFullScreen
       ></iframe>
