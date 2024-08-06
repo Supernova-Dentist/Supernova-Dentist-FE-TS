@@ -18,7 +18,7 @@ export default async function fetchBlogPosts(
   });
 
   try {
-    const res = await fetch(`${process.env.WORDPRESS_API_BASE_URL}/posts?${params.toString()}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL}/posts?${params.toString()}`);
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
@@ -26,6 +26,8 @@ export default async function fetchBlogPosts(
 
     const totalPages = res.headers.get('X-WP-TotalPages');
     const data: Post[] = await res.json();
+
+    data.map((post) => console.log({ post }));
 
     if (!Array.isArray(data)) {
       throw new Error('Unexpected data format: Expected an array');
