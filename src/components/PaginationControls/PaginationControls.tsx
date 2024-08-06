@@ -14,6 +14,9 @@ type PaginationWrapperProps = {
 };
 
 export default function PaginationControls({ currentPage, totalPages }: PaginationWrapperProps) {
+  const hasNextPage = currentPage < totalPages;
+  const hasPrevPage = currentPage > 1;
+
   function createPageLinks() {
     const pages = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -32,12 +35,22 @@ export default function PaginationControls({ currentPage, totalPages }: Paginati
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href={`?page=${currentPage - 1}`} disabled={currentPage === 1} scroll={false} />
+          <PaginationPrevious
+            className={!hasPrevPage ? 'cursor-not-allowed' : undefined}
+            href={`?page=${currentPage - 1}`}
+            disabled={!hasPrevPage}
+            scroll={false}
+          />
         </PaginationItem>
         {createPageLinks()}
         {totalPages > 5 && <PaginationEllipsis />}
         <PaginationItem>
-          <PaginationNext href={`?page=${currentPage + 1}`} disabled={currentPage === totalPages} scroll={false} />
+          <PaginationNext
+            className={!hasNextPage ? 'cursor-not-allowed' : undefined}
+            href={`?page=${currentPage + 1}`}
+            disabled={!hasNextPage}
+            scroll={false}
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>
