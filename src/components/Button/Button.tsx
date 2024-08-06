@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 type ButtonTypeProps = 'button' | 'submit' | 'reset';
@@ -11,14 +13,7 @@ type ButtonProps = {
   children?: React.ReactNode;
 };
 
-export default function Button({
-  text,
-  onClick,
-  className,
-  type = 'button',
-  disabled = false,
-  children,
-}: ButtonProps) {
+export default function Button({ text, onClick, className, type = 'button', disabled = false, children }: ButtonProps) {
   return (
     <button className={className} onClick={onClick} type={type} disabled={disabled}>
       {children !== undefined ? children : text}
