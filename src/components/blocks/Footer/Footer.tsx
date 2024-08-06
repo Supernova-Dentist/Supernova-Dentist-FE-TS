@@ -1,5 +1,6 @@
 import { IoLogoInstagram } from 'react-icons/io';
 import { GrFacebookOption } from 'react-icons/gr';
+import GetDirectionsButton from '@/components/GetDirectionsButton/GetDirectionsButton';
 
 export default function Footer() {
   return (
@@ -26,7 +27,9 @@ export default function Footer() {
             <li className='mb-3 text-center sm:text-left'>
               Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ
             </li>
-            <li className='mb-3 text-gold underline'>Get Directions</li>
+            <li className='mb-3'>
+              <GetDirectionsButton />
+            </li>
             <li className='mb-3'>Call (816) 555-5555</li>
             <li className='mb-3'>Text (816) 555-4444</li>
           </ul>
