@@ -36,7 +36,7 @@ export default function Location() {
                   <li className='mb-3'>Marsh Lane, Huntworth,</li>
                   <li className='mb-3'>Bridgwater, Alliance Building</li>
                   <li className='mb-3'>TA6 6LQ</li>
-                  <li className='mb-3'>
+                  <li className='mb-3 sm:max-w-80'>
                     <GetDirectionsForm />
                   </li>
                 </ul>
