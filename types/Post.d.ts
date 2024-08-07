@@ -11,3 +11,14 @@ type Post = {
   author: number;
   [key: string]: any; // Allow additional properties
 };
+
+type PostsProps = {
+  posts: Post[];
+  page: number;
+  totalPages: number;
+};
+
+type FetchPostsResponse = {
+  posts: Post[];
+  totalPages: number;
+};
