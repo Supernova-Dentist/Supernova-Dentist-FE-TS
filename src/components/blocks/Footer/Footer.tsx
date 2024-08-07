@@ -1,85 +1,54 @@
-import { IoLogoInstagram } from 'react-icons/io';
-import { GrFacebookOption } from 'react-icons/gr';
-import Link from 'next/link';
+import { cosmeticServices, generalServices, officeInfo, practiceInfo, reviewLinks, socialIcons } from '@/lib/constants';
+import FooterLink from '../FooterLink/FooterLink';
 
 export default function Footer() {
   return (
     <footer className='bg-grey'>
-      <div className='flex flex-col px-20 py-28'>
-        <div className='flex flex-wrap items-start gap-4 justify-center sm:justify-between text-gray-300'>
-          <ul className='w-[15rem] flex flex-col items-center sm:items-start gap-1'>
+      <div className='container mx-auto px-4 py-12 sm:px-10'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-gray-300'>
+          <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-2xl mb-1'>General Services</li>
-            <li className='underline-animation'>
-              <Link href='/implants'>Implants</Link>
-            </li>
-            <li className='underline-animation'>
-              <Link href='/emergency-dentist'>Emergency Dentist</Link>
-            </li>
+            {generalServices.map((service, index) => (
+              <FooterLink key={service.name} link={service.link} name={service.name} index={index} />
+            ))}
           </ul>
-          <ul className='w-[15rem] flex flex-col items-center sm:items-start gap-1 '>
+          <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-2xl mb-1'>Cosmetic Services</li>
-            <li className='underline-animation'>
-              <Link href='/invisalign'>Invisilign</Link>
-            </li>
-            <li className='underline-animation'>
-              <Link href='/composite-bonding'>Composite Bonding</Link>
-            </li>
-            <li className='underline-animation'>
-              <Link href='/tooth-whitening'>Tooth Whitening</Link>
-            </li>
-            <li className='underline-animation'>
-              <Link href='/dental-implants'>Dental Implants</Link>
-            </li>
+            {cosmeticServices.map((service, index) => (
+              <FooterLink key={service.name} link={service.link} name={service.name} index={index} />
+            ))}
           </ul>
-          <ul className='w-[15rem] flex flex-col items-center sm:items-start gap-1'>
+          <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-2xl mb-1'>Practice Info</li>
-            <li className='underline-animation'>
-              <Link href='/clinic'>Our Clinic</Link>
-            </li>
-            <li className='underline-animation'>
-              <Link href='/meet-dr-young'>Meet Dr. Young</Link>
-            </li>
-            <li className='underline-animation'>
-              <Link href='/team'>Meet The Team</Link>
-            </li>
-            <li className='underline-animation'>
-              <Link href='/find-us'>Find Us</Link>
-            </li>
-            <li className='underline-animation'>
-              <Link href='/pricing'>Pricing</Link>
-            </li>
-            <li className='underline-animation'>
-              <Link href='/enquiry'>Enquiry</Link>
-            </li>
+            {practiceInfo.map((info, index) => (
+              <FooterLink key={info.name} link={info.link} name={info.name} index={index} />
+            ))}
           </ul>
-          <ul className='max-w-[15rem] w-[15rem] flex flex-col items-center sm:items-start'>
+          <ul className='flex flex-col items-center sm:items-start'>
             <li className='text-gold text-2xl mb-2 max-w-[5rem]'>Office</li>
-            <li className='mb-3 text-center sm:text-left'>
-              Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ
-            </li>
-            <li className='mb-3 text-gold underline'>Get Directions</li>
-            <li className='mb-3'>Call (816) 555-5555</li>
-            <li className='mb-3'>Text (816) 555-4444</li>
+            <li className='mb-3 text-center sm:text-left'>{officeInfo.address}</li>
+            <li className='mb-3 text-gold underline-animation cursor-pointer'>Get Directions</li>
+            <li className='mb-3'>Call {officeInfo.phone}</li>
+            <li className='mb-3'>Text {officeInfo.text}</li>
           </ul>
-          <ul className='w-[15rem] flex flex-col items-center sm:items-start'>
+          <ul className='flex flex-col items-center sm:items-start'>
             <li className='text-gold text-2xl mb-2'>Review Us</li>
-            <li>Google</li>
-            <li>Yelp</li>
-            <li className='mb-3'>Facebook</li>
-            <li className='flex gap-1'>
-              <div className='bg-gold p-1 rounded-sm flex justify-center items-center'>
-                <IoLogoInstagram size={28} />
-              </div>
-              <div className='bg-gold p-1 rounded-sm flex justify-center items-center'>
-                <GrFacebookOption size={28} />
-              </div>
+            {reviewLinks.map((link, index) => (
+              <li key={index}>{link}</li>
+            ))}
+            <li className='flex gap-1 mt-3'>
+              {socialIcons.map((social, index) => (
+                <div key={index} className='bg-gold p-1 rounded-sm flex justify-center items-center'>
+                  {social.icon}
+                </div>
+              ))}
             </li>
           </ul>
         </div>
       </div>
-      <div className='flex justify-between px-8'>
+      <div className='flex justify-between px-8 mt-8'>
         <span className='pb-3 text-slate-50'>
-          © 2021 All Rights Reserved | <span className='underline text-gold'>Privacy Policy</span>
+          © 2021 All Rights Reserved | <span className='text-gold cursor-pointer'>Privacy Policy</span>
         </span>
       </div>
     </footer>
