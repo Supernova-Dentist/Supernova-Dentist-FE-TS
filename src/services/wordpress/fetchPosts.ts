@@ -1,16 +1,7 @@
 import { BLOG_LIMIT } from '@/lib/constants';
 import { truncateText } from '@/utils/format/truncateString';
 
-type FetchBlogPostsResponse = {
-  posts: Post[];
-  totalPages: number;
-};
-
-export default async function fetchBlogPosts(
-  limit = BLOG_LIMIT,
-  page = 1,
-  query = ''
-): Promise<FetchBlogPostsResponse> {
+export default async function fetchBlogPosts(limit = BLOG_LIMIT, page = 1, query = ''): Promise<FetchPostsResponse> {
   const params = new URLSearchParams({
     per_page: limit.toString(),
     page: page.toString(),
@@ -18,7 +9,7 @@ export default async function fetchBlogPosts(
   });
 
   try {
-    const res = await fetch(`${process.env.WORDPRESS_API_BASE_URL}/posts?${params.toString()}`);
+    const res = await fetch(`${process.env.WORDPRESS_API_BASE_URL}/categories`);
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
@@ -26,6 +17,7 @@ export default async function fetchBlogPosts(
 
     const totalPages = res.headers.get('X-WP-TotalPages');
     const data: Post[] = await res.json();
+    console.log({ data });
 
     if (!Array.isArray(data)) {
       throw new Error('Unexpected data format: Expected an array');
