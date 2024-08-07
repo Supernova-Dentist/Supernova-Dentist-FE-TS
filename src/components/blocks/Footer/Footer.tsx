@@ -1,25 +1,56 @@
 import { IoLogoInstagram } from 'react-icons/io';
 import { GrFacebookOption } from 'react-icons/gr';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
     <footer className='bg-grey'>
       <div className='flex flex-col px-20 py-28'>
-        <div className='flex flex-wrap items-start gap-4 justify-center sm:justify-between text-slate-50'>
-          <ul className='w-[15rem] flex flex-col items-center sm:items-start'>
-            <li className='text-gold text-2xl mb-2'>Services</li>
-            <li>General</li>
-            <li>Cosmetic</li>
-            <li>Surgical</li>
-            <li>Family Desntistry</li>
+        <div className='flex flex-wrap items-start gap-4 justify-center sm:justify-between text-gray-300'>
+          <ul className='w-[15rem] flex flex-col items-center sm:items-start gap-1'>
+            <li className='text-gold text-2xl mb-1'>General Services</li>
+            <li className='underline-animation'>
+              <Link href='/implants'>Implants</Link>
+            </li>
+            <li className='underline-animation'>
+              <Link href='/emergency-dentist'>Emergency Dentist</Link>
+            </li>
           </ul>
-          <ul className='w-[15rem] flex flex-col items-center sm:items-start'>
-            <li className='text-gold text-2xl mb-2'>Practice Info</li>
-            <li>About</li>
-            <li>New Patients</li>
-            <li>Careers</li>
-            <li>Payment Options</li>
-            <li>New Patient Forms</li>
+          <ul className='w-[15rem] flex flex-col items-center sm:items-start gap-1 '>
+            <li className='text-gold text-2xl mb-1'>Cosmetic Services</li>
+            <li className='underline-animation'>
+              <Link href='/invisalign'>Invisilign</Link>
+            </li>
+            <li className='underline-animation'>
+              <Link href='/composite-bonding'>Composite Bonding</Link>
+            </li>
+            <li className='underline-animation'>
+              <Link href='/tooth-whitening'>Tooth Whitening</Link>
+            </li>
+            <li className='underline-animation'>
+              <Link href='/dental-implants'>Dental Implants</Link>
+            </li>
+          </ul>
+          <ul className='w-[15rem] flex flex-col items-center sm:items-start gap-1'>
+            <li className='text-gold text-2xl mb-1'>Practice Info</li>
+            <li className='underline-animation'>
+              <Link href='/clinic'>Our Clinic</Link>
+            </li>
+            <li className='underline-animation'>
+              <Link href='/meet-dr-young'>Meet Dr. Young</Link>
+            </li>
+            <li className='underline-animation'>
+              <Link href='/team'>Meet The Team</Link>
+            </li>
+            <li className='underline-animation'>
+              <Link href='/find-us'>Find Us</Link>
+            </li>
+            <li className='underline-animation'>
+              <Link href='/pricing'>Pricing</Link>
+            </li>
+            <li className='underline-animation'>
+              <Link href='/enquiry'>Enquiry</Link>
+            </li>
           </ul>
           <ul className='max-w-[15rem] w-[15rem] flex flex-col items-center sm:items-start'>
             <li className='text-gold text-2xl mb-2 max-w-[5rem]'>Office</li>
