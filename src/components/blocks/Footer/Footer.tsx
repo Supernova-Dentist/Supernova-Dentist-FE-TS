@@ -68,10 +68,10 @@ export default function Footer() {
             <li>Email: contact@supernovadental.com</li>
             <li>Phone: (123) 456-7890</li>
             <li className='flex gap-2'>
-              <a href='mailto:contact@supernovadental.com' className='bg-gold p-1 rounded-sm text-white'>
+              <a href='mailto:contact@supernovadental.com' className='bg-gold py-1 px-2 rounded-sm text-white'>
                 Email Us
               </a>
-              <a href='tel:+1234567890' className='bg-gold p-1 rounded-sm text-white'>
+              <a href='tel:+1234567890' className='bg-gold py-1 px-2 rounded-sm text-white'>
                 Call Us
               </a>
             </li>
