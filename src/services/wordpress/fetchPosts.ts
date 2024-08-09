@@ -1,15 +1,29 @@
 import { BLOG_LIMIT } from '@/lib/constants';
 import { truncateText } from '@/utils/format/truncateString';
 
-export default async function fetchBlogPosts(limit = BLOG_LIMIT, page = 1, query = ''): Promise<FetchPostsResponse> {
+type FetchBlogPostsResponse = {
+  posts: Post[];
+  totalPages: number;
+};
+
+export default async function fetchBlogPosts(
+  limit = BLOG_LIMIT,
+  page = 1,
+  query?: string,
+  categories?: string
+): Promise<FetchBlogPostsResponse> {
   const params = new URLSearchParams({
     per_page: limit.toString(),
     page: page.toString(),
     search: query ?? '',
   });
 
+  if (categories !== undefined) {
+    params.append('categories', categories);
+  }
+
   try {
-    const res = await fetch(`${process.env.WORDPRESS_API_BASE_URL}/categories`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL}/posts?${params.toString()}`);
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);

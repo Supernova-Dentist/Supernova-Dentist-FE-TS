@@ -9,9 +9,11 @@ export default async function FetchBlogsWrapper({
 }) {
   const pageParam = Array.isArray(searchParams.page) ? searchParams.page[0] : searchParams.page;
   const searchQuery = Array.isArray(searchParams.search) ? searchParams.search[0] : searchParams.search;
-  let page = pageParam && !isNaN(parseInt(pageParam, 10)) ? parseInt(pageParam, 10) : 1;
+  const categories = Array.isArray(searchParams.categories) ? searchParams.categories[0] : searchParams.categories;
 
-  const { posts, totalPages } = await fetchBlogPosts(BLOG_LIMIT, page, searchQuery);
+  let page = pageParam !== undefined && !isNaN(parseInt(pageParam, 10)) ? parseInt(pageParam, 10) : 1;
+
+  const { posts, totalPages } = await fetchBlogPosts(BLOG_LIMIT, page, searchQuery, categories);
 
   // Not ideal. Be better to redirect user in the blogs component or show some out of bounds UI
   if ((totalPages !== null && page > +totalPages) || page < 1) {
