@@ -9,13 +9,18 @@ type FetchBlogPostsResponse = {
 export default async function fetchBlogPosts(
   limit = BLOG_LIMIT,
   page = 1,
-  query = ''
+  query?: string,
+  categories?: string
 ): Promise<FetchBlogPostsResponse> {
   const params = new URLSearchParams({
     per_page: limit.toString(),
     page: page.toString(),
     search: query ?? '',
   });
+
+  if (categories !== undefined) {
+    params.append('categories', categories);
+  }
 
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL}/posts?${params.toString()}`);
@@ -26,8 +31,6 @@ export default async function fetchBlogPosts(
 
     const totalPages = res.headers.get('X-WP-TotalPages');
     const data: Post[] = await res.json();
-
-    data.map((post) => console.log({ post }));
 
     if (!Array.isArray(data)) {
       throw new Error('Unexpected data format: Expected an array');
