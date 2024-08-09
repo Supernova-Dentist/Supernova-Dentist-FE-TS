@@ -88,7 +88,7 @@ export function EnquiryFormContent() {
   const onSubmit = async (data: any) => {
     setLoading(true); // Start loading
     try {
-      const response = await fetch('http://localhost:3001', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
