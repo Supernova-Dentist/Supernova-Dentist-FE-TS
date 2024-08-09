@@ -31,6 +31,7 @@ export default async function fetchBlogPosts(
 
     const totalPages = res.headers.get('X-WP-TotalPages');
     const data: Post[] = await res.json();
+    console.log({ data });
 
     if (!Array.isArray(data)) {
       throw new Error('Unexpected data format: Expected an array');
