@@ -3,7 +3,7 @@ import { serviceData } from './utils/serviceData';
 
 const Services = () => {
   return (
-    <section className='py-16 bg-gray-50' id='service' aria-label='service'>
+    <section className='py-[6rem] bg-gray-50' id='service' aria-label='service'>
       <div className='container mx-auto px-4'>
         <p className='text-center text-lg text-gray-600'>Our Services</p>
         <h2 className='text-center text-3xl font-bold mt-2'>What We Provide</h2>
