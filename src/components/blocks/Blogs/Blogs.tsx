@@ -1,15 +1,9 @@
-import { decodeHtmlEntities } from '@/utils/format/decodeHtmlEntities';
 import BlogBox from '@/components/BlogBox/BlogBox';
 import PaginationControls from '@/components/PaginationControls/PaginationControls';
+import { decodeHtmlEntities } from '@/utils/format/decodeHtmlEntities';
 import BlogFilteringBar from '../BlogFilteringBar/BlogFilteringBar';
 
-type BlogsProps = {
-  posts: Post[];
-  page: number;
-  totalPages: number;
-};
-
-export default async function Blogs({ posts, page, totalPages }: BlogsProps) {
+export default async function Blogs({ posts, page, totalPages }: PostsProps) {
   return (
     <section className='container mx-auto max-w-[1500px] px-4 py-12 sm:px-10'>
       <BlogFilteringBar className='mb-12' />

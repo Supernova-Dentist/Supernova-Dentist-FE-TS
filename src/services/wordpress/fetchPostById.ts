@@ -1,6 +1,6 @@
 export default async function fetchBlogPostById(id: string) {
   try {
-    const res = await fetch(`${process.env.WORDPRESS_API_BASE_URL}/posts/${id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL}/posts/${id}`);
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
