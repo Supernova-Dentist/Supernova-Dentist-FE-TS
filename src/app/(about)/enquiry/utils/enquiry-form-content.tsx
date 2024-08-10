@@ -12,13 +12,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState, type JSX, type SVGProps } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
-
-const urlToReadableMap: { [key: string]: string } = {
-  invisalign: 'Invisalign',
-  'composite-bonding': 'Composite Bonding',
-  'tooth-whitening': 'Tooth Whitening',
-  'dental-implants': 'Dental Implants',
-};
+import Search from './Search';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -37,37 +31,6 @@ const formSchema = z.object({
     message: 'Message must be at least 5 characters.',
   }),
 });
-
-function Search() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const [referringPage, setReferringPage] = useState<string>('');
-  const [referringPageDisplay, setReferringPageDisplay] = useState<string>('');
-
-  useEffect(() => {
-    const ref = searchParams.get('ref');
-    if (ref != null) {
-      const readableRef = (urlToReadableMap[ref].length > 0) || ref;
-      setReferringPage(ref);
-      setReferringPageDisplay(typeof readableRef === 'string' ? readableRef : '');
-    }
-  }, [searchParams]);
-
-  return (referringPage.length > 0) ? (
-    <div className='flex items-center mb-8'>
-      <Button
-        onClick={(e) => {
-          e.preventDefault();
-          router.push(`/${encodeURIComponent(referringPage)}`);
-        }}
-        className='inline-flex items-center gap-2 text-cream text-lg hover:text-gold hover:bg-cream transition'
-      >
-        <ArrowLeftIcon className='h-5 w-5' />
-        Back to {referringPageDisplay}
-      </Button>
-    </div>
-  ) : null;
-}
 
 export function EnquiryFormContent() {
   const [successModalVisible, setSuccessModalVisible] = useState(false);
@@ -103,7 +66,7 @@ export function EnquiryFormContent() {
 
       const contentType = response.headers.get('content-type');
       let responseData;
-      if ((contentType != null) && contentType.includes('application/json')) {
+      if (contentType != null && contentType.includes('application/json')) {
         responseData = await response.json();
       } else {
         responseData = await response.text(); // Handle non-JSON response
