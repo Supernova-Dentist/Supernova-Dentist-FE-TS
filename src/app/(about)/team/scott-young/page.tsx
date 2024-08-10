@@ -13,12 +13,12 @@ export default function Component() {
             <div className='text-lg text-cream'>GPhC Registration Number: 12345678</div>
             <p className='max-w-[600px] text-cream md:text-xl'>
               Scott is a highly skilled and experienced Dental Practitioner, dedicated to helping clients achieve their
-              desired aesthetic goals.
+              desired aesthetic goals. With years of experience and a keen eye for detail, Scott provides personalized care tailored to each client's unique needs.
             </p>
           </div>
           <div className='flex justify-center'>
             <img
-              src='/placeholder.svg'
+              src='/assets/images/scottAiImage.jpg'
               width='400'
               height='400'
               alt='Scott'
@@ -53,11 +53,19 @@ export default function Component() {
                 <CheckIcon className='h-6 w-6 text-cream' />
                 Laser Hair Removal
               </li>
+              <li className='flex items-center gap-2'>
+                <CheckIcon className='h-6 w-6 text-cream' />
+                Teeth Whitening
+              </li>
+              <li className='flex items-center gap-2'>
+                <CheckIcon className='h-6 w-6 text-cream' />
+                Cosmetic Dentistry
+              </li>
             </ul>
           </div>
           <div className='flex justify-center'>
             <div className='w-full max-w-md rounded-lg overflow-hidden'>
-              <img src='/services-placeholder.svg' alt='Services' className='w-full h-full object-cover' />
+              <img src='/assets/images/services-image.jpg' alt='Services' className='w-full h-full object-cover' />
             </div>
           </div>
         </div>
@@ -89,6 +97,16 @@ export default function Component() {
                 Certified by the International Association of Aesthetic Practitioners
               </div>
             </Card>
+            <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
+              <BadgeIcon className='h-12 w-12 text-gold' />
+              <div className='text-lg text-cream'>Cosmetic Dentistry</div>
+              <div className='text-sm text-cream'>Certified by the General Dental Council</div>
+            </Card>
+            <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
+              <BadgeIcon className='h-12 w-12 text-gold' />
+              <div className='text-lg text-cream'>Teeth Whitening Specialist</div>
+              <div className='text-sm text-cream'>Certified by the British Dental Association</div>
+            </Card>
           </div>
         </div>
       </section>
@@ -113,6 +131,14 @@ export default function Component() {
             <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
               <div className='text-lg text-cream'>&quot;Professional and knowledgeable. Great results!&quot;</div>
               <div className='text-sm text-muted-foreground'>- Sarah Johnson</div>
+            </Card>
+            <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
+              <div className='text-lg text-cream'>&quot;Scott is very gentle and meticulous. I felt at ease throughout the entire process.&quot;</div>
+              <div className='text-sm text-muted-foreground'>- Emily Brown</div>
+            </Card>
+            <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
+              <div className='text-lg text-cream'>&quot;The results exceeded my expectations. Scott is the best!&quot;</div>
+              <div className='text-sm text-muted-foreground'>- Michael Lee</div>
             </Card>
           </div>
         </div>

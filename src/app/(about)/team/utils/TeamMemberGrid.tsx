@@ -7,25 +7,25 @@ const teamMembers = [
   {
     name: 'Dr. Scott Young',
     title: 'Dentist',
-    image: 'https://via.placeholder.com/600',
+    image: '/assets/images/scottAiImage.jpg',
     slug: 'scott-young',
   },
   {
     name: 'Dr. John Smith',
     title: 'Dental Hygienist',
-    image: 'https://via.placeholder.com/600',
+    image: '/assets/images/johnAiImage.jpg',
     slug: 'john-smith',
   },
   {
     name: 'Dr. Sarah Lee',
     title: 'Orthodontist',
-    image: 'https://via.placeholder.com/600',
+    image: '/assets/images/SarahAiImage.jpg',
     slug: 'sarah-lee',
   },
   {
     name: 'Dr. Michael Chen',
     title: 'Oral Surgeon',
-    image: 'https://via.placeholder.com/600',
+    image: '/assets/images/michaelAiImage.jpg',
     slug: 'michael-chen',
   },
 ];
