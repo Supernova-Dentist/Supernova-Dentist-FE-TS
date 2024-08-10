@@ -22,12 +22,13 @@ export default async function fetchMediaPosts(
       throw new Error('No categories found for the provided slugs');
     }
 
-    const categoryIds = categoriesData.map((category) => category.id);
+    // TODO: Add Category type
+    const categoryIds = categoriesData.map((category: any) => category.id);
     console.log('Category IDs:', categoryIds);
 
     // Create a map of category slugs to IDs
     const categoriesSlugToIdMap: Record<string, number> = {};
-    categoriesData.forEach((category) => {
+    categoriesData.forEach((category: any) => {
       categoriesSlugToIdMap[category.slug] = category.id;
     });
 
