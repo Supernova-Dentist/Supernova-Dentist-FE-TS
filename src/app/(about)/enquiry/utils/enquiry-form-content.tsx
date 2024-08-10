@@ -112,9 +112,7 @@ export function EnquiryFormContent() {
       setSubmittedData(data);
       setSuccessModalVisible(true);
 
-      // TODO: THIS RESET DOESN'T WORK
-
-      form.reset(); // Clear the form on success
+      form.reset({ name: '', email: '', phone: '', category: '', message: '' }); // Clear the form on success
     } catch (error) {
       console.error('There was a problem with the form submission:', error);
       setErrorModalVisible(true);
