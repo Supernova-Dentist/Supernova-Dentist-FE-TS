@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -45,14 +46,14 @@ function Search() {
 
   useEffect(() => {
     const ref = searchParams.get('ref');
-    if (ref) {
-      const readableRef = urlToReadableMap[ref] || ref;
+    if (ref != null) {
+      const readableRef = (urlToReadableMap[ref].length > 0) || ref;
       setReferringPage(ref);
-      setReferringPageDisplay(readableRef);
+      setReferringPageDisplay(typeof readableRef === 'string' ? readableRef : '');
     }
   }, [searchParams]);
 
-  return referringPage ? (
+  return (referringPage.length > 0) ? (
     <div className='flex items-center mb-8'>
       <Button
         onClick={(e) => {
@@ -102,7 +103,7 @@ export function EnquiryFormContent() {
 
       const contentType = response.headers.get('content-type');
       let responseData;
-      if (contentType && contentType.includes('application/json')) {
+      if ((contentType != null) && contentType.includes('application/json')) {
         responseData = await response.json();
       } else {
         responseData = await response.text(); // Handle non-JSON response
