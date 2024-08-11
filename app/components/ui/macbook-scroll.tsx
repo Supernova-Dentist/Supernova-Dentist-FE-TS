@@ -44,15 +44,25 @@ export const MacbookScroll = ({
   });
 
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false);
 
   useEffect(() => {
+    if (window && window.innerHeight > window.innerWidth) {
+      setIsPortrait(true);
+    }
+
     if (window && window.innerWidth < 768) {
       setIsMobile(true);
+      setIsTablet(false);
+    } else if (window && window.innerWidth <= 1024) {
+      setIsTablet(true);
+      setIsMobile(false);
     }
   }, []);
 
-  const scaleX = useTransform(scrollYProgress, [0, 0.3], [1.2, isMobile ? 1.4 : 2.5]);
-  const scaleY = useTransform(scrollYProgress, [0, 0.3], [0.6, isMobile ? 1.4 : 2.5]);
+  const scaleX = useTransform(scrollYProgress, [0, 0.3], [1.2, isMobile ? 1.4 : isPortrait ? 1.5 :  2.5]);
+  const scaleY = useTransform(scrollYProgress, [0, 0.3], [0.6, isMobile ? 1.4 : isPortrait ? 1.5 : 2.5]);
   const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
@@ -61,7 +71,9 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
-      className='min-h-[240vh] flex flex-col items-center py-0 md:py-60 justify-start flex-shrink-0 [perspective:800px] transform md:scale-100 scale-[0.5] '
+      className={`min-h-[150vh] ${
+        !isPortrait && !isMobile && !isTablet ? 'lg:min-h-[240vh]' : ''
+      } flex flex-col items-center py-0 md:py-60 justify-start flex-shrink-0 [perspective:800px] transform md:scale-100 scale-[0.5] `}
     >
       <motion.h2
         style={{
