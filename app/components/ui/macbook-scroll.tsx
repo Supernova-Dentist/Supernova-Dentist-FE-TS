@@ -25,6 +25,7 @@ import { IconCommand } from '@tabler/icons-react';
 import { IconCaretLeftFilled } from '@tabler/icons-react';
 import { IconCaretDownFilled } from '@tabler/icons-react';
 import Image from 'next/image';
+import CtaButtons from '../blocks/Cta/CtaButtons';
 
 export const MacbookScroll = ({
   src,
@@ -85,6 +86,7 @@ export const MacbookScroll = ({
         {title || (
           <span className='text-5xl font-extrabold text-center leading-tight tracking-wide text-gold'>
             Supernova Dental <img src='/favicon.ico' alt='Supernova Logo' className='h-16 w-16 inline' />
+            <CtaButtons />
           </span>
         )}
       </motion.h2>
