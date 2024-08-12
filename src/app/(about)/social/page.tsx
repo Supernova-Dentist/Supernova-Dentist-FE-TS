@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { InstagramLogoIcon } from '@radix-ui/react-icons';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import InstagramPostGrid from './utils/InstagramPostGrid';
+import { fetchInstagramPosts } from '@/services/metaAPI/fetchInstagramPosts';
 
 export const metadata: Metadata = {
   title: 'Our Instagram | Your Dental Clinic',
@@ -32,7 +33,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SocialMedia() {
+export default async function SocialMedia() {
+  const instagramPosts = await fetchInstagramPosts();
+
   return (
     <>
       <div className='min-h-screen flex flex-col items-center justify-start py-12 bg-gray-50'>
@@ -54,7 +57,7 @@ export default function SocialMedia() {
             </Link>
           </div>
 
-          <InstagramPostGrid />
+          <InstagramPostGrid posts={instagramPosts} />
         </div>
       </div>
     </>
