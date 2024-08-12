@@ -1,6 +1,7 @@
 type InstagramPost = {
-  image: string;
-  caption: string;
-  likes: number;
-  comments: number;
+  id: string;
+  media_type: string;
+  media_url: string;
+  username: string;
+  timestamp: string;
 };
