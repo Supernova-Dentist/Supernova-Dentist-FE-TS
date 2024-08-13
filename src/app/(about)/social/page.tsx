@@ -60,7 +60,11 @@ export default async function SocialMedia() {
             </a>
           </div>
 
-          <InstagramPostGrid posts={instagramPosts} />
+          {instagramPosts !== undefined || instagramPosts?.length > 0 ? (
+            <InstagramPostGrid posts={instagramPosts} />
+          ) : (
+            <span className='flex justify-center mt-20'>No Instagram posts yet. Check back later.</span>
+          )}
         </div>
       </div>
     </>
