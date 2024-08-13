@@ -38,6 +38,9 @@ const config = {
       backgroundPosition: {
         'center-top': 'center top',
       },
+      height: {
+        'screen-minus-nav': 'calc(100vh - 84px)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate'), addVariablesForColors],
