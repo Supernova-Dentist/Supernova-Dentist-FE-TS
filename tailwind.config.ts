@@ -38,7 +38,7 @@ const config = {
       backgroundPosition: {
         'center-top': 'center top',
       },
-      height: {
+      minHeight: {
         'screen-minus-nav': 'calc(100vh - 84px)',
       },
     },

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { InstagramLogoIcon } from '@radix-ui/react-icons';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import InstagramPostGrid from './utils/InstagramPostGrid';
@@ -40,7 +39,7 @@ export default async function SocialMedia() {
 
   return (
     <>
-      <div className='min-h-screen flex flex-col items-center justify-start py-12 bg-gray-50'>
+      <div className='min-h-screen-minus-nav flex flex-col items-center justify-start py-12 bg-gray-50'>
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <BreadCrumb />
 
