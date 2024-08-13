@@ -1,19 +1,19 @@
 'use client';
 
-import { ChatBubbleIcon, HeartIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import InstagramPostModal from './InstagramPostModal';
-import { instaPostItems } from './instaPostItems';
 
-export default function InstagramPostGrid({ posts }: any) {
-  const [selectedPost, setSelectedPost] = useState([]);
+export default function InstagramPostGrid({ posts }: InstagramPostGridProps) {
+  const [selectedPost, setSelectedPost] = useState<InstagramPost | null>(null);
 
-  console.log({ posts });
+  function handleShowMoreClick(post: InstagramPost) {
+    setSelectedPost(post);
+  }
 
   return (
-    <div className='container mx-auto py-12 px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-      {posts?.map((post: any, index: number) => (
+    <div className='mx-auto py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+      {posts?.map((post: InstagramPost, index: number) => (
         <div key={index} className='bg-grey rounded-lg overflow-hidden shadow-lg'>
           <Image
             src={post.media_url}
@@ -23,14 +23,14 @@ export default function InstagramPostGrid({ posts }: any) {
             className='w-full h-64 object-cover'
           />
           <div className='p-4 bg-lightGrey'>
-            <div className='h-20 overflow-y-auto'>
-              <p className='text-sm text-cream mb-2'>
+            <div>
+              <p className='text-sm text-cream'>
                 {post.caption.length > 75 ? (
                   <>
                     {post.caption.substring(0, 75)}...
-                    {/* <button onClick={() => setSelectedPost(post)} className='text-blue-500 underline ml-1'>
+                    <button onClick={() => handleShowMoreClick(post)} className='text-blue-500 underline ml-1'>
                       Show More
-                    </button> */}
+                    </button>
                   </>
                 ) : (
                   post.caption
@@ -50,7 +50,7 @@ export default function InstagramPostGrid({ posts }: any) {
           </div>
         </div>
       ))}
-      {/* {selectedPost != null && <InstagramPostModal post={selectedPost} onClose={() => setSelectedPost(null)} />} */}
+      {selectedPost != null && <InstagramPostModal post={selectedPost} onClose={() => setSelectedPost(null)} />}
     </div>
   );
 }
