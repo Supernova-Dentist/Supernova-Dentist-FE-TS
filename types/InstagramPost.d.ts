@@ -6,6 +6,8 @@ type InstagramPost = {
   timestamp: string;
   caption: string;
   permalink: string;
+  like_count?: number;
+  comments_count?: number;
 };
 
 type InstagramPostGridProps = {
