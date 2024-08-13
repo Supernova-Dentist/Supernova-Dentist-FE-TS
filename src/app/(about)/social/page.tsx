@@ -35,6 +35,8 @@ export const metadata: Metadata = {
 
 export default async function SocialMedia() {
   const instagramPosts = await fetchInstagramPosts();
+  const username = instagramPosts?.length > 0 ? instagramPosts?.[0].username : 'Our Instagram';
+  const instagramProfileUrl = `https://www.instagram.com/${username}/`;
 
   return (
     <>
@@ -42,19 +44,20 @@ export default async function SocialMedia() {
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <BreadCrumb />
 
-          <div className='flex items-center justify-between mb-8'>
+          <div className='flex flex-col sm:flex-row sm:items-center justify-between'>
             <div>
-              <h1 className='text-3xl font-bold'>Our Instagram</h1>
+              <h1 className='text-3xl font-bold break-words'>{username}</h1>
               <p className='text-muted-foreground'>Follow us on Instagram for the latest updates and dental tips.</p>
             </div>
-            <Link
-              href='#'
-              className='inline-flex items-center gap-2 bg-grey text-primary rounded-md px-4 py-2 hover:bg-primary/90 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring'
-              prefetch={false}
+            <a
+              href={instagramProfileUrl}
+              target='_blank'
+              rel='noreferrer'
+              className='inline-flex w-fit items-center gap-2 bg-grey text-primary rounded-md px-4 py-2 hover:bg-primary/90 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring mt-2 sm:mt-0'
             >
               <InstagramLogoIcon className='w-5 h-5 text-cream' />
               <span className='text-cream'>Follow</span>
-            </Link>
+            </a>
           </div>
 
           <InstagramPostGrid posts={instagramPosts} />
