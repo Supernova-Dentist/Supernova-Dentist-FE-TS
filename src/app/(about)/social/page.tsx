@@ -42,11 +42,12 @@ export default async function SocialMedia() {
       <div className='min-h-screen-minus-nav flex flex-col items-center justify-start py-12 bg-gray-50'>
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <BreadCrumb />
-
           <div className='flex flex-col sm:flex-row sm:items-center justify-between'>
             <div>
-              <h1 className='text-3xl font-bold break-words'>{username}</h1>
-              <p className='text-muted-foreground'>Follow us on Instagram for the latest updates and dental tips.</p>
+              <h1 className='text-3xl font-bold break-words text-grey'>{username}</h1>
+              <p className='text-muted-foreground text-lightGrey'>
+                Follow us on Instagram for the latest updates and dental tips.
+              </p>
             </div>
             <a
               href={instagramProfileUrl}
