@@ -23,7 +23,7 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
   }, [onClose]);
 
   return (
-    <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
+    <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 z-50 px-6'>
       <div ref={modalRef} className='rounded-lg overflow-hidden shadow-xl max-w-3xl w-full aspect-w-1 aspect-h-1'>
         <div className='relative w-full h-full'>
           <button className='absolute top-2 right-2 text-gray-500 hover:text-gray-700 z-50' onClick={onClose}>
