@@ -1,19 +1,19 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import { XIcon } from '@heroicons/react/outline';
+import { CheckIcon } from '@radix-ui/react-icons';
+import { FaStar } from 'react-icons/fa6';
+import { IoHappy } from 'react-icons/io5';
+import { MdCoffeeMaker } from 'react-icons/md';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ from '@/components/FAQ/FAQ';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import { SliderWithImageComparison } from '@/components/SliderWithImageComparison/SliderWithImageComparison';
 import { Card, CardContent } from '@/components/ui/card';
-import { XIcon } from '@heroicons/react/outline';
-import { CheckIcon } from '@radix-ui/react-icons';
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FaStar } from 'react-icons/fa6';
-import { IoHappy } from 'react-icons/io5';
-import { MdCoffeeMaker } from 'react-icons/md';
-import { faqItems } from './utils/faqItems';
-import LearnMoreButton from '@/components/LearnMoreButton/LearnMoreButton';
 import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
+import ServiceBox from '@/components/blocks/ServiceBox/ServiceBox';
+import { faqItems } from './utils/faqItems';
+import serviceBoxData from './utils/serviceBoxData';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Composite Bonding',
@@ -26,52 +26,13 @@ export default function ToothWhitening() {
     <div className='flex flex-col min-h-[100dvh]'>
       <section className="relative w-full bg-[url('/assets/images/composite-bonding-process.jpg')] bg-cover bg-center bg-no-repeat py-20 md:py-32 lg:py-40">
         <div className='container mx-auto px-4 md:px-6'>
-          <div className='relative max-w-3xl rounded-lg bg-white p-8 shadow-lg md:p-12'>
-            <h1 className='text-3xl font-bold text-gold md:text-4xl text-center'>Tooth Whitening</h1>
-            <p className='mt-4 text-lg font-medium text-grey text-center'>
-              Brighten your smile with our professional tooth whitening services.
-            </p>
-            <p className='mt-6 text-lightGrey'>
-              Our tooth whitening treatments use advanced technology to effectively remove stains and discoloration,
-              giving you a dazzling, whiter smile. Whether you’re preparing for a special event or just looking to
-              enhance your everyday look, our expert team is here to help you achieve your desired results.
-            </p>
-
-            <div className='mt-6 mb-8'>
-              <p className='text-lightGrey'>
-                Experience a radiant smile and increased confidence with our top-quality tooth whitening services.
-                Schedule your consultation today!
-              </p>
-            </div>
-
-            <div className='flex flex-col-reverse md:flex-row md:justify-between'>
-              <div className='flex flex-col gap-4 md:absolute md:right-0 md:bottom-0 md:w-auto md:p-6'>
-                <p className='text-lg text-lightGrey font-medium text-center'>On average:</p>
-                <div className='flex flex-col gap-4 sm:flex-row justify-center'>
-                  <div className='flex flex-col gap-1'>
-                    <span className='text-lg font-bold text-gold text-center'>60 - 90 minutes</span>
-                    <span className='text-sm text-lightGrey text-center'>treatment duration</span>
-                    <span className='text-sm text-lightGrey text-center'>per session</span>
-                  </div>
-                  <div className='flex flex-col gap-1'>
-                    <span className='text-lg font-bold text-gold text-center'>1 - 3</span>
-                    <span className='text-sm text-lightGrey text-center'>sessions required</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className='lg:mt-6 mt-10 flex flex-col gap-4 sm:flex-row md:justify-start sm:justify-center'>
-              <Link
-                href='#'
-                className='inline-flex h-10 items-center justify-center rounded-md bg-gold px-6 text-sm font-medium text-white shadow transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
-                prefetch={false}
-              >
-                Book Now
-              </Link>
-              <LearnMoreButton />
-            </div>
-          </div>
+          <ServiceBox
+            title={serviceBoxData.header.title}
+            subTitle={serviceBoxData.header.subTitle}
+            mainText={serviceBoxData.mainText}
+            benefitText={serviceBoxData.benefitText}
+            stats={serviceBoxData.serviceStats}
+          />
         </div>
       </section>
 
