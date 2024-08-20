@@ -1,50 +1,6 @@
-type ServiceHeaderProps = {
-  title: string;
-  subTitle: string;
-  className?: string;
-};
-
-type ServiceDescriptionProps = {
-  description: string;
-  className?: string;
-};
-
-type ServiceStatProps = {
-  title: string;
-  text: string;
-};
-
-type ServiceStatsProps = {
-  stats: ServiceStatProps[];
-};
-
-type ServiceBoxProps = {
-  title: string;
-  subTitle: string;
-  mainText: string;
-  benefitText: string;
-  stats: ServiceStatProps[];
-};
-
-type InfoSectionProps = {
-  title: string;
-  descriptions: string[];
-  advantagesTitle: string;
-  advantagesData: ListItmes;
-  useCaseTitle: string;
-  useCaseData: ListItmes;
-};
-
-type TextColors = {
+type TextColorScheme = {
   header: string;
   text: string;
-};
-
-type ServiceGridListItemProps = {
-  id?: number;
-  heading: string;
-  text: string;
-  textColors?: TextColors;
 };
 
 type ListItem = {
@@ -55,25 +11,69 @@ type ListItem = {
 
 type ListItems = ListItem[];
 
-type ServiceGridListProps = {
-  listItems: ListItems;
-  textColors?: TextColors;
+type ServiceStat = {
+  title: string;
+  text: string;
 };
 
-type ServiceBenefitBox = {
+type ServiceHeader = {
+  title: string;
+  subTitle: string;
+  className?: string;
+};
+
+type ServiceDescription = {
+  description: string;
+  className?: string;
+};
+
+type ServiceStats = {
+  stats: ServiceStat[];
+};
+
+type ServiceBox = {
+  title: string;
+  subTitle: string;
+  mainText: string;
+  benefitText: string;
+  stats: ServiceStat[];
+};
+
+type InfoSection = {
+  title: string;
+  descriptions: string[];
+  advantagesTitle: string;
+  advantagesData: ListItems;
+  useCaseTitle: string;
+  useCaseData: ListItems;
+};
+
+type ServiceGridListItem = {
+  id?: number;
+  heading: string;
+  text: string;
+  textColors?: TextColorScheme;
+};
+
+type ServiceGridList = {
+  listItems: ListItems;
+  textColors?: TextColorScheme;
+};
+
+type ServiceBenefit = {
   id?: number;
   icon: ReactElement;
   header: string;
   text: string;
 };
 
-type ServiceProcessBoxProps = {
+type ServiceProcess = {
   src: string;
   header: string;
   text: string;
 };
 
-type ServiceTestimonialBoxProps = {
+type ServiceTestimonial = {
   id?: number;
   name: string;
   text: string;
@@ -83,62 +83,42 @@ type ServiceTestimonialBoxProps = {
   afterAlt: string;
 };
 
-type ServiceTestimonialsData = {
-  data: ServiceTestimonialBoxProps[];
+type ServiceTestimonials = {
+  data: ServiceTestimonial[];
 };
 
-type HeroHeader = {
+type HeroHeaderContent = {
   header: { title: string; subTitle: string };
   mainText: string;
   benefitText: string;
-  serviceStats: ServiceStatProps[];
+  serviceStats: ServiceStat[];
 };
 
-type HeroSectionProps = {
-  data: HeroHeader;
+type HeroSection = {
+  data: HeroHeaderContent;
 };
 
-type BenefitSectionProps = {
+type BenefitSection = {
   title: string;
   description: string;
-  data: ServiceBenefitBox[];
+  data: ServiceBenefit[];
 };
 
-type ProcessBoxData = {
+type ProcessBox = {
   id?: number;
   src: string;
   header: string;
   text: string;
 };
 
-type ProcessSectionProps = {
+type ProcessSection = {
   title: string;
   description: string;
-  data: ProcessBoxData[];
+  data: ProcessBox[];
 };
 
-type AftercareSectionProps = {
+type AftercareSection = {
   title: string;
   descriptions: string[];
   data: ListItems;
-};
-
-type TableBodyProps = {
-  feature: string;
-  data: Array<string | boolean>;
-};
-
-type TableData = {
-  tableHeadData: string[];
-  tableBodyData: TableBodyProps[];
-};
-
-type ComparisonSectionProps = {
-  title: string;
-  description: string;
-  data: TableData;
-};
-
-type ComparisonTableProps = {
-  data: TableData;
 };
