@@ -10,7 +10,7 @@ export default function InfoSection({
   advantagesData,
   useCaseTitle,
   useCaseData,
-}: InfoSectionProps) {
+}: InfoSection) {
   return (
     <section className='py-8 px-4 md:py-18 lg:pb-28'>
       <div className='container mx-auto px-4 md:px-6'>

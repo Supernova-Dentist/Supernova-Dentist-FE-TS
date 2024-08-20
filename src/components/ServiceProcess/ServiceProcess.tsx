@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Card, CardContent } from '../ui/card';
 
-export default function ServiceProcessBox({ src, header, text }: ServiceProcessBoxProps) {
+export default function ServiceProcess({ src, header, text }: ServiceProcess) {
   return (
     <Card>
       <CardContent>

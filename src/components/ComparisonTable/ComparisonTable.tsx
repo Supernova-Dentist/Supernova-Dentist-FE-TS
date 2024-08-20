@@ -7,7 +7,7 @@ import TableBody from '../blocks/Table/TableBody/TableBody';
 import { CheckIcon } from '@radix-ui/react-icons';
 import { XIcon } from '@heroicons/react/outline';
 
-export default function ComparisonTable({ data }: ComparisonTableProps) {
+export default function ComparisonTable({ data }: ComparisonTable) {
   const { tableHeadData, tableBodyData } = data;
 
   return (

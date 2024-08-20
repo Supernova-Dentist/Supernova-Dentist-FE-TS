@@ -1,7 +1,7 @@
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import ServiceGridList from '@/components/ServiceGridList/ServiceGridList';
 
-export default function AftercareSection({ title, descriptions, data }: AftercareSectionProps) {
+export default function AftercareSection({ title, descriptions, data }: AftercareSection) {
   return (
     <section className='py-12 px-4 md:py-20 lg:py-28 bg-grey'>
       <div className='container mx-auto px-4 md:px-6'>

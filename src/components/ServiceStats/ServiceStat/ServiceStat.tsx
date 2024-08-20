@@ -1,4 +1,4 @@
-export default function ServiceStat({ title, text }: ServiceStatProps) {
+export default function ServiceStat({ title, text }: ServiceStat) {
   return (
     <div className='flex flex-col'>
       <span className='text-lg font-bold text-gold text-center'>{title}</span>

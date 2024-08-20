@@ -1,8 +1,8 @@
 import React from 'react';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
-import ServiceProcessBox from '@/components/ServiceProcessBox/ServiceProcessBox';
+import ServiceProcess from '@/components/ServiceProcess/ServiceProcess';
 
-export default function ProcessSection({ title, description, data }: ProcessSectionProps) {
+export default function ProcessSection({ title, description, data }: ProcessSection) {
   return (
     <section className='py-12 px-4 md:py-20 lg:py-28 bg-lightGrey'>
       <div className='container mx-auto px-4 md:px-6'>
@@ -11,7 +11,7 @@ export default function ProcessSection({ title, description, data }: ProcessSect
         <div className='mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
           {data.map(({ id, src, header, text }) => (
             <React.Fragment key={id}>
-              <ServiceProcessBox src={src} header={header} text={text} />
+              <ServiceProcess src={src} header={header} text={text} />
             </React.Fragment>
           ))}
         </div>

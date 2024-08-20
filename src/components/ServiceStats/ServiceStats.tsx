@@ -1,7 +1,7 @@
 import React from 'react';
 import ServiceStat from './ServiceStat/ServiceStat';
 
-export default function ServiceStats({ stats }: ServiceStatsProps) {
+export default function ServiceStats({ stats }: ServiceStats) {
   return (
     <div className='flex flex-col gap-4 sm:flex-row justify-center'>
       {stats.map(({ title, text }) => (

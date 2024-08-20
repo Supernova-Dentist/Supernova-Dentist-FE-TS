@@ -1,8 +1,8 @@
 import React from 'react';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
-import ServiceTestimonialBox from '@/components/ServiceTestimonialBox/ServiceTestimonialBox';
+import ServiceTestimonial from '@/components/ServiceTestimonial/ServiceTestimonial';
 
-export default function TestimonialsSection({ data }: ServiceTestimonialsData) {
+export default function TestimonialsSection({ data }: ServiceTestimonials) {
   return (
     <section className='py-12 px-4 md:py-20 lg:py-28 bg-white'>
       <div className='container mx-auto px-4 md:px-6'>
@@ -10,7 +10,7 @@ export default function TestimonialsSection({ data }: ServiceTestimonialsData) {
         <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6'>
           {data.map(({ id, text, name, beforeSrc, afterSrc, beforeAlt, afterAlt }) => (
             <React.Fragment key={id}>
-              <ServiceTestimonialBox
+              <ServiceTestimonial
                 name={name}
                 text={text}
                 beforeSrc={beforeSrc}

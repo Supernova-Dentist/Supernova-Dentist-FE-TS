@@ -1,13 +1,13 @@
 import { SliderWithImageComparison } from '../SliderWithImageComparison/SliderWithImageComparison';
 
-export default function ServiceTestimonialBox({
+export default function ServiceTestimonial({
   name,
   text,
   beforeSrc,
   afterSrc,
   beforeAlt,
   afterAlt,
-}: ServiceTestimonialBoxProps) {
+}: ServiceTestimonial) {
   return (
     <div className='bg-cream p-6 rounded-lg shadow-lg'>
       <p className='text-lightGrey'>{text}</p>

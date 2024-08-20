@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { CheckIcon } from '@radix-ui/react-icons';
 
-export default function ServiceGridListItem({ heading, text, textColors }: ServiceGridListItemProps) {
+export default function ServiceGridListItem({ heading, text, textColors }: ServiceGridListItem) {
   return (
     <li className='flex items-start gap-3'>
       <CheckIcon className='h-6 w-6 flex-shrink-0 text-gold' />
