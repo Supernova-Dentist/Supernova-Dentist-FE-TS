@@ -1,5 +1,5 @@
 import React from 'react';
-import benefitBoxData from '@/components/blocks/DentalImplantsContent/benefitsData';
+import benefitBoxData from '@/components/blocks/DentalImplantsContent/contentData/benefitsData';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import ServiceBenefitBox from '@/components/ServiceBenefitBox/ServiceBenefitBox';
 

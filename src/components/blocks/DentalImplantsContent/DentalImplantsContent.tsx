@@ -7,15 +7,15 @@ import TestimonialsSection from '@/components/TestimonialsSection/TestimonialsSe
 import AftercareSection from '@/components/AftercareSection/AftercareSection';
 import ComparisonSection from '@/components/ComparisonSection/ComparisonSection';
 import FaqSection from '@/components/FaqSection/FaqSection';
-import dentalImplantsHeroData from './heroData';
-import advantagesData from './advantagesData';
-import useCaseData from './useCaseData';
-import benefitBoxData from './benefitsData';
-import processBoxData from './processBoxData';
-import testimonialsData from './testimonialsData';
-import afterCareData from './afterCareData';
-import { tableData } from './tableData';
-import { faqItems } from './faqData';
+import dentalImplantsHeroData from './contentData/heroData';
+import advantagesData from './contentData/advantagesData';
+import useCaseData from './contentData/useCaseData';
+import benefitBoxData from './contentData/benefitsData';
+import processBoxData from './contentData/processBoxData';
+import testimonialsData from './contentData/testimonialsData';
+import afterCareData from './contentData/afterCareData';
+import { tableData } from './contentData/tableData';
+import { faqItems } from './contentData/faqData';
 
 export default function DentalImplantsContent() {
   return (

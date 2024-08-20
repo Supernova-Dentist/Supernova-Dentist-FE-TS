@@ -1,21 +1,21 @@
 import HeroSection from '@/components/HeroSection/HeroSection';
-import invisalignHeroData from './heroData';
+import invisalignHeroData from './contentData/heroData';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import InfoSection from '@/components/InfoSection/InfoSection';
-import invisalignAdvantagesData from './advantagesData';
-import invisalignUseCaseData from './useCaseData';
+import invisalignAdvantagesData from './contentData/advantagesData';
+import invisalignUseCaseData from './contentData/useCaseData';
 import BenefitSection from '../../BenefitSection/BenefitSection';
-import invisalignBenefitData from './benefitsData';
+import invisalignBenefitData from './contentData/benefitsData';
 import ProcessSection from '../../ProcessSection/ProcessSection';
-import processData from './processData';
+import processData from './contentData/processData';
 import TestimonialsSection from '@/components/TestimonialsSection/TestimonialsSection';
-import testimonialsDats from './testimonialsDats';
+import testimonialsDats from './contentData/testimonialsDats';
 import AftercareSection from '../../AftercareSection/AftercareSection';
-import aftercareData from './aftercareData';
+import aftercareData from './contentData/aftercareData';
 import ComparisonSection from '@/components/ComparisonSection/ComparisonSection';
-import { tableData } from './tableData';
+import { tableData } from './contentData/tableData';
 import FaqSection from '@/components/FaqSection/FaqSection';
-import { faqItems } from './faqData';
+import { faqItems } from './contentData/faqData';
 
 export default function InvisalignContent() {
   return (
