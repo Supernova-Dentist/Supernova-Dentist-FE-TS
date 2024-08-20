@@ -10,9 +10,8 @@ import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton'
 import { SliderWithImageComparison } from '@/components/SliderWithImageComparison/SliderWithImageComparison';
 import { Card, CardContent } from '@/components/ui/card';
 import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
-import ServiceBox from '@/components/blocks/ServiceBox/ServiceBox';
 import { faqItems } from './utils/faqItems';
-import serviceBoxData from './utils/serviceBoxData';
+import CompositBondingContent from '@/components/blocks/CompositBondingContent/CompositBondingContent';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Composite Bonding',
@@ -23,17 +22,7 @@ export const metadata: Metadata = {
 export default function CompositeBonding() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <section className="relative w-full bg-[url('/assets/images/composite-bonding-process.jpg')] bg-cover bg-center bg-no-repeat py-20 md:py-32 lg:py-40">
-        <div className='container mx-auto px-4 md:px-6'>
-          <ServiceBox
-            title={serviceBoxData.header.title}
-            subTitle={serviceBoxData.header.subTitle}
-            mainText={serviceBoxData.mainText}
-            benefitText={serviceBoxData.benefitText}
-            stats={serviceBoxData.serviceStats}
-          />
-        </div>
-      </section>
+      <CompositBondingContent />
 
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
