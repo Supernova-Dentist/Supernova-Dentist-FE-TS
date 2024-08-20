@@ -6,9 +6,10 @@ import TableHeadCell from '../blocks/Table/TableHeadCell/TableHeadCell';
 import TableBody from '../blocks/Table/TableBody/TableBody';
 import { CheckIcon } from '@radix-ui/react-icons';
 import { XIcon } from '@heroicons/react/outline';
-import { tableBodyData, tableHeadData } from './tableData';
 
-export default function ComparisonTable() {
+export default function ComparisonTable({ data }: ComparisonTableProps) {
+  const { tableHeadData, tableBodyData } = data;
+
   return (
     <Table>
       <TableHead>
