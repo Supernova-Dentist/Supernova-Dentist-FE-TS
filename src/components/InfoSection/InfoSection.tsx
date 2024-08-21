@@ -3,14 +3,9 @@ import ServiceDescription from '@/components/ServiceDescription/ServiceDescripti
 import ServiceGridList from '@/components/ServiceGridList/ServiceGridList';
 import ServiceGridTitle from '@/components/ServiceGridTitle/ServiceGridTitle';
 
-export default function InfoSection({
-  title,
-  descriptions,
-  advantagesTitle,
-  advantagesData,
-  useCaseTitle,
-  useCaseData,
-}: InfoSection) {
+export default function InfoSection({ data, advantagesData, useCaseData }: InfoSection) {
+  const { title, descriptions, advantagesTitle, useCaseTitle } = data;
+
   return (
     <section className='py-8 px-4 md:py-18 lg:pb-28'>
       <div className='container mx-auto px-4 md:px-6'>
