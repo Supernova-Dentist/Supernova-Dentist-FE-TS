@@ -16,6 +16,7 @@ import testimonialsData from './contentData/testimonialsData';
 import afterCareData from './contentData/afterCareData';
 import { tableData } from './contentData/tableData';
 import { faqItems } from './contentData/faqData';
+import infoData from './contentData/infoData';
 
 export default function DentalImplantsContent() {
   return (
@@ -24,17 +25,7 @@ export default function DentalImplantsContent() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <InfoSection
-        title='What are Dental Implants?'
-        descriptions={[
-          'Dental implants are a modern solution for replacing missing teeth. They consist of a titanium post that is surgically inserted into the jawbone, which acts as a replacement root for a new tooth. This procedure provides a stable and durable foundation for attaching crowns, bridges, or dentures.',
-          'Implants offer a natural look and feel, effectively restoring both the function and aesthetics of your smile. They can be used to replace a single tooth, multiple teeth, or even support full dentures. Our expert team ensures a precise and comfortable procedure with long-lasting results.',
-        ]}
-        advantagesTitle='Advantages of Dental Implants:'
-        advantagesData={advantagesData}
-        useCaseTitle='Use Cases of Dental Implants'
-        useCaseData={useCaseData}
-      />
+      <InfoSection data={infoData} advantagesData={advantagesData} useCaseData={useCaseData} />
       <BenefitSection
         title='Who Can Benefit from Dental Implants?'
         description='Dental implants offer a reliable solution for replacing missing teeth and can significantly enhance your oral

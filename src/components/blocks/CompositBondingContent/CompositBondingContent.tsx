@@ -16,6 +16,7 @@ import testimonialsData from './contentData/testimonialsData';
 import aftercareData from './contentData/aftercareData';
 import { tableData } from './contentData/tableData';
 import { faqItems } from './contentData/faqData';
+import infoData from './contentData/infoData';
 
 export default function CompositBondingContent() {
   return (
@@ -24,17 +25,7 @@ export default function CompositBondingContent() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <InfoSection
-        title='What is Composite Bonding?'
-        descriptions={[
-          'Composite bonding is a highly versatile and popular cosmetic dental procedure used to enhance the appearance of teeth. It involves applying a tooth-colored resin material to the surface of the teeth, which is then shaped and polished to match the surrounding teeth for a natural look.',
-          'This treatment has been in use for several decades and has a well-established safety record. Advances in dental materials and techniques have made this procedure more effective and longer-lasting than ever before.',
-        ]}
-        advantagesTitle='Advantages of Composite Bonding:'
-        advantagesData={advantageData}
-        useCaseTitle='Use Cases of Composite Bonding:'
-        useCaseData={useCaseData}
-      />
+      <InfoSection data={infoData} advantagesData={advantageData} useCaseData={useCaseData} />
       <BenefitSection
         title='Who Can Benefit from Composite Bonding?'
         description='Composite bonding is a versatile treatment that can benefit a wide range of patients:'
