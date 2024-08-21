@@ -10,8 +10,8 @@ import FaqSection from '@/components/FaqSection/FaqSection';
 import dentalImplantsHeroData from './contentData/heroData';
 import advantagesData from './contentData/advantagesData';
 import useCaseData from './contentData/useCaseData';
-import benefitBoxData from './contentData/benefitsData';
-import processBoxData from './contentData/processBoxData';
+import benefitsData from './contentData/benefitsData';
+import processData from './contentData/processData';
 import testimonialsData from './contentData/testimonialsData';
 import afterCareData from './contentData/afterCareData';
 import { tableData } from './contentData/tableData';
@@ -39,12 +39,12 @@ export default function DentalImplantsContent() {
         title='Who Can Benefit from Dental Implants?'
         description='Dental implants offer a reliable solution for replacing missing teeth and can significantly enhance your oral
           health and quality of life. They are ideal for a variety of patients:'
-        data={benefitBoxData}
+        data={benefitsData}
       />
       <ProcessSection
         title='Your Dental Implant Process'
         description="Our comprehensive dental implant process is designed to ensure a successful and comfortable experience. Here's how we guide you through each step:"
-        data={processBoxData}
+        data={processData}
       />
       <TestimonialsSection data={testimonialsData} />
       <AftercareSection
