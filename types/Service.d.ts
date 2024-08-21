@@ -39,12 +39,16 @@ type ServiceBox = {
   stats: ServiceStat[];
 };
 
-type InfoSection = {
+type InfoSectionData = {
   title: string;
   descriptions: string[];
   advantagesTitle: string;
-  advantagesData: ListItems;
   useCaseTitle: string;
+};
+
+type InfoSection = {
+  data: InfoSectionData;
+  advantagesData: ListItems;
   useCaseData: ListItems;
 };
 
