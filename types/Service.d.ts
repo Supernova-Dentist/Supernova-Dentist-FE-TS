@@ -44,12 +44,12 @@ type InfoSectionData = {
   descriptions: string[];
   advantagesTitle: string;
   useCaseTitle: string;
+  advantagesData: ListItems;
+  useCaseData: ListItems;
 };
 
 type InfoSection = {
   data: InfoSectionData;
-  advantagesData: ListItems;
-  useCaseData: ListItems;
 };
 
 type ServiceGridListItem = {
@@ -62,13 +62,6 @@ type ServiceGridListItem = {
 type ServiceGridList = {
   listItems: ListItems;
   textColors?: TextColorScheme;
-};
-
-type ServiceBenefit = {
-  id?: number;
-  icon: ReactElement;
-  header: string;
-  text: string;
 };
 
 type ServiceProcess = {
@@ -102,27 +95,46 @@ type HeroSection = {
   data: HeroHeaderContent;
 };
 
-type BenefitSection = {
-  title: string;
-  description: string;
-  data: ServiceBenefit[];
+type BenefitContent = {
+  id?: number;
+  icon: ReactElement;
+  header: string;
+  text: string;
 };
 
-type ProcessBox = {
+type BenefitData = {
+  title: string;
+  description: string;
+  content: BenefitContent[];
+};
+
+type BenefitSection = {
+  data: BenefitData;
+};
+
+type ProcessContent = {
   id?: number;
   src: string;
   header: string;
   text: string;
 };
 
-type ProcessSection = {
+type ProcessData = {
   title: string;
   description: string;
-  data: ProcessBox[];
+  content: ProcessContent[];
+};
+
+type ProcessSection = {
+  data: ProcessData;
+};
+
+type AfterCareData = {
+  title: string;
+  descriptions: string[];
+  content: ListItems;
 };
 
 type AftercareSection = {
-  title: string;
-  descriptions: string[];
-  data: ListItems;
+  data: AfterCareData;
 };

@@ -8,10 +8,14 @@ type Table = {
   tableBodyData: TableBody[];
 };
 
-type ComparisonSection = {
+type ComparisonData = {
   title: string;
   description: string;
-  data: Table;
+  content: Table;
+};
+
+type ComparisonSection = {
+  data: ComparisonData;
 };
 
 type ComparisonTable = {
