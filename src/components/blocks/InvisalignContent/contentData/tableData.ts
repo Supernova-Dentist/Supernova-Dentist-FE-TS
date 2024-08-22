@@ -27,4 +27,11 @@ const tableBodyData = [
   },
 ];
 
-export const tableData = { tableHeadData, tableBodyData };
+export const tableData = {
+  title: 'Treatment Comparison',
+  description: 'Compare Invisalign with other common orthodontic treatments to find the best option for your needs.',
+  content: {
+    tableHeadData,
+    tableBodyData,
+  },
+};

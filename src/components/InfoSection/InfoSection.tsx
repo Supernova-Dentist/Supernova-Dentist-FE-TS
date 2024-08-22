@@ -3,8 +3,8 @@ import ServiceDescription from '@/components/ServiceDescription/ServiceDescripti
 import ServiceGridList from '@/components/ServiceGridList/ServiceGridList';
 import ServiceGridTitle from '@/components/ServiceGridTitle/ServiceGridTitle';
 
-export default function InfoSection({ data, advantagesData, useCaseData }: InfoSection) {
-  const { title, descriptions, advantagesTitle, useCaseTitle } = data;
+export default function InfoSection({ data }: InfoSection) {
+  const { title, descriptions, advantagesTitle, useCaseTitle, advantagesData, useCaseData } = data;
 
   return (
     <section className='py-8 px-4 md:py-18 lg:pb-28'>
