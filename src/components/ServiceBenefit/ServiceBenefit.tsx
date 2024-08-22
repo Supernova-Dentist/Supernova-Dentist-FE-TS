@@ -1,4 +1,4 @@
-export default function ServiceBenefit({ icon, header, text }: ServiceBenefit) {
+export default function ServiceBenefit({ icon, header, text }: BenefitContent) {
   return (
     <div className='rounded-lg bg-white p-6 shadow-lg'>
       {icon}
