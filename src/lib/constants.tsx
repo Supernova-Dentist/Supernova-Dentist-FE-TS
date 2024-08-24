@@ -5,12 +5,7 @@ export const BLOG_LIMIT = 9;
 export const { NEXT_PUBLIC_META_API_BASE_URL, META_API_CLIENT_ID, META_API_CLIENT_SECRET, META_ACCESS_TOKEN } =
   process.env;
 
-// FOOTER
-export const generalServices = [
-  { name: 'Implants', link: '/implants' },
-  { name: 'Emergency Dentist', link: '/emergency-dentist' },
-];
-
+// Navigation
 export const cosmeticServices = [
   { name: 'Invisalign', link: '/invisalign' },
   { name: 'Composite Bonding', link: '/composite-bonding' },
@@ -27,6 +22,38 @@ export const practiceInfo = [
   { name: 'Enquiry', link: '/enquiry' },
 ];
 
+export const generalServices = [
+  { name: 'General Check-up', link: '/' },
+  { name: 'Filling', link: '/' },
+  { name: 'Root Canal', link: '/' },
+  { name: 'Emergency', link: '/' },
+];
+
+export const media = [
+  {
+    name: 'Blog',
+    link: '/blog',
+  },
+  {
+    name: 'Gallery',
+    link: '/gallery',
+  },
+  {
+    name: 'Social',
+    link: '/social',
+  },
+];
+
+export const navLinks = [
+  {
+    name: 'Cosmetic Services',
+    flyout: cosmeticServices,
+  },
+  { name: 'General Services', flyout: generalServices },
+  { name: 'About us', flyout: practiceInfo },
+  { name: 'Media', flyout: media },
+];
+
 export const officeInfo = {
   address: 'Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ',
   phone: '(816) 555-5555',
@@ -39,3 +66,5 @@ export const socialIcons = [
   { icon: <IoLogoInstagram size={28} />, name: 'Instagram' },
   { icon: <GrFacebookOption size={28} />, name: 'Facebook' },
 ];
+
+export const DentallyPortal = 'https://supernova.dentr.net';
