@@ -1,0 +1,30 @@
+.bubbleText {
+  display: inline; /* Ensure it's inline with other text */
+  line-height: 1; /* Adjust line-height if needed */
+  text-align: center; /* Center the text */
+  font-size: 4rem; /* Adjust font size as needed */
+  color: #c29470; /* Adjust color as needed */
+}
+
+.hoverText {
+  transition: 0.35s transform, 0.35s color;
+  display: inline-block; /* Ensure the span can be scaled */
+}
+
+/* Hover effect for the current letter */
+.hoverText:hover {
+  transform: scale(1.2); /* Make the hovered letter larger */
+  color: rgb(255, 223, 0); /* Richer gold color */
+}
+
+/* Hover effect for adjacent letters (to the right) */
+.hoverText:hover + .hoverText {
+  color: rgb(255, 244, 179); /* Light gold color */
+}
+
+.hoverText:hover + .hoverText + .hoverText {
+  color: rgb(255, 223, 0); /* Richer gold color */
+}
+.hoverText:has(+ .hoverText:hover) {
+  color: rgb(255, 223, 0);
+}
