@@ -3,13 +3,16 @@
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import MobileMenu from '@/components/MobileNav';
 import MenuManager from '@/components/MobileNav/MenuManager';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Custom hook to get window size
 const useWindowSize = () => {
-  const [size, setSize] = React.useState({ width: 0, height: 0 });
+  const [size, setSize] = useState({
+    width: 0,
+    height: 0,
+  });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setSize({
         width: window.innerWidth,
@@ -18,7 +21,7 @@ const useWindowSize = () => {
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Call handler right away to set initial window size
+    handleResize(); // Set initial window size
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -29,6 +32,16 @@ const useWindowSize = () => {
 // MainNav component for responsive navigation
 const MainNav = () => {
   const { width } = useWindowSize();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return <nav></nav>; // Placeholder or a loading indicator
+  }
+
   const isMobile = width <= 768; // Define your mobile breakpoint here
 
   return (
