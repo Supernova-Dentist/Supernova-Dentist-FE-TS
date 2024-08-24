@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { InstagramLogoIcon } from '@radix-ui/react-icons';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import InstagramPostGrid from './utils/InstagramPostGrid';
+import { fetchInstagramPosts } from '@/services/metaAPI/fetchInstagramPosts';
 
 export const metadata: Metadata = {
   title: 'Our Instagram | Your Dental Clinic',
@@ -32,29 +32,39 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SocialMedia() {
+export default async function SocialMedia() {
+  const instagramPosts = await fetchInstagramPosts();
+  const username = instagramPosts?.length > 0 ? instagramPosts?.[0].username : 'Our Instagram';
+  const instagramProfileUrl = `https://www.instagram.com/${username}/`;
+
   return (
     <>
-      <div className='min-h-screen flex flex-col items-center justify-start py-12 bg-gray-50'>
+      <div className='min-h-screen-minus-nav flex flex-col items-center justify-start py-12 bg-gray-50'>
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <BreadCrumb />
-
-          <div className='flex items-center justify-between mb-8'>
+          <div className='flex flex-col sm:flex-row sm:items-center justify-between'>
             <div>
-              <h1 className='text-3xl font-bold'>Our Instagram</h1>
-              <p className='text-muted-foreground'>Follow us on Instagram for the latest updates and dental tips.</p>
+              <h1 className='text-3xl font-bold break-words text-grey'>{username}</h1>
+              <p className='text-muted-foreground text-lightGrey'>
+                Follow us on Instagram for the latest updates and dental tips.
+              </p>
             </div>
-            <Link
-              href='#'
-              className='inline-flex items-center gap-2 bg-grey text-primary rounded-md px-4 py-2 hover:bg-primary/90 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring'
-              prefetch={false}
+            <a
+              href={instagramProfileUrl}
+              target='_blank'
+              rel='noreferrer'
+              className='inline-flex w-fit items-center gap-2 bg-grey text-primary rounded-md px-4 py-2 hover:bg-primary/90 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring mt-2 sm:mt-0'
             >
               <InstagramLogoIcon className='w-5 h-5 text-cream' />
               <span className='text-cream'>Follow</span>
-            </Link>
+            </a>
           </div>
 
-          <InstagramPostGrid />
+          {instagramPosts !== undefined || instagramPosts?.length > 0 ? (
+            <InstagramPostGrid posts={instagramPosts} />
+          ) : (
+            <span className='flex justify-center mt-20'>No Instagram posts yet. Check back later.</span>
+          )}
         </div>
       </div>
     </>
