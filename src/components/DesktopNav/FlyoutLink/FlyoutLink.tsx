@@ -1,20 +1,26 @@
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function FlyoutLink({ children, href, flyoutItems }: FlyoutLinkProps) {
   const [open, setOpen] = useState(false);
 
-  const showFlyout = flyoutItems.length > 0 && open;
+  const showFlyout = useMemo(() => Array.isArray(flyoutItems) && flyoutItems.length > 0 && open, [flyoutItems, open]);
 
   return (
     <div onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)} className='relative w-fit h-fit z-50'>
-      <a href={href} className='relative text-white transition-all duration-300 ease-out flex items-center'>
+      <a
+        href={href}
+        aria-expanded={showFlyout}
+        className='relative text-white transition-all duration-300 ease-out flex items-center'
+      >
         {children}
         {flyoutItems.length > 0 && (
           <ChevronDownIcon
-            className={cn(`ml-1 transform transition-transform duration-300 ${showFlyout ? 'rotate-180' : ''}`)}
+            className={cn('ml-1 transform transition-transform duration-300', {
+              'rotate-180': showFlyout,
+            })}
           />
         )}
         <span
