@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { type JSX, type SVGProps } from 'react';
 import CtaButtons from '../Cta/CtaButtons';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 
@@ -6,7 +6,7 @@ export default function Welcome() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
       <section
-        className='relative w-full h-[80vh] bg-cover bg-center bg-no-repeat'
+        className='relative w-full h-[100vh] bg-cover bg-center bg-no-repeat'
         style={{ backgroundImage: 'url("/hero-image.jpg")' }}
       >
         <div className='absolute inset-0 bg-gradient-to-b from-grey to-lightGrey' />
@@ -74,7 +74,7 @@ export default function Welcome() {
         </div>
       </section>
 
-      <section
+      {/* <section
         className='relative w-full h-[40vh] bg-cover bg-center bg-no-repeat'
         style={{ backgroundImage: 'url("/hero-image.jpg")' }}
       >
@@ -119,12 +119,12 @@ export default function Welcome() {
             Learn More
           </Link>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
 
-function ClipboardIcon(props) {
+function ClipboardIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -144,7 +144,7 @@ function ClipboardIcon(props) {
   );
 }
 
-function PowerIcon(props) {
+function PowerIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -164,7 +164,7 @@ function PowerIcon(props) {
   );
 }
 
-function UserIcon(props) {
+function UserIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
