@@ -1,8 +1,8 @@
-import cn from 'classnames';
 import React, { useContext } from 'react';
 import { Dribbble, Facebook, Instagram, Twitch, Youtube } from 'react-feather';
 import { MenuContext } from '../MenuManager';
 
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import './style.scss';
 

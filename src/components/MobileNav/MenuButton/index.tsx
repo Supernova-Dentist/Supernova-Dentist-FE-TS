@@ -1,4 +1,4 @@
-import cn from 'classnames';
+import { cn } from '@/lib/utils';
 import React, { useContext } from 'react';
 import { MenuContext } from '../MenuManager';
 
@@ -12,8 +12,6 @@ export default function MenuButton() {
       <button
         className='menu-button'
         onClick={() => {
-          console.log('clicked');
-
           setOpen(!open);
         }}
       >
