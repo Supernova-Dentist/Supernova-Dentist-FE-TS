@@ -1,7 +1,8 @@
-import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { AnimatePresence, motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 export default function FlyoutLink({ children, href, flyoutItems }: FlyoutLinkProps) {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function FlyoutLink({ children, href, flyoutItems }: FlyoutLinkPr
 
   return (
     <div onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)} className='relative w-fit h-fit z-50'>
-      <a
+      <Link
         href={href}
         aria-expanded={showFlyout}
         className='relative text-white transition-all duration-300 ease-out flex items-center'
@@ -25,11 +26,11 @@ export default function FlyoutLink({ children, href, flyoutItems }: FlyoutLinkPr
         )}
         <span
           style={{
-            transform: showFlyout ? 'scaleX(1)' : 'scaleX(0)',
+            transform: open ? 'scaleX(1)' : 'scaleX(0)',
           }}
           className='absolute -bottom-2 -left-2 -right-2 h-1 origin-left scale-x-0 rounded-full bg-gold transition-transform duration-300 ease-out'
         />
-      </a>
+      </Link>
       <AnimatePresence>
         {showFlyout && (
           <motion.div
@@ -44,13 +45,13 @@ export default function FlyoutLink({ children, href, flyoutItems }: FlyoutLinkPr
             <div className='absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-cream' />
             <div className='flex flex-col gap-4 w-64 bg-cream p-6 shadow-xl z-50'>
               {flyoutItems.map(({ name, link }) => (
-                <a
+                <Link
                   key={name}
                   href={link}
                   className='block text-md text-gold transition-all duration-300 ease-out hover:text-amber-700 hover:translate-x-1'
                 >
                   {name}
-                </a>
+                </Link>
               ))}
             </div>
           </motion.div>
