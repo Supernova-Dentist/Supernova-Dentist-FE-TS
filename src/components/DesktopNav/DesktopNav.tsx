@@ -13,8 +13,8 @@ export default function DesktopNav() {
         <FlyoutLink href='/' flyoutItems={[]}>
           Home
         </FlyoutLink>
-        {navLinks.map(({ name, flyout }) => (
-          <FlyoutLink key={name} href='#' flyoutItems={flyout}>
+        {navLinks.map(({ name, flyout, url }) => (
+          <FlyoutLink key={name} href={url} flyoutItems={flyout}>
             {name}
           </FlyoutLink>
         ))}
