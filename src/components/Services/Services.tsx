@@ -7,8 +7,7 @@ const slugify = (text: string) => {
     .toString()
     .toLowerCase()
     .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters
-    .replace(/\-\-+/g, '-') // Replace multiple hyphens with a single hyphen
+    .replace(/[^\w-]+/g, '') // Remove all non-word characters
     .replace(/^-+/, '') // Remove leading hyphens
     .replace(/-+$/, ''); // Remove trailing hyphens
 };
