@@ -5,12 +5,7 @@ export const BLOG_LIMIT = 9;
 export const { NEXT_PUBLIC_META_API_BASE_URL, META_API_CLIENT_ID, META_API_CLIENT_SECRET, META_ACCESS_TOKEN } =
   process.env;
 
-// FOOTER
-export const generalServices = [
-  { name: 'Implants', link: '/implants' },
-  { name: 'Emergency Dentist', link: '/emergency-dentist' },
-];
-
+// Navigation
 export const cosmeticServices = [
   { name: 'Invisalign', link: '/invisalign' },
   { name: 'Composite Bonding', link: '/composite-bonding' },
@@ -25,6 +20,38 @@ export const practiceInfo = [
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
+];
+
+export const generalServices = [
+  { name: 'General Check-up', link: '/' },
+  { name: 'Filling', link: '/' },
+  { name: 'Root Canal', link: '/' },
+  { name: 'Emergency', link: '/' },
+];
+
+export const media = [
+  {
+    name: 'Blog',
+    link: '/blog',
+  },
+  {
+    name: 'Gallery',
+    link: '/gallery',
+  },
+  {
+    name: 'Social',
+    link: '/social',
+  },
+];
+
+export const navLinks = [
+  {
+    name: 'Cosmetic Services',
+    flyout: cosmeticServices,
+  },
+  { name: 'General Services', flyout: generalServices },
+  { name: 'About us', flyout: practiceInfo },
+  { name: 'Media', flyout: media },
 ];
 
 export const officeInfo = {
