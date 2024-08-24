@@ -37,3 +37,5 @@ export const socialIcons = [
   { icon: <IoLogoInstagram size={28} />, name: 'Instagram' },
   { icon: <GrFacebookOption size={28} />, name: 'Facebook' },
 ];
+
+export const DentallyPortal = 'https://supernova.dentr.net';
