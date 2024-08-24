@@ -47,11 +47,12 @@ export const media = [
 export const navLinks = [
   {
     name: 'Cosmetic Services',
+    url: '/cosmetic-services',
     flyout: cosmeticServices,
   },
-  { name: 'General Services', flyout: generalServices },
-  { name: 'About us', flyout: practiceInfo },
-  { name: 'Media', flyout: media },
+  { name: 'General Services', url: '/general-services', flyout: generalServices },
+  { name: 'About us', url: '/about', flyout: practiceInfo },
+  { name: 'Media', url: '/media', flyout: media },
 ];
 
 export const officeInfo = {
