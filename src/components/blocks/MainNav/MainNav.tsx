@@ -1,5 +1,7 @@
 'use client';
 
+import MobileMenu from '@/components/MobileNav';
+import MenuManager from '@/components/MobileNav/MenuManager';
 import { Button } from '@/components/ui/button';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import {
@@ -312,8 +314,10 @@ const MainNav = () => {
 
   return (
     <nav>
-      {DesktopNavigation()}
-      {mobileNavigation}
+      {/* {DesktopNavigation()} */}
+      <MenuManager>
+        <MobileMenu />
+      </MenuManager>
     </nav>
   );
 };
