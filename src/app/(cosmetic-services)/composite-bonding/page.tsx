@@ -1,6 +1,5 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ from '@/components/FAQ/FAQ';
-import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import { SliderWithImageComparison } from '@/components/SliderWithImageComparison/SliderWithImageComparison';
 import { Card, CardContent } from '@/components/ui/card';
 import { XIcon } from '@heroicons/react/outline';
@@ -454,7 +453,6 @@ export default function CompositeBonding() {
       <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 md:right-40 flex justify-center md:justify-end'>
         <EnquiryButton referringPage={'composite-bonding'} />
       </div>
-      <ScrollToTopButton />
     </div>
   );
 }
