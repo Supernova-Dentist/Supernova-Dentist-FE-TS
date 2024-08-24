@@ -2,6 +2,8 @@ import { GrFacebookOption } from 'react-icons/gr';
 import { IoLogoInstagram } from 'react-icons/io';
 
 export const BLOG_LIMIT = 9;
+export const { NEXT_PUBLIC_META_API_BASE_URL, META_API_CLIENT_ID, META_API_CLIENT_SECRET, META_ACCESS_TOKEN } =
+  process.env;
 
 // FOOTER
 export const generalServices = [

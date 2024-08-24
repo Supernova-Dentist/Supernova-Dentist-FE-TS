@@ -116,39 +116,41 @@ export default function GalleryGrid({
           ))}
         </div>
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8'>
-        {loading ? (
-          Array.from({ length: 9 }).map((_, index) => (
-            <div key={index} className='relative overflow-hidden rounded-lg'>
-              <Skeleton className='w-full h-64' />
-            </div>
-          ))
-        ) : mediaPosts.length < 1 ? (
-          <div className='flex justify-center'>
-            <span>No results found</span>
-          </div>
-        ) : (
-          mediaPosts?.map((image) => (
-            <div
-              key={image.id}
-              className='relative overflow-hidden rounded-lg cursor-pointer group'
-              onClick={() => {
-                void handleImageClick(image);
-              }}
-            >
-              <img
-                src={image.jetpack_featured_media_url}
-                alt={image.alt_text}
-                width={600}
-                height={400}
-                className='w-full h-64 object-cover transition-all duration-300 group-hover:scale-105'
-              />
-              <div className='absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-                <h3 className='text-white text-lg font-semibold'>{image.title.rendered}</h3>
+      <div>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-12'>
+          {loading ? (
+            Array.from({ length: 9 }).map((_, index) => (
+              <div key={index} className='relative overflow-hidden rounded-lg'>
+                <Skeleton className='w-full h-64' />
               </div>
+            ))
+          ) : mediaPosts.length < 1 ? (
+            <div className='flex justify-center'>
+              <span>No results found</span>
             </div>
-          ))
-        )}
+          ) : (
+            mediaPosts?.map((image) => (
+              <div
+                key={image.id}
+                className='relative overflow-hidden rounded-lg cursor-pointer group'
+                onClick={() => {
+                  void handleImageClick(image);
+                }}
+              >
+                <img
+                  src={image.jetpack_featured_media_url}
+                  alt={image.alt_text}
+                  width={600}
+                  height={400}
+                  className='w-full h-64 object-cover transition-all duration-300 group-hover:scale-105'
+                />
+                <div className='absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+                  <h3 className='text-white text-lg font-semibold'>{image.title.rendered}</h3>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
         {mediaPosts.length >= 1 ? <PaginationControls currentPage={page} totalPages={totalPages} /> : null}
       </div>
       {selectedImage != null && (

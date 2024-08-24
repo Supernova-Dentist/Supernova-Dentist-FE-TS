@@ -217,7 +217,7 @@ const MainNav = () => {
       <div>
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className='w-full flex justify-between items-center mt-2 px-4 py-6 text-cream bg-grey hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 '
+          className='w-full flex justify-between items-center mt-2 px-4 py-6 text-cream bg-grey hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400'
         >
           {title}
           <span className={`text-2xl ${isOpen ? 'rotate-180' : 'rotate-0'}`}>{isOpen ? '-' : '+'}</span>
@@ -252,6 +252,14 @@ const MainNav = () => {
           </DrawerTrigger>
         </div>
         <DrawerContent className='flex flex-col bg-slate-700 shadow-xl p-8 mb-12'>
+          <Link href='/'>
+            <Button
+              className='w-full flex justify-between items-center mt-2 px-4 py-6 text-cream bg-grey hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400'
+              onClick={() => setDrawerOpen(false)}
+            >
+              Home
+            </Button>
+          </Link>
           <Accordion
             title='Cosmetic Services'
             links={[
