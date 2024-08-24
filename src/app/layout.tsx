@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import CrispChat from '@/components/blocks/CrispChat/CrispChat';
 import Footer from '@/components/blocks/Footer/Footer';
-import MainNav from '@/components/blocks/MainNav/MainNav';
+import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import './globals.css';
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <MainNav />
+        <DesktopNav />
         {children}
         <Footer />
         <div aria-hidden='true'>
