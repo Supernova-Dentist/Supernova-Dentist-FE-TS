@@ -34,6 +34,7 @@ const config = {
         'meet-dr-young':
           'linear-gradient(rgba(10, 5, 1, 0.7) 0pc, rgb(41, 196, 169) 100pc), url("/assets/images/meet-dr-young.jpeg")',
         blog: 'linear-gradient(rgba(10, 5, 1, 0.7) 0pc, rgb(41, 196, 169) 100pc), url("/assets/images/skyline-dental-office-exterior.jpg")',
+        'cosmetic-service-hero': 'url("/assets/images/composite-bonding-process.jpg")',
       },
       backgroundPosition: {
         'center-top': 'center top',
