@@ -1,6 +1,7 @@
 import { type JSX, type SVGProps } from 'react';
 import CtaButtons from '../Cta/CtaButtons';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
+import { BubbleText } from './Utils/BubbleText';
 
 export default function Welcome() {
   return (
@@ -12,8 +13,11 @@ export default function Welcome() {
         <div className='absolute inset-0 bg-gradient-to-b from-grey to-lightGrey' />
         <div className='relative h-full flex flex-col items-center justify-center px-4 sm:px-6 text-center text-white'>
           <h1 className='text-6xl font-bold mb-2'>
-            Welcome to <span className='text-gold'>Supernova</span> Dental{' '}
-            <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-24 w-auto inline' />
+            Welcome to{' '}
+            <span>
+              <BubbleText />{' '}
+            </span>{' '}
+            Dental <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-24 w-auto inline' />
           </h1>
           <p className='text-xl mb-16'>Experience exceptional dental care with our state-of-the-art clinic.</p>
 
