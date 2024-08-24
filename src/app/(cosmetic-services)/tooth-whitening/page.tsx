@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
 import ToothWhiteningContent from '@/components/blocks/ToothWhiteningContent/ToothWhiteningContent';
 
