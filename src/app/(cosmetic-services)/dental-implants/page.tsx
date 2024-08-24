@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import React from 'react';
-import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
 import DentalImplantsContent from '@/components/blocks/DentalImplantsContent/DentalImplantsContent';
 
