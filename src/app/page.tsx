@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import Services from '@/components/Services/Services';
 import Cta from '@/components/blocks/Cta/Cta';
 import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
@@ -20,7 +19,6 @@ export default function Home() {
       <GalleryCarousel />
       <GoogleReviews />
       <GoogleMap />
-      <ScrollToTopButton />
     </main>
   );
 }
