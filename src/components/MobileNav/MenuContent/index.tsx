@@ -3,11 +3,12 @@ import React, { useContext } from 'react';
 import { Dribbble, Facebook, Instagram, Twitch, Youtube } from 'react-feather';
 import { MenuContext } from '../MenuManager';
 
+import Link from 'next/link';
 import './style.scss';
 
 const internalLinks = [
   {
-    url: '#1',
+    url: '/',
     component: (
       <>
         <h2>Home</h2>
@@ -15,19 +16,19 @@ const internalLinks = [
     ),
   },
   {
-    url: '#2',
+    url: '/cosmetic-services',
     component: <h2>Cosmetic Services</h2>,
   },
   {
-    url: '#3',
+    url: '/general-services',
     component: <h2>General Services</h2>,
   },
   {
-    url: '#4',
+    url: '/about',
     component: <h2>About</h2>,
   },
   {
-    url: '#5',
+    url: '/media',
     component: <h2>Media</h2>,
   },
 ];
@@ -56,7 +57,7 @@ const externalLinks = [
 ];
 
 export default function MenuContent() {
-  const { open } = useContext(MenuContext);
+  const { open, setOpen } = useContext(MenuContext);
   return (
     <div className='menu-holder'>
       <div className={cn('menu-inside', { open })}>
@@ -64,7 +65,9 @@ export default function MenuContent() {
           <ul className='internal-nav-links text-center'>
             {internalLinks.map((link) => (
               <li key={link.url}>
-                <a href={link.url}>{link.component}</a>
+                <Link onClick={() => setOpen(!open)} href={link.url}>
+                  {link.component}
+                </Link>
               </li>
             ))}
           </ul>
