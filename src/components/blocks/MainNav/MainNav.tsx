@@ -11,6 +11,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import { DentallyPortal } from '@/lib/constants';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -185,7 +186,7 @@ const MainNav = () => {
 
             {/* Book Button */}
             <div>
-              <Link href='/'>
+              <Link target='_blank' href={`${DentallyPortal}`}>
                 <Button className='bg-gold hover:bg-amber-700 text-cream px-4 py-2 rounded ml-4'>Book Now</Button>
               </Link>
             </div>
@@ -300,7 +301,7 @@ const MainNav = () => {
             closeDrawer={() => setDrawerOpen(false)} // Pass closeDrawer function
           />
           <div className='flex justify-center'>
-            <Link href='/'>
+            <Link target='_blank' href={`${DentallyPortal}`}>
               <Button className='text-lg bg-gold hover:bg-amber-700 text-cream px-8 py-6 rounded mt-6'>Book Now</Button>
             </Link>
           </div>
