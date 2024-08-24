@@ -10,7 +10,7 @@
     will-change: transform;
     background-color: #111;
     color: white;
-    z-index: 10;
+    z-index: 11;
 
     &.open {
       transform: translateX(0); /* Slide in from the right */
