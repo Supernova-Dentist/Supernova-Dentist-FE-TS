@@ -4,10 +4,10 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const urlToReadableMap: { [key: string]: string } = {
-  invisalign: 'Invisalign',
-  'composite-bonding': 'Composite Bonding',
-  'tooth-whitening': 'Tooth Whitening',
-  'dental-implants': 'Dental Implants',
+  'cosmetic-dentistry/invisalign': 'Invisalign',
+  'cosmetic-dentistry/composite-bonding': 'Composite Bonding',
+  'cosmetic-dentistry/tooth-whitening': 'Tooth Whitening',
+  'cosmetic-dentistry/dental-implants': 'Dental Implants',
 };
 
 export default function Search() {
@@ -34,7 +34,7 @@ export default function Search() {
       <Button
         onClick={(e) => {
           e.preventDefault();
-          router.push(`/${encodeURIComponent(referringPage)}`);
+          router.push(`/${referringPage}`);
         }}
         className='inline-flex items-center gap-2 text-cream text-lg hover:text-gold hover:bg-cream transition'
       >
