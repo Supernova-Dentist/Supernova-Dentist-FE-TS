@@ -1,34 +1,27 @@
 'use client';
 
 import React, { useState } from 'react';
-import { type FieldValues, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import BarLoader from '../BarLoader/BarLoader';
+import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 
-type FormData = {
-  fullname: string;
-  email: string;
-  phone: string;
-};
-
-const intitialFormValues: FormData = { fullname: '', email: '', phone: '' };
+// const intitialFormValues: PromotionFormData = { fullname: '', email: '', phone: '' };
 
 export default function PromotionForm() {
-  // const [loading, setLoading] = useState(false);
-  // const [successModalVisible, setSuccessModalVisible] = useState(false);
-  // const [errorModalVisible, setErrorModalVisible] = useState(false);
-  // const [formData, setFormData] = useState<FormData>(intitialFormValues);
-
   const {
     register,
     handleSubmit,
     reset,
-    formState: { isSubmitting, errors },
-  } = useForm({
-    defaultValues: intitialFormValues,
+    getValues,
+    formState: { isSubmitting, errors, isSubmitSuccessful, isSubmitted },
+  } = useForm<PromotionFormData>({
+    // defaultValues: intitialFormValues,
+    resolver: zodResolver(promotionSignupSchema),
   });
 
   // async function onSubmit(data: FormData) {
@@ -63,11 +56,15 @@ export default function PromotionForm() {
   //   }
   // }
 
-  async function onSubmit(data: FieldValues) {
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    reset();
+  async function onSubmit(data: PromotionFormData) {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
+
+  console.log({ errors });
+
+  const values = getValues();
+
+  console.log({ values });
 
   return (
     <React.Fragment>
@@ -92,35 +89,21 @@ export default function PromotionForm() {
               <CardContent className='space-y-4'>
                 <div className='grid gap-2'>
                   <Label htmlFor='fullname'>Full Name</Label>
-                  <Input
-                    id='fullname'
-                    placeholder='John Doe'
-                    {...register('fullname', { required: 'Full name is required' })}
-                  />
+                  <Input id='fullname' placeholder='John Doe' {...register('fullname')} />
                   {errors.fullname !== null && (
                     <p className='text-red-500 leading-none text-xs'>{errors.fullname?.message}</p>
                   )}
                 </div>
                 <div className='grid gap-2'>
                   <Label htmlFor='email'>Email Address</Label>
-                  <Input
-                    id='email'
-                    type='email'
-                    placeholder='john@example.com'
-                    {...register('email', { required: 'Email is required' })}
-                  />
+                  <Input id='email' type='email' placeholder='john@example.com' {...register('email')} />
                   {errors.email !== null && (
                     <p className='text-red-500 leading-none text-xs'>{errors.email?.message}</p>
                   )}
                 </div>
                 <div className='grid gap-2'>
                   <Label htmlFor='phone'>Contact Number</Label>
-                  <Input
-                    id='phone'
-                    type='tel'
-                    placeholder='(123) 456-7890'
-                    {...register('phone', { required: 'Phone number is required' })}
-                  />
+                  <Input id='phone' type='tel' placeholder='(123) 456-7890' {...register('phone')} />
                   {errors.phone !== null && (
                     <p className='text-red-500 leading-none text-xs'>{errors.phone?.message}</p>
                   )}
@@ -130,24 +113,21 @@ export default function PromotionForm() {
                 <Button type='submit' className='w-full bg-gold hover:bg-lightGold'>
                   {isSubmitting ? <BarLoader /> : 'Book Appointment'}
                 </Button>
-                {/* <Button type='submit' className='w-full bg-gold hover:bg-lightGold'>
-                  Book Appointment
-                </Button> */}
               </CardFooter>
             </form>
           </Card>
         </div>
       </section>
       {/* Success Modal */}
-      {/* {successModalVisible && (
+      {/* {isSubmitSuccessful && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-2xl font-semibold mb-4'>Thank you, {formData.fullname}, for your Enquiry! </h2>
+            <h2 className='text-2xl font-semibold mb-4'>Thank you, {values.fullname}, for your Enquiry! </h2>
             <p className='mb-4'>
               One of the Supernova team will be back in touch with the following email regarding your enquiry:{' '}
-              {formData.email}
+              {values.email}
             </p>
-            <Button onClick={() => setSuccessModalVisible(false)} className='w-full text-lg py-2'>
+            <Button onClick={() => setShowModal(false)} className='w-full text-lg py-2'>
               Close
             </Button>
           </div>
