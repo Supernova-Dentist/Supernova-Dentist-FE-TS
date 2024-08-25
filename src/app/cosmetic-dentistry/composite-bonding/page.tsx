@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import React from 'react';
-import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
-import DentalImplantsContent from '@/components/blocks/DentalImplantsContent/DentalImplantsContent';
+import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import CompositBondingContent from '@/components/blocks/CompositBondingContent/CompositBondingContent';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Composite Bonding',
@@ -9,14 +8,12 @@ export const metadata: Metadata = {
     'Learn about composite bonding at Supernova Dental. Enhance your smile with this cosmetic dental procedure.',
 };
 
-export default function DentalImplants() {
+export default function CompositeBonding() {
   return (
-
-    <div className='flex flex-col min-h-[100vh]'>
-      <DentalImplantsContent />
-
+    <div className='flex flex-col min-h-[100dvh]'>
+      <CompositBondingContent />
       <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 md:right-40 flex justify-center md:justify-end'>
-        <EnquiryButton referringPage={'dental-implants'} />
+        <EnquiryButton referringPage={'/cosmetic-dentistry/composite-bonding'} />
       </div>
     </div>
   );

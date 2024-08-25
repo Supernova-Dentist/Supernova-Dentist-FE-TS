@@ -1,4 +1,3 @@
-import { type JSX, type SVGProps } from 'react';
 import CtaButtons from '../Cta/CtaButtons';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import { BubbleText } from './Utils/BubbleText';
