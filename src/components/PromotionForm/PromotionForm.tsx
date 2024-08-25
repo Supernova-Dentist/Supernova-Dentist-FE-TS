@@ -13,12 +13,15 @@ import { promotionSignupSchema, type PromotionFormData } from '../../../types/Pr
 // const intitialFormValues: PromotionFormData = { fullname: '', email: '', phone: '' };
 
 export default function PromotionForm() {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+
   const {
     register,
     handleSubmit,
     reset,
     getValues,
-    formState: { isSubmitting, errors, isSubmitSuccessful, isSubmitted },
+    formState: { isSubmitting, errors },
   } = useForm<PromotionFormData>({
     // defaultValues: intitialFormValues,
     resolver: zodResolver(promotionSignupSchema),
@@ -57,7 +60,34 @@ export default function PromotionForm() {
   // }
 
   async function onSubmit(data: PromotionFormData) {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        throw new Error('Something went wrong signing up for the promotion');
+      }
+
+      setShowSuccessModal(true);
+    } catch (error: unknown) {
+      setShowErrorModal(true);
+      if (error instanceof Error) {
+        console.log({ message: error.message });
+      } else {
+        console.log('An unknown error occurred');
+      }
+    }
+  }
+
+  function handleSuccessModalClose() {
+    setShowSuccessModal(false);
+    reset();
   }
 
   console.log({ errors });
@@ -119,7 +149,7 @@ export default function PromotionForm() {
         </div>
       </section>
       {/* Success Modal */}
-      {/* {isSubmitSuccessful && (
+      {showSuccessModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
             <h2 className='text-2xl font-semibold mb-4'>Thank you, {values.fullname}, for your Enquiry! </h2>
@@ -127,25 +157,25 @@ export default function PromotionForm() {
               One of the Supernova team will be back in touch with the following email regarding your enquiry:{' '}
               {values.email}
             </p>
-            <Button onClick={() => setShowModal(false)} className='w-full text-lg py-2'>
+            <Button onClick={handleSuccessModalClose} className='w-full text-lg py-2'>
               Close
             </Button>
           </div>
         </div>
-      )} */}
+      )}
 
       {/* Error Modal */}
-      {/* {errorModalVisible && (
+      {showErrorModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
             <h2 className='text-2xl font-semibold mb-4'>Submission Failed</h2>
             <p className='mb-4'>There was a problem with your enquiry submission. Please try again later.</p>
-            <Button onClick={() => setErrorModalVisible(false)} className='w-full text-lg py-2'>
+            <Button onClick={() => setShowErrorModal(false)} className='w-full text-lg py-2'>
               Close
             </Button>
           </div>
         </div>
-      )} */}
+      )}
     </React.Fragment>
   );
 }
