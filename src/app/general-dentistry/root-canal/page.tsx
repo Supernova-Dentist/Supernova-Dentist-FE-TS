@@ -3,9 +3,9 @@ import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import RootCanalContent from '@/components/blocks/RootCanalContent/RootCanalContent';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | General Checkup',
+  title: 'Supernova Dental | Root Canal Treatment',
   description:
-    'Ensure optimal oral health with a comprehensive general checkup at Supernova Dental. Our experienced team provides thorough examinations and personalized care.',
+    'Relieve pain and save your tooth with expert root canal treatment at Supernova Dental. Our skilled team offers comprehensive care to restore your dental health.',
 };
 
 export default function RootCanal() {
