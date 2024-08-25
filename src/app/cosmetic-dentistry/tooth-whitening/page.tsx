@@ -13,7 +13,7 @@ export default function ToothWhitening() {
     <div className='flex flex-col min-h-[100dvh]'>
       <ToothWhiteningContent />
       <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 md:right-40 flex justify-center md:justify-end'>
-        <EnquiryButton referringPage={'tooth-whitening'} />
+        <EnquiryButton referringPage={'cosmetic-dentistry/tooth-whitening'} />
       </div>
     </div>
   );
