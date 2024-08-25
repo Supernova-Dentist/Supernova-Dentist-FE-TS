@@ -3,9 +3,9 @@ import FillingContent from '@/components/blocks/FillingContent/FillingContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | General Checkup',
+  title: 'Supernova Dental | Dental Fillings',
   description:
-    'Ensure optimal oral health with a comprehensive general checkup at Supernova Dental. Our experienced team provides thorough examinations and personalized care.',
+    'Restore and protect your teeth with expert dental fillings at Supernova Dental. Our skilled team ensures precise, comfortable treatments to keep your smile healthy.',
 };
 
 export default function Filling() {
