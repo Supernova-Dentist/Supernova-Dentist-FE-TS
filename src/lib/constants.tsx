@@ -7,10 +7,10 @@ export const { NEXT_PUBLIC_META_API_BASE_URL, META_API_CLIENT_ID, META_API_CLIEN
 
 // Navigation
 export const cosmeticServices = [
-  { name: 'Invisalign', link: '/invisalign' },
-  { name: 'Composite Bonding', link: '/composite-bonding' },
-  { name: 'Tooth Whitening', link: '/tooth-whitening' },
-  { name: 'Dental Implants', link: '/dental-implants' },
+  { name: 'Invisalign', link: '/cosmetic-dentistry/invisalign' },
+  { name: 'Composite Bonding', link: '/cosmetic-dentistry/composite-bonding' },
+  { name: 'Tooth Whitening', link: '/cosmetic-dentistry/tooth-whitening' },
+  { name: 'Dental Implants', link: '/cosmetic-dentistry/dental-implants' },
 ];
 
 export const practiceInfo = [
@@ -23,10 +23,10 @@ export const practiceInfo = [
 ];
 
 export const generalServices = [
-  { name: 'General Check-up', link: '/' },
-  { name: 'Filling', link: '/' },
-  { name: 'Root Canal', link: '/' },
-  { name: 'Emergency', link: '/' },
+  { name: 'General Check-up', link: '/general-dentistry/general-checkup' },
+  { name: 'Filling', link: '/general-dentistry/filling' },
+  { name: 'Root Canal', link: '/general-dentistry/root-canal' },
+  { name: 'Emergency', link: '/general-dentistry/emergency' },
 ];
 
 export const media = [
