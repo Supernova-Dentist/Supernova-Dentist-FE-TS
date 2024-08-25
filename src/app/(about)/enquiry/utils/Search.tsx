@@ -8,6 +8,7 @@ const urlToReadableMap: { [key: string]: string } = {
   'cosmetic-dentistry/composite-bonding': 'Composite Bonding',
   'cosmetic-dentistry/tooth-whitening': 'Tooth Whitening',
   'cosmetic-dentistry/dental-implants': 'Dental Implants',
+  'general-dentistry/general-checkup': 'General Check-up',
 };
 
 export default function Search() {
