@@ -20,15 +20,15 @@ const internalLinks = [
     header: <h2>Cosmetic Dentistry</h2>,
     subHeaders: [
       {
-        url: '/teeth-whitening',
+        url: '/cosmetic-dentistry/teeth-whitening',
         header: <h3>Teeth Whitening</h3>,
       },
       {
-        url: '/invisalign',
+        url: '/cosmetic-dentistry/invisalign',
         header: <h3>Invisalign</h3>,
       },
       {
-        url: '/cosmetic-bonding',
+        url: '/cosmetic-dentistry/cosmetic-bonding',
         header: <h3>Cosmetic Bonding</h3>,
       },
     ],
@@ -38,19 +38,19 @@ const internalLinks = [
     header: <h2>General Dentistry</h2>,
     subHeaders: [
       {
-        url: '/general-dentistry',
+        url: '/general-dentistry/general-checkup',
         header: <h3>General Check-Up</h3>,
       },
       {
-        url: '/root-canal-treatment',
+        url: '/general-dentistry/root-canal-treatment',
         header: <h3>Root Canal Treatment</h3>,
       },
       {
-        url: '/dental-implants',
+        url: '/general-dentistry/dental-implants',
         header: <h3>Fillings</h3>,
       },
       {
-        url: '/emergency-dentistry',
+        url: '/general-dentistry/emergency-dentistry',
         header: <h3>Emergency Dentistry</h3>,
       },
     ],
