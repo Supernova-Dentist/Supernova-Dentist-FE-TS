@@ -1,5 +1,6 @@
 import { TiltCard } from '@/components/blocks/HoverTiltCard/TiltCard';
 import PageHero from '@/components/blocks/PageHero/PageHero';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { serviceData } from '@/components/Services/utils/serviceData';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -28,7 +29,10 @@ export default function CosmeticServices() {
         title='Cosmetic Dentistry'
         description='Achieve your dream smile and supercharge your confidence.'
       />
-      <div className='my-16 p-8'>
+      <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
+        <BreadCrumb />
+      </div>
+      <div className='my-8 pb-16'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl font-semibold'>Our cosmetic dentistry treatments</h2>
         </div>

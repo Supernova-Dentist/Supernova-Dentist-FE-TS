@@ -16,8 +16,8 @@ const internalLinks = [
     ),
   },
   {
-    url: '/cosmetic-services',
-    header: <h2>Cosmetic Services</h2>,
+    url: '/cosmetic-denistry',
+    header: <h2>Cosmetic Dentistry</h2>,
     subHeaders: [
       {
         url: '/teeth-whitening',
@@ -34,8 +34,8 @@ const internalLinks = [
     ],
   },
   {
-    url: '/general-services',
-    header: <h2>General Services</h2>,
+    url: '/general-dentistry',
+    header: <h2>General Dentistry</h2>,
     subHeaders: [
       {
         url: '/general-dentistry',

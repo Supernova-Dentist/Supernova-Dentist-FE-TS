@@ -46,11 +46,11 @@ export const media = [
 
 export const navLinks = [
   {
-    name: 'Cosmetic Services',
-    url: '/cosmetic-services',
+    name: 'Cosmetic Dentistry',
+    url: '/cosmetic-dentistry',
     flyout: cosmeticServices,
   },
-  { name: 'General Services', url: '/general-services', flyout: generalServices },
+  { name: 'General Dentistry', url: '/general-dentistry', flyout: generalServices },
   { name: 'About us', url: '/about', flyout: practiceInfo },
   { name: 'Media', url: '/media', flyout: media },
 ];
