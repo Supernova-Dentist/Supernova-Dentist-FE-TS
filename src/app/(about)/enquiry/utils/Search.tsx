@@ -9,6 +9,9 @@ const urlToReadableMap: { [key: string]: string } = {
   'cosmetic-dentistry/tooth-whitening': 'Tooth Whitening',
   'cosmetic-dentistry/dental-implants': 'Dental Implants',
   'general-dentistry/general-checkup': 'General Check-up',
+  'general-dentistry/filling': 'Filling',
+  'general-dentistry/root-canal': 'Root Canal Treatment',
+  'general-dentistry/emergency': 'Emergency Dental Care',
 };
 
 export default function Search() {
