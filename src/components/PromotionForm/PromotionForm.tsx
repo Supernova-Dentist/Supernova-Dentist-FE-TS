@@ -10,8 +10,6 @@ import { Button } from '@/components/ui/button';
 import BarLoader from '../BarLoader/BarLoader';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 
-// const intitialFormValues: PromotionFormData = { fullname: '', email: '', phone: '' };
-
 export default function PromotionForm() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -23,44 +21,12 @@ export default function PromotionForm() {
     getValues,
     formState: { isSubmitting, errors },
   } = useForm<PromotionFormData>({
-    // defaultValues: intitialFormValues,
     resolver: zodResolver(promotionSignupSchema),
   });
 
-  // async function onSubmit(data: FormData) {
-  //   try {
-  //     setLoading(true);
-  // const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify(data),
-  // });
-
-  //     if (!response.ok) {
-  //       const data = await response.json();
-
-  //       console.log({ data });
-
-  //       throw new Error('Network response was not ok');
-  //     }
-
-  //     setFormData(data);
-  //     setSuccessModalVisible(true);
-
-  //     reset();
-  //   } catch (error) {
-  //     console.log({ error });
-  //     setLoading(false);
-  //     setErrorModalVisible(true);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
+  const values = getValues();
 
   async function onSubmit(data: PromotionFormData) {
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
         method: 'POST',
@@ -89,12 +55,6 @@ export default function PromotionForm() {
     setShowSuccessModal(false);
     reset();
   }
-
-  console.log({ errors });
-
-  const values = getValues();
-
-  console.log({ values });
 
   return (
     <React.Fragment>
