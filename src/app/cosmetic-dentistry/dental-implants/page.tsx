@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import React from 'react';
-import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
+import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import DentalImplantsContent from '@/components/blocks/DentalImplantsContent/DentalImplantsContent';
 
 export const metadata: Metadata = {
@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 export default function DentalImplants() {
   return (
-
     <div className='flex flex-col min-h-[100vh]'>
       <DentalImplantsContent />
 

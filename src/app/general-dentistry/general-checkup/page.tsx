@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
 import GeneralCheckupContent from '@/components/blocks/GeneralCheckupContent/GeneralCheckupContent';
+import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | Composite Bonding',
+  title: 'Supernova Dental | General Checkup',
   description:
-    'Learn about composite bonding at Supernova Dental. Enhance your smile with this cosmetic dental procedure.',
+    'Ensure optimal oral health with a comprehensive general checkup at Supernova Dental. Our experienced team provides thorough examinations and personalized care.',
 };
 
 export default function GeneralCheckup() {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
+import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import CompositBondingContent from '@/components/blocks/CompositBondingContent/CompositBondingContent';
 
 export const metadata: Metadata = {

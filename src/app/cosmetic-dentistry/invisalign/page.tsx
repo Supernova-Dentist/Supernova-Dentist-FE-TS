@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
+import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignContent';
-
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Invisalign',

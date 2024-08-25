@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import EnquiryButton from '@/components/EquiryButton/EnquiryButton';
+import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import ToothWhiteningContent from '@/components/blocks/ToothWhiteningContent/ToothWhiteningContent';
 
 export const metadata: Metadata = {
