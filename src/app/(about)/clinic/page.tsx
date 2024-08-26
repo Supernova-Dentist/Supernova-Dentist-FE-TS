@@ -10,7 +10,7 @@ const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMa
   ssr: false,
 });
 
-export default function Component() {
+export default function OurClinic() {
   return (
     <div className='flex flex-col'>
       <PageHero
