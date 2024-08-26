@@ -1,6 +1,7 @@
 import PageHero from '@/components/blocks/PageHero/PageHero';
 import ReviewLink from '@/components/blocks/ReviewLink/ReviewLink';
 import Button from '@/components/Button/Button';
+import { DisappearingFeatures } from '@/components/DisappearingScrollFeatures/DisappearingScrollFeatures';
 import { FloatingPhone } from '@/components/FloatingPhone/FloatingPhone';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
@@ -76,40 +77,8 @@ export default function OurClinic() {
       </section>
 
       {/* Features Section */}
-      <section className='py-16 md:py-24 lg:py-32 bg-lightGrey'>
-        <div className='container mx-auto px-4 md:px-6 lg:px-8'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-gold'>Our Clinic Features</h2>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16'>
-            <div className='flex flex-col items-center text-center'>
-              <SmileIcon className='w-12 h-12 mb-4 text-gold' />
-              <h3 className='text-xl font-bold mb-2 text-gold'>Comfortable Chairs</h3>
-              <p className='text-cream'>Our ergonomic chairs provide maximum comfort during your treatments.</p>
-            </div>
-            <div className='flex flex-col items-center text-center'>
-              <SmileIcon className='w-12 h-12 mb-4 text-gold' />
-              <h3 className='text-xl font-bold mb-2 text-gold'>Advanced Equipment</h3>
-              <p className='text-cream'>
-                We use the latest dental technology to ensure accurate and efficient treatments.
-              </p>
-            </div>
-            {/* <div className='flex flex-col items-center text-center'>
-              <ClockIcon className='w-12 h-12 mb-4 text-gold' />
-              <h3 className='text-xl font-bold mb-2 text-gold '>Flexible Scheduling</h3>
-              <p className='text-cream'>We offer convenient appointment times to fit your busy schedule.</p>
-            </div> */}
-            <div className='flex flex-col items-center text-center'>
-              <WifiIcon className='w-12 h-12 mb-4 text-gold' />
-              <h3 className='text-xl font-bold mb-2 text-gold'>Free WiFi</h3>
-              <p className='text-cream'>Stay connected while you wait with our complimentary WiFi.</p>
-            </div>
-            <div className='flex flex-col items-center text-center'>
-              <SmileIcon className='w-12 h-12 mb-4 text-gold' />
-              <h3 className='text-xl font-bold mb-2 text-gold'>Ample Parking</h3>
-              <p className='text-cream'>Plenty of parking spaces available, ensuring a hassle-free visit every time.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <DisappearingFeatures />
 
       {/* Online Booking Walkthrough Section */}
       <section className='py-16 md:py-24 lg:py-32 bg-grey'>
