@@ -3,9 +3,12 @@ import ReviewLink from '@/components/blocks/ReviewLink/ReviewLink';
 import Button from '@/components/Button/Button';
 import { FloatingPhone } from '@/components/FloatingPhone/FloatingPhone';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
+import PromotionForm from '@/components/PromotionForm/PromotionForm';
+import SteppedProgress from '@/components/SteppedProgress/SteppedProgress';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { type JSX, type SVGProps } from 'react';
+import { Instagram } from 'react-feather';
 const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
 });
@@ -44,6 +47,10 @@ export default function OurClinic() {
                 stand out as a premier dental provider. Our clinic’s welcoming atmosphere, coupled with a team that
                 truly cares, makes every visit a positive experience.
               </p>
+
+              <h3 className='text-2xl md:text-3xl lg:text-4xl font-semibold mb-4'>
+                Check out to see what we have to offer!
+              </h3>
               <div className='flex flex-col md:flex-row gap-4'>
                 <Link href='cosmetic-dentistry'>
                   <Button
@@ -108,36 +115,19 @@ export default function OurClinic() {
       <section className='py-16 md:py-24 lg:py-32 bg-grey'>
         <div className='container mx-auto px-4 md:px-6 lg:px-8'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-gold'>Easy Online Booking</h2>
-          <p className='text-lg md:text-xl lg:text-2xl text-cream mb-8 text-center'>
-            Booking your appointment has never been easier! Our online system powered by Dentally allows you to schedule
-            your visit at your convenience.
+          <p className='text-lg md:text-xl lg:text-2xl text-cream mb-12 text-center'>
+            Booking your appointment has never been easier, anytime, anywhere, even from your mobile device! Our online
+            system powered by Dentally allows you to schedule your visit with ease.
           </p>
+
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
             <div className='flex flex-col justify-center'>
-              <h3 className='text-2xl font-bold mb-4 text-gold'>How to Book Online:</h3>
-              <ol className='list-decimal list-inside text-lg text-cream'>
-                <li>Select your preferred service from our online menu.</li>
-                <li>Choose a date and time that works for you.</li>
-                <li>Enter your personal details to confirm the booking.</li>
-                <li>Receive an email confirmation with all the details.</li>
-              </ol>
+              <h3 className='text-2xl font-bold my-2 px-6 text-gold'>First time? Let us help you get setup:</h3>
+              <SteppedProgress />
             </div>
             <div className='flex justify-center items-center'>
               <FloatingPhone />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Patient Testimonials (Coming Soon) Section */}
-      <section className='py-16 md:py-24 lg:py-32 bg-muted'>
-        <div className='container mx-auto px-4 md:px-6 lg:px-8'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center'>Had an Appointment with Us?</h2>
-          <p className='text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 text-center'>
-            Be one of the first to share your experience with Supernova Dental Clinic. We’d love to hear your feedback!
-          </p>
-          <div className='flex justify-center'>
-            <ReviewLink />
           </div>
         </div>
       </section>
@@ -153,31 +143,36 @@ export default function OurClinic() {
         </div>
       </section> */}
 
-      {/* Follow Us Section */}
-      <section className='py-16 md:py-24 lg:py-32 bg-gray-50'>
+      <PromotionForm />
+
+      {/* Patient Testimonials (Coming Soon) Section */}
+      <section className='py-16 md:py-24 lg:py-32 bg-muted'>
         <div className='container mx-auto px-4 md:px-6 lg:px-8'>
-          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center'>Follow Us</h2>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center'>Had an Appointment with Us?</h2>
           <p className='text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 text-center'>
-            Stay updated with the latest news, promotions, and dental care tips by following us on social media.
+            Be one of the first to share your experience with Supernova Dental Clinic. We’d love to hear your feedback!
           </p>
-          <div className='flex justify-center space-x-4'>
-            <a href='https://facebook.com/yourclinic' target='_blank' rel='noopener noreferrer'>
-              <img src='/images/facebook-icon.png' alt='Facebook' className='w-10 h-10' />
-            </a>
-            <a href='https://twitter.com/yourclinic' target='_blank' rel='noopener noreferrer'>
-              <img src='/images/twitter-icon.png' alt='Twitter' className='w-10 h-10' />
-            </a>
-            <a href='https://instagram.com/yourclinic' target='_blank' rel='noopener noreferrer'>
-              <img src='/images/instagram-icon.png' alt='Instagram' className='w-10 h-10' />
-            </a>
-            <a href='https://linkedin.com/company/yourclinic' target='_blank' rel='noopener noreferrer'>
-              <img src='/images/linkedin-icon.png' alt='LinkedIn' className='w-10 h-10' />
-            </a>
+          <div className='flex justify-center'>
+            <ReviewLink />
           </div>
         </div>
       </section>
 
-      <div className='flex flex-col items-center justify-start py-12 bg-gray-50'>
+      {/* Follow Us Section */}
+      <section className='py-16 md:py-24 lg:py-32 bg-lightGrey'>
+        <div className='container mx-auto px-4 md:px-6 lg:px-8'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-gold'>Keep in the loop!</h2>
+          <p className='text-lg md:text-xl lg:text-2xl text-cream mb-8 text-center'>
+            Come check out the Supernova Staff Instagram and tay updated with the latest news, promotions, and dental
+            care tips by following us on social media.
+          </p>
+          <Link href='/social'>
+            <Instagram className='w-12 h-12 text-gold mx-auto' />
+          </Link>
+        </div>
+      </section>
+
+      {/* <div className='flex flex-col items-center justify-start py-12 bg-gray-50'>
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <section className='mb-12'>
             <h1 className='text-4xl sm:text-5xl font-bold my-8 text-center sm:text-left text-grey'>
@@ -236,7 +231,7 @@ export default function OurClinic() {
             </div>
           </section>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
