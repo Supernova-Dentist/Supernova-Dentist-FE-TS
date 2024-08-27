@@ -53,7 +53,7 @@ const LinksContainer = () => {
   );
 };
 
-const NavLink = ({ children, href, idx, subLinks, isActive, onClick }) => {
+const NavLink = ({ children, href, idx, subLinks = [], isActive, onClick }: { children: React.ReactNode, href: string, idx: number, subLinks?: any[], isActive: boolean, onClick: () => void }) => {
   return (
     <div>
       <motion.a
@@ -136,7 +136,7 @@ const Logo = () => {
   );
 };
 
-const HamburgerButton = ({ active, setActive }) => {
+const HamburgerButton = ({ active, setActive }: { active: boolean, setActive: React.Dispatch<React.SetStateAction<boolean>> }) => {
   return (
     <>
       <motion.div
