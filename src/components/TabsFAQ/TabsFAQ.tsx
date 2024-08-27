@@ -22,7 +22,7 @@ const Heading = () => {
     <>
       <div className='relative z-10 flex flex-col items-center justify-center'>
         <span className='mb-8 bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text font-medium text-transparent'>
-          Let's answer some questions
+          Let&apos;s answer some questions
         </span>
         <span className='mb-8 text-5xl font-bold'>FAQs</span>
       </div>
@@ -32,7 +32,7 @@ const Heading = () => {
   );
 };
 
-const Tabs = ({ selected, setSelected }) => {
+const Tabs = ({ selected, setSelected }: { selected: string, setSelected: React.Dispatch<React.SetStateAction<string>> }) => {
   return (
     <div className='relative z-10 flex flex-wrap items-center justify-center gap-4'>
       {TABS.map((tab) => (
@@ -64,7 +64,7 @@ const Tabs = ({ selected, setSelected }) => {
   );
 };
 
-const Questions = ({ selected }) => {
+const Questions = ({ selected }: { selected: string }) => {
   return (
     <div className='mx-auto mt-12 max-w-3xl'>
       <AnimatePresence mode='wait'>
@@ -92,7 +92,7 @@ const Questions = ({ selected }) => {
   );
 };
 
-const Question = ({ question, answer }) => {
+const Question = ({ question, answer }: { question: string, answer: string }) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
 
