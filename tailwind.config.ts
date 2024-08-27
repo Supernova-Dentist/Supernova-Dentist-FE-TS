@@ -23,7 +23,9 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       colors: {
+        offWhite: 'var(--off-white)',
         gold: 'var(--gold)',
+        lightGold: 'var(--light-gold)',
         grey: 'var(--grey)',
         cream: 'var(--cream)',
         lightGrey: 'var(--light-grey)',

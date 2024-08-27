@@ -1,7 +1,10 @@
-import type { Metadata } from 'next';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-import GoogleMap from '@/components/blocks/GoogleMap/GoogleMap';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
+import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Find Us',

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Button from '../Button/Button';
 
 const GetDirectionsForm = () => {
   const [postcode, setPostcode] = useState('');
@@ -17,11 +18,11 @@ const GetDirectionsForm = () => {
         value={postcode}
         onChange={(e) => setPostcode(e.target.value)}
         placeholder='Enter your postcode'
-        className='px-4 py-1 border border-gray-300 rounded-sm w-full outline-none text-gray-800 hover:border-gray-400 focus:border-gray-400'
+        className='px-4 py-1 border border-gray-300 rounded-sm w-full flex-1 outline-none text-gray-800 hover:border-gray-400 focus:border-gray-400'
       />
-      <button onClick={handleGetDirections} className='bg-gold text-white px-4 py-1 rounded-sm h-full'>
+      <Button onClick={handleGetDirections} className='text-cream py-[0.35rem]'>
         Go
-      </button>
+      </Button>
     </div>
   );
 };

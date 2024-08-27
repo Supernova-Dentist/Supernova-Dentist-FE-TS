@@ -1,101 +1,102 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import Button from '@/components/Button/Button';
+import PageHero from '@/components/blocks/PageHero/PageHero';
+import { DisappearingFeatures } from '@/components/DisappearingScrollFeatures/DisappearingScrollFeatures';
+import { FloatingPhone } from '@/components/FloatingPhone/FloatingPhone';
+import PromotionForm from '@/components/PromotionForm/PromotionForm';
+import SteppedProgress from '@/components/SteppedProgress/SteppedProgress';
+import { StickyCards } from '@/components/StickyCards/StickyCards';
+import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Supernova Dental | Our Clinic',
-  description:
-    'Explore Supernova Dental Clinic, our state-of-the-art facility designed for patient comfort and convenience.',
-};
-
-export default function Clinic() {
+export default function OurClinic() {
   return (
-    <>
-      <div className='min-h-screen flex flex-col items-center justify-start py-12 bg-gray-50'>
-        <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
-          <BreadCrumb />
-
-          <section className='mb-12'>
-            <h1 className='text-5xl font-bold my-8 text-left text-gray-800'>Welcome to Supernova Dental Clinic</h1>
-            <p className='text-xl mb-6 text-left text-gray-700'>
-              Supernova Dental Clinic is dedicated to providing high-quality dental care in a comfortable and welcoming
-              environment. Our clinic is equipped with state-of-the-art technology and designed with patient comfort in
-              mind.
-            </p>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              <div className='mb-6'>
-                <Image
-                  src='/assets/images/dental-exterior.jpg'
-                  alt='Clinic Exterior'
-                  width={800}
-                  height={500}
-                  className='rounded-md shadow-lg'
-                />
-                <p className='text-lg mt-4 text-gray-700'>
-                  Our modern clinic exterior welcomes patients with a professional and inviting atmosphere.
-                </p>
-              </div>
-              <div className='mb-6'>
-                <Image
-                  src='/assets/images/dental-interior.jpg'
-                  alt='Clinic Interior'
-                  width={800}
-                  height={500}
-                  className='rounded-md shadow-lg'
-                />
-                <p className='text-lg mt-4 text-gray-700'>
-                  Inside, our clinic features a spacious and comfortable waiting area designed for relaxation and
-                  convenience.
-                </p>
-              </div>
+    <div className='flex flex-col'>
+      <PageHero
+        bgImage='bg-blog'
+        title='Welcome to Supernova Dental'
+        description='Exceptional dental care in a modern, welcoming environment.'
+      />
+      {/* About Section */}
+      <section className='py-16 md:py-24 lg:py-32'>
+        <div className='container mx-auto px-4 md:px-6 lg:px-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16'>
+            <div>
+              <img
+                src='/assets/images/skyline-dental-office-exterior.jpg' // Replace with an actual image file
+                alt='About Supernova Dental'
+                className='w-full h-full object-cover rounded-lg'
+                width={800}
+                height={600}
+                style={{ aspectRatio: '800/600', objectFit: 'cover' }}
+              />
             </div>
-          </section>
+            <div>
+              <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-4'>About Supernova Dental</h2>
+              <p className='text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8'>
+                At Supernova Dental, we are committed to providing exceptional dental care in a modern, welcoming
+                environment. Our team of experienced professionals is dedicated to helping our patients achieve and
+                maintain optimal oral health.
+              </p>
+              <p className='text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8'>
+                With cutting-edge technology, a compassionate approach, and a dedication to patient satisfaction, we
+                stand out as a premier dental provider. Our clinic’s welcoming atmosphere, coupled with a team that
+                truly cares, makes every visit a positive experience.
+              </p>
 
-          <section className='mb-12'>
-            <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Facility Highlights</h2>
-            <ul className='list-disc list-inside text-xl mb-8 text-left text-gray-700 space-y-2'>
-              <li>Advanced dental equipment for precise diagnostics and treatment</li>
-              <li>Comfortable treatment rooms with modern amenities</li>
-              <li>Accessible location with ample parking space</li>
-              <li>Wheelchair accessible facilities for all patients</li>
-              <li>Relaxing environment to minimize patient stress and anxiety</li>
-            </ul>
-          </section>
+              <h3 className='text-2xl md:text-3xl lg:text-4xl font-semibold mb-4'>
+                Check out to see what we have to offer!
+              </h3>
+              <div className='flex flex-col md:flex-row gap-4'>
+                <Link href='cosmetic-dentistry'>
+                  <Button
+                    className='uppercase text:md font-semibold bg-gold px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto'
+                    text='Cosmetic Services'
+                  />
+                </Link>
 
-          <section className='mb-12'>
-            <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Parking and Accessibility</h2>
-            <p className='text-xl mb-6 text-left text-gray-700'>
-              Supernova Dental Clinic provides convenient parking facilities for our patients. We are committed to
-              ensuring accessibility for all individuals, including those with mobility challenges.
-            </p>
-            <Image
-              src='/assets/images/parking.jpg'
-              alt='Parking Area'
-              width={1200}
-              height={600}
-              className='rounded-md shadow-lg'
-            />
-          </section>
-
-          <section className='mb-12'>
-            <h2 className='text-3xl font-semibold mb-6 text-left text-gray-800'>Visit Us</h2>
-            <p className='text-xl mb-6 text-left text-gray-700'>
-              We invite you to visit Supernova Dental Clinic and experience our commitment to exceptional dental care in
-              a comfortable setting. Contact us today to schedule your appointment.
-            </p>
-            <div className='flex items-center space-x-4'>
-              <button className='bg-gold hover:bg-amber-600 text-cream px-6 py-3 rounded-md shadow-md transition duration-300'>
-                Book Appointment
-              </button>
-              <span className='text-gray'>or</span>
-              <button className='bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-3 rounded-md shadow-md transition duration-300'>
-                Contact Us
-              </button>
+                <Link href='general-dentistry'>
+                  <Button
+                    className='uppercase text:md font-semibold bg-gold px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto'
+                    text='General Services'
+                  />
+                </Link>
+              </div>
+              <p className='text-lg md:text-xl lg:text-2xl text-muted-foreground mt-8'>
+                Need assistance? We offer live chat support for any questions or concerns. Look for the chat button in
+                the bottom right corner of the page for immediate help.
+              </p>
             </div>
-          </section>
+          </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* Features Section */}
+
+      <DisappearingFeatures />
+
+      {/* Online Booking Walkthrough Section */}
+      <section className='py-16 md:py-24 lg:py-32 bg-grey'>
+        <div className='container mx-auto px-4 md:px-6 lg:px-8'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-gold'>Easy Online Booking</h2>
+          <p className='text-lg md:text-xl lg:text-2xl text-cream mb-12 text-center'>
+            Booking your appointment has never been easier, anytime, anywhere, even from your mobile device! Our online
+            system powered by Dentally allows you to schedule your visit with ease.
+          </p>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+            <div className='flex flex-col justify-center'>
+              <h3 className='text-2xl font-bold my-2 px-6 text-gold'>First time? Let us help you get setup:</h3>
+              <SteppedProgress />
+            </div>
+            <div className='flex justify-center items-center'>
+              <FloatingPhone />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <StickyCards />
+
+      <PromotionForm />
+    </div>
   );
 }
