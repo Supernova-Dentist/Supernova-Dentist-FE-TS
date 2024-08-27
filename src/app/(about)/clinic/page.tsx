@@ -1,5 +1,5 @@
-import PageHero from '@/components/blocks/PageHero/PageHero';
 import Button from '@/components/Button/Button';
+import PageHero from '@/components/blocks/PageHero/PageHero';
 import { DisappearingFeatures } from '@/components/DisappearingScrollFeatures/DisappearingScrollFeatures';
 import { FloatingPhone } from '@/components/FloatingPhone/FloatingPhone';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
@@ -48,14 +48,14 @@ export default function OurClinic() {
               <div className='flex flex-col md:flex-row gap-4'>
                 <Link href='cosmetic-dentistry'>
                   <Button
-                    className='hover:opacity-90 transition-opacity duration-150 uppercase text-base text:md font-semibold bg-gold text-grey px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto'
+                    className='uppercase text:md font-semibold bg-gold px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto'
                     text='Cosmetic Services'
                   />
                 </Link>
 
                 <Link href='general-dentistry'>
                   <Button
-                    className='hover:opacity-90 transition-opacity duration-150 uppercase text-base text:md font-semibold bg-gold text-grey px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto'
+                    className='uppercase text:md font-semibold bg-gold px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto'
                     text='General Services'
                   />
                 </Link>

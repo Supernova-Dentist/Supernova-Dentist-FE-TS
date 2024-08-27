@@ -48,11 +48,11 @@ export const navLinks = [
   {
     name: 'Cosmetic Dentistry',
     url: '/cosmetic-dentistry',
-    flyout: cosmeticServices,
+    subLinks: cosmeticServices,
   },
-  { name: 'General Dentistry', url: '/general-dentistry', flyout: generalServices },
-  { name: 'About us', url: '/about', flyout: practiceInfo },
-  { name: 'Media', url: '/media', flyout: media },
+  { name: 'General Dentistry', url: '/general-dentistry', subLinks: generalServices },
+  { name: 'About us', url: '/about', subLinks: practiceInfo },
+  { name: 'Media', url: '/media', subLinks: media },
 ];
 
 export const officeInfo = {

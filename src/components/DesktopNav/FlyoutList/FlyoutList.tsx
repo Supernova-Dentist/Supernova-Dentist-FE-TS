@@ -7,7 +7,7 @@ export default function FlyoutList({ flyoutItems }: FlyoutList) {
         <li key={name}>
           <Link
             href={link}
-            className='block text-md text-gold transition-all duration-300 ease-out hover:text-amber-700 hover:translate-x-1'
+            className='block text-md text-gold transition-all duration-300 ease-out hover:text-lightGold hover:translate-x-1'
           >
             {name}
           </Link>

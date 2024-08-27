@@ -5,7 +5,9 @@
 
 @layer base {
   :root {
+    --off-white: #f9fafc;
     --gold: #c29470;
+    --light-gold: #d3a17a;
     --grey: #121c26;
     --light-grey: #404244;
     --cream: #f6efe9;
@@ -35,7 +37,7 @@
   }
 
   body {
-    background: #f9fafc;
+    background: var(--off-white);
   }
 
   table thead tr:first-child th:first-child {

@@ -20,7 +20,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
       </div>
       <div className='flex gap-2 items-center'>
         <Button
-          className='bg-grey text-gray-50 px-6 py-2 rounded-sm hover:bg-lightGrey duration-150 border border-transparent'
+          className='bg-grey text-gray-50 hover:bg-lightGrey'
           onClick={
             // Attempt to recover by trying to re-render the segment
             () => reset()
@@ -28,12 +28,9 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
         >
           Try again
         </Button>
-        <Link
-          href='/'
-          className='bg-grey text-gray-50 px-6 py-2 rounded-sm hover:bg-lightGrey duration-150 border border-transparent h-full'
-        >
-          Go Home
-        </Link>
+        <Button>
+          <Link href='/'>Go Home</Link>
+        </Button>
       </div>
     </div>
   );

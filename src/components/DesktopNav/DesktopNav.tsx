@@ -13,15 +13,15 @@ export default function DesktopNav() {
         <FlyoutLink href='/' flyoutItems={[]}>
           Home
         </FlyoutLink>
-        {navLinks.map(({ name, flyout, url }) => (
-          <FlyoutLink key={name} href={url} flyoutItems={flyout}>
+        {navLinks.map(({ name, subLinks, url }) => (
+          <FlyoutLink key={name} href={url} flyoutItems={subLinks}>
             {name}
           </FlyoutLink>
         ))}
 
         <li>
           <Link target='_blank' href={`${DentallyPortal}`}>
-            <Button className='text-md bg-gold hover:bg-amber-700 text-cream px-4 py-2 rounded'>Book Now</Button>
+            <Button>Book Now</Button>
           </Link>
         </li>
       </ul>
