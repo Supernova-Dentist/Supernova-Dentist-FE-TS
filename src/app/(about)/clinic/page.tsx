@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import Button from '@/components/Button/Button';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Our Clinic',
@@ -85,13 +86,9 @@ export default function Clinic() {
               a comfortable setting. Contact us today to schedule your appointment.
             </p>
             <div className='flex items-center space-x-4'>
-              <button className='bg-gold hover:bg-amber-600 text-cream px-6 py-3 rounded-md shadow-md transition duration-300'>
-                Book Appointment
-              </button>
+              <Button className='shadow-md'>Book Appointment</Button>
               <span className='text-gray'>or</span>
-              <button className='bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-3 rounded-md shadow-md transition duration-300'>
-                Contact Us
-              </button>
+              <Button className='bg-grey hover:bg-lightGrey shadow-md text-offWhite'>Contact Us</Button>
             </div>
           </section>
         </div>
