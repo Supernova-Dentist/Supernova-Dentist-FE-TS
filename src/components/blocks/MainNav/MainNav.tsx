@@ -45,7 +45,7 @@ const MainNav = () => {
   const isMobile = width <= 768; // Define your mobile breakpoint here
 
   return (
-    <nav>
+    <>
       {isMobile ? (
         <MenuManager>
           <MobileMenu />
@@ -53,7 +53,7 @@ const MainNav = () => {
       ) : (
         <DesktopNav />
       )}
-    </nav>
+    </>
   );
 };
 
