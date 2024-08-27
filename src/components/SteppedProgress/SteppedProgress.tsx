@@ -7,7 +7,7 @@ const SteppedProgress = () => {
   const [stepsComplete, setStepsComplete] = useState(0);
   const numSteps = 4;
 
-  const handleSetStep = (num) => {
+  const handleSetStep = (num: number) => {
     if ((stepsComplete === 0 && num === -1) || (stepsComplete === numSteps && num === 1)) {
       return;
     }
@@ -43,7 +43,7 @@ const SteppedProgress = () => {
   );
 };
 
-const Steps = ({ numSteps, stepsComplete }) => {
+const Steps = ({ numSteps, stepsComplete }: { numSteps: number; stepsComplete: number }) => {
   const stepArray = Array.from(Array(numSteps).keys());
 
   return (
@@ -70,7 +70,7 @@ const Steps = ({ numSteps, stepsComplete }) => {
   );
 };
 
-const Step = ({ num, isActive }) => {
+const Step = ({ num, isActive }: { num: number; isActive: boolean }) => {
   return (
     <div className='relative'>
       <div

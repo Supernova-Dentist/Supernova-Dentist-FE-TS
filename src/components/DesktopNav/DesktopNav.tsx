@@ -21,7 +21,7 @@ export default function DesktopNav() {
 
         <li>
           <Link target='_blank' href={`${DentallyPortal}`}>
-            <Button className='text-md bg-gold hover:bg-amber-700 text-cream px-4 py-2 rounded'>Book Now</Button>
+            <Button>Book Now</Button>
           </Link>
         </li>
       </ul>
