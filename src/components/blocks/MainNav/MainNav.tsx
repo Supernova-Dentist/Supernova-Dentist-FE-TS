@@ -1,9 +1,10 @@
 'use client';
 
+import { CornerNav } from '@/components/CornerNav/CornerNav';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import MobileMenu from '@/components/MobileNav';
 import MenuManager from '@/components/MobileNav/MenuManager';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Custom hook to get window size
 const useWindowSize = () => {
@@ -44,17 +45,7 @@ const MainNav = () => {
 
   const isMobile = width <= 768; // Define your mobile breakpoint here
 
-  return (
-    <nav>
-      {isMobile ? (
-        <MenuManager>
-          <MobileMenu />
-        </MenuManager>
-      ) : (
-        <DesktopNav />
-      )}
-    </nav>
-  );
+  return <nav>{isMobile ? <CornerNav /> : <DesktopNav />}</nav>;
 };
 
 export default MainNav;
