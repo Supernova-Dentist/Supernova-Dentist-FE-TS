@@ -4,94 +4,8 @@ import { MenuContext } from '../MenuManager';
 
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { navLinks } from '@/lib/constants';
 import './style.scss';
-
-const internalLinks = [
-  {
-    url: '/',
-    header: (
-      <>
-        <h2>Home</h2>
-      </>
-    ),
-  },
-  {
-    url: '/cosmetic-denistry',
-    header: <h2>Cosmetic Dentistry</h2>,
-    subHeaders: [
-      {
-        url: '/cosmetic-dentistry/teeth-whitening',
-        header: <h3>Teeth Whitening</h3>,
-      },
-      {
-        url: '/cosmetic-dentistry/invisalign',
-        header: <h3>Invisalign</h3>,
-      },
-      {
-        url: '/cosmetic-dentistry/cosmetic-bonding',
-        header: <h3>Cosmetic Bonding</h3>,
-      },
-    ],
-  },
-  {
-    url: '/general-dentistry',
-    header: <h2>General Dentistry</h2>,
-    subHeaders: [
-      {
-        url: '/general-dentistry/general-checkup',
-        header: <h3>General Check-Up</h3>,
-      },
-      {
-        url: '/general-dentistry/root-canal-treatment',
-        header: <h3>Root Canal Treatment</h3>,
-      },
-      {
-        url: '/general-dentistry/dental-implants',
-        header: <h3>Fillings</h3>,
-      },
-      {
-        url: '/general-dentistry/emergency-dentistry',
-        header: <h3>Emergency Dentistry</h3>,
-      },
-    ],
-  },
-  {
-    url: '/about',
-    header: <h2>About</h2>,
-    subHeaders: [
-      {
-        url: '/meet-the-team',
-        header: <h3>Meet the Team</h3>,
-      },
-      {
-        url: '/find-us',
-        header: <h3>Find Us</h3>,
-      },
-      {
-        url: '/contact',
-        header: <h3>Contact</h3>,
-      },
-    ],
-  },
-  {
-    url: '/media',
-    header: <h2>Media</h2>,
-    subHeaders: [
-      {
-        url: '/blog',
-        header: <h3>Blog</h3>,
-      },
-      {
-        url: '/gallery',
-        header: <h3>Gallery</h3>,
-      },
-      {
-        url: '/social-media',
-        header: <h3>Social Media</h3>,
-      },
-    ],
-  },
-];
 
 const externalLinks = [
   {
@@ -119,20 +33,31 @@ const externalLinks = [
 export default function MenuContent() {
   const { open, setOpen } = useContext(MenuContext);
   return (
-    <div className='menu-holder'>
+    <nav className='menu-holder'>
       <div className={cn('menu-inside', { open })}>
         <div className='menu-nav-container'>
-          <ul className='internal-nav-links text-center'>
-            {internalLinks.map((link) => (
-              <li key={link.url}>
-                <Link onClick={() => setOpen(!open)} href={link.url} className='header-link'>
-                  {link.header}
+          <ul className='internal-nav-links text-center flex flex-col'>
+            <li>
+              <Link onClick={() => setOpen(!open)} href='/' className='header-link'>
+                Home
+              </Link>
+            </li>
+            {navLinks.map(({ name, subLinks, url }) => (
+              <li key={url}>
+                <Link className='header-link' href={url}>
+                  {name}
                 </Link>
-                {link.subHeaders?.map((subLink) => (
-                  <Link key={subLink.url} onClick={() => setOpen(!open)} href={subLink.url} className='subheader-link'>
-                    {subLink.header}
-                  </Link>
-                ))}
+                {subLinks !== undefined && (
+                  <ul className='sub-links mt-5'>
+                    {subLinks.map((subLink) => (
+                      <li key={subLink.link}>
+                        <Link onClick={() => setOpen(!open)} href={subLink.link} className='subheader-link block'>
+                          {subLink.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
@@ -145,6 +70,6 @@ export default function MenuContent() {
           </ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
