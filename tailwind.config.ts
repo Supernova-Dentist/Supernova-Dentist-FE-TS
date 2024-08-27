@@ -24,6 +24,7 @@ const config = {
       },
       colors: {
         gold: 'var(--gold)',
+        lightGold: 'var(--light-gold)',
         grey: 'var(--grey)',
         cream: 'var(--cream)',
         lightGrey: 'var(--light-grey)',
