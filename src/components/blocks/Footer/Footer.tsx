@@ -1,11 +1,8 @@
-import dynamic from 'next/dynamic';
 import { cosmeticServices, generalServices, officeInfo, practiceInfo, reviewLinks, socialIcons } from '@/lib/constants';
 import FooterLink from '../FooterLink/FooterLink';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
 import Button from '@/components/Button/Button';
-const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
-  ssr: false,
-});
+import DynamicGoogleMap from '../GoogleMap/DynamicGoogleMap';
 
 export default function Footer() {
   return (
@@ -42,10 +39,10 @@ export default function Footer() {
               <li className='text-gold text-lg uppercase text-center sm:text-left'>Office</li>
               <li className='text-center sm:text-left'>{officeInfo.address}</li>
             </ul>
-            <div className='mb-2'>
-              <GoogleMap />
+            <DynamicGoogleMap />
+            <div className='mt-2'>
+              <GetDirectionsForm />
             </div>
-            <GetDirectionsForm />
           </div>
 
           {/* Review Us Section */}
