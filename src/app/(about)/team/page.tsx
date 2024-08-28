@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import textBoxContent from './textBoxContent';
 import PageHero from '@/components/blocks/PageHero/PageHero';
 import ImageAndText from '@/components/blocks/ImageAndText/ImageAndText';
@@ -8,9 +7,7 @@ import TextBox from '@/components/TextBoxContainer/TextBox';
 import Button from '@/components/Button/Button';
 import Steps from '@/components/blocks/Steps/Steps';
 import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
-const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
-  ssr: false,
-});
+import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Team',
@@ -51,7 +48,7 @@ export default function Team() {
       <div className='my-24'>
         <GalleryCarousel />
       </div>
-      <GoogleMap />
+      <DynamicGoogleMap />
     </>
   );
 }
