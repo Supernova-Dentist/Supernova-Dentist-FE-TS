@@ -1,10 +1,7 @@
+import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
-const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
-  ssr: false,
-});
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Find Us',
@@ -27,7 +24,7 @@ export default function Location() {
             </p>
 
             <div className='my-6'>
-              <GoogleMap />
+              <DynamicGoogleMap />
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>

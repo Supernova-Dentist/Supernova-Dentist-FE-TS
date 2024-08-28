@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import { faqItems } from './utils/faqItems';
 import textBoxContent from './utils/textBoxContent';
 import PageHero from '@/components/blocks/PageHero/PageHero';
@@ -10,9 +9,7 @@ import Certifications from '@/components/blocks/Certifications/Certifications';
 import FAQ from '@/components/FAQ/FAQ';
 import Steps from '@/components/blocks/Steps/Steps';
 import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
-const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
-  ssr: false,
-});
+import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Team',
@@ -59,7 +56,7 @@ export default function MeetDoctorYoung() {
       <div className='my-24'>
         <GalleryCarousel />
       </div>
-      <GoogleMap />
+      <DynamicGoogleMap />
     </>
   );
 }
