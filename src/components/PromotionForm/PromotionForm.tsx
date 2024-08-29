@@ -56,10 +56,18 @@ export default function PromotionForm() {
     reset();
   }
 
+  // Added wrapper fn to satisfy TS warning. We were passing a promise
+  // returning fn where a void returning fn was expected
+  function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+    void handleSubmit(onSubmit)(e);
+  }
+
   return (
     <React.Fragment>
       <section className='w-full py-12 md:py-24 lg:py-32 bg-cream'>
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-16 text-center text-grey'>Early Bird Promotion!</h2>
+        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-16 text-center text-grey'>
+          Early Bird Promotion!
+        </h2>
         <div className='container grid items-center lg:justify-start justify-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12 mx-auto max-w-[1250px]'>
           <div className='space-y-4 text-center lg:text-left'>
             <div className='inline-block rounded-lg bg-grey px-3 py-1 text-sm text-gray-50'>Limited Time Offer</div>
@@ -70,7 +78,7 @@ export default function PromotionForm() {
             </p>
           </div>
           <Card className='mx-auto w-full max-w-md bg-gray-50 '>
-            <form onSubmit={() => handleSubmit(onSubmit)}>
+            <form onSubmit={handleFormSubmit}>
               <CardHeader>
                 <CardTitle>Book Your Appointment</CardTitle>
                 <CardDescription>
