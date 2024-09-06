@@ -20,7 +20,7 @@ const SteppedProgress = ({ stepContent }: { stepContent: any }) => {
     <div className='px-4 py-14'>
       <div className='p-8 bg-white shadow-lg rounded-md w-full max-w-2xl mx-auto'>
         {stepContent[stepsComplete]?.header && (
-          <h2 className='text-2xl font-bold text-center text-gray-800'>{stepContent[stepsComplete].header}</h2>
+          <h2 className='text-2xl font-bold text-center text-gray-800 mb-2'>{stepContent[stepsComplete].header}</h2>
         )}
         <Steps numSteps={stepContent.length - 1} stepsComplete={stepsComplete} />
         <div className='p-2 my-6  bg-gray-100 border-2 border-dashed border-gray-200 rounded-lg'>
