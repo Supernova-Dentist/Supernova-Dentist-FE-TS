@@ -4,6 +4,7 @@ export default {
     'Our dental practice ensures a smooth and comfortable experience for your dental filling procedure. Here’s what you can expect during your visit:',
   stepContent: [
     {
+      id: 1,
       image: '/assets/images/dental-filling-consultation.jpg',
       header: 'Step 1: Examination and Diagnosis',
       text: 'Our dentist will examine your tooth to assess the extent of decay or damage. We’ll discuss your symptoms and review any relevant X-rays to determine the best treatment plan.',

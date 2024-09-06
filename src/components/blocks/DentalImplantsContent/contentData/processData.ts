@@ -4,16 +4,19 @@ export default {
     "Our comprehensive dental implant process is designed to ensure a successful and comfortable experience. Here's how we guide you through each step:",
   stepContent: [
     {
+      id: 1,
       image: '/assets/images/composite-bonding-process.jpg',
       header: 'Consultation',
       text: 'During your initial consultation, we will evaluate your oral health, discuss your implant options, and create a customized treatment plan to meet your needs.',
     },
     {
+      id: 2,
       image: '/assets/images/composite-bonding-process.jpg',
       header: 'Preparation',
       text: 'We prepare for the implant placement by taking detailed scans and possibly performing preliminary procedures to ensure a successful implantation.',
     },
     {
+      id: 3,
       image: '/assets/images/composite-bonding-process.jpg',
       header: 'Implant Placement',
       text: 'The dental implant is surgically placed into the jawbone. We use advanced techniques to ensure precision and minimize discomfort.',
