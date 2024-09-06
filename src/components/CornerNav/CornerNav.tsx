@@ -53,7 +53,7 @@ const LinksContainer = () => {
   );
 };
 
-const NavLink = ({ children, href, idx, subLinks = [], isActive, onClick }: { children: React.ReactNode, href: string, idx: number, subLinks?: any[], isActive: boolean, onClick: () => void }) => {
+const NavLink = ({ children, href, idx, subLinks, isActive, onClick }: { children: React.ReactNode, href: string, idx: number, subLinks?: any[], isActive: boolean, onClick: () => void }) => {
   return (
     <div>
       <motion.a
@@ -71,7 +71,7 @@ const NavLink = ({ children, href, idx, subLinks = [], isActive, onClick }: { ch
         onClick={onClick}
         className='flex items-center justify-between text-lg font-semibold text-cream transition-colors md:text-3xl cursor-pointer'
       >
-        {children}.
+        {children}
         {subLinks && (
           <motion.div initial={{ rotate: 0 }} animate={{ rotate: isActive ? 180 : 0 }} transition={{ duration: 0.3 }}>
             {isActive ? <FiChevronUp /> : <FiChevronDown />}
