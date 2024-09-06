@@ -20,7 +20,7 @@ export default function ServiceTestimonial({
           secondImage={afterSrc}
           firstImageClassName='object-cover object-left-top'
           secondImageClassname='object-cover object-left-top'
-          className='h-64 w-64'
+          className='h-96 w-96'
           slideMode='hover'
         />
       </div>
