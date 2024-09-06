@@ -97,7 +97,7 @@ export function EnquiryFormContent() {
 
       <section className='px-16 pt-4 pb-24 md:pb-32'>
         <div className='container mx-auto px-4 md:px-6'>
-          <div className='mx-auto max-w-2xl space-y-6 bg-white p-12 rounded-lg shadow-lg'>
+          <div className='mx-auto max-w-2xl space-y-6 bg-white p-8 md:p-12 rounded-lg shadow-lg'>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-8'>
                 <div className='grid gap-6'>
@@ -273,25 +273,5 @@ export function EnquiryFormContent() {
         </div>
       )}
     </>
-  );
-}
-
-function ArrowLeftIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns='http://www.w3.org/2000/svg'
-      width='24'
-      height='24'
-      viewBox='0 0 24 24'
-      fill='none'
-      stroke='currentColor'
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-    >
-      <path d='m12 19-7-7 7-7' />
-      <path d='M19 12H5' />
-    </svg>
   );
 }
