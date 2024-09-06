@@ -1,13 +1,13 @@
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import React from 'react';
 import { Timeline } from '../ui/timeline';
-import SteppedProgress from '@/components/SteppedProgress/SteppedProgress'; // Import your SteppedProgress component
+import ServiceProcess from '../ServiceProcess/ServiceProcess';
 
 interface ProcessData {
   title: string;
   description: string;
   stepContent: any;
-  timelineData: any;
+  timelineData?: any;
 }
 
 export default function ProcessSection({ data }: { data: ProcessData }) {
@@ -24,7 +24,15 @@ export default function ProcessSection({ data }: { data: ProcessData }) {
         {timelineData && timelineData.length > 0 ? (
           <Timeline data={timelineData} />
         ) : (
-          <SteppedProgress stepContent={stepContent} />
+          <div className='mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+            {stepContent.map(
+              ({ id, image, header, text }: { id: string; image: string; header: string; text: string }) => (
+                <React.Fragment key={id}>
+                  <ServiceProcess src={image} header={header} text={text} />
+                </React.Fragment>
+              )
+            )}
+          </div>
         )}
       </div>
     </section>
