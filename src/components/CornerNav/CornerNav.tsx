@@ -53,7 +53,21 @@ const LinksContainer = () => {
   );
 };
 
-const NavLink = ({ children, href, idx, subLinks, isActive, onClick }: { children: React.ReactNode, href: string, idx: number, subLinks?: any[], isActive: boolean, onClick: () => void }) => {
+const NavLink = ({
+  children,
+  href,
+  idx,
+  subLinks,
+  isActive,
+  onClick,
+}: {
+  children: React.ReactNode;
+  href: string;
+  idx: number;
+  subLinks?: any[];
+  isActive: boolean;
+  onClick: () => void;
+}) => {
   return (
     <div>
       <motion.a
@@ -136,14 +150,20 @@ const Logo = () => {
   );
 };
 
-const HamburgerButton = ({ active, setActive }: { active: boolean, setActive: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const HamburgerButton = ({
+  active,
+  setActive,
+}: {
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <>
       <motion.div
         initial={false}
         animate={active ? 'open' : 'closed'}
         variants={UNDERLAY_VARIANTS}
-        style={{ top: 16, right: 16 }}
+        style={{ top: 0, right: 0 }}
         className='fixed z-10 rounded-xl bg-gradient-to-br from-gray-600 to-gray-500 shadow-lg shadow-gray-800/20'
       />
 
@@ -151,7 +171,7 @@ const HamburgerButton = ({ active, setActive }: { active: boolean, setActive: Re
         initial={false}
         animate={active ? 'open' : 'closed'}
         onClick={() => setActive((pv) => !pv)}
-        className={`group fixed right-4 top-4 z-50 h-20 w-20 bg-white/0 transition-all hover:bg-white/20 ${
+        className={`group fixed right-0 top-0 z-50 h-20 w-20 bg-white/0 transition-all hover:bg-white/20 ${
           active ? 'rounded-bl-xl rounded-tr-xl' : 'rounded-xl'
         }`}
       >
@@ -268,8 +288,8 @@ const SOCIAL_CTAS = [
 
 const UNDERLAY_VARIANTS = {
   open: {
-    width: 'calc(100% - 32px)',
-    height: 'calc(100vh - 32px)',
+    width: '100%',
+    height: '100%',
     transition: { type: 'spring', mass: 3, stiffness: 400, damping: 50 },
   },
   closed: {
