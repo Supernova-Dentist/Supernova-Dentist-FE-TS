@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'; // Import Chevron icons
-import { SiInstagram, SiLinkedin, SiTwitter, SiYoutube } from 'react-icons/si';
+import { SiFacebook, SiInstagram, SiLinkedin, SiTwitter, SiYoutube } from 'react-icons/si';
 
 export const CornerNav = () => {
   const [active, setActive] = useState(false);
@@ -269,7 +269,7 @@ const LINKS = [
 
 const SOCIAL_CTAS = [
   {
-    Component: SiTwitter,
+    Component: SiFacebook,
     href: '#',
   },
   {
