@@ -149,12 +149,11 @@ const QUESTIONS = {
     {
       question: 'What are your office hours?',
       answer:
-        'Our office is open from 8 AM to 6 PM, Monday through Friday. We also offer Saturday appointments by request.',
+        'Our office is open from 8:15 AM to 6:15 PM, Monday through Friday and 9 AM to 1PM on Saturdays. We are closed on Sundays and major holidays.',
     },
     {
       question: 'Where are you located?',
-      answer:
-        'We are located at 123 Dental Street, Suite 100, in Springfield. You can find us right next to the central park.',
+      answer: 'We are located at Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ.',
     },
     {
       question: 'Do you accept new patients?',

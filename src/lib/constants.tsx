@@ -20,6 +20,7 @@ export const practiceInfo = [
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
+  { name: 'FAQ', link: '/faq' },
 ];
 
 export const generalServices = [

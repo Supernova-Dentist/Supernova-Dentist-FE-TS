@@ -252,6 +252,7 @@ const LINKS = [
     subLinks: [
       { title: 'our clinic', href: '/clinic' },
       { title: 'find us', href: '/find-us' },
+      { title: 'pricing', href: '/pricing' },
       { title: 'enquiry', href: '/enquiry' },
       { title: 'faq', href: '/faq' },
     ],
