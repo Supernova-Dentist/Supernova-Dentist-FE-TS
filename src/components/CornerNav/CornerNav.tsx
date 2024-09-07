@@ -68,6 +68,9 @@ const NavLink = ({
   isActive: boolean;
   onClick: () => void;
 }) => {
+  // Determine the number of columns based on the number of subLinks
+  const columnsClass = subLinks && subLinks.length > 4 ? 'grid-cols-3' : 'grid-cols-2';
+
   return (
     <div>
       <motion.a
@@ -103,7 +106,7 @@ const NavLink = ({
               transition: { delay: 0.2, duration: 0.4, ease: 'easeInOut' },
             }}
             exit={{ opacity: 0, y: -8 }}
-            className='grid grid-cols-2 gap-2 mt-2 ml-4'
+            className={`grid gap-2 mt-2 ml-4 ${columnsClass}`}
           >
             {subLinks.map((subLink, subIdx) => (
               <motion.a
