@@ -7,6 +7,7 @@ export default function IntroHome() {
     <div className='flex flex-col min-h-[50dvh]'>
       <div className='flex-1 container mx-auto px-4 md:px-6 py-12 md:py-24 grid gap-12'>
         <h2 className='text-3xl font-bold text-center'>Experience Exceptional Dental Care at Supernova Dental</h2>
+        <hr className='w-16 h-1 bg-grey mx-auto mb-6' />
         <div className='grid md:grid-cols-2 gap-6'>
           <Link href='/general-dentistry' className='group' prefetch={false}>
             <Card className='h-full'>
@@ -14,11 +15,16 @@ export default function IntroHome() {
                 <h3 className='text-2xl font-bold text-primary-foreground'>General Dentistry</h3>
               </CardHeader>
               <CardContent className='p-6 flex flex-col justify-between'>
-                <p className='text-muted-foreground'>
+                <p className='text-muted-foreground mb-6'>
                   At Supernova Dental, we&apos;re excited to bring top-notch general dentistry to Bridgewater. From
                   routine checkups to root canals and emergency care, we’re here to keep your smile healthy and radiant.
                 </p>
-                <div className='mt-4 flex justify-end'>
+                <img
+                  src='/assets/images/general-dentistry.jpg'
+                  alt='General Dentistry'
+                  className='w-full h-64 object-cover rounded-lg'
+                />
+                <div className='mt-4 flex justify-center lg:justify-end'>
                   <Button variant='link' className='group-hover:underline'>
                     Discover More
                   </Button>
@@ -32,12 +38,17 @@ export default function IntroHome() {
                 <h3 className='text-2xl font-bold text-secondary-foreground'>Cosmetic Dentistry</h3>
               </CardHeader>
               <CardContent className='p-6 flex flex-col justify-between'>
-                <p className='text-muted-foreground'>
-                  Transform your smile with our cosmetic services at Supernova Dental. Whether you're interested in
+                <p className='text-muted-foreground mb-6'>
+                  Transform your smile with our cosmetic services at Supernova Dental. Whether you&apos;re interested in
                   Invisalign, composite bonding, dental implants, or whitening, we’ve got you covered to enhance your
                   smile&apos;s brilliance.
                 </p>
-                <div className='mt-4 flex justify-end'>
+                <img
+                  src='/assets/images/invisalign.jpg'
+                  alt='Cosmetic Dentistry'
+                  className='w-full h-64 object-cover rounded-lg'
+                />
+                <div className='mt-4 flex justify-center lg:justify-end'>
                   <Button variant='link' className='group-hover:underline'>
                     Explore Options
                   </Button>
@@ -58,25 +69,29 @@ export default function IntroHome() {
           </div>
           <div className='grid md:grid-cols-2 gap-6 mt-8'>
             <img
-              src='/placeholder.svg'
-              width='550'
-              height='310'
+              src='/assets/images/skyline-dental-office-exterior.jpg'
               alt='Our Practice'
-              className='mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full'
+              className='w-full h-96 object-cover rounded-xl'
             />
             <div className='space-y-4'>
               <h3 className='text-2xl font-bold'>About Us</h3>
               <p className='text-muted-foreground'>
-                Supernova Dental is founded by a team of passionate professionals eager to deliver exceptional dental
-                care. With the latest in dental technology and a state-of-the-art facility, we promise a comfortable,
-                welcoming environment where your dental health is our top priority.
+                At Supernova Dental, our mission is to provide exceptional dental care with a focus on excellence,
+                compassion, and innovation. We are dedicated to delivering personalized treatment that meets each
+                patient’s unique needs and aspirations.
               </p>
               <p className='text-muted-foreground'>
-                Join us on our journey to transform dental care in Bridgewater. We can&apos;t wait to meet you and
-                become a part of your smile story!
+                Our experienced team utilizes cutting-edge technology and techniques to offer effective and comfortable
+                treatments, from routine cleanings to advanced procedures. Our state-of-the-art facility ensures a warm
+                and welcoming environment for all our patients.
               </p>
-              <div className='mt-4'>
-                <Link href='/about'>
+              <p className='text-muted-foreground'>
+                As we prepare to open in Bridgewater in Q4 2024, we are eager to serve the community and help you
+                achieve a healthy, beautiful smile. We look forward to building lasting relationships and being a
+                trusted partner in your dental health journey.
+              </p>
+              <div className='py-4 flex justify-center'>
+                <Link href='/clinic'>
                   <Button variant='link'>Learn More</Button>
                 </Link>
               </div>
