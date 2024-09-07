@@ -1,11 +1,12 @@
-import Button from '@/components/Button/Button';
 import PageHero from '@/components/blocks/PageHero/PageHero';
+import Button from '@/components/Button/Button';
 import { DisappearingFeatures } from '@/components/DisappearingScrollFeatures/DisappearingScrollFeatures';
 import { FloatingPhone } from '@/components/FloatingPhone/FloatingPhone';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import SteppedProgress from '@/components/SteppedProgress/SteppedProgress';
 import { StickyCards } from '@/components/StickyCards/StickyCards';
 import Link from 'next/link';
+import { stepContent } from './utils/stepContent';
 
 export default function OurClinic() {
   return (
@@ -85,7 +86,7 @@ export default function OurClinic() {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
             <div className='flex flex-col justify-center'>
               <h3 className='text-2xl font-bold my-2 px-6 text-gold'>First time? Let us help you get setup:</h3>
-              <SteppedProgress />
+              <SteppedProgress stepContent={stepContent} />
             </div>
             <div className='flex justify-center items-center'>
               <FloatingPhone />

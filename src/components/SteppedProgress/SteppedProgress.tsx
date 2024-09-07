@@ -3,33 +3,33 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 
-const SteppedProgress = () => {
+const SteppedProgress = ({ stepContent }: { stepContent: any }) => {
   const [stepsComplete, setStepsComplete] = useState(0);
-  const numSteps = 4;
+
+  console.log(stepContent);
 
   const handleSetStep = (num: number) => {
-    if ((stepsComplete === 0 && num === -1) || (stepsComplete === numSteps && num === 1)) {
+    if ((stepsComplete === 0 && num === -1) || (stepsComplete === stepContent.length - 1 && num === 1)) {
       return;
     }
 
     setStepsComplete((pv) => pv + num);
   };
 
-  const stepContent = [
-    'Hit the Get Started button on the mobile to begin the booking process.',
-    'Select your preferred service from our online menu.',
-    'Choose a date and time that works for you.',
-    'Enter your personal details to confirm the booking.',
-    'Receive an email confirmation with all the details.',
-  ];
-
   return (
-    <div className='px-4 py-14 bg-grey'>
+    <div className='px-4 py-14'>
       <div className='p-8 bg-white shadow-lg rounded-md w-full max-w-2xl mx-auto'>
-        <Steps numSteps={numSteps} stepsComplete={stepsComplete} />
-        <div className='p-2 my-6 h-48 bg-gray-100 border-2 border-dashed border-gray-200 rounded-lg'>
-          <p className='text-lg text-gray-700'>{stepContent[stepsComplete]}</p>
+        {stepContent[stepsComplete]?.header && (
+          <h2 className='text-2xl font-bold text-center text-gray-800 mb-2'>{stepContent[stepsComplete].header}</h2>
+        )}
+        <Steps numSteps={stepContent.length - 1} stepsComplete={stepsComplete} />
+        <div className='p-2 my-6  bg-gray-100 border-2 border-dashed border-gray-200 rounded-lg'>
+          <p className='text-lg text-gray-700'>{stepContent[stepsComplete].text}</p>
+          {stepContent[stepsComplete]?.image && (
+            <img src={stepContent[stepsComplete].image} alt='step-image' className='w-72 h-48 mx-auto mt-4' />
+          )}
         </div>
+
         <div className='flex items-center justify-end gap-2'>
           <button className='px-4 py-1 rounded hover:bg-gray-100 text-black' onClick={() => handleSetStep(-1)}>
             Prev
