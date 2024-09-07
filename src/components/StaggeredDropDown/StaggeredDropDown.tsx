@@ -1,8 +1,8 @@
-import { FiEdit, FiChevronDown, FiTrash, FiShare, FiPlusSquare } from 'react-icons/fi';
-import { FaTwitter, FaFacebookF, FaPinterestP, FaLinkedinIn, FaRedditAlien } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { type Dispatch, type SetStateAction, useState } from 'react';
 import { type IconType } from 'react-icons';
+import { FaFacebookF, FaLinkedinIn, FaPinterestP, FaRedditAlien, FaTwitter } from 'react-icons/fa';
+import { FiChevronDown, FiEdit, FiPlusSquare, FiShare, FiTrash } from 'react-icons/fi';
 
 // Define share links
 const shareLinks = [
@@ -29,7 +29,7 @@ const shareLinks = [
   {
     Icon: FaRedditAlien,
     text: 'Share on Reddit',
-    url: 'http://www.reddit.com/submit?url=https%3A%2F%2Fsupernova-dentist-fe-ts.vercel.app%2Fgallery&title=Check%20out%20Supernova%20Dental%27s%20amazing%20gallery!',
+    url: 'http://www.reddit.com/submit?url=https%3A%2F%2Fsupernova-dentist-fe-ts.vercel.app%2Fgallery&quot=Check%20out%20Supernova%20Dental%27s%20amazing%20gallery!',
   },
 ];
 
@@ -40,9 +40,9 @@ const StaggeredDropDown = () => {
     <div className='relative'>
       <button
         onClick={() => setOpen((pv) => !pv)}
-        className='flex items-center gap-2 px-3 py-2 rounded-md text-indigo-50 bg-indigo-500 hover:bg-indigo-500 transition-colors'
+        className='flex items-center gap-2 px-3 py-2 rounded-md text-cream bg-gold transition-colors'
       >
-        <span className='font-medium text-sm'>Post actions</span>
+        <span className='font-medium text-sm'>Share Supernova!</span>
         <motion.span variants={iconVariants}>
           <FiChevronDown />
         </motion.span>
