@@ -25,7 +25,7 @@ export const practiceInfo = [
 export const generalServices = [
   { name: 'General Check-up', link: '/general-dentistry/general-checkup' },
   { name: 'Filling', link: '/general-dentistry/filling' },
-  { name: 'Root Canal', link: '/general-dentistry/root-canal' },
+  { name: 'Root Canal', link: '/general-dentistry/root-canal-treatment' },
   { name: 'Emergency', link: '/general-dentistry/emergency' },
 ];
 
