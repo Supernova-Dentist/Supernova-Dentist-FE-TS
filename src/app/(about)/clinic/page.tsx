@@ -1,11 +1,12 @@
-import Button from '@/components/Button/Button';
 import PageHero from '@/components/blocks/PageHero/PageHero';
+import Button from '@/components/Button/Button';
 import { DisappearingFeatures } from '@/components/DisappearingScrollFeatures/DisappearingScrollFeatures';
 import { FloatingPhone } from '@/components/FloatingPhone/FloatingPhone';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import SteppedProgress from '@/components/SteppedProgress/SteppedProgress';
 import { StickyCards } from '@/components/StickyCards/StickyCards';
 import Link from 'next/link';
+import { stepContent } from './utils/stepContent';
 
 export default function OurClinic() {
   return (
@@ -77,7 +78,7 @@ export default function OurClinic() {
       <section className='py-16 md:py-24 lg:py-32 bg-grey'>
         <div className='container mx-auto px-4 md:px-6 lg:px-8'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-gold'>Easy Online Booking</h2>
-          <p className='text-lg md:text-xl lg:text-2xl text-cream mb-12 text-center'>
+          <p className='text-lg md:text-xl lg:text-2xl text-cream mb-16 pb-4 text-center  md:px-16 lg:px-32 '>
             Booking your appointment has never been easier, anytime, anywhere, even from your mobile device! Our online
             system powered by Dentally allows you to schedule your visit with ease.
           </p>
@@ -85,7 +86,7 @@ export default function OurClinic() {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
             <div className='flex flex-col justify-center'>
               <h3 className='text-2xl font-bold my-2 px-6 text-gold'>First time? Let us help you get setup:</h3>
-              <SteppedProgress />
+              <SteppedProgress stepContent={stepContent} />
             </div>
             <div className='flex justify-center items-center'>
               <FloatingPhone />

@@ -20,12 +20,12 @@ export const serviceData = [
     icon: '/assets/images/service-icon-1.png',
   },
   {
-    title: 'General Check-Up',
+    title: 'General CheckUp',
     text: 'Regular check-ups to maintain your dental health and prevent issues.',
     icon: '/assets/images/service-icon-4.png',
   },
   {
-    title: 'Tooth Filling',
+    title: 'Filling',
     text: 'Professional tooth fillings to repair cavities and restore tooth function.',
     icon: '/assets/images/service-icon-6.png',
   },
