@@ -1,7 +1,6 @@
 export const stepContent = [
   {
-    text: 'Hit the Get Started button on the mobile to begin the booking process.',
-    image: '/assets/images/carousel-5.png',
+    text: "Tap 'Get Started' on the mobile to start the booking process!",
   },
   { text: 'Select your preferred service from our online menu.' },
   { text: 'Choose a date and time that works for you.' },
