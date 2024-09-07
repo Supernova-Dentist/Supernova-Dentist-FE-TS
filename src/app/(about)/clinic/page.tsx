@@ -78,7 +78,7 @@ export default function OurClinic() {
       <section className='py-16 md:py-24 lg:py-32 bg-grey'>
         <div className='container mx-auto px-4 md:px-6 lg:px-8'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-gold'>Easy Online Booking</h2>
-          <p className='text-lg md:text-xl lg:text-2xl text-cream mb-12 text-center'>
+          <p className='text-lg md:text-xl lg:text-2xl text-cream mb-16 pb-4 text-center  md:px-16 lg:px-32 '>
             Booking your appointment has never been easier, anytime, anywhere, even from your mobile device! Our online
             system powered by Dentally allows you to schedule your visit with ease.
           </p>
