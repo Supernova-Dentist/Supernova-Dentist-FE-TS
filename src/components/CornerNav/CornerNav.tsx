@@ -242,7 +242,7 @@ const LINKS = [
     subLinks: [
       { title: 'check-up', href: '/general-dentistry/general-checkup' },
       { title: 'fillings', href: '/general-dentistry/filling' },
-      { title: 'root canal', href: '/general-dentistry/root-canal' },
+      { title: 'root canal', href: '/general-dentistry/root-canal-treatment' },
       { title: 'emergency', href: '/general-dentistry/emergency' },
     ],
   },

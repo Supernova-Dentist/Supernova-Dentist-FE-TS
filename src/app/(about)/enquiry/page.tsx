@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function EnquiryForm() {
   return (
     <div className='flex flex-col items-center justify-center bg-lightGrey'>
-      <section className='p-8 mt-24 md:pt-32 w-full '>
+      <section className='p-8 mt-24 w-full '>
         <div className='container mx-auto px-4 md:px-6'>
           <div className='max-w-2xl mx-auto space-y-6 text-center'>
             <h1 className='text-4xl font-bold tracking-tight text-gold sm:text-6xl lg:text-7xl'>
