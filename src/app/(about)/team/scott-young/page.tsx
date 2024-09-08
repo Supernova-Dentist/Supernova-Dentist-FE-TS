@@ -28,13 +28,15 @@ export default function Component() {
 
       <section className='w-full py-12 md:py-24 lg:py-32 bg-muted'>
         <div className='container mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-6 text-center'>
-          <div className='space-y-4'>
-            <h2 className='text-3xl font-bold tracking-tight md:text-4xl'>Hear from Scott</h2>
-            <hr className='bg-gold h-1 w-16 mx-auto' />
-            <p className='max-w-[600px] text-muted-foreground md:text-xl mx-auto'>
-              Get to know Scott Young, his journey, and his passion for aesthetics and dentistry.
-            </p>
-          </div>
+          <Reveal>
+            <div className='space-y-4'>
+              <h2 className='text-3xl font-bold tracking-tight md:text-4xl'>Hear from Scott</h2>
+              <hr className='bg-gold h-1 w-16 mx-auto' />
+              <p className='max-w-[600px] text-muted-foreground md:text-xl mx-auto'>
+                Get to know Scott Young, his journey, and his passion for aesthetics and dentistry.
+              </p>
+            </div>
+          </Reveal>
           <div className='w-full flex justify-center'>
             <div className='w-full max-w-[1200px] aspect-video bg-gray-200'>
               {/* Placeholder for YouTube video */}
