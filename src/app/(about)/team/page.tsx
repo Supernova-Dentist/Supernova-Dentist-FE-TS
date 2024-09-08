@@ -1,54 +1,30 @@
-import type { Metadata } from 'next';
-import textBoxContent from './textBoxContent';
-import PageHero from '@/components/blocks/PageHero/PageHero';
-import ImageAndText from '@/components/blocks/ImageAndText/ImageAndText';
-import DefaultTextBox from '@/components/blocks/ImageAndText/DefaultTextBox';
-import TextBox from '@/components/TextBoxContainer/TextBox';
-import Button from '@/components/Button/Button';
-import Steps from '@/components/blocks/Steps/Steps';
-import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
-import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import { type Metadata } from 'next';
+import TeamMemberGrid from './utils/TeamMemberGrid';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | Team',
-  description: 'Meet the team behind Supernova Dental',
+  title: 'Supernova Dental | Our Team',
+  description: 'Meet the dedicated professionals who make our dental practice exceptional.',
 };
 
-export default function Team() {
+export default function TeamPage() {
   return (
-    <>
-      <PageHero bgImage='bg-team-cta' title='Meet the team' description='Behind Supernova Dental' />
-      <div className='mb-8 relative'>
-        <ImageAndText
-          src='/assets/images/dummy-team-2.jpeg'
-          alt='Meet the team'
-          textBox={
-            <DefaultTextBox
-              title='Supernova Dental'
-              emphasis='About'
-              descriptionOne="We offer dental services in Tucson, AZ, ranging from general and family dentistry to cosmetic
-          procedures. We use state-of-the-art technology along with trusted techniques to give you the bright and
-          healthy smile you've always dreamed of."
-              descriptionTwo="One of the main things that sets us apart from other dental practices is our passionate, skilled staff.
-          Our team is comprised of talented dental professionals that are committed to providing personalized,
-          high-quality care with service that will leave you smiling. From the front desk to the dental chair, you
-          can rest assured that you're in good hands!"
-            />
-          }
-        />
-        <ImageAndText src='/assets/images/dummy-dentist.jpeg' alt='Dentist' imagePosition='right'>
-          <TextBox title={textBoxContent.title} textOne={textBoxContent.textOne}>
-            <Button className='text-xl sm:w-fit w-full mt-8' text="Read Dr. Young's bio" />
-          </TextBox>
-        </ImageAndText>
-      </div>
-      <div className='my-24'>
-        <Steps />
-      </div>
-      <div className='my-24'>
-        <GalleryCarousel />
-      </div>
-      <DynamicGoogleMap />
-    </>
+    <div className='flex flex-col min-h-screen '>
+      {/* Hero Section */}
+      <section className="flex flex-col justify-center items-center h-120 w-full bg-[url('/assets/images/aiTeamImage.jpg')] bg-cover bg-center bg-no-repeat py-20 md:py-32 lg:py-40">
+        <h1 className='text-3xl font-extrabold text-center text-gold sm:text-4xl md:text-5xl'>Meet Our Dental Team</h1>
+        <p className='mx-auto mt-4 max-w-2xl text-lg text-center text-white'>
+          Discover the dedicated professionals who make our dental practice exceptional.
+        </p>
+      </section>
+      <section className='w-full py-12 md:py-24 lg:py-32 bg-cream'>
+        {/* Breadcrumb */}
+        <div className='mx-auto px-4 md:px-6 container pt-8 pb-4'>
+          <BreadCrumb />
+        </div>
+
+        <TeamMemberGrid />
+      </section>
+    </div>
   );
 }
