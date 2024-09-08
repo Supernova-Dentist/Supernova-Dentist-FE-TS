@@ -6,9 +6,9 @@ type MediaPost = {
   content: {
     rendered: string;
   };
-  jetpack_featured_media_url: string;
+  jetpack_featured_media_url?: string;
   alt_text?: string;
-  class_list: string[];
+  class_list?: string[];
 };
 
 type MediaProps = {

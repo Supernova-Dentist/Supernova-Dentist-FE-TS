@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import CrispChat from '@/components/blocks/CrispChat/CrispChat';
 import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
 import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
+import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import './reset.css';
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           <CrispChat />
         </div>
         <AccessibilityWidget />
+        <ScrollToTopButton />
       </body>
     </html>
   );

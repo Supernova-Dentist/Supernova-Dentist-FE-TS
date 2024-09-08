@@ -1,6 +1,17 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { type Metadata } from 'next';
 import TeamMemberGrid from './utils/TeamMemberGrid';
+import type { Metadata } from 'next';
+import textBoxContent from './textBoxContent';
+import PageHero from '@/components/blocks/PageHero/PageHero';
+import ImageAndText from '@/components/blocks/ImageAndText/ImageAndText';
+import DefaultTextBox from '@/components/blocks/ImageAndText/DefaultTextBox';
+import TextBox from '@/components/TextBoxContainer/TextBox';
+import Button from '@/components/Button/Button';
+import Steps from '@/components/blocks/Steps/Steps';
+import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
+import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
+
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Our Team',

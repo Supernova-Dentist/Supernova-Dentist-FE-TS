@@ -5,9 +5,54 @@
 
 @layer base {
   :root {
+    --off-white: #f9fafc;
     --gold: #c29470;
+    --light-gold: #d3a17a;
     --grey: #121c26;
     --light-grey: #404244;
     --cream: #f6efe9;
+  }
+}
+
+@layer components {
+  .underline-animation {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .underline-animation::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: -1px;
+    background-color: currentColor;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .underline-animation:hover::before {
+    transform: translateX(0);
+  }
+
+  body {
+    background: var(--off-white);
+  }
+
+  table thead tr:first-child th:first-child {
+    border-top-left-radius: 0.375rem;
+  }
+
+  table thead tr:first-child th:last-child {
+    border-top-right-radius: 0.375rem;
+  }
+
+  table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 0.375rem;
+  }
+
+  table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 0.375rem;
   }
 }
