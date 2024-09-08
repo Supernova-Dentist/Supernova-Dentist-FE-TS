@@ -5,15 +5,16 @@ export default function Component() {
   return (
     <div className='flex flex-col min-h-[100vh]'>
       <section className='w-full py-12 md:py-24 lg:py-32 bg-lightGrey'>
-        <div className='container mx-auto grid gap-8 px-4 md:px-6 md:grid-cols-2 md:items-center'>
+        <div className='container mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-6 md:grid md:grid-cols-2 md:items-center text-center'>
           <div className='space-y-4'>
             <h1 className='text-4xl font-bold tracking-tight text-gold sm:text-5xl md:text-6xl'>
               Scott, Dental Practitioner
             </h1>
             <div className='text-lg text-cream'>GPhC Registration Number: 12345678</div>
-            <p className='max-w-[600px] text-cream md:text-xl'>
+            <p className='max-w-[600px] text-cream md:text-xl mx-auto'>
               Scott is a highly skilled and experienced Dental Practitioner, dedicated to helping clients achieve their
-              desired aesthetic goals. With years of experience and a keen eye for detail, Scott provides personalized care tailored to each client's unique needs.
+              desired aesthetic goals. With years of experience and a keen eye for detail, Scott provides personalized
+              care tailored to each client's unique needs.
             </p>
           </div>
           <div className='flex justify-center'>
@@ -30,34 +31,34 @@ export default function Component() {
       </section>
 
       <section className='w-full py-12 md:py-24 lg:py-32 bg-grey'>
-        <div className='container mx-auto grid gap-8 px-4 md:px-6 md:grid-cols-2'>
+        <div className='container mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-6 md:grid md:grid-cols-2 text-center'>
           <div className='space-y-4'>
             <h2 className='text-3xl font-bold tracking-tight sm:text-4xl text-gold'>What Scott Can Help You With</h2>
-            <p className='max-w-[600px] text-cream md:text-xl'>
+            <p className='max-w-[600px] text-cream md:text-xl mx-auto'>
               Scott specializes in a wide range of aesthetic treatments, including:
             </p>
             <ul className='grid gap-4 text-lg text-cream'>
-              <li className='flex items-center gap-2'>
+              <li className='flex items-center gap-2 justify-center'>
                 <CheckIcon className='h-6 w-6 text-cream' />
                 Botox and Dermal Fillers
               </li>
-              <li className='flex items-center gap-2'>
+              <li className='flex items-center gap-2 justify-center'>
                 <CheckIcon className='h-6 w-6 text-cream' />
                 Skin Rejuvenation Treatments
               </li>
-              <li className='flex items-center gap-2'>
+              <li className='flex items-center gap-2 justify-center'>
                 <CheckIcon className='h-6 w-6 text-cream' />
                 Advanced Facial Treatments
               </li>
-              <li className='flex items-center gap-2'>
+              <li className='flex items-center gap-2 justify-center'>
                 <CheckIcon className='h-6 w-6 text-cream' />
                 Laser Hair Removal
               </li>
-              <li className='flex items-center gap-2'>
+              <li className='flex items-center gap-2 justify-center'>
                 <CheckIcon className='h-6 w-6 text-cream' />
                 Teeth Whitening
               </li>
-              <li className='flex items-center gap-2'>
+              <li className='flex items-center gap-2 justify-center'>
                 <CheckIcon className='h-6 w-6 text-cream' />
                 Cosmetic Dentistry
               </li>
@@ -72,50 +73,36 @@ export default function Component() {
       </section>
 
       <section className='w-full py-12 md:py-24 lg:py-32 bg-muted'>
-        <div className='container mx-auto grid gap-8 px-4 md:px-6'>
+        <div className='container mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-6 text-center'>
           <div className='space-y-4'>
-            <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>Certifications</h2>
-            <p className='max-w-[600px] text-muted-foreground md:text-xl'>
-              Scott is highly qualified and accredited, with the following certifications:
+            <h2 className='text-3xl font-bold tracking-tight md:text-4xl'>Hear from Scott</h2>
+            <hr className='bg-gold h-1 w-16 mx-auto' />
+            <p className='max-w-[600px] text-muted-foreground md:text-xl mx-auto'>
+              Get to know Scott Young, his journey, and his passion for aesthetics and dentistry.
             </p>
           </div>
-          <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3'>
-            <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
-              <BadgeIcon className='h-12 w-12 text-gold' />
-              <div className='text-lg text-cream'>Advanced Botox and Dermal Fillers</div>
-              <div className='text-sm text-cream'>Certified by the Aesthetic Complications Expert Group</div>
-            </Card>
-            <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
-              <BadgeIcon className='h-12 w-12 text-gold' />
-              <div className='text-lg text-cream'>Laser Hair Removal Specialist</div>
-              <div className='text-sm text-cream'>Certified by the British Medical Laser Association</div>
-            </Card>
-            <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
-              <BadgeIcon className='h-12 w-12 text-gold' />
-              <div className='text-lg text-cream'>Advanced Skin Rejuvenation Treatments</div>
-              <div className='text-sm text-cream'>
-                Certified by the International Association of Aesthetic Practitioners
-              </div>
-            </Card>
-            <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
-              <BadgeIcon className='h-12 w-12 text-gold' />
-              <div className='text-lg text-cream'>Cosmetic Dentistry</div>
-              <div className='text-sm text-cream'>Certified by the General Dental Council</div>
-            </Card>
-            <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
-              <BadgeIcon className='h-12 w-12 text-gold' />
-              <div className='text-lg text-cream'>Teeth Whitening Specialist</div>
-              <div className='text-sm text-cream'>Certified by the British Dental Association</div>
-            </Card>
+          <div className='w-full flex justify-center'>
+            <div className='w-full max-w-[1200px] aspect-video bg-gray-200'>
+              {/* Placeholder for YouTube video */}
+              <iframe
+                width='100%'
+                height='100%'
+                src='https://www.youtube.com/embed/your-video-id'
+                title='Meet Scott Young'
+                frameBorder='0'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
 
       <section className='w-full py-12 md:py-24 lg:py-32'>
-        <div className='container mx-auto grid gap-8 px-4 md:px-6'>
+        <div className='container mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-6 text-center'>
           <div className='space-y-4'>
             <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>Client Testimonials</h2>
-            <p className='max-w-[600px] text-muted-foreground md:text-xl'>
+            <p className='max-w-[600px] text-muted-foreground md:text-xl mx-auto'>
               Hear what our clients have to say about Scott&apos;s services:
             </p>
           </div>
@@ -133,11 +120,15 @@ export default function Component() {
               <div className='text-sm text-muted-foreground'>- Sarah Johnson</div>
             </Card>
             <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
-              <div className='text-lg text-cream'>&quot;Scott is very gentle and meticulous. I felt at ease throughout the entire process.&quot;</div>
+              <div className='text-lg text-cream'>
+                &quot;Scott is very gentle and meticulous. I felt at ease throughout the entire process.&quot;
+              </div>
               <div className='text-sm text-muted-foreground'>- Emily Brown</div>
             </Card>
             <Card className='flex flex-col items-center justify-center gap-4 p-6 text-center'>
-              <div className='text-lg text-cream'>&quot;The results exceeded my expectations. Scott is the best!&quot;</div>
+              <div className='text-lg text-cream'>
+                &quot;The results exceeded my expectations. Scott is the best!&quot;
+              </div>
               <div className='text-sm text-muted-foreground'>- Michael Lee</div>
             </Card>
           </div>
