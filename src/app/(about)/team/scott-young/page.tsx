@@ -1,9 +1,11 @@
 import { Card } from '@/components/ui/card';
+import WaterDropHero from '@/components/WaterDropHero/WaterDropHero';
 import { type JSX, type SVGProps } from 'react';
 
 export default function Component() {
   return (
     <div className='flex flex-col min-h-[100vh]'>
+      <WaterDropHero />
       <section className='w-full py-12 md:py-24 lg:py-32 bg-lightGrey'>
         <div className='container mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-6 md:grid md:grid-cols-2 md:items-center text-center'>
           <div className='space-y-4'>
