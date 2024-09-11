@@ -1,23 +1,30 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 
-export const SlideTabsExample = () => {
+export const SlideTabsExample = ({ isGeneralServicePage = false }) => {
   return (
-    <div className='bg-transparent pt-4 pb-24'>
-      <SlideTabs />
+    <div className='bg-transparent pt-4 pb-24 px-4'>
+      <SlideTabs isGeneralServicePage={isGeneralServicePage} />
     </div>
   );
 };
 
-const SlideTabs = () => {
+type SlideTabsProps = {
+  isGeneralServicePage: boolean;
+};
+
+const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
     opacity: 0,
   });
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <ul
@@ -27,30 +34,44 @@ const SlideTabs = () => {
           opacity: 0,
         }));
       }}
-      className='relative mx-auto flex w-fit rounded-full border-2 border-black bg-lightGrey p-1'
+      className={`relative mx-auto flex flex-wrap justify-center w-full ${isGeneralServicePage ? 'max-w-[36rem]': 'max-w-[56rem]'} rounded-full border-2 border-black bg-lightGrey p-1`}
     >
-      <Tab setPosition={setPosition} to='/dental-implants'>
-        Dental Implants
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('info')}>
+        Introduction
       </Tab>
-      <Tab setPosition={setPosition} to='/invisalign'>
-        Invisalign
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('benefits')}>
+        Benefits
       </Tab>
-      <Tab setPosition={setPosition} to='/general-dentistry'>
-        General Dentistry
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('process')}>
+        Process
       </Tab>
-      <Tab setPosition={setPosition} to='/composite-bonding'>
-        Composite Bonding
+      {!isGeneralServicePage && (
+        <>
+          <Tab setPosition={setPosition} onClick={() => scrollToSection('testimonials')}>
+            Testimonials
+          </Tab>
+          <Tab setPosition={setPosition} onClick={() => scrollToSection('comparison')}>
+            Comparisons
+          </Tab>
+        </>
+      )}
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('faq')}>
+        FAQs
       </Tab>
-      <Tab setPosition={setPosition} to='/tooth-whitening'>
-        Tooth Whitening
-      </Tab>
-
       <Cursor position={position} />
     </ul>
   );
 };
 
-const Tab = ({ children, setPosition, to }: { children: React.ReactNode, setPosition: React.Dispatch<React.SetStateAction<any>>, to: string }) => {
+const Tab = ({
+  children,
+  setPosition,
+  onClick,
+}: {
+  children: React.ReactNode;
+  setPosition: React.Dispatch<React.SetStateAction<any>>;
+  onClick: () => void;
+}) => {
   const ref = useRef(null);
 
   return (
@@ -67,9 +88,10 @@ const Tab = ({ children, setPosition, to }: { children: React.ReactNode, setPosi
           opacity: 1,
         });
       }}
-      className='relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base'
+      onClick={onClick}
+      className='relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference sm:px-4 sm:py-2 sm:text-sm md:px-5 md:py-3 md:text-base'
     >
-      <Link href={to}>{children}</Link>
+      {children}
     </li>
   );
 };
@@ -77,10 +99,8 @@ const Tab = ({ children, setPosition, to }: { children: React.ReactNode, setPosi
 const Cursor = ({ position }: { position: any }) => {
   return (
     <motion.li
-      animate={{
-        ...position,
-      }}
-      className='absolute z-0 h-7 rounded-full bg-black md:h-12'
+      animate={position}
+      className='hidden lg:block absolute z-0 h-7 rounded-full bg-black sm:h-8 md:h-10 lg:h-12'
     />
   );
 };
