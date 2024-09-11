@@ -87,7 +87,7 @@ type ServiceTestimonials = {
 
 type HeroHeaderContent = {
   header: { title: string; subTitle: string };
-  mainText?: string;
+  mainText: string;
   benefitText: string;
   serviceStats: ServiceStat[];
 };
