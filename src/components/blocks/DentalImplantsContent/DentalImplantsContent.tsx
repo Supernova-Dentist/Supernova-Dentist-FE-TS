@@ -15,6 +15,7 @@ import afterCareData from './contentData/afterCareData';
 import { tableData } from './contentData/tableData';
 import { faqItems } from './contentData/faqData';
 import infoData from './contentData/infoData';
+import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 
 export default function DentalImplantsContent() {
   return (
@@ -23,13 +24,16 @@ export default function DentalImplantsContent() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <InfoSection data={infoData} />
-      <BenefitSection data={benefitsData} />
-      <ProcessSection data={processData} />
-      <TestimonialsSection data={testimonialsData} />
+      <div className='block'>
+        <SlideTabsExample />
+      </div>
+      <InfoSection id='info' data={infoData} />
+      <BenefitSection id='benefits' data={benefitsData} />
+      <ProcessSection id='process' data={processData} />
+      <TestimonialsSection id='testimonials' data={testimonialsData} />
       <AftercareSection data={afterCareData} />
-      <ComparisonSection data={tableData} />
-      <FaqSection faqItems={faqItems} />
+      <ComparisonSection id='comparison' data={tableData} />
+      <FaqSection id='faq' faqItems={faqItems} />
     </>
   );
 }

@@ -2,9 +2,9 @@ import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import ServiceTestimonial from '@/components/ServiceTestimonial/ServiceTestimonial';
 import React from 'react';
 
-export default function TestimonialsSection({ data }: ServiceTestimonials) {
+export default function TestimonialsSection({ data, id }: ServiceTestimonials) {
   return (
-    <section className='py-12 px-4 md:py-20 lg:py-28 bg-white'>
+    <section id={id} className='py-12 px-4 md:py-20 lg:py-28 bg-white'>
       <div className='container mx-auto px-4 md:px-6'>
         <SectionTitle title='Client Testimonials' />
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-6'>
