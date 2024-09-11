@@ -82,11 +82,12 @@ type ServiceTestimonial = {
 
 type ServiceTestimonials = {
   data: ServiceTestimonial[];
+  id: string;
 };
 
 type HeroHeaderContent = {
   header: { title: string; subTitle: string };
-  mainText: string;
+  mainText?: string;
   benefitText: string;
   serviceStats: ServiceStat[];
 };
@@ -110,6 +111,7 @@ type BenefitData = {
 
 type BenefitSection = {
   data: BenefitData;
+  id: string;
 };
 
 type ProcessContent = {
