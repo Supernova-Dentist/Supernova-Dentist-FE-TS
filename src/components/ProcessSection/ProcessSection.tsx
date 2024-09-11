@@ -1,7 +1,7 @@
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import React from 'react';
-import { Timeline } from '../ui/timeline';
 import ServiceProcess from '../ServiceProcess/ServiceProcess';
+import { Timeline } from '../ui/timeline';
 
 interface ProcessData {
   title: string;
@@ -10,11 +10,11 @@ interface ProcessData {
   timelineData?: any;
 }
 
-export default function ProcessSection({ data }: { data: ProcessData }) {
+export default function ProcessSection({ data, id }: { data: ProcessData; id: string }) {
   const { title, description, stepContent, timelineData } = data;
 
   return (
-    <section className='py-12 px-4 md:py-20 lg:py-28 bg-lightGrey'>
+    <section id={id} className='py-12 px-4 md:py-20 lg:py-28 bg-lightGrey'>
       <div className='container mx-auto px-4 md:px-6'>
         <SectionTitle title={title} />
         <div className='flex justify-center'>

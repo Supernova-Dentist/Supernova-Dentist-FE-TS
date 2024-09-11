@@ -1,20 +1,21 @@
-import HeroSection from '@/components/HeroSection/HeroSection';
-import heroData from './contentData/heroData';
-import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-import InfoSection from '@/components/InfoSection/InfoSection';
-import infoData from './contentData/infoData';
-import BenefitSection from '@/components/BenefitSection/BenefitSection';
-import benefitsData from './contentData/benefitsData';
-import ProcessSection from '@/components/ProcessSection/ProcessSection';
-import processData from './contentData/processData';
-import TestimonialsSection from '@/components/TestimonialsSection/TestimonialsSection';
-import testimonialsData from './contentData/testimonialsData';
 import AftercareSection from '@/components/AftercareSection/AftercareSection';
-import aftercareData from './contentData/aftercareData';
+import BenefitSection from '@/components/BenefitSection/BenefitSection';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import ComparisonSection from '@/components/ComparisonSection/ComparisonSection';
-import tableData from './contentData/TableData';
 import FaqSection from '@/components/FaqSection/FaqSection';
+import HeroSection from '@/components/HeroSection/HeroSection';
+import InfoSection from '@/components/InfoSection/InfoSection';
+import ProcessSection from '@/components/ProcessSection/ProcessSection';
+import TestimonialsSection from '@/components/TestimonialsSection/TestimonialsSection';
+import { SlideTabsExample } from '../SlideTabs/SlideTabs';
+import aftercareData from './contentData/aftercareData';
+import benefitsData from './contentData/benefitsData';
 import { faqItems } from './contentData/faqData';
+import heroData from './contentData/heroData';
+import infoData from './contentData/infoData';
+import processData from './contentData/processData';
+import tableData from './contentData/TableData';
+import testimonialsData from './contentData/testimonialsData';
 
 export default function ToothWhiteningContent() {
   return (
@@ -23,13 +24,16 @@ export default function ToothWhiteningContent() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <InfoSection data={infoData} />
-      <BenefitSection data={benefitsData} />
-      <ProcessSection data={processData} />
-      <TestimonialsSection data={testimonialsData} />
+      <div className='block'>
+        <SlideTabsExample />
+      </div>
+      <InfoSection id='info' data={infoData} />
+      <BenefitSection id='benefits' data={benefitsData} />
+      <ProcessSection id='process' data={processData} />
+      <TestimonialsSection id='testimonials' data={testimonialsData} />
       <AftercareSection data={aftercareData} />
-      <ComparisonSection data={tableData} />
-      <FaqSection faqItems={faqItems} />
+      <ComparisonSection id='comparison' data={tableData} />
+      <FaqSection id='faq' faqItems={faqItems} />
     </>
   );
 }

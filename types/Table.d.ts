@@ -16,6 +16,7 @@ type ComparisonData = {
 
 type ComparisonSection = {
   data: ComparisonData;
+  id: string;
 };
 
 type ComparisonTable = {

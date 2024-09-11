@@ -20,12 +20,8 @@ export default function Welcome() {
           </h1>
           <p className='text-xl mb-16'>Experience exceptional dental care with our state-of-the-art clinic.</p>
 
-          {/* Hide SlideTabsExample on mobile */}
-          <div className='hidden lg:block'>
-            <SlideTabsExample />
-          </div>
-
-          <ul className='hidden lg:grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg mb-12'>
+          <CtaButtons />
+          <ul className='hidden lg:grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg mt-16'>
             <li className='flex items-center'>
               <svg
                 className='h-6 w-6 text-green-500 mr-2'
@@ -75,8 +71,6 @@ export default function Welcome() {
               Interest-free Easy Payment Plans
             </li>
           </ul>
-
-          <CtaButtons />
         </div>
       </section>
     </div>
