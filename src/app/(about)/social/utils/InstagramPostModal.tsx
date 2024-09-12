@@ -1,71 +1,71 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 
 export default function InstagramPostModal({ post, onClose }: { post: InstagramPost; onClose: () => void }) {
-  const modalRef = useRef(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
         modalRef.current !== null &&
         modalRef.current !== undefined &&
-        !(modalRef.current as HTMLElement).contains(event.target as Node)
+        !modalRef.current.contains(event.target as Node)
       ) {
         onClose();
       }
     }
 
     document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [onClose]);
 
-  return (
-    <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 z-50 px-6'>
-      <div ref={modalRef} className='rounded-lg overflow-hidden shadow-xl max-w-3xl w-full aspect-w-1 aspect-h-1'>
-        <div className='relative w-full h-full'>
-          <button
-            className='absolute top-2 right-2 text-offWhite z-50 w-8 h-8 hover:bg-lightGrey rounded-full bg-grey transition-all duration-150'
-            onClick={onClose}
-          >
-            X
-          </button>
+  // Use React portal for proper DOM placement
+  return ReactDOM.createPortal(
+    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75'>
+      <div
+        ref={modalRef}
+        className='relative max-w-2xl w-full max-h-[90vh] mx-4 md:mx-8 overflow-y-auto bg-white rounded-lg shadow-xl'
+      >
+        {/* Close Button */}
+        <button
+          className='absolute top-2 right-2 z-50 w-8 h-8 flex items-center justify-center bg-gray-600 text-white hover:bg-gray-700 rounded-full'
+          onClick={onClose}
+        >
+          X
+        </button>
+
+        {/* Image Section */}
+        <div className='relative w-full h-[50vh] md:h-[60vh]'>
           <Image
             src={post.media_url}
             alt='Instagram Post'
             className='w-full h-full object-cover rounded-t-lg'
-            width={400}
-            height={400}
+            layout='fill'
+            objectFit='cover'
           />
         </div>
-        <div className='p-6 bg-offWhite'>
-          <div className='overflow-y-auto h-32'>
-            <p className='text-sm mb-2 text-grey'>{post.caption}</p>
+
+        {/* Caption Section */}
+        <div className='p-4 md:p-6 bg-white'>
+          <div className='overflow-y-auto max-h-32'>
+            <p className='text-sm text-gray-800'>{post.caption}</p>
           </div>
+
+          {/* Instagram Link */}
           <div className='mt-4'>
             <a
               href={post.permalink}
               target='_blank'
               rel='noopener noreferrer'
-              className='text-gold underline hover:text-lightGold transition-all duration-150'
+              className='text-blue-600 underline hover:text-blue-800'
             >
               View on Instagram
             </a>
           </div>
-          {/* <div className='flex items-center justify-between'>
-            <div className='flex items-center gap-2'>
-              <HeartIcon className='w-5 h-5 text-red-500' />
-              <span className='text-sm font-medium text-cream'>{post.likes}</span>
-            </div>
-            <div className='flex items-center gap-2'>
-              <ChatBubbleIcon className='w-5 h-5 text-cream' />
-              <span className='text-sm font-medium text-cream'>{post.comments}</span>
-            </div>
-          </div> */}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body // Portal rendering to the top of the DOM tree
   );
 }
