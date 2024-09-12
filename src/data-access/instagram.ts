@@ -8,6 +8,7 @@ export async function getCurrentInstagramAccessToken() {
 
   return tokenRecord;
 }
+
 export async function updateInstagramToken(newToken: string, newExpiry: Date) {
   const updatedToken = await prisma.instagramToken.update({
     where: {
@@ -21,6 +22,7 @@ export async function updateInstagramToken(newToken: string, newExpiry: Date) {
 
   return updatedToken;
 }
+
 export async function refreshAccessToken(currentToken: string) {
   console.log({ currentToken });
 
@@ -46,4 +48,23 @@ export async function refreshAccessToken(currentToken: string) {
     console.log({ error });
     throw new Error('Something went wrong');
   }
+}
+
+export async function ensureValidToken() {
+  const currentToken = await getCurrentInstagramAccessToken();
+
+  if (currentToken === null || currentToken === undefined) {
+    throw new Error('No access token found');
+  }
+
+  const currentTime = new Date();
+  const expiresIn = new Date(currentToken.expires_in);
+  const timeLeft = expiresIn.getTime() - currentTime.getTime();
+
+  if (timeLeft < REFRESH_THRESHOLD) {
+    const refreshedToken = await refreshAccessToken(currentToken.access_token);
+    return refreshedToken;
+  }
+
+  return currentToken.access_token;
 }
