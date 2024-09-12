@@ -22,13 +22,16 @@ export default function InstagramPostGrid({ posts }: InstagramPostGridProps) {
             height={400}
             className='w-full h-64 object-cover'
           />
-          <div className='p-4 bg-lightGrey'>
+          <div className='p-4'>
             <div>
               <p className='text-sm text-cream'>
                 {post.caption.length > 75 ? (
                   <>
                     {post.caption.substring(0, 75)}...
-                    <button onClick={() => handleShowMoreClick(post)} className='text-blue-500 underline ml-1'>
+                    <button
+                      onClick={() => handleShowMoreClick(post)}
+                      className='text-gold hover:text-lightGold transition-all duration-150 underline ml-1'
+                    >
                       Show More
                     </button>
                   </>

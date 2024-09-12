@@ -26,7 +26,10 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
     <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 z-50 px-6'>
       <div ref={modalRef} className='rounded-lg overflow-hidden shadow-xl max-w-3xl w-full aspect-w-1 aspect-h-1'>
         <div className='relative w-full h-full'>
-          <button className='absolute top-2 right-2 text-gray-500 hover:text-gray-700 z-50' onClick={onClose}>
+          <button
+            className='absolute top-2 right-2 text-offWhite z-50 w-8 h-8 hover:bg-lightGrey rounded-full bg-grey transition-all duration-150'
+            onClick={onClose}
+          >
             X
           </button>
           <Image
@@ -37,12 +40,17 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
             height={400}
           />
         </div>
-        <div className='p-6 bg-lightGrey'>
+        <div className='p-6 bg-offWhite'>
           <div className='overflow-y-auto h-32'>
-            <p className='text-sm mb-2 text-cream'>{post.caption}</p>
+            <p className='text-sm mb-2 text-grey'>{post.caption}</p>
           </div>
           <div className='mt-4'>
-            <a href={post.permalink} target='_blank' rel='noopener noreferrer' className='text-blue-500 underline'>
+            <a
+              href={post.permalink}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-gold underline hover:text-lightGold transition-all duration-150'
+            >
               View on Instagram
             </a>
           </div>
