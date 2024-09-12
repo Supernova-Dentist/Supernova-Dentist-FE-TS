@@ -17,7 +17,7 @@ export default function PageHero({
   showButtons = true,
 }: PageHeroProps) {
   return (
-    <div className={`${bgImage} h-[650px] w-full bg-no-repeat bg-cover ${className}`}>
+    <div className={`${bgImage} h-[30vh] md:h-[40vh] lg:h-[45vh] w-full bg-no-repeat bg-cover ${className}`}>
       <div className='flex flex-col justify-center items-center gap-20 h-full'>
         <CtaText title={title} description={description} />
         {showButtons ? <CtaButtons /> : null}
