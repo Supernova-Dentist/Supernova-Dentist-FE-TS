@@ -1,15 +1,17 @@
+import type { InstagramToken } from '@prisma/client';
 import { INSTAGRAM_API_BASE_URL } from '@/lib/constants';
 import prisma from '@/lib/db';
 
 const REFRESH_THRESHOLD = 86400 * 7; // 1 week in seconds
 
-export async function getCurrentInstagramAccessToken() {
+export async function getCurrentInstagramAccessToken(): Promise<InstagramToken | null> {
   const tokenRecord = await prisma.instagramToken.findUnique({ where: { id: 1 } });
+  if (tokenRecord === null || tokenRecord === undefined) return null;
 
   return tokenRecord;
 }
 
-export async function updateInstagramToken(newToken: string, newExpiry: Date) {
+export async function updateInstagramToken(newToken: string, newExpiry: Date): Promise<InstagramToken> {
   const updatedToken = await prisma.instagramToken.update({
     where: {
       id: 1,
@@ -23,12 +25,12 @@ export async function updateInstagramToken(newToken: string, newExpiry: Date) {
   return updatedToken;
 }
 
-export async function refreshAccessToken(currentToken: string) {
+export async function refreshAccessToken(currentToken: string): Promise<string> {
   const refreshUrl = `${INSTAGRAM_API_BASE_URL}/refresh_access_token?grant_type=ig_refresh_token&access_token=${currentToken}`;
 
   try {
     const response = await fetch(refreshUrl);
-    const data = await response.json();
+    const data: { access_token: string; expires_in: number } = await response.json();
 
     if (!response.ok) {
       throw new Error('Failed to refresh access token');
@@ -44,21 +46,22 @@ export async function refreshAccessToken(currentToken: string) {
   }
 }
 
-export async function ensureValidToken() {
+export async function ensureValidToken(): Promise<string> {
   const currentToken = await getCurrentInstagramAccessToken();
 
   if (currentToken === null || currentToken === undefined) {
     throw new Error('No access token found');
   }
 
+  const { access_token: tokenString, expires_in: expiresIn } = currentToken;
+
   const currentTime = new Date();
-  const expiresIn = new Date(currentToken.expires_in);
   const timeLeft = expiresIn.getTime() - currentTime.getTime();
 
   if (timeLeft < REFRESH_THRESHOLD) {
-    const refreshedToken = await refreshAccessToken(currentToken.access_token);
+    const refreshedToken = await refreshAccessToken(tokenString);
     return refreshedToken;
   }
 
-  return currentToken.access_token;
+  return tokenString;
 }
