@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { InstagramLogoIcon } from '@radix-ui/react-icons';
+import fetchInstagramPosts from '@/actions/instagram';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import InstagramPostGrid from './utils/InstagramPostGrid';
-import { fetchInstagramPosts } from '@/services/metaAPI/fetchInstagramPosts';
 
 export const metadata: Metadata = {
   title: 'Our Instagram | Your Dental Clinic',
