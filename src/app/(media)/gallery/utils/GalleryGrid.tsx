@@ -2,12 +2,11 @@
 
 import PaginationControls from '@/components/PaginationControls/PaginationControls';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTitle } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
 import fetchMediaPostsById from '@/services/wordpress/fetchMediaPostsById';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { FaShareAlt } from 'react-icons/fa';
+import ImageModal from './ImageModal';
 
 export default function GalleryGrid({
   categoryId,
@@ -89,10 +88,7 @@ export default function GalleryGrid({
     setSelectedImage(null);
   };
 
-  function ImageContent({ content }: { content: string }) {
-    // Example of a simple React component rendering HTML content
-    return <div className='post-content' dangerouslySetInnerHTML={{ __html: content }} />;
-  }
+  
 
   return (
     <div className='w-full max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16'>
@@ -153,35 +149,7 @@ export default function GalleryGrid({
         </div>
         {mediaPosts.length >= 1 ? <PaginationControls currentPage={page} totalPages={totalPages} /> : null}
       </div>
-      {selectedImage != null && (
-        <Dialog open onOpenChange={handleClose}>
-          <DialogClose>
-            <FaShareAlt size={24} />
-            <span className='sr-only'>Close</span>
-          </DialogClose>
-          <DialogContent className='p-0 max-w-[90vw] max-h-[90vh] overflow-auto'>
-            <img
-              src={selectedImage.jetpack_featured_media_url}
-              alt={selectedImage.alt_text}
-              width={800}
-              height={600}
-              className='w-full h-auto object-contain'
-            />
-            <div className='p-4 bg-background'>
-              <DialogTitle className='text-center text-2xl font-bold mb-4'>{selectedImage.title.rendered}</DialogTitle>
-              <ImageContent content={selectedImage.content?.rendered} />
-            </div>
-            <DialogFooter className='sm:justify-start'>
-              <div className='p-4'>
-                <Button type='button' variant='secondary' className='flex items-center space-x-2'>
-                  <FaShareAlt size={16} /> {/* Share icon */}
-                  <span>Share</span>
-                </Button>
-              </div>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
-      )}
+      <ImageModal open={selectedImage != null} onClose={handleClose} selectedImage={selectedImage} />
     </div>
   );
 }

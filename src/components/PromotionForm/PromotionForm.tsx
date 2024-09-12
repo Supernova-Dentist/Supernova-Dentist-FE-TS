@@ -119,8 +119,8 @@ export default function PromotionForm() {
       </section>
       {/* Success Modal */}
       {showSuccessModal && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
+        <div className='fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+          <div className='bg-white z-50 p-8 rounded-lg shadow-lg max-w-sm w-full'>
             <h2 className='text-2xl font-semibold mb-4'>Thank you, {values.fullname}, for your Enquiry! </h2>
             <p className='mb-4'>
               One of the Supernova team will be back in touch with the following email regarding your enquiry:{' '}
@@ -135,8 +135,8 @@ export default function PromotionForm() {
 
       {/* Error Modal */}
       {showErrorModal && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
+        <div className='fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+          <div className='bg-white z-50 p-8 rounded-lg shadow-lg max-w-sm w-full'>
             <h2 className='text-2xl font-semibold mb-4'>Submission Failed</h2>
             <p className='mb-4'>There was a problem with your enquiry submission. Please try again later.</p>
             <Button onClick={() => setShowErrorModal(false)} className='w-full text-lg py-2'>

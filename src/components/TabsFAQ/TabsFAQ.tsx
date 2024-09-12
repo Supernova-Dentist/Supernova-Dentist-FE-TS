@@ -20,21 +20,27 @@ export const TabsFAQ = () => {
 const Heading = () => {
   return (
     <>
-      <div className='relative z-10 flex flex-col items-center justify-center'>
+      <div className='relative flex flex-col items-center justify-center'>
         <span className='mb-8 bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text font-medium text-transparent'>
           Let&apos;s answer some questions
         </span>
         <span className='mb-8 text-5xl font-bold'>FAQs</span>
       </div>
 
-      <span className='absolute -top-[350px] left-[50%] z-0 h-[500px] w-[600px] -translate-x-[50%] rounded-full bg-gradient-to-r from-violet-600/20 to-indigo-600/20 blur-3xl' />
+      <span className='absolute -top-[350px] left-[50%] h-[500px] w-[600px] -translate-x-[50%] rounded-full bg-gradient-to-r from-violet-600/20 to-indigo-600/20 blur-3xl' />
     </>
   );
 };
 
-const Tabs = ({ selected, setSelected }: { selected: string, setSelected: React.Dispatch<React.SetStateAction<string>> }) => {
+const Tabs = ({
+  selected,
+  setSelected,
+}: {
+  selected: string;
+  setSelected: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   return (
-    <div className='relative z-10 flex flex-wrap items-center justify-center gap-4'>
+    <div className='relative  flex flex-wrap items-center justify-center gap-4'>
       {TABS.map((tab) => (
         <button
           onClick={() => setSelected(tab)}
@@ -92,7 +98,7 @@ const Questions = ({ selected }: { selected: string }) => {
   );
 };
 
-const Question = ({ question, answer }: { question: string, answer: string }) => {
+const Question = ({ question, answer }: { question: string; answer: string }) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
 
@@ -143,12 +149,11 @@ const QUESTIONS = {
     {
       question: 'What are your office hours?',
       answer:
-        'Our office is open from 8 AM to 6 PM, Monday through Friday. We also offer Saturday appointments by request.',
+        'Our office is open from 8:15 AM to 6:15 PM, Monday through Friday and 9 AM to 1PM on Saturdays. We are closed on Sundays and major holidays.',
     },
     {
       question: 'Where are you located?',
-      answer:
-        'We are located at 123 Dental Street, Suite 100, in Springfield. You can find us right next to the central park.',
+      answer: 'We are located at Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ.',
     },
     {
       question: 'Do you accept new patients?',

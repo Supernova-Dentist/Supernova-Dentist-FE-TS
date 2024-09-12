@@ -2,8 +2,6 @@
 
 import { CornerNav } from '@/components/CornerNav/CornerNav';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
-import MobileMenu from '@/components/MobileNav';
-import MenuManager from '@/components/MobileNav/MenuManager';
 import React, { useEffect, useState } from 'react';
 
 // Custom hook to get window size

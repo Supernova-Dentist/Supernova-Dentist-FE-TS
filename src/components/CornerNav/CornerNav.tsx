@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'; // Import Chevron icons
-import { SiInstagram, SiLinkedin, SiTwitter, SiYoutube } from 'react-icons/si';
+import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si';
 
 export const CornerNav = () => {
   const [active, setActive] = useState(false);
@@ -53,7 +53,24 @@ const LinksContainer = () => {
   );
 };
 
-const NavLink = ({ children, href, idx, subLinks = [], isActive, onClick }: { children: React.ReactNode, href: string, idx: number, subLinks?: any[], isActive: boolean, onClick: () => void }) => {
+const NavLink = ({
+  children,
+  href,
+  idx,
+  subLinks,
+  isActive,
+  onClick,
+}: {
+  children: React.ReactNode;
+  href: string;
+  idx: number;
+  subLinks?: any[];
+  isActive: boolean;
+  onClick: () => void;
+}) => {
+  // Determine the number of columns based on the number of subLinks
+  const columnsClass = subLinks && subLinks.length > 4 ? 'grid-cols-3' : 'grid-cols-2';
+
   return (
     <div>
       <motion.a
@@ -71,7 +88,7 @@ const NavLink = ({ children, href, idx, subLinks = [], isActive, onClick }: { ch
         onClick={onClick}
         className='flex items-center justify-between text-lg font-semibold text-cream transition-colors md:text-3xl cursor-pointer'
       >
-        {children}.
+        {children}
         {subLinks && (
           <motion.div initial={{ rotate: 0 }} animate={{ rotate: isActive ? 180 : 0 }} transition={{ duration: 0.3 }}>
             {isActive ? <FiChevronUp /> : <FiChevronDown />}
@@ -89,7 +106,7 @@ const NavLink = ({ children, href, idx, subLinks = [], isActive, onClick }: { ch
               transition: { delay: 0.2, duration: 0.4, ease: 'easeInOut' },
             }}
             exit={{ opacity: 0, y: -8 }}
-            className='grid grid-cols-2 gap-2 mt-2 ml-4'
+            className={`grid gap-2 mt-2 ml-4 ${columnsClass}`}
           >
             {subLinks.map((subLink, subIdx) => (
               <motion.a
@@ -136,22 +153,28 @@ const Logo = () => {
   );
 };
 
-const HamburgerButton = ({ active, setActive }: { active: boolean, setActive: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const HamburgerButton = ({
+  active,
+  setActive,
+}: {
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <>
       <motion.div
         initial={false}
         animate={active ? 'open' : 'closed'}
         variants={UNDERLAY_VARIANTS}
-        style={{ top: 16, right: 16 }}
-        className='fixed z-10 rounded-xl bg-gradient-to-br from-gray-600 to-gray-500 shadow-lg shadow-gray-800/20'
+        style={{ top: 0, right: 0 }}
+        className='fixed z-20 rounded-xl bg-gradient-to-br from-gray-600 to-gray-500 shadow-lg shadow-gray-800/20'
       />
 
       <motion.button
         initial={false}
         animate={active ? 'open' : 'closed'}
         onClick={() => setActive((pv) => !pv)}
-        className={`group fixed right-4 top-4 z-50 h-20 w-20 bg-white/0 transition-all hover:bg-white/20 ${
+        className={`group fixed right-0 top-0 z-50 h-20 w-20 bg-white/0 transition-all hover:bg-white/20 ${
           active ? 'rounded-bl-xl rounded-tr-xl' : 'rounded-xl'
         }`}
       >
@@ -222,7 +245,7 @@ const LINKS = [
     subLinks: [
       { title: 'check-up', href: '/general-dentistry/general-checkup' },
       { title: 'fillings', href: '/general-dentistry/filling' },
-      { title: 'root canal', href: '/general-dentistry/root-canal' },
+      { title: 'root canal', href: '/general-dentistry/root-canal-treatment' },
       { title: 'emergency', href: '/general-dentistry/emergency' },
     ],
   },
@@ -231,7 +254,9 @@ const LINKS = [
     href: '#',
     subLinks: [
       { title: 'our clinic', href: '/clinic' },
+      { title: 'meet the team', href: '/team' },
       { title: 'find us', href: '/find-us' },
+      { title: 'pricing', href: '/pricing' },
       { title: 'enquiry', href: '/enquiry' },
       { title: 'faq', href: '/faq' },
     ],
@@ -249,7 +274,7 @@ const LINKS = [
 
 const SOCIAL_CTAS = [
   {
-    Component: SiTwitter,
+    Component: SiFacebook,
     href: '#',
   },
   {
@@ -268,8 +293,8 @@ const SOCIAL_CTAS = [
 
 const UNDERLAY_VARIANTS = {
   open: {
-    width: 'calc(100% - 32px)',
-    height: 'calc(100vh - 32px)',
+    width: '100%',
+    height: '100%',
     transition: { type: 'spring', mass: 3, stiffness: 400, damping: 50 },
   },
   closed: {

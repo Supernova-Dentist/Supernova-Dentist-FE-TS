@@ -19,17 +19,18 @@ export const cosmeticServices = [
 
 export const practiceInfo = [
   { name: 'Our Clinic', link: '/clinic' },
-  { name: 'Meet Dr. Young', link: '/meet-dr-young' },
+  // { name: 'Meet Dr. Young', link: '/meet-dr-young' },
   { name: 'Meet The Team', link: '/team' },
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
+  { name: 'FAQ', link: '/faq' },
 ];
 
 export const generalServices = [
   { name: 'General Check-up', link: '/general-dentistry/general-checkup' },
   { name: 'Filling', link: '/general-dentistry/filling' },
-  { name: 'Root Canal', link: '/general-dentistry/root-canal' },
+  { name: 'Root Canal', link: '/general-dentistry/root-canal-treatment' },
   { name: 'Emergency', link: '/general-dentistry/emergency' },
 ];
 

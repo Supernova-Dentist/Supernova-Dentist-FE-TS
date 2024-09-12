@@ -10,6 +10,7 @@ import processData from './contentData/processData';
 
 import FaqSection from '@/components/FaqSection/FaqSection';
 import { faqItems } from './contentData/faqData';
+import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 
 export default function FillingContent() {
   return (
@@ -18,10 +19,14 @@ export default function FillingContent() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
-      <InfoSection data={infoData} />
-      <BenefitSection data={benefitsData} />
-      <ProcessSection data={processData} />
-      <FaqSection faqItems={faqItems} />
+      <div className='block'>
+        <SlideTabsExample isGeneralServicePage={true} />
+      </div>
+      <InfoSection id='info' data={infoData} />
+      <BenefitSection id='benefits' data={benefitsData} />
+      <ProcessSection id='process' data={processData} />
+
+      <FaqSection id='faq' faqItems={faqItems} />
     </>
   );
 }
