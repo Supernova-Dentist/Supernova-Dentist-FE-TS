@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-export const AccessibilityWidget = () => {
+export default function AccessibilityWidget() {
   useEffect(() => {
     console.log('Component mounted');
 
@@ -18,4 +18,4 @@ export const AccessibilityWidget = () => {
   }, []);
 
   return null;
-};
+}

@@ -1,3 +1,4 @@
+import AccessibilityWidget from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
 import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
 import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
 import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
@@ -16,6 +17,7 @@ export default function Home() {
       <GalleryCarousel />
       <GoogleReviews />
       <DynamicGoogleMap />
+      <AccessibilityWidget />
     </main>
   );
 }
