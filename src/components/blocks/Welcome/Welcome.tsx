@@ -4,9 +4,9 @@ import { BubbleText } from './Utils/BubbleText';
 
 export default function Welcome() {
   return (
-    <div className='flex flex-col min-h-[100vh]'>
+    <div className='flex flex-col min-h-screen-minus-nav'>
       <section
-        className='relative w-full h-[100vh] bg-cover bg-center bg-no-repeat'
+        className='relative w-full h-screen-minus-nav bg-cover bg-center bg-no-repeat'
         style={{ backgroundImage: 'url("/hero-image.jpg")' }}
       >
         <div className='absolute inset-0 bg-gradient-to-b from-grey to-lightGrey' />

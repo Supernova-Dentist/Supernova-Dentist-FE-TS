@@ -47,8 +47,9 @@ const config = {
         'center-top': 'center top',
       },
       minHeight: {
-        'screen-minus-nav': 'calc(100vh - 84px)',
+        'screen-minus-nav': 'calc(100vh - 88px)',
       },
+      height: { 'screen-minus-nav': 'calc(100vh - 88px)' },
     },
   },
   plugins: [require('tailwindcss-animate'), addVariablesForColors],
