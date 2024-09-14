@@ -44,7 +44,7 @@ export default {
   ],
   timelineData: [
     {
-      title: 'Initial Consultation (Week 1)',
+      title: 'Initial Consultation',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -64,7 +64,7 @@ export default {
       ),
     },
     {
-      title: 'Treatment Planning (Week 2)',
+      title: 'Treatment Planning',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -84,7 +84,7 @@ export default {
       ),
     },
     {
-      title: 'Implant Placement (Week 4)',
+      title: 'Implant Placement',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -104,7 +104,7 @@ export default {
       ),
     },
     {
-      title: 'Healing Period (Month 1-3)',
+      title: 'Healing Period',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -124,7 +124,7 @@ export default {
       ),
     },
     {
-      title: 'Final Restoration (Month 4+)',
+      title: 'Final Restoration',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>

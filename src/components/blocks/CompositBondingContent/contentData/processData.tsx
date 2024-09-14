@@ -26,7 +26,7 @@ export default {
   ],
   timelineData: [
     {
-      title: 'Initial Consultation (Week 1)',
+      title: 'Initial Consultation',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -46,7 +46,7 @@ export default {
       ),
     },
     {
-      title: 'Preparation and Shade Matching (Week 2)',
+      title: 'Preparation and Shade Matching',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -66,7 +66,7 @@ export default {
       ),
     },
     {
-      title: 'Composite Application and Curing (Week 3)',
+      title: 'Composite Application and Curing',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -86,7 +86,7 @@ export default {
       ),
     },
     {
-      title: 'Finishing Touches (Week 4)',
+      title: 'Finishing Touches',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>

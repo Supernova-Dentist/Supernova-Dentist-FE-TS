@@ -27,7 +27,7 @@ export default {
 
   timelineData: [
     {
-      title: 'Initial Consultation (Week 1)',
+      title: 'Initial Consultation',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -47,7 +47,7 @@ export default {
       ),
     },
     {
-      title: 'Receiving Your Aligners (Week 2)',
+      title: 'Receiving Your Aligners',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -67,7 +67,7 @@ export default {
       ),
     },
     {
-      title: 'Progress Check-ups (Every 6-8 Weeks)',
+      title: 'Progress Check-ups',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -87,7 +87,7 @@ export default {
       ),
     },
     {
-      title: 'Final Stages and Retainers (Month 12+)',
+      title: 'Final Stages and Retainers',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>

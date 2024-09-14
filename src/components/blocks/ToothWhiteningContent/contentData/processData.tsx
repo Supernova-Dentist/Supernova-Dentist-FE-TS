@@ -26,7 +26,7 @@ export default {
   ],
   timelineData: [
     {
-      title: 'Initial Consultation (Week 1)',
+      title: 'Initial Consultation',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -46,7 +46,7 @@ export default {
       ),
     },
     {
-      title: 'Preparation (Week 2)',
+      title: 'Preparation',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -66,7 +66,7 @@ export default {
       ),
     },
     {
-      title: 'Whitening Treatment (Week 3)',
+      title: 'Whitening Treatment',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
@@ -86,7 +86,7 @@ export default {
       ),
     },
     {
-      title: 'Aftercare and Follow-Up (Week 4)',
+      title: 'Aftercare and Follow-Up',
       content: (
         <div>
           <p className='text-cream text-xs md:text-sm font-normal mb-8'>
