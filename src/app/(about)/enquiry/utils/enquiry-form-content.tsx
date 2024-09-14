@@ -95,13 +95,13 @@ export function EnquiryFormContent() {
         <Search />
       </Suspense>
 
-      <section className='px-16 pt-4 pb-24 md:pb-32'>
-        <div className='container mx-auto px-4 md:px-6'>
+      <section className='px-4 pt-4 pb-24 md:pb-32'>
+        <div className='container mx-auto md:px-6'>
           <div className='mx-auto max-w-2xl space-y-6 bg-white p-8 md:p-12 rounded-lg shadow-lg'>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-8'>
                 <div className='grid gap-6'>
-                  <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
                       <Label htmlFor='name' className='text-lg font-medium'>
                         Name
@@ -112,7 +112,7 @@ export function EnquiryFormContent() {
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
-                              <Input id='name' placeholder='Enter your name' {...field} className='text-lg p-3' />
+                              <Input id='name' placeholder='Enter your name' {...field} className='text-md lg:text-lg p-3' />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -134,7 +134,7 @@ export function EnquiryFormContent() {
                                 type='email'
                                 placeholder='Enter your email'
                                 {...field}
-                                className='text-lg p-3'
+                                className='text-md lg:text-lg p-3'
                               />
                             </FormControl>
                             <FormMessage />
@@ -157,7 +157,7 @@ export function EnquiryFormContent() {
                               id='phone'
                               placeholder='Enter your phone number'
                               {...field}
-                              className='text-lg p-3'
+                              className='text-md lg:text-lg p-3'
                             />
                           </FormControl>
                           <FormMessage />
@@ -181,16 +181,16 @@ export function EnquiryFormContent() {
                               render={({ field }) => (
                                 <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
                                   <SelectTrigger id='category'>
-                                    <SelectValue placeholder='Select category' className='text-lg' />
+                                    <SelectValue placeholder='Select category' className='text-md lg:text-lg' />
                                   </SelectTrigger>
                                   <SelectContent>
-                                    <SelectItem value='appointment' className='text-lg'>
+                                    <SelectItem value='appointment' className='text-md lg:text-lg'>
                                       Appointment
                                     </SelectItem>
-                                    <SelectItem value='service' className='text-lg'>
+                                    <SelectItem value='service' className='text-md lg:text-lg'>
                                       Service Inquiry
                                     </SelectItem>
-                                    <SelectItem value='other' className='text-lg'>
+                                    <SelectItem value='other' className='text-md lg:text-lg'>
                                       Other
                                     </SelectItem>
                                   </SelectContent>
@@ -218,7 +218,7 @@ export function EnquiryFormContent() {
                               placeholder='Enter your message'
                               rows={5}
                               {...field}
-                              className='text-lg p-3'
+                              className='text-md lg:text-lg p-3'
                             />
                           </FormControl>
                           <FormMessage />
@@ -228,13 +228,15 @@ export function EnquiryFormContent() {
                   </div>
                   <Button
                     type='submit'
-                    className={`w-full text-lg py-3 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-full mx-auto max-w-[15rem] text-lg py-3 ${
+                      loading ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
                     disabled={loading}
                   >
                     {loading ? (
                       <div className='w-5 h-5 border-4 border-t-transparent border-blue-500 border-solid rounded-full animate-spin'></div>
                     ) : (
-                      'Submit Enquiry'
+                      <span className='text-md lg:text-lg'>Submit Enquiry</span>
                     )}
                   </Button>
                 </div>
