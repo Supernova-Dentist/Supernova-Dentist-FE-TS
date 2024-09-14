@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 'use client';
 
+import BarLoader from '@/components/BarLoader/BarLoader';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -8,8 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { Suspense, useEffect, useState, type JSX, type SVGProps } from 'react';
+import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Search from './Search';
@@ -112,7 +112,12 @@ export function EnquiryFormContent() {
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
-                              <Input id='name' placeholder='Enter your name' {...field} className='text-md lg:text-lg p-3' />
+                              <Input
+                                id='name'
+                                placeholder='Enter your name'
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -233,11 +238,7 @@ export function EnquiryFormContent() {
                     }`}
                     disabled={loading}
                   >
-                    {loading ? (
-                      <div className='w-5 h-5 border-4 border-t-transparent border-blue-500 border-solid rounded-full animate-spin'></div>
-                    ) : (
-                      <span className='text-md lg:text-lg'>Submit Enquiry</span>
-                    )}
+                    {loading ? <BarLoader /> : <span className='text-md lg:text-lg'>Submit Enquiry</span>}
                   </Button>
                 </div>
               </form>
