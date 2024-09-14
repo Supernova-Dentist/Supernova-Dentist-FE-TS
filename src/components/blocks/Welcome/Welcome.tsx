@@ -24,9 +24,12 @@ export default function Welcome() {
                 <AnimatedSVGLogo />
               </span>
             </h1>
-            <p className='text-lg sm:text-xl mt-6 lg:mt-2 mb-12'>
+            <div className='w-[70%] ' >
+
+            <p className='text-lg md:text-xl mt-6 lg:mt-2 mb-12 '>
               Experience exceptional dental care with our state-of-the-art clinic.
             </p>
+            </div>
           </div>
           <CtaButtons />
           <ul className='hidden lg:grid grid-cols-1 sm:grid-cols-2 gap-4 text-base sm:text-lg mt-12'>
