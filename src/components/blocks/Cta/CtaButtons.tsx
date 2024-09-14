@@ -10,7 +10,7 @@ export default function CtaButtons() {
       </Link>
       <Button
         className='uppercase sm:text-xl font-semibold sm:px-6 sm:py-3 w-full sm:w-auto'
-        text='Call (01785) 555-555'
+        text='Call US'
       />
     </div>
   );
