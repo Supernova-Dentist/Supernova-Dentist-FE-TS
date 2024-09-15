@@ -9,7 +9,7 @@ export const TabsFAQ = () => {
   const [selected, setSelected] = useState(TABS[0]);
 
   return (
-    <section className='overflow-hidden bg-slate-900 px-4 py-12 text-slate-50'>
+    <section className='overflow-hidden bg-lightGrey px-4 py-24 text-slate-50'>
       <Heading />
       <Tabs selected={selected} setSelected={setSelected} />
       <Questions selected={selected} />
@@ -21,13 +21,11 @@ const Heading = () => {
   return (
     <>
       <div className='relative flex flex-col items-center justify-center'>
-        <span className='mb-8 bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text font-medium text-transparent'>
+        <span className='mb-8 bg-gradient-to-r from-slate-500 to-slate-500 bg-clip-text font-medium text-transparent'>
           Let&apos;s answer some questions
         </span>
         <span className='mb-8 text-5xl font-bold'>FAQs</span>
       </div>
-
-      <span className='absolute -top-[350px] left-[50%] h-[500px] w-[600px] -translate-x-[50%] rounded-full bg-gradient-to-r from-violet-600/20 to-indigo-600/20 blur-3xl' />
     </>
   );
 };
@@ -45,7 +43,7 @@ const Tabs = ({
         <button
           onClick={() => setSelected(tab)}
           className={`relative overflow-hidden whitespace-nowrap rounded-md border-[1px] px-3 py-1.5 text-sm font-medium transition-colors duration-500 ${
-            selected === tab ? 'border-violet-500 text-slate-50' : 'border-slate-600 bg-transparent text-slate-400'
+            selected === tab ? 'border-cream text-slate-50' : 'border-slate-600 bg-transparent text-slate-400'
           }`}
           key={tab}
         >
@@ -60,7 +58,7 @@ const Tabs = ({
                   duration: 0.5,
                   ease: 'backIn',
                 }}
-                className='absolute inset-0 z-0 bg-gradient-to-r from-violet-600 to-indigo-600'
+                className='absolute inset-0 z-0 bg-gold'
               />
             )}
           </AnimatePresence>
@@ -105,9 +103,7 @@ const Question = ({ question, answer }: { question: string; answer: string }) =>
   return (
     <motion.div
       animate={open ? 'open' : 'closed'}
-      className={`rounded-xl border-[1px] border-slate-700 px-4 transition-colors ${
-        open ? 'bg-slate-800' : 'bg-slate-900'
-      }`}
+      className={`rounded-xl border-[1px] border-slate-700 p-4 transition-colors ${open ? 'bg-grey' : 'bg-slate-900'}`}
     >
       <button onClick={() => setOpen((pv) => !pv)} className='flex w-full items-center justify-between gap-4 py-4'>
         <span
