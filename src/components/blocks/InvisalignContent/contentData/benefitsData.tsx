@@ -1,5 +1,6 @@
-import { FaBriefcase, FaCakeCandles, FaFaceSmileBeam, FaPersonWalking, FaPlane } from 'react-icons/fa6';
+import { FaBusinessTime } from 'react-icons/fa';
 import { IoHappy } from 'react-icons/io5';
+import { GiLinkedRings } from "react-icons/gi";
 
 export default {
   title: 'Who Can Benefit from Invisalign?',
@@ -13,33 +14,15 @@ export default {
     },
     {
       id: 2,
-      icon: <FaFaceSmileBeam className='h-12 w-12 text-gold' />,
+      icon: <FaBusinessTime className='h-12 w-12 text-gold' />,
       header: 'Adults',
-      text: ' Many adults prefer Invisalign to improve their smiles while maintaining a professional appearance. The clear aligners fit seamlessly into their busy lives.',
+      text: 'Many adults prefer Invisalign to improve their smiles while maintaining a professional appearance. The clear aligners fit seamlessly into their busy lives.',
     },
     {
       id: 3,
-      icon: <FaPersonWalking className='h-12 w-12 text-gold' />,
-      header: 'Active Individuals',
-      text: 'For those with active lifestyles, Invisalign aligners are perfect as they are comfortable, removable, and allow you to continue sports and activities without interruption.',
-    },
-    {
-      id: 4,
-      icon: <FaBriefcase className='h-12 w-12 text-gold' />,
-      header: 'Professionals',
-      text: 'Professionals who need to maintain a polished and professional look find Invisalign to be a great solution for discreetly achieving a perfect smile.',
-    },
-    {
-      id: 5,
-      icon: <FaPlane className='h-12 w-12 text-gold' />,
-      header: 'Frequent Travelers',
-      text: 'For frequent travelers, Invisalign aligners offer convenience and flexibility, making it easy to maintain treatment while on the go.',
-    },
-    {
-      id: 6,
-      icon: <FaCakeCandles className='h-12 w-12 text-gold' />,
-      header: 'Special Occasions',
-      text: 'Whether it&apos;s a wedding, reunion, or other special event, Invisalign allows you to improve your smile without compromising your appearance for photos and celebrations.',
+      icon: <GiLinkedRings className='h-12 w-12 text-gold' />,
+      header: 'Weddings & Special Events',
+      text: 'For weddings, reunions, or any special occasion, Invisalign ensures you can confidently smile for photos and celebrations without compromising your appearance.',
     },
   ],
 };
