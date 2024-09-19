@@ -43,7 +43,7 @@ const MainNav = () => {
 
   const isMobile = width <= 768; // Define your mobile breakpoint here
 
-  return <nav>{isMobile ? <CornerNav /> : <DesktopNav />}</nav>;
+  return <header>{isMobile ? <CornerNav /> : <DesktopNav />}</header>;
 };
 
 export default MainNav;
