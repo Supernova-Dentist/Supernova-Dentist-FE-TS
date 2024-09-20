@@ -1,61 +1,35 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import Link from 'next/link';
 import Button from '../Button/Button';
+import IntroCard from './IntroCard';
+import GeneralImg from '../../../public/assets/images/general-dentistry.jpg';
+import CosmeticImg from '../../../public/assets/images/invisalign.jpg';
 
 export default function IntroHome() {
   return (
     <div className='flex flex-col min-h-[50dvh]'>
       <div className='flex-1 container mx-auto px-4 md:px-6 py-12 md:py-24 grid gap-12'>
-        <h2 className='text-3xl font-bold text-center'>Experience Exceptional Dental Care at Supernova Dental</h2>
+        <h2 className='text-3xl text-gray-800 font-bold text-center'>
+          Experience Exceptional Dental Care at Supernova Dental
+        </h2>
         <hr className='w-16 h-1 bg-grey mx-auto mb-6' />
         <div className='grid md:grid-cols-2 gap-6'>
-          <Link href='/general-dentistry' className='group' prefetch={false}>
-            <Card className='h-full'>
-              <CardHeader className='bg-primary rounded-t-lg p-6'>
-                <h3 className='text-2xl font-bold text-primary-foreground'>General Dentistry</h3>
-              </CardHeader>
-              <CardContent className='p-6 flex flex-col justify-between'>
-                <p className='text-muted-foreground mb-6'>
-                  At Supernova Dental, we&apos;re excited to bring top-notch general dentistry to Bridgewater. From
-                  routine checkups to root canals and emergency care, we’re here to keep your smile healthy and radiant.
-                </p>
-                <img
-                  src='/assets/images/general-dentistry.jpg'
-                  alt='General Dentistry'
-                  className='w-full h-64 object-cover rounded-lg'
-                />
-                <div className='mt-4 flex justify-center lg:justify-end'>
-                  <Button variant='link' className='group-hover:underline'>
-                    Discover More
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-          <Link href='/cosmetic-dentistry' className='group' prefetch={false}>
-            <Card className='h-full'>
-              <CardHeader className='bg-secondary rounded-t-lg p-6'>
-                <h3 className='text-2xl font-bold text-secondary-foreground'>Cosmetic Dentistry</h3>
-              </CardHeader>
-              <CardContent className='p-6 flex flex-col justify-between'>
-                <p className='text-muted-foreground mb-6'>
-                  Transform your smile with our cosmetic services at Supernova Dental. Whether you&apos;re interested in
+          <IntroCard
+            link='/general-dentistry'
+            title='General Dentistry'
+            description="At Supernova Dental, we're excited to bring top-notch general dentistry to Bridgewater. From
+                  routine checkups to root canals and emergency care, we’re here to keep your smile healthy and radiant."
+            imgSrc={GeneralImg}
+            btnText='Discover More'
+          />
+          <IntroCard
+            link='/cosmetic-dentistry'
+            title='Cosmetic Dentistry'
+            description=" Transform your smile with our cosmetic services at Supernova Dental. Whether you're interested in
                   Invisalign, composite bonding, dental implants, or whitening, we’ve got you covered to enhance your
-                  smile&apos;s brilliance.
-                </p>
-                <img
-                  src='/assets/images/invisalign.jpg'
-                  alt='Cosmetic Dentistry'
-                  className='w-full h-64 object-cover rounded-lg'
-                />
-                <div className='mt-4 flex justify-center lg:justify-end'>
-                  <Button variant='link' className='group-hover:underline'>
-                    Explore Options
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
+                  smile's brilliance."
+            imgSrc={CosmeticImg}
+            btnText='Explore Options'
+          />
         </div>
         <section>
           <div className='space-y-4'>
