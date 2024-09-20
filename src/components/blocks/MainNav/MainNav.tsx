@@ -41,7 +41,7 @@ const MainNav = () => {
     return <nav></nav>; // Placeholder or a loading indicator
   }
 
-  const isMobile = width <= 768; // Define your mobile breakpoint here
+  const isMobile = width <= 800; // Define your mobile breakpoint here
 
   return <header>{isMobile ? <CornerNav /> : <DesktopNav />}</header>;
 };
