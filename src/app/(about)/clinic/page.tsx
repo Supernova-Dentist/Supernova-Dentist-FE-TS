@@ -31,21 +31,19 @@ export default function OurClinic() {
               />
             </div>
             <div>
-              <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-4'>About Supernova Dental</h2>
-              <p className='text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8'>
+              <h2 className='text-3xl md:text-4xl font-bold mb-4 text-gray-900'>About Supernova Dental</h2>
+              <p className='text-lg md:text-xl text-gray-800 text-muted-foreground mb-8'>
                 At Supernova Dental, we are committed to providing exceptional dental care in a modern, welcoming
                 environment. Our team of experienced professionals is dedicated to helping our patients achieve and
                 maintain optimal oral health.
               </p>
-              <p className='text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8'>
+              <p className='text-lg md:text-xl text-gray-800 text-muted-foreground mb-8'>
                 With cutting-edge technology, a compassionate approach, and a dedication to patient satisfaction, we
                 stand out as a premier dental provider. Our clinic’s welcoming atmosphere, coupled with a team that
                 truly cares, makes every visit a positive experience.
               </p>
 
-              <h3 className='text-2xl md:text-3xl lg:text-4xl font-semibold mb-4'>
-                Check out to see what we have to offer!
-              </h3>
+              <h3 className='text-2xl text-gray-900 font-semibold mb-4'>Check out to see what we have to offer!</h3>
               <div className='flex flex-col md:flex-row gap-4'>
                 <Link href='cosmetic-dentistry'>
                   <Button
@@ -61,7 +59,7 @@ export default function OurClinic() {
                   />
                 </Link>
               </div>
-              <p className='text-lg md:text-xl lg:text-2xl text-muted-foreground mt-8'>
+              <p className='text-lg text-gray-800 text-muted-foreground mt-8'>
                 Need assistance? We offer live chat support for any questions or concerns. Look for the chat button in
                 the bottom right corner of the page for immediate help.
               </p>

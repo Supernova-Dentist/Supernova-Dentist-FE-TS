@@ -6,7 +6,7 @@ export const PricingAccordion: React.FC<PricingAccordionProps> = ({ pricingItems
     <Accordion type='single' collapsible className='space-y-6 max-w-3xl mx-auto'>
       {pricingItems.map((pricingItem, index) => (
         <AccordionItem value={index.toString()} key={index} className='overflow-hidden rounded-xl shadow-lg'>
-          <AccordionTrigger className='flex justify-between items-center py-6 px-8 bg-gray-200 hover:bg-gray-300 cursor-pointer rounded-t-xl text-2xl font-semibold'>
+          <AccordionTrigger className='flex justify-between items-center py-6 px-8 bg-gray-200 hover:bg-gray-50 cursor-pointer rounded-t-xl text-2xl font-semibold'>
             <span>{pricingItem.title}</span>
           </AccordionTrigger>
           <AccordionContent className='py-6 px-8 bg-white'>

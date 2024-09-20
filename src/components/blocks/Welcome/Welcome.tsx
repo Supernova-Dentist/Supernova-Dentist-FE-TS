@@ -1,6 +1,5 @@
 import AnimatedSVGLogo from '@/components/AnimatedSVGLogo/AnimatedSVGLogo';
 import CtaButtons from '../Cta/CtaButtons';
-import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import { BubbleText } from './Utils/BubbleText';
 
 export default function Welcome() {
@@ -12,8 +11,8 @@ export default function Welcome() {
       >
         <div className='absolute inset-0 bg-gradient-to-b from-grey to-lightGrey' />
         <div className='relative flex flex-col items-center justify-center h-full px-4 sm:px-6 text-center text-white'>
-          <div className='flex flex-col items-center justify-center h-auto'>
-            <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-2 flex flex-col lg:flex-row items-center justify-center'>
+          <div className='flex flex-col items-center justify-center h-auto text-gray-50'>
+            <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-2 flex flex-col lg:flex-row items-center justify-center '>
               Welcome to
               <span className='lg:hidden text-gold my-2'>Supernova</span>{' '}
               <span className='hidden lg:inline-flex items-center px-4 my-4 pb-2'>
@@ -24,11 +23,10 @@ export default function Welcome() {
                 <AnimatedSVGLogo />
               </span>
             </h1>
-            <div className='w-[70%] ' >
-
-            <p className='text-lg md:text-xl mt-6 lg:mt-2 mb-12 '>
-              Experience exceptional dental care with our state-of-the-art clinic.
-            </p>
+            <div className='w-[70%]'>
+              <p className='text-lg md:text-xl mt-6 lg:mt-2 mb-12 '>
+                Experience exceptional dental care with our state-of-the-art clinic.
+              </p>
             </div>
           </div>
           <CtaButtons />
