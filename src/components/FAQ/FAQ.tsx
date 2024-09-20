@@ -1,11 +1,19 @@
-'use client'
+'use client';
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import useMeasure from 'react-use-measure';
 
-const Question = ({ title, children, defaultOpen = false }: { title: string, children: React.ReactNode, defaultOpen?: boolean }) => {
+const Question = ({
+  title,
+  children,
+  defaultOpen = false,
+}: {
+  title: string;
+  children: React.ReactNode;
+  defaultOpen?: boolean;
+}) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(defaultOpen);
 
@@ -29,7 +37,7 @@ const Question = ({ title, children, defaultOpen = false }: { title: string, chi
           variants={{
             open: {
               rotate: '180deg',
-              color: 'gold',
+              color: 'var(--gold)',
             },
             closed: {
               rotate: '0deg',
@@ -46,7 +54,7 @@ const Question = ({ title, children, defaultOpen = false }: { title: string, chi
           height: open ? height : '0px',
           marginBottom: open ? '24px' : '0px',
         }}
-        className='overflow-hidden text-slate-600'
+        className='overflow-hidden text-slate-800'
       >
         <p ref={ref}>{children}</p>
       </motion.div>
@@ -54,15 +62,13 @@ const Question = ({ title, children, defaultOpen = false }: { title: string, chi
   );
 };
 
-const FAQ = ({ faqItems }: { faqItems: Array<{ question: string, answer: string }> }) => {
+const FAQ = ({ faqItems }: FAQProps) => {
   return (
     <div>
       {faqItems.map((item, index) => (
         <div key={index}>
-        <Question  title={item.question}>
-          {item.answer}
-        </Question>
-        <hr className='my-6 border-b-[1px] border-b-slate-300' />
+          <Question title={item.question}>{item.answer}</Question>
+          <hr className='my-6 border-b-[1px] border-b-slate-300' />
         </div>
       ))}
     </div>
