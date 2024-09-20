@@ -12,7 +12,7 @@ export default function DesktopNav() {
   return (
     <nav className='bg-grey p-6 flex justify-between items-center'>
       <Image src={Logo} alt='Logo' className='w-12 h-12' />
-      <ul className='flex justify-end gap-8 items-center'>
+      <ul className='flex justify-end md:gap-4 lg:gap-8 items-center'>
         <FlyoutLink href='/' flyoutItems={[]}>
           Home
         </FlyoutLink>
