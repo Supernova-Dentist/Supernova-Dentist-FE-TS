@@ -45,7 +45,7 @@ export const media = [
   },
 ];
 
-export const navLinks = [
+export const navLinks: NavLinks = [
   {
     name: 'Cosmetic Dentistry',
     url: '/cosmetic-dentistry',
@@ -54,7 +54,7 @@ export const navLinks = [
   { name: 'General Dentistry', url: '/general-dentistry', subLinks: generalServices },
   { name: 'About us', url: '/about', subLinks: practiceInfo },
   { name: 'Media', url: '/media', subLinks: media },
-];
+] as const;
 
 export const officeInfo = {
   address: 'Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ',
