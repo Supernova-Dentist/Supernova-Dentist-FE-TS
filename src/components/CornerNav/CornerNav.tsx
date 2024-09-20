@@ -86,7 +86,7 @@ const NavLink = ({
         }}
         exit={{ opacity: 0, y: -8 }}
         onClick={onClick}
-        className='flex items-center justify-between text-lg font-semibold text-cream transition-colors md:text-3xl cursor-pointer'
+        className='flex items-center justify-between text-lg font-semibold text-cream transition-colors md:text-3xl cursor-pointer capitalize'
       >
         {children}
         {subLinks && (
@@ -112,7 +112,7 @@ const NavLink = ({
               <motion.a
                 key={subLink.title}
                 href={subLink.href}
-                className='block text-sm font-medium text-cream transition-colors hover:text-gold md:text-lg'
+                className='block text-sm font-medium text-cream transition-colors hover:text-gold md:text-lg capitalize'
                 initial={{ opacity: 0, y: -8 }}
                 animate={{
                   opacity: 1,
@@ -148,7 +148,7 @@ const Logo = () => {
       href='/'
       className='grid h-20 w-20 place-content-center rounded-br-xl rounded-tl-xl bg-lightGrey transition-colors hover:bg-violet-50'
     >
-      <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-16 md:h-24 w-auto inline' />
+      <img src='/favicon.ico' alt='Supernova Dental Logo' className='w-16 h-auto inline' />
     </motion.a>
   );
 };

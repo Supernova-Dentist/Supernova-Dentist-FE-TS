@@ -28,13 +28,11 @@ const Features = () => {
 const Copy = () => {
   return (
     <div className='flex h-fit w-full flex-col justify-center py-12 md:sticky md:top-0 md:h-screen'>
-      <span className='w-fit rounded-full bg-gold px-4 py-2 text-sm uppercase text-indigo-100'>
-        Our Clinic Features
-      </span>
+      <span className='w-fit rounded-full bg-gold px-4 py-2 text-sm uppercase text-gray-50'>Our Clinic Features</span>
       <h2 className='mb-4 mt-2 text-5xl text-gold font-medium leading-tight'>
         Discover the Exceptional Amenities We Offer
       </h2>
-      <p className='text-lg text-cream'>
+      <p className='text-lg text-gray-50'>
         Our clinic is designed with your comfort and convenience in mind, offering state-of-the-art technology and
         amenities that ensure a pleasant experience every time you visit.
       </p>
@@ -121,8 +119,8 @@ const CarouselItem = ({
     >
       <div className='flex flex-col items-center text-center text-cream'>
         {feature.icon}
-        <h3 className='text-xl font-bold mb-2 text-gold'>{feature.title}</h3>
-        <p>{feature.description}</p>
+        <h3 className='text-3xl font-bold mb-2 text-gold'>{feature.title}</h3>
+        <p className=''>{feature.description}</p>
       </div>
     </motion.div>
   );

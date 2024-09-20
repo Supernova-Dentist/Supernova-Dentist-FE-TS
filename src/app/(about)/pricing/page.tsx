@@ -19,10 +19,11 @@ export default function Pricing() {
             If you have any questions or need more details about our pricing plans, feel free to reach out to us.
             We&apos;re here to help!
           </p>
-          <Link href={`/enquiry?ref=${encodeURIComponent('pricing')}`}>
-            <button className='inline-block bg-gold text-black py-3 px-6 rounded-full text-lg font-medium hover:bg-darkGold transition-colors'>
-              Make an Enquiry
-            </button>
+          <Link
+            href={`/enquiry?ref=${encodeURIComponent('pricing')}`}
+            className='bg-gold rounded-full px-6 py-3 text-md hover:bg-lightGold transition-all duration-150 text-gray-50'
+          >
+            Make an Enquiry
           </Link>
         </div>
       </div>
