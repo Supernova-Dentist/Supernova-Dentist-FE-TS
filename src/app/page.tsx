@@ -4,8 +4,11 @@
 // import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
 // import Reviews from '@/components/blocks/Reviews/Review';
 // import Steps from '@/components/blocks/Steps/Steps';
+import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
+import Reviews from '@/components/blocks/Reviews/Review';
 import Welcome from '@/components/blocks/Welcome/Welcome';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
+import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
 // const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
 //   ssr: false,
 // });
@@ -15,11 +18,12 @@ export default function Home() {
     <main>
       <Welcome />
       <PromotionForm />
+      <VideoAnimationSection />
+      <GoogleReviews />
+      {/* <Reviews /> */}
       {/* <Services />
       <Steps />
-      <Reviews />
       <GalleryCarousel />
-      <GoogleReviews />
       <GoogleMap /> */}
     </main>
   );
