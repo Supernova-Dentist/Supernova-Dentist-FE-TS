@@ -11,7 +11,7 @@ export default function Pricing() {
         <div className='max-w-4xl mx-auto'>
           <PricingAccordion pricingItems={pricingItems} />
         </div>
-        <div className='text-center mt-16 py-12'>
+        <div className='text-center mt-16 py-12 md:py-18 lg:py-24'>
           <h2 className='text-2xl md:text-3xl text-gold font-semibold mb-6'>
             Have Questions or Need More Information?
           </h2>
