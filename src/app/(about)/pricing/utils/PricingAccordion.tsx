@@ -15,7 +15,7 @@ export const PricingAccordion: React.FC<PricingAccordionProps> = ({ pricingItems
                 <span className={`max-w-[75%] ${product.isHeader === true ? 'text-xl font-bold py-2' : 'text-lg'} `}>
                   {product.description}
                 </span>
-                <div className='flex flex-col items-end pl-4 ml-6'>
+                <div className='flex flex-col items-end'>
                   {Boolean(product.priceDescriptionBefore) && (
                     <span className='text-lg'>{product.priceDescriptionBefore}</span>
                   )}
