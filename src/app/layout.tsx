@@ -23,9 +23,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <MainNav />
         {children}
-        <Footer />
         <div aria-hidden='true'>
           <CrispChat />
         </div>
