@@ -69,3 +69,24 @@ export const socialIcons = [
 ];
 
 export const DentallyPortal = 'https://supernova.dentr.net';
+
+export const pricing = [
+  {
+    id: 1,
+    plan: 'Basic',
+    price: '£20',
+    features: ['feature 1', 'feature 2', 'feature 3', 'feature 4'],
+  },
+  {
+    id: 2,
+    plan: 'Standard',
+    price: '£99',
+    features: ['feature 1', 'feature 2', 'feature 3', 'feature 4'],
+  },
+  {
+    id: 3,
+    plan: 'Pro',
+    price: '£199',
+    features: ['feature 1', 'feature 2', 'feature 3', 'feature 4'],
+  },
+];
