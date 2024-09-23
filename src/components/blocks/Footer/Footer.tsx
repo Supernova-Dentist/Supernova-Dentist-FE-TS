@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { cosmeticServices, generalServices, officeInfo, practiceInfo, reviewLinks, socialIcons } from '@/lib/constants';
 import FooterLink from '../FooterLink/FooterLink';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
@@ -84,7 +85,10 @@ export default function Footer() {
       </div>
       <div className='flex justify-between px-8 mt-8'>
         <span className='pb-3 text-slate-50'>
-          © 2024 All Rights Reserved | <span className='underline text-gold cursor-pointer'>Privacy Policy</span>
+          © 2024 All Rights Reserved |{' '}
+          <Link href='/privacy-policy' className='underline text-gold cursor-pointer'>
+            Privacy Policy
+          </Link>
         </span>
       </div>
     </footer>
