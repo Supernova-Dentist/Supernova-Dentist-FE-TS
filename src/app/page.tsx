@@ -7,6 +7,7 @@
 import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
 import Reviews from '@/components/blocks/Reviews/Review';
 import Welcome from '@/components/blocks/Welcome/Welcome';
+import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
 // const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
@@ -19,6 +20,7 @@ export default function Home() {
       <Welcome />
       <PromotionForm />
       <VideoAnimationSection />
+      <ComingSoonSection />
       <GoogleReviews />
       {/* <Reviews /> */}
       {/* <Services />

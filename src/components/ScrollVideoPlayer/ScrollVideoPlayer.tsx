@@ -65,7 +65,7 @@ const ScrollVideoPlayer: React.FC<ScrollVideoPlayerProps> = ({ videoSrc }) => {
         justifyContent: 'center',
         alignItems: 'center',
         height: '110vh', // Full viewport height to center vertically
-        width: '100vw', // Full viewport width to center horizontally
+        width: '100%', // Full viewport width to center horizontally
         overflow: 'hidden',
       }}
     >
