@@ -1,13 +1,22 @@
+import Link from 'next/link';
+import Image from 'next/image';
 import SectionSpacing from '@/components/SectionSpacing/SectionSpacing';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import SubHeader from '@/components/SubHeader/SubHeader';
-import Link from 'next/link';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import logo from '../../../public/assets/images/logo.png';
 
 export default function PrivacyPolicy() {
   return (
-    <section className='mb-20 text-center sm:text-left'>
-      <SectionTitle title='Privacy Policy' className='bg-grey py-20 px-10 text-3xl'></SectionTitle>
-      <div className='max-w-[1000px] mx-auto my-20 px-6 sm:px-10'>
+    <section className='text-center sm:text-left'>
+      <div className='flex flex-col items-center bg-grey py-20'>
+        <Image src={logo} alt='logo' className='w-20 h-20 object-cover' />
+        <SectionTitle title='Privacy Policy' className='md:text-4xl' />
+      </div>
+      <div className='max-w-[1000px] mx-auto mt-10 mb-20 px-6 sm:px-10'>
+        <div className='mt-2 mb-10'>
+          <BreadCrumb />
+        </div>
         <SectionSpacing>
           <SubHeader>Introduction</SubHeader>
           <p>
