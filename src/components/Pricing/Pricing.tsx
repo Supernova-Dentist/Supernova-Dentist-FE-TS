@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import PricingCards from './PricingCards';
 import PricingTabs from './PricingTabs';
 
@@ -9,8 +10,17 @@ export default function Pricing() {
           Pick a plan thats right for you
         </h1>
         <PricingTabs />
+        <div className='absolute -z-10'>
+          <Image
+            className='relative -z-10 opacity-40 top-[-40px]'
+            src='/assets/svgs/bg-outlines.svg'
+            alt='outline'
+            width={960}
+            height={380}
+          />
+        </div>
       </div>
-      <div className='flex justify-center w-full'>
+      <div className='flex justify-center w-full max-xl:overflow-auto pb-10'>
         <PricingCards />
       </div>
     </section>
