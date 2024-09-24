@@ -74,19 +74,22 @@ export const pricing = [
   {
     id: 1,
     plan: 'Basic',
-    price: '£20',
+    price: 20,
+    offerPrice: 10,
     features: ['feature 1', 'feature 2', 'feature 3', 'feature 4'],
   },
   {
     id: 2,
     plan: 'Standard',
-    price: '£99',
+    price: 99,
+    offerPrice: 49,
     features: ['feature 1', 'feature 2', 'feature 3', 'feature 4'],
   },
   {
     id: 3,
     plan: 'Pro',
-    price: '£199',
+    price: 199,
+    offerPrice: 99,
     features: ['feature 1', 'feature 2', 'feature 3', 'feature 4'],
   },
 ];
