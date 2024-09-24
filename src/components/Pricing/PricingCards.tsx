@@ -1,5 +1,5 @@
-import { pricing } from '@/lib/constants';
 import React from 'react';
+import { pricing } from '@/lib/constants';
 import PricingCard from './PricingCard';
 
 export default function PricingCards() {

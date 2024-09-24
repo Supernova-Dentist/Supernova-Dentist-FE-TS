@@ -1,6 +1,7 @@
 import { IoCheckmarkCircle } from 'react-icons/io5';
 import { cn } from '@/lib/utils';
 import Button from '../Button/Button';
+import PricingSquiggle from './PricingSquiggle';
 
 type PricingCardProps = {
   plan: string;
@@ -13,10 +14,15 @@ export default function PricingCard({ plan, price, features, isMiddle }: Pricing
   return (
     <div
       className={cn(
-        'p-10 rounded-lg shadow-xl flex-1 border border-solid border-black/10 relative',
+        'p-10 rounded-lg shadow-xl flex-1 border border-solid border-black/10 relative overflow-hidden min-w-[275px]',
         isMiddle ? 'bg-gray-900' : null
       )}
     >
+      {isMiddle && (
+        <div className='absolute top-[-59px] right-[-44px] rotate-45'>
+          <PricingSquiggle />
+        </div>
+      )}
       <div className='flex flex-col'>
         <div className={cn('rounded-sm px-4 py-1 w-fit mb-4', isMiddle ? 'bg-gray-700 text-gray-50' : 'bg-gray-200')}>
           <span>{plan}</span>
