@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import Button from '../Button/Button';
 import { cn } from '@/lib/utils';
 
-export default function PricingTabs() {
-  const [monthly, setMonthly] = useState(true);
+type PricingTabsProps = {
+  setMonthly: (value: boolean) => void;
+  monthly: boolean;
+};
 
+export default function PricingTabs({ monthly, setMonthly }: PricingTabsProps) {
   return (
     <div className='flex items-center border border-gray-900 rouned-sm border-solid'>
       <Button
