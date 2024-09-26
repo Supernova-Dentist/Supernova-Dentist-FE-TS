@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
+import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-import GoogleMap from '@/components/blocks/GoogleMap/GoogleMap';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Find Us',
@@ -24,7 +24,7 @@ export default function Location() {
             </p>
 
             <div className='my-6'>
-              <GoogleMap />
+              <DynamicGoogleMap />
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>

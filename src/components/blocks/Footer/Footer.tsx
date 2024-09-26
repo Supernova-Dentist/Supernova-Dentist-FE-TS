@@ -1,10 +1,9 @@
-import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { cosmeticServices, generalServices, officeInfo, practiceInfo, reviewLinks, socialIcons } from '@/lib/constants';
 import FooterLink from '../FooterLink/FooterLink';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
-const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
-  ssr: false,
-});
+import Button from '@/components/Button/Button';
+import DynamicGoogleMap from '../GoogleMap/DynamicGoogleMap';
 
 export default function Footer() {
   return (
@@ -41,10 +40,10 @@ export default function Footer() {
               <li className='text-gold text-lg uppercase text-center sm:text-left'>Office</li>
               <li className='text-center sm:text-left'>{officeInfo.address}</li>
             </ul>
-            <div className='mb-2'>
-              <GoogleMap />
+            <DynamicGoogleMap />
+            <div className='mt-2'>
+              <GetDirectionsForm />
             </div>
-            <GetDirectionsForm />
           </div>
 
           {/* Review Us Section */}
@@ -55,9 +54,9 @@ export default function Footer() {
             ))}
             <li className='flex gap-1'>
               {socialIcons.map((social, index) => (
-                <div key={index} className='bg-gold p-1 rounded-sm flex justify-center items-center'>
+                <Button key={index} className='p-1 flex justify-center items-center text-cream'>
                   {social.icon}
-                </div>
+                </Button>
               ))}
             </li>
           </ul>
@@ -68,10 +67,16 @@ export default function Footer() {
             <li>Email: contact@supernovadental.com</li>
             <li>Phone: (123) 456-7890</li>
             <li className='flex gap-2'>
-              <a href='mailto:contact@supernovadental.com' className='bg-gold py-1 px-2 rounded-sm text-white'>
+              <a
+                href='mailto:contact@supernovadental.com'
+                className='bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-grey'
+              >
                 Email Us
               </a>
-              <a href='tel:+1234567890' className='bg-gold py-1 px-2 rounded-sm text-white'>
+              <a
+                href='tel:+1234567890'
+                className='bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-grey'
+              >
                 Call Us
               </a>
             </li>
@@ -80,7 +85,10 @@ export default function Footer() {
       </div>
       <div className='flex justify-between px-8 mt-8'>
         <span className='pb-3 text-slate-50'>
-          © 2024 All Rights Reserved | <span className='underline text-gold cursor-pointer'>Privacy Policy</span>
+          © 2024 All Rights Reserved |{' '}
+          <Link href='/privacy-policy' className='underline text-gold cursor-pointer'>
+            Privacy Policy
+          </Link>
         </span>
       </div>
     </footer>

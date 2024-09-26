@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google';
 import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
 import TidioChat from '@/components/blocks/TidioChat/TideoChat';
-import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
+import CrispChat from '@/components/blocks/CrispChat/CrispChat';
+import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import './globals.css';
 import './reset.css';
 
@@ -29,7 +30,7 @@ export default function RootLayout({
           {/* <CrispChat /> */}
           <TidioChat />
         </div>
-        <AccessibilityWidget />
+        <ScrollToTopButton />
       </body>
     </html>
   );

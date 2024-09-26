@@ -1,14 +1,11 @@
 import { type Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import Steps from '@/components/blocks/Steps/Steps';
 import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
 import PageHero from '@/components/blocks/PageHero/PageHero';
 import BlogLoadingSkeleton from '@/components/BlogLoadingSkeleton/BlogLoadingSkeleton';
 import FetchBlogsWrapper from '@/components/FetchBlogs/FetchBlogs';
-const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
-  ssr: false,
-});
+import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Blog',
@@ -29,7 +26,7 @@ export default async function BlogPage({
       </Suspense>
       <Steps />
       <GalleryCarousel />
-      <GoogleMap />
+      <DynamicGoogleMap />
     </>
   );
 }
