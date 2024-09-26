@@ -1,9 +1,10 @@
-import CrispChat from '@/components/blocks/CrispChat/CrispChat';
-import Footer from '@/components/blocks/Footer/Footer';
-import MainNav from '@/components/blocks/MainNav/MainNav';
-import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Footer from '@/components/blocks/Footer/Footer';
+import MainNav from '@/components/blocks/MainNav/MainNav';
+import TidioChat from '@/components/blocks/TidioChat/TideoChat';
+import CrispChat from '@/components/blocks/CrispChat/CrispChat';
+import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import './globals.css';
 import './reset.css';
 
@@ -26,7 +27,8 @@ export default function RootLayout({
         {children}
         <Footer />
         <div aria-hidden='true'>
-          <CrispChat />
+          {/* <CrispChat /> */}
+          <TidioChat />
         </div>
         <ScrollToTopButton />
       </body>
