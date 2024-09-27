@@ -73,23 +73,33 @@ export const DentallyPortal = 'https://supernova.dentr.net';
 export const pricing = [
   {
     id: 1,
-    plan: 'Basic',
-    price: 20,
+    plan: 'Invisalign',
+    price: 250,
     offerPrice: 10,
-    features: ['feature 1', 'feature 2', 'feature 3', 'feature 4'],
+    features: [
+      'Free Invisalign assessment',
+      'Includes Single arch Invisalign',
+      '£250 off Treatment cost',
+    ],
   },
   {
     id: 2,
-    plan: 'Standard',
-    price: 99,
+    plan: 'Invisalign',
+    price: 1000,
     offerPrice: 49,
-    features: ['feature 1', 'feature 2', 'feature 3', 'feature 4'],
+    features: [
+      'Free Invisalign assessment',
+      'Includes Dual arch Invisalign',
+      '£250 off Treatment cost',
+      'Free boutique whitening worth £425',
+      'Free vivera retainers worth £399',
+    ],
   },
   {
     id: 3,
-    plan: 'Pro',
-    price: 199,
+    plan: 'Assessment/Hygiene',
+    price: 150,
     offerPrice: 99,
-    features: ['feature 1', 'feature 2', 'feature 3', 'feature 4'],
+    features: ['50% off new patient assessment ', '50% off 1st routine hygiene appointment', 'Includes air polish'],
   },
 ];
