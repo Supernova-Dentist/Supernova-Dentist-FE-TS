@@ -11,6 +11,7 @@ import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
 import Pricing from '@/components/Pricing/Pricing';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
+import Location from './(about)/find-us/page';
 // const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
 //   ssr: false,
 // });
@@ -20,8 +21,9 @@ export default function Home() {
     <main>
       <Welcome />
       <PromotionForm />
-      <VideoAnimationSection />
       <Pricing />
+      <VideoAnimationSection />
+      <Location />
       <ComingSoonSection />
       <GoogleReviews />
       {/* <Reviews /> */}
