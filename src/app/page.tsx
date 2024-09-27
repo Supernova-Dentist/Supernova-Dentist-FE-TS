@@ -34,7 +34,7 @@ export default function Home() {
       <Steps />
       <GalleryCarousel />
       <GoogleMap /> */}
-      <InstagramSection />
+      {/* <InstagramSection /> */}
     </main>
   );
 }
