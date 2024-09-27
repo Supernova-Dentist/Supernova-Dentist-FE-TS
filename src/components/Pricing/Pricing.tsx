@@ -9,7 +9,7 @@ export default function Pricing() {
   const [monthly, setMonthly] = useState(true);
 
   return (
-    <section className='py-12 md:py-24 lg:py-32 mx-auto text-gray-900 my-20 bg-gradient-to-b from-white to-cream'>
+    <section className='py-12 md:py-24 lg:py-32 mx-auto text-gray-900 bg-gradient-to-b from-cream to-white'>
       <div className='flex justify-center flex-col items-center'>
       <div className='rounded-xl bg-grey px-4 py-1 text-sm text-gray-50'>Opening Offers</div>
         <h1 className='text-4xl lg:text-5xl font-semibold text-center max-w-[500px] mt-4 mb-8'>
