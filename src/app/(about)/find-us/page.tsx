@@ -54,17 +54,7 @@ export default function Location() {
                       info@supernovadentalclinic.com
                     </a>
                   </p>
-                  <p className='text-base sm:text-lg mb-2 text-center sm:text-left text-lightGrey'>
-                    Website:{' '}
-                    <a
-                      href='http://www.supernovadentalclinic.com'
-                      className='underline'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      www.supernovadentalclinic.com
-                    </a>
-                  </p>
+                  
                 </div>
               </div>
             </div>
