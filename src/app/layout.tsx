@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
         <div aria-hidden='true'>
-          <CrispChat />
+          {/* <CrispChat /> */}
         </div>
         <AccessibilityWidget />
         {/* <ScrollToTopButton /> */}
