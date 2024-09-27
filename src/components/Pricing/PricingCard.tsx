@@ -17,15 +17,16 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
   return (
     <div
       className={cn(
-        'p-10 rounded-lg shadow-xl border border-solid border-black/10 relative overflow-hidden min-w-[275px] flex flex-col',
+        'p-10 rounded-lg shadow-xl border border-solid border-black/10 relative overflow-hidden min-w-[250px] flex flex-col',
         isMiddle ? 'bg-gray-900' : null
       )}
     >
-      {isMiddle && (
+      {/* {isMiddle && (
         <div className='absolute top-[-59px] right-[-44px] rotate-45'>
           <PricingSquiggle />
         </div>
-      )}
+      )} */}
+       <img src='/favicon.ico' alt='Supernova Dental Logo' className='absolute top-2 right-2 h-14 w-auto' />
       <div className='flex flex-col flex-grow'>
         <div className={cn('rounded-sm px-4 py-1 w-fit mb-4', isMiddle ? 'bg-gray-700 text-gray-50' : 'bg-gray-200')}>
           <span>{plan}</span>
