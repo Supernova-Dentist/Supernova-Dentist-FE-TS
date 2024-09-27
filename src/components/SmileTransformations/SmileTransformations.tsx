@@ -1,3 +1,4 @@
+import GoogleReviews from '../blocks/GoogleReviews/GoogleReviews';
 import { Compare } from '../ui/compare';
 
 export default function SmileTransformations() {
