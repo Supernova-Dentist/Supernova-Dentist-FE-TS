@@ -8,12 +8,13 @@ import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
 import Reviews from '@/components/blocks/Reviews/Review';
 import Welcome from '@/components/blocks/Welcome/Welcome';
 import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
+import InstagramSection from '@/components/InstagramSection/InstagramSection';
 import Pricing from '@/components/Pricing/Pricing';
+import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
 import Location from './(about)/find-us/page';
-import InstagramSection from '@/components/InstagramSection/InstagramSection';
 // const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
 //   ssr: false,
 // });
@@ -24,17 +25,18 @@ export default function Home() {
       <Welcome />
       <PromotionForm />
       <SmileTransformations />
+      <GoogleReviews />
       <Pricing />
       <VideoAnimationSection />
+      <InstagramSection />
       <Location />
       <ComingSoonSection />
-      <GoogleReviews />
+      <PromotionFAQ />
       {/* <Reviews /> */}
       {/* <Services />
       <Steps />
       <GalleryCarousel />
       <GoogleMap /> */}
-      {/* <InstagramSection /> */}
     </main>
   );
 }
