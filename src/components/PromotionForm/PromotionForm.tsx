@@ -58,7 +58,7 @@ export default function PromotionForm() {
 
   return (
     <React.Fragment>
-      <section className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-cream'>
+      <section id='form' className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-cream'>
         <div className='container grid items-center lg:justify-start justify-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12 mx-auto max-w-[1250px]'>
           <div className='space-y-4 text-center lg:text-left'>
             <div className='inline-block rounded-lg bg-grey px-3 py-1 text-sm text-gray-50'>Limited Time Offer</div>
