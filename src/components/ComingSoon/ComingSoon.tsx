@@ -17,7 +17,7 @@ export default function ComingSoonSection() {
   return (
     <section className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-cream text-gray-900'>
       <div className='px-4 md:px-6 w-full'>
-        <div className='flex flex-col items-center space-y-4 text-center'>
+        <div className='flex flex-col items-center space-y-6 text-center'>
           <div className='space-y-2'>
             <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl '>Coming Soon</h2>
             <p className='max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
@@ -25,7 +25,7 @@ export default function ComingSoonSection() {
               dental care information and online booking.
             </p>
           </div>
-          <div className='w-full max-w-sm space-y-2'>
+          <div className='w-full max-w-sm space-y-4'>
             <form onSubmit={handleSubmit} className='flex space-x-2'>
               <Input
                 className='max-w-lg flex-1 bg-white'
@@ -37,7 +37,7 @@ export default function ComingSoonSection() {
               />
               <Button type='submit'>Notify Me</Button>
             </form>
-            <p className='text-xs text-gray-500 '>
+            <p className='text-sm text-gray-500 '>
               Stay updated on our progress and be the first to know when we launch!
             </p>
           </div>
