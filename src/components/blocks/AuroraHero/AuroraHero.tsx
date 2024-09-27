@@ -5,11 +5,16 @@ import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { Stars } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { animate, motion, useMotionTemplate, useMotionValue } from 'framer-motion';
-import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
-const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
+const COLORS_TOP = [
+  '#FFD700', // Gold
+  '#B0C4DE', // Light Slate Gray
+  '#708090', // Slate Gray
+  '#006400', // Dark Green
+  '#1E67C6', // Dark Navy
+];
 
 const AuroraHero = () => {
   const color = useMotionValue(COLORS_TOP[0]);
@@ -17,7 +22,7 @@ const AuroraHero = () => {
   useEffect(() => {
     void animate(color, COLORS_TOP, {
       ease: 'easeInOut',
-      duration: 10,
+      duration: 15,
       repeat: Infinity,
       repeatType: 'mirror',
     });
@@ -52,10 +57,10 @@ const AuroraHero = () => {
           whileTap={{
             scale: 0.985,
           }}
-          className='group relative flex w-fit items-center gap-1.5 lg:mt-4 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50'
+          className='group relative flex w-fit items-center gap-1.5 lg:mt-4 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50'
         >
           Sign Up Now
-          <FiArrowRight className='transition-transform group-hover:-rotate-45 group-active:-rotate-12' />
+          <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
         </motion.button>
       </div>
 
