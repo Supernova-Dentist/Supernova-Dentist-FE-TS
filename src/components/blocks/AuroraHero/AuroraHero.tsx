@@ -1,11 +1,13 @@
 'use client';
 
+import { SparklesPreview } from '@/components/SparklesPreview/SparklesPreview';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { Stars } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
+import { animate, motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
-import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motion';
-import { SparklesPreview } from '@/components/SparklesPreview/SparklesPreview';
 
 const COLORS_TOP = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 
@@ -39,6 +41,7 @@ const AuroraHero = () => {
         <SparklesPreview />
 
         <motion.button
+          onClick={scrollToPromotionForm}
           style={{
             border,
             boxShadow,
