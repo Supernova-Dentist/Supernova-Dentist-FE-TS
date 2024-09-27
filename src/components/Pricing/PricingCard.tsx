@@ -1,6 +1,6 @@
-import { IoCheckmarkCircle } from 'react-icons/io5';
-import CountUp from 'react-countup';
 import { cn } from '@/lib/utils';
+import CountUp from 'react-countup';
+import { IoCheckmarkCircle } from 'react-icons/io5';
 import Button from '../Button/Button';
 import PricingSquiggle from './PricingSquiggle';
 
@@ -17,7 +17,7 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
   return (
     <div
       className={cn(
-        'p-10 rounded-lg shadow-xl flex-1 border border-solid border-black/10 relative overflow-hidden min-w-[275px]',
+        'p-10 rounded-lg shadow-xl border border-solid border-black/10 relative overflow-hidden min-w-[275px] flex flex-col',
         isMiddle ? 'bg-gray-900' : null
       )}
     >
@@ -26,7 +26,7 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
           <PricingSquiggle />
         </div>
       )}
-      <div className='flex flex-col'>
+      <div className='flex flex-col flex-grow'>
         <div className={cn('rounded-sm px-4 py-1 w-fit mb-4', isMiddle ? 'bg-gray-700 text-gray-50' : 'bg-gray-200')}>
           <span>{plan}</span>
         </div>
@@ -41,21 +41,24 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
             preserveValue
           />
         </span>
-        <span className='text-gray-500 text-sm'>Per month</span>
+        <span className='text-gray-500 text-sm'>SAVING</span>
         <div className={cn('bg-gray-200 w-full h-[1px] my-8', isMiddle ? 'bg-gray-700' : 'bg-gray-200')}></div>
+
+        <ul className='flex flex-col gap-3'>
+          {features.map((feature) => (
+            <li className={cn('flex gap-1 items-center', isMiddle ? 'text-gray-50' : null)} key={feature}>
+              <IoCheckmarkCircle color={isMiddle ? 'var(--lightGold)' : ''} size={20} />
+              {feature}
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul className='flex flex-col gap-3'>
-        {features.map((feature) => (
-          <li className={cn('flex gap-1 items-center', isMiddle ? 'text-gray-50' : null)} key={feature}>
-            <IoCheckmarkCircle color={isMiddle ? 'var(--lightGold)' : ''} size={20} />
-            {feature}
-          </li>
-        ))}
-      </ul>
-      <Button
-        className={cn(' w-full text-gray-50 rounded-sm mt-6 px-4 py-2', isMiddle ? 'bg-lightGold' : 'bg-gray-900')}
-        text='Get started'
-      />
+      <div className='mt-auto'> {/* Added a div to contain the button */}
+        <Button
+          className={cn('w-full text-gray-50 rounded-sm mt-6 px-4 py-2', isMiddle ? 'bg-lightGold' : 'bg-gray-900')}
+          text='Get started'
+        />
+      </div>
     </div>
   );
 }
