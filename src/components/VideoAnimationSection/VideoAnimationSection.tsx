@@ -1,5 +1,6 @@
 'use client';
 
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import React, { useRef, useState } from 'react';
 import { TextRevealCard, TextRevealCardDescription, TextRevealCardTitle } from '../ui/text-reveal-card';
 
@@ -49,13 +50,16 @@ export function VideoAnimationSection() {
             src='assets/videos/invisalign_video2.mp4'
             autoPlay
             muted
-            playsInline  // Helps with inline playback on mobile
+            playsInline // Helps with inline playback on mobile
             onEnded={handleVideoEnd}
             className=' w-full max-w-[75rem] h-auto'
           />
         </div>
         <div className='mt-2 pt-8 pb-12 lg:pb-24 flex justify-center'>
-          <button className='bg-lightGold text-cream px-8 py-4 rounded-lg text-lg font-semibold'>
+          <button
+            onClick={scrollToPromotionForm}
+            className='bg-lightGold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
+          >
             Take the first step!
           </button>
         </div>
