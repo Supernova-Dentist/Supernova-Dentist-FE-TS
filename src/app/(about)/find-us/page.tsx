@@ -1,7 +1,9 @@
-import type { Metadata } from 'next';
-import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-import GoogleMap from '@/components/blocks/GoogleMap/GoogleMap';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
+import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Find Us',
@@ -13,12 +15,8 @@ export default function Location() {
     <>
       <div className='flex flex-col items-center justify-start py-12 bg-gray-50'>
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
-          <BreadCrumb />
-
           <section className='mb-12'>
-            <h1 className='text-4xl sm:text-5xl font-bold my-8 text-center sm:text-left text-grey'>
-              Find Supernova Dental Clinic
-            </h1>
+            <h1 className='text-4xl sm:text-5xl font-bold my-8 text-center sm:text-left text-grey'>Find Us!</h1>
             <p className='text-lg sm:text-xl mb-6 text-center sm:text-left text-lightGrey'>
               Locate Supernova Dental Clinic on the map. Find our address, contact information, and directions.
             </p>
