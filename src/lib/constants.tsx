@@ -97,7 +97,7 @@ export const pricing = [
   },
   {
     id: 3,
-    plan: 'Assessment/Hygiene',
+    plan: 'Dental Wellness',
     price: 150,
     offerPrice: 99,
     features: ['50% off new patient assessment ', '50% off 1st routine hygiene appointment', 'Includes air polish'],
