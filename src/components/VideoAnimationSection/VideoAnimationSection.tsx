@@ -49,6 +49,7 @@ export function VideoAnimationSection() {
             src='assets/videos/invisalign_video2.mp4'
             autoPlay
             muted
+            playsInline  // Helps with inline playback on mobile
             onEnded={handleVideoEnd}
             className=' w-full max-w-[75rem] h-auto'
           />
