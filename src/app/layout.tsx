@@ -28,7 +28,7 @@ export default function RootLayout({
           <CrispChat />
         </div>
         <AccessibilityWidget />
-        <ScrollToTopButton />
+        {/* <ScrollToTopButton /> */}
       </body>
     </html>
   );
