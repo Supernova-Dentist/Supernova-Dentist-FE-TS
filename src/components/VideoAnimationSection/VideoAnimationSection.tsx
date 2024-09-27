@@ -22,7 +22,7 @@ export function VideoAnimationSection() {
   };
 
   return (
-    <div className='min-h-[101vh] flex flex-col items-center justify-center bg-white py-12'>
+    <div className='min-h-[101vh] flex flex-col items-center justify-center py-12 bg-gradient-to-b from-white to-cream'>
       <div className='p-8 bg-black rounded-xl'>
         <TextRevealCard
           className='h-[20rem] w-full rounded-lg p-8 relative overflow-hidden'
