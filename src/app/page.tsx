@@ -10,6 +10,7 @@ import Welcome from '@/components/blocks/Welcome/Welcome';
 import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
 import Pricing from '@/components/Pricing/Pricing';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
+import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
 import Location from './(about)/find-us/page';
 // const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
@@ -21,6 +22,7 @@ export default function Home() {
     <main>
       <Welcome />
       <PromotionForm />
+      <SmileTransformations />
       <Pricing />
       <VideoAnimationSection />
       <Location />
