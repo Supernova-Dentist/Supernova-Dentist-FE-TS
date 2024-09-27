@@ -37,9 +37,9 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
             height={400}
           />
         </div>
-        <div className='p-6 bg-lightGrey'>
+        <div className='p-6 bg-gray-50'>
           <div className='overflow-y-auto h-32'>
-            <p className='text-sm mb-2 text-cream'>{post.caption}</p>
+            <p className='text-sm mb-2 text-gray-800'>{post.caption}</p>
           </div>
           <div className='mt-4'>
             <a href={post.permalink} target='_blank' rel='noopener noreferrer' className='text-blue-500 underline'>
