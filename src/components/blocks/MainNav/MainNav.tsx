@@ -1,9 +1,8 @@
 'use client';
 
+import { CornerNav } from '@/components/CornerNav/CornerNav';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
-import MobileMenu from '@/components/MobileNav';
-import MenuManager from '@/components/MobileNav/MenuManager';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Custom hook to get window size
 const useWindowSize = () => {
@@ -33,6 +32,32 @@ const useWindowSize = () => {
 const MainNav = () => {
   const { width } = useWindowSize();
   const [isMounted, setIsMounted] = useState(false);
+  const [navbarVisible, setNavbarVisible] = useState(true);
+
+  const scrollPosition = useRef(0); // Use ref to store scroll position
+
+  useEffect(() => {
+    // Initialize scroll position on mount
+    scrollPosition.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollPosition = window.scrollY;
+
+      if (currentScrollPosition < scrollPosition.current) {
+        setNavbarVisible(true); // Show navbar when scrolling up
+      } else if (currentScrollPosition > 100) {
+        // Hide after scrolling down 100px
+        setNavbarVisible(false); // Hide navbar when scrolling down
+      }
+
+      // Update scroll position after every scroll
+      scrollPosition.current = currentScrollPosition;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     setIsMounted(true);
@@ -45,15 +70,13 @@ const MainNav = () => {
   const isMobile = width <= 768; // Define your mobile breakpoint here
 
   return (
-    <nav>
-      {isMobile ? (
-        <MenuManager>
-          <MobileMenu />
-        </MenuManager>
-      ) : (
-        <DesktopNav />
-      )}
-    </nav>
+    <header
+      className={`z-30 fixed top-0 left-0 w-full transition-transform duration-300 ${
+        navbarVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
+      {isMobile ? <CornerNav /> : <DesktopNav />}
+    </header>
   );
 };
 
