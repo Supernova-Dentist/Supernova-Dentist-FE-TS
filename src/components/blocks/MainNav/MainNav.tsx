@@ -71,8 +71,12 @@ const MainNav = () => {
 
   return (
     <header
-      className={`z-30 fixed top-0 left-0 w-full transition-transform duration-300 ${
-        navbarVisible ? 'translate-y-0' : '-translate-y-full'
+      className={`${
+        !isMobile
+          ? `z-30 fixed top-0 left-0 w-full transition-transform duration-300 ${
+              navbarVisible ? 'translate-y-0' : '-translate-y-full'
+            }`
+          : ''
       }`}
     >
       {isMobile ? <CornerNav /> : <DesktopNav />}
