@@ -39,7 +39,7 @@ export default async function SocialMedia() {
 
   return (
     <>
-      <div className='min-h-screen-minus-nav flex flex-col items-center justify-start py-12 bg-gray-50'>
+      <div className='min-h-screen-minus-nav flex flex-col items-center justify-start py-12 mt-20 bg-gray-50'>
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <BreadCrumb />
           <div className='flex flex-col sm:flex-row sm:items-center justify-between'>
