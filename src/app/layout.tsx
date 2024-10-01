@@ -3,6 +3,7 @@ import CrispChat from '@/components/blocks/CrispChat/CrispChat';
 import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
+import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -28,6 +29,7 @@ export default function RootLayout({
         <div aria-hidden='true'>{/* <CrispChat /> */}</div>
         <AccessibilityWidget />
         {/* <ScrollToTopButton /> */}
+        <PromotionFooter />
       </body>
     </html>
   );

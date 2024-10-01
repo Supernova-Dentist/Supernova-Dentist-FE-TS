@@ -68,7 +68,7 @@ const FAQ = ({ faqItems }: { faqItems: Array<{ question: string; answer: string 
       {faqItems.map((item, index) => (
         <div key={index}>
           <Question title={item.question}>{item.answer}</Question>
-          <hr className='my-6 border-b-[1px] border-b-slate-300' />
+          {index < faqItems.length - 1 && <hr className='my-6 border-b-[1px] border-b-slate-300' />}
         </div>
       ))}
     </div>
