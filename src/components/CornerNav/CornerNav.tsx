@@ -16,8 +16,21 @@ export const CornerNav = () => {
 
 const LinksOverlay = () => {
   return (
-    <div className='fixed right-4 top-4 z-40 h-[calc(100vh_-_32px)] w-[calc(100%_-_32px)] overflow-hidden'>
-      <Logo />
+    <div className='fixed right-4 top-4 z-50 h-[calc(100vh_-_32px)] w-[calc(100%_-_32px)] overflow-hidden'>
+      <motion.div
+        initial={{ opacity: 0, y: -12 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+        }}
+        exit={{ opacity: 0, y: -12 }}
+        className='flex flex-col items-center sm:flex-row gap-1 sm:gap-4 justify-center pt-20 pb-10'
+      >
+        <Logo />
+        <div className='bg-gray-400/50 h-[50px] w-[1px] hidden sm:block' />
+        <h2 className='text-3xl text-gray-50 items-center font-light'>Supernova Dental</h2>
+      </motion.div>
       <LinksContainer />
       <FooterCTAs />
     </div>
@@ -146,9 +159,9 @@ const Logo = () => {
       }}
       exit={{ opacity: 0, y: -12 }}
       href='/'
-      className='grid h-20 w-20 place-content-center rounded-br-xl rounded-tl-xl bg-lightGrey transition-colors hover:bg-violet-50'
+      className=''
     >
-      <img src='/favicon.ico' alt='Supernova Dental Logo' className='w-16 h-auto inline' />
+      <img src='/favicon.ico' alt='Supernova Dental Logo' className='w-20 h-auto inline' />
     </motion.a>
   );
 };
@@ -167,14 +180,14 @@ const HamburgerButton = ({
         animate={active ? 'open' : 'closed'}
         variants={UNDERLAY_VARIANTS}
         style={{ top: 0, right: 0 }}
-        className='fixed z-20 rounded-xl bg-gradient-to-br from-gray-600 to-gray-500 shadow-lg shadow-gray-800/20'
+        className='fixed z-50 rounded-xl bg-gradient-to-br from-gray-600 to-gray-500 shadow-lg shadow-gray-800/20'
       />
 
       <motion.button
         initial={false}
         animate={active ? 'open' : 'closed'}
         onClick={() => setActive((pv) => !pv)}
-        className={`group fixed right-0 top-0 z-50 h-20 w-20 bg-white/0 transition-all hover:bg-white/20 ${
+        className={`group fixed right-0 top-0 z-[60] h-20 w-20 bg-white/0 transition-all hover:bg-white/20 ${
           active ? 'rounded-bl-xl rounded-tr-xl' : 'rounded-xl'
         }`}
       >
