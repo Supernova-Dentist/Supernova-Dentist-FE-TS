@@ -17,7 +17,7 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
   return (
     <div
       className={cn(
-        'p-10 rounded-lg shadow-xl border border-solid border-black/10 relative overflow-hidden min-w-[250px] flex flex-col',
+        'p-10 rounded-lg shadow-xl border border-solid border-black/10 relative overflow-hidden w-[380px] flex flex-col',
         isMiddle ? 'bg-gray-900' : null
       )}
     >
@@ -26,7 +26,7 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
           <PricingSquiggle />
         </div>
       )} */}
-       <img src='/favicon.ico' alt='Supernova Dental Logo' className='absolute top-2 right-2 h-14 w-auto' />
+      <img src='/favicon.ico' alt='Supernova Dental Logo' className='absolute top-2 right-2 h-14 w-auto' />
       <div className='flex flex-col flex-grow'>
         <div className={cn('rounded-sm px-4 py-1 w-fit mb-4', isMiddle ? 'bg-gray-700 text-gray-50' : 'bg-gray-200')}>
           <span>{plan}</span>
@@ -54,7 +54,9 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
           ))}
         </ul>
       </div>
-      <div className='mt-auto'> {/* Added a div to contain the button */}
+      <div className='mt-auto'>
+        {' '}
+        {/* Added a div to contain the button */}
         <Button
           className={cn('w-full text-gray-50 rounded-sm mt-6 px-4 py-2', isMiddle ? 'bg-lightGold' : 'bg-gray-900')}
           text='Get started'
