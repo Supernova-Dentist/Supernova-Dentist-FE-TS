@@ -33,7 +33,7 @@ export default function SmileTransformations() {
           Our Smile Transformations
         </h2>
         <hr className='border-t-2 border-gold w-20 mx-auto mt-6 mb-8' />
-        <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-600 mb-12'>
+        <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-12'>
           See the difference we can make
         </p>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>

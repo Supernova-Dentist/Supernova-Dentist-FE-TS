@@ -34,7 +34,7 @@ export default function GoogleReviewsCarousel() {
               className='w-full mt-4 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/5'
             >
               <Card className='shadow-none bg-transparent'>
-                <CardContent>
+                <CardContent className='p-0 py-4'>
                   <GoogleReview name={name} review={review} rating={rating} date={date} />
                 </CardContent>
               </Card>

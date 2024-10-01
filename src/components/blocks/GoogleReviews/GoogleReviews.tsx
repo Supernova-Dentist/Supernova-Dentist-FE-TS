@@ -9,7 +9,7 @@ export default function GoogleReviews() {
       </div>
       <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-2 text-gold'>What Our Patients Say</h2>
       <hr className='border-t-2 border-gold w-20 mx-auto mt-6 mb-8' />
-      <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-600 mb-6'>
+      <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-6'>
         See what our team&apos;s previous patients have to say about them
       </p>
       <OverallGoogleRating />
