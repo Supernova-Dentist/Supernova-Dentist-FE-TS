@@ -19,7 +19,7 @@ const Question = ({
 
   return (
     <motion.div animate={open ? 'open' : 'closed'} className='border-b-[1px] border-b-slate-300'>
-      <button onClick={() => setOpen((pv) => !pv)} className='flex w-full items-center justify-between gap-4 py-6'>
+      <button onClick={() => setOpen((pv) => !pv)} className='flex w-full items-center justify-between gap-4 py-2'>
         <motion.span
           variants={{
             open: {
@@ -37,7 +37,7 @@ const Question = ({
           variants={{
             open: {
               rotate: '180deg',
-              color: 'gold',
+              color: 'var(--gold)',
             },
             closed: {
               rotate: '0deg',
@@ -54,9 +54,11 @@ const Question = ({
           height: open ? height : '0px',
           marginBottom: open ? '24px' : '0px',
         }}
-        className='overflow-hidden text-slate-600'
+        className='overflow-hidden text-slate-800'
       >
-        <p ref={ref}>{children}</p>
+        <p className='text-left' ref={ref}>
+          {children}
+        </p>
       </motion.div>
     </motion.div>
   );
@@ -68,7 +70,7 @@ const FAQ = ({ faqItems }: { faqItems: Array<{ question: string; answer: string 
       {faqItems.map((item, index) => (
         <div key={index}>
           <Question title={item.question}>{item.answer}</Question>
-          {index < faqItems.length - 1 && <hr className='my-6 border-b-[1px] border-b-slate-300' />}
+          {index < faqItems.length - 1 && <hr className='my-6 border-b-[1px] border-b-gray-200' />}
         </div>
       ))}
     </div>

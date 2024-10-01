@@ -60,7 +60,7 @@ export default function PromotionFAQ() {
               Frequently Asked Questions
             </h2>
             <hr className='border-t-2 border-grey w-20 mx-auto mt-4 pb-8 ' />
-            <div className='w-full max-w-2xl  shadow-lg rounded-lg p-6'>
+            <div className='w-full max-w-2xl shadow-lg rounded-lg p-6'>
               <FAQ faqItems={faqItems} />
             </div>
           </div>
