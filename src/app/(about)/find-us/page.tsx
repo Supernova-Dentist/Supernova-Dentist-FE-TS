@@ -13,7 +13,10 @@ export const metadata: Metadata = {
 export default function Location() {
   return (
     <>
-      <div className='flex flex-col items-center justify-start py-12 bg-gradient-to-b from-white to-cream'>
+      <div
+        id='location'
+        className='flex flex-col items-center justify-start py-12 bg-gradient-to-b from-white to-cream'
+      >
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <section className='mb-12'>
             <h1 className='text-4xl sm:text-5xl font-bold my-8 text-center sm:text-left text-grey'>Find Us!</h1>
