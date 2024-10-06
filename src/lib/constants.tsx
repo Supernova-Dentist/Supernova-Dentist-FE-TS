@@ -52,7 +52,13 @@ export const navLinks = [
   // },
   // { name: 'General Dentistry', url: '/general-dentistry', flyout: generalServices },
   // { name: 'About us', url: '/about', flyout: practiceInfo },
-  { name: 'Media', url: '/media', flyout: media },
+  // { name: 'Media', url: '/media', flyout: media },
+  { name: 'Results', url: '#results', flyout: [] },
+  { name: 'Reviews', url: '#reviews', flyout: [] },
+  { name: 'Offers', url: '#offers', flyout: [] },
+  { name: 'Social', url: '#social', flyout: [] },
+  { name: 'Find Us', url: '#location', flyout: [] },
+  { name: 'FAQs', url: '#faq', flyout: [] },
 ];
 
 export const officeInfo = {
@@ -76,11 +82,7 @@ export const pricing = [
     plan: 'Invisalign',
     price: 250,
     offerPrice: 10,
-    features: [
-      'Free Invisalign assessment',
-      'Includes Single arch Invisalign',
-      '£250 off Treatment cost',
-    ],
+    features: ['Free Invisalign assessment', 'Includes Single arch Invisalign', '£250 off Treatment cost'],
   },
   {
     id: 2,

@@ -24,7 +24,7 @@ export default function SmileTransformations() {
   ];
 
   return (
-    <section className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-cream to-white'>
+    <section id='results' className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-cream to-white'>
       <div className='container mx-auto'>
         <div className='flex justify-center mb-4 '>
           <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Our Results</div>

@@ -9,7 +9,7 @@ export default async function InstagramSection() {
   const instagramProfileUrl = `https://www.instagram.com/${username}/`;
 
   return (
-    <section className='bg-gradient-to-b from-cream to-white py-12'>
+    <section id='social' className='bg-gradient-to-b from-cream to-white py-12'>
       <div className=' border-t border-solid border-gray-200 max-w-[1400px] mx-auto px-8'>
         <div className='flex flex-col items-center my-10'>
           <LogoAnimation />

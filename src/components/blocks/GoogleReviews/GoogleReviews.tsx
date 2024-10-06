@@ -3,7 +3,7 @@ import OverallGoogleRating from '../OverallGoogleRating/OverallGoogleRating';
 
 export default function GoogleReviews() {
   return (
-    <div className='flex flex-col bg-cream px-4 py-12 bg-gradient-to-b from-white to-cream'>
+    <div id='reviews' className='flex flex-col bg-cream px-4 py-12 bg-gradient-to-b from-white to-cream'>
       <div className='flex justify-center mb-4 '>
         <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Our Reviews</div>
       </div>

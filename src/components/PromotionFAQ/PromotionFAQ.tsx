@@ -49,7 +49,7 @@ export default function PromotionFAQ() {
   };
 
   return (
-    <section className='w-full py-12 md:py-24 lg:py-32 text-gray-900'>
+    <section id='faq' className='w-full py-12 md:py-24 lg:py-32 text-gray-900'>
       <div className='px-4 md:px-6 w-full'>
         <div className='flex flex-col items-center space-y-6 text-center'>
           <div className='space-y-2'>
