@@ -14,7 +14,7 @@ export default function InstagramPostGrid({ posts }: InstagramPostGridProps) {
   return (
     <div className='mx-auto py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
       {posts?.map((post: InstagramPost, index: number) => (
-        <div key={index} className='bg-grey rounded-lg overflow-hidden shadow-lg'>
+        <div key={index} className='rounded-lg overflow-hidden shadow-lg'>
           <Image
             src={post.media_url}
             alt='Instagram Post'
@@ -22,13 +22,16 @@ export default function InstagramPostGrid({ posts }: InstagramPostGridProps) {
             height={400}
             className='w-full h-64 object-cover'
           />
-          <div className='p-4 bg-lightGrey'>
+          <div className='p-4 bg-offWhite'>
             <div>
-              <p className='text-sm text-cream'>
+              <p className='text-sm'>
                 {post.caption.length > 75 ? (
                   <>
                     {post.caption.substring(0, 75)}...
-                    <button onClick={() => handleShowMoreClick(post)} className='text-blue-500 underline ml-1'>
+                    <button
+                      onClick={() => handleShowMoreClick(post)}
+                      className='text-gold hover:text-lightGold transition-all duration-150 underline ml-1'
+                    >
                       Show More
                     </button>
                   </>
