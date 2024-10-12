@@ -52,7 +52,7 @@ export function VideoAnimationSection() {
             muted
             playsInline // Helps with inline playback on mobile
             onEnded={handleVideoEnd}
-            className=' w-full max-w-[75rem] h-auto'
+            className='w-full max-w-[50rem] h-auto'
           />
         </div>
         <div className='mt-2 pt-8 pb-12 lg:pb-24 flex justify-center'>
