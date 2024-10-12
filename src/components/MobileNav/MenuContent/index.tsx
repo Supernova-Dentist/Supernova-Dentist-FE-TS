@@ -16,80 +16,34 @@ const internalLinks = [
     ),
   },
   {
-    url: '/cosmetic-denistry',
-    header: <h2>Cosmetic Dentistry</h2>,
+    url: '#results',
+    header: <h2>Results</h2>,
     subHeaders: [
       {
-        url: '/cosmetic-dentistry/teeth-whitening',
-        header: <h3>Teeth Whitening</h3>,
-      },
-      {
-        url: '/cosmetic-dentistry/invisalign',
-        header: <h3>Invisalign</h3>,
-      },
-      {
-        url: '/cosmetic-dentistry/cosmetic-bonding',
-        header: <h3>Cosmetic Bonding</h3>,
+        url: '#reviews',
+        header: <h3>Reviews</h3>,
       },
     ],
   },
   {
-    url: '/general-dentistry',
-    header: <h2>General Dentistry</h2>,
-    subHeaders: [
-      {
-        url: '/general-dentistry/general-checkup',
-        header: <h3>General Check-Up</h3>,
-      },
-      {
-        url: '/general-dentistry/root-canal-treatment',
-        header: <h3>Root Canal Treatment</h3>,
-      },
-      {
-        url: '/general-dentistry/dental-implants',
-        header: <h3>Fillings</h3>,
-      },
-      {
-        url: '/general-dentistry/emergency-dentistry',
-        header: <h3>Emergency Dentistry</h3>,
-      },
-    ],
+    url: '#reviews',
+    header: <h3>Reviews</h3>,
   },
   {
-    url: '/about',
-    header: <h2>About</h2>,
-    subHeaders: [
-      {
-        url: '/meet-the-team',
-        header: <h3>Meet the Team</h3>,
-      },
-      {
-        url: '/find-us',
-        header: <h3>Find Us</h3>,
-      },
-      {
-        url: '/contact',
-        header: <h3>Contact</h3>,
-      },
-    ],
+    url: '#offers',
+    header: <h3>Offers</h3>,
   },
   {
-    url: '/media',
-    header: <h2>Media</h2>,
-    subHeaders: [
-      {
-        url: '/blog',
-        header: <h3>Blog</h3>,
-      },
-      {
-        url: '/gallery',
-        header: <h3>Gallery</h3>,
-      },
-      {
-        url: '/social-media',
-        header: <h3>Social Media</h3>,
-      },
-    ],
+    url: '#social',
+    header: <h3>Social</h3>,
+  },
+  {
+    url: '#location',
+    header: <h3>Find us</h3>,
+  },
+  {
+    url: '#faqs',
+    header: <h3>FAQs</h3>,
   },
 ];
 
