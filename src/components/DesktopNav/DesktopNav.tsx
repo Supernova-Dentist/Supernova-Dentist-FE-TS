@@ -1,6 +1,7 @@
 'use client';
 
 import { DentallyPortal, navLinks } from '@/lib/constants';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import Link from 'next/link';
 import React from 'react';
 import Button from '../Button/Button';
@@ -11,7 +12,7 @@ export default function DesktopNav() {
     <nav className='bg-grey p-6'>
       <ul className='flex gap-8 items-center justify-between'>
         <div>
-          <FlyoutLink href='/' flyoutItems={[]}>
+          <FlyoutLink href='#welcome' flyoutItems={[]}>
             Supernova Dental <img src='/favicon.ico' alt='Supernova Dental Logo' className='ml-2 h-10 w-auto inline ' />
           </FlyoutLink>
         </div>
@@ -24,9 +25,12 @@ export default function DesktopNav() {
           ))}
         </div>
         <li>
-          <Link target='_blank' href={`${DentallyPortal}`}>
-            <Button className='text-md bg-gold hover:bg-amber-700 text-cream px-4 py-2 rounded'>Sign Up!</Button>
-          </Link>
+          <Button
+            onClick={scrollToPromotionForm}
+            className='text-md bg-gold hover:bg-amber-700 text-cream px-4 py-2 rounded'
+          >
+            Sign Up!
+          </Button>
         </li>
       </ul>
     </nav>
