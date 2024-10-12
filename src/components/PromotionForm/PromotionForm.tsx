@@ -1,14 +1,14 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import BarLoader from '../BarLoader/BarLoader';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
+import BarLoader from '../BarLoader/BarLoader';
 
 export default function PromotionForm() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -62,10 +62,10 @@ export default function PromotionForm() {
         <div className='container grid items-center lg:justify-start justify-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12 mx-auto max-w-[1250px]'>
           <div className='space-y-4 text-center lg:text-left'>
             <div className='inline-block rounded-lg bg-grey px-3 py-1 text-sm text-gray-50'>Limited Time Offer</div>
-            <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>50% Off First Visit</h2>
+            <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>Exclusive Promotions</h2>
             <p className='max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-lightGrey tracking-tight'>
-              For the first 50 people who sign up, get 50% off your first visit to our dental practice. Don&apos;t miss
-              out on this exclusive offer!
+              Take advantage of our limited-time offers, including savings on Invisalign treatments and dental wellness
+              assessments. Don&apos;t miss out!
             </p>
           </div>
           <Card className='mx-auto w-full max-w-md bg-gray-50 shadow-xl border border-black/10 border-solid'>
@@ -73,7 +73,7 @@ export default function PromotionForm() {
               <CardHeader>
                 <CardTitle>Book Your Appointment</CardTitle>
                 <CardDescription>
-                  Fill out the form to schedule your first visit and claim your 50% discount.
+                  Fill out the form to schedule your first visit and claim your discounts.
                 </CardDescription>
               </CardHeader>
               <CardContent className='space-y-4'>
@@ -112,7 +112,7 @@ export default function PromotionForm() {
       {showSuccessModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-2xl font-semibold mb-4'>Thank you, {values.fullname}, for your Enquiry! </h2>
+            <h2 className='text-2xl font-semibold mb-4'>Thank you, {values.fullname}, for your Enquiry!</h2>
             <p className='mb-4'>
               One of the Supernova team will be back in touch with the following email regarding your enquiry:{' '}
               {values.email}
