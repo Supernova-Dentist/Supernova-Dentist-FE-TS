@@ -13,7 +13,7 @@ export default function InstagramPosts({ posts }: { posts: InstagramPost[] }) {
 
   return (
     <>
-      {posts.map((post: InstagramPost) => (
+      {posts?.map((post: InstagramPost) => (
         <div key={post.id} className='relative group max-w-[300px]' onClick={() => handlePostClick(post)}>
           <Image
             src={post.media_url}
