@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox'; // Assuming a checkbox component exists
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -71,9 +72,9 @@ export default function PromotionForm() {
           <Card className='mx-auto w-full max-w-md bg-gray-50 shadow-xl border border-black/10 border-solid'>
             <form onSubmit={handleSubmit(onSubmit)}>
               <CardHeader>
-                <CardTitle>Book Your Appointment</CardTitle>
+                <CardTitle>Sign Up for Exclusive Offers</CardTitle>
                 <CardDescription>
-                  Fill out the form to schedule your first visit and claim your discounts.
+                  Fill out the form to sign up and receive our latest promotions and updates.
                 </CardDescription>
               </CardHeader>
               <CardContent className='space-y-4'>
@@ -98,24 +99,38 @@ export default function PromotionForm() {
                     <p className='text-red-500 leading-none text-xs'>{errors.phone?.message}</p>
                   )}
                 </div>
+                <div className='grid gap-2'>
+                  <div className='flex items-center'>
+                    <Checkbox id='consent' {...register('consent')} />
+                    <Label htmlFor='consent' className='ml-2 text-muted-foreground'>
+                      I consent to receive marketing emails and acknowledge the{' '}
+                      <a href='/privacy-policy' className='text-blue-500'>
+                        Privacy Policy
+                      </a>
+                      .
+                    </Label>
+                  </div>
+                  {errors.consent && <p className='text-red-500 leading-none text-xs'>{errors.consent?.message}</p>}
+                </div>
               </CardContent>
               <CardFooter>
                 <Button type='submit' className='w-full bg-gold hover:bg-lightGold'>
-                  {isSubmitting ? <BarLoader /> : 'Book Appointment'}
+                  {isSubmitting ? <BarLoader /> : 'Sign Up'}
                 </Button>
               </CardFooter>
             </form>
           </Card>
         </div>
       </section>
+
       {/* Success Modal */}
       {showSuccessModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-2xl font-semibold mb-4'>Thank you, {values.fullname}, for your Enquiry!</h2>
+            <h2 className='text-2xl font-semibold mb-4'>Thank you, {values.fullname}, for signing up!</h2>
             <p className='mb-4'>
-              One of the Supernova team will be back in touch with the following email regarding your enquiry:{' '}
-              {values.email}
+              You&apos;ve been successfully signed up for our promotions and updates. We&apos;ll send details to{' '}
+              {values.email}.
             </p>
             <Button onClick={handleSuccessModalClose} className='w-full text-lg py-2'>
               Close
@@ -129,7 +144,7 @@ export default function PromotionForm() {
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
             <h2 className='text-2xl font-semibold mb-4'>Submission Failed</h2>
-            <p className='mb-4'>There was a problem with your enquiry submission. Please try again later.</p>
+            <p className='mb-4'>There was a problem with your submission. Please try again later.</p>
             <Button onClick={() => setShowErrorModal(false)} className='w-full text-lg py-2'>
               Close
             </Button>
