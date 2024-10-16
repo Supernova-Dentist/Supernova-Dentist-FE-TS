@@ -9,18 +9,18 @@ export default function SmileTransformations() {
       after: '/assets/images/teeth-after.png',
       description: 'Teeth Whitening',
     },
-    {
-      id: 2,
-      before: '/assets/images/teeth-before.jpg',
-      after: '/assets/images/teeth-after.png',
-      description: 'Invisalign Treatment',
-    },
-    {
-      id: 3,
-      before: '/assets/images/teeth-before.jpg',
-      after: '/assets/images/teeth-after.png',
-      description: 'Dental Veneers',
-    },
+    // {
+    //   id: 2,
+    //   before: '/assets/images/teeth-before.jpg',
+    //   after: '/assets/images/teeth-after.png',
+    //   description: 'Invisalign Treatment',
+    // },
+    // {
+    //   id: 3,
+    //   before: '/assets/images/teeth-before.jpg',
+    //   after: '/assets/images/teeth-after.png',
+    //   description: 'Dental Veneers',
+    // },
   ];
 
   return (
@@ -36,7 +36,8 @@ export default function SmileTransformations() {
         <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-12'>
           See the difference we can make
         </p>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'> */}
+        <div className='flex justify-center'>
           {transformations.map((item) => (
             <div
               key={item.id}
@@ -47,7 +48,7 @@ export default function SmileTransformations() {
                 secondImage={item.after}
                 firstImageClassName='object-cover object-left-top'
                 secondImageClassname='object-cover object-left-top'
-                className='h-96 w-96'
+                className='h-[55vh] w-[70vh]'
                 slideMode='hover'
               />
             </div>
