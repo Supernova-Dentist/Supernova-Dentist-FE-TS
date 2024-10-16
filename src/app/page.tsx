@@ -30,8 +30,8 @@ export default function Home() {
       <VideoAnimationSection />
       <InstagramSection />
       <Location />
-      <ComingSoonSection />
       <PromotionFAQ />
+      <ComingSoonSection />
       {/* <Reviews /> */}
       {/* <Services />
       <Steps />
