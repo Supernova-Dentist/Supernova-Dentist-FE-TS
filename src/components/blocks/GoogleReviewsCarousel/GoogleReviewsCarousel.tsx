@@ -1,13 +1,14 @@
 'use client';
 
+import GoogleReview from '@/components/GoogleReview/GoogleReview';
+import googleReviewMockData from '@/components/GoogleReview/googleReviewMockData';
+import Modal from '@/components/Modal/Modal';
+import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { LinkPreview } from '@/components/ui/link-preview';
+import Autoplay from 'embla-carousel-autoplay';
 import { useState } from 'react';
 import { IoStar } from 'react-icons/io5';
-import Autoplay from 'embla-carousel-autoplay';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Card, CardContent } from '@/components/ui/card';
-import googleReviewMockData from '@/components/GoogleReview/googleReviewMockData';
-import GoogleReview from '@/components/GoogleReview/GoogleReview';
-import Modal from '@/components/Modal/Modal';
 import ReviewLink from '../ReviewLink/ReviewLink';
 
 export default function GoogleReviewsCarousel() {
@@ -19,6 +20,15 @@ export default function GoogleReviewsCarousel() {
     setSelectedReview(review);
   };
 
+  const onClickReview = (review: GoogleReviewProps) => {
+    toggleModal(review);
+  };
+
+  const handleViewOnGoogleClick = (e: { preventDefault: () => void }, url: string) => {
+    e.preventDefault();
+    window.open(url, '_blank');
+  };
+
   return (
     <div className='max-w-[80%] overflow-hidden mx-auto md:px-24 px-12'>
       <Carousel
@@ -27,15 +37,19 @@ export default function GoogleReviewsCarousel() {
         className='w-full cursor-grab'
       >
         <CarouselContent>
-          {googleReviewMockData.map(({ id, name, review, rating, date }) => (
-            <CarouselItem
-              key={id}
-              onClick={() => toggleModal({ id, name, review, rating, date })}
-              className='w-full mt-4 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/5'
-            >
+          {googleReviewMockData.map(({ id, name, review, rating, date, url, previewUrl }) => (
+            <CarouselItem key={id} className='w-full mt-4 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/5'>
               <Card className='shadow-none bg-transparent'>
                 <CardContent className='p-0 py-4'>
-                  <GoogleReview name={name} review={review} rating={rating} date={date} />
+                  <GoogleReview
+                    name={name}
+                    review={review}
+                    rating={rating}
+                    date={date}
+                    url={url}
+                    previewUrl={previewUrl}
+                    onClickReview={onClickReview}
+                  />
                 </CardContent>
               </Card>
             </CarouselItem>
@@ -61,6 +75,21 @@ export default function GoogleReviewsCarousel() {
                 ))}
             </div>
             <p>{selectedReview.review}</p>
+          </div>
+          <div className='flex justify-center mt-2'>
+            <LinkPreview
+              isStatic
+              imageSrc={selectedReview.previewUrl}
+              url={selectedReview.url}
+              className='font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500'
+            >
+              <button
+                onClick={(e) => handleViewOnGoogleClick(e, selectedReview.url)}
+                className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
+              >
+                View on Google
+              </button>
+            </LinkPreview>
           </div>
         </Modal>
       )}
