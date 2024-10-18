@@ -48,7 +48,7 @@ export default function SmileTransformations() {
                 secondImage={item.after}
                 firstImageClassName='object-cover object-left-top'
                 secondImageClassname='object-cover object-left-top'
-                className='h-[55vh] w-[70vh]'
+                className='h-[30vh] lg:h-[50vh] w-[70vw] md:w-[50vw] lg:w-[40vw]'
                 slideMode='hover'
               />
             </div>
