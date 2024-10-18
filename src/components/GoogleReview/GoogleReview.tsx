@@ -44,10 +44,10 @@ export default function GoogleReview({
         <div>
           <p className='text-[15px] max-h-[87px] overflow-hidden'>{review}</p>
         </div>
-        <div className='flex flex-row w-full justify-between mt-2'>
+        <div className='flex flex-row w-full justify-between mt-4 md:mt-2'>
           <div>
             <button
-              onClick={() => (onClickReview != null) && onClickReview({ name, date, review, rating, url, previewUrl })}
+              onClick={() => onClickReview != null && onClickReview({ name, date, review, rating, url, previewUrl })}
               className='text-xs text-gray-500 bg-transparent border-none leading-none cursor-pointer hover:underline hover:text-gray-800'
             >
               Read more

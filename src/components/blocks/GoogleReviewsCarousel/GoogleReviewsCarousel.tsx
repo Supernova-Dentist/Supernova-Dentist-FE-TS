@@ -30,7 +30,7 @@ export default function GoogleReviewsCarousel() {
   };
 
   return (
-    <div className='max-w-[80%] overflow-hidden mx-auto md:px-24 px-12'>
+    <div className='max-w-[90%] overflow-hidden mx-auto md:px-24 px-12'>
       <Carousel
         opts={{ align: 'start', loop: true }}
         plugins={[Autoplay({ delay: 8000 })]}
@@ -38,7 +38,7 @@ export default function GoogleReviewsCarousel() {
       >
         <CarouselContent>
           {googleReviewMockData.map(({ id, name, review, rating, date, url, previewUrl }) => (
-            <CarouselItem key={id} className='w-full mt-4 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/5'>
+            <CarouselItem key={id} className='w-full mt-4 lg:basis-1/3 2xl:basis-1/5'>
               <Card className='shadow-none bg-transparent'>
                 <CardContent className='p-0 py-4'>
                   <GoogleReview
