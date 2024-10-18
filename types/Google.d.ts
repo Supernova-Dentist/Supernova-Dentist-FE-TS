@@ -4,4 +4,7 @@ type GoogleReviewProps = {
   date: string;
   review: string;
   rating: number;
+  url: string;
+  previewUrl: string;
+  onClickReview?: ({ name, date, review, rating, url, previewUrl }) => void;
 };
