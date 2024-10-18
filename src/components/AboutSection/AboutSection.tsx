@@ -1,4 +1,7 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import Image from 'next/image';
 
 export default function AboutSection() {
@@ -20,7 +23,9 @@ export default function AboutSection() {
           excellence, we strive to exceed your expectations with every visit, offering a range of services designed to
           keep you smiling brightly.
         </p>
-        <Button className='mt-6 w-fit mx-auto '>Come see us!</Button>
+        <Button onClick={scrollToPromotionForm} className='mt-6 w-fit mx-auto'>
+          Come see us!
+        </Button>
       </div>
 
       {/* Image Section */}
