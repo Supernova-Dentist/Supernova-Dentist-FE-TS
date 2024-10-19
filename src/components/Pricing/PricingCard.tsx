@@ -18,7 +18,7 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
   return (
     <div
       className={cn(
-        'p-10 rounded-lg shadow-xl border border-solid border-black/10 relative overflow-hidden w-[400px] flex flex-col ',
+        'p-10 rounded-lg shadow-xl border border-solid border-black/10 relative overflow-hidden w-full sm:w-[400px] flex flex-col',
         isMiddle ? 'bg-gray-900' : 'bg-gray-50'
       )}
     >
