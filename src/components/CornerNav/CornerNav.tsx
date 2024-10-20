@@ -15,7 +15,7 @@ export const CornerNav = () => {
 
 const LinksOverlay = ({ setActive }: any) => {
   return (
-    <div className='fixed right-4 top-4 z-50 h-[calc(100vh_-_32px)] w-[calc(100%_-_32px)] overflow-hidden'>
+    <div className='fixed right-4 top-4 z-50 h-[calc(100vh_-_32px)] w-[calc(100%_-_32px)] overflow-y-scroll'>
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{
@@ -166,7 +166,7 @@ const HamburgerButton = ({
 
 const FooterCTAs = () => {
   return (
-    <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4 md:flex-col'>
+    <div className='absolute top-4 left-1/2 transform -translate-x-1/2 flex gap-4 md:flex-col'>
       {SOCIAL_CTAS.map((l, idx) => (
         <motion.a
           key={idx}
