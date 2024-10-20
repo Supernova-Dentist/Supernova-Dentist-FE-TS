@@ -36,19 +36,15 @@ export default function SmileTransformations() {
         <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-12'>
           See the difference we can make
         </p>
-        {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'> */}
         <div className='flex justify-center'>
           {transformations.map((item) => (
-            <div
-              key={item.id}
-              className='flex justify-center p-4 border rounded-3xl bg-neutral-100 border-neutral-200 mt-auto'
-            >
+            <div key={item.id} className='flex justify-center p-4 border rounded-3xl bg-neutral-100 border-neutral-200'>
               <Compare
                 firstImage={item.before}
                 secondImage={item.after}
                 firstImageClassName='object-cover object-left-top'
                 secondImageClassname='object-cover object-left-top'
-                className='h-[30vh] lg:h-[50vh] w-[70vw] md:w-[50vw] lg:w-[40vw]'
+                className='h-64 w-64 md:h-80 md:w-80 lg:h-[500px] lg:w-[500px]'
                 slideMode='hover'
               />
             </div>
