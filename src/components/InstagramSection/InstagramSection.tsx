@@ -25,7 +25,11 @@ export default async function InstagramSection() {
           >
             Instagram
           </a>
-          <h4 className='text:xl md:textl-2xl lg:text-3xl text-lightGold mt-2 text-center'>Follow us @{username}</h4>
+          {/* Todo: update this when using official account */}
+          {/* <h4 className='text:xl md:textl-2xl lg:text-3xl text-lightGold mt-2 text-center'>Follow us @{username}</h4> */}
+          <h4 className='text-xl md:text-2xl lg:text-3xl text-lightGold mt-2 text-center'>
+            Follow us @supernova.dental
+          </h4>
           <p className='text-md text-gray-700 mt-2'>Check out our latest Instagram posts</p>
         </div>
         <div className='flex justify-center'>

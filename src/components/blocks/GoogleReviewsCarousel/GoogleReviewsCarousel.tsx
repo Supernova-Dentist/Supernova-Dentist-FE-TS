@@ -30,7 +30,7 @@ export default function GoogleReviewsCarousel() {
   };
 
   return (
-    <div className='max-w-[90%] overflow-hidden mx-auto md:px-24 px-12'>
+    <div className='max-w-[95%] overflow-hidden mx-auto md:px-24 px-12'>
       <Carousel
         opts={{ align: 'start', loop: true }}
         plugins={[Autoplay({ delay: 8000 })]}

@@ -29,7 +29,7 @@ export default function AboutSection() {
           alt='About Us'
           width={600}
           height={800}
-          className='object-cover rounded-lg p-4'
+          className='object-cover rounded-lg p-4 px-8'
         />
       </div>
     </section>
