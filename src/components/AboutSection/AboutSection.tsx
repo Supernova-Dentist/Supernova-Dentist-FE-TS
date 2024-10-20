@@ -12,16 +12,10 @@ export default function AboutSection() {
         <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl xl:text-left text-center'>
           About Supernova Dental
         </h2>
-        <p className='mt-4 text-center lg:text-left'>
+        <p className='mt-4 text-left'>
           At Supernova Dental, we are a passionate team dedicated to providing the highest standard of dental care in
           Bridgewater. Opening in November 2024, our state-of-the-art practice blends advanced technology with a
           personal touch to ensure a comfortable and exceptional experience for every patient.
-        </p>
-        <p className='mt-4 text-center lg:text-left'>
-          Our mission is to transform dental care with innovative solutions that address real-world needs, making oral
-          health care easier, more efficient, and more accessible. With years of experience and a commitment to
-          excellence, we strive to exceed your expectations with every visit, offering a range of services designed to
-          keep you smiling brightly.
         </p>
         <Button onClick={scrollToPromotionForm} className='mt-6 w-fit mx-auto'>
           Come see us!
