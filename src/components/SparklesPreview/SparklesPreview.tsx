@@ -6,10 +6,15 @@ export function SparklesPreview() {
   return (
     <div className='h-[16rem] md:h-[30rem] w-full flex flex-col items-center justify-center overflow-hidden rounded-md'>
       <div className='flex flex-col items-center py-4'>
-        <h1 className=' text-3xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-nowrap text-center text-white relative z-20'>
-          Supernova Dental
+        <h1 className='text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-nowrap text-center text-white relative z-20 mt-4'>
+          <span className='block md:inline'>Supernova</span>
+          <span className='block mt-2 md:mt-0 md:inline md:ml-4'>Dental</span>
+          <img
+            src='/favicon.ico'
+            alt='Supernova Dental Logo'
+            className='h-24 lg:h-36 w-auto block md:ml-2  md:inline mx-auto'
+          />
         </h1>
-        <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-14 md:h-24 lg:h-36 w-auto inline ' />
       </div>
 
       <div className='w-[16rem] md:w-[40rem] h-24 md:h-40 relative'>
