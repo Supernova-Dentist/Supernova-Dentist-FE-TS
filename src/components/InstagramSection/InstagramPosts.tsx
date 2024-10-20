@@ -20,7 +20,7 @@ export default function InstagramPosts({ posts }: { posts: InstagramPost[] }) {
             alt='Instagram Post'
             width={400}
             height={400}
-            className='w-full h-56 object-cover '
+            className='object-cover'
           />
           <div className='absolute inset-0 cursor-pointer bg-black bg-opacity-70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4'>
             {/* Display caption */}
