@@ -12,7 +12,7 @@ export function SparklesPreview() {
           <img
             src='/favicon.ico'
             alt='Supernova Dental Logo'
-            className='h-24 lg:h-36 w-auto block md:ml-2  md:inline mx-auto'
+            className='h-20 md:h-24 lg:h-36 w-auto block md:ml-2  md:inline mx-auto'
           />
         </h1>
       </div>
