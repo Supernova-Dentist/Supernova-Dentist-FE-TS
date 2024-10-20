@@ -22,7 +22,8 @@ export default function PrivacyPolicy() {
           <p>
             Welcome to <span className='text-gold font-semibold text-lg'>Supernova Dental</span>. We are committed to
             safeguarding your privacy and protecting your personal data. This privacy policy explains how we collect,
-            use, and protect your information when you use our website or services.
+            use, and protect your information when you use our website or services, including our online booking system
+            powered by Dentally.
           </p>
           <p>If you have any questions regarding this privacy policy, please contact us at [Contact Email].</p>
         </SectionSpacing>
@@ -33,8 +34,7 @@ export default function PrivacyPolicy() {
           <ul>
             <li>Name</li>
             <li>Contact details (email, phone number, address)</li>
-            <li>Medical and health information</li>
-            <li>Payment details</li>
+            <li>Payment details (handled by Dentally)</li>
             <li>IP address, browser details, cookies, etc.</li>
           </ul>
         </SectionSpacing>
@@ -44,7 +44,8 @@ export default function PrivacyPolicy() {
           <p>We collect personal data through the following methods:</p>
           <ul>
             <li>Contact forms for appointments or inquiries</li>
-            <li>Online payments</li>
+            <li>Online payments (handled by Dentally)</li>
+            <li>Online booking through Dentally</li>
             <li>Website cookies and tracking tools</li>
             <li>Newsletter sign-ups</li>
             <li>User account registration (if applicable)</li>
@@ -55,9 +56,8 @@ export default function PrivacyPolicy() {
           <SubHeader>Purpose of Data Collection</SubHeader>
           <p>We collect and use your data for the following purposes:</p>
           <ul>
-            <li>To schedule and manage appointments</li>
-            <li>To manage patient care and dental records</li>
-            <li>To process payments</li>
+            <li>To schedule and manage appointments through Dentally</li>
+            <li>To process payments (handled by Dentally)</li>
             <li>To provide customer support</li>
             <li>To send marketing communications (with your consent)</li>
             <li>To improve website functionality and performance</li>
@@ -79,9 +79,8 @@ export default function PrivacyPolicy() {
           <SubHeader>Data Sharing and Disclosure</SubHeader>
           <p>Your personal data is used for the following purposes:</p>
           <ul>
-            <li>Appointment scheduling and management</li>
-            <li>Medical information management</li>
-            <li>Billing and payment processing</li>
+            <li>Appointment scheduling and management through Dentally</li>
+            <li>Billing and payment processing (handled by Dentally)</li>
             <li>Marketing communications (if opted in)</li>
           </ul>
         </SectionSpacing>
@@ -90,8 +89,8 @@ export default function PrivacyPolicy() {
           <SubHeader>Data Sharing with Third Parties</SubHeader>
           <p>We may share your personal information with the following third parties to provide our services:</p>
           <ul>
-            <li>Payment processors (e.g., Stripe, PayPal)</li>
-            <li>Appointment scheduling platforms</li>
+            <li>Payment processors (e.g., Dentally)</li>
+            <li>Dentally for appointment scheduling</li>
             <li>Marketing services (e.g., Mailchimp)</li>
             <li>Web analytics providers (e.g., Google Analytics)</li>
           </ul>
@@ -102,8 +101,8 @@ export default function PrivacyPolicy() {
           <SubHeader>Data Retention</SubHeader>
           <p>
             We will retain your personal data for as long as necessary to fulfill the purposes for which it was
-            collected, or as required by law. This includes maintaining medical records and payment information for
-            legal or regulatory purposes.
+            collected, or as required by law. This includes maintaining payment information for legal or regulatory
+            purposes.
           </p>
         </SectionSpacing>
 
