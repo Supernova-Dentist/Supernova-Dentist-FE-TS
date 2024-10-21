@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si';
+import { cn } from '@/lib/utils';
 
 export const CornerNav = () => {
   const [active, setActive] = useState(false);
@@ -132,15 +133,14 @@ const HamburgerButton = ({
         initial={false}
         animate={active ? 'open' : 'closed'}
         variants={UNDERLAY_VARIANTS}
-        style={{ top: 0, right: 0 }}
-        className='fixed z-50 shadow-lg shadow-gray-800/20 '
+        className={cn('fixed z-50', active ? 'top-0 right-0' : 'top-2 right-2')}
       />
 
       <motion.button
         initial={false}
         animate={active ? 'open' : 'closed'}
         onClick={() => setActive((pv) => !pv)}
-        className={`group fixed right-4 top-2 z-[60] h-[50px] w-[50px] transition-all ${
+        className={` bg-grey group fixed right-2 top-2 z-[60] h-[50px] w-[50px] transition-all ${
           active ? 'rounded-bl-xl rounded-tr-xl' : 'rounded-xl'
         }`}
       >
@@ -245,12 +245,12 @@ const UNDERLAY_VARIANTS = {
     width: '100%',
     height: '100%',
     transition: { type: 'spring', mass: 3, stiffness: 400, damping: 50 },
-    background: 'linear-gradient(to bottom right, var(--grey), #132435)',
+    background: 'var(--grey)',
   },
   closed: {
     width: '50px',
     height: '50px',
-    background: 'linear-gradient(to bottom right, transparent, transparent)',
+    background: 'transparent',
     transition: {
       background: {
         delay: 0.5,
@@ -295,7 +295,7 @@ const HAMBURGER_VARIANTS = {
     closed: {
       rotate: ['45deg', '0deg', '0deg'],
       bottom: ['50%', '50%', '35%'],
-      left: 'calc(50% + 10px)',
+      left: 'calc(50% + 6px)',
     },
   },
 };
