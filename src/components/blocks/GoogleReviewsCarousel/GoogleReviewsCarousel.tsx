@@ -30,15 +30,17 @@ export default function GoogleReviewsCarousel() {
   };
 
   return (
-    <div className='max-w-[95%] overflow-hidden mx-auto md:px-24 px-12'>
+    <div className='max-w-[2000px] w-full overflow-hidden mx-auto md:px-24 px-12'>
       <Carousel
         opts={{ align: 'start', loop: true }}
         plugins={[Autoplay({ delay: 8000 })]}
         className='w-full cursor-grab'
       >
-        <CarouselContent>
+        <CarouselContent className='mx-auto'>
           {googleReviewMockData.map(({ id, name, review, rating, date, url, previewUrl }) => (
-            <CarouselItem key={id} className='w-full mt-4 lg:basis-1/3 2xl:basis-1/5'>
+            // Hacky flex basis fix atm. Couldnt figure out how to center without messing up the carousel.
+            // Will need to increase the basis when we get more reviews.
+            <CarouselItem key={id} className='w-full mt-4 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/4'>
               <Card className='shadow-none bg-transparent'>
                 <CardContent className='p-0 py-4'>
                   <GoogleReview
