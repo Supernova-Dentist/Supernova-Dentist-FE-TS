@@ -64,14 +64,14 @@ export default function PromotionForm() {
           <div className='space-y-4 text-center lg:text-left'>
             <div className='inline-block rounded-lg bg-grey px-3 py-1 text-sm text-gray-50'>Limited Time Offer</div>
             <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>Exclusive Promotions</h2>
-            <p className='max-w-[600px] text-left text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-lightGrey tracking-tight'>
+            <p className='max-w-[600px] text-center sm:text-left text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-lightGrey tracking-tight'>
               Take advantage of our limited-time offers, including savings on Invisalign treatments and dental wellness
               assessments. Don&apos;t miss out!
             </p>
           </div>
           <Card className='mx-auto w-full max-w-md bg-gray-50 shadow-xl border border-black/10 border-solid'>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <CardHeader>
+              <CardHeader className='text-center'>
                 <CardTitle>Sign Up for Exclusive Offers</CardTitle>
                 <CardDescription>
                   Fill out the form to sign up and receive our latest promotions and updates.
