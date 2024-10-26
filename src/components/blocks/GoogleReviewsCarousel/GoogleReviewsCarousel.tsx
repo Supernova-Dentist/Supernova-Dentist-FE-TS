@@ -7,13 +7,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { LinkPreview } from '@/components/ui/link-preview';
 import Autoplay from 'embla-carousel-autoplay';
-import { useState } from 'react';
 import { IoStar } from 'react-icons/io5';
-import ReviewLink from '../ReviewLink/ReviewLink';
+import { useEffect, useState } from 'react';
 
 export default function GoogleReviewsCarousel() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedReview, setSelectedReview] = useState<GoogleReviewProps | null>(null);
+  const [showArrows, setShowArrows] = useState(window.innerWidth < 1024);
 
   const toggleModal = (review: GoogleReviewProps | null = null) => {
     setIsModalOpen(!isModalOpen);
@@ -28,6 +28,17 @@ export default function GoogleReviewsCarousel() {
     e.preventDefault();
     window.open(url, '_blank');
   };
+
+  // Watch for resizing events
+  useEffect(() => {
+    const handleResize = () => {
+      setShowArrows(window.innerWidth < 1536); // Adjust for when there is 4 reviews on screen
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className='max-w-[2000px] w-full overflow-hidden mx-auto md:px-24 px-12'>
@@ -57,8 +68,12 @@ export default function GoogleReviewsCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        {showArrows && (
+          <>
+            <CarouselPrevious />
+            <CarouselNext />
+          </>
+        )}
       </Carousel>
       {/* <div className='flex justify-center p-4 mt-4'>
         <ReviewLink />
