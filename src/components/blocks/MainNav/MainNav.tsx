@@ -73,7 +73,7 @@ const MainNav = () => {
     <header
       className={`${
         !isMobile
-          ? `z-30 fixed top-0 left-0 w-full transition-transform duration-300 ${
+          ? `z-50 fixed top-0 left-0 w-full transition-transform duration-300 ${
               navbarVisible ? 'translate-y-0' : '-translate-y-full'
             }`
           : ''
