@@ -16,6 +16,7 @@ import SmileTransformations from '@/components/SmileTransformations/SmileTransfo
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
 import Location from './(about)/find-us/page';
 import AboutSection from '@/components/AboutSection/AboutSection';
+import { Journey } from '@/components/Journey/Journey';
 // const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
 //   ssr: false,
 // });
@@ -28,9 +29,10 @@ export default function Home() {
       <AboutSection />
       <SmileTransformations />
       <GoogleReviews />
+      <Journey />
       <Pricing />
       <VideoAnimationSection />
-      <InstagramSection />
+      {/* <InstagramSection /> */}
       <Location />
       <PromotionFAQ />
       <ComingSoonSection />
