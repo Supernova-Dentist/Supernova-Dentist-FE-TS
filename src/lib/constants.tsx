@@ -37,10 +37,11 @@ export const media = [
     name: 'Gallery',
     link: '/gallery',
   },
-  {
-    name: 'Social',
-    link: '/social',
-  },
+  //  TODO: Uncomment when there is an instagram post
+  // {
+  //   name: 'Social',
+  //   link: '/social',
+  // },
 ];
 
 export const navLinks = [
@@ -54,8 +55,10 @@ export const navLinks = [
   // { name: 'Media', url: '/media', flyout: media },
   { name: 'Results', url: '#results', flyout: [] },
   { name: 'Reviews', url: '#reviews', flyout: [] },
+  { name: 'Journey', url: '#journey', flyout: [] },
   { name: 'Offers', url: '#offers', flyout: [] },
-  { name: 'Social', url: '#social', flyout: [] },
+  //  TODO: Uncomment when there is a insta post
+  // { name: 'Social', url: '#social', flyout: [] },
   { name: 'Find Us', url: '#location', flyout: [] },
   { name: 'FAQs', url: '#faq', flyout: [] },
 ];

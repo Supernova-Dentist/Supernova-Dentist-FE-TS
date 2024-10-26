@@ -60,7 +60,7 @@ export function Journey() {
     },
   ];
   return (
-    <div className='w-full'>
+    <div id='journey' className='w-full'>
       <Timeline data={data} />
     </div>
   );

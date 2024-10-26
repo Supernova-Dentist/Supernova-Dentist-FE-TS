@@ -204,13 +204,18 @@ const LINKS = [
     href: '#reviews',
   },
   {
+    title: 'Journey',
+    href: '#journey',
+  },
+  {
     title: 'Offers',
     href: '#offers',
   },
-  {
-    title: 'Social',
-    href: '#social',
-  },
+  //  TODO: Uncomment when there's an insta post
+  // {
+  //   title: 'Social',
+  //   href: '#social',
+  // },
   {
     title: 'Find us',
     href: '#location',
