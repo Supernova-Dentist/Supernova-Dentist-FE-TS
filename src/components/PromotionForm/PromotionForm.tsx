@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox'; // Assuming a checkbox component exists
+import { Checkbox } from '@/components/ui/checkbox';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -42,7 +42,7 @@ export default function PromotionForm() {
       }
 
       setShowSuccessModal(true);
-    } catch (error: unknown) {
+    } catch (error) {
       setShowErrorModal(true);
       if (error instanceof Error) {
         console.log({ message: error.message });
@@ -59,62 +59,74 @@ export default function PromotionForm() {
 
   return (
     <React.Fragment>
-      <section id='form' className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-cream'>
-        <div className='container grid items-center lg:justify-start justify-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12 mx-auto max-w-[1250px]'>
-          <div className='space-y-4 text-center lg:text-left'>
-            <div className='inline-block rounded-lg bg-grey px-3 py-1 text-sm text-gray-50'>Limited Time Offer</div>
-            <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>Exclusive Promotions</h2>
-            <p className='max-w-[600px] text-center sm:text-left text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-lightGrey tracking-tight'>
+      <section id='form' className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
+        <div className='container grid items-center lg:justify-start justify-center gap-8 px-4 md:px-8 lg:grid-cols-2 lg:gap-16 mx-auto max-w-[1250px]'>
+          <div className='space-y-6 text-center lg:text-left'>
+            <div className='inline-block rounded-lg bg-grey px-4 py-2 text-md text-gray-50'>Limited Time Offer</div>
+            <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>Exclusive Promotions</h2>
+            <p className='max-w-[700px] text-center sm:text-left text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
               Take advantage of our limited-time offers, including savings on Invisalign treatments and dental wellness
               assessments. Don&apos;t miss out!
             </p>
           </div>
-          <Card className='mx-auto w-full max-w-md bg-gray-50 shadow-xl border border-black/10 border-solid'>
+          <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <CardHeader className='text-center'>
-                <CardTitle>Sign Up for Exclusive Offers</CardTitle>
-                <CardDescription>
+              <CardHeader className='text-center mb-4'>
+                <CardTitle className='text-2xl'>Sign Up for Exclusive Offers</CardTitle>
+                <CardDescription className='text-lg'>
                   Fill out the form to sign up and receive our latest promotions and updates.
                 </CardDescription>
               </CardHeader>
-              <CardContent className='space-y-4'>
-                <div className='grid gap-2'>
-                  <Label htmlFor='fullname'>Full Name</Label>
-                  <Input id='fullname' placeholder='John Doe' {...register('fullname')} />
-                  {errors.fullname !== null && (
-                    <p className='text-red-500 leading-none text-xs'>{errors.fullname?.message}</p>
-                  )}
+              <CardContent className='space-y-6'>
+                <div className='grid gap-4'>
+                  <Label htmlFor='fullname' className='text-lg'>
+                    Full Name
+                  </Label>
+                  <Input id='fullname' placeholder='John Doe' className='py-3 text-lg' {...register('fullname')} />
+                  {errors.fullname && <p className='text-red-500 leading-none text-sm'>{errors.fullname?.message}</p>}
                 </div>
-                <div className='grid gap-2'>
-                  <Label htmlFor='email'>Email Address</Label>
-                  <Input id='email' type='email' placeholder='john@example.com' {...register('email')} />
-                  {errors.email !== null && (
-                    <p className='text-red-500 leading-none text-xs'>{errors.email?.message}</p>
-                  )}
+                <div className='grid gap-4'>
+                  <Label htmlFor='email' className='text-lg'>
+                    Email Address
+                  </Label>
+                  <Input
+                    id='email'
+                    type='email'
+                    placeholder='john@example.com'
+                    className='py-3 text-lg'
+                    {...register('email')}
+                  />
+                  {errors.email && <p className='text-red-500 leading-none text-sm'>{errors.email?.message}</p>}
                 </div>
-                <div className='grid gap-2'>
-                  <Label htmlFor='phone'>Contact Number</Label>
-                  <Input id='phone' type='tel' placeholder='(123) 456-7890' {...register('phone')} />
-                  {errors.phone !== null && (
-                    <p className='text-red-500 leading-none text-xs'>{errors.phone?.message}</p>
-                  )}
+                <div className='grid gap-4'>
+                  <Label htmlFor='phone' className='text-lg'>
+                    Contact Number
+                  </Label>
+                  <Input
+                    id='phone'
+                    type='tel'
+                    placeholder='(123) 456-7890'
+                    className='py-3 text-lg'
+                    {...register('phone')}
+                  />
+                  {errors.phone && <p className='text-red-500 leading-none text-sm'>{errors.phone?.message}</p>}
                 </div>
-                <div className='grid gap-2'>
+                <div className='grid gap-4'>
                   <div className='flex items-center'>
                     <Checkbox id='consent' {...register('consent')} />
-                    <Label htmlFor='consent' className='ml-2 text-muted-foreground'>
+                    <Label htmlFor='consent' className='ml-3 text-lg text-muted-foreground'>
                       I consent to receive marketing emails and acknowledge the{' '}
-                      <a href='/privacy-policy' className='text-blue-500'>
+                      <a href='/privacy-policy' className='text-blue-500 underline'>
                         Privacy Policy
                       </a>
                       .
                     </Label>
                   </div>
-                  {errors.consent && <p className='text-red-500 leading-none text-xs'>{errors.consent?.message}</p>}
+                  {errors.consent && <p className='text-red-500 leading-none text-sm'>{errors.consent?.message}</p>}
                 </div>
               </CardContent>
               <CardFooter>
-                <Button type='submit' className='w-full bg-gold hover:bg-lightGold'>
+                <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
                   {isSubmitting ? <BarLoader /> : 'Sign Up'}
                 </Button>
               </CardFooter>
@@ -126,13 +138,13 @@ export default function PromotionForm() {
       {/* Success Modal */}
       {showSuccessModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-2xl font-semibold mb-4'>Thank you, {values.fullname}, for signing up!</h2>
-            <p className='mb-4'>
+          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full'>
+            <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
+            <p className='mb-6'>
               You&apos;ve been successfully signed up for our promotions and updates. We&apos;ll send details to{' '}
               {values.email}.
             </p>
-            <Button onClick={handleSuccessModalClose} className='w-full text-lg py-2'>
+            <Button onClick={handleSuccessModalClose} className='w-full text-xl py-3'>
               Close
             </Button>
           </div>
@@ -142,10 +154,10 @@ export default function PromotionForm() {
       {/* Error Modal */}
       {showErrorModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-2xl font-semibold mb-4'>Submission Failed</h2>
-            <p className='mb-4'>There was a problem with your submission. Please try again later.</p>
-            <Button onClick={() => setShowErrorModal(false)} className='w-full text-lg py-2'>
+          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full'>
+            <h2 className='text-3xl font-semibold mb-6'>Submission Failed</h2>
+            <p className='mb-6'>There was a problem with your submission. Please try again later.</p>
+            <Button onClick={() => setShowErrorModal(false)} className='w-full text-xl py-3'>
               Close
             </Button>
           </div>
