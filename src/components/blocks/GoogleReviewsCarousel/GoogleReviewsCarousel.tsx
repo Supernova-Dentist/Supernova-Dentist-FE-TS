@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 export default function GoogleReviewsCarousel() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedReview, setSelectedReview] = useState<GoogleReviewProps | null>(null);
-  const [showArrows, setShowArrows] = useState(window.innerWidth < 1024);
+  const [showArrows, setShowArrows] = useState(false);
 
   const toggleModal = (review: GoogleReviewProps | null = null) => {
     setIsModalOpen(!isModalOpen);
