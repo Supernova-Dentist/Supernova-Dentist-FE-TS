@@ -14,6 +14,7 @@ import BarLoader from '../BarLoader/BarLoader';
 export default function PromotionForm() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -29,7 +30,7 @@ export default function PromotionForm() {
 
   async function onSubmit(data: PromotionFormData) {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
+      const res = await fetch(`http://localhost:3001/promotion`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,13 +38,20 @@ export default function PromotionForm() {
         body: JSON.stringify(data),
       });
 
+      console.log({ res });
+
       if (!res.ok) {
-        throw new Error('Something went wrong signing up for the promotion');
+        const errorData = await res.json();
+        const errorMessage =
+          String(errorData.message) || 'There was a problem with your submission. Please try again later.';
+        setError(String(errorMessage));
+        throw new Error(String(errorMessage));
       }
 
       setShowSuccessModal(true);
     } catch (error) {
       setShowErrorModal(true);
+
       if (error instanceof Error) {
         console.log({ message: error.message });
       } else {
@@ -112,18 +120,20 @@ export default function PromotionForm() {
                   {errors.phone && <p className='text-red-500 leading-none text-sm'>{errors.phone?.message}</p>}
                 </div>
                 <div className='grid gap-4'>
-                  <div className='flex items-center'>
-                    <Checkbox id='consent' {...register('consent')} />
-                    <Label htmlFor='consent' className='ml-3 text-lg text-muted-foreground'>
-                      I consent to receive marketing emails and acknowledge the{' '}
-                      <a href='/privacy-policy' className='text-blue-500 underline'>
-                        Privacy Policy
-                      </a>
-                      .
+                  <div className='flex items-center mt-2'>
+                    <Checkbox id='consent' {...register('consent', { setValueAs: (v) => Boolean(v) })} />
+                    <Label htmlFor='consent' className='ml-3 text-sm text-muted-foreground'>
+                      I don’t want to receive emails about Supernova and related Supernova updates and promotions. By
+                      not checking the box, I agree to be opted in by default.
                     </Label>
+                    .
                   </div>
                   {errors.consent && <p className='text-red-500 leading-none text-sm'>{errors.consent?.message}</p>}
                 </div>
+                <p>By signing up, you ackowledge and agree to our</p>
+                <a target='_blank' href='/privacy-policy' className='text-blue-500 underline'>
+                  Privacy Policy
+                </a>
               </CardContent>
               <CardFooter>
                 <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
@@ -156,7 +166,7 @@ export default function PromotionForm() {
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full'>
             <h2 className='text-3xl font-semibold mb-6'>Submission Failed</h2>
-            <p className='mb-6'>There was a problem with your submission. Please try again later.</p>
+            <p className='mb-6'>{error}</p>
             <Button onClick={() => setShowErrorModal(false)} className='w-full text-xl py-3'>
               Close
             </Button>
