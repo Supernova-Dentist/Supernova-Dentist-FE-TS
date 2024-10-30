@@ -25,7 +25,7 @@ export default function AboutSection() {
       {/* Image Section */}
       <div className='w-full lg:w-1/2 max-w-[40rem] bg-secondary flex justify-center'>
         <Image
-          src='/assets/images/about-image.jpg'
+          src='/assets/images/scott-supernova.png'
           alt='About Us'
           width={600}
           height={800}
