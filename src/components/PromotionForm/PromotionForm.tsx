@@ -2,9 +2,9 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -30,7 +30,7 @@ export default function PromotionForm() {
 
   async function onSubmit(data: PromotionFormData) {
     try {
-      const res = await fetch(`http://localhost:3001/promotion`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
