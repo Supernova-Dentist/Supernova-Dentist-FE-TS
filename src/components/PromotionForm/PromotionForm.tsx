@@ -21,16 +21,23 @@ export default function PromotionForm() {
     handleSubmit,
     reset,
     getValues,
+    setValue,
     formState: { isSubmitting, errors },
   } = useForm<PromotionFormData>({
     resolver: zodResolver(promotionSignupSchema),
+    defaultValues: {
+      fullname: '',
+      email: '',
+      phone: '',
+      optOutEmails: false,
+    },
   });
 
   const values = getValues();
 
   async function onSubmit(data: PromotionFormData) {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
+      const res = await fetch(`http://localhost:3001/promotion`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -121,14 +128,21 @@ export default function PromotionForm() {
                 </div>
                 <div className='grid gap-4'>
                   <div className='flex items-center mt-2'>
-                    <Checkbox id='consent' {...register('consent', { setValueAs: (v) => Boolean(v) })} />
-                    <Label htmlFor='consent' className='ml-3 text-sm text-muted-foreground'>
+                    <Checkbox
+                      id='optOutEmails'
+                      {...register('optOutEmails')}
+                      defaultChecked={false}
+                      onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
+                    />
+                    <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground'>
                       I don’t want to receive emails about Supernova and related Supernova updates and promotions. By
                       not checking the box, I agree to be opted in by default.
                     </Label>
                     .
                   </div>
-                  {errors.consent && <p className='text-red-500 leading-none text-sm'>{errors.consent?.message}</p>}
+                  {errors.optOutEmails && (
+                    <p className='text-red-500 leading-none text-sm'>{errors.optOutEmails?.message}</p>
+                  )}
                 </div>
                 <p>By signing up, you ackowledge and agree to our</p>
                 <a target='_blank' href='/privacy-policy' className='text-blue-500 underline'>
