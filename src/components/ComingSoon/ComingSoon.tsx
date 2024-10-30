@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { useState } from 'react';
 
 export default function ComingSoonSection() {
   const [email, setEmail] = useState('');
@@ -19,26 +20,18 @@ export default function ComingSoonSection() {
       <div className='px-4 md:px-6 w-full'>
         <div className='flex flex-col items-center space-y-6 text-center'>
           <div className='space-y-2'>
-            <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl '>Coming Soon</h2>
+            <h2 className='lg:text-5xl md:text-4xl font-bold tracking-tighter text-3xl mb-4 '>Coming Soon</h2>
             <p className='max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
               We&apos;re working on something special! Our full website is under construction, featuring comprehensive
               dental care information and online booking.
             </p>
           </div>
           <div className='w-full max-w-sm space-y-4'>
-            <form onSubmit={handleSubmit} className='flex space-x-2'>
-              <Input
-                className='max-w-lg flex-1 bg-white'
-                placeholder='Enter your email'
-                type='email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <Button type='submit'>Notify Me</Button>
-            </form>
+            <Button onClick={scrollToPromotionForm} className='mt-6 w-fit mx-auto'>
+              Come see us!
+            </Button>
             <p className='text-sm text-gray-500 '>
-              Stay updated on our progress and be the first to know when we launch!
+              Sign up to stay updated on our progress and be the first to know when we launch!
             </p>
           </div>
         </div>
