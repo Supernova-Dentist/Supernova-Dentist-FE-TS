@@ -34,8 +34,9 @@ export default function Location() {
                   Our Address
                 </h2>
                 <ul className='text-center sm:text-left'>
+                  <li className='mb-3'>The Supernova Building</li>
                   <li className='mb-3'>Marsh Lane, Huntworth,</li>
-                  <li className='mb-3'>Bridgwater, Alliance Building</li>
+                  <li className='mb-3'>Bridgwater</li>
                   <li className='mb-3'>TA6 6LQ</li>
                   <li className='mb-3 sm:max-w-80'>
                     <GetDirectionsForm />
@@ -49,12 +50,12 @@ export default function Location() {
                 </h2>
                 <div className='flex flex-col items-center sm:items-start'>
                   <p className='text-base sm:text-lg mb-2 text-center sm:text-left text-lightGrey'>
-                    Phone: (123) 456-7890
+                    Phone: 01278 228665
                   </p>
                   <p className='text-base sm:text-lg mb-2 text-center sm:text-left text-lightGrey'>
                     Email:{' '}
                     <a href='mailto:info@supernovadentalclinic.com' className='underline'>
-                      info@supernovadentalclinic.com
+                      enquiries@supernovadental.co.uk
                     </a>
                   </p>
                 </div>
