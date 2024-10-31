@@ -3,7 +3,7 @@ import { IoStar } from 'react-icons/io5';
 
 export default function OverallGoogleRating() {
   return (
-    <div className='flex flex-col items-center gap-2 mx-8 lg:mt-12'>
+    <div className='flex flex-col items-center gap-2'>
       <span className='font-semibold text-2xl'>Excellent</span>
       <span className='flex gap-1'>
         {Array(5)
