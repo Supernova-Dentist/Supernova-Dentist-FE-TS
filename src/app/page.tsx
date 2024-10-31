@@ -29,8 +29,8 @@ export default function Home() {
       <AboutSection />
       <SmileTransformations />
       <GoogleReviews />
-      <Journey />
       <Pricing />
+      <Journey />
       <VideoAnimationSection />
       {/* <InstagramSection /> */}
       <Location />
