@@ -1,30 +1,47 @@
-import GoogleReviews from '../blocks/GoogleReviews/GoogleReviews';
-import { Compare } from '../ui/compare';
+import Image from 'next/image';
+import React from 'react';
+// import { m } from 'framer-motion';
+// import GoogleReviews from '../blocks/GoogleReviews/GoogleReviews';
+// import { Compare } from '../ui/compare';
 
 export default function SmileTransformations() {
+  // const transformations = [
+  //   {
+  //     id: 1,
+  //     before: '/assets/images/teeth-before.jpg',
+  //     after: '/assets/images/teeth-after.png',
+  //     description: 'Teeth Whitening',
+  //   },
+  //   // {
+  //   //   id: 2,
+  //   //   before: '/assets/images/teeth-before.jpg',
+  //   //   after: '/assets/images/teeth-after.png',
+  //   //   description: 'Invisalign Treatment',
+  //   // },
+  //   // {
+  //   //   id: 3,
+  //   //   before: '/assets/images/teeth-before.jpg',
+  //   //   after: '/assets/images/teeth-after.png',
+  //   //   description: 'Dental Veneers',
+  //   // },
+  // ];
+
+  // NOTE: I think the before and after images are reversed
   const transformations = [
     {
       id: 1,
-      before: '/assets/images/teeth-before.jpg',
-      after: '/assets/images/teeth-after.png',
-      description: 'Teeth Whitening',
+      src: '/assets/images/teeth-before.jpg',
+      alt: 'Teeth whitening before',
     },
-    // {
-    //   id: 2,
-    //   before: '/assets/images/teeth-before.jpg',
-    //   after: '/assets/images/teeth-after.png',
-    //   description: 'Invisalign Treatment',
-    // },
-    // {
-    //   id: 3,
-    //   before: '/assets/images/teeth-before.jpg',
-    //   after: '/assets/images/teeth-after.png',
-    //   description: 'Dental Veneers',
-    // },
+    {
+      id: 2,
+      src: '/assets/images/teeth-after.png',
+      alt: 'Teeth whitening after',
+    },
   ];
 
   return (
-    <section id='results' className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-cream to-white'>
+    <section id='results' className='w-full py-20 md:py-24 lg:py-32 bg-gradient-to-b from-cream to-white'>
       <div className='container mx-auto'>
         <div className='flex justify-center mb-4 '>
           <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Our Results</div>
@@ -36,8 +53,20 @@ export default function SmileTransformations() {
         <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-12'>
           See the difference we can make
         </p>
-        <div className='flex justify-center'>
+        <div className='flex flex-col-reverse md:flex-row-reverse justify-center gap-8 items-center px-4'>
           {transformations.map((item) => (
+            <React.Fragment key={item.id}>
+              <Image
+                className='object-cover h-[400px] w-[400px] rounded-md'
+                width={400}
+                height={400}
+                src={item.src}
+                alt={item.alt}
+              />
+            </React.Fragment>
+          ))}
+
+          {/* {transformations.map((item) => (
             <div key={item.id} className='flex justify-center p-4 border rounded-3xl bg-neutral-100 border-neutral-200'>
               <Compare
                 firstImage={item.before}
@@ -48,7 +77,7 @@ export default function SmileTransformations() {
                 slideMode='hover'
               />
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </section>
