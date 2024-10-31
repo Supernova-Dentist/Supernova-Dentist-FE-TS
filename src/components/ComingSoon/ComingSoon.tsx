@@ -19,7 +19,7 @@ export default function ComingSoonSection() {
     <section className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-cream text-gray-900'>
       <div className='px-4 md:px-6 w-full'>
         <div className='flex flex-col items-center space-y-6 text-center'>
-          <div className='space-y-2'>
+          <div className=''>
             <h2 className='lg:text-5xl md:text-4xl font-bold tracking-tighter text-3xl mb-4 '>Coming Soon</h2>
             <p className='max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
               We&apos;re working on something special! Our full website is under construction, featuring comprehensive
@@ -35,18 +35,18 @@ export default function ComingSoonSection() {
             </p>
           </div>
         </div>
-        <div className='mt-12 flex justify-center space-x-8 text-gray-700'>
-          <div className='flex flex-col items-center space-y-2'>
+        <div className='mt-12 flex justify-evenly text-gray-700 md:justify-center gap-8'>
+          <div className='flex flex-col items-center max-w-[32%] w-full md:w-auto gap-2'>
             <ToothIcon className='h-12 w-12 text-gold' />
-            <p className='text-sm font-medium'>Advanced Treatments</p>
+            <p className='text-sm font-medium text-center'>Advanced Treatments</p>
           </div>
-          <div className='flex flex-col items-center space-y-2'>
+          <div className='flex flex-col items-center max-w-[32%] w-full md:w-auto gap-2'>
             <CalendarIcon className='h-12 w-12 text-gold' />
-            <p className='text-sm font-medium'>Online Booking</p>
+            <p className='text-sm font-medium text-center'>Online Booking</p>
           </div>
-          <div className='flex flex-col items-center space-y-2'>
+          <div className='flex flex-col items-center max-w-[32%] w-full md:w-auto gap-2'>
             <UserIcon className='h-12 w-12 text-gold' />
-            <p className='text-sm font-medium'>Patient Portal</p>
+            <p className='text-sm font-medium text-center'>Patient Portal</p>
           </div>
         </div>
       </div>
