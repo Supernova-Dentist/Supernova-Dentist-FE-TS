@@ -88,45 +88,51 @@ export default function PromotionForm() {
             <form onSubmit={handleSubmit(onSubmit)}>
               <CardHeader className='text-center mb-4'>
                 <CardTitle className='text-2xl'>Sign Up for Exclusive Offers</CardTitle>
-                <CardDescription className='text-lg'>
+                <CardDescription className='text-lg text-gray-500'>
                   Fill out the form to sign up and receive our latest promotions and updates.
                 </CardDescription>
               </CardHeader>
-              <CardContent className='space-y-6'>
-                <div className='grid gap-4'>
-                  <Label htmlFor='fullname' className='text-lg'>
+              <CardContent className=''>
+                <div className='grid gap-1'>
+                  <Label htmlFor='fullname' className='text-md text-gray-800'>
                     Full Name
                   </Label>
-                  <Input id='fullname' placeholder='John Doe' className='py-3 text-lg' {...register('fullname')} />
-                  {errors.fullname && <p className='text-red-500 leading-none text-sm'>{errors.fullname?.message}</p>}
+                  <Input id='fullname' placeholder='John Doe' className='py-1 text-lg px-3' {...register('fullname')} />
+                  <div className='h-5'>
+                    {errors.fullname && <p className='text-red-500 leading-none text-sm'>{errors.fullname?.message}</p>}
+                  </div>
                 </div>
-                <div className='grid gap-4'>
-                  <Label htmlFor='email' className='text-lg'>
+                <div className='grid gap-1'>
+                  <Label htmlFor='email' className='text-md text-gray-800'>
                     Email Address
                   </Label>
                   <Input
                     id='email'
                     type='email'
                     placeholder='john@example.com'
-                    className='py-3 text-lg'
+                    className='py-1 text-lg px-3'
                     {...register('email')}
                   />
-                  {errors.email && <p className='text-red-500 leading-none text-sm'>{errors.email?.message}</p>}
+                  <div className='h-5'>
+                    {errors.email && <p className='text-red-500 leading-none text-sm'>{errors.email?.message}</p>}
+                  </div>
                 </div>
-                <div className='grid gap-4'>
-                  <Label htmlFor='phone' className='text-lg'>
+                <div className='grid gap-1'>
+                  <Label htmlFor='phone' className='text-md text-gray-800'>
                     Contact Number
                   </Label>
                   <Input
                     id='phone'
                     type='tel'
                     placeholder='(123) 456-7890'
-                    className='py-3 text-lg'
+                    className='py-1 text-lg px-3'
                     {...register('phone')}
                   />
-                  {errors.phone && <p className='text-red-500 leading-none text-sm'>{errors.phone?.message}</p>}
+                  <div className='h-5'>
+                    {errors.phone && <p className='text-red-500 leading-none text-sm'>{errors.phone?.message}</p>}
+                  </div>
                 </div>
-                <div className='grid gap-4'>
+                <div className='grid gap-1 mb-4'>
                   <div className='flex items-center mt-2'>
                     <Checkbox
                       id='optOutEmails'
@@ -134,11 +140,10 @@ export default function PromotionForm() {
                       defaultChecked={false}
                       onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                     />
-                    <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground'>
+                    <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
                       I don’t want to receive emails about Supernova and related Supernova updates and promotions. By
                       not checking the box, I agree to be opted in by default.
                     </Label>
-                    .
                   </div>
                   {errors.optOutEmails && (
                     <p className='text-red-500 leading-none text-sm'>{errors.optOutEmails?.message}</p>

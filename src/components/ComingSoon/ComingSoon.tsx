@@ -31,7 +31,7 @@ export default function ComingSoonSection() {
               Come see us!
             </Button>
             <p className='text-sm text-gray-500 '>
-              Sign up to stay updated on our progress and be the first to know when we launch!
+              Stay updated on our progress and be the first to know when we launch!
             </p>
           </div>
         </div>
