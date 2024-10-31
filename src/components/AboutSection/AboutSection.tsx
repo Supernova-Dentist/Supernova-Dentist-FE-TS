@@ -1,15 +1,17 @@
 'use client';
 
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
-import Image from 'next/image';
+import OverallGoogleRating from '../blocks/OverallGoogleRating/OverallGoogleRating';
 
 export default function AboutSection() {
   return (
     <section className='flex flex-col lg:flex-row-reverse bg-cream items-center justify-center lg:py-16'>
       {/* Text Section */}
       <div className='w-full lg:w-1/2 p-4 max-w-prose md:p-12 flex flex-col'>
-        <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl xl:text-left text-center'>
+        <OverallGoogleRating />
+        <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl xl:text-left text-center mt-8'>
           About Supernova Dental
         </h2>
         <p className='mt-4 text-center xl:text-left'>
