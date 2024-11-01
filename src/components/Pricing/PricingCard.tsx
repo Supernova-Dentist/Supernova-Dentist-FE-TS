@@ -4,11 +4,10 @@ import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 import Button from '../Button/Button';
-import PricingSquiggle from './PricingSquiggle';
 
 type PricingCardProps = {
   plan: string;
-  price: number;
+  price: { number: number; text?: string };
   offerPrice: number;
   features: string[];
   monthly: boolean;
@@ -24,7 +23,7 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
       className={cn(
         'p-10 rounded-lg shadow-xl border border-solid border-black/10 relative overflow-hidden w-full sm:w-[400px] flex flex-col',
         isMiddle ? 'bg-gray-900' : 'bg-gray-50',
-        'min-h-[400px]' // Ensure a minimum height for consistency
+        'min-h-[523px]' // Ensure a minimum height for consistency
       )}
     >
       {/* Uncomment if needed */}
@@ -38,12 +37,13 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
         <div className={cn('rounded-sm px-4 py-1 w-fit mb-4', isMiddle ? 'bg-gray-700 text-gray-50' : 'bg-gray-200')}>
           <span>{plan}</span>
         </div>
+        <span className='text-lightGold'>{price?.text}</span>
         <span className={cn('text-5xl mb-1 font-semibold', isMiddle ? 'text-gray-50' : null)}>
           £
           <CountUp
             className=''
-            start={price}
-            end={monthly ? price : offerPrice}
+            start={price.number}
+            end={monthly ? price.number : offerPrice}
             duration={0.4}
             useEasing={false}
             preserveValue
