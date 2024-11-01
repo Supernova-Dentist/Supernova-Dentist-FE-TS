@@ -39,7 +39,7 @@ const LinksOverlay = ({ setActive }: any) => {
 
 const LinksContainer = ({ setActive }: any) => {
   return (
-    <motion.div className='space-y-6 py-8 px-12 pl-4 md:pl-20'>
+    <motion.div className='space-y-6 pt-2 pb-14 px-12 pl-4 md:pl-20'>
       {LINKS.map((l, idx) => (
         <NavLink key={l.title} href={l.href} idx={idx} setActive={setActive}>
           {l.title}
