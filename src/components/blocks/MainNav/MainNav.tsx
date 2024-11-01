@@ -5,7 +5,7 @@ import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import React, { useEffect, useRef, useState } from 'react';
 
 // Custom hook to get window size
-const useWindowSize = () => {
+export const useWindowSize = () => {
   const [size, setSize] = useState({
     width: 0,
     height: 0,
