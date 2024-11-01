@@ -1,4 +1,5 @@
 'use client';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -77,9 +78,9 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
             Your Smile Transformation Journey
           </h2>
           <hr className='border-t-2 border-gold w-20 mx-auto mt-6 mb-8' />
-          <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800'>
-            Improving your smile can be as easy as A B C. Here&apos;s how we can help you achieve the smile you&apos;ve
-            always wanted.
+          <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 max-w-[35rem] mx-auto'>
+            Improving your smile can be as easy as A B C. Here&apos;s how we can help you achieve the Supernova smile
+            you&apos;ve always wanted🌠:
           </p>
         </div>
 
@@ -119,6 +120,14 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
           </div>
         </div>
       </motion.div>
+      <div className='flex justify-center mb-6'>
+        <button
+          onClick={scrollToPromotionForm}
+          className='bg-lightGold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
+        >
+          Begin Your Journey!
+        </button>
+      </div>
     </div>
   );
 };

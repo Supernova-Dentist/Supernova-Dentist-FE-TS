@@ -1,5 +1,6 @@
 'use client';
 
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
@@ -69,7 +70,7 @@ export default function SmileTransformations() {
           transition={{ duration: 0.5 }} // Animation duration
           className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-12'
         >
-          See the difference we can make
+          See the difference we can make ✨
         </motion.p>
         <div className='flex flex-col-reverse md:flex-row-reverse justify-center gap-8 items-center px-4'>
           {transformations.map((item) => (
@@ -84,6 +85,14 @@ export default function SmileTransformations() {
               />
             </div>
           ))}
+        </div>
+        <div className='flex justify-center mt-8'>
+          <button
+            onClick={scrollToPromotionForm}
+            className='bg-lightGold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
+          >
+            Transform now!
+          </button>
         </div>
       </div>
     </section>
