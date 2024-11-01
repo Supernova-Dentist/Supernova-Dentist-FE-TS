@@ -11,7 +11,7 @@ export default function Pricing() {
   const [monthly, setMonthly] = useState(true);
 
   const { ref, inView } = useInView({
-    threshold: 0.2, // Trigger when 10% of the component is in view
+    threshold: 0.05, // Trigger when 10% of the component is in view
     triggerOnce: true, // Only play the animation once
   });
 
