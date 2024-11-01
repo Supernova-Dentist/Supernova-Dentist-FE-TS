@@ -35,7 +35,7 @@ export default function SmileTransformations() {
     },
     {
       id: 2,
-      src: '/assets/images/teeth-after.png',
+      src: '/assets/images/after_teeth.png',
       alt: 'Teeth whitening after',
     },
   ];

@@ -1,9 +1,9 @@
+import { Timeline } from '@/components/ui/timeline';
 import Image from 'next/image';
 import React from 'react';
-import { Timeline } from '@/components/ui/timeline';
-import InvisalignImage from '../../../public/assets/images/aligners.jpg';
-import WhiteTeeth from '../../../public/assets/images/whiteteeth.jpg';
-import Veneers from '../../../public/assets/images/veneers.jpg';
+import InvisalignImage from '../../../public/assets/images/invisalign_aligners.png';
+import WhiteTeeth from '../../../public/assets/images/teeth-whitening.jpeg';
+import Veneers from '../../../public/assets/images/veneers.jpeg';
 
 export function Journey() {
   const data = [
@@ -19,7 +19,8 @@ export function Journey() {
             alt='Invisalign'
             width={100}
             height={800}
-            className='mx-auto rounded-lg object-cover h-96 md:h-60 lg:h-96 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]'
+            layout='responsive'
+            className=' max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -38,7 +39,8 @@ export function Journey() {
             alt='White teeth'
             width={100}
             height={800}
-            className='mx-auto rounded-lg object-contain h-96 md:h-60 lg:h-96 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]'
+            layout='responsive'
+            className=' max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -56,7 +58,8 @@ export function Journey() {
             alt='Veneers'
             width={100}
             height={800}
-            className='mx-auto rounded-lg object-cover h-96 md:h-60 lg:h-96 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]'
+            layout='responsive'
+            className=' max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
