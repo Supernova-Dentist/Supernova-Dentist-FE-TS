@@ -52,13 +52,13 @@ export const Timeline = ({
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <motion.div
-      ref={refInView}
-      initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-      animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
-      transition={{ duration: 0.5 }} // Animation duration
-    >
-      <div className='w-full bg-gradient-to-b from-cream to-white font-sans md:px-10' ref={containerRef}>
+    <div className='w-full bg-gradient-to-b from-cream to-white font-sans md:px-10' ref={containerRef}>
+      <motion.div
+        ref={refInView}
+        initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
+        animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+        transition={{ duration: 0.5 }} // Animation duration
+      >
         <div className='max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10'>
           <div className='flex justify-center mb-4'>
             <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Your Journey</div>
@@ -108,7 +108,7 @@ export const Timeline = ({
             />
           </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
