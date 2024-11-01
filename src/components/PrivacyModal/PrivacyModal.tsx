@@ -49,7 +49,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-8 text-center sm:text-left'
+          className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4'
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -75,7 +75,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
             </div>
 
             {/* Scrollable Content */}
-            <div className='overflow-y-auto p-8 max-h-[70vh]'>
+            <div className='overflow-y-auto p-8 max-h-privacy-policy-content'>
               <SectionSpacing>
                 <SubHeader>Introduction</SubHeader>
                 <p>

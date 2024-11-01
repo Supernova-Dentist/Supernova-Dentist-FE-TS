@@ -43,6 +43,9 @@ const config = {
       minHeight: {
         'screen-minus-nav': 'calc(100vh - 84px)',
       },
+      maxHeight: {
+        'privacy-policy-content': 'calc(100% - 124px)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate'), addVariablesForColors],
