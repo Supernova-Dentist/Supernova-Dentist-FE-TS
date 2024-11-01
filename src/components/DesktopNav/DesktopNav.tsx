@@ -19,7 +19,7 @@ export default function DesktopNav() {
       ref={ref}
       initial={{ opacity: 0, y: -20 }} // Initial state for the animation
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-      transition={{ duration: 0.5 }} // Duration of the animation
+      transition={{ duration: 1.5 }} // Duration of the animation
     >
       <nav className='bg-grey p-6'>
         <ul className='flex gap-8 items-center justify-between'>
