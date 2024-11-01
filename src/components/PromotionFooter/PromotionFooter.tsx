@@ -16,12 +16,15 @@ export default function PromotionFooter() {
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
       transition={{ duration: 0.5 }} // Duration of the animation
     >
-      <footer className='w-full px-10 py-6 bg-grey text-cream text-sm'>
+      <footer className='w-full p-6 sm:px-10 bg-grey text-cream text-sm'>
         <div className='flex justify-between flex-col lg:flex-row items-center gap-1'>
-          <span>This practice is fully private with no NHS services available.</span>
-          <div className='flex items-center gap-2'>
+          <span className='text-center lg:text-left'>
+            This practice is fully private with no NHS services available.
+          </span>
+          <div className='flex items-center gap-2 flex-col-reverse sm:flex-row'>
             <span>&copy; Supernova Dental 2024</span>
-            <span>| Website last updated: November 2024</span>
+            <span className='hidden sm:block'>|</span>
+            <span>Website last updated: November 2024</span>
           </div>
         </div>
       </footer>
