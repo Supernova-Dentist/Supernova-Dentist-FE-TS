@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import useDisableBodyScroll from '@/hooks/useDisableBodyScroll';
 import SectionSpacing from '@/components/SectionSpacing/SectionSpacing';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import SubHeader from '@/components/SubHeader/SubHeader';
@@ -13,6 +14,7 @@ type PrivacyPolicyModalProps = {
 
 export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
+  useDisableBodyScroll(isOpen);
 
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
@@ -37,7 +39,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
   if (!isOpen) return null;
 
   return createPortal(
-    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-8'>
+    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-8 text-center sm:text-left'>
       <div className='relative w-full max-w-3xl h-[80vh] bg-white rounded-lg shadow-lg overflow-hidden' ref={modalRef}>
         {/* Close Button */}
         <button
