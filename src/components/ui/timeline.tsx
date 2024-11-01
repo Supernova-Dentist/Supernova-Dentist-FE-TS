@@ -11,13 +11,30 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(0); // Track number of loaded images
 
-  useLayoutEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
-  }, [ref, data]);
+  // This function is called when an image loads
+  const handleImageLoad = () => {
+    setImagesLoaded((prev) => prev + 1);
+  };
+
+  // Use effect to update height after all images have loaded
+  // Use effect to update height after all images have loaded and on window resize
+  useEffect(() => {
+    const updateHeight = () => {
+      if (imagesLoaded === data.length && ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setHeight(rect.height);
+      }
+    };
+
+    updateHeight(); // Initial height update
+
+    window.addEventListener('resize', updateHeight); // Add resize listener
+    return () => {
+      window.removeEventListener('resize', updateHeight); // Clean up listener on unmount
+    };
+  }, [imagesLoaded, data.length]); // Dependencies: images loaded and data length
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -37,7 +54,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className='w-full bg-white dark:bg-neutral-950 font-sans md:px-10' ref={containerRef}>
         <div className='max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10'>
-          <div className='flex justify-center mb-4 '>
+          <div className='flex justify-center mb-4'>
             <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Your Journey</div>
           </div>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-2 text-gold'>
@@ -66,7 +83,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 <h3 className='md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500'>
                   {item.title}
                 </h3>
-                {item.content}{' '}
+                {React.cloneElement(item.content as React.ReactElement, { onLoad: handleImageLoad })}
               </div>
             </div>
           ))}
@@ -74,14 +91,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             style={{
               height: height + 'px',
             }}
-            className='absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] '
+            className='absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] '
           >
             <motion.div
               style={{
                 height: heightTransform,
                 opacity: opacityTransform,
               }}
-              className='absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full'
+              className='absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full'
             />
           </div>
         </div>
