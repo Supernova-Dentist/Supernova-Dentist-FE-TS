@@ -44,7 +44,7 @@ export const Timeline = ({
   });
 
   const { ref: refInView, inView } = useInView({
-    threshold: 0.1, // Trigger when 10% of the component is in view
+    threshold: 0.05, // Trigger when 10% of the component is in view
     triggerOnce: true, // Only play the animation once
   });
 
