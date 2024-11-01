@@ -17,6 +17,7 @@ import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoA
 import Location from './(about)/find-us/page';
 import AboutSection from '@/components/AboutSection/AboutSection';
 import { Journey } from '@/components/Journey/Journey';
+import FloatingMenu from '@/components/FloatingMenu/FloatingMenu';
 // const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
 //   ssr: false,
 // });
@@ -36,6 +37,8 @@ export default function Home() {
       <Location />
       <PromotionFAQ />
       <ComingSoonSection />
+      <FloatingMenu />
+
       {/* <Reviews /> */}
       {/* <Services />
       <Steps />
