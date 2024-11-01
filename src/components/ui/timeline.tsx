@@ -19,12 +19,22 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   };
 
   // Use effect to update height after all images have loaded
+  // Use effect to update height after all images have loaded and on window resize
   useEffect(() => {
-    if (imagesLoaded === data.length && ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
-  }, [imagesLoaded, data.length]);
+    const updateHeight = () => {
+      if (imagesLoaded === data.length && ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setHeight(rect.height);
+      }
+    };
+
+    updateHeight(); // Initial height update
+
+    window.addEventListener('resize', updateHeight); // Add resize listener
+    return () => {
+      window.removeEventListener('resize', updateHeight); // Clean up listener on unmount
+    };
+  }, [imagesLoaded, data.length]); // Dependencies: images loaded and data length
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
