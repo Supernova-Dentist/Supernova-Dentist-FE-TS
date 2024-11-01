@@ -197,6 +197,10 @@ const LINKS = [
     href: '#welcome',
   },
   {
+    title: 'Offers',
+    href: '#offers',
+  },
+  {
     title: 'Results',
     href: '#results',
   },
@@ -207,10 +211,6 @@ const LINKS = [
   {
     title: 'Journey',
     href: '#journey',
-  },
-  {
-    title: 'Offers',
-    href: '#offers',
   },
   //  TODO: Uncomment when there's an insta post
   // {

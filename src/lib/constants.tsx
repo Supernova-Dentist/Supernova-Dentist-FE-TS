@@ -53,10 +53,10 @@ export const navLinks = [
   // { name: 'General Dentistry', url: '/general-dentistry', flyout: generalServices },
   // { name: 'About us', url: '/about', flyout: practiceInfo },
   // { name: 'Media', url: '/media', flyout: media },
+  { name: 'Offers', url: '#offers', flyout: [] },
   { name: 'Results', url: '#results', flyout: [] },
   { name: 'Reviews', url: '#reviews', flyout: [] },
   { name: 'Journey', url: '#journey', flyout: [] },
-  { name: 'Offers', url: '#offers', flyout: [] },
   //  TODO: Uncomment when there is a insta post
   // { name: 'Social', url: '#social', flyout: [] },
   { name: 'Find Us', url: '#location', flyout: [] },
