@@ -157,7 +157,13 @@ export default function PromotionForm() {
                   )}
                 </div>
                 <p>By signing up, you ackowledge and agree to our</p>
-                <Button onClick={() => setShowPrivacyModal(true)}>Privacy Policy</Button>
+                <Button
+                  variant='link'
+                  className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition'
+                  onClick={() => setShowPrivacyModal(true)}
+                >
+                  Privacy Policy
+                </Button>
               </CardContent>
               <CardFooter>
                 <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
