@@ -51,7 +51,11 @@ export default function GoogleReviewsCarousel() {
           {googleReviewMockData.map(({ id, name, review, rating, date, url, previewUrl }) => (
             // Hacky flex basis fix atm. Couldnt figure out how to center without messing up the carousel.
             // Will need to increase the basis when we get more reviews.
-            <CarouselItem key={id} className='w-full mt-4 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/4'>
+            <CarouselItem
+              key={id}
+              className='w-full mt-4 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/4'
+              onClick={() => onClickReview && onClickReview({ name, date, review, rating, url, previewUrl })}
+            >
               <Card className='shadow-none bg-transparent'>
                 <CardContent className='p-0 py-4'>
                   <GoogleReview
