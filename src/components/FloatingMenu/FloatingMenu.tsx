@@ -3,39 +3,43 @@
 import { MdAdd, MdEmail } from 'react-icons/md';
 import { FaFacebookMessenger, FaInstagramSquare } from 'react-icons/fa';
 import { Fab, Action } from 'react-tiny-fab';
+import { useWindowSize } from '../blocks/MainNav/MainNav';
 import 'react-tiny-fab/dist/styles.css';
 
 export default function FloatingMenu() {
+  const { width } = useWindowSize();
+
+  const isMobile = width < 768;
+  const event = isMobile ? 'click' : 'hover';
+
   function handleEmailClick() {
-    window.open('mailto:info@supernovadentalclinic.com');
+    window.open('mailto:info@supernovadentalclinic.com', '_blank');
   }
 
   function handleMessengerClick() {
-    window.open('https://m.me/61567279201971');
+    window.open('https://m.me/61567279201971', '_blank');
   }
 
   function handleInstagramClick() {
-    window.open('https://ig.me/m/supernova.dental');
+    window.open('https://ig.me/m/supernova.dental', '_blank');
   }
 
   return (
     <Fab
-      // mainButtonStyles={mainButtonStyles}
-      // actionButtonStyles={actionButtonStyles}
-      // style={style}
-      icon={<MdAdd />}
-      event='hover'
+      mainButtonStyles={{ backgroundColor: '#0f172a' }}
+      style={{ bottom: 0, right: 0 }}
+      icon={<MdAdd size={26} />}
+      event={event}
       alwaysShowTitle={true}
-      onClick={() => console.log('Main button clicked')}
     >
-      <Action text='Email' onClick={handleEmailClick}>
-        <MdEmail />
+      <Action style={{ backgroundColor: '#0f172a' }} text='Email' onClick={handleEmailClick}>
+        <MdEmail size={25} />
       </Action>
-      <Action text='Messenger' onClick={handleMessengerClick}>
-        <FaFacebookMessenger />
+      <Action style={{ backgroundColor: '#0f172a' }} text='Messenger' onClick={handleMessengerClick}>
+        <FaFacebookMessenger size={25} />
       </Action>
-      <Action text='Instagram' onClick={handleInstagramClick}>
-        <FaInstagramSquare />
+      <Action style={{ backgroundColor: '#0f172a' }} text='Instagram' onClick={handleInstagramClick}>
+        <FaInstagramSquare size={25} />
       </Action>
     </Fab>
   );
