@@ -15,8 +15,6 @@ export default function Pricing() {
     triggerOnce: true, // Only play the animation once
   });
 
-  
-
   return (
     <section
       id='offers'
