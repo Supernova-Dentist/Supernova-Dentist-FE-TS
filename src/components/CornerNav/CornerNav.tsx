@@ -184,7 +184,7 @@ const FooterCTAs = () => {
           }}
           exit={{ opacity: 0, y: -8 }}
         >
-          <l.Component className='text-xl text-white transition-colors' />
+          <l.Component className='text-3xl text-white transition-colors' />
         </motion.a>
       ))}
     </div>
