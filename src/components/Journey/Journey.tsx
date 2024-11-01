@@ -79,7 +79,7 @@ export function Journey() {
 
   return (
     <div id='journey' className='w-full'>
-      <Timeline data={data} imagesLoaded={imagesLoaded} totalImages={data.length} />
+      <Timeline data={data} setImagesLoaded={setImagesLoaded} />
     </div>
   );
 }

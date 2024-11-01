@@ -8,35 +8,44 @@ interface TimelineEntry {
   content: React.ReactNode;
 }
 
-export const Timeline = ({
-  data,
-  imagesLoaded,
-  totalImages,
-}: {
+interface TimelineProps {
   data: TimelineEntry[];
-  imagesLoaded: number;
-  totalImages: number;
-}) => {
+  setImagesLoaded: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export const Timeline = ({ data, setImagesLoaded }: TimelineProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const totalImages = data.length; // Assuming each entry has one image
 
-  // Update height after all images have loaded and on window resize
+  // Update height when an image loads
+  const handleImageLoad = () => {
+    setImagesLoaded((prev) => {
+      const newCount = prev + 1;
+      if (newCount === totalImages && ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setHeight(rect.height);
+      }
+      return newCount;
+    });
+  };
+
+  // Update height on window resize
   useEffect(() => {
     const updateHeight = () => {
-      if (imagesLoaded === totalImages && ref.current) {
+      if (ref.current) {
         const rect = ref.current.getBoundingClientRect();
         setHeight(rect.height);
       }
     };
 
     updateHeight(); // Initial height update
-
     window.addEventListener('resize', updateHeight); // Add resize listener
     return () => {
       window.removeEventListener('resize', updateHeight); // Clean up listener on unmount
     };
-  }, [imagesLoaded, totalImages]); // Dependencies: images loaded and total images
+  }, []); // No dependencies to ensure it runs on mount and resize
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -89,7 +98,7 @@ export const Timeline = ({
                 <h3 className='md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500'>
                   {item.title}
                 </h3>
-                {item.content}
+                <div onLoad={handleImageLoad}>{item.content}</div>
               </div>
             </div>
           ))}
