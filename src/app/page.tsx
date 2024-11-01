@@ -27,9 +27,9 @@ export default function Home() {
       <Welcome />
       <PromotionForm />
       <AboutSection />
+      <Pricing />
       <SmileTransformations />
       <GoogleReviews />
-      <Pricing />
       <Journey />
       <VideoAnimationSection />
       {/* <InstagramSection /> */}
