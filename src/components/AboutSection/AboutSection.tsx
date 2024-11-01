@@ -2,9 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 import OverallGoogleRating from '../blocks/OverallGoogleRating/OverallGoogleRating';
 
 export default function AboutSection() {
@@ -14,8 +15,10 @@ export default function AboutSection() {
     visible: { opacity: 1, y: 0 },
   };
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Only trigger once when it comes into view
+  const { ref, inView } = useInView({
+    threshold: 0.3, // Trigger when 10% of the component is in view
+    triggerOnce: true, // Only play the animation once
+  });
 
   return (
     <section className='flex flex-col lg:flex-row-reverse bg-cream items-center justify-center lg:py-16' ref={ref}>
@@ -23,7 +26,7 @@ export default function AboutSection() {
       <motion.div
         className='w-full lg:w-1/2 p-4 max-w-prose md:p-12 flex flex-col items-center text-center lg:text-left'
         initial='hidden'
-        animate={isInView ? 'visible' : 'hidden'}
+        animate={inView ? 'visible' : 'hidden'}
         variants={containerVariants}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
@@ -43,7 +46,7 @@ export default function AboutSection() {
       <motion.div
         className='flex justify-center'
         initial='hidden'
-        animate={isInView ? 'visible' : 'hidden'}
+        animate={inView ? 'visible' : 'hidden'}
         variants={containerVariants}
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
       >

@@ -1,18 +1,21 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import PricingCards from './PricingCards';
 import PricingTabs from './PricingTabs';
+import { useInView } from 'react-intersection-observer';
 
 export default function Pricing() {
   const [monthly, setMonthly] = useState(true);
 
-  // Reference for the section
-  const ref = useRef(null);
-  // Check if the section is in view
-  const isInView = useInView(ref, { once: true }); // Trigger animation only once
+  const { ref, inView } = useInView({
+    threshold: 0.3, // Trigger when 10% of the component is in view
+    triggerOnce: true, // Only play the animation once
+  });
+
+  
 
   return (
     <section
@@ -23,7 +26,7 @@ export default function Pricing() {
       <motion.div
         className='flex justify-center flex-col items-center'
         initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
         <div className='rounded-xl bg-grey px-4 py-1 text-sm text-gray-50'>Opening Offers</div>

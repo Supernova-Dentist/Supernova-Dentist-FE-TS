@@ -3,6 +3,8 @@
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import React, { useRef, useState } from 'react';
 import { TextRevealCard, TextRevealCardDescription, TextRevealCardTitle } from '../ui/text-reveal-card';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 export function VideoAnimationSection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -21,9 +23,18 @@ export function VideoAnimationSection() {
     }
   };
 
+  const { ref, inView } = useInView({
+    threshold: 0.3, // Trigger when 10% of the component is in view
+    triggerOnce: true, // Only play the animation once
+  });
+
   return (
     <div className='min-h-[101vh] flex flex-col items-center justify-center py-12 bg-gradient-to-b from-white to-cream'>
-      <div className='p-8 bg-black xl:rounded-xl'>
+      <motion.div ref={ref}
+      initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
+      animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+      transition={{ duration: 0.5 }} // Animation duration 
+      className='p-8 bg-black xl:rounded-xl'>
         <TextRevealCard
           className='h-[20rem] w-full rounded-lg p-8 relative overflow-hidden'
           text='You know the value of a healthy smile'
@@ -63,7 +74,7 @@ export function VideoAnimationSection() {
             Take the first step!
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
