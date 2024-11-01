@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import Image from 'next/image';
 import OverallGoogleRating from '../blocks/OverallGoogleRating/OverallGoogleRating';
 
 export default function AboutSection() {
@@ -25,15 +25,17 @@ export default function AboutSection() {
       </div>
 
       {/* Image Section */}
-      <div className='w-full lg:w-1/2 max-w-[40rem] bg-secondary flex justify-center'>
-        <Image
-          src='/assets/images/scott-supernova.png'
-          alt='About Us'
-          width={600}
-          height={800}
-          className='object-cover rounded-lg p-4 px-8'
-        />
-      </div>
+
+      <Image
+        src='/assets/images/supernova_scott.png'
+        alt='About Us'
+        width={600}
+        height={800}
+        layout={'responsive'}
+        // sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 22.5vw'
+        quality={100}
+        className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4 px-8'
+      />
     </section>
   );
 }
