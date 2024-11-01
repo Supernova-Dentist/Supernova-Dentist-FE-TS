@@ -15,13 +15,13 @@ export default function DesktopNav() {
   });
 
   return (
-    <nav className='bg-grey p-6'>
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: -20 }} // Initial state for the animation
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-        transition={{ duration: 0.5 }} // Duration of the animation
-      >
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: -20 }} // Initial state for the animation
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
+      transition={{ duration: 0.5 }} // Duration of the animation
+    >
+      <nav className='bg-grey p-6'>
         <ul className='flex gap-8 items-center justify-between'>
           <div>
             <FlyoutLink href='#welcome' flyoutItems={[]}>
@@ -46,7 +46,7 @@ export default function DesktopNav() {
             </Button>
           </li>
         </ul>
-      </motion.div>
-    </nav>
+      </nav>
+    </motion.div>
   );
 }

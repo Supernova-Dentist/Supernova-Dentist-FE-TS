@@ -74,11 +74,7 @@ const MainNav = () => {
   
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }} // Initial state for the animation
-      animate={ { opacity: 1, y: 0 } } // Animate in
-      transition={{ duration: 0.5 }} // Duration of the animation
-    >
+   
       <header
         className={`${
           !isMobile
@@ -90,7 +86,7 @@ const MainNav = () => {
       >
         {isMobile ? <CornerNav /> : <DesktopNav />}
       </header>
-    </motion.div>
+   
   );
 };
 
