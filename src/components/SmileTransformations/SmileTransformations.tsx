@@ -4,39 +4,28 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import { Compare } from '../ui/compare';
 
 export default function SmileTransformations() {
-  // const transformations = [
-  //   {
-  //     id: 1,
-  //     before: '/assets/images/teeth-before.jpg',
-  //     after: '/assets/images/teeth-after.png',
-  //     description: 'Teeth Whitening',
-  //   },
-  //   // {
-  //   //   id: 2,
-  //   //   before: '/assets/images/teeth-before.jpg',
-  //   //   after: '/assets/images/teeth-after.png',
-  //   //   description: 'Invisalign Treatment',
-  //   // },
-  //   // {
-  //   //   id: 3,
-  //   //   before: '/assets/images/teeth-before.jpg',
-  //   //   after: '/assets/images/teeth-after.png',
-  //   //   description: 'Dental Veneers',
-  //   // },
-  // ];
   const transformations = [
     {
       id: 1,
-      src: '/assets/images/teeth-before.jpg',
-      alt: 'Teeth whitening before',
+      before: '/assets/images/transformation_before.png',
+      after: '/assets/images/transformation_after.png',
+      description: 'Teeth Whitening',
     },
-    {
-      id: 2,
-      src: '/assets/images/after_teeth.png',
-      alt: 'Teeth whitening after',
-    },
+    // {
+    //   id: 2,
+    //   before: '/assets/images/teeth-before.jpg',
+    //   after: '/assets/images/teeth-after.png',
+    //   description: 'Invisalign Treatment',
+    // },
+    // {
+    //   id: 3,
+    //   before: '/assets/images/teeth-before.jpg',
+    //   after: '/assets/images/teeth-after.png',
+    //   description: 'Dental Veneers',
+    // },
   ];
 
   const { ref, inView } = useInView({
@@ -84,33 +73,17 @@ export default function SmileTransformations() {
         </motion.p>
         <div className='flex flex-col-reverse md:flex-row-reverse justify-center gap-8 items-center px-4'>
           {transformations.map((item) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }} // Initial state: hidden and slightly lower
-              animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
-              transition={{ duration: 0.5 }} // Animation duration
-            >
-              <Image
-                className='object-cover h-[400px] w-[400px] rounded-md'
-                width={400}
-                height={400}
-                src={item.src}
-                alt={item.alt}
+            <div key={item.id} className='flex justify-center p-4 border rounded-3xl bg-neutral-100 border-neutral-200'>
+              <Compare
+                firstImage={item.before}
+                secondImage={item.after}
+                firstImageClassName='object-cover w-full h-full'
+                secondImageClassname='object-cover w-full h-full'
+                className='aspect-w-1 aspect-h-1 h-64 w-64 md:h-96 md:w-96 lg:h-[600px] lg:w-[800px]'
+                slideMode='hover'
               />
-            </motion.div>
+            </div>
           ))}
-          {/* {transformations.map((item) => (
-  <div key={item.id} className='flex justify-center p-4 border rounded-3xl bg-neutral-100 border-neutral-200'>
-    <Compare
-      firstImage={item.before}
-      secondImage={item.after}
-      firstImageClassName='object-cover object-left-top'
-      secondImageClassname='object-cover object-left-top'
-      className='h-64 w-64 md:h-96 md:w-96 lg:h-[600px] lg:w-[800px]'
-      slideMode='hover'
-    />
-  </div>
-))} */}
         </div>
       </div>
     </section>
