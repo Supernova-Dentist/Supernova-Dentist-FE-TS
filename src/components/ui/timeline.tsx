@@ -11,9 +11,10 @@ interface TimelineEntry {
 interface TimelineProps {
   data: TimelineEntry[];
   setImagesLoaded: React.Dispatch<React.SetStateAction<number>>;
+  imagesLoaded: number;
 }
 
-export const Timeline = ({ data, setImagesLoaded }: TimelineProps) => {
+export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -45,7 +46,7 @@ export const Timeline = ({ data, setImagesLoaded }: TimelineProps) => {
     return () => {
       window.removeEventListener('resize', updateHeight); // Clean up listener on unmount
     };
-  }, []); // No dependencies to ensure it runs on mount and resize
+  }, [imagesLoaded]); // No dependencies to ensure it runs on mount and resize
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -98,7 +99,7 @@ export const Timeline = ({ data, setImagesLoaded }: TimelineProps) => {
                 <h3 className='md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500'>
                   {item.title}
                 </h3>
-                <div onLoad={handleImageLoad}>{item.content}</div>
+                <div>{React.cloneElement(item.content as React.ReactElement, { onLoad: handleImageLoad })}</div>
               </div>
             </div>
           ))}
