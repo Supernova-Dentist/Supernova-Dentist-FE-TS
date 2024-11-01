@@ -1,4 +1,4 @@
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 // import Services from '@/components/Services/Services';
 // import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
 // import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
@@ -17,10 +17,9 @@ import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoA
 import Location from './(about)/find-us/page';
 import AboutSection from '@/components/AboutSection/AboutSection';
 import { Journey } from '@/components/Journey/Journey';
-import FloatingMenu from '@/components/FloatingMenu/FloatingMenu';
-// const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
-//   ssr: false,
-// });
+const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), {
+  ssr: false,
+});
 
 export default function Home() {
   return (

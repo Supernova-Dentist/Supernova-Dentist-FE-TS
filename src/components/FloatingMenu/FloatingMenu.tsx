@@ -30,7 +30,7 @@ export default function FloatingMenu() {
       style={{ bottom: 0, right: 0 }}
       icon={<MdAdd size={26} />}
       event={event}
-      alwaysShowTitle={true}
+      alwaysShowTitle={isMobile}
     >
       <Action style={{ backgroundColor: '#0f172a' }} text='Email' onClick={handleEmailClick}>
         <MdEmail size={25} />
