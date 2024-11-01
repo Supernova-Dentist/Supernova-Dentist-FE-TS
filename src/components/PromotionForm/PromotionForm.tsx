@@ -1,19 +1,21 @@
 'use client';
 
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 import BarLoader from '../BarLoader/BarLoader';
+import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
 
 export default function PromotionForm() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const {
@@ -72,8 +74,13 @@ export default function PromotionForm() {
     reset();
   }
 
+  function handlePrivacyModalClose() {
+    setShowPrivacyModal(false);
+  }
+
   return (
     <React.Fragment>
+      <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
       <section id='form' className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
         <div className='container grid items-center lg:justify-start justify-center gap-8 px-4 md:px-8 lg:grid-cols-2 lg:gap-16 mx-auto max-w-[1250px]'>
           <div className='space-y-6 text-center lg:text-left'>
@@ -150,9 +157,7 @@ export default function PromotionForm() {
                   )}
                 </div>
                 <p>By signing up, you ackowledge and agree to our</p>
-                <a target='_blank' href='/privacy-policy' className='text-blue-500 underline'>
-                  Privacy Policy
-                </a>
+                <Button onClick={() => setShowPrivacyModal(true)}>Privacy Policy</Button>
               </CardContent>
               <CardFooter>
                 <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>

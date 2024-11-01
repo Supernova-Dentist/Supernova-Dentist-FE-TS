@@ -1,9 +1,8 @@
 'use client';
 
-import { DentallyPortal, navLinks } from '@/lib/constants';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
-import Link from 'next/link';
 import React from 'react';
+import { navLinks } from '@/lib/constants';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import Button from '../Button/Button';
 import FlyoutLink from './FlyoutLink/FlyoutLink';
 
