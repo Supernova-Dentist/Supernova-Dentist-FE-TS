@@ -189,6 +189,7 @@ export default function PromotionForm() {
                   </div>
                   <p>By signing up, you ackowledge and agree to our</p>
                   <Button
+                    type='button'
                     variant='link'
                     className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition mb-4 sm:mb-0'
                     onClick={handlePrivacyModalOpen}
