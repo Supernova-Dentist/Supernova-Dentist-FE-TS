@@ -21,7 +21,10 @@ export default function AboutSection() {
   });
 
   return (
-    <section className='flex flex-col lg:flex-row-reverse bg-cream items-center justify-center lg:py-16' ref={ref}>
+    <section
+      className='flex flex-col lg:flex-row-reverse bg-gradient-to-b from-cream to-white items-center justify-center lg:py-16'
+      ref={ref}
+    >
       {/* Text Section */}
       <motion.div
         className='w-full lg:w-1/2 p-4 max-w-prose md:p-12 flex flex-col items-center text-center lg:text-left'

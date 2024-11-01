@@ -21,7 +21,7 @@ export default function Pricing() {
     <section
       id='offers'
       ref={ref}
-      className='py-12 md:py-24 lg:py-32 mx-auto text-gray-900 bg-gradient-to-b from-cream to-white'
+      className='py-12 md:py-24 lg:py-32 mx-auto text-gray-900 bg-gradient-to-b from-white to-cream'
     >
       <motion.div
         className='flex justify-center flex-col items-center'

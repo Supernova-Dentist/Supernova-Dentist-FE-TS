@@ -23,7 +23,7 @@ export default function ComingSoonSection() {
   });
 
   return (
-    <section ref={ref} className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-cream text-gray-900'>
+    <section ref={ref} className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-cream to-white text-gray-900'>
       <div className='px-4 md:px-6 w-full'>
         <div className='flex flex-col items-center space-y-6 text-center'>
           <motion.div
