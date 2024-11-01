@@ -3480,6 +3480,11 @@ react-style-singleton@^2.2.1:
     invariant "^2.2.4"
     tslib "^2.0.0"
 
+react-tiny-fab@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/react-tiny-fab/-/react-tiny-fab-4.0.4.tgz#0b293b403893a6a4fe689493818d498f277d62bb"
+  integrity sha512-PxT6gEnIQR2vFfeIaa1Oq4PRX+cIEDbEfbS6PyevWCQngrKfqjMKPEcZOaaURaUclB9u3RilgjkaBUQFVlbWcg==
+
 react-use-measure@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-use-measure/-/react-use-measure-2.1.1.tgz#5824537f4ee01c9469c45d5f7a8446177c6cc4ba"
