@@ -94,7 +94,7 @@ export default function PromotionForm() {
   });
 
   return (
-    <React.Fragment>
+    <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
       <section ref={ref} id='form' className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
         <motion.div
@@ -239,6 +239,6 @@ export default function PromotionForm() {
           </div>
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 }
