@@ -40,7 +40,7 @@ export default function SmileTransformations() {
   ];
 
   const { ref, inView } = useInView({
-    threshold: 0.3, // Trigger when 10% of the component is in view
+    threshold: 0.2, // Trigger when 10% of the component is in view
     triggerOnce: true, // Only play the animation once
   });
 
