@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import SectionSpacing from '@/components/SectionSpacing/SectionSpacing';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
@@ -12,6 +12,8 @@ type PrivacyPolicyModalProps = {
 };
 
 export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
@@ -20,14 +22,26 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
     return () => document.removeEventListener('keydown', handleEsc);
   }, [onClose]);
 
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (modalRef.current !== null && !modalRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, [onClose]);
+
   if (!isOpen) return null;
 
   return createPortal(
-    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50'>
-      <div className='relative w-full max-w-3xl h-[80vh] bg-white rounded-lg shadow-lg overflow-hidden'>
+    <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-8'>
+      <div className='relative w-full max-w-3xl h-[80vh] bg-white rounded-lg shadow-lg overflow-hidden' ref={modalRef}>
         {/* Close Button */}
         <button
-          className='absolute top-3 right-3 text-gray-500 hover:text-gray-700'
+          className='absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-4xl'
           onClick={onClose}
           aria-label='Close'
         >
@@ -41,14 +55,15 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
         </div>
 
         {/* Scrollable Content */}
-        <div className='overflow-y-auto p-6 max-h-[70vh]'>
+        <div className='overflow-y-auto p-8 max-h-[70vh]'>
           <SectionSpacing>
             <SubHeader>Introduction</SubHeader>
             <p>
               Welcome to <span className='text-gold font-semibold text-lg'>Supernova Dental</span>. We are committed to
               safeguarding your privacy and protecting your personal data. This privacy policy explains how we collect,
-              use, and protect your information when you use our website or services, including our online booking
-              system powered by Dentally.
+              use, and protect your information when you use our website or services.{' '}
+              {/* including our online booking
+              system powered by Dentally. */}
             </p>
             <p>
               If you have any questions regarding this privacy policy, please contact us at{' '}
@@ -65,8 +80,8 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
             <ul>
               <li>Name</li>
               <li>Contact details (email, phone number, address)</li>
-              <li>Payment details (handled by Dentally)</li>
-              <li>IP address, browser details, cookies, etc.</li>
+              {/* <li>Payment details (handled by Dentally)</li> */}
+              {/* <li>IP address, browser details, cookies, etc.</li> */}
             </ul>
           </SectionSpacing>
 
@@ -75,10 +90,10 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
             <p>We collect personal data through the following methods:</p>
             <ul>
               <li>Contact forms for appointments or inquiries</li>
-              <li>Online payments (handled by Dentally)</li>
-              <li>Online booking through Dentally</li>
-              <li>Website cookies and tracking tools</li>
-              <li>Newsletter sign-ups</li>
+              {/* <li>Online payments (handled by Dentally)</li> */}
+              {/* <li>Online booking through Dentally</li> */}
+              {/* <li>Website cookies and tracking tools</li> */}
+              {/* <li>Newsletter sign-ups</li> */}
               <li>User account registration (if applicable)</li>
             </ul>
           </SectionSpacing>
@@ -87,8 +102,8 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
             <SubHeader>Purpose of Data Collection</SubHeader>
             <p>We collect and use your data for the following purposes:</p>
             <ul>
-              <li>To schedule and manage appointments through Dentally</li>
-              <li>To process payments (handled by Dentally)</li>
+              {/* <li>To schedule and manage appointments through Dentally</li> */}
+              {/* <li>To process payments (handled by Dentally)</li> */}
               <li>To provide customer support</li>
               <li>To send marketing communications (with your consent)</li>
               <li>To improve website functionality and performance</li>
@@ -106,7 +121,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
             </ul>
           </SectionSpacing>
 
-          <SectionSpacing>
+          {/* <SectionSpacing>
             <SubHeader>Data Sharing and Disclosure</SubHeader>
             <p>Your personal data is used for the following purposes:</p>
             <ul>
@@ -114,16 +129,16 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
               <li>Billing and payment processing (handled by Dentally)</li>
               <li>Marketing communications (if opted in)</li>
             </ul>
-          </SectionSpacing>
+          </SectionSpacing> */}
 
           <SectionSpacing>
             <SubHeader>Data Sharing with Third Parties</SubHeader>
             <p>We may share your personal information with the following third parties to provide our services:</p>
             <ul>
-              <li>Payment processors (e.g., Dentally)</li>
-              <li>Dentally for appointment scheduling</li>
+              {/* <li>Payment processors (e.g., Dentally)</li> */}
+              {/* <li>Dentally for appointment scheduling</li> */}
               <li>Marketing services (e.g., Mailchimp)</li>
-              <li>Web analytics providers (e.g., Google Analytics)</li>
+              {/* <li>Web analytics providers (e.g., Google Analytics)</li> */}
             </ul>
             <p>We also may disclose your information if required by law.</p>
           </SectionSpacing>
@@ -157,13 +172,13 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
             </ul>
           </SectionSpacing>
 
-          <SectionSpacing>
+          {/* <SectionSpacing>
             <SubHeader>Cookie Policy</SubHeader>
             <p>
               We use cookies to enhance your experience on our website. You can manage your cookie preferences or opt
               out of non-essential cookies via your browser settings.
             </p>
-          </SectionSpacing>
+          </SectionSpacing> */}
 
           <SectionSpacing>
             <SubHeader>Children&apos;s Privacy</SubHeader>
@@ -186,9 +201,10 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
 
           <SectionSpacing>
             <SubHeader>Changes to This Privacy Policy</SubHeader>
+            {/* TODO: Add updated at date programatically */}
             <p>
-              We may update this privacy policy from time to time. The last update was made on [Date]. Please review
-              this policy periodically to stay informed about how we are protecting your data.
+              We may update this privacy policy from time to time. The last update was made on 1st Nov 2024. Please
+              review this policy periodically to stay informed about how we are protecting your data.
             </p>
           </SectionSpacing>
         </div>
