@@ -16,7 +16,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'How does Invisalign work?',
     answer:
-      'Invisalign works by using a series of clear aligners that you wear over your teeth. Each aligner gently shifts your teeth into the desired position and you’ll switch to a new set every two weeks.',
+      'Invisalign works by using a series of clear aligners that you wear over your teeth. Each aligner gently shifts your teeth into the desired position and you’ll switch to a new set every one/two weeks.',
   },
   {
     question: 'What are the advantages of Invisalign?',
