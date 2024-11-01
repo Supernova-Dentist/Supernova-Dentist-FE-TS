@@ -1,6 +1,7 @@
 'use client';
-import { motion, useInView, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface TimelineEntry {
   title: string;
@@ -41,15 +42,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     offset: ['start 10%', 'end 50%'],
   });
 
-  const isInView = useInView(ref, { once: true }); // Trigger animation only once
+  const { ref: refInView, inView } = useInView({
+    threshold: 0.1, // Trigger when 10% of the component is in view
+    triggerOnce: true, // Only play the animation once
+  });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
     <motion.div
+      ref={refInView}
       initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-      animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+      animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
       transition={{ duration: 0.5 }} // Animation duration
     >
       <div className='w-full bg-white dark:bg-neutral-950 font-sans md:px-10' ref={containerRef}>

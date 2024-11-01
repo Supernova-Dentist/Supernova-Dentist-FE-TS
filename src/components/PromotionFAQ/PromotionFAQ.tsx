@@ -43,7 +43,8 @@ export const faqItems: FAQItem[] = [
 export default function PromotionFAQ() {
   const [email, setEmail] = useState('');
   const { ref, inView } = useInView({
-    threshold: 0.1, // Trigger when 10% of the component is in view
+    threshold: 0.3, // Trigger when 10% of the component is in view
+    triggerOnce: true, // Only play the animation once
   });
 
   const handleSubmit = (e: React.FormEvent) => {

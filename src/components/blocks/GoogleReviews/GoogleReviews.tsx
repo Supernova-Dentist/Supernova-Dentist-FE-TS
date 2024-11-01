@@ -1,13 +1,16 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import React, { useRef } from 'react';
+import { motion } from 'framer-motion';
+import React from 'react';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import OverallGoogleRating from '../OverallGoogleRating/OverallGoogleRating';
+import { useInView } from 'react-intersection-observer';
 
 export default function GoogleReviews() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Trigger animation only once when in view
+  const { ref, inView } = useInView({
+    threshold: 0.3, // Trigger when 10% of the component is in view
+    triggerOnce: true, // Only play the animation once
+  });
 
   return (
     <div
@@ -18,7 +21,7 @@ export default function GoogleReviews() {
       <div className='flex justify-center mb-4'>
         <motion.div
           initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-          animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+          animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
           transition={{ duration: 0.5 }} // Animation duration
           className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'
         >
@@ -27,7 +30,7 @@ export default function GoogleReviews() {
       </div>
       <motion.h2
         initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-        animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+        animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
         transition={{ duration: 0.5 }} // Animation duration
         className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-2 text-gold'
       >
@@ -35,13 +38,13 @@ export default function GoogleReviews() {
       </motion.h2>
       <motion.hr
         initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-        animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+        animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
         transition={{ duration: 0.5 }} // Animation duration
         className='border-t-2 border-gold w-20 mx-auto mt-6 mb-8'
       />
       <motion.p
         initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-        animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+        animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
         transition={{ duration: 0.5 }} // Animation duration
         className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-6'
       >
@@ -49,7 +52,7 @@ export default function GoogleReviews() {
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-        animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+        animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
         transition={{ duration: 0.5 }} // Animation duration
       >
         <OverallGoogleRating />
