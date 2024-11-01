@@ -160,7 +160,7 @@ export default function PromotionForm() {
                     <Input
                       id='phone'
                       type='tel'
-                      placeholder='(123) 456-7890'
+                      placeholder='(+44) 1234567890'
                       className='py-1 text-lg px-3'
                       {...register('phone')}
                     />

@@ -46,9 +46,9 @@ export default function GoogleReviews() {
         initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
         animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
         transition={{ duration: 0.5 }} // Animation duration
-        className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-6'
+        className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-8'
       >
-        See what our team&apos;s previous patients have to say about them
+        See what our team&apos;s previous patients have to say about them 🫶
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
