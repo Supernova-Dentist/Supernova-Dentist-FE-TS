@@ -1,7 +1,7 @@
+import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si';
-import { cn } from '@/lib/utils';
 
 export const CornerNav = () => {
   const [active, setActive] = useState(false);
@@ -171,6 +171,7 @@ const FooterCTAs = () => {
         <motion.a
           key={idx}
           href={l.href}
+          target='_blank'
           initial={{ opacity: 0, y: -8 }}
           animate={{
             opacity: 1,
@@ -229,20 +230,20 @@ const LINKS = [
 const SOCIAL_CTAS = [
   {
     Component: SiFacebook,
-    href: '#',
+    href: 'https://www.facebook.com/profile.php?id=61567279201971',
   },
   {
     Component: SiInstagram,
-    href: '#',
+    href: 'https://www.instagram.com/supernova.dental',
   },
-  {
-    Component: SiLinkedin,
-    href: '#',
-  },
-  {
-    Component: SiYoutube,
-    href: '#',
-  },
+  // {
+  //   Component: SiLinkedin,
+  //   href: '#',
+  // },
+  // {
+  //   Component: SiYoutube,
+  //   href: '#',
+  // },
 ];
 
 const UNDERLAY_VARIANTS = {
