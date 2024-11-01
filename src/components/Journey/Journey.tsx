@@ -60,7 +60,7 @@ export function Journey() {
       content: (
         <div className='px-12 py-8'>
           <p className='mb-8 text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            Not always required and treatment is dependant on a case by case basis. With use of composite bonding or
+            Using composite bonding or
             veneers we can really elevate cases when we have the teeth in the right position and colour.
           </p>
           <Image
