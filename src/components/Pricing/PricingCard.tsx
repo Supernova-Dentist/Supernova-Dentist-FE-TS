@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 import Button from '../Button/Button';
@@ -16,12 +17,17 @@ type PricingCardProps = {
 
 export default function PricingCard({ plan, price, offerPrice, features, isMiddle, monthly }: PricingCardProps) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }} // Initial state for animation
+      whileInView={{ opacity: 1, y: 0 }} // Animate when in view
+      transition={{ duration: 0.5, ease: 'easeInOut' }} // Transition settings
       className={cn(
         'p-10 rounded-lg shadow-xl border border-solid border-black/10 relative overflow-hidden w-full sm:w-[400px] flex flex-col',
-        isMiddle ? 'bg-gray-900' : 'bg-gray-50'
+        isMiddle ? 'bg-gray-900' : 'bg-gray-50',
+        'min-h-[400px]' // Ensure a minimum height for consistency
       )}
     >
+      {/* Uncomment if needed */}
       {/* {isMiddle && (
         <div className='absolute top-[-59px] right-[-44px] rotate-45'>
           <PricingSquiggle />
@@ -56,7 +62,6 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
         </ul>
       </div>
       <div className='mt-auto'>
-        {' '}
         {/* Added a div to contain the button */}
         <Button
           onClick={scrollToPromotionForm}
@@ -64,6 +69,6 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
           text='Get started'
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
