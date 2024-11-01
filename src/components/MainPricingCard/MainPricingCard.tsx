@@ -9,7 +9,7 @@ const features = [
   {
     id: 1,
     was: 99,
-    now: 44.5,
+    now: 49.5,
     text: 'New patient exam',
   },
   {
