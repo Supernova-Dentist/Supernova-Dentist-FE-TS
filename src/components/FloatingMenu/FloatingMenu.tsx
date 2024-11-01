@@ -33,7 +33,11 @@ export default function FloatingMenu() {
     >
       <Fab
         mainButtonStyles={{ backgroundColor: '#0f172a' }}
-        style={{ bottom: 0, right: 0 }}
+        // Adjust position based on screen size
+        style={{
+          bottom: isMobile ? -8.5 : 10, // Change bottom position for mobile and desktop
+          right: isMobile ? -8.5 : 10 // Change right position for mobile and desktop
+        }}
         icon={<MdAdd size={26} />}
         event={event}
         alwaysShowTitle={isMobile}
