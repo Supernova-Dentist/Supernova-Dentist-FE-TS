@@ -12,6 +12,13 @@ import { promotionSignupSchema, type PromotionFormData } from '../../../types/Pr
 import BarLoader from '../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
 
+const defaultValues: PromotionFormData = {
+  fullname: '',
+  email: '',
+  phone: '',
+  optOutEmails: false,
+};
+
 export default function PromotionForm() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -24,15 +31,11 @@ export default function PromotionForm() {
     reset,
     getValues,
     setValue,
+    clearErrors,
     formState: { isSubmitting, errors },
   } = useForm<PromotionFormData>({
     resolver: zodResolver(promotionSignupSchema),
-    defaultValues: {
-      fullname: '',
-      email: '',
-      phone: '',
-      optOutEmails: false,
-    },
+    defaultValues,
   });
 
   const values = getValues();
@@ -76,6 +79,11 @@ export default function PromotionForm() {
 
   function handlePrivacyModalClose() {
     setShowPrivacyModal(false);
+    clearErrors();
+  }
+
+  function handlePrivacyModalOpen() {
+    setShowPrivacyModal(true);
   }
 
   return (
@@ -93,20 +101,22 @@ export default function PromotionForm() {
           </div>
           <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <CardHeader className='text-center mb-4'>
+              <CardHeader className='text-center mb-4 p-0 md:p-4'>
                 <CardTitle className='text-2xl'>Sign Up for Exclusive Offers</CardTitle>
                 <CardDescription className='text-lg text-gray-500'>
                   Fill out the form to sign up and receive our latest promotions and updates.
                 </CardDescription>
               </CardHeader>
-              <CardContent className=''>
+              <CardContent className='p-0 md:p-4 md:pt-0'>
                 <div className='grid gap-1'>
                   <Label htmlFor='fullname' className='text-md text-gray-800'>
                     Full Name
                   </Label>
                   <Input id='fullname' placeholder='John Doe' className='py-1 text-lg px-3' {...register('fullname')} />
                   <div className='h-5'>
-                    {errors.fullname && <p className='text-red-500 leading-none text-sm'>{errors.fullname?.message}</p>}
+                    {errors.fullname && !showPrivacyModal && (
+                      <p className='text-red-500 leading-none text-sm'>{errors.fullname?.message}</p>
+                    )}
                   </div>
                 </div>
                 <div className='grid gap-1'>
@@ -121,7 +131,9 @@ export default function PromotionForm() {
                     {...register('email')}
                   />
                   <div className='h-5'>
-                    {errors.email && <p className='text-red-500 leading-none text-sm'>{errors.email?.message}</p>}
+                    {errors.email && !showPrivacyModal && (
+                      <p className='text-red-500 leading-none text-sm'>{errors.email?.message}</p>
+                    )}
                   </div>
                 </div>
                 <div className='grid gap-1'>
@@ -136,7 +148,9 @@ export default function PromotionForm() {
                     {...register('phone')}
                   />
                   <div className='h-5'>
-                    {errors.phone && <p className='text-red-500 leading-none text-sm'>{errors.phone?.message}</p>}
+                    {errors.phone && !showPrivacyModal && (
+                      <p className='text-red-500 leading-none text-sm'>{errors.phone?.message}</p>
+                    )}
                   </div>
                 </div>
                 <div className='grid gap-1 mb-4'>
@@ -159,8 +173,8 @@ export default function PromotionForm() {
                 <p>By signing up, you ackowledge and agree to our</p>
                 <Button
                   variant='link'
-                  className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition'
-                  onClick={() => setShowPrivacyModal(true)}
+                  className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition mb-4 sm:mb-0'
+                  onClick={handlePrivacyModalOpen}
                 >
                   Privacy Policy
                 </Button>
