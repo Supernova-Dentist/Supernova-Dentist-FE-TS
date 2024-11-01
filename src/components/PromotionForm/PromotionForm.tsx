@@ -191,13 +191,16 @@ export default function PromotionForm() {
 
       {/* Success Modal */}
       {showSuccessModal && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
           <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full'>
             <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
-            <p className='mb-6'>
-              You&apos;ve been successfully signed up for our promotions and updates. We&apos;ll send details to{' '}
-              {values.email}.
-            </p>
+            <div className='mb-6 flex flex-col gap-2'>
+              <p>
+                You&apos;ve been successfully signed up for our promotions and updates. We&apos;ll send details to{' '}
+                {values.email}.
+              </p>
+              <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
+            </div>
             <Button onClick={handleSuccessModalClose} className='w-full text-xl py-3'>
               Close
             </Button>
@@ -207,7 +210,7 @@ export default function PromotionForm() {
 
       {/* Error Modal */}
       {showErrorModal && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
           <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full'>
             <h2 className='text-3xl font-semibold mb-6'>Submission Failed</h2>
             <p className='mb-6'>{error}</p>
