@@ -44,8 +44,8 @@ export default function ComingSoonSection() {
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
               transition={{ duration: 0.5 }} // Duration of the animation
             >
-              <Button onClick={scrollToPromotionForm} className='mt-4 mb-2 w-fit mx-auto'>
-                Come see us!
+              <Button onClick={scrollToPromotionForm} className='mt-4 mb-4 w-fit mx-auto'>
+                Stay updated!
               </Button>
               <p className='text-sm text-gray-500 '>
                 Stay updated on our progress and be the first to know when we launch!
