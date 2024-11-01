@@ -2,7 +2,9 @@
 
 import { CornerNav } from '@/components/CornerNav/CornerNav';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
+import { motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 // Custom hook to get window size
 export const useWindowSize = () => {
@@ -69,18 +71,26 @@ const MainNav = () => {
 
   const isMobile = width <= 768; // Define your mobile breakpoint here
 
+  
+
   return (
-    <header
-      className={`${
-        !isMobile
-          ? `z-50 fixed top-0 left-0 w-full transition-transform duration-300 ${
-              navbarVisible ? 'translate-y-0' : '-translate-y-full'
-            }`
-          : ''
-      }`}
+    <motion.div
+      initial={{ opacity: 0, y: -20 }} // Initial state for the animation
+      animate={ { opacity: 1, y: 0 } } // Animate in
+      transition={{ duration: 0.5 }} // Duration of the animation
     >
-      {isMobile ? <CornerNav /> : <DesktopNav />}
-    </header>
+      <header
+        className={`${
+          !isMobile
+            ? `z-50 fixed top-0 left-0 w-full transition-transform duration-300 ${
+                navbarVisible ? 'translate-y-0' : '-translate-y-full'
+              }`
+            : ''
+        }`}
+      >
+        {isMobile ? <CornerNav /> : <DesktopNav />}
+      </header>
+    </motion.div>
   );
 };
 
