@@ -22,12 +22,12 @@ export const faqItems: FAQItem[] = [
       'Invisalign aligners are discreet, removable, and more comfortable compared to traditional metal braces. You can enjoy your favorite foods without restrictions and maintain optimal oral hygiene, all while avoiding the discomfort of brackets and wires.',
   },
   {
-    question: 'How long does treatment take?',
+    question: 'How long does Invisalign treatment take?',
     answer:
       'The duration of Invisalign treatment typically ranges from 12 to 18 months, depending on your unique orthodontic needs. During your consultation, we will provide a tailored treatment plan and timeline just for you.',
   },
   {
-    question: 'Are there food restrictions?',
+    question: 'Are there food restrictions with Invisalign?',
     answer:
       'With Invisalign, there are no food restrictions! Since the aligners are removable, you can enjoy all your favorite meals. Just remember to brush your teeth before reinserting the aligners to keep your smile fresh and clean.',
   },
