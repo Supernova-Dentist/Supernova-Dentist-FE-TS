@@ -35,16 +35,16 @@ export default function GoogleReview({
             />
           </div>
           <span className='text-gray-500 text-xs leading-none'>{date}</span>
-        <div className='flex mt-2 mb-2'>
-          {reviewStars.map((_, i) => (
-            <IoStar color='#F6BB06' key={i} />
-          ))}
-        </div>
+          <div className='flex mt-2 mb-2'>
+            {reviewStars.map((_, i) => (
+              <IoStar color='#F6BB06' key={i} />
+            ))}
+          </div>
         </div>
         <div className='flex-grow'>
           <p className='text-[15px] max-h-[87px] overflow-hidden'>{review}</p>
         </div>
-        <div className='flex flex-row w-full justify-center mt-4 space-x-6'>
+        <div className='flex flex-row w-full justify-center mt-4 space-x-6 items-baseline'>
           <button
             onClick={() => onClickReview && onClickReview({ name, date, review, rating, url, previewUrl })}
             className='text-xs text-gray-500 bg-transparent border-none leading-none cursor-pointer hover:underline hover:text-gray-800'
