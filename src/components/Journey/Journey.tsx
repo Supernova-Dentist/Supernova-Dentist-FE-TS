@@ -20,7 +20,7 @@ export function Journey() {
       title: 'A - Align',
       content: (
         <div className='px-12 py-8'>
-          <p className='mb-8 text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
+          <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Potentially less than 6 months to straighten teeth to correct alignment
           </p>
           <Image
@@ -39,7 +39,7 @@ export function Journey() {
       title: 'B - Brighten',
       content: (
         <div className='px-12 py-8'>
-          <p className='mb-8 text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
+          <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             We use exclusive whitening products that can only be given by a dentist that really bring out the natural
             white smile to give you the Supernova shine.
           </p>
@@ -59,9 +59,9 @@ export function Journey() {
       title: 'C - Contour',
       content: (
         <div className='px-12 py-8'>
-          <p className='mb-8 text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            Using composite bonding or
-            veneers we can really elevate cases when we have the teeth in the right position and colour.
+          <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
+            Using composite bonding or veneers we can really elevate cases when we have the teeth in the right position
+            and colour.
           </p>
           <Image
             src={Veneers}
