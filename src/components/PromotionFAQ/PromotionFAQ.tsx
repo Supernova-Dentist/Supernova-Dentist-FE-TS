@@ -2,7 +2,9 @@
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import FAQ from '../FAQ/FAQ';
 
 export const faqItems: FAQItem[] = [
@@ -40,6 +42,9 @@ export const faqItems: FAQItem[] = [
 
 export default function PromotionFAQ() {
   const [email, setEmail] = useState('');
+  const { ref, inView } = useInView({
+    threshold: 0.1, // Trigger when 10% of the component is in view
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,9 +53,18 @@ export default function PromotionFAQ() {
   };
 
   return (
-    <section id='faq' className='w-full py-12 md:py-24 lg:py-32 text-gray-900 bg-gradient-to-b from-cream to-white'>
+    <section
+      id='faq'
+      ref={ref}
+      className='w-full py-12 md:py-24 lg:py-32 text-gray-900 bg-gradient-to-b from-cream to-white'
+    >
       <div className='px-4 md:px-6 w-full'>
-        <div className='flex flex-col items-center space-y-6 text-center'>
+        <motion.div
+          className='flex flex-col items-center space-y-6 text-center'
+          initial={{ opacity: 0, y: 20 }} // Initial state for the animation
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
+          transition={{ duration: 0.5 }} // Duration of the animation
+        >
           <div className='space-y-2'>
             <div className='flex justify-center mb-4'>
               <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>FAQs</div>
@@ -59,11 +73,16 @@ export default function PromotionFAQ() {
               Frequently Asked Questions
             </h2>
             <hr className='border-t-2 border-grey w-20 mx-auto mt-4 pb-8' />
-            <div className='w-full max-w-2xl shadow-lg rounded-lg p-6'>
+            <motion.div
+              className='w-full max-w-2xl shadow-lg rounded-lg p-6'
+              initial={{ opacity: 0 }} // Initial state for the FAQ container
+              animate={inView ? { opacity: 1 } : { opacity: 0 }} // Animate in
+              transition={{ duration: 0.5, delay: 0.2 }} // Delay for the FAQ container
+            >
               <FAQ faqItems={faqItems} />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
