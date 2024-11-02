@@ -1,6 +1,6 @@
-import GalleryGrid from '@/app/(media)/gallery/utils/GalleryGrid';
 import { BLOG_LIMIT } from '@/lib/constants';
 import fetchMediaPosts from '@/services/wordpress/fetchMediaPosts';
+import GalleryGrid from '../GalleryGrid/GalleryGrid';
 
 export default async function FetchGalleryWrapper({
   searchParams,
