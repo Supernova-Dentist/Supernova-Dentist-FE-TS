@@ -2,10 +2,11 @@ import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/Acc
 import CrispChat from '@/components/blocks/CrispChat/CrispChat';
 import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
-import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
+import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import './reset.css';
 
@@ -23,6 +24,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z'></Script>
+        <Script id='google-analytics'>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'G-8M5WQJ7R5Z');
+          `}
+        </Script>
+      </head>
       <body className={inter.className}>
         <MainNav />
         {children}
