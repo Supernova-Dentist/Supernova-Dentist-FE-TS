@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useCallback, useState } from 'react';
-import InstagramPostModal from '@/app/(about)/social/utils/InstagramPostModal';
+import InstagramPostModal from '../InstagramPostModal/InstagramPostModal';
 
 export default function InstagramPosts({ posts }: { posts: InstagramPost[] }) {
   const [selectedPost, setSelectedPost] = useState<InstagramPost | null>(null);
