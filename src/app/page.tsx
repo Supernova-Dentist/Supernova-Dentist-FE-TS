@@ -14,7 +14,7 @@ import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
-import Location from './(about)/find-us/page';
+// import Location from './(about)/find-us/page';
 import AboutSection from '@/components/AboutSection/AboutSection';
 import { Journey } from '@/components/Journey/Journey';
 const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), {
@@ -33,7 +33,7 @@ export default function Home() {
       <Journey />
       <VideoAnimationSection />
       {/* <InstagramSection /> */}
-      <Location />
+      {/* <Location /> */}
       <PromotionFAQ />
       <ComingSoonSection />
       <FloatingMenu />
