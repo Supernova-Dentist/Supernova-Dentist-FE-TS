@@ -4,19 +4,19 @@ import dynamic from 'next/dynamic';
 // import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
 // import Reviews from '@/components/blocks/Reviews/Review';
 // import Steps from '@/components/blocks/Steps/Steps';
+import AboutSection from '@/components/AboutSection/AboutSection';
 import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
 import Reviews from '@/components/blocks/Reviews/Review';
 import Welcome from '@/components/blocks/Welcome/Welcome';
 import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
+import FindUs from '@/components/FindUs/FindUs';
 import InstagramSection from '@/components/InstagramSection/InstagramSection';
+import { Journey } from '@/components/Journey/Journey';
 import Pricing from '@/components/Pricing/Pricing';
 import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
-// import Location from './(about)/find-us/page';
-import AboutSection from '@/components/AboutSection/AboutSection';
-import { Journey } from '@/components/Journey/Journey';
 const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), {
   ssr: false,
 });
@@ -33,7 +33,7 @@ export default function Home() {
       <Journey />
       <VideoAnimationSection />
       {/* <InstagramSection /> */}
-      {/* <Location /> */}
+      <FindUs />
       <PromotionFAQ />
       <ComingSoonSection />
       <FloatingMenu />
