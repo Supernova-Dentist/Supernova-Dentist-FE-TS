@@ -61,7 +61,7 @@ export default function MainPricingCard() {
         <Button
           onClick={scrollToPromotionForm}
           className='w-full text-gray-50 rounded-sm mt-6 px-4 py-2 bg-gray-900'
-          text='Get started'
+          text='Claim offer'
         />
       </div>
     </motion.div>

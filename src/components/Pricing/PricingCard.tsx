@@ -66,7 +66,7 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
         <Button
           onClick={scrollToPromotionForm}
           className={cn('w-full text-gray-50 rounded-sm mt-6 px-4 py-2', isMiddle ? 'bg-lightGold' : 'bg-gray-900')}
-          text='Get started'
+          text='Claim offer'
         />
       </div>
     </motion.div>
