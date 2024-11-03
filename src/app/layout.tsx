@@ -13,13 +13,13 @@ import './reset.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental Bridgwater - Smile Brighter This November!',
+  title: 'Supernova Dental',
   description:
-    'Join Supernova Dental Bridgwater this November and enjoy 50% off your first exam and hygiene appointment! Sign up by Dec 31st and start your journey to a healthier, brighter smile. Invisalign opening offers available too!',
+    'Join Supernova Dental in Bridgwater this November and enjoy 50% off your first exam and hygiene appointment! Sign up by Dec 31st and start your journey to a healthier, brighter smile. Invisalign opening offers available too!',
   keywords:
     'Supernova Dental, dental exam offer, dental hygiene offer, Invisalign Bridgwater, dental practice Bridgwater, teeth whitening, healthy smile, dentist Bridgwater',
   openGraph: {
-    title: 'Supernova Dental Bridgwater - Smile Brighter This November!',
+    title: 'Supernova Dental',
     description:
       'We’re opening in Bridgwater with an exclusive offer: 50% off your first exam and hygiene appointment if you sign up by Dec 31st! Discover our Invisalign opening offers and book your spot today.',
     url: 'https://www.supernovadental.co.uk/',
