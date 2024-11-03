@@ -53,6 +53,7 @@ export default function RootLayout({
             gtag('config', 'G-8M5WQJ7R5Z');
           `}
         </Script>
+        <meta name="google-site-verification" content="6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw" />
       </head>
       <body className={inter.className}>
         <MainNav />
