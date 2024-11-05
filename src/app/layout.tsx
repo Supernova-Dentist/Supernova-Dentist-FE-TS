@@ -1,12 +1,13 @@
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
 import CrispChat from '@/components/blocks/CrispChat/CrispChat';
 import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
 import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import Script from 'next/script';
+import MetaPixel from '@/components/MetaPixel/MetaPixel';
 import './globals.css';
 import './reset.css';
 
@@ -53,7 +54,8 @@ export default function RootLayout({
             gtag('config', 'G-8M5WQJ7R5Z');
           `}
         </Script>
-        <meta name="google-site-verification" content="6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw" />
+        <MetaPixel />
+        <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
       </head>
       <body className={inter.className}>
         <MainNav />
