@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.supernovadental.co.uk
+
+# Sitemaps
+Sitemap: https://www.supernovadental.co.uk/sitemap.xml
