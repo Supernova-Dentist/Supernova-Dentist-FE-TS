@@ -50,7 +50,8 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
           
-            gtag('config', 'G-8M5WQJ7R5Z');
+            gtag('config', 'G-8M5WQJ7R5Z'); // Google Analytics ID
+            gtag('config', 'AW-16737398524'); // Google Ads ID
           `}
         </Script>
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
