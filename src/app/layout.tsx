@@ -13,26 +13,29 @@ import './reset.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental',
+  title: 'Supernova Dental - Expert Dental Care in Bridgwater | 50% Off First Exam & Hygiene Appointment',
   description:
-    'Join Supernova Dental in Bridgwater this November and enjoy 50% off your first exam and hygiene appointment! Sign up by Dec 31st and start your journey to a healthier, brighter smile. Invisalign opening offers available too!',
+    'Join Supernova Dental in Bridgwater for exclusive offers: 50% off your first dental exam and hygiene appointment, plus special Invisalign deals. Book today and start your journey to a healthier smile!',
   keywords:
-    'Supernova Dental, dental exam offer, dental hygiene offer, Invisalign Bridgwater, dental practice Bridgwater, teeth whitening, healthy smile, dentist Bridgwater',
-  openGraph: {
-    title: 'Supernova Dental',
-    description:
-      'We’re opening in Bridgwater with an exclusive offer: 50% off your first exam and hygiene appointment if you sign up by Dec 31st! Discover our Invisalign opening offers and book your spot today.',
-    url: 'https://www.supernovadental.co.uk/',
-    type: 'website',
-    images: [
-      {
-        url: 'https://firebasestorage.googleapis.com/v0/b/supernova-dental.appspot.com/o/Supernova_Opening_Post.jpeg?alt=media&token=06c6642d-57dc-48a2-820d-0a332febe798',
-        width: 1080,
-        height: 1080,
-        alt: 'Supernova Dental - Smile Brighter Promotion',
-      },
-    ],
-  },
+    'Supernova Dental, dental exam offer, dental hygiene offer, Invisalign Bridgwater, dental practice Bridgwater, teeth whitening Bridgwater, healthy smile, dentist Bridgwater, best dentist in Bridgwater, cosmetic dentistry Bridgwater, affordable Invisalign',
+    openGraph: {
+      title: 'Supernova Dental - Exclusive Offers for New Patients',
+      description:
+        'Join Supernova Dental in Bridgwater with exclusive offers: 50% off your first dental exam and hygiene appointment and special Invisalign deals. Book today!',
+      url: 'https://www.supernovadental.co.uk/',
+      type: 'website',
+      locale: 'en_GB',
+      siteName: 'Supernova Dental',
+      images: [
+        {
+          url: 'https://firebasestorage.googleapis.com/v0/b/supernova-dental.appspot.com/o/Supernova_Opening_Post.jpeg?alt=media&token=06c6642d-57dc-48a2-820d-0a332febe798',
+          width: 1080,
+          height: 1080,
+          alt: 'Supernova Dental - Smile Brighter Promotion',
+        },
+      ],
+    }
+    
 };
 
 export default function RootLayout({
