@@ -2,7 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.supernovadental.co.uk/</loc>
-    <lastmod>2024-11-09</lastmod> <!-- The date the page was last modified -->
-    <priority>1.0</priority> <!-- Priority of the homepage -->
+    <lastmod>2024-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
 </urlset>
