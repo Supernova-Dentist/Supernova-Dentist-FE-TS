@@ -52,14 +52,19 @@ export default function PromotionForm() {
         body: JSON.stringify(data),
       });
 
-      console.log({ res });
-
       if (!res.ok) {
         const errorData = await res.json();
         const errorMessage =
           String(errorData.message) || 'There was a problem with your submission. Please try again later.';
         setError(String(errorMessage));
         throw new Error(String(errorMessage));
+      }
+
+      // Trigger Google Ads conversion tracking
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+        });
       }
 
       setShowSuccessModal(true);
