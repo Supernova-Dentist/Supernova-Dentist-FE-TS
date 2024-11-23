@@ -1,5 +1,5 @@
 'use client';
-import { SparklesCore } from '@/components/ui/sparkles';
+import { SparklesCore } from '@/components/ui/Sparkles';
 import { cn } from '@/lib/utils';
 import { IconDotsVertical } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -147,7 +147,6 @@ export const Compare = ({
       style={{
         position: 'relative',
         cursor: slideMode === 'drag' ? 'grab' : 'col-resize',
-        zIndex: 19,
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={mouseLeaveHandler}
@@ -181,8 +180,8 @@ export const Compare = ({
             />
           </div>
           {showHandlebar && (
-            <div className='h-5 w-5 rounded-md top-1/2 -translate-y-1/2 bg-white z-30 -right-2.5 absolute   flex items-center justify-center shadow-[0px_-1px_0px_0px_#FFFFFF40]'>
-              <IconDotsVertical className='h-4 w-4 text-black' />
+            <div className='h-6 w-6 rounded-md top-1/2 -translate-y-1/2 bg-white z-30 -right-2.5 absolute   flex items-center justify-center shadow-[0px_-1px_0px_0px_#FFFFFF40]'>
+              <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-5 w-5 inline ' />
             </div>
           )}
         </motion.div>
@@ -204,7 +203,7 @@ export const Compare = ({
                 alt='first image'
                 src={firstImage}
                 className={cn(
-                  'absolute inset-0  z-20 rounded-2xl flex-shrink-0 w-full h-full select-none',
+                  'absolute inset-0 z-20 rounded-2xl flex-shrink-0 w-full h-full select-none',
                   firstImageClassName
                 )}
                 draggable={false}

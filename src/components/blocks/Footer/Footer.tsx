@@ -11,28 +11,28 @@ export default function Footer() {
       <div className='w-full px-4 py-12 sm:px-10'>
         <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 min-[1500px]:grid-cols-6 gap-8 text-gray-300'>
           {/* General Services Section */}
-          <ul className='flex flex-col items-center sm:items-start gap-1'>
+          {/* <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>General Services</li>
             {generalServices.map((service, index) => (
               <FooterLink key={service.name} link={service.link} name={service.name} index={index} />
             ))}
-          </ul>
+          </ul> */}
 
           {/* Cosmetic Services Section */}
-          <ul className='flex flex-col items-center sm:items-start gap-1'>
+          {/* <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Cosmetic Services</li>
             {cosmeticServices.map((service, index) => (
               <FooterLink key={service.name} link={service.link} name={service.name} index={index} />
             ))}
-          </ul>
+          </ul> */}
 
           {/* Practice Info Section */}
-          <ul className='flex flex-col items-center sm:items-start gap-1'>
+          {/* <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Practice Info</li>
             {practiceInfo.map((info, index) => (
               <FooterLink key={info.name} link={info.link} name={info.name} index={index} />
             ))}
-          </ul>
+          </ul> */}
 
           {/* Office Info Section with Map */}
           <div className='flex flex-col items-center sm:items-start gap-1'>
@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
 
           {/* Review Us Section */}
-          <ul className='flex flex-col items-center sm:items-start gap-1'>
+          {/* <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Review Us</li>
             {reviewLinks.map((link, index) => (
               <li key={index}>{link}</li>
@@ -59,7 +59,7 @@ export default function Footer() {
                 </Button>
               ))}
             </li>
-          </ul>
+          </ul> */}
 
           {/* Contact Us Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
