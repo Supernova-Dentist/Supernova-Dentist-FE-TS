@@ -9,6 +9,7 @@ export const promotionSignupSchema = z.object({
     .string()
     .min(1, 'Phone number is required')
     .refine((data) => validator.isMobilePhone(data), { message: 'Invalid phone number' }),
+  optOutEmails: z.boolean(),
 });
 
 export type PromotionFormData = z.infer<typeof promotionSignupSchema>;
