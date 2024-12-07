@@ -56,7 +56,6 @@ export default function TeamMemberGrid() {
                 quality={100}
                 className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4'
               />
-              {/* <img src={member.image} alt={member.name} className='h-full w-full object-cover' /> */}
             </div>
             <div className='p-6'>
               <h3 className='text-xl font-semibold text-gray-900'>{member.name}</h3>
