@@ -27,7 +27,7 @@ const teamMembers = [
     name: 'Aleena Brazier',
     title: 'Dental Nurse',
     image: '/assets/images/Headshots/Supernova-07.jpg',
-    slug: 'michael-chen',
+    slug: 'aleena-brazier',
   },
 ];
 
