@@ -22,11 +22,11 @@ import FindUs from '@/components/FindUs/FindUs';
 import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
 import InstagramSection from '@/components/InstagramSection/InstagramSection';
+import MeetTeamSection from '@/components/MeetTeamSection/MeetTeamSection';
 
 const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), {
   ssr: false,
 });
-
 
 export default function Home() {
   return (
@@ -42,6 +42,7 @@ export default function Home() {
       <AccessibilityWidget />
 
       <AboutSection />
+      <MeetTeamSection />
       {/* <Pricing /> */}
       <SmileTransformations />
       <GoogleReviews />
