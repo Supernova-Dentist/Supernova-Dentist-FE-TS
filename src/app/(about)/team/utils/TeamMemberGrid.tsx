@@ -2,30 +2,31 @@
 
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const teamMembers = [
   {
     name: 'Dr. Scott Young',
-    title: 'Dentist',
-    image: '/assets/images/scottAiImage.jpg',
+    title: 'Principal Dentist',
+    image: '/assets/images/Headshots/Supernova-03.jpg',
     slug: 'scott-young',
   },
   {
-    name: 'Dr. John Smith',
-    title: 'Dental Hygienist',
-    image: '/assets/images/johnAiImage.jpg',
-    slug: 'john-smith',
+    name: 'Kayleigh Dowdle',
+    title: 'Dental Therapist',
+    image: '/assets/images/Headshots/Supernova-02.jpg',
+    slug: 'kayleigh-dowdle',
   },
   {
-    name: 'Dr. Sarah Lee',
-    title: 'Orthodontist',
-    image: '/assets/images/SarahAiImage.jpg',
-    slug: 'sarah-lee',
+    name: 'Mia Coakley',
+    title: 'Lead Front of House',
+    image: '/assets/images/Headshots/Supernova-05.jpg',
+    slug: 'mia-coakley',
   },
   {
-    name: 'Dr. Michael Chen',
-    title: 'Oral Surgeon',
-    image: '/assets/images/michaelAiImage.jpg',
+    name: 'Aleena Brazier',
+    title: 'Dental Nurse',
+    image: '/assets/images/Headshots/Supernova-07.jpg',
     slug: 'michael-chen',
   },
 ];
@@ -46,7 +47,16 @@ export default function TeamMemberGrid() {
             className='group relative overflow-hidden rounded-lg bg-white shadow-lg transition-transform transform hover:scale-105'
           >
             <div className='aspect-square overflow-hidden'>
-              <img src={member.image} alt={member.name} className='h-full w-full object-cover' />
+              <Image
+                src={member.image}
+                alt={`${member.name} headshot`}
+                width={600}
+                height={800}
+                layout={'responsive'}
+                quality={100}
+                className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4'
+              />
+              {/* <img src={member.image} alt={member.name} className='h-full w-full object-cover' /> */}
             </div>
             <div className='p-6'>
               <h3 className='text-xl font-semibold text-gray-900'>{member.name}</h3>
