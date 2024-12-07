@@ -41,7 +41,7 @@ export default function DesktopNav() {
           </div>
           <li>
             <Link target='_blank' href={`${DentallyPortal}`}>
-              <Button>Book Now</Button>
+              <Button className='text-white'>Book Now</Button>
             </Link>
           </li>
         </ul>
