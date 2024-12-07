@@ -1,7 +1,7 @@
 'use client';
 
 import { SparklesPreview } from '@/components/SparklesPreview/SparklesPreview';
-// import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { Stars } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { animate, motion, useMotionTemplate, useMotionValue } from 'framer-motion';
@@ -59,7 +59,7 @@ const AuroraHero = () => {
         </motion.span>
         <SparklesPreview />
 
-        {/* <motion.button
+        <motion.button
           onClick={scrollToPromotionForm}
           style={{
             border,
@@ -75,7 +75,7 @@ const AuroraHero = () => {
         >
           Sign Up Now
           <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
-        </motion.button> */}
+        </motion.button>
       </motion.div>
 
       <motion.div

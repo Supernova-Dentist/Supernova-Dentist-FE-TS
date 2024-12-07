@@ -1,17 +1,25 @@
-'use client'
+'use client';
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import useMeasure from 'react-use-measure';
 
-const Question = ({ title, children, defaultOpen = false }: { title: string, children: React.ReactNode, defaultOpen?: boolean }) => {
+const Question = ({
+  title,
+  children,
+  defaultOpen = false,
+}: {
+  title: string;
+  children: React.ReactNode;
+  defaultOpen?: boolean;
+}) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(defaultOpen);
 
   return (
     <motion.div animate={open ? 'open' : 'closed'} className='border-b-[1px] border-b-slate-300'>
-      <button onClick={() => setOpen((pv) => !pv)} className='flex w-full items-center justify-between gap-4 py-6'>
+      <button onClick={() => setOpen((pv) => !pv)} className='flex w-full items-center justify-between gap-4 py-2'>
         <motion.span
           variants={{
             open: {
@@ -29,7 +37,7 @@ const Question = ({ title, children, defaultOpen = false }: { title: string, chi
           variants={{
             open: {
               rotate: '180deg',
-              color: 'gold',
+              color: 'var(--gold)',
             },
             closed: {
               rotate: '0deg',
@@ -46,23 +54,23 @@ const Question = ({ title, children, defaultOpen = false }: { title: string, chi
           height: open ? height : '0px',
           marginBottom: open ? '24px' : '0px',
         }}
-        className='overflow-hidden text-slate-600'
+        className='overflow-hidden text-slate-800'
       >
-        <p ref={ref}>{children}</p>
+        <p className='text-left' ref={ref}>
+          {children}
+        </p>
       </motion.div>
     </motion.div>
   );
 };
 
-const FAQ = ({ faqItems }: { faqItems: Array<{ question: string, answer: string }> }) => {
+const FAQ = ({ faqItems }: { faqItems: Array<{ question: string; answer: string }> }) => {
   return (
     <div>
       {faqItems.map((item, index) => (
         <div key={index}>
-        <Question  title={item.question}>
-          {item.answer}
-        </Question>
-        <hr className='my-6 border-b-[1px] border-b-slate-300' />
+          <Question title={item.question}>{item.answer}</Question>
+          {index < faqItems.length - 1 && <hr className='my-6 border-b-[1px] border-b-gray-200' />}
         </div>
       ))}
     </div>

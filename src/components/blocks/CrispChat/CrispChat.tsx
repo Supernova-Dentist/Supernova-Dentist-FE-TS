@@ -1,13 +1,6 @@
 'use client';
 import { useEffect } from 'react';
 
-declare global {
-  interface Window {
-    $crisp: any[];
-    CRISP_WEBSITE_ID?: string;
-  }
-}
-
 const CrispChat: React.FC = () => {
   useEffect(() => {
     window.$crisp = [];

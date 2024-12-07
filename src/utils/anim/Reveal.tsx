@@ -22,7 +22,7 @@ export const Reveal = ({ children }: RevealProps) => {
   }, [isInView]);
 
   return (
-    <div ref={ref} className='relative w-fit overflow-hidden'>
+    <div ref={ref} className='relative w-full overflow-hidden'>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },
@@ -31,6 +31,7 @@ export const Reveal = ({ children }: RevealProps) => {
         initial='hidden'
         animate={mainControls}
         transition={{ duration: 0.5, delay: 0.25 }}
+        className='w-full'
       >
         {children}
       </motion.div>

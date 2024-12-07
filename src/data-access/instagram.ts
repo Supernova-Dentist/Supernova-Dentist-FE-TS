@@ -6,6 +6,7 @@ const REFRESH_THRESHOLD = 86400 * 7; // 1 week in seconds
 
 export async function getCurrentInstagramAccessToken(): Promise<InstagramToken | null> {
   const tokenRecord = await prisma.instagramToken.findUnique({ where: { id: 1 } });
+
   if (tokenRecord === null || tokenRecord === undefined) return null;
 
   return tokenRecord;

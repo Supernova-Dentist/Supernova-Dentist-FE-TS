@@ -50,6 +50,9 @@ const config = {
         'screen-minus-nav': 'calc(100vh - 88px)',
       },
       height: { 'screen-minus-nav': 'calc(100vh - 88px)' },
+      maxHeight: {
+        'privacy-policy-content': 'calc(100% - 124px)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate'), addVariablesForColors],
