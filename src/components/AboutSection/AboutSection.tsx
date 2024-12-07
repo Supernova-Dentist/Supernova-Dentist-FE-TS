@@ -40,7 +40,7 @@ export default function AboutSection() {
           Bridgewater. Opening in November 2024, our state-of-the-art practice blends advanced technology with a
           personal touch to ensure a comfortable and exceptional experience for every patient.
         </p>
-        <Button onClick={scrollToPromotionForm} className='mt-6 w-fit'>
+        <Button onClick={scrollToPromotionForm} className='mt-6 w-fit p-6'>
           Come see us!
         </Button>
       </motion.div>
