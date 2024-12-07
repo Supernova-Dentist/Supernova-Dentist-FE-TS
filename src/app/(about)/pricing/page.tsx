@@ -4,16 +4,16 @@ import { pricingItems } from './utils/pricingItems';
 
 export default function Pricing() {
   return (
-    <div className='min-h-screen flex bg-lightGrey'>
+    <div className='min-h-screen flex bg-lightGrey justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
-        <h1 className='text-4xl md:text-5xl text-gold font-bold text-center mb-12'>Our Pricing Plans</h1>
+        <h1 className='text-4xl md:text-5xl text-gold font-bold text-center my-12 pt-6'>Price Guide</h1>
         <hr className='border-t-2 border-gold w-20 mx-auto mb-16' />
-        <p className='text-center text-lg text-cream mb-8'>
+        <p className='text-center text-lg md:text-xl text-cream mb-8'>
           Prices are subject to change, and offers may be time-limited.
         </p>
-        <div className='max-w-4xl mx-auto'>
-          <PricingAccordion pricingItems={pricingItems} />
-        </div>
+        {/* <div className='max-w-6xl mx-auto'> */}
+        <PricingAccordion pricingItems={pricingItems} />
+        {/* </div> */}
         <div className='text-center mt-16 py-12 md:py-18 lg:py-24'>
           <h2 className='text-2xl md:text-3xl text-gold font-semibold mb-6'>
             Have Questions or Need More Information?
