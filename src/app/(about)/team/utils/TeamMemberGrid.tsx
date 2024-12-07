@@ -7,7 +7,7 @@ import Image from 'next/image';
 const teamMembers = [
   {
     name: 'Dr. Scott Young',
-    title: 'Principal Dentist',
+    title: 'Principal Dentist/Owner',
     image: '/assets/images/Headshots/Supernova-03.jpg',
     slug: 'scott-young',
   },
@@ -60,13 +60,15 @@ export default function TeamMemberGrid() {
             <div className='p-6'>
               <h3 className='text-xl font-semibold text-gray-900'>{member.name}</h3>
               <p className='text-sm text-gray-600'>{member.title}</p>
-              <Button
-                variant='link'
-                className='mt-4 text-blue-600 hover:underline'
-                onClick={() => handleShowBio(member.slug)}
-              >
-                Show Bio
-              </Button>
+              <div className='mx-auto flex justify-center p-2'>
+                <Button
+                  variant='link'
+                  className='mt-4 text-cream hover:underline bg-lightGold p-6 text-lg'
+                  onClick={() => handleShowBio(member.slug)}
+                >
+                  View Profile
+                </Button>
+              </div>
             </div>
           </div>
         ))}
