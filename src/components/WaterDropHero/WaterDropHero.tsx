@@ -1,4 +1,5 @@
 import { Reveal } from '@/utils/anim/Reveal';
+import Image from 'next/image';
 
 const WaterDropHero = () => {
   return (
@@ -13,9 +14,10 @@ const WaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m a <span className='font-semibold text-gold'> Dental Practitioner</span>
+                I&apos;m a <span className='font-semibold text-gold'> Principal Dentist</span>
               </h2>
-              <h3 className='text-gold'>GPhC Registration Number: 12345678</h3>
+              <h3 className='text-lightGold'>BDS (Hons) PGcert (FGFP) PGDip (SDC) CGD</h3>
+              <h3 className='text-lightGold'>GDC Registration Number: 284371</h3>
             </>
           </Reveal>
           <Reveal>
@@ -26,22 +28,26 @@ const WaterDropHero = () => {
             </p>
           </Reveal>
           <Reveal>
-            <div className='flex gap-4 mt-4'>
+            <div className='flex gap-4 mt-4 mx-auto justify-center'>
               <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
                 Book with me
               </button>
               <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Contact me
+                Get in touch
               </button>
             </div>
           </Reveal>
         </div>
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
-            <img
-              src='/assets/images/scottAiImage.jpg'
-              alt='Scott'
-              className='pointer-events-auto w-72 h-72 object-cover rounded-full shadow-lg lg:w-96 lg:h-96'
+            <Image
+              src='/assets/images/Headshots/Supernova-03.jpg'
+              alt='Dr. Scott Young headshot'
+              width={600}
+              height={800}
+              layout={'responsive'}
+              quality={100}
+              className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4'
             />
           </Reveal>
         </div>
