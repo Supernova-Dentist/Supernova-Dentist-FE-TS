@@ -1,9 +1,8 @@
 export default {
   header: { title: 'Invisalign', subTitle: 'Achieve a perfect smile with our Invisalign clear aligners.' },
-  mainText:
-    'Invisalign is a modern orthodontic treatment that straightens your teeth using a series of clear, removable aligners. Our experienced dentists will customize a treatment plan tailored to your specific needs, ensuring a comfortable and effective journey to a straighter smile.',
+
   benefitText:
-    'Enjoy the benefits of a straighter smile without the hassle of traditional braces. Book your Invisalign consultation today!',
+    'Experience the confidence of a straighter, healthier smile without the discomfort and inconvenience of traditional braces. Schedule your Invisalign consultation today and take the first step toward transforming your smile!',
   serviceStats: [
     {
       title: '12 - 18 months',
