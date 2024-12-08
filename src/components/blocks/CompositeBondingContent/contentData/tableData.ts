@@ -27,5 +27,5 @@ export const tableData = {
   content: { tableHeadData, tableBodyData },
   title: 'Treatment Comparison',
   description:
-    'Compare our composite bonding treatment with other common dental treatments to find the best option for your needs.',
+    'Compare our composite bonding treatment with other common dental treatments to find the best option for your needs:',
 };
