@@ -30,6 +30,6 @@ const tableBodyData = [
 export const tableData = {
   title: 'Dental Restoration Comparison',
   description:
-    'Compare dental implants with bridges and dentures to find the best option for your tooth replacement needs.',
+    'Compare dental implants with bridges and dentures to find the best option for your tooth replacement needs:',
   content: { tableHeadData, tableBodyData },
 };

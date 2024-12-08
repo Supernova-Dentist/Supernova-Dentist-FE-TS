@@ -14,7 +14,7 @@ import benefitsData from './contentData/benefitsData';
 import { faqItems } from './contentData/faqData';
 import invisalignHeroData from './contentData/heroData';
 import infoData from './contentData/infoData';
-import processData, { InvisalignJourney } from './contentData/processData';
+import { InvisalignJourney } from './contentData/processData';
 import { tableData } from './contentData/tableData';
 import testimonialsData from './contentData/testimonialsData';
 
@@ -31,9 +31,9 @@ export default function InvisalignContent() {
       </div>
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
-      <InvisalignJourney id='process' data={processData} />
-      <TestimonialsSection id='testimonials' data={testimonialsData} />
-      <AftercareSection data={aftercareData} />
+      <InvisalignJourney id='process' />
+      {/* <TestimonialsSection id='testimonials' data={testimonialsData} /> */}
+      {/* <AftercareSection data={aftercareData} /> */}
       <ComparisonSection id='comparison' data={tableData} />
       <FaqSection id='faq' faqItems={faqItems} />
     </>

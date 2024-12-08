@@ -106,7 +106,7 @@ export const InvisalignTimeline = ({ data, setImagesLoaded, imagesLoaded }: Time
           </div>
         </div>
       </motion.div>
-      <div className='flex justify-center mb-6'>
+      <div className='flex justify-center mb-6 py-6'>
         <button
           onClick={scrollToPromotionForm}
           className='bg-lightGold text-cream px-8 py-4 rounded-lg text-lg font-semibold'

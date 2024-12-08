@@ -47,7 +47,7 @@ export default {
       title: 'Initial Consultation',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-sm md:text-md lg:text-lg font-normal mb-8'>
             Your journey begins with a comprehensive consultation to assess your oral health and discuss your goals.
             We’ll determine if dental implants are the best option for you and plan the next steps.
           </p>
@@ -67,7 +67,7 @@ export default {
       title: 'Treatment Planning',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
             Advanced imaging and planning are performed to ensure precise placement of the dental implants. This step is
             crucial for a successful outcome and involves detailed planning.
           </p>
@@ -87,7 +87,7 @@ export default {
       title: 'Implant Placement',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
             The dental implant is surgically placed into the jawbone. This procedure is performed under local anesthesia
             and involves careful placement to ensure proper healing and integration.
           </p>
@@ -107,7 +107,7 @@ export default {
       title: 'Healing Period',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
             After the implant is placed, a healing period is required for the implant to integrate with the jawbone.
             During this time, regular check-ups will ensure proper healing and integration.
           </p>
@@ -127,7 +127,7 @@ export default {
       title: 'Final Restoration',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
             Once the implant has fully integrated, we place the final restoration (crown, bridge, or denture) onto the
             implant. This final step completes your dental implant procedure and restores your smile.
           </p>
