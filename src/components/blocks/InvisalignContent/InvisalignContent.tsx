@@ -32,8 +32,8 @@ export default function InvisalignContent() {
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
       <InvisalignJourney id='process' />
-      <TestimonialsSection id='testimonials' data={testimonialsData} />
-      <AftercareSection data={aftercareData} />
+      {/* <TestimonialsSection id='testimonials' data={testimonialsData} /> */}
+      {/* <AftercareSection data={aftercareData} /> */}
       <ComparisonSection id='comparison' data={tableData} />
       <FaqSection id='faq' faqItems={faqItems} />
     </>
