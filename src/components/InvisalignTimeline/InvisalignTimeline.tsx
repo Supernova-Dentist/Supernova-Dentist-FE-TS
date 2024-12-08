@@ -8,7 +8,7 @@ export function ServiceTimeline() {
       title: 'Initial Consultation (Week 1)',
       content: (
         <div>
-          <p className='text-lightGol text-xs md:text-sm font-normal mb-8'>
+          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
             Your journey begins with a consultation to discuss your goals and assess your dental health. The dentist
             will take digital scans and X-rays to create a customized treatment plan.
           </p>
@@ -28,7 +28,7 @@ export function ServiceTimeline() {
       title: 'Receiving Your Aligners (Week 2)',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
             Once your aligners are ready, you will receive them along with instructions on how to wear and care for
             them. Your dentist will check the fit and make adjustments if necessary.
           </p>
@@ -48,7 +48,7 @@ export function ServiceTimeline() {
       title: 'Progress Check-ups (Every 6-8 Weeks)',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
             Regular check-ups are scheduled to monitor your progress. Your dentist will ensure that your teeth are
             moving according to the treatment plan and make adjustments as needed.
           </p>
@@ -68,7 +68,7 @@ export function ServiceTimeline() {
       title: 'Final Stages and Retainers (Month 12+)',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
             As you near the end of your treatment, you will receive your final set of aligners. After completing the
             treatment, you will be given retainers to maintain the new position of your teeth.
           </p>
