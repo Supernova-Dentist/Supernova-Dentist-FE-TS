@@ -29,7 +29,7 @@ export default {
       title: 'Initial Consultation',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
             Your journey begins with a consultation to discuss your aesthetic goals and evaluate your dental health. We
             will determine if composite bonding is the right treatment for you.
           </p>
@@ -49,7 +49,7 @@ export default {
       title: 'Preparation and Shade Matching',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
             We prepare the teeth for bonding and select the appropriate shade of composite resin to match your natural
             teeth. This ensures a seamless and aesthetically pleasing result.
           </p>
@@ -69,7 +69,7 @@ export default {
       title: 'Composite Application and Curing',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
             The composite resin is applied to the teeth, sculpted to the desired shape, and cured with a special light.
             This process ensures that the bonding material is securely attached and long-lasting.
           </p>
@@ -89,7 +89,7 @@ export default {
       title: 'Finishing Touches',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
             The final step involves polishing the bonded teeth to ensure a smooth finish and making any necessary
             adjustments to ensure comfort and appearance.
           </p>
