@@ -34,7 +34,6 @@ type ServiceStats = {
 type ServiceBox = {
   title: string;
   subTitle: string;
-  mainText: string;
   benefitText: string;
   stats: ServiceStat[];
 };
@@ -87,7 +86,7 @@ type ServiceTestimonials = {
 
 type HeroHeaderContent = {
   header: { title: string; subTitle: string };
-  mainText: string;
+  mainText?: string;
   benefitText: string;
   serviceStats: ServiceStat[];
 };
