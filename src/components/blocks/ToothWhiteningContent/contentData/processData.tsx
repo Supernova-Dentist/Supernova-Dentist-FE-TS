@@ -29,7 +29,7 @@ export default {
       title: 'Initial Consultation',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-black text-xs md:text-sm font-normal mb-8'>
             Your journey starts with a consultation to discuss your whitening goals and evaluate your dental health. We
             will determine the best approach to achieve the desired results.
           </p>

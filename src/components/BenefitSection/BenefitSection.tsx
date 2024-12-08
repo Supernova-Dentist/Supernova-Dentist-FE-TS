@@ -6,7 +6,7 @@ export default function BenefitSection({ data, id }: BenefitSection) {
   const { title, description, content } = data;
 
   return (
-    <section id={id} className='py-12 px-4 md:py-20 lg:py-28 bg-grey'>
+    <section id={id} className='py-12 px-4 md:py-20 lg:py-28 bg-gradient-to-b from-white to-white'>
       <div className='container mx-auto px-4 md:px-6'>
         <SectionTitle title={title} />
         <hr className='border-t-2 border-gold w-20 mx-auto mt-4 mb-8' />
