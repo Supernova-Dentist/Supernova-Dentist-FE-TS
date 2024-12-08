@@ -8,7 +8,7 @@ export function ServiceTimeline() {
       title: 'Initial Consultation (Week 1)',
       content: (
         <div>
-          <p className='text-cream text-xs md:text-sm font-normal mb-8'>
+          <p className='text-lightGol text-xs md:text-sm font-normal mb-8'>
             Your journey begins with a consultation to discuss your goals and assess your dental health. The dentist
             will take digital scans and X-rays to create a customized treatment plan.
           </p>
