@@ -30,8 +30,8 @@ export default function DentalImplantsContent() {
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
       <ProcessSection id='process' data={processData} />
-      <TestimonialsSection id='testimonials' data={testimonialsData} />
-      <AftercareSection data={afterCareData} />
+      {/* <TestimonialsSection id='testimonials' data={testimonialsData} /> */}
+      {/* <AftercareSection data={afterCareData} /> */}
       <ComparisonSection id='comparison' data={tableData} />
       <FaqSection id='faq' faqItems={faqItems} />
     </>
