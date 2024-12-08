@@ -49,7 +49,7 @@ export default {
       title: 'Preparation',
       content: (
         <div>
-          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
+          <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
             Your teeth are thoroughly cleaned to remove any buildup of plaque or tartar. This step is crucial for
             ensuring that the whitening treatment is effective and evenly applied.
           </p>
@@ -69,7 +69,7 @@ export default {
       title: 'Whitening Treatment',
       content: (
         <div>
-          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
+          <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
             We apply a professional whitening gel to your teeth and use a special light or laser to activate the gel.
             This process significantly brightens your smile in just one session.
           </p>
@@ -89,7 +89,7 @@ export default {
       title: 'Aftercare and Follow-Up',
       content: (
         <div>
-          <p className='text-cream text-sm md:text-md lg:text-lg font-normal mb-8'>
+          <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
             We provide you with aftercare instructions to maintain your bright smile and schedule a follow-up
             appointment to ensure that you are satisfied with the results.
           </p>
