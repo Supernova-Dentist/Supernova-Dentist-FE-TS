@@ -13,6 +13,7 @@ import './reset.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.supernovadental.co.uk'),
   title: 'Supernova Dental - Expert Dental Care in Bridgwater | 50% Off First Exam & Hygiene Appointment',
   description:
     'Join Supernova Dental in Bridgwater for exclusive offers: 50% off your first dental exam and hygiene appointment, plus special Invisalign deals if you sign up by December 31st 2024. Book today and start your journey to a healthier smile!',
