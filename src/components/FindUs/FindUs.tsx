@@ -50,7 +50,7 @@ export default function FindUs() {
                 Our Address
               </h2>
               <ul className='text-center sm:text-left'>
-                <li className='mb-3'>The Supernova Building</li>
+                <li className='mb-3'>Supernova Building</li>
                 <li className='mb-3'>Marsh Lane, Huntworth,</li>
                 <li className='mb-3'>Bridgwater</li>
                 <li className='mb-3'>TA6 6LQ</li>
