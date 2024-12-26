@@ -7,22 +7,24 @@ import SteppedProgress from '@/components/SteppedProgress/SteppedProgress';
 import { StickyCards } from '@/components/StickyCards/StickyCards';
 import Link from 'next/link';
 import { stepContent } from './utils/stepContent';
+import { FeaturesSectionDemo } from '@/components/ui/bento-grid';
 
 export default function OurClinic() {
   return (
     <div className='flex flex-col'>
-      <PageHero
+      {/* <PageHero
         bgImage='bg-blog'
         title='Welcome to Supernova Dental'
         description='Exceptional dental care in a modern, welcoming environment.'
-      />
+      /> */}
       {/* About Section */}
       <section className='py-16 md:py-24 lg:py-32'>
         <div className='container mx-auto px-4 md:px-6 lg:px-8'>
+          <FeaturesSectionDemo />
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16'>
             <div>
               <img
-                src='/assets/images/skyline-dental-office-exterior.jpg' // Replace with an actual image file
+                src='/assets/images/enterance.jpg'
                 alt='About Supernova Dental'
                 className='w-full h-full object-cover rounded-lg'
                 width={800}
