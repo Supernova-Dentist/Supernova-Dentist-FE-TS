@@ -5,9 +5,9 @@ import { FloatingPhone } from '@/components/FloatingPhone/FloatingPhone';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import SteppedProgress from '@/components/SteppedProgress/SteppedProgress';
 import { StickyCards } from '@/components/StickyCards/StickyCards';
+import { FeaturesSectionDemo } from '@/components/ui/bento-grid';
 import Link from 'next/link';
 import { stepContent } from './utils/stepContent';
-import { FeaturesSectionDemo } from '@/components/ui/bento-grid';
 
 export default function OurClinic() {
   return (
@@ -24,7 +24,7 @@ export default function OurClinic() {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16'>
             <div>
               <img
-                src='/assets/images/enterance.jpg'
+                src='/assets/images/outerBuilding.jpg'
                 alt='About Supernova Dental'
                 className='w-full h-full object-cover rounded-lg'
                 width={800}
