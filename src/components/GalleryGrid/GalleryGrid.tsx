@@ -1,12 +1,10 @@
-'use client';
-
+import { useState, useEffect } from 'react';
 import PaginationControls from '@/components/PaginationControls/PaginationControls';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTitle } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
 import fetchMediaPostsById from '@/services/wordpress/fetchMediaPostsById';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { FaShareAlt } from 'react-icons/fa';
 
 export default function GalleryGrid({
@@ -23,6 +21,7 @@ export default function GalleryGrid({
   const [activeFilter] = useState('All');
   const [selectedImage, setSelectedImage] = useState<MediaPost | null>(null);
   const [loading, setLoading] = useState(true);
+  const [imageWidth, setImageWidth] = useState<number | null>(null);
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -43,7 +42,7 @@ export default function GalleryGrid({
     console.log({ categoryId });
 
     // Initialize URLSearchParams with the current query parameters
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
 
     if (value !== '') {
       // Set the 'slug' parameter to the new value
@@ -80,6 +79,11 @@ export default function GalleryGrid({
     try {
       const data: MediaPost = await fetchMediaPostsById(mediaItem.id);
       setSelectedImage(data);
+      const img = new Image();
+      img.src = data.jetpack_featured_media_url;
+      img.onload = () => {
+        setImageWidth(img.naturalWidth);
+      };
     } catch (error) {
       console.error('Error fetching media details:', error);
     }
@@ -87,6 +91,7 @@ export default function GalleryGrid({
 
   const handleClose = () => {
     setSelectedImage(null);
+    setImageWidth(null);
   };
 
   function ImageContent({ content }: { content: string }) {
@@ -159,20 +164,27 @@ export default function GalleryGrid({
             <FaShareAlt size={24} />
             <span className='sr-only'>Close</span>
           </DialogClose>
-          <DialogContent className='p-0 max-w-[90vw] max-h-[90vh] overflow-auto'>
-            <img
-              src={selectedImage.jetpack_featured_media_url}
-              alt={selectedImage.alt_text}
-              width={800}
-              height={600}
-              className='w-full h-auto object-contain'
-            />
-            <div className='p-4 bg-background'>
-              <DialogTitle className='text-center text-2xl font-bold mb-4'>{selectedImage.title.rendered}</DialogTitle>
-              <ImageContent content={selectedImage.content?.rendered} />
+          <DialogContent
+            className='p-0 max-w-[90vw] max-h-[90vh] overflow-auto'
+            style={{ width: imageWidth ? `${imageWidth}px` : 'auto' }}
+          >
+            <div className='flex flex-col items-center'>
+              <div className='w-full max-h-[60vh] flex justify-center items-center overflow-hidden'>
+                <img
+                  src={selectedImage.jetpack_featured_media_url}
+                  alt={selectedImage.alt_text}
+                  className='w-auto h-full object-contain'
+                />
+              </div>
+              <div className='p-4 bg-background w-full'>
+                <DialogTitle className='text-center text-2xl font-bold mb-4'>
+                  {selectedImage.title.rendered}
+                </DialogTitle>
+                <ImageContent content={selectedImage.content?.rendered} />
+              </div>
             </div>
             <DialogFooter className='sm:justify-start'>
-              <div className='p-4'>
+              <div className='p-4 mx-auto'>
                 <Button type='button' variant='secondary' className='flex items-center space-x-2'>
                   <FaShareAlt size={16} /> {/* Share icon */}
                   <span>Share</span>
