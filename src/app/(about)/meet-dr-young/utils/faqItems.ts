@@ -1,4 +1,4 @@
-export const faqItems: FAQItem[] = [
+export const faqItems = [
   {
     question: 'Question: What dental services does Dr. Scott Young offer?',
     answer:
