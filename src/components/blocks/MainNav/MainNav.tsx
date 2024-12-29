@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-
 // Custom hook to get window size
 export const useWindowSize = () => {
   const [size, setSize] = useState({
@@ -71,22 +70,20 @@ const MainNav = () => {
     return <nav></nav>; // Placeholder or a loading indicator
   }
 
-  const isMobile = width <= 800; // Define your mobile breakpoint here
+  const isMobile = width <= 850; // Define your mobile breakpoint here
 
   return (
-   
-      <header
-        className={`${
-          !isMobile
-            ? `z-50 fixed top-0 left-0 w-full transition-transform duration-300 ${
-                navbarVisible ? 'translate-y-0' : '-translate-y-full'
-              }`
-            : ''
-        }`}
-      >
-        {isMobile ? <CornerNav /> : <DesktopNav />}
-      </header>
-   
+    <header
+      className={`${
+        !isMobile
+          ? `z-50 fixed top-0 left-0 w-full transition-transform duration-300 ${
+              navbarVisible ? 'translate-y-0' : '-translate-y-full'
+            }`
+          : ''
+      }`}
+    >
+      {isMobile ? <CornerNav /> : <DesktopNav />}
+    </header>
   );
 };
 

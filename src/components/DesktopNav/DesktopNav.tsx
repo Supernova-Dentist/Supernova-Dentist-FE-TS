@@ -9,6 +9,7 @@ import { useInView } from 'react-intersection-observer';
 import Logo from '../../../public/assets/images/logo.png';
 import Button from '../Button/Button';
 import FlyoutLink from './FlyoutLink/FlyoutLink';
+import { NonUndefined } from 'react-hook-form';
 
 export default function DesktopNav() {
   const { ref, inView } = useInView({
@@ -33,7 +34,7 @@ export default function DesktopNav() {
           </div>
 
           <div className='flex-1 flex gap-8 items-center justify-center'>
-            {navLinks.map(({ name, subLinks, url }: { name: string; subLinks: any[]; url: string }) => (
+            {navLinks.map(({ name, subLinks, url }: { name: string; subLinks: any[]; url?: string | undefined }) => (
               <FlyoutLink key={name} href={url} flyoutItems={subLinks}>
                 {name}
               </FlyoutLink>

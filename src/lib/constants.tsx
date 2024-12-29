@@ -45,6 +45,10 @@ export const media = [
     name: 'Gallery',
     link: '/gallery',
   },
+  {
+    name: 'Social',
+    link: '/social',
+  },
   //  TODO: Uncomment when there is an instagram post
   // {
   //   name: 'Social',
@@ -55,12 +59,11 @@ export const media = [
 export const navLinks = [
   {
     name: 'Cosmetic Dentistry',
-    url: '/cosmetic-dentistry',
     subLinks: cosmeticServices,
   },
-  { name: 'General Dentistry', url: '/general-dentistry', subLinks: generalServices },
-  { name: 'About us', url: '/about', subLinks: practiceInfo },
-  { name: 'Media', url: '/media', subLinks: media },
+  { name: 'General Dentistry', subLinks: generalServices },
+  { name: 'About us', subLinks: practiceInfo },
+  { name: 'Media', subLinks: media },
 ];
 
 export const officeInfo = {

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import OverallGoogleRating from '../blocks/OverallGoogleRating/OverallGoogleRating';
+import Link from 'next/link';
 
 export default function AboutSection() {
   // Animation variants
@@ -37,12 +38,13 @@ export default function AboutSection() {
         <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>About Supernova Dental</h2>
         <p className='mt-4'>
           At Supernova Dental, we are a passionate team dedicated to providing the highest standard of dental care in
-          Bridgewater. Opening in November 2024, our state-of-the-art practice blends advanced technology with a
-          personal touch to ensure a comfortable and exceptional experience for every patient.
+          Bridgewater. Now open and accepting new patients, our state-of-the-art practice blends advanced technology
+          with a personal touch to ensure a comfortable and exceptional experience for every patient.
         </p>
-        <Button onClick={scrollToPromotionForm} className='mt-6 w-fit p-6'>
-          Come see us!
-        </Button>
+
+        <Link href='/clinic'>
+          <Button className='mt-6 w-fit p-6'>Learn more!</Button>
+        </Link>
       </motion.div>
 
       {/* Image Section */}
@@ -54,13 +56,13 @@ export default function AboutSection() {
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
       >
         <Image
-          src='/assets/images/supernova_scott.png'
+          src='/assets/images/outerBuilding.jpg'
           alt='About Us'
           width={600}
-          height={800}
+          height={600}
           layout={'responsive'}
           quality={100}
-          className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4'
+          className='object-contain h-auto w-auto max-w-[46rem] rounded-lg p-4'
         />
       </motion.div>
     </section>

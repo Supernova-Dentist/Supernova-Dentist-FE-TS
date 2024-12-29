@@ -11,9 +11,9 @@ export default function NotFound() {
         <p className='text-center text-lightGrey'>{`Looks like this page has been extracted! Don't worry, we're experts at fixing gaps.`}</p>
       </div>
       <div className='flex gap-2 items-center'>
-        <Button>
-          <Link href='/'>Go Home</Link>
-        </Button>
+        <Link href='/'>
+          <Button>Go Home</Button>
+        </Link>
       </div>
     </div>
   );

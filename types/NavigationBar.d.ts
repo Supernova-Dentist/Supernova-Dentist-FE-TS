@@ -1,7 +1,7 @@
 type FlyoutItems = Array<{ name: string; link: string }>;
 
 type MainLink = {
-  href: string;
+  href: string | undefined;
   showFlyout: boolean;
   children?: React.ReactNode;
   flyoutItems: Array<{ name: string; link: string }>;
@@ -10,7 +10,7 @@ type MainLink = {
 
 type FlyoutLinkProps = {
   children: React.ReactNode;
-  href: string;
+  href: string | undefined;
   flyoutItems: FlyoutItems;
 };
 
