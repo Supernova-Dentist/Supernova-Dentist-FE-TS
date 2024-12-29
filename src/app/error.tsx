@@ -28,9 +28,9 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
         >
           Try again
         </Button>
-        <Button>
-          <Link href='/'>Go Home</Link>
-        </Button>
+        <Link href='/'>
+          <Button>Go Home</Button>
+        </Link>
       </div>
     </div>
   );
