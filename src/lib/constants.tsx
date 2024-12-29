@@ -45,6 +45,10 @@ export const media = [
     name: 'Gallery',
     link: '/gallery',
   },
+  {
+    name: 'Social',
+    link: '/social',
+  },
   //  TODO: Uncomment when there is an instagram post
   // {
   //   name: 'Social',
