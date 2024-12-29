@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, type MotionValue, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import React, { useRef } from 'react';
 import { Smile, Wifi } from 'react-feather';
 
@@ -52,21 +53,31 @@ const Carousel = () => {
       title: 'Comfortable Chairs',
       description: 'Our ergonomic chairs provide maximum comfort during your treatments.',
       icon: <Smile className='w-12 h-12 mb-4 text-gold' />,
+      imgSrc: '/assets/images/surgery2.JPG',
     },
     {
       title: 'Advanced Equipment',
       description: 'We use the latest dental technology to ensure accurate and efficient treatments.',
       icon: <Smile className='w-12 h-12 mb-4 text-gold' />,
+      imgSrc: '/assets/images/equipment.JPG',
     },
     {
       title: 'Free WiFi',
       description: 'Stay connected while you wait with our complimentary WiFi.',
       icon: <Wifi className='w-12 h-12 mb-4 text-gold' />,
+      imgSrc: '/assets/images/waitingRoom.JPG',
+    },
+    {
+      title: 'Accessibility friendly toilets',
+      description: 'Our clinic is equipped with an accessible toilet for your convenience.',
+      icon: <Wifi className='w-12 h-12 mb-4 text-gold' />,
+      imgSrc: '/assets/images/toilet.JPG',
     },
     {
       title: 'Ample Parking',
       description: 'Plenty of parking spaces available, ensuring a hassle-free visit every time.',
       icon: <Smile className='w-12 h-12 mb-4 text-gold' />,
+      imgSrc: '/assets/images/parking.JPG',
     },
   ];
 
@@ -120,7 +131,14 @@ const CarouselItem = ({
       <div className='flex flex-col items-center text-center text-cream'>
         {feature.icon}
         <h3 className='text-3xl font-bold mb-2 text-gold'>{feature.title}</h3>
-        <p className=''>{feature.description}</p>
+        <p className='p-4'>{feature.description}</p>
+        <Image
+          src={feature.imgSrc}
+          alt={feature.title}
+          width={600}
+          height={600}
+          className='w-full h-full object-cover rounded-2xl'
+        />
       </div>
     </motion.div>
   );
