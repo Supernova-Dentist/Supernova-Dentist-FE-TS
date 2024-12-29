@@ -12,15 +12,13 @@ export const CornerNav = () => {
       <HamburgerButton active={active} setActive={setActive} />
 
       <AnimatePresence>{active && <LinksOverlay setActive={setActive} />}</AnimatePresence>
-
     </>
   );
 };
 
-
 const LinksOverlay = ({ setActive }: any) => {
   return (
-    <div className='fixed right-4 top-4 z-50 h-[calc(100vh_-_32px)] w-[calc(100%_-_32px)] overflow-y-scroll'>
+    <div className='fixed right-4 top-4 z-50 h-full w-[calc(100%_-_32px)] overflow-y-scroll'>
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{
@@ -45,7 +43,7 @@ const LinksContainer = () => {
   const [activeLink, setActiveLink] = useState<number | null>(null);
 
   return (
-    <motion.div className='space-y-6 py-8 px-12 pl-4 md:pl-20'>
+    <motion.div className='space-y-6 pt-8 mb-12 pb-20 px-12 pl-4 md:pl-20'>
       {LINKS.map((l, idx) => (
         <NavLink
           key={l.title}
@@ -54,16 +52,15 @@ const LinksContainer = () => {
           subLinks={l.subLinks}
           isActive={activeLink === idx}
           onClick={() => {
-            if (idx === 0) {
-              // Redirect to the homepage
-              window.location.href = '/'; // For client-side navigation in Next.js
-            } else {
-              // Toggle the active link
+            if (l.subLinks && l.subLinks.length > 0) {
+              // Toggle active state for the clicked link with subLinks
               setActiveLink(activeLink === idx ? null : idx);
+            } else {
+              // If no subLinks, redirect to the href
+              window.location.href = l.href;
             }
           }}
         >
-
           {l.title}
         </NavLink>
       ))}
@@ -103,11 +100,60 @@ const NavLink = ({
           },
         }}
         exit={{ opacity: 0, y: -8 }}
-        onClick={handleClick} // Attach the click handler
-        className='flex items-center justify-between text-lg font-semibold text-cream transition-colors md:text-3xl cursor-pointer capitalize'
+        onClick={onClick} // Attach the click handler
+        className='flex items-center justify-between text-lg font-semibold text-cream md:text-3xl cursor-pointer capitalize'
       >
         {children}
+        {subLinks && subLinks.length > 0 && (
+          <motion.div
+            className='flex items-center'
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+            }}
+            exit={{ opacity: 0 }}
+          >
+            {isActive ? <FiChevronUp className='text-xl' /> : <FiChevronDown className='text-xl' />}
+          </motion.div>
+        )}
       </motion.a>
+
+      {/* Only show sublinks when this link is active */}
+      {isActive && subLinks && (
+        <AnimatePresence>
+          <motion.div
+            className={`mt-4 grid gap-4 ${columnsClass}`}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: { duration: 0.5, ease: 'easeInOut' },
+            }}
+            exit={{ opacity: 0 }}
+          >
+            {subLinks.map((subLink, subIndex) => (
+              <motion.a
+                key={subLink.href}
+                href={subLink.href}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    delay: subIndex * 0.1,
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                  },
+                }}
+                exit={{ opacity: 0, x: -10 }}
+                className={`text-md font-medium text-white ${isActive ? 'highlight' : ''}`} // Add active state class
+              >
+                {subLink.title}
+              </motion.a>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      )}
     </div>
   );
 };
@@ -210,41 +256,41 @@ const LINKS = [
     title: 'cosmetic dentistry',
     href: '/cosmetic-dentistry',
     subLinks: [
-      { title: 'invisalign', href: '/cosmetic-dentistry/invisalign' },
-      { title: 'bonding', href: '/cosmetic-dentistry/composite-bonding' },
-      { title: 'whitening', href: '/cosmetic-dentistry/tooth-whitening' },
-      { title: 'implants', href: '/cosmetic-dentistry/dental-implants' },
+      { title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' },
+      { title: 'Bonding', href: '/cosmetic-dentistry/composite-bonding' },
+      { title: 'Whitening', href: '/cosmetic-dentistry/tooth-whitening' },
+      { title: 'Implants', href: '/cosmetic-dentistry/dental-implants' },
     ],
   },
   {
     title: 'general dentistry',
     href: '/general-dentistry',
     subLinks: [
-      { title: 'check-up', href: '/general-dentistry/general-checkup' },
-      { title: 'fillings', href: '/general-dentistry/filling' },
-      { title: 'root canal', href: '/general-dentistry/root-canal-treatment' },
-      { title: 'emergency', href: '/general-dentistry/emergency' },
+      { title: 'Check-up', href: '/general-dentistry/general-checkup' },
+      { title: 'Fillings', href: '/general-dentistry/filling' },
+      { title: 'Root canal', href: '/general-dentistry/root-canal-treatment' },
+      { title: 'Emergency', href: '/general-dentistry/emergency' },
     ],
   },
   {
     title: 'about us',
     href: '#',
     subLinks: [
-      { title: 'our clinic', href: '/clinic' },
-      { title: 'meet the team', href: '/team' },
-      { title: 'find us', href: '/find-us' },
-      { title: 'pricing', href: '/pricing' },
-      { title: 'enquiry', href: '/enquiry' },
-      { title: 'faq', href: '/faq' },
+      { title: 'Our clinic', href: '/clinic' },
+      { title: 'Meet the team', href: '/team' },
+      { title: 'Find us', href: '/find-us' },
+      { title: 'Pricing', href: '/pricing' },
+      { title: 'Enquiry', href: '/enquiry' },
+      { title: 'Faq', href: '/faq' },
     ],
   },
   {
     title: 'media',
     href: '#',
     subLinks: [
-      { title: 'blog', href: '/blog' },
-      { title: 'gallery', href: '/gallery' },
-      { title: 'social', href: '/social' },
+      { title: 'Blog', href: '/blog' },
+      { title: 'Gallery', href: '/gallery' },
+      { title: 'Social', href: '/social' },
     ],
   },
 ];
@@ -252,19 +298,11 @@ const LINKS = [
 const SOCIAL_CTAS = [
   {
     Component: SiFacebook,
-    href: '#',
+    href: 'https://www.facebook.com/profile.php?id=61567279201971',
   },
   {
     Component: SiInstagram,
-    href: '#',
-  },
-  {
-    Component: SiLinkedin,
-    href: '#',
-  },
-  {
-    Component: SiYoutube,
-    href: '#',
+    href: 'https://www.instagram.com/supernova.dental',
   },
 ];
 
