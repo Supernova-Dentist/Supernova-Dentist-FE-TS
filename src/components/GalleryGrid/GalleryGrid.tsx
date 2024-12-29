@@ -1,11 +1,19 @@
+'use client';
+
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import PaginationControls from '@/components/PaginationControls/PaginationControls';
-import { Button } from '@/components/ui/button';
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTitle } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
 import fetchMediaPostsById from '@/services/wordpress/fetchMediaPostsById';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { FaShareAlt } from 'react-icons/fa';
+
+const categoriesMap = {
+  All: '686',
+  Practice: '24361',
+  Invisalign: '1582372',
+};
 
 export default function GalleryGrid({
   categoryId,
@@ -18,7 +26,7 @@ export default function GalleryGrid({
   page: number;
   totalPages: number;
 }) {
-  const [activeFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('All');
   const [selectedImage, setSelectedImage] = useState<MediaPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [imageWidth, setImageWidth] = useState<number | null>(null);
@@ -26,46 +34,27 @@ export default function GalleryGrid({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const handleChange: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-    const value = (event.target as HTMLButtonElement).value;
-    console.log({ value });
-    console.log('event', event);
+  const handleFilterChange = (filter: keyof typeof categoriesMap) => {
+    setActiveFilter(filter);
 
-    const categoriesMap: { [key: string]: string } = {
-      All: '686',
-      practice: '24361',
-      invisalign: '1582372',
-    };
-
-    // use the catergory map to use id instead of name
-    const categoryId = categoriesMap[value];
-    console.log({ categoryId });
-
-    // Initialize URLSearchParams with the current query parameters
+    const categoryId = categoriesMap[filter];
     const params = new URLSearchParams(searchParams.toString());
 
-    if (value !== '') {
-      // Set the 'slug' parameter to the new value
+    if (filter !== undefined) {
       params.set('categories', categoryId);
     } else {
-      // Remove the 'slug' parameter if the value is empty
       params.delete('categories');
     }
 
-    // Construct the new URL string
     const newUrl = `${pathname}?categories=${categoryId}`;
-
-    console.log('newUrl', newUrl);
-
-    // Use router.replace with the URL string
     void router.replace(newUrl, { scroll: false });
   };
 
-  // Fetch media items when the component mounts
   useEffect(() => {
     const loadMedia = async () => {
       try {
         setLoading(false);
+        console.log('mediaPosts', mediaPosts);
       } catch (error) {
         console.error('Error fetching media files:', error);
         setLoading(false);
@@ -80,7 +69,9 @@ export default function GalleryGrid({
       const data: MediaPost = await fetchMediaPostsById(mediaItem.id);
       setSelectedImage(data);
       const img = new Image();
-      img.src = data.jetpack_featured_media_url;
+      if (data.jetpack_featured_media_url) {
+        img.src = data.jetpack_featured_media_url;
+      }
       img.onload = () => {
         setImageWidth(img.naturalWidth);
       };
@@ -95,29 +86,31 @@ export default function GalleryGrid({
   };
 
   function ImageContent({ content }: { content: string }) {
-    // Example of a simple React component rendering HTML content
     return <div className='post-content' dangerouslySetInnerHTML={{ __html: content }} />;
   }
 
   return (
     <div className='w-full max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16'>
       <div className='flex justify-center mb-8 md:mb-12'>
-        <div className='flex flex-wrap gap-4 md:gap-6'>
-          {['All', 'practice', 'invisalign'].map((filter) => (
-            <Button
+        <div className='flex flex-wrap gap-2 md:gap-4'>
+          {Object.keys(categoriesMap).map((filter) => (
+            <button
               key={filter}
-              variant={activeFilter === filter ? 'secondary' : 'outline'}
-              onClick={(e) => handleChange(e)}
               value={filter}
+              onClick={() => handleFilterChange(filter as keyof typeof categoriesMap)}
+              className={`${
+                activeFilter === filter ? 'text-white' : ' bg-cream hover:text-slate-200 hover:bg-lightGrey'
+              } text-sm transition-colors px-4 py-2 rounded-md relative`}
             >
-              {filter === 'image'
-                ? 'Image'
-                : filter === 'practice'
-                ? 'Practice'
-                : filter === 'invisalign'
-                ? 'Invisalign'
-                : 'All'}
-            </Button>
+              <span className='relative z-10'>{filter}</span>
+              {activeFilter === filter && (
+                <motion.span
+                  layoutId='pill-tab'
+                  transition={{ type: 'spring', duration: 0.5 }}
+                  className='absolute inset-0 z-0 bg-gold rounded-md'
+                />
+              )}
+            </button>
           ))}
         </div>
       </div>
@@ -131,7 +124,7 @@ export default function GalleryGrid({
             ))
           ) : mediaPosts.length < 1 ? (
             <div className='flex justify-center'>
-              <span>No results found</span>
+              <span>No images found</span>
             </div>
           ) : (
             mediaPosts?.map((image) => (
@@ -158,7 +151,7 @@ export default function GalleryGrid({
         </div>
         {mediaPosts.length >= 1 ? <PaginationControls currentPage={page} totalPages={totalPages} /> : null}
       </div>
-      {selectedImage != null && (
+      {selectedImage && (
         <Dialog open onOpenChange={handleClose}>
           <DialogClose>
             <FaShareAlt size={24} />
@@ -185,10 +178,13 @@ export default function GalleryGrid({
             </div>
             <DialogFooter className='sm:justify-start'>
               <div className='p-4 mx-auto'>
-                <Button type='button' variant='secondary' className='flex items-center space-x-2'>
-                  <FaShareAlt size={16} /> {/* Share icon */}
+                <button
+                  type='button'
+                  className='flex items-center space-x-2 bg-slate-600 text-white px-4 py-2 rounded-md'
+                >
+                  <FaShareAlt size={16} />
                   <span>Share</span>
-                </Button>
+                </button>
               </div>
             </DialogFooter>
           </DialogContent>
