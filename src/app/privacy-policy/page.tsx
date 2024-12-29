@@ -16,15 +16,15 @@ export default function PrivacyPolicyPage() {
       </div>
 
       {/* Content */}
-      <div className='p-8'>
+      <div className='max-w-screen-lg mx-auto p-8'>
         <SectionSpacing>
           <SubHeader>Introduction</SubHeader>
-          <p>
+          <p className='text-left'>
             Welcome to <span className='text-gold font-semibold text-lg'>Supernova Dental</span>. We are committed to
             safeguarding your privacy and protecting your personal data. This privacy policy explains how we collect,
             use, and protect your information when you use our website or services.
           </p>
-          <p>
+          <p className='text-left'>
             If you have any questions regarding this privacy policy, please contact us at{' '}
             <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
               enquiries@supernovadental.co.uk
@@ -35,8 +35,8 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>What Personal Information We Collect</SubHeader>
-          <p>We collect the following types of personal information:</p>
-          <ul>
+          <p className='text-left'>We collect the following types of personal information:</p>
+          <ul className='text-left'>
             <li>Name</li>
             <li>Contact details (email, phone number, address)</li>
           </ul>
@@ -44,8 +44,8 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>How We Collect Personal Data</SubHeader>
-          <p>We collect personal data through the following methods:</p>
-          <ul>
+          <p className='text-left'>We collect personal data through the following methods:</p>
+          <ul className='text-left'>
             <li>Contact forms for appointments or inquiries</li>
             <li>User account registration (if applicable)</li>
           </ul>
@@ -53,8 +53,8 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>Purpose of Data Collection</SubHeader>
-          <p>We collect and use your data for the following purposes:</p>
-          <ul>
+          <p className='text-left'>We collect and use your data for the following purposes:</p>
+          <ul className='text-left'>
             <li>To provide customer support</li>
             <li>To improve website functionality and performance</li>
           </ul>
@@ -62,8 +62,8 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>Legal Basis for Processing Data (GDPR)</SubHeader>
-          <p>We process your data under the following legal bases:</p>
-          <ul>
+          <p className='text-left'>We process your data under the following legal bases:</p>
+          <ul className='text-left'>
             <li>Consent: For marketing communications</li>
             <li>Contractual necessity: For managing appointments</li>
             <li>Legal obligations: To comply with medical or financial regulations</li>
@@ -73,16 +73,18 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>Data Sharing with Third Parties</SubHeader>
-          <p>We may share your personal information with the following third parties to provide our services:</p>
-          <ul>
+          <p className='text-left'>
+            We may share your personal information with the following third parties to provide our services:
+          </p>
+          <ul className='text-left'>
             <li>Data storage and management services (e.g., Dentally for the patient portal)</li>
           </ul>
-          <p>We also may disclose your information if required by law.</p>
+          <p className='text-left'>We also may disclose your information if required by law.</p>
         </SectionSpacing>
 
         <SectionSpacing>
           <SubHeader>Data Retention</SubHeader>
-          <p>
+          <p className='text-left'>
             We will retain your personal data for as long as necessary to fulfill the purposes for which it was
             collected, or as required by law. This includes maintaining payment information for legal or regulatory
             purposes.
@@ -91,7 +93,7 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>Security of Your Information</SubHeader>
-          <p>
+          <p className='text-left'>
             We take the security of your personal data seriously. Our website and systems use secure encryption and
             access controls to protect your data.
           </p>
@@ -99,8 +101,8 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>Your Rights Under GDPR</SubHeader>
-          <p>As a data subject under GDPR, you have the following rights:</p>
-          <ul>
+          <p className='text-left'>As a data subject under GDPR, you have the following rights:</p>
+          <ul className='text-left'>
             <li>Right to Access: You can request a copy of the personal data we hold about you.</li>
             <li>Right to Rectification: You can request corrections to your personal data.</li>
             <li>Right to Erasure: You can request that your data be deleted (with some exceptions).</li>
@@ -111,7 +113,7 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>Children&apos;s Privacy</SubHeader>
-          <p>
+          <p className='text-left'>
             Our website is not directed to children under 16. If we become aware that we have collected personal data
             from a child without parental consent, we will take steps to delete that information.
           </p>
@@ -119,7 +121,7 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>Contact Us</SubHeader>
-          <p>
+          <p className='text-left'>
             If you have any questions about this privacy policy, please contact us at{' '}
             <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
               enquiries@supernovadental.co.uk
@@ -130,7 +132,7 @@ export default function PrivacyPolicyPage() {
 
         <SectionSpacing>
           <SubHeader>Changes to This Privacy Policy</SubHeader>
-          <p>
+          <p className='text-left'>
             We may update this privacy policy from time to time. The last update was made on 29th December 2024. Please
             review this policy periodically to stay informed about how we are protecting your data.
           </p>
