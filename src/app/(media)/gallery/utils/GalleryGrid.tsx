@@ -42,7 +42,7 @@ export default function GalleryGrid({
     console.log({ categoryId });
 
     // Initialize URLSearchParams with the current query parameters
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
 
     if (value !== '') {
       // Set the 'slug' parameter to the new value
