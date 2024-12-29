@@ -55,12 +55,11 @@ export const media = [
 export const navLinks = [
   {
     name: 'Cosmetic Dentistry',
-    url: '/cosmetic-dentistry',
     subLinks: cosmeticServices,
   },
-  { name: 'General Dentistry', url: '/general-dentistry', subLinks: generalServices },
-  { name: 'About us', url: '/about', subLinks: practiceInfo },
-  { name: 'Media', url: '/media', subLinks: media },
+  { name: 'General Dentistry', subLinks: generalServices },
+  { name: 'About us', subLinks: practiceInfo },
+  { name: 'Media', subLinks: media },
 ];
 
 export const officeInfo = {
