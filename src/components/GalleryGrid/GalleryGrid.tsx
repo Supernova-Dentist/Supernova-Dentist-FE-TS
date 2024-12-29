@@ -86,7 +86,7 @@ export default function GalleryGrid({
   };
 
   function ImageContent({ content }: { content: string }) {
-    return <div className='post-content' dangerouslySetInnerHTML={{ __html: content }} />;
+    return <div className='post-content text-center p-2' dangerouslySetInnerHTML={{ __html: content }} />;
   }
 
   return (
@@ -176,7 +176,7 @@ export default function GalleryGrid({
                 <ImageContent content={selectedImage.content?.rendered} />
               </div>
             </div>
-            <DialogFooter className='sm:justify-start'>
+            {/* <DialogFooter className='sm:justify-start'>
               <div className='p-4 mx-auto'>
                 <button
                   type='button'
@@ -186,7 +186,7 @@ export default function GalleryGrid({
                   <span>Share</span>
                 </button>
               </div>
-            </DialogFooter>
+            </DialogFooter> */}
           </DialogContent>
         </Dialog>
       )}
