@@ -24,9 +24,9 @@ export default async function BlogPage({
       <Suspense fallback={<BlogLoadingSkeleton />}>
         <FetchBlogsWrapper searchParams={searchParams} />
       </Suspense>
-      <Steps />
-      <GalleryCarousel />
-      <DynamicGoogleMap />
+      {/* <Steps /> */}
+      {/* <GalleryCarousel /> */}
+      {/* <DynamicGoogleMap /> */}
     </>
   );
 }
