@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import AnimatedLogo from '../AnimatedSVGLogo/AnimatedSVGLogo';
-import { SparklesCore } from '../ui/Sparkles';
+import { SparklesCore } from '../ui/SparklesCore';
 
 export function SparklesPreview() {
   return (

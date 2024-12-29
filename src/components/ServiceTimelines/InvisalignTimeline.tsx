@@ -11,8 +11,8 @@ interface TimelineEntry {
 
 interface TimelineProps {
   data: TimelineEntry[];
-  setImagesLoaded: React.Dispatch<React.SetStateAction<number>>;
-  imagesLoaded: number;
+  setImagesLoaded?: React.Dispatch<React.SetStateAction<number>>;
+  imagesLoaded?: number;
 }
 
 export const InvisalignTimeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps) => {
@@ -23,7 +23,7 @@ export const InvisalignTimeline = ({ data, setImagesLoaded, imagesLoaded }: Time
 
   // Update height when an image loads
   const handleImageLoad = () => {
-    setImagesLoaded((prev) => {
+    setImagesLoaded?.((prev) => {
       const newCount = prev + 1;
       if (newCount === totalImages && ref.current) {
         const rect = ref.current.getBoundingClientRect();

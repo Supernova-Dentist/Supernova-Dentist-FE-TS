@@ -42,7 +42,7 @@ export default function GalleryGrid({
     console.log({ categoryId });
 
     // Initialize URLSearchParams with the current query parameters
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
 
     if (value !== '') {
       // Set the 'slug' parameter to the new value
@@ -77,7 +77,7 @@ export default function GalleryGrid({
 
   const handleImageClick = async (mediaItem: MediaPost) => {
     try {
-      const data: MediaPost = await fetchMediaPostsById(mediaItem.id);
+      const data: MediaPost = await fetchMediaPostsById(Number(mediaItem.id));
       setSelectedImage(data);
     } catch (error) {
       console.error('Error fetching media details:', error);

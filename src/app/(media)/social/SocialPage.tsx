@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { InstagramLogoIcon } from '@radix-ui/react-icons';
 import fetchInstagramPosts from '@/actions/instagram';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
@@ -6,34 +5,6 @@ import InstagramPostGrid from './utils/InstagramPostGrid';
 import PageHero from '@/components/blocks/PageHero/PageHero';
 import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
 import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
-
-export const metadata: Metadata = {
-  title: 'Our Instagram | Your Dental Clinic',
-  description:
-    'Follow us on Instagram for the latest updates and dental tips. Stay connected with us through our social media!',
-  openGraph: {
-    title: 'Our Instagram | Your Dental Clinic',
-    description:
-      'Follow us on Instagram for the latest updates and dental tips. Stay connected with us through our social media!',
-    url: 'https://www.yourwebsite.com/social-media',
-    type: 'website',
-    images: [
-      {
-        url: 'https://www.yourwebsite.com/images/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Our Instagram | Your Dental Clinic',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Our Instagram | Your Dental Clinic',
-    description:
-      'Follow us on Instagram for the latest updates and dental tips. Stay connected with us through our social media!',
-    images: ['https://www.yourwebsite.com/images/twitter-image.jpg'],
-  },
-};
 
 export default async function SocialMedia() {
   const instagramPosts = await fetchInstagramPosts();

@@ -4,7 +4,11 @@ import { InvisalignTimeline } from '@/components/ServiceTimelines/InvisalignTime
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-export function InvisalignJourney({ id }) {
+interface InvisalignJourneyProps {
+  id: string;
+}
+
+export function InvisalignJourney({ id }: InvisalignJourneyProps) {
   const [imagesLoaded, setImagesLoaded] = useState(0); // Track number of loaded images
 
   const handleImageLoad = () => {

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
 "use client";
 import React, { useId, useMemo, useEffect, useState  } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";

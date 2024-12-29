@@ -11,8 +11,8 @@ interface TimelineEntry {
 
 interface TimelineProps {
   data: TimelineEntry[];
-  setImagesLoaded: React.Dispatch<React.SetStateAction<number>>;
-  imagesLoaded: number;
+  setImagesLoaded?: React.Dispatch<React.SetStateAction<number>>;
+  imagesLoaded?: number;
 }
 
 export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps) => {
@@ -23,14 +23,16 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
 
   // Update height when an image loads
   const handleImageLoad = () => {
-    setImagesLoaded((prev) => {
-      const newCount = prev + 1;
-      if (newCount === totalImages && ref.current) {
-        const rect = ref.current.getBoundingClientRect();
-        setHeight(rect.height);
-      }
-      return newCount;
-    });
+    if (setImagesLoaded != null) {
+      setImagesLoaded((prev) => {
+        const newCount = prev + 1;
+        if (newCount === totalImages && ref.current) {
+          const rect = ref.current.getBoundingClientRect();
+          setHeight(rect.height);
+        }
+        return newCount;
+      });
+    }
   };
 
   // Update height on window resize

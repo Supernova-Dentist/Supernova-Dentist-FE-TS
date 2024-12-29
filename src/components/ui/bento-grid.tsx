@@ -91,7 +91,7 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 export const SkeletonOne = () => {
   return (
     <Image
-      src='/assets/images/reception.jpg'
+      src='/assets/images/reception.JPG'
       alt='Reception'
       width={800}
       height={800}
@@ -124,7 +124,7 @@ export const SkeletonTwo = () => {
 };
 
 export const SkeletonThree = () => {
-  const image = '/assets/images/smile_zone.jpg';
+  const image = '/assets/images/smile_zone.JPG';
 
   return (
     <div className='h-full w-full'>
@@ -144,7 +144,7 @@ export const SkeletonFour = () => {
   return (
     <div className='flex items-center h-[476px]'>
       <div className='relative w-full h-full'>
-        <Image src='/assets/images/surgery.jpg' alt='Surgery' layout='fill' objectFit='cover' className='rounded-lg' />
+        <Image src='/assets/images/surgery.JPG' alt='Surgery' layout='fill' objectFit='cover' className='rounded-lg' />
       </div>
     </div>
   );

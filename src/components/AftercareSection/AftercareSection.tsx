@@ -1,7 +1,15 @@
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import ServiceGridList from '@/components/ServiceGridList/ServiceGridList';
 
-export default function AftercareSection({ data }: AftercareSection) {
+interface AftercareSectionProps {
+  data: {
+    title: string;
+    descriptions: string[];
+    content: any[];
+  };
+}
+
+export default function AftercareSection({ data }: AftercareSectionProps) {
   const { title, descriptions, content } = data;
 
   return (

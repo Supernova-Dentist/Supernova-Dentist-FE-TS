@@ -66,7 +66,7 @@ export default function GalleryGrid({
 
   const handleImageClick = async (mediaItem: MediaPost) => {
     try {
-      const data: MediaPost = await fetchMediaPostsById(mediaItem.id);
+      const data: MediaPost = await fetchMediaPostsById(Number(mediaItem.id));
       setSelectedImage(data);
       const img = new Image();
       if (data.jetpack_featured_media_url) {
