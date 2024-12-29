@@ -87,10 +87,8 @@ export default function RootLayout({
         <MainNav />
         {children}
         <Footer />
-        <div aria-hidden='true'>
-          {/* <CrispChat /> */}
-          <TidioChat />
-        </div>
+        {/* <div aria-hidden='true'>
+          <TidioChat /></div> */}
         <ScrollToTopButton />
         <div aria-hidden='true'>{/* <CrispChat /> */}</div>
         <AccessibilityWidget />
