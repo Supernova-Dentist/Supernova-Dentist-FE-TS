@@ -16,14 +16,15 @@ export function FeaturesSectionDemo() {
       className: 'col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800',
     },
     {
-      title: 'Smile Zone Tour',
-      description: 'Discover our Smile Zone, designed for comfort and state-of-the-art dental care.',
-      skeleton: <SkeletonTwo />,
-      className: 'border-b col-span-1 lg:col-span-2 dark:border-neutral-800 ',
-    },
-    {
       title: 'Patient Journey Video',
       description: 'Watch Dr. Young, our principal dentist, explain the patient journey and learn what to expect.',
+      skeleton: <SkeletonTwo />,
+      className: 'border-b col-span-1 lg:col-span-2 dark:border-neutral-800 lg:mt-28 ',
+    },
+    {
+      title: 'Smile Zone Tour',
+      description: 'Discover our Smile Zone, designed for comfort and state-of-the-art dental care.',
+
       skeleton: <SkeletonThree />,
       className: 'col-span-1 lg:col-span-2 lg:border-r dark:border-neutral-800 overflow-hidden',
     },
@@ -79,7 +80,7 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
       className={cn(
         'text-sm md:text-base max-w-4xl text-left mx-auto',
         'text-neutral-500 text-center font-normal dark:text-neutral-300',
-        'text-left max-w-sm mx-0 md:text-sm my-2'
+        'text-left max-w-sm mx-0 md:text-sm my-2 pb-4'
       )}
     >
       {children}
@@ -101,6 +102,28 @@ export const SkeletonOne = () => {
 };
 
 export const SkeletonTwo = () => {
+  return (
+    <div
+      className='relative w-full'
+      style={{ paddingTop: `${(476 / 267) * 100}%` }} // Aspect ratio based on video dimensions
+    >
+      <iframe
+        src='/assets/videos/why_supernova.mp4'
+        className='absolute top-0 left-0 w-full h-full rounded-lg'
+        style={{
+          border: 'none',
+          overflow: 'hidden',
+        }}
+        scrolling='no'
+        frameBorder='0'
+        allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+        allowFullScreen={true}
+      />
+    </div>
+  );
+};
+
+export const SkeletonThree = () => {
   const image = '/assets/images/smile_zone.jpg';
 
   return (
@@ -114,26 +137,6 @@ export const SkeletonTwo = () => {
         style={{ height: '100%', width: '100%' }} // Ensures the image fully fills its container
       />
     </div>
-  );
-};
-
-export const SkeletonThree = () => {
-  return (
-    <iframe
-      src='/assets/videos/why_supernova.mp4'
-      width={267}
-      height={476}
-      style={{
-        border: 'none',
-        overflow: 'hidden',
-        margin: '0 auto',
-      }}
-      className='rounded-lg'
-      scrolling='no'
-      frameBorder='0'
-      allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
-      allowFullScreen={true}
-    />
   );
 };
 
