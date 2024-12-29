@@ -23,7 +23,8 @@
     ],
     "paths": {
       "@/*": [
-        "./src/*"
+        "./src/*",
+        "./types/*"
       ]
     }
   },
@@ -31,7 +32,8 @@
     "src/**/*",
     "next-env.d.ts",
     "env.d.ts",
-    ".next/types/**/*.ts"
+    "./types/**/*.ts",
+    ".next/types/**/*.ts",
   ],
   "exclude": [
     "node_modules"
