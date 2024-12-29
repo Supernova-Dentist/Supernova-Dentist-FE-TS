@@ -19,7 +19,7 @@ export function FeaturesSectionDemo() {
       title: 'Smile Zone Tour',
       description: 'Discover our Smile Zone, designed for comfort and state-of-the-art dental care.',
       skeleton: <SkeletonTwo />,
-      className: 'border-b col-span-1 lg:col-span-2 dark:border-neutral-800',
+      className: 'border-b col-span-1 lg:col-span-2 dark:border-neutral-800 ',
     },
     {
       title: 'Patient Journey Video',
@@ -46,13 +46,13 @@ export function FeaturesSectionDemo() {
         </p>
       </div>
 
-      <div className='relative overflow-hidden'>
-        <div className='overflow-hidden grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800'>
+      <div className='relative'>
+        <div className='grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800'>
           {features.map((feature) => (
             <FeatureCard key={feature.title} className={feature.className}>
               <FeatureTitle>{feature.title}</FeatureTitle>
               <FeatureDescription>{feature.description}</FeatureDescription>
-              <div className='h-full w-full'>{feature.skeleton}</div>
+              <div>{feature.skeleton}</div>
             </FeatureCard>
           ))}
         </div>
@@ -89,17 +89,14 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 
 export const SkeletonOne = () => {
   return (
-    <div className='relative flex py-8 px-2 gap-10 h-full'>
-      <div className='w-full p-5 mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full'>
-        <Image
-          src='/assets/images/reception.jpg'
-          alt='Reception'
-          width={800}
-          height={800}
-          className='h-full w-full aspect-square object-cover object-left-top rounded-sm'
-        />
-      </div>
-    </div>
+    <Image
+      src='/assets/images/reception.jpg'
+      alt='Reception'
+      width={800}
+      height={800}
+      className='h-full w-full aspect-square object-cover rounded-lg'
+      style={{ objectFit: 'cover' }} // Ensures the image fills its container
+    />
   );
 };
 
@@ -107,10 +104,15 @@ export const SkeletonTwo = () => {
   const image = '/assets/images/smile_zone.jpg';
 
   return (
-    <div className='relative flex flex-col items-center p-8 gap-10 h-full overflow-hidden'>
-      <motion.div className='rounded-xl p-1 bg-white dark:bg-neutral-800 border border-neutral-100 flex-shrink-0 overflow-hidden w-full h-full'>
-        <Image src={image} alt='Smile Zone' layout='fill' objectFit='cover' className='rounded-lg' />
-      </motion.div>
+    <div className='h-full w-full'>
+      <Image
+        src={image}
+        alt='Smile Zone'
+        width={800}
+        height={2400}
+        className='h-full w-full object-cover rounded-lg'
+        style={{ height: '100%', width: '100%' }} // Ensures the image fully fills its container
+      />
     </div>
   );
 };
@@ -126,6 +128,7 @@ export const SkeletonThree = () => {
         overflow: 'hidden',
         margin: '0 auto',
       }}
+      className='rounded-lg'
       scrolling='no'
       frameBorder='0'
       allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
