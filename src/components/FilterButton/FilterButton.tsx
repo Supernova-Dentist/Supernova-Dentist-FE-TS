@@ -1,5 +1,4 @@
-import { cn } from '@/lib/utils';
-import Button from '../Button/Button';
+import { motion } from 'framer-motion';
 
 type FilterButtonProps = {
   text: string;
@@ -10,15 +9,22 @@ type FilterButtonProps = {
 
 export default function FilterButton({ text, id, activeFilter, handleClick }: FilterButtonProps) {
   return (
-    <Button
-      text={text}
-      id={id}
-      className={cn(
-        `bg-gray-200 rounded hover:bg-gray-100 border border-transparent hover:border-gray-300 ${
-          activeFilter === id ? 'bg-gold text-offWhite hover:bg-bold hover:border-transparent' : null
-        }`
-      )}
+    <button
+      key={id}
+      id={id.toString()}
       onClick={handleClick}
-    />
+      className={`${
+        activeFilter === id ? 'text-white' : ' bg-cream hover:text-slate-200 hover:bg-lightGrey'
+      } text-sm transition-colors px-4 py-2 rounded-md relative`}
+    >
+      <span className="relative z-10">{text}</span>
+      {activeFilter === id && (
+        <motion.span
+          layoutId="pill-tab"
+          transition={{ type: 'spring', duration: 0.5 }}
+          className="absolute inset-0 z-0 bg-gold rounded-md"
+        />
+      )}
+    </button>
   );
 }
