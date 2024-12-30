@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { HighlightCard } from '../HighlightCard/HightlightCard';
 
 export function FeaturesSectionDemo() {
   const features = [
@@ -33,17 +34,12 @@ export function FeaturesSectionDemo() {
 
   return (
     <div className='relative z-20 py-10 lg:py-4 max-w-7xl mx-auto'>
-      <div className='px-8'>
-        <div className='max-w-5xl mx-auto p-10 bg-gradient-to-r from-gold to-lightGold rounded-lg shadow-lg'>
-          <h4 className='text-4xl lg:text-5xl leading-tight text-center tracking-tight font-bold text-black'>
-            Supernova Dental Clinic
-          </h4>
-          <p className='text-base lg:text-lg mt-4 text-neutral-600 text-center font-medium'>
-            From reception to surgery, discover our seamless patient journey designed to prioritize your comfort and
-            care.
-          </p>
-        </div>
-      </div>
+      <HighlightCard
+        title='Supernova Dental Clinic'
+        description='From reception to surgery, discover our seamless patient journey designed to prioritize your comfort and care.'
+        logoSrc='/assets/images/logo.png'
+        className='mt-12'
+      />
 
       <div className='grid grid-cols-1 lg:grid-cols-6 gap-8 mt-12 border-gold border-4 rounded-md p-4'>
         {features.map((feature) => (
