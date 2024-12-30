@@ -1,19 +1,15 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-
-import TidioChat from '@/components/blocks/TidioChat/TideoChat';
-
+import dynamic from 'next/dynamic';
 import AccessibilityWidget from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
-import CrispChat from '@/components/blocks/CrispChat/CrispChat';
 import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
-import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
+import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import Script from 'next/script';
-
 import './globals.css';
 import './reset.css';
-import dynamic from 'next/dynamic';
+
 const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), {
   ssr: false,
 });
@@ -21,25 +17,23 @@ const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental - Expert Dental Care in Bridgwater | 50% Off First Exam & Hygiene Appointment',
+  title: 'Supernova Dental - Expert Dental Care in Bridgwater',
   description:
-    'Join Supernova Dental in Bridgwater for exclusive offers: 50% off your first dental exam and hygiene appointment, plus special Invisalign deals. Book today and start your journey to a healthier smile!',
-  keywords:
-    'Supernova Dental, dental exam offer, dental hygiene offer, Invisalign Bridgwater, dental practice Bridgwater, teeth whitening Bridgwater, healthy smile, dentist Bridgwater, best dentist in Bridgwater, cosmetic dentistry Bridgwater, affordable Invisalign',
+    'Discover premium dental care in Bridgwater with Supernova Dental. Explore our services, promotions, and team. Your journey to a brighter smile starts here!',
+  keywords: 'Supernova Dental, dental care Bridgwater, dentist, Invisalign, teeth whitening, cosmetic dentistry',
   openGraph: {
-    title: 'Supernova Dental - Exclusive Offers for New Patients',
-    description:
-      'Join Supernova Dental in Bridgwater with exclusive offers: 50% off your first dental exam and hygiene appointment and special Invisalign deals. Book today!',
-    url: 'https://www.supernovadental.co.uk/',
+    title: 'Supernova Dental - Expert Dental Care in Bridgwater',
+    description: 'Providing premium dental services in Bridgwater. Start your journey to a brighter smile today!',
+    url: 'https://www.supernovadental.co.uk',
     type: 'website',
     locale: 'en_GB',
     siteName: 'Supernova Dental',
     images: [
       {
-        url: 'https://firebasestorage.googleapis.com/v0/b/supernova-dental.appspot.com/o/Supernova_Opening_Post.jpeg?alt=media&token=06c6642d-57dc-48a2-820d-0a332febe798',
-        width: 1080,
-        height: 1080,
-        alt: 'Supernova Dental - Smile Brighter Promotion',
+        url: '/assets/images/logo.png',
+        width: 500,
+        height: 500,
+        alt: 'Supernova Dental Logo',
       },
     ],
   },
@@ -60,8 +54,8 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
           
-            gtag('config', 'G-8M5WQJ7R5Z'); // Google Analytics ID
-            gtag('config', 'AW-16737398524'); // Google Ads ID
+            gtag('config', 'G-8M5WQJ7R5Z');
+            gtag('config', 'AW-16737398524');
           `}
         </Script>
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
@@ -70,9 +64,9 @@ export default function RootLayout({
             !function(f,b,e,v,n,t,s) {
               if(f.fbq) return; n=f.fbq=function(){n.callMethod?
               n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-              n.queue=[]; t=b.createElement(e); t.async=!0;
-              t.src=v; s=b.getElementsByTagName(e)[0];
+              if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0;
+              n.version='2.0'; n.queue=[]; t=b.createElement(e);
+              t.async=!0; t.src=v; s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)
             }(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '539899052125710');
@@ -92,13 +86,9 @@ export default function RootLayout({
         <MainNav />
         {children}
         <Footer />
-        {/* <div aria-hidden='true'>
-          <TidioChat /></div> */}
         <ScrollToTopButton />
         <FloatingMenu />
-        <div aria-hidden='true'>{/* <CrispChat /> */}</div>
         <AccessibilityWidget />
-        {/* <ScrollToTopButton /> */}
         <PromotionFooter />
       </body>
     </html>
