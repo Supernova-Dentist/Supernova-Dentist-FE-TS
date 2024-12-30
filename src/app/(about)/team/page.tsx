@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 export default function TeamPage() {
   return (
-    <div className='flex flex-col min-h-screen justify-center align-center bg-gradient-to-b from-white to-cream py-24 px-8'>
+    <div className='flex flex-col min-h-screen justify-center align-center bg-gradient-to-b from-white to-cream px-8'>
       <HighlightCard
         logoSrc='/assets/images/logo.png'
         title='Meet Our Dental Team'
         description='Discover the dedicated professionals who make our dental practice exceptional.'
-        className='mx-auto' // Center the card
+        className='mx-auto mt-16' // Center the card
       />
       {/* Breadcrumb */}
       <div className='mx-auto px-4 md:px-6 container pt-8 pb-4'>
