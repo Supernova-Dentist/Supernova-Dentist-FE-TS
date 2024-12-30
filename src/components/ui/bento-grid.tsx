@@ -32,9 +32,9 @@ export function FeaturesSectionDemo() {
   ];
 
   return (
-    <div className='relative z-20 py-10 lg:py-20 max-w-7xl mx-auto'>
+    <div className='relative z-20 py-10 lg:py-4 max-w-7xl mx-auto'>
       <div className='px-8'>
-        <div className='max-w-5xl mx-auto p-6 bg-gradient-to-r from-gold to-lightGold rounded-lg shadow-lg'>
+        <div className='max-w-5xl mx-auto p-10 bg-gradient-to-r from-gold to-lightGold rounded-lg shadow-lg'>
           <h4 className='text-4xl lg:text-5xl leading-tight text-center tracking-tight font-bold text-black'>
             Supernova Dental Clinic
           </h4>
@@ -96,7 +96,7 @@ export const SkeletonTwo = () => {
     >
       <iframe
         src='/assets/videos/why_supernova.mp4'
-        className='absolute top-0 left-0 w-full h-full rounded-lg lg:mt-12'
+        className='absolute top-0 left-0 w-full h-full rounded-lg lg:mt-8'
         style={{
           border: 'none',
           overflow: 'hidden',
@@ -115,10 +115,10 @@ export const SkeletonThree = () => {
 
   return (
     <div className='h-full w-full'>
-  <Image
+      <Image
         src={image}
-    alt='Smile Zone'
-    width={400}
+        alt='Smile Zone'
+        width={400}
         height={800}
         className='h-full w-full object-cover rounded-lg'
         style={{ height: '100%', width: '100%' }} // Ensures the image fully fills its container
@@ -134,5 +134,5 @@ export const SkeletonFour = () => {
         <Image src='/assets/images/surgery.JPG' alt='Surgery' layout='fill' objectFit='cover' className='rounded-lg' />
       </div>
     </div>
-);
+  );
 };
