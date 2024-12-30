@@ -91,7 +91,7 @@ const CARDS = [
     Icon: Instagram, // Use an icon that represents social media or updates
     title: 'Keep in the Loop!',
     description:
-      'Check out the Supernova Staff Instagram and stay updated with the latest news, promotions, and dental care tips by following us on social media.',
+      'Check out the Supernova Staff Instagram and stay updated with the latest news, promotions and dental care tips by following us on social media.',
     buttonText: 'Follow Us',
     ctaClasses: 'bg-white', // Adjust color scheme as needed
     routeTo: '/social',

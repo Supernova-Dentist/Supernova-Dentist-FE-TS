@@ -7,7 +7,7 @@ import { Timeline } from '../ui/timeline';
 interface ProcessData {
   title: string;
   description: string;
-  stepContent: any;
+  stepContent?: any;
   timelineData?: any;
 }
 

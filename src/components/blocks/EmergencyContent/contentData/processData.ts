@@ -7,7 +7,7 @@ export default {
       id: 1,
       image: '/assets/images/emergency-consultation.jpg',
       header: 'Step 1: Immediate Assessment',
-      text: 'Upon arrival, our team will quickly assess your condition to understand the urgency. We will discuss your symptoms, review any relevant X-rays, and determine the immediate steps required for treatment.',
+      text: 'Upon arrival, our team will quickly assess your condition to understand the urgency. We will discuss your symptoms, review any relevant X-rays and determine the immediate steps required for treatment.',
     },
     {
       id: 2,

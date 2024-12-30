@@ -53,7 +53,7 @@ export default function IntroHome() {
               <h3 className='text-2xl font-bold text-gold'>About Us</h3>
               <p className='text-muted-foreground'>
                 At Supernova Dental, our mission is to provide exceptional dental care with a focus on excellence,
-                compassion, and innovation. We are dedicated to delivering personalized treatment that meets each
+                compassion and innovation. We are dedicated to delivering personalized treatment that meets each
                 patient’s unique needs and aspirations.
               </p>
               <p className='text-muted-foreground'>

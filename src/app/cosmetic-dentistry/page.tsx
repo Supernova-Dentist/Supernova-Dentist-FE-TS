@@ -9,7 +9,7 @@ import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 export const metadata: Metadata = {
   title: 'Supernova Dental | Cosmetic Dentistry Services',
   description:
-    'Explore the wide range of cosmetic dentistry services at Supernova Dental, including procedures like composite bonding, teeth whitening, and Invisalign to enhance your smile and confidence.',
+    'Explore the wide range of cosmetic dentistry services at Supernova Dental, including procedures like composite bonding, teeth whitening and Invisalign to enhance your smile and confidence.',
 };
 
 const slugify = (text: string) => {
@@ -27,7 +27,7 @@ export default function CosmeticServices() {
     <div className='flex flex-col min-h-[100dvh]'>
       <HighlightCard
         title='Cosmetic Dentistry Services'
-        description='Achieve a beautiful, healthy smile with our cosmetic dentistry services, including treatments like composite bonding, teeth whitening, and more.'
+        description='Achieve a beautiful, healthy smile with our cosmetic dentistry services, including treatments like composite bonding, teeth whitening and more.'
         logoSrc='/assets/images/logo.png'
         className='mt-16'
       />

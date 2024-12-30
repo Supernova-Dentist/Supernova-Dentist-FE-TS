@@ -5,7 +5,7 @@ const certificationsContentTop = [
   },
   {
     title: 'Digital Smile Design',
-    text: 'DSD is a planning protocol that allows for complete analysis of the patient&apos;s facial and dental structures through state-of-the-art videography, photo, and 3d imaging digital technology. The DSD approach is considered the most modern, patient-centered process for smile design and transformation.',
+    text: 'DSD is a planning protocol that allows for complete analysis of the patient&apos;s facial and dental structures through state-of-the-art videography, photo and 3d imaging digital technology. The DSD approach is considered the most modern, patient-centered process for smile design and transformation.',
   },
 ];
 
@@ -16,7 +16,7 @@ const certificationsContentBottom = [
   },
   {
     title: 'Continuing Dental Education',
-    text: '  In the constantly evolving field of dentistry, continued education is important. Dr. Raymond attends various courses at Spear Education, the Kois Center, and other learning centers nationwide. He uses advanced techniques and provides his patients with the highest standard of care',
+    text: '  In the constantly evolving field of dentistry, continued education is important. Dr. Raymond attends various courses at Spear Education, the Kois Center and other learning centers nationwide. He uses advanced techniques and provides his patients with the highest standard of care',
   },
 ];
 

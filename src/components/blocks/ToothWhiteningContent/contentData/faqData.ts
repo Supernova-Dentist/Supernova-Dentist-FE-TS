@@ -2,7 +2,7 @@ export const faqItems = [
   {
     question: 'What is tooth whitening?',
     answer:
-      'Tooth whitening is a cosmetic dental treatment that lightens your teeth and removes stains caused by food, drinks, or aging. At Supernova Dental, we offer professional in-office teeth whitening for fast, dramatic results, and take-home whitening kits for a more gradual but effective solution.',
+      'Tooth whitening is a cosmetic dental treatment that lightens your teeth and removes stains caused by food, drinks, or aging. At Supernova Dental, we offer professional in-office teeth whitening for fast, dramatic results and take-home whitening kits for a more gradual but effective solution.',
   },
   {
     question: 'How does in-office whitening compare to at-home kits?',
@@ -17,7 +17,7 @@ export const faqItems = [
   {
     question: 'How long do whitening results last?',
     answer:
-      'In-office whitening at Supernova Dental can last 1-2 years with proper care, while at-home whitening treatments typically last 6-12 months. To maintain your results, practice good oral hygiene and avoid staining foods and drinks like coffee, tea, and red wine.',
+      'In-office whitening at Supernova Dental can last 1-2 years with proper care, while at-home whitening treatments typically last 6-12 months. To maintain your results, practice good oral hygiene and avoid staining foods and drinks like coffee, tea and red wine.',
   },
   {
     question: 'Is whitening safe for everyone?',

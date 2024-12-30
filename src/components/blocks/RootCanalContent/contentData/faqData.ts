@@ -2,7 +2,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Question: What does a root canal treatment involve?',
     answer:
-      'Answer: A root canal treatment involves removing the infected or damaged pulp from inside your tooth, cleaning and disinfecting the root canals, and then filling them with a biocompatible material. This procedure helps to alleviate pain and save the tooth from extraction.',
+      'Answer: A root canal treatment involves removing the infected or damaged pulp from inside your tooth, cleaning and disinfecting the root canals and then filling them with a biocompatible material. This procedure helps to alleviate pain and save the tooth from extraction.',
   },
   {
     question: 'Question: How many sessions are usually required for a root canal?',

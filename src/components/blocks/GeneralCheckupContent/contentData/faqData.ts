@@ -2,7 +2,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Question: What is included in a general checkup?',
     answer:
-      'Answer: At our dental practice, a general checkup includes a thorough examination of your oral health, including your teeth, gums, and mouth. We also review your dental history, take any necessary X-rays, and discuss any concerns you may have. Our goal is to ensure your oral health is in excellent condition.',
+      'Answer: At our dental practice, a general checkup includes a thorough examination of your oral health, including your teeth, gums and mouth. We also review your dental history, take any necessary X-rays and discuss any concerns you may have. Our goal is to ensure your oral health is in excellent condition.',
   },
   {
     question: 'Question: How often should I schedule a general checkup?',
@@ -12,7 +12,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Question: What should I do to prepare for a general checkup?',
     answer:
-      'Answer: To prepare for your general checkup, bring a list of any medications you’re taking, and be ready to discuss any changes in your oral health. If you have specific concerns or symptoms, note them down so we can address them during your visit. Our team is here to ensure you feel comfortable and informed.',
+      'Answer: To prepare for your general checkup, bring a list of any medications you’re taking and be ready to discuss any changes in your oral health. If you have specific concerns or symptoms, note them down so we can address them during your visit. Our team is here to ensure you feel comfortable and informed.',
   },
   {
     question: 'Question: Will I need to fast before my dental checkup?',

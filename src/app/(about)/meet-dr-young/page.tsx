@@ -22,7 +22,7 @@ export default function MeetDoctorYoung() {
       <PageHero
         bgImage='bg-meet-dr-young'
         title='Meet Dr. Young'
-        description='Top Bridgewater dentist with special training in advanced general, cosmetic, and full-mouth smile restorations'
+        description='Top Bridgwater dentist with special training in advanced general, cosmetic and full-mouth smile restorations'
       />
       <div className='mb-8'>
         <ImageAndText
@@ -32,7 +32,7 @@ export default function MeetDoctorYoung() {
             <DefaultTextBox
               title='Dr. Young'
               emphasis='About'
-              descriptionOne='Dr. James Raymond is now the fifth dentist in his family, with his father, uncle, brother, and sister sharing in the profession. He recognized at an early age the amazing gift his father was able to share with the community and the appreciation and many friendships that developed through a lifetime of service in dentistry. Dr. Raymond attended the University of North Carolina at Chapel Hill and graduated from the honors program with a B.S. in Biology and attended Tufts University School of Dental Medicine. From his initial courses at Tufts, Dr. Raymond developed a passion for esthetic and restorative dentistry and he excelled at crown, bridge, and implant prostheses. He continues his professional studies by attending local monthly study clubs, including the Spear Study Club and Pima Study Club. He is a graduate of the Kois Center in Seattle, WA, a distinction few dentists achieve.'
+              descriptionOne='Dr. James Raymond is now the fifth dentist in his family, with his father, uncle, brother and sister sharing in the profession. He recognized at an early age the amazing gift his father was able to share with the community and the appreciation and many friendships that developed through a lifetime of service in dentistry. Dr. Raymond attended the University of North Carolina at Chapel Hill and graduated from the honors program with a B.S. in Biology and attended Tufts University School of Dental Medicine. From his initial courses at Tufts, Dr. Raymond developed a passion for esthetic and restorative dentistry and he excelled at crown, bridge and implant prostheses. He continues his professional studies by attending local monthly study clubs, including the Spear Study Club and Pima Study Club. He is a graduate of the Kois Center in Seattle, WA, a distinction few dentists achieve.'
             />
           }
         />

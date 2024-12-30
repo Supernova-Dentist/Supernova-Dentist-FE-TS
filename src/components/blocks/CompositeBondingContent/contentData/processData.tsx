@@ -68,7 +68,7 @@ export default {
       content: (
         <div>
           <p className='text-sm md:text-md lg:text-lg font-normal mb-8'>
-            The resin is applied, sculpted to shape, and cured with a special light to ensure lasting results.
+            The resin is applied, sculpted to shape and cured with a special light to ensure lasting results.
           </p>
           <div className='grid grid-cols-2 gap-4'>
             <Image

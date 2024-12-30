@@ -7,17 +7,17 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Question: What types of dental emergencies do you handle?',
     answer:
-      'Answer: We handle various dental emergencies, including severe toothaches, broken or chipped teeth, knocked-out teeth, and symptoms of infection like swelling or abscesses. During your emergency visit, we’ll assess the situation and provide prompt treatment to alleviate pain and address the underlying issue.',
+      'Answer: We handle various dental emergencies, including severe toothaches, broken or chipped teeth, knocked-out teeth and symptoms of infection like swelling or abscesses. During your emergency visit, we’ll assess the situation and provide prompt treatment to alleviate pain and address the underlying issue.',
   },
   {
     question: 'Question: How can I prepare for an emergency dental appointment?',
     answer:
-      'Answer: To prepare for an emergency dental appointment, manage any pain or swelling with over-the-counter pain relievers as advised, and avoid eating or drinking if it aggravates your condition. Bring any relevant medical information or previous dental records. To expedite your visit, fill out the emergency form in the chat at the bottom right of our website before arriving.',
+      'Answer: To prepare for an emergency dental appointment, manage any pain or swelling with over-the-counter pain relievers as advised and avoid eating or drinking if it aggravates your condition. Bring any relevant medical information or previous dental records. To expedite your visit, fill out the emergency form in the chat at the bottom right of our website before arriving.',
   },
   {
     question: 'Question: What can I expect during an emergency dental appointment?',
     answer:
-      'Answer: During an emergency dental appointment, our team will quickly evaluate your condition, provide necessary treatments to relieve pain or address the immediate problem, and offer guidance on next steps. We prioritize your comfort and aim to stabilize the situation while planning any follow-up care needed.',
+      'Answer: During an emergency dental appointment, our team will quickly evaluate your condition, provide necessary treatments to relieve pain or address the immediate problem and offer guidance on next steps. We prioritize your comfort and aim to stabilize the situation while planning any follow-up care needed.',
   },
   {
     question: 'Question: Will my dental insurance cover emergency appointments?',

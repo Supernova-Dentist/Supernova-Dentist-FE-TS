@@ -13,7 +13,7 @@ export default {
       id: 2,
       image: '/assets/images/root-canal-procedure.jpg',
       header: 'Step 2: Root Canal Procedure',
-      text: 'In the procedure, our dentist will remove the infected pulp from the tooth, clean and disinfect the root canals, and fill them with a biocompatible material. This step is crucial to eliminate infection and restore the tooth’s function.',
+      text: 'In the procedure, our dentist will remove the infected pulp from the tooth, clean and disinfect the root canals and fill them with a biocompatible material. This step is crucial to eliminate infection and restore the tooth’s function.',
     },
     {
       id: 3,

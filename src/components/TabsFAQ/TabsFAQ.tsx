@@ -159,14 +159,14 @@ const QUESTIONS = {
     {
       question: 'What should I bring to my first appointment?',
       answer:
-        'Please bring a valid ID, your insurance card, and any previous dental records you might have. If you have a list of medications you are currently taking, please bring that as well.',
+        'Please bring a valid ID, your insurance card and any previous dental records you might have. If you have a list of medications you are currently taking, please bring that as well.',
     },
   ],
   Procedures: [
     {
       question: 'What types of procedures do you offer?',
       answer:
-        'We offer a wide range of procedures, including routine cleanings, fillings, crowns, bridges, root canals, and cosmetic dentistry like teeth whitening and veneers.',
+        'We offer a wide range of procedures, including routine cleanings, fillings, crowns, bridges, root canals and cosmetic dentistry like teeth whitening and veneers.',
     },
     {
       question: 'Is teeth whitening safe?',
@@ -181,14 +181,14 @@ const QUESTIONS = {
     {
       question: 'What is a root canal?',
       answer:
-        'A root canal is a procedure used to treat infection or damage inside a tooth. It involves removing the affected tissue, cleaning the inside of the tooth, and sealing it to prevent further issues.',
+        'A root canal is a procedure used to treat infection or damage inside a tooth. It involves removing the affected tissue, cleaning the inside of the tooth and sealing it to prevent further issues.',
     },
   ],
   Insurance: [
     {
       question: 'Do you accept my insurance?',
       answer:
-        'We accept most major dental insurance plans. Please contact our office with your insurance information, and we can confirm whether your plan is accepted.',
+        'We accept most major dental insurance plans. Please contact our office with your insurance information and we can confirm whether your plan is accepted.',
     },
     {
       question: 'What if I don’t have insurance?',

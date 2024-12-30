@@ -7,13 +7,13 @@ export default {
       id: 1,
       image: '/assets/images/general-checkup-consultation.jpg',
       header: 'Step 1: Comprehensive Examination',
-      text: "During your visit, our dentist will conduct a thorough examination of your teeth, gums, and mouth. We'll also review your dental history and discuss any concerns you may have.",
+      text: "During your visit, our dentist will conduct a thorough examination of your teeth, gums and mouth. We'll also review your dental history and discuss any concerns you may have.",
     },
     {
       id: 2,
       image: '/assets/images/general-checkup-cleaning.jpg',
       header: 'Step 2: Professional Cleaning',
-      text: 'Our hygienist will perform a professional cleaning to remove plaque, tartar, and stains, leaving your teeth feeling fresh and polished.',
+      text: 'Our hygienist will perform a professional cleaning to remove plaque, tartar and stains, leaving your teeth feeling fresh and polished.',
     },
     {
       id: 3,

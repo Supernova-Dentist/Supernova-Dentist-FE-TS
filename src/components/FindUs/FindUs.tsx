@@ -33,7 +33,7 @@ export default function FindUs() {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Locate Supernova Dental Clinic on the map. Find our address, contact information, and directions.
+            Locate Supernova Dental Clinic on the map. Find our address, contact information and directions.
           </motion.p>
           <div className='my-6'>
             <GoogleMap />

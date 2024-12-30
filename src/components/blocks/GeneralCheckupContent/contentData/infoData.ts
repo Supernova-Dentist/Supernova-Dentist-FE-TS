@@ -1,8 +1,8 @@
 export default {
   title: 'What is a General Checkup?',
   descriptions: [
-    'A General Checkup is a routine medical examination that helps monitor your overall health and identify potential issues before they become serious. It includes a physical examination, assessment of your medical history, and may involve basic tests to evaluate your health status.',
-    'Regular General Checkups are crucial for early detection of conditions like high blood pressure, diabetes, and heart disease. By maintaining regular visits, you can take a proactive approach to your health and well-being.',
+    'A General Checkup is a routine medical examination that helps monitor your overall health and identify potential issues before they become serious. It includes a physical examination, assessment of your medical history and may involve basic tests to evaluate your health status.',
+    'Regular General Checkups are crucial for early detection of conditions like high blood pressure, diabetes and heart disease. By maintaining regular visits, you can take a proactive approach to your health and well-being.',
   ],
   advantagesTitle: 'Advantages of a General Checkup:',
   useCaseTitle: 'When to Consider a General Checkup:',
