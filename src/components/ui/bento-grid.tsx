@@ -3,6 +3,7 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { HighlightCard } from '../HighlightCard/HightlightCard';
+import BreadCrumb from '../BreadCrumb/BreadCrumb';
 
 export function FeaturesSectionDemo() {
   const features = [
@@ -41,6 +42,9 @@ export function FeaturesSectionDemo() {
         className='mt-12'
       />
 
+      <div className='px-4'>
+        <BreadCrumb />
+      </div>
       <div className='grid grid-cols-1 lg:grid-cols-6 gap-8 mt-12 border-gold border-4 rounded-md p-4'>
         {features.map((feature) => (
           <FeatureCard
