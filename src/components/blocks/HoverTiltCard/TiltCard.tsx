@@ -2,8 +2,9 @@
 
 import { motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
 import React, { useRef } from 'react';
-import * as Icons from 'react-icons/fa'; // Import all icons from 'react-icons/fa'
+import * as FaIcons from 'react-icons/fa'; // Import all icons from 'react-icons/fa'
 import * as IoIcons from 'react-icons/io5'; // Import icons from 'react-icons/io5'
+import { IconType } from 'react-icons'; // Type for icon components
 
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
@@ -43,7 +44,9 @@ export const TiltCard = ({ icon, title, text }: { icon: string; title: string; t
   };
 
   // Dynamically get the icon based on the icon name
-  const IconComponent = Icons[icon] || IoIcons[icon]; // Check both Fa and Io icons
+  const faIcons = FaIcons as Record<string, IconType>;
+  const ioIcons = IoIcons as Record<string, IconType>;
+  const IconComponent = faIcons[icon] || ioIcons[icon]; // Check both Fa and Io icons
 
   return (
     <motion.div
