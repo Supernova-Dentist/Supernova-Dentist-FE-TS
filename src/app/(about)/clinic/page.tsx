@@ -1,3 +1,4 @@
+import { type Metadata } from 'next';
 import PageHero from '@/components/blocks/PageHero/PageHero';
 import Button from '@/components/Button/Button';
 import { DisappearingFeatures } from '@/components/DisappearingScrollFeatures/DisappearingScrollFeatures';
@@ -8,6 +9,12 @@ import { StickyCards } from '@/components/StickyCards/StickyCards';
 import { FeaturesSectionDemo } from '@/components/ui/bento-grid';
 import Link from 'next/link';
 import { stepContent } from './utils/stepContent';
+
+export const metadata: Metadata = {
+  title: 'Supernova Dental | Our Clinic',
+  description:
+    'Discover the welcoming environment of Supernova Dental. Learn about our exceptional dental care, state-of-the-art technology and services that prioritise your oral health.',
+};
 
 export default function OurClinic() {
   return (
