@@ -18,10 +18,10 @@ export default function OurClinic() {
         description='Exceptional dental care in a modern, welcoming environment.'
       /> */}
       {/* About Section */}
-      <section className='py-16 md:py-24 lg:py-32'>
+      <section>
         <div className='container mx-auto px-4 md:px-6 lg:px-8'>
           <FeaturesSectionDemo />
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 py-16'>
             <div>
               <img
                 src='/assets/images/outerBuilding.jpg'
