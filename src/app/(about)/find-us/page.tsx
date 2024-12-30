@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { useInView } from 'react-intersection-observer';
+import {HighlightCard} from '@/components/HighlightCard/HighlightCard';
 
 const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
@@ -19,22 +20,13 @@ export default function FindUs() {
     <div id='location' className='flex flex-col items-center justify-start py-20 bg-gradient-to-b from-cream to-white'>
       <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
         <section ref={ref} className='mb-12'>
-          <motion.h1
-            className='text-4xl sm:text-5xl font-bold my-8 text-center text-grey'
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-          >
-            Find Us!
-          </motion.h1>
-          <motion.p
-            className='text-lg sm:text-xl mb-6 text-center text-lightGrey'
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Locate Supernova Dental Clinic on the map. Find our address, contact information, and directions.
-          </motion.p>
+          <HighlightCard
+            logoSrc='/assets/images/logo.png'
+            title='Find Us - Supernova Dental'
+            description='Locate Supernova Dental on the map, get directions, view reserved parking spots and check our contact details and opening hours.'
+            className='mt-12'
+          />
+
           <div className='my-6'>
             <GoogleMap />
           </div>
