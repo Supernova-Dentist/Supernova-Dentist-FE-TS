@@ -1,6 +1,7 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { type Metadata } from 'next';
 import TeamMemberGrid from './utils/TeamMemberGrid';
+import { HighlightCard } from '@/components/HighlightCard/HightlightCard';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Our Team',
@@ -10,10 +11,12 @@ export const metadata: Metadata = {
 export default function TeamPage() {
   return (
     <div className='flex flex-col min-h-screen justify-center align-center bg-gradient-to-b from-white to-cream py-24 px-8'>
-      <h1 className='text-3xl font-extrabold text-center text-gold md:text-5xl lg:text-7xl mt-12 pt-6'>Meet Our Dental Team</h1>
-      <p className='mx-auto mt-6 max-w-2xl text-md md:text-xl lg:text-2xl text-center'>
-        Discover the dedicated professionals who make our dental practice exceptional.
-      </p>
+      <HighlightCard
+        logoSrc='/assets/images/logo.png'
+        title='Meet Our Dental Team'
+        description='Discover the dedicated professionals who make our dental practice exceptional.'
+        className='mx-auto' // Center the card
+      />
       {/* Breadcrumb */}
       <div className='mx-auto px-4 md:px-6 container pt-8 pb-4'>
         <BreadCrumb />
