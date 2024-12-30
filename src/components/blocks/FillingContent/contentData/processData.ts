@@ -1,25 +1,25 @@
 export default {
   title: 'Your Dental Filling Process',
   description:
-    'Our dental practice ensures a smooth and comfortable experience for your dental filling procedure. Here’s what you can expect during your visit:',
+    'At Supernova Dental, we prioritise your comfort and ensure a seamless experience during your dental filling procedure. Here’s what to expect during your visit to our practice:',
   stepContent: [
     {
       id: 1,
       image: '/assets/images/dental-filling-consultation.jpg',
-      header: 'Step 1: Examination and Diagnosis',
-      text: 'Our dentist will examine your tooth to assess the extent of decay or damage. We’ll discuss your symptoms and review any relevant X-rays to determine the best treatment plan.',
+      header: 'Step 1: Comprehensive Examination and Diagnosis',
+      text: 'Your visit begins with a thorough examination, where our experienced dentist will assess the extent of any decay or damage to your tooth. We’ll take the time to understand your symptoms and review any X-rays, tailoring a treatment plan that’s just right for you.',
     },
     {
       id: 2,
       image: '/assets/images/dental-filling-procedure.jpg',
-      header: 'Step 2: Tooth Preparation',
-      text: 'We will clean out the decayed or damaged area of the tooth and prepare it for filling. This involves removing any decay and shaping the tooth to ensure a proper fit for the filling material.',
+      header: 'Step 2: Tooth Preparation and Careful Cleaning',
+      text: 'We’ll gently clean the decayed area, ensuring the tooth is properly prepared for the filling. Our team will remove any decay and shape the tooth to ensure a perfect fit for your filling, all while keeping your comfort a priority.',
     },
     {
       id: 3,
       image: '/assets/images/dental-filling-completion.jpg',
-      header: 'Step 3: Filling and Final Adjustments',
-      text: 'The chosen filling material will be placed into the prepared cavity and shaped to match the natural contours of your tooth. We’ll then make final adjustments to ensure a comfortable bite and provide instructions on post-procedure care.',
+      header: 'Step 3: Filling Placement and Final Adjustments',
+      text: 'Next, we’ll carefully place the chosen filling material, shaping it to blend seamlessly with your natural tooth. Afterward, we’ll make any necessary adjustments to ensure your bite feels just right. We’ll also provide you with aftercare instructions so you can continue to smile confidently.',
     },
   ],
 };
