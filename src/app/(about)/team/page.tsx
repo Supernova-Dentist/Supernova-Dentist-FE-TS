@@ -1,7 +1,7 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { type Metadata } from 'next';
 import TeamMemberGrid from './utils/TeamMemberGrid';
-import { HighlightCard } from '@/components/HighlightCard/HightlightCard';
+import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Our Team',
