@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 export default {
-  title: 'Your Composite Bonding Journey at Supernova Dental',
+  title: 'Your Composite Bonding Journey',
   description:
     'At Supernova Dental, we offer a simple and comfortable composite bonding process to help you achieve a beautiful smile.',
   stepContent: [
