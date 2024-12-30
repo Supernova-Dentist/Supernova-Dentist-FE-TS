@@ -99,7 +99,7 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
   ];
 
   return (
-    <div id={id} className='w-full bg-cream py-6'>
+    <div id={id} className='w-full py-6 bg-gradient-to-b from-cream to-white'>
       <h2 className='text-2xl md:text-3xl font-bold mb-8 text-center text-gold'>Your Invisalign Journey</h2>
       <hr className='border-t-2 border-gold w-20 mx-auto mb-8' />
       <p className='text-lg md:text-xl text-center text-gray-800 max-w-[35rem] mx-auto'>

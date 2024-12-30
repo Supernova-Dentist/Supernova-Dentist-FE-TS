@@ -14,6 +14,9 @@ import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Search from './Search';
 
+// Define the max character limit
+const MAX_MESSAGE_LENGTH = 500;
+
 const formSchema = z.object({
   name: z.string().min(2, {
     message: 'Name must be at least 2 characters.',
@@ -35,8 +38,9 @@ const formSchema = z.object({
 export function EnquiryFormContent() {
   const [successModalVisible, setSuccessModalVisible] = useState(false);
   const [errorModalVisible, setErrorModalVisible] = useState(false);
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
   const [submittedData, setSubmittedData] = useState<any>(null);
+  const [messageLength, setMessageLength] = useState(0); // Track the message length
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -50,7 +54,7 @@ export function EnquiryFormContent() {
   });
 
   const onSubmit = async (data: any) => {
-    setLoading(true); // Start loading
+    setLoading(true);
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}`, {
         method: 'POST',
@@ -69,20 +73,24 @@ export function EnquiryFormContent() {
       if (contentType != null && contentType.includes('application/json')) {
         responseData = await response.json();
       } else {
-        responseData = await response.text(); // Handle non-JSON response
+        responseData = await response.text();
       }
 
       console.log('Form submitted successfully:', responseData);
       setSubmittedData(data);
       setSuccessModalVisible(true);
-
-      form.reset({ name: '', email: '', phone: '', category: '', message: '' }); // Clear the form on success
+      form.reset({ name: '', email: '', phone: '', category: '', message: '' });
     } catch (error) {
       console.error('There was a problem with the form submission:', error);
       setErrorModalVisible(true);
     } finally {
-      setLoading(false); // End loading
+      setLoading(false);
     }
+  };
+
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const message = e.target.value;
+    setMessageLength(message.length); // Update the message length
   };
 
   const handleSubmit = (data: any) => {
@@ -115,6 +123,7 @@ export function EnquiryFormContent() {
                               <Input
                                 id='name'
                                 placeholder='Enter your name'
+                                maxLength={75}
                                 {...field}
                                 className='text-md lg:text-lg p-3'
                               />
@@ -137,6 +146,7 @@ export function EnquiryFormContent() {
                               <Input
                                 id='email'
                                 type='email'
+                                maxLength={75}
                                 placeholder='Enter your email'
                                 {...field}
                                 className='text-md lg:text-lg p-3'
@@ -161,6 +171,7 @@ export function EnquiryFormContent() {
                             <Input
                               id='phone'
                               placeholder='Enter your phone number'
+                              maxLength={15}
                               {...field}
                               className='text-md lg:text-lg p-3'
                             />
@@ -189,14 +200,26 @@ export function EnquiryFormContent() {
                                     <SelectValue placeholder='Select category' className='text-md lg:text-lg' />
                                   </SelectTrigger>
                                   <SelectContent>
-                                    <SelectItem value='appointment' className='text-md lg:text-lg'>
-                                      Appointment
+                                    <SelectItem value='general-enquiry' className='text-md lg:text-lg'>
+                                      General Enquiry
                                     </SelectItem>
-                                    <SelectItem value='service' className='text-md lg:text-lg'>
-                                      Service Inquiry
+                                    <SelectItem value='billing-insurance' className='text-md lg:text-lg'>
+                                      Billing and Insurance
                                     </SelectItem>
-                                    <SelectItem value='other' className='text-md lg:text-lg'>
-                                      Other
+                                    <SelectItem value='emergency-care' className='text-md lg:text-lg'>
+                                      Emergency Care
+                                    </SelectItem>
+                                    <SelectItem value='consultation-request' className='text-md lg:text-lg'>
+                                      Consultation Request
+                                    </SelectItem>
+                                    <SelectItem value='dental-hygiene' className='text-md lg:text-lg'>
+                                      Dental Hygiene and Advice
+                                    </SelectItem>
+                                    <SelectItem value='feedback' className='text-md lg:text-lg'>
+                                      Feedback or Complaints
+                                    </SelectItem>
+                                    <SelectItem value='new-patient' className='text-md lg:text-lg'>
+                                      New Patient Registration
                                     </SelectItem>
                                   </SelectContent>
                                 </Select>
@@ -223,6 +246,11 @@ export function EnquiryFormContent() {
                               placeholder='Enter your message'
                               rows={5}
                               {...field}
+                              maxLength={MAX_MESSAGE_LENGTH}
+                              onChange={(e) => {
+                                field.onChange(e);
+                                handleMessageChange(e);
+                              }}
                               className='text-md lg:text-lg p-3'
                             />
                           </FormControl>
@@ -230,6 +258,10 @@ export function EnquiryFormContent() {
                         </FormItem>
                       )}
                     />
+                    {/* Character count */}
+                    <div className='text-sm text-gray-500'>
+                      {messageLength} / {MAX_MESSAGE_LENGTH} characters
+                    </div>
                   </div>
                   <Button
                     type='submit'
@@ -253,8 +285,13 @@ export function EnquiryFormContent() {
           <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
             <h2 className='text-2xl font-semibold mb-4'>Thank you, {submittedData.name}, for your Enquiry!</h2>
             <p className='mb-4'>
-              One of the Supernova team will be back in touch with the following email regarding your enquiry:{' '}
-              {submittedData.email}
+              One of the Supernova team will be back in touch with the following details regarding your enquiry:
+            </p>
+            <p className='mb-4'>
+              <strong>Email:</strong> {submittedData.email}
+            </p>
+            <p className='mb-4'>
+              <strong>Phone:</strong> {submittedData.phone}
             </p>
             <Button onClick={() => setSuccessModalVisible(false)} className='w-full text-lg py-2'>
               Close

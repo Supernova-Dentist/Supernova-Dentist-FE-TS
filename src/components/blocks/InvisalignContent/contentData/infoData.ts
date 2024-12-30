@@ -6,6 +6,7 @@ export default {
   ],
   advantagesTitle: 'Advantages of Invisalign:',
   useCaseTitle: 'Use Cases of Invisalign:',
+  videoSrc: '/assets/videos/invisalign_service.mp4',
   advantagesData: [
     { id: 1, heading: 'Discreet', text: 'Clear aligners are virtually invisible.' },
     { id: 2, heading: 'Removable', text: 'Easily remove aligners for eating, drinking, and cleaning.' },

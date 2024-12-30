@@ -1,5 +1,4 @@
 import { FaTooth, FaSadTear, FaShieldAlt } from 'react-icons/fa';
-import { IoHappy } from 'react-icons/io5';
 
 export default {
   title: 'Who Can Benefit from Root Canal Treatment?',
@@ -22,12 +21,6 @@ export default {
       icon: <FaShieldAlt className='h-12 w-12 text-teal' />,
       header: 'Those with Cracked or Damaged Teeth',
       text: 'If your tooth is cracked or severely damaged, a root canal can restore its health and function, preventing the need for extraction.',
-    },
-    {
-      id: 4,
-      icon: <IoHappy className='h-12 w-12 text-teal' />,
-      header: 'Individuals Seeking Long-Term Tooth Preservation',
-      text: 'For those looking to maintain their natural teeth and avoid extractions, a root canal treatment is a valuable option.',
     },
   ],
 };

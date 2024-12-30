@@ -6,11 +6,12 @@ import PageHero from '@/components/blocks/PageHero/PageHero';
 import BlogLoadingSkeleton from '@/components/BlogLoadingSkeleton/BlogLoadingSkeleton';
 import FetchBlogsWrapper from '@/components/FetchBlogs/FetchBlogs';
 import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
+import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Blog',
   description:
-    "Welcome to the Supernova Dental blog! Discover expert dental tips, the latest in oral health care, cosmetic dentistry insights, and more. Our blog is dedicated to helping you maintain a healthy and beautiful smile with advice from Dr. Young and our team of dental professionals. Stay informed about new treatments, dental technologies, and patient care practices. Whether you're looking for preventive care tips or the latest trends in cosmetic dentistry, our blog has you covered.",
+    'Get the latest updates from Supernova Dental, including expert tips, new treatments and news about our services and offerings.',
 };
 
 export default async function BlogPage({
@@ -20,7 +21,12 @@ export default async function BlogPage({
 }) {
   return (
     <>
-      <PageHero bgImage='bg-blog' title='Blog' showButtons={false} className='bg-center' />
+      <HighlightCard
+        title='Supernova Dental Blog'
+        description='Stay informed with the latest updates from Supernova Dental, including expert tips and new treatments.'
+        logoSrc='/assets/images/logo.png'
+        className='mt-16'
+      />
       <Suspense fallback={<BlogLoadingSkeleton />}>
         <FetchBlogsWrapper searchParams={searchParams} />
       </Suspense>

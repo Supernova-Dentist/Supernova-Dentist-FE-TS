@@ -4,11 +4,12 @@ import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { serviceData } from '@/components/Services/utils/serviceData';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | Composite Bonding',
+  title: 'Supernova Dental | Cosmetic Dentistry Services',
   description:
-    'Learn about composite bonding at Supernova Dental. Enhance your smile with this cosmetic dental procedure.',
+    'Explore the wide range of cosmetic dentistry services at Supernova Dental, including procedures like composite bonding, teeth whitening, and Invisalign to enhance your smile and confidence.',
 };
 
 const slugify = (text: string) => {
@@ -24,18 +25,16 @@ const slugify = (text: string) => {
 export default function CosmeticServices() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <PageHero
-        bgImage='bg-meet-dr-young'
-        title='Cosmetic Dentistry'
-        description='Achieve your dream smile and supercharge your confidence.'
+      <HighlightCard
+        title='Cosmetic Dentistry Services'
+        description='Achieve a beautiful, healthy smile with our cosmetic dentistry services, including treatments like composite bonding, teeth whitening, and more.'
+        logoSrc='/assets/images/logo.png'
+        className='mt-16'
       />
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
       <div className='my-8 pb-16'>
-        <div className='text-center mb-16'>
-          <h2 className='text-4xl font-semibold'>Our cosmetic dentistry treatments</h2>
-        </div>
         <div className='flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12'>
           {serviceData.slice(0, 4).map((service, index) => (
             <Link href={`/cosmetic-dentistry/${slugify(service.title)}`} key={index}>

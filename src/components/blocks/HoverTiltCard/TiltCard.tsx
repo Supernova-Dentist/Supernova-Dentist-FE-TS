@@ -2,6 +2,9 @@
 
 import { motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
 import React, { useRef } from 'react';
+import * as FaIcons from 'react-icons/fa'; // Import all icons from 'react-icons/fa'
+import * as IoIcons from 'react-icons/io5'; // Import icons from 'react-icons/io5'
+import { IconType } from 'react-icons'; // Type for icon components
 
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
@@ -40,6 +43,11 @@ export const TiltCard = ({ icon, title, text }: { icon: string; title: string; t
     y.set(0);
   };
 
+  // Dynamically get the icon based on the icon name
+  const faIcons = FaIcons as Record<string, IconType>;
+  const ioIcons = IoIcons as Record<string, IconType>;
+  const IconComponent = faIcons[icon] || ioIcons[icon]; // Check both Fa and Io icons
+
   return (
     <motion.div
       ref={ref}
@@ -50,22 +58,22 @@ export const TiltCard = ({ icon, title, text }: { icon: string; title: string; t
         transform,
         cursor: 'pointer',
       }}
-      className='relative h-96 w-72 rounded-xl bg-gradient-to-br from-indigo-300 to-violet-300'
+      className='relative h-96 w-72 rounded-xl bg-gold shadow-lg'
     >
       <div
         style={{
           transform: 'translateZ(20px)',
           transformStyle: 'preserve-3d',
         }}
-        className='absolute inset-4 grid place-content-center rounded-xl bg-white shadow-lg'
+        className='absolute inset-3 grid place-content-center rounded-xl bg-white shadow-lg'
       >
         <div className='flex justify-center items-center mt-4'>
-          <img src={icon} alt={`${title} icon`} className='w-24 h-24 object-contain' loading='lazy' />
+          {IconComponent && <IconComponent className='h-12 w-12 text-gold' />} {/* Render the icon dynamically */}
         </div>
 
         <div className='text-center mt-6 p-2'>
           <p className='text-xl font-semibold'>{title}</p>
-          <p>{text}</p> {/* Ensure to include the text if needed */}
+          <p>{text}</p>
         </div>
       </div>
     </motion.div>

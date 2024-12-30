@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { HighlightCard } from '../HighlightCard/HightlightCard';
+import { HighlightCard } from '../HighlightCard/HighlightCard';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 
 export function FeaturesSectionDemo() {

@@ -19,12 +19,13 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
           <div>
             <ServiceDescription className='mt-6 mb-4' description={descriptions[0]} />
             <ServiceDescription description={descriptions[1]} />
-            
           </div>
           {/* Video */}
-          <ServiceVideo videoSrc={videoSrc} />
 
+          {/* Set the height explicitly */}
+          <ServiceVideo videoSrc={videoSrc} />
         </div>
+        {/* </div> */}
 
         {/* Grids */}
         <div className='mt-8 flex flex-col lg:flex-row gap-8'>

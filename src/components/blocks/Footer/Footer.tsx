@@ -89,6 +89,10 @@ export default function Footer() {
           <Link href='/privacy-policy' className='underline text-gold cursor-pointer'>
             Privacy Policy
           </Link>
+          <span> | </span>
+          <Link href='/complaints' className='underline text-gold cursor-pointer'>
+            Complaints Procedure
+          </Link>
         </span>
       </div>
     </footer>
