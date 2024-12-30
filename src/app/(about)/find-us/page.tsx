@@ -17,14 +17,14 @@ export default function FindUs() {
   });
 
   return (
-    <div id='location' className='flex flex-col items-center justify-start py-20 bg-gradient-to-b from-cream to-white'>
+    <div id='location' className='flex flex-col items-center justify-start bg-gradient-to-b from-cream to-white'>
       <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
         <section ref={ref} className='mb-12'>
           <HighlightCard
             logoSrc='/assets/images/logo.png'
             title='Find Us - Supernova Dental'
             description='Locate Supernova Dental on the map, get directions, view reserved parking spots and check our contact details and opening hours.'
-            className='mt-12'
+            className='mt-16'
           />
 
           <div className='my-6'>
