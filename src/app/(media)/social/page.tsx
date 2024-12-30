@@ -12,8 +12,6 @@ export default async function SocialMedia() {
   const username = instagramPosts?.length > 0 ? instagramPosts?.[0].username : 'Our Instagram';
   const instagramProfileUrl = `https://www.instagram.com/${username}/`;
 
-  console.log({ instagramPosts });
-
   return (
     <>
       <HighlightCard
