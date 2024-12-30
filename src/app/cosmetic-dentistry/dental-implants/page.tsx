@@ -14,9 +14,7 @@ export default function DentalImplants() {
     <div className='flex flex-col min-h-[100vh]'>
       <DentalImplantsContent />
 
-      <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 md:right-40 flex justify-center md:justify-end'>
-        <EnquiryButton referringPage={'cosmetic-dentistry/dental-implants'} />
-      </div>
+      <EnquiryButton referringPage={'cosmetic-dentistry/dental-implants'} />
     </div>
   );
 }

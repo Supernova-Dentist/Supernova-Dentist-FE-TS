@@ -13,9 +13,7 @@ export default function Invisalign() {
     <div className='flex flex-col min-h-[100dvh]'>
       <InvisalignContent />
       {/* Sticky EnquiryButton */}
-      <div className='sticky bottom-5 mb-8 flex justify-center z-10'>
-        <EnquiryButton referringPage={'cosmetic-dentistry/invisalign'} />
-      </div>
+      <EnquiryButton referringPage={'cosmetic-dentistry/invisalign'} />
     </div>
   );
 }
