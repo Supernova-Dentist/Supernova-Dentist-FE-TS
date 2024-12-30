@@ -6,7 +6,7 @@ import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 
 export default function Complaints() {
   return (
-    <section className='text-center sm:text-left my-20 px-4 sm:px-10'>
+    <section className='text-center sm:text-left my-20 px-4 sm:px-10 pt-8'>
       <div className='text-center flex flex-col items-center'>
         <Image src={logo} alt='logo' className='w-20 h-20' />
         <div className='my-2'>
@@ -37,62 +37,49 @@ export default function Complaints() {
 
         <SectionSpacing className='flex flex-col gap-2'>
           <SubHeader>How We Handle Complaints</SubHeader>
-          <p>
-            If a patient contacts us by phone to make a complaint, we will carefully listen to their concerns and
-            immediately offer to connect them with the Practice Manager. If the Practice Manager is not available at
-            that moment, we will arrange a suitable time for a follow-up conversation.
-          </p>
-
-          <p>
-            For complaints made in person at the reception, the patient will be invited to sit privately with the
-            Practice Manager in a comfortable setting. Should the Practice Manager be unavailable, we will inform the
-            patient when they can expect to speak with her and make the necessary arrangements.
-          </p>
-
-          <p>
-            The staff member who initially receives the complaint will take brief details and pass them along to ensure
-            the issue is handled efficiently. If a discussion cannot take place within a reasonable timeframe, or if the
-            patient prefers not to wait, the complaint will be escalated to the practice owners.
-          </p>
-
-          <p>
-            Complaints submitted in writing, whether via letter or email, will be forwarded to the Practice Manager
-            immediately for review and action.
-          </p>
-
-          <p>
-            For any complaints related to clinical care or associated charges, these will be referred directly to the
-            relevant dentist for further investigation.
-          </p>
+          <ul className='list-disc list-inside'>
+            <li>
+              Complaints by phone: We will carefully listen to your concerns and offer to connect you with the Practice
+              Manager. If unavailable, we will arrange a suitable time for a follow-up.
+            </li>
+            <li>
+              Complaints in person: You will be invited to sit privately with the Practice Manager. If unavailable, we
+              will inform you when they can meet and arrange accordingly.
+            </li>
+            <li>
+              Written complaints: Complaints via letter or email will be forwarded to the Practice Manager immediately
+              for review and action.
+            </li>
+            <li>
+              Clinical care or charges: These complaints will be referred directly to the relevant dentist for further
+              investigation.
+            </li>
+          </ul>
         </SectionSpacing>
 
         <SectionSpacing className='flex flex-col gap-2'>
           <SubHeader>Response and Resolution Timeline</SubHeader>
           <p>
-            We will acknowledge receipt of the complaint in writing within two business days and provide the patient
-            with a copy of our complaints procedure. We aim to investigate and address the issue within ten business
-            days. If the patient prefers not to meet in person, we will attempt to discuss the matter over the phone. In
-            the event we are unable to complete the investigation within the ten-day timeframe, we will notify the
-            patient, providing reasons for the delay and an estimated time for resolution.
+            We will acknowledge receipt of your complaint in writing within two business days and provide you with a
+            copy of our complaints procedure. We aim to investigate and address the issue within{' '}
+            <strong>10 business days</strong>. If we cannot complete the investigation within this timeframe, we will
+            notify you of the reasons for the delay and provide an estimated resolution time.
           </p>
 
           <p>
-            Upon completing the investigation, we will inform the patient of the outcome in writing and provide a
-            detailed explanation of the findings.
+            Upon completing the investigation, we will inform you of the outcome in writing and provide a detailed
+            explanation of our findings.
           </p>
 
           <p>
-            All complaints and their resolutions will be documented thoroughly, ensuring comprehensive records are
+            All complaints and their resolutions will be documented thoroughly to ensure comprehensive records are
             maintained.
           </p>
         </SectionSpacing>
 
         <SectionSpacing className='flex flex-col gap-2'>
           <SubHeader>Escalating a Complaint</SubHeader>
-          <p>
-            If a patient is dissatisfied with the outcome of our complaints process, they may escalate their concerns to
-            the Dental Complaints Service:
-          </p>
+          <p>If you are not satisfied with our resolution, you may refer your complaint to:</p>
 
           <address>
             <strong>Dental Complaints Service</strong>
@@ -101,7 +88,19 @@ export default function Complaints() {
             <br />
             2 Lansdowne Road,
             <br />
-            Croydon, CR9 2ER
+            Croydon, Greater London CR9 2ER
+            <br />
+            08456 120 540 or <a href='http://www.dentalcomplaints.org.uk'>www.dentalcomplaints.org.uk</a>
+          </address>
+
+          <p>Alternatively, you can contact the General Dental Council, the dentists’ registration body:</p>
+
+          <address>
+            <strong>General Dental Council</strong>
+            <br />
+            37 Wimpole Street,
+            <br />
+            London, W1M 8DQ
           </address>
         </SectionSpacing>
       </div>
