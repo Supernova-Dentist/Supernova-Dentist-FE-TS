@@ -18,10 +18,10 @@ export default function OurClinic() {
         description='Exceptional dental care in a modern, welcoming environment.'
       /> */}
       {/* About Section */}
-      <section className='py-16 md:py-24 lg:py-32'>
+      <section>
         <div className='container mx-auto px-4 md:px-6 lg:px-8'>
           <FeaturesSectionDemo />
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 py-16'>
             <div>
               <img
                 src='/assets/images/outerBuilding.jpg'
@@ -44,19 +44,17 @@ export default function OurClinic() {
                 stand out as a premier dental provider. Our clinic’s welcoming atmosphere, coupled with a team that
                 truly cares, makes every visit a positive experience.
               </p>
-
               <h3 className='text-2xl text-gray-900 font-semibold mb-4'>Check out to see what we have to offer!</h3>
-              <div className='flex flex-col md:flex-row gap-4'>
+              <div className='flex flex-col sm:flex-row sm:justify-start gap-4'>
                 <Link href='cosmetic-dentistry'>
                   <Button
-                    className='uppercase text:md font-semibold bg-gold px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto'
+                    className='uppercase text-md font-semibold bg-gold text-white px-6 py-3 w-full sm:w-auto hover:bg-gold-dark focus:ring-2 focus:ring-gold focus:ring-offset-2 transition'
                     text='Cosmetic Services'
                   />
                 </Link>
-
                 <Link href='general-dentistry'>
                   <Button
-                    className='uppercase text:md font-semibold bg-gold px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto'
+                    className='uppercase text-md font-semibold bg-gold text-white px-6 py-3 w-full sm:w-auto hover:bg-gold-dark focus:ring-2 focus:ring-gold focus:ring-offset-2 transition'
                     text='General Services'
                   />
                 </Link>

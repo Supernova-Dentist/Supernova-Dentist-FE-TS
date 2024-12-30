@@ -24,7 +24,7 @@ export default function PromotionFooter() {
           <div className='flex items-center gap-2 flex-col-reverse sm:flex-row'>
             <span>&copy; Supernova Dental 2024</span>
             <span className='hidden sm:block'>|</span>
-            <span>Website last updated: November 2024</span>
+            <span>Website last updated: December 2024</span>
           </div>
         </div>
       </footer>
