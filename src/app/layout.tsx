@@ -10,8 +10,13 @@ import MainNav from '@/components/blocks/MainNav/MainNav';
 import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import Script from 'next/script';
+
 import './globals.css';
 import './reset.css';
+import dynamic from 'next/dynamic';
+const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), {
+  ssr: false,
+});
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -90,6 +95,7 @@ export default function RootLayout({
         {/* <div aria-hidden='true'>
           <TidioChat /></div> */}
         <ScrollToTopButton />
+        <FloatingMenu />
         <div aria-hidden='true'>{/* <CrispChat /> */}</div>
         <AccessibilityWidget />
         {/* <ScrollToTopButton /> */}
