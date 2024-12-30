@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 export default {
-  title: 'Your Personalized Tooth Whitening Journey',
+  title: 'Your personalised Tooth Whitening Journey',
   description:
     'At Supernova Dental, we offer a safe and effective whitening process for a brighter, more confident smile. Here’s what to expect:',
   stepContent: [

@@ -12,7 +12,7 @@ export const faqItems = [
   {
     question: 'Is composite bonding right for me?',
     answer:
-      'We assess your oral health to determine if composite bonding is the best option. Supernova Dental provides personalized treatments to enhance your smile.',
+      'We assess your oral health to determine if composite bonding is the best option. Supernova Dental provides personalised treatments to enhance your smile.',
   },
   {
     question: 'How does composite bonding compare to veneers?',
@@ -22,6 +22,6 @@ export const faqItems = [
   {
     question: 'How much does composite bonding cost?',
     answer:
-      'The cost varies depending on the extent of the treatment. Supernova Dental offers personalized quotes to make the process clear and affordable.',
+      'The cost varies depending on the extent of the treatment. Supernova Dental offers personalised quotes to make the process clear and affordable.',
   },
 ];

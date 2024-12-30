@@ -5,7 +5,7 @@ import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 export const metadata: Metadata = {
   title: 'Supernova Dental | General Checkup',
   description:
-    'Ensure optimal oral health with a comprehensive general checkup at Supernova Dental. Our experienced team provides thorough examinations and personalized care.',
+    'Ensure optimal oral health with a comprehensive general checkup at Supernova Dental. Our experienced team provides thorough examinations and personalised care.',
 };
 
 export default function GeneralCheckup() {

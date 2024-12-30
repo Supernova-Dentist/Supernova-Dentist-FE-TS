@@ -7,7 +7,7 @@ export const faqItems = [
   {
     question: 'Question: What should I expect during my first visit?',
     answer:
-      'Answer: During your first visit, Dr. Scott Young will conduct a thorough dental examination, including X-rays if necessary. He will discuss your dental history, any concerns you may have and develop a personalized treatment plan. Our goal is to ensure you feel comfortable and informed about your dental health.',
+      'Answer: During your first visit, Dr. Scott Young will conduct a thorough dental examination, including X-rays if necessary. He will discuss your dental history, any concerns you may have and develop a personalised treatment plan. Our goal is to ensure you feel comfortable and informed about your dental health.',
   },
   {
     question: 'Question: How can I schedule an appointment with Dr. Scott Young?',

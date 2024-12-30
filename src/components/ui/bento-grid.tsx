@@ -9,7 +9,7 @@ export function FeaturesSectionDemo() {
   const features = [
     {
       title: 'Welcome to Reception',
-      description: 'Experience a warm welcome and personalized attention from our team.',
+      description: 'Experience a warm welcome and personalised attention from our team.',
       skeleton: <SkeletonOne />,
       className: 'lg:col-span-4 border-gold',
     },

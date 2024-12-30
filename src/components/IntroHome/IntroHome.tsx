@@ -39,7 +39,7 @@ export default function IntroHome() {
             </h2>
             <p className='text-muted-foreground md:text-xl/relaxed text-gray-800'>
               At <span className='font-semibold'>Supernova Dental</span>, opening in Bridgewater in Q4 2024, we&apos;re
-              dedicated to offering personalized, high-quality dental care. Our expert team is committed to helping you
+              dedicated to offering personalised, high-quality dental care. Our expert team is committed to helping you
               achieve and maintain a healthy, stunning smile with a range of services tailored just for you.
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function IntroHome() {
               <h3 className='text-2xl font-bold text-gold'>About Us</h3>
               <p className='text-muted-foreground'>
                 At Supernova Dental, our mission is to provide exceptional dental care with a focus on excellence,
-                compassion and innovation. We are dedicated to delivering personalized treatment that meets each
+                compassion and innovation. We are dedicated to delivering personalised treatment that meets each
                 patient’s unique needs and aspirations.
               </p>
               <p className='text-muted-foreground'>
