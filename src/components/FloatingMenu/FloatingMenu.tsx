@@ -32,23 +32,35 @@ export default function FloatingMenu() {
       transition={{ duration: 1.5 }} // Duration of the animation
     >
       <Fab
-        mainButtonStyles={{ backgroundColor: '#0f172a' }}
+        mainButtonStyles={{ backgroundColor: '#0f172a', border: '1px solid white' }}
         // Adjust position based on screen size
         style={{
           bottom: isMobile ? -8.5 : 10, // Change bottom position for mobile and desktop
-          right: isMobile ? -8.5 : 10 // Change right position for mobile and desktop
+          right: isMobile ? -8.5 : 20, // Change right position for mobile and desktop
         }}
         icon={<MdAdd size={26} />}
         event={event}
         alwaysShowTitle={isMobile}
       >
-        <Action style={{ backgroundColor: '#0f172a' }} text='Email' onClick={handleEmailClick}>
+        <Action
+          style={{ backgroundColor: '#0f172a', border: '1px solid white' }}
+          text='Email'
+          onClick={handleEmailClick}
+        >
           <MdEmail size={25} />
         </Action>
-        <Action style={{ backgroundColor: '#0f172a' }} text='Messenger' onClick={handleMessengerClick}>
+        <Action
+          style={{ backgroundColor: '#0f172a', border: '1px solid white' }}
+          text='Messenger'
+          onClick={handleMessengerClick}
+        >
           <FaFacebookMessenger size={25} />
         </Action>
-        <Action style={{ backgroundColor: '#0f172a' }} text='Instagram' onClick={handleInstagramClick}>
+        <Action
+          style={{ backgroundColor: '#0f172a', border: '1px solid white' }}
+          text='Instagram'
+          onClick={handleInstagramClick}
+        >
           <FaInstagramSquare size={25} />
         </Action>
       </Fab>
