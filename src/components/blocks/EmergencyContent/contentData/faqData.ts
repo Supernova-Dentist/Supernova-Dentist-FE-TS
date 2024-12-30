@@ -17,7 +17,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Question: What can I expect during an emergency dental appointment?',
     answer:
-      'Answer: During an emergency dental appointment, our team will quickly evaluate your condition, provide necessary treatments to relieve pain or address the immediate problem and offer guidance on next steps. We prioritize your comfort and aim to stabilize the situation while planning any follow-up care needed.',
+      'Answer: During an emergency dental appointment, our team will quickly evaluate your condition, provide necessary treatments to relieve pain or address the immediate problem and offer guidance on next steps. We prioritise your comfort and aim to stabilize the situation while planning any follow-up care needed.',
   },
   {
     question: 'Question: Will my dental insurance cover emergency appointments?',
@@ -27,6 +27,6 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Question: How do I schedule an emergency dental appointment?',
     answer:
-      'Answer: To schedule an emergency dental appointment, call our office immediately. You can also use the emergency form available in the chat at the bottom right of our website to provide us with your details before your arrival. We’ll prioritize your appointment based on the severity of your situation and get you the care you need as quickly as possible!',
+      'Answer: To schedule an emergency dental appointment, call our office immediately. You can also use the emergency form available in the chat at the bottom right of our website to provide us with your details before your arrival. We’ll prioritise your appointment based on the severity of your situation and get you the care you need as quickly as possible!',
   },
 ];
