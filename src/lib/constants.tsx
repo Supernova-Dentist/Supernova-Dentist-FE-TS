@@ -1,3 +1,4 @@
+import { link } from 'fs';
 import { GrFacebookOption } from 'react-icons/gr';
 import { IoLogoInstagram } from 'react-icons/io';
 
@@ -67,16 +68,22 @@ export const navLinks = [
 ];
 
 export const officeInfo = {
-  address: 'Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ',
-  phone: '(816) 555-5555',
-  text: '(816) 555-4444',
+  address: `Supernova Building
+Huntworth Gate, Marsh Lane,
+Bridgwater
+TA6 6LQ
+`,
 };
 
-export const reviewLinks = ['Google', 'Yelp', 'Facebook'];
+export const reviewLinks = ['Google', 'Facebook'];
 
 export const socialIcons = [
-  { icon: <IoLogoInstagram size={28} />, name: 'Instagram' },
-  { icon: <GrFacebookOption size={28} />, name: 'Facebook' },
+  { icon: <IoLogoInstagram size={28} />, name: 'Instagram', link: 'https://www.instagram.com/supernova.dental' },
+  {
+    icon: <GrFacebookOption size={28} />,
+    name: 'Facebook',
+    link: 'https://www.facebook.com/profile.php?id=61567279201971',
+  },
 ];
 
 export const DentallyPortal = 'https://supernova.dentr.net';
