@@ -30,11 +30,13 @@ export function VideoAnimationSection() {
 
   return (
     <div className='min-h-[101vh] flex flex-col items-center justify-center py-12 bg-gradient-to-b from-white to-cream'>
-      <motion.div ref={ref}
-      initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-      animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
-      transition={{ duration: 0.5 }} // Animation duration 
-      className='p-8 bg-black xl:rounded-xl'>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
+        animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+        transition={{ duration: 0.5 }} // Animation duration
+        className='p-8 bg-black xl:rounded-xl'
+      >
         <TextRevealCard
           className='h-[20rem] w-full rounded-lg p-8 relative overflow-hidden'
           text='You know the value of a healthy smile'
@@ -69,7 +71,7 @@ export function VideoAnimationSection() {
         <div className='mt-2 pt-8 pb-12 lg:pb-24 flex justify-center'>
           <button
             onClick={scrollToPromotionForm}
-            className='bg-lightGold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
+            className='bg-lightGold text-white px-8 py-4 rounded-lg text-lg font-semibold'
           >
             Take the first step!
           </button>

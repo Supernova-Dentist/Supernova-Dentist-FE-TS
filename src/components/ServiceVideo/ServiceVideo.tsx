@@ -68,7 +68,7 @@ export default function ServiceVideo({ videoSrc }: ServiceVideoProps) {
         </div>
         <div className='mt-2 pt-8 pb-12 lg:pb-24 flex justify-center'>
           <Link href={`${DentallyPortal}`} target='_blank'>
-            <button className='bg-lightGold text-cream px-8 py-4 rounded-lg text-lg font-semibold'>
+            <button className='bg-lightGold text-white px-8 py-4 rounded-lg text-lg font-semibold'>
               Take the first step!
             </button>
           </Link>
