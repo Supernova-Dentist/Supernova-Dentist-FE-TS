@@ -3,7 +3,9 @@
 import { motion, type MotionValue, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import React, { useRef } from 'react';
-import { Smile, Wifi } from 'react-feather';
+import { Wifi } from 'react-feather';
+import { FaChair, FaBookMedical, FaWheelchair, FaParking, FaClinicMedical } from 'react-icons/fa';
+import { FaPumpMedical } from 'react-icons/fa6';
 
 export const DisappearingFeatures = () => {
   return (
@@ -19,7 +21,7 @@ export const DisappearingFeatures = () => {
 
 const Features = () => {
   return (
-    <div className='relative mx-auto grid h-full w-full max-w-7xl grid-cols-1 gap-8 px-4 md:grid-cols-2'>
+    <div className='relative mx-auto grid h-full w-full max-w-7xl grid-cols-1 gap-8 px-6 md:grid-cols-2'>
       <Copy />
       <Carousel />
     </div>
@@ -52,13 +54,13 @@ const Carousel = () => {
     {
       title: 'Comfortable Chairs',
       description: 'Our ergonomic chairs provide maximum comfort during your treatments.',
-      icon: <Smile className='w-12 h-12 mb-4 text-gold' />,
+      icon: <FaChair className='w-12 h-12 mb-4 text-gold' />,
       imgSrc: '/assets/images/surgery2.JPG',
     },
     {
       title: 'Advanced Equipment',
       description: 'We use the latest dental technology to ensure accurate and efficient treatments.',
-      icon: <Smile className='w-12 h-12 mb-4 text-gold' />,
+      icon: <FaClinicMedical className='w-12 h-12 mb-4 text-gold' />,
       imgSrc: '/assets/images/equipment.JPG',
     },
     {
@@ -68,15 +70,15 @@ const Carousel = () => {
       imgSrc: '/assets/images/waitingRoom.JPG',
     },
     {
-      title: 'Accessibility friendly toilets',
+      title: 'Accessibility Friendly Toilets',
       description: 'Our clinic is equipped with an accessible toilet for your convenience.',
-      icon: <Wifi className='w-12 h-12 mb-4 text-gold' />,
+      icon: <FaWheelchair className='w-12 h-12 mb-4 text-gold' />,
       imgSrc: '/assets/images/toilet.JPG',
     },
     {
       title: 'Ample Parking',
       description: 'Plenty of parking spaces available, ensuring a hassle-free visit every time.',
-      icon: <Smile className='w-12 h-12 mb-4 text-gold' />,
+      icon: <FaParking className='w-12 h-12 mb-4 text-gold' />,
       imgSrc: '/assets/images/parking.JPG',
     },
   ];
