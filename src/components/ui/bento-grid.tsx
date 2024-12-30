@@ -107,17 +107,17 @@ export const SkeletonTwo = () => {
 };
 
 export const SkeletonThree = () => {
-  const image = '/assets/images/smile_zone.JPG';
+  const image = '/assets/images/supernova_smile_zone.jpg';
 
   return (
-    <div className='h-full w-full'>
+    <div className='relative w-full max-h-[600px]'>
       <Image
         src={image}
         alt='Smile Zone'
-        width={400}
-        height={800}
-        className='h-full w-full object-cover rounded-lg'
-        style={{ height: '100%', width: '100%' }} // Ensures the image fully fills its container
+        layout='intrinsic'
+        width={600}
+        height={400} // Maintain aspect ratio
+        className='object-cover rounded-lg'
       />
     </div>
   );
@@ -125,10 +125,15 @@ export const SkeletonThree = () => {
 
 export const SkeletonFour = () => {
   return (
-    <div className='flex items-center h-[476px]'>
-      <div className='relative w-full h-full'>
-        <Image src='/assets/images/surgery.JPG' alt='Surgery' layout='fill' objectFit='cover' className='rounded-lg' />
-      </div>
+    <div className='relative w-full max-h-[600px] mt-6'>
+      <Image
+        src='/assets/images/surgery.JPG'
+        alt='Surgery'
+        layout='intrinsic'
+        width={800}
+        height={533} // Maintain aspect ratio for 4:3 aspect ratio
+        className='object-cover rounded-lg'
+      />
     </div>
   );
 };
