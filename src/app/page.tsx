@@ -51,7 +51,7 @@ export default function Home() {
       {/* <InstagramSection /> */}
       <FindUs />
       <PromotionFAQ />
-      <FloatingMenu />
+      
 
       {/* <Reviews /> */}
       {/* <Services />
