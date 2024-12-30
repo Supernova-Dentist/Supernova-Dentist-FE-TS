@@ -12,7 +12,8 @@ export default function Invisalign() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
       <InvisalignContent />
-      <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 flex justify-center'>
+      {/* Sticky EnquiryButton */}
+      <div className='sticky bottom-5 mb-8 flex justify-center z-10'>
         <EnquiryButton referringPage={'cosmetic-dentistry/invisalign'} />
       </div>
     </div>
