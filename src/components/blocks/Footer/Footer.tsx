@@ -54,9 +54,9 @@ export default function Footer() {
             ))}
             <li className='flex gap-1'>
               {socialIcons.map((social, index) => (
-                <Button key={index} className='p-1 flex justify-center items-center text-cream'>
-                  {social.icon}
-                </Button>
+                <Link href={social.link} key={index}>
+                  <Button className='p-1 flex justify-center items-center text-cream'>{social.icon}</Button>
+                </Link>
               ))}
             </li>
           </ul>
@@ -64,18 +64,18 @@ export default function Footer() {
           {/* Contact Us Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Contact Us</li>
-            <li>Email: contact@supernovadental.com</li>
-            <li>Phone: (123) 456-7890</li>
+            <li>Email: enquiries@supernovadental.co.uk</li>
+            <li>Phone: 01278 228665</li>
             <li className='flex gap-2'>
               <a
                 href='mailto:contact@supernovadental.com'
-                className='bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-grey'
+                className='bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-white'
               >
                 Email Us
               </a>
               <a
                 href='tel:+1234567890'
-                className='bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-grey'
+                className='bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-white'
               >
                 Call Us
               </a>
