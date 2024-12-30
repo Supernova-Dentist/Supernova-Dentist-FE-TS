@@ -25,6 +25,11 @@ export default function MainLink({ href, showFlyout, children, flyoutItems, open
     setLocalShowFlyout(true); // Toggle flyout visibility
   };
 
+  const handleHomeNavigation = () => {
+    setLocalShowFlyout(false);
+    window.location.href = '/';
+  }
+
   const renderLinkContent = () => (
     <>
       {children}
@@ -47,9 +52,9 @@ export default function MainLink({ href, showFlyout, children, flyoutItems, open
   // If no href, render a clickable element (like div or span)
   return (
     <span
-      onClick={handleClick} // Add click handler for toggling flyout
+      onClick={flyoutItems.length > 0 ? handleClick : handleHomeNavigation} // Add click handler for toggling flyout
       aria-expanded={localShowFlyout}
-      className='relative text-white transition-all duration-300 ease-out flex items-center cursor-pointer'
+      className={`relative text-white transition-all duration-300 ease-out flex items-center cursor-pointer ${flyoutItems.length > 0 && open ? 'hover:cursor-default' : ''}`}
     >
       {renderLinkContent()}
     </span>
