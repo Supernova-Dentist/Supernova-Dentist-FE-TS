@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
           <p className='text-left'>
             Welcome to <span className='text-gold font-semibold text-lg'>Supernova Dental</span>. We are committed to
             safeguarding your privacy and protecting your personal data. This privacy policy explains how we collect,
-            use, and protect your information when you use our website or services.
+            use and protect your information when you use our website or services.
           </p>
           <p className='text-left'>
             If you have any questions regarding this privacy policy, please contact us at{' '}

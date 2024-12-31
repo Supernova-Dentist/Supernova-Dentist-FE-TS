@@ -1,32 +1,32 @@
 export const faqItems: FAQItem[] = [
   {
-    question: 'Question: What is included in a general checkup?',
+    question: 'What is included in a general checkup at Supernova Dental?',
     answer:
-      'Answer: At our dental practice, a general checkup includes a thorough examination of your oral health, including your teeth, gums, and mouth. We also review your dental history, take any necessary X-rays, and discuss any concerns you may have. Our goal is to ensure your oral health is in excellent condition.',
+      'A general checkup at Supernova Dental includes a comprehensive examination of your teeth, gums, and mouth. We review your dental history, take any necessary X-rays, and address any concerns or symptoms you may have. Our goal is to keep your smile healthy and ensure your oral health is in top condition.',
   },
   {
-    question: 'Question: How often should I schedule a general checkup?',
+    question: 'How often should I visit Supernova Dental for a general checkup?',
     answer:
-      'Answer: We recommend scheduling a general checkup every six months to maintain optimal oral health. Regular visits allow us to catch potential issues early and keep your smile healthy. You can easily book your next checkup using our "Book Now" button on the website or by contacting us directly.',
+      'We recommend visiting Supernova Dental every six months for a general checkup to maintain optimal oral health. Regular checkups allow us to catch potential issues early and keep your smile bright. Use our "Book Now" button on the website or contact us to schedule your next appointment.',
   },
   {
-    question: 'Question: What should I do to prepare for a general checkup?',
+    question: 'How can I prepare for my general checkup at Supernova Dental?',
     answer:
-      'Answer: To prepare for your general checkup, bring a list of any medications you’re taking, and be ready to discuss any changes in your oral health. If you have specific concerns or symptoms, note them down so we can address them during your visit. Our team is here to ensure you feel comfortable and informed.',
+      'Preparing for your checkup is simple. Bring a list of any medications you’re currently taking and be ready to discuss any recent changes in your oral health. If you have specific concerns or questions, jot them down so we can address them during your visit. We’re here to make your experience as smooth and comfortable as possible.',
   },
   {
-    question: 'Question: Will I need to fast before my dental checkup?',
+    question: 'Do I need to fast before a dental checkup at Supernova Dental?',
     answer:
-      'Answer: Fasting is not typically required for a dental checkup. However, if your visit includes certain procedures or tests, we’ll let you know in advance if any special preparation is needed. Our team will provide all the details when you book your appointment.',
+      'Fasting is generally not required for a routine dental checkup at Supernova Dental. If your appointment involves specific procedures or tests that need special preparation, we’ll inform you ahead of time. Feel free to reach out to our team if you have any questions before your visit.',
   },
   {
-    question: 'Question: Can I discuss specific oral health concerns during a general checkup?',
+    question: 'Can I discuss personal oral health concerns during my checkup?',
     answer:
-      'Answer: Absolutely! Your general checkup is the perfect time to discuss any specific concerns you have about your oral health. Whether it’s discomfort, cosmetic goals, or preventive care, our dentists are here to listen and provide expert advice tailored to your needs.',
+      'Yes! Your general checkup is the ideal time to talk about any oral health concerns. Whether it’s discomfort, cosmetic goals, or preventive care, our team at Supernova Dental is here to listen and provide expert advice tailored to your needs.',
   },
   {
-    question: 'Question: How do I schedule a general checkup?',
+    question: 'How can I book a general checkup at Supernova Dental?',
     answer:
-      'Answer: Scheduling a general checkup with us is easy. Simply click the "Book Now" button on our website to use our online booking system, or give us a call. Our friendly staff will help you find a convenient time for your visit. We look forward to helping you maintain a healthy smile!',
+      'Booking a checkup at Supernova Dental is quick and easy. Use our online "Book Now" button or give us a call. Our friendly staff will assist you in finding a convenient time for your visit. We’re excited to help you maintain a healthy, radiant smile!',
   },
 ];

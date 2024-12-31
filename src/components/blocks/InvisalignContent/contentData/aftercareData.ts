@@ -18,7 +18,7 @@ export default {
     {
       id: 3,
       heading: 'Handle Aligners with Care',
-      text: 'Avoid bending or twisting your aligners, and always store them in their case when not in use.',
+      text: 'Avoid bending or twisting your aligners and always store them in their case when not in use.',
     },
     {
       id: 4,

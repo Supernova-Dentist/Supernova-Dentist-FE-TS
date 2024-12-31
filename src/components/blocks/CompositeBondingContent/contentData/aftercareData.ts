@@ -13,7 +13,7 @@ export default {
     {
       id: 2,
       heading: 'Avoid Staining Foods and Drinks',
-      text: 'Limit your intake of coffee, tea, red wine, and tobacco to prevent staining of the composite resin.',
+      text: 'Limit your intake of coffee, tea, red wine and tobacco to prevent staining of the composite resin.',
     },
     {
       id: 3,

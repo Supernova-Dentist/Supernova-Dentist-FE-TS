@@ -83,18 +83,6 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className='flex justify-between px-8 mt-8'>
-        <span className='pb-3 text-slate-50'>
-          © 2024 All Rights Reserved |{' '}
-          <Link href='/privacy-policy' className='underline text-gold cursor-pointer'>
-            Privacy Policy
-          </Link>
-          <span> | </span>
-          <Link href='/complaints' className='underline text-gold cursor-pointer'>
-            Complaints Procedure
-          </Link>
-        </span>
-      </div>
     </footer>
   );
 }

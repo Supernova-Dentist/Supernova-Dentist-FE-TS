@@ -15,7 +15,7 @@ export default {
       id: 2,
       icon: <FaCheck className='h-12 w-12 text-gold' />,
       header: 'Support for Dentures',
-      text: 'Dental implants can support dentures, making them more stable and comfortable, reducing movement, and improving your ability to eat and speak.',
+      text: 'Dental implants can support dentures, making them more stable and comfortable, reducing movement and improving your ability to eat and speak.',
     },
     {
       id: 3,

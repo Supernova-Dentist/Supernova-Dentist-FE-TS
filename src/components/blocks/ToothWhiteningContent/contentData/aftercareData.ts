@@ -8,7 +8,7 @@ export default {
     {
       id: 1,
       heading: 'Avoid Staining Foods and Drinks',
-      text: 'Limit your consumption of coffee, tea, red wine, and other staining foods or beverages to preserve the brightness of your teeth.',
+      text: 'Limit your consumption of coffee, tea, red wine and other staining foods or beverages to preserve the brightness of your teeth.',
     },
     {
       id: 2,

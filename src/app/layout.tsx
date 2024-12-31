@@ -19,7 +19,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Supernova Dental - Expert Dental Care in Bridgwater',
   description:
-    'Discover premium dental care in Bridgwater with Supernova Dental. Explore our services, promotions, and team. Your journey to a brighter smile starts here!',
+    'Discover premium dental care in Bridgwater with Supernova Dental. Explore our services, promotions and team. Your journey to a brighter smile starts here!',
   keywords: 'Supernova Dental, dental care Bridgwater, dentist, Invisalign, teeth whitening, cosmetic dentistry',
   openGraph: {
     title: 'Supernova Dental - Expert Dental Care in Bridgwater',

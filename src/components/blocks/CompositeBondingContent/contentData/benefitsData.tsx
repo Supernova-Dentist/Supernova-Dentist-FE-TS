@@ -15,7 +15,7 @@ export default {
       id: 2,
       icon: <FaTooth className='h-12 w-12 text-gold' />,
       header: 'Dental Imperfections',
-      text: '  Composite bonding can address a variety of dental issues, such as gaps, chips, cracks, and discoloration, for a more uniform and healthy-looking smile.',
+      text: '  Composite bonding can address a variety of dental issues, such as gaps, chips, cracks and discoloration, for a more uniform and healthy-looking smile.',
     },
     {
       id: 3,

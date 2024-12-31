@@ -47,7 +47,7 @@ export default function OurClinic() {
                 maintain optimal oral health.
               </p>
               <p className='text-lg md:text-xl text-gray-800 text-muted-foreground mb-8'>
-                With cutting-edge technology, a compassionate approach, and a dedication to patient satisfaction, we
+                With cutting-edge technology, a compassionate approach and a dedication to patient satisfaction, we
                 stand out as a premier dental provider. Our clinic’s welcoming atmosphere, coupled with a team that
                 truly cares, makes every visit a positive experience.
               </p>

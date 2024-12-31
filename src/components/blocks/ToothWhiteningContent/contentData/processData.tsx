@@ -1,27 +1,27 @@
 import Image from 'next/image';
 
 export default {
-  title: 'Your Tooth Whitening Process',
+  title: 'Your personalised Tooth Whitening Journey',
   description:
-    "Our professional tooth whitening process is designed to safely and effectively brighten your smile. Here's how we ensure a smooth and successful treatment:",
+    'At Supernova Dental, we offer a safe and effective whitening process for a brighter, more confident smile. Here’s what to expect:',
   stepContent: [
     {
       id: 1,
       image: '/assets/images/composite-bonding-process.jpg',
       header: 'Consultation',
-      text: "During your initial consultation, we'll assess your dental health and discuss your whitening goals to determine the best treatment plan for you.",
+      text: 'We’ll assess your whitening goals and dental health, then create a customized treatment plan.',
     },
     {
       id: 2,
       image: '/assets/images/composite-bonding-process.jpg',
       header: 'Preparation',
-      text: 'We prepare your teeth by thoroughly cleaning them and, if needed, applying a protective gel to safeguard your gums during the whitening process.',
+      text: 'We clean your teeth thoroughly and apply a protective gel to ensure comfort during treatment.',
     },
     {
       id: 3,
       image: '/assets/images/composite-bonding-process.jpg',
       header: 'Application',
-      text: 'The whitening gel is applied to your teeth and activated using a special light or laser, which accelerates the whitening process for noticeable results.',
+      text: 'We apply whitening gel and activate it with light, achieving visible results in one session.',
     },
   ],
   timelineData: [
@@ -30,8 +30,7 @@ export default {
       content: (
         <div>
           <p className='text-black text-sm md:text-md lg:text-lg font-normal mb-8'>
-            Your journey starts with a consultation to discuss your whitening goals and evaluate your dental health. We
-            will determine the best approach to achieve the desired results.
+            We discuss your goals and evaluate your dental health to create the best whitening plan.
           </p>
           <div className='grid grid-cols-2 gap-4'>
             <Image
@@ -50,8 +49,7 @@ export default {
       content: (
         <div>
           <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
-            Your teeth are thoroughly cleaned to remove any buildup of plaque or tartar. This step is crucial for
-            ensuring that the whitening treatment is effective and evenly applied.
+            We clean your teeth to remove plaque, ensuring the whitening gel works effectively.
           </p>
           <div className='grid grid-cols-2 gap-4'>
             <Image
@@ -70,8 +68,7 @@ export default {
       content: (
         <div>
           <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
-            We apply a professional whitening gel to your teeth and use a special light or laser to activate the gel.
-            This process significantly brightens your smile in just one session.
+            A professional whitening gel is applied and activated with light for visible results in one session.
           </p>
           <div className='grid grid-cols-2 gap-4'>
             <Image
@@ -90,8 +87,7 @@ export default {
       content: (
         <div>
           <p className=' text-sm md:text-md lg:text-lg font-normal mb-8'>
-            We provide you with aftercare instructions to maintain your bright smile and schedule a follow-up
-            appointment to ensure that you are satisfied with the results.
+            We provide aftercare instructions and schedule a follow-up to ensure satisfaction with the results.
           </p>
           <div className='grid grid-cols-2 gap-4'>
             <Image

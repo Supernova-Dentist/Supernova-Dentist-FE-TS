@@ -12,9 +12,7 @@ export default function Filling() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
       <FillingContent />
-      <div className='fixed inset-x-0 bottom-5 md:fixed md:bottom-10 md:right-40 flex justify-center md:justify-end'>
-        <EnquiryButton referringPage={'general-dentistry/filling'} />
-      </div>
+      <EnquiryButton referringPage={'general-dentistry/filling'} />
     </div>
   );
 }
