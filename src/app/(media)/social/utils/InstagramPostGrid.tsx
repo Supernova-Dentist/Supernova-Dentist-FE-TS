@@ -34,7 +34,7 @@ export default function InstagramPostGrid({ posts }: InstagramPostGridProps) {
             className='relative w-full'
             style={{ paddingTop: `${(476 / 267) * 100}%` }} // Aspect ratio based on video dimensions
           >
-            <video controls className='absolute inset-0 w-full h-full object-cover'>
+            <video controls className='absolute inset-0 w-full h-full'>
               <source src={post.media_url} type='video/mp4' />
               Your browser does not support the video tag.
             </video>
