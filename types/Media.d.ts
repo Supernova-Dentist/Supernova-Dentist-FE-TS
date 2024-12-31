@@ -14,3 +14,8 @@ type MediaPost = {
 type MediaProps = {
   mediaPosts: MediaPost[];
 };
+
+type InstagramMediaComponentProps = {
+  post: InstagramPost;
+  onClick: () => void;
+};
