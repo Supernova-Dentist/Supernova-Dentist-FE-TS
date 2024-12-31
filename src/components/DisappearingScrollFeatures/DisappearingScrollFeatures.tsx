@@ -128,7 +128,7 @@ const CarouselItem = ({
         opacity,
         scale,
       }}
-      className='grid w-full shrink-0 place-content-center rounded-2xl bg-neutral-900 p-6'
+      className='grid w-full shrink-0 place-content-center rounded-2xl bg-neutral-900 p-4 md:p-6'
     >
       <div className='flex flex-col items-center text-center text-cream'>
         {feature.icon}
@@ -139,7 +139,7 @@ const CarouselItem = ({
           alt={feature.title}
           width={600}
           height={600}
-          className='w-full h-auto object-contain rounded-2xl' // Adjusted to allow for varying image sizes
+          className='w-full h-auto object-contain rounded-2xl'
         />
       </div>
     </motion.div>
