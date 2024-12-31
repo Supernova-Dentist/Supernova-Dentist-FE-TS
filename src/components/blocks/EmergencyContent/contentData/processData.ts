@@ -1,25 +1,25 @@
 export default {
-  title: 'Your Emergency Dental Appointment Process',
+  title: 'Your Emergency Dental Appointment at Supernova Dental',
   description:
-    'Our dental practice is prepared to handle emergency situations with efficiency and care. Here’s what you can expect during your emergency visit:',
+    'At Supernova Dental, we prioritise your urgent dental care with quick, efficient treatment. Here’s what to expect during your emergency visit:',
   stepContent: [
     {
       id: 1,
       image: '/assets/images/emergency-consultation.jpg',
-      header: 'Step 1: Immediate Assessment',
-      text: 'Upon arrival, our team will quickly assess your condition to understand the urgency. We will discuss your symptoms, review any relevant X-rays and determine the immediate steps required for treatment.',
+      header: 'Step 1: Rapid Assessment',
+      text: 'As soon as you arrive, our team will assess your condition to determine the urgency. We’ll review your symptoms and X-rays to plan the best course of action.',
     },
     {
       id: 2,
       image: '/assets/images/emergency-treatment.jpg',
-      header: 'Step 2: Urgent Treatment',
-      text: 'We will proceed with necessary treatments to address the emergency. This may include stabilizing a broken tooth, managing severe pain, or addressing signs of infection. Our focus will be on providing immediate relief and protecting your oral health.',
+      header: 'Step 2: Immediate Treatment',
+      text: 'We’ll address your emergency by stabilizing any damage, relieving pain, and managing infections. Your comfort and oral health are our top priority.',
     },
     {
       id: 3,
       image: '/assets/images/emergency-care.jpg',
-      header: 'Step 3: Follow-Up and Care Instructions',
-      text: 'After emergency treatment, we’ll discuss follow-up care and provide instructions to help you manage your condition at home. We’ll also schedule any necessary follow-up appointments to ensure complete recovery and prevent further issues.',
+      header: 'Step 3: Aftercare and Follow-Up',
+      text: 'Once treatment is complete, we’ll provide aftercare instructions and schedule follow-up visits to ensure full recovery and prevent future issues.',
     },
   ],
 };
