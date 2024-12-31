@@ -35,15 +35,27 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
           X
         </button>
 
-        {/* Image Section */}
-        <div className='relative w-full h-[50vh] md:h-[60vh]'>
-          <Image
-            src={post.media_url}
-            alt='Instagram Post'
-            className='w-full h-full object-cover rounded-t-lg'
-            layout='fill'
-            objectFit='cover'
-          />
+        {/* Image or Video Section */}
+        <div
+          className='relative w-full'
+          style={{
+            paddingTop: post.media_type === 'VIDEO' ? `${(476 / 267) * 100}%` : `${(1 / 1) * 100}%`, // Aspect ratio for video or image
+          }}
+        >
+          {post.media_type === 'VIDEO' ? (
+            <video controls className='absolute inset-0 left-0 w-full h-full rounded-t-lg'>
+              <source src={post.media_url} type='video/mp4' />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <Image
+              src={post.media_url}
+              alt='Instagram Post'
+              className='absolute inset-0 w-full h-full object-cover rounded-t-lg'
+              layout='fill'
+              objectFit='cover'
+            />
+          )}
         </div>
 
         {/* Caption Section */}
