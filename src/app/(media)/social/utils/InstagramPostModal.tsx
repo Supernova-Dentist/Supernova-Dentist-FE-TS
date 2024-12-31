@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 export default function InstagramPostModal({ post, onClose }: { post: InstagramPost; onClose: () => void }) {
   const modalRef = useRef<HTMLDivElement>(null);
+  const isVideo = post.media_type === 'VIDEO';
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -20,6 +21,27 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [onClose]);
 
+  const MediaContent = () => {
+    if (isVideo) {
+      return (
+        <video controls className='w-full h-full object-contain bg-black' poster={post.thumbnail_url} autoPlay>
+          <source src={post.media_url} type='video/mp4' />
+          Your browser does not support the video tag.
+        </video>
+      );
+    }
+
+    return (
+      <Image
+        src={post.media_url}
+        alt='Instagram Post'
+        className='w-full h-full object-cover rounded-t-lg'
+        layout='fill'
+        objectFit='cover'
+      />
+    );
+  };
+
   // Use React portal for proper DOM placement
   return ReactDOM.createPortal(
     <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75'>
@@ -32,30 +54,12 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
           className='absolute top-2 right-2 z-50 w-8 h-8 flex items-center justify-center bg-gray-600 text-white hover:bg-gray-700 rounded-full'
           onClick={onClose}
         >
-          X
+          <span className='w-4 h-auto'>X</span>
         </button>
 
-        {/* Image or Video Section */}
-        <div
-          className='relative w-full'
-          style={{
-            paddingTop: post.media_type === 'VIDEO' ? `${(476 / 267) * 100}%` : `${(1 / 1) * 100}%`, // Aspect ratio for video or image
-          }}
-        >
-          {post.media_type === 'VIDEO' ? (
-            <video controls className='absolute inset-0 left-0 w-full h-full rounded-t-lg'>
-              <source src={post.media_url} type='video/mp4' />
-              Your browser does not support the video tag.
-            </video>
-          ) : (
-            <Image
-              src={post.media_url}
-              alt='Instagram Post'
-              className='absolute inset-0 w-full h-full object-cover rounded-t-lg'
-              layout='fill'
-              objectFit='cover'
-            />
-          )}
+        {/* Media Section */}
+        <div className='relative w-full h-[50vh] md:h-[60vh]'>
+          <MediaContent />
         </div>
 
         {/* Caption Section */}
@@ -78,6 +82,6 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
         </div>
       </div>
     </div>,
-    document.body // Portal rendering to the top of the DOM tree
+    document.body
   );
 }
