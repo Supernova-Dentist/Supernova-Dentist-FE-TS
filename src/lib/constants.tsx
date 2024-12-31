@@ -75,7 +75,10 @@ TA6 6LQ
 `,
 };
 
-export const reviewLinks = ['Google', 'Facebook'];
+export const reviewLinks = [
+  { name: 'Google', link: 'https://g.page/r/Cd1EdVyvZxVIEAI/review' },
+  { name: 'Facebook', link: 'https://www.facebook.com/profile.php?id=61567279201971&sk=reviews' },
+];
 
 export const socialIcons = [
   { icon: <IoLogoInstagram size={28} />, name: 'Instagram', link: 'https://www.instagram.com/supernova.dental' },
