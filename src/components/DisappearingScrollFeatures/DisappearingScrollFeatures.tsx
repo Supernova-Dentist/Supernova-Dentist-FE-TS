@@ -79,7 +79,7 @@ const Carousel = () => {
       title: 'Ample Parking',
       description: 'Plenty of parking spaces available, ensuring a hassle-free visit every time.',
       icon: <FaParking className='w-12 h-12 mb-4 text-gold' />,
-      imgSrc: '/assets/images/parking.JPG',
+      imgSrc: '/assets/images/parking.jpg',
     },
   ];
 
