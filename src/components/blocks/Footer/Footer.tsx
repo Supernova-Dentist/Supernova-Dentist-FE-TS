@@ -50,11 +50,13 @@ export default function Footer() {
           <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Review Us</li>
             {reviewLinks.map((link, index) => (
-              <li key={index}>{link}</li>
+              <Link href={link.link} target='_blank' key={index}>
+                <li>{link.name}</li>
+              </Link>
             ))}
             <li className='flex gap-1'>
               {socialIcons.map((social, index) => (
-                <Link href={social.link} key={index}>
+                <Link href={social.link} target='_blank' key={index}>
                   <Button className='p-1 flex justify-center items-center text-cream'>{social.icon}</Button>
                 </Link>
               ))}
