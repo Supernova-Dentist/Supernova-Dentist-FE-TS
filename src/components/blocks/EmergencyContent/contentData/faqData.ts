@@ -1,32 +1,32 @@
 export const faqItems: FAQItem[] = [
   {
-    question: 'Question: What should I do if I experience a dental emergency?',
+    question: 'What should I do if I experience a dental emergency?',
     answer:
-      'Answer: If you experience a dental emergency, such as severe tooth pain, a broken tooth, or a knocked-out tooth, contact our office immediately. We’ll provide you with guidance on managing the situation and schedule an emergency appointment as soon as possible. Quick action is essential to address the issue effectively and prevent further complications.',
+      'If you’re facing a dental emergency like severe pain, a broken tooth, or a knocked-out tooth, contact Supernova Dental immediately. Our team will guide you through managing the situation and arrange an emergency appointment as soon as possible to prevent complications.',
   },
   {
-    question: 'Question: What types of dental emergencies do you handle?',
+    question: 'What types of dental emergencies do you handle?',
     answer:
-      'Answer: We handle various dental emergencies, including severe toothaches, broken or chipped teeth, knocked-out teeth and symptoms of infection like swelling or abscesses. During your emergency visit, we’ll assess the situation and provide prompt treatment to alleviate pain and address the underlying issue.',
+      'We handle a wide range of dental emergencies, including severe toothaches, broken or chipped teeth, knocked-out teeth and signs of infection such as swelling or abscesses. Our priority is to provide fast, effective care to relieve pain and address the issue at hand.',
   },
   {
-    question: 'Question: How can I prepare for an emergency dental appointment?',
+    question: 'How can I prepare for an emergency dental appointment?',
     answer:
-      'Answer: To prepare for an emergency dental appointment, manage any pain or swelling with over-the-counter pain relievers as advised and avoid eating or drinking if it aggravates your condition. Bring any relevant medical information or previous dental records. To expedite your visit, fill out the emergency form in the chat at the bottom right of our website before arriving.',
+      'To prepare for an emergency appointment, manage any pain or swelling with over-the-counter medication, avoid eating or drinking if it worsens your condition and bring any relevant medical or dental records. You can also complete the emergency form on our website to speed up your visit.',
   },
   {
-    question: 'Question: What can I expect during an emergency dental appointment?',
+    question: 'What can I expect during an emergency dental appointment?',
     answer:
-      'Answer: During an emergency dental appointment, our team will quickly evaluate your condition, provide necessary treatments to relieve pain or address the immediate problem and offer guidance on next steps. We prioritise your comfort and aim to stabilize the situation while planning any follow-up care needed.',
+      'During your emergency appointment, our team will quickly assess your condition, provide immediate treatment to relieve pain or fix the issue and discuss follow-up care. Your comfort is our priority and we aim to stabilize your situation effectively.',
   },
   {
-    question: 'Question: Will my dental insurance cover emergency appointments?',
+    question: 'Will my dental insurance cover emergency appointments?',
     answer:
-      'Answer: Many dental insurance plans cover emergency appointments, but coverage can vary. We recommend contacting your insurance provider to confirm the details of your plan. Our staff is also available to assist with any insurance questions and help you understand your benefits.',
+      'Most dental insurance plans cover emergency appointments, but coverage varies. We recommend checking with your provider for details. Our staff can also assist you with understanding your insurance benefits and answer any questions you may have.',
   },
   {
-    question: 'Question: How do I schedule an emergency dental appointment?',
+    question: 'How do I schedule an emergency dental appointment?',
     answer:
-      'Answer: To schedule an emergency dental appointment, call our office immediately. You can also use the emergency form available in the chat at the bottom right of our website to provide us with your details before your arrival. We’ll prioritise your appointment based on the severity of your situation and get you the care you need as quickly as possible!',
+      'To schedule an emergency appointment, call us immediately. Alternatively, use the emergency form in the chat at the bottom right of our website to provide your details. We’ll prioritise your care based on the severity of your situation and ensure you get the attention you need without delay.',
   },
 ];
