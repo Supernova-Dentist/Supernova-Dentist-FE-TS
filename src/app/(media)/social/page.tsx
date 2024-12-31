@@ -31,10 +31,10 @@ export default async function SocialMedia() {
               href={instagramProfileUrl}
               target='_blank'
               rel='noreferrer'
-              className='inline-flex w-fit items-center gap-2 bg-grey text-primary rounded-md px-4 py-2 hover:bg-primary/90 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring mt-2 sm:mt-0'
+              className='inline-flex w-fit items-center gap-2 bg-grey rounded-md px-4 py-2 hover:bg-primary/90 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring mt-2 sm:mt-0'
             >
               <InstagramLogoIcon className='w-5 h-5 text-cream' />
-              <span className='text-cream'>Follow</span>
+              <span className='text-white'>Follow</span>
             </a>
           </div>
 
