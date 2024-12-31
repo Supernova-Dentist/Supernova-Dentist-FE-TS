@@ -46,8 +46,8 @@ const Card = ({
       style={{
         height: CARD_HEIGHT,
         y: position === CARDS.length ? undefined : y,
-        background: card.id === 1 ? 'cream' : card.id === 2 ? 'grey' : 'black',
-        color: card.id === 1 ? 'black' : card.id === 2 ? 'goldenrod' : 'white',
+        background: card.id === 1 ? 'cream' : card.id === 2 ? '#404244' : '#121c26',
+        color: card.id === 1 ? 'black' : card.id === 2 ? '#c29470' : 'white',
       }}
       className='sticky top-0 flex w-full origin-top flex-col items-center justify-center px-4'
     >
