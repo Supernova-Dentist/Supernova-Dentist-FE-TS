@@ -18,17 +18,43 @@ const SteppedProgress = ({ stepContent }: { stepContent: any }) => {
   };
 
   return (
-    <div className='px-4 py-14'>
+    <motion.div
+      className='px-4 py-14'
+      initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
+      animate={{ opacity: 1, y: 0 }} // Animate to full opacity and default position
+      transition={{ duration: 0.5 }} // Animation duration
+    >
       <div className='p-8 bg-white shadow-lg rounded-md w-full max-w-2xl mx-auto'>
         {stepContent[stepsComplete]?.header && (
-          <h2 className='text-2xl font-bold text-center text-gray-800 mb-2'>{stepContent[stepsComplete].header}</h2>
+          <motion.h2
+            className='text-2xl font-bold text-center text-gray-800 mb-2'
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {stepContent[stepsComplete].header}
+          </motion.h2>
         )}
         <Steps numSteps={stepContent.length - 1} stepsComplete={stepsComplete} />
-        <div className='p-2 my-6  bg-gray-100 border-2 border-dashed border-gray-200 rounded-lg'>
-          <p className='text-lg text-gray-700'>{stepContent[stepsComplete].text}</p>
+        <div className='p-2 my-6 bg-gray-100 border-2 border-dashed border-gray-200 rounded-lg'>
+          <motion.p
+            className='text-lg text-gray-700'
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {stepContent[stepsComplete].text}
+          </motion.p>
           {stepsComplete === 0 ? <FloatingPhone /> : null}
           {stepContent[stepsComplete]?.image && (
-            <img src={stepContent[stepsComplete].image} alt='step-image' className='w-72 h-48 mx-auto mt-4' />
+            <motion.img
+              src={stepContent[stepsComplete].image}
+              alt='step-image'
+              className='w-72 h-48 mx-auto mt-4'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            />
           )}
         </div>
 
@@ -41,7 +67,7 @@ const SteppedProgress = ({ stepContent }: { stepContent: any }) => {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
