@@ -200,12 +200,16 @@ export function EnquiryFormContent() {
                                     <SelectValue placeholder='Select category' className='text-md lg:text-lg' />
                                   </SelectTrigger>
                                   <SelectContent>
+                                    <SelectItem value='new-patient-registration' className='text-md lg:text-lg'>
+                                      New Patient Registration
+                                    </SelectItem>
+                                    <SelectItem value='invisalign' className='text-md lg:text-lg'>
+                                      Invisalign
+                                    </SelectItem>
                                     <SelectItem value='general-enquiry' className='text-md lg:text-lg'>
                                       General Enquiry
                                     </SelectItem>
-                                    <SelectItem value='billing-insurance' className='text-md lg:text-lg'>
-                                      Billing and Insurance
-                                    </SelectItem>
+
                                     <SelectItem value='emergency-care' className='text-md lg:text-lg'>
                                       Emergency Care
                                     </SelectItem>
@@ -216,10 +220,10 @@ export function EnquiryFormContent() {
                                       Dental Hygiene and Advice
                                     </SelectItem>
                                     <SelectItem value='feedback' className='text-md lg:text-lg'>
-                                      Feedback or Complaints
+                                      Feedback
                                     </SelectItem>
-                                    <SelectItem value='new-patient' className='text-md lg:text-lg'>
-                                      New Patient Registration
+                                    <SelectItem value='billing-insurance' className='text-md lg:text-lg'>
+                                      Billing and Insurance
                                     </SelectItem>
                                   </SelectContent>
                                 </Select>
@@ -285,7 +289,7 @@ export function EnquiryFormContent() {
           <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
             <h2 className='text-2xl font-semibold mb-4'>Thank you, {submittedData.name}, for your Enquiry!</h2>
             <p className='mb-4'>
-              One of the Supernova team will be back in touch with the following details regarding your enquiry:
+              One of the Supernova team will be back in touch via the following details regarding your enquiry:
             </p>
             <p className='mb-4'>
               <strong>Email:</strong> {submittedData.email}
