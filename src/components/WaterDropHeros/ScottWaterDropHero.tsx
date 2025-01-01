@@ -16,15 +16,19 @@ const ScottWaterDropHero = () => {
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
                 I&apos;m the <span className='font-semibold text-lightGold'> Principal Dentist/Owner</span>
               </h2>
-              <h3 className='text-lightGold'>BDS (Hons) PGcert (FGFP) PGDip (SDC) CGD</h3>
+              <h3 className='text-lightGold'>
+                BDS (Hons) PGCert Restorative and Aesthetic Dentistry (FGFP) PGDip Orthodontics (SDC) CGD
+              </h3>
               <h3 className='text-lightGold'>GDC Registration Number: 284371</h3>
             </>
           </Reveal>
           <Reveal>
             <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-              With extensive experience in dental practice, I am dedicated to providing top-notch care to all my
-              patients. My goal is to ensure a comfortable and efficient experience for everyone who walks through our
-              doors. Let&apos;s connect!
+              My passion for high quality dentistry has led me to learn from some of the top specialists in the UK and
+              worldwide, going on multiple postgraduate courses to hone my skills and ultimately founding Supernova
+              Dental. I take immense pride in knowing that our patients feel truly looked after and cared for. The huge
+              confidence boosts people gain after just a few appointments are a joy to behold whether that is nervous
+              patients feeling fully at ease or the smile transformations from cosmetic procedures.
             </p>
           </Reveal>
           <Reveal>
