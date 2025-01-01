@@ -36,7 +36,6 @@ const MainNav = () => {
   const { width } = useWindowSize();
   const [isMounted, setIsMounted] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(true);
-  const [cornerNavActive, setCornerNavActive] = useState(false);
 
   const scrollPosition = useRef(0); // Use ref to store scroll position
   const isMobile = width <= 768; // Define your mobile breakpoint here
@@ -88,7 +87,7 @@ const MainNav = () => {
             navbarVisible ? 'translate-y-0' : '-translate-y-full'
           }`}
         >
-         <MobileNavigation setCornerNavActive={setCornerNavActive} />
+         <MobileNavigation />
         </div>
       ) : (
         <DesktopNav />
