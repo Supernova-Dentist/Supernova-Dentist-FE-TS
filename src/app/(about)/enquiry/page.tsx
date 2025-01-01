@@ -13,11 +13,10 @@ export default function EnquiryForm() {
         <div className='container mx-auto px-4 md:px-6'>
           <div className='max-w-2xl mx-auto space-y-6 text-center'>
             <h1 className='text-4xl font-bold tracking-tight text-gold sm:text-6xl lg:text-7xl'>
-              Get in touch with our dental experts
+              Get in touch with our team
             </h1>
             <p className='text-xl text-cream'>
-              Our team of experienced dentists is here to provide you with top-notch dental care. Fill out the form
-              below to schedule an appointment or inquire about our services.
+              Please fill out the form below for advice, feedback or more information on the services we have to offer.
             </p>
           </div>
         </div>
