@@ -1,7 +1,10 @@
+import { DentallyPortal } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si';
+import Button from '../Button/Button';
 
 export const CornerNav = () => {
   const [active, setActive] = useState(false);
@@ -32,6 +35,27 @@ const LinksOverlay = ({ setActive }: any) => {
         <h2 className='text-3xl text-gray-50 items-center font-light'>Supernova Dental</h2>
       </motion.div>
       <LinksContainer setActive={setActive} />
+
+      {/* Center the "Book Now" button horizontally */}
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: 1.5, // Adjust the delay as needed
+            duration: 0.5,
+            ease: 'easeInOut',
+          },
+        }}
+        exit={{ opacity: 0, y: -8 }}
+        className='flex justify-center w-full' // Center horizontally
+      >
+        <Link target='_blank' href={`${DentallyPortal}`}>
+          <Button className='text-white'>Book Now</Button>
+        </Link>
+      </motion.div>
+
       <FooterCTAs />
     </div>
   );
@@ -39,7 +63,7 @@ const LinksOverlay = ({ setActive }: any) => {
 
 const LinksContainer = ({ setActive }: any) => {
   return (
-    <motion.div className='space-y-6 pt-2 pb-14 px-12 pl-4 md:pl-20'>
+    <motion.div className='space-y-6 pt-2 pb-14 px-12 mx-auto'>
       {LINKS.map((l, idx) => (
         <NavLink key={l.title} href={l.href} idx={idx} setActive={setActive}>
           {l.title}
@@ -95,7 +119,7 @@ const NavLink = ({
         }}
         exit={{ opacity: 0, y: -8 }}
         onClick={handleClick} // Attach the click handler
-        className='flex items-center justify-between text-lg font-semibold text-cream transition-colors md:text-3xl cursor-pointer capitalize'
+        className='flex items-center justify-center text-lg font-semibold text-cream transition-colors md:text-3xl cursor-pointer capitalize'
       >
         {children}
       </motion.a>
