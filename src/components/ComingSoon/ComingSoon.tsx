@@ -36,8 +36,8 @@ export default function ComingSoonSection() {
           >
             <h2 className='lg:text-5xl md:text-4xl font-bold tracking-tighter text-3xl mb-4 '>Coming Soon</h2>
             <p className='max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-              We&apos;re working on something special! Our full website is under construction, featuring comprehensive
-              dental care information and online booking.
+              We&apos;re working on something special! Our full website is almost complete, featuring comprehensive
+              dental care information.
             </p>
           </motion.div>
 
