@@ -84,31 +84,38 @@ const NavLink = ({
   href,
   idx,
   setActive,
-  handleClose, // Receive handleClose as a prop
+  handleClose,
 }: {
   children: React.ReactNode;
   href: string;
   idx: number;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
-  handleClose: () => void; // Pass handleClose to NavLink
+  handleClose: () => void;
 }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault(); // Prevent default anchor behavior
-    const targetId = href.replace('#', '');
-    const targetElement = document.getElementById(targetId);
 
-    // Close the menu first
-    setActive(false);
-    handleClose(); // Close the menu using handleClose
+    // If the link is internal (starts with #), handle smooth scroll
+    if (href.startsWith('#')) {
+      const targetId = href.replace('#', '');
+      const targetElement = document.getElementById(targetId);
 
-    if (targetElement) {
-      // Use setTimeout to delay the scroll action slightly
-      setTimeout(() => {
-        // Smooth scroll to the target element
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-        // Remove #id from URL without refreshing the page
-        history.pushState(null, '', window.location.pathname);
-      }, 300); // Adjust the delay as needed
+      // Close the menu first
+      setActive(false);
+      handleClose(); // Close the menu using handleClose
+
+      if (targetElement) {
+        // Use setTimeout to delay the scroll action slightly
+        setTimeout(() => {
+          // Smooth scroll to the target element
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          // Remove #id from URL without refreshing the page
+          history.pushState(null, '', window.location.pathname);
+        }, 300); // Adjust the delay as needed
+      }
+    } else {
+      // For external links (like /pricing), allow the default behavior
+      window.location.href = href;
     }
   };
 
@@ -260,8 +267,8 @@ const LINKS = [
     href: '#location',
   },
   {
-    title: 'FAQs',
-    href: '#faq',
+    title: 'Pricing',
+    href: '/pricing',
   },
 ];
 

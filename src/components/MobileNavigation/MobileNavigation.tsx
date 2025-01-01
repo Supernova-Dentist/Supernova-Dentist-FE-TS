@@ -29,7 +29,9 @@ export default function MobileNavigation() {
             transition={{ duration: 0.3 }}
             className='flex items-center justify-start'
           >
-            <img src='/favicon.ico' alt='Logo' className='h-12' />
+            <Link href='/'>
+              <img src='/favicon.ico' alt='Logo' className='h-12' />
+            </Link>
           </motion.div>
         )}
 
