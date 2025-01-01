@@ -112,8 +112,8 @@ export default function PromotionForm() {
               <div className='inline-block rounded-lg bg-grey px-4 py-2 text-md text-gray-50'>Limited Time Offer</div>
               <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>Exclusive Promotions</h2>
               <p className='max-w-[700px] text-center sm:text-left text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
-                Take advantage of our limited-time offers, including savings on Invisalign treatments and dental
-                wellness assessments. Don&apos;t miss out! Register by 31st December 2024.
+                Take advantage of our limited-time offers, including savings on examinations, hygiene appointments and
+                Invisalign treatments. Don&apos;t miss out! Register by 31st December 2024.
               </p>
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
