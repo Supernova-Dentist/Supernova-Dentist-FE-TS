@@ -9,6 +9,7 @@ import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import './globals.css';
 import './reset.css';
+import FloatingMenu from '@/components/FloatingMenu/FloatingMenu';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -84,7 +85,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <MainNav />
         {children}
-        <div aria-hidden='true'>{/* <CrispChat /> */}</div>
+        <FloatingMenu />
         <AccessibilityWidget />
         {/* <ScrollToTopButton /> */}
         <PromotionFooter />
