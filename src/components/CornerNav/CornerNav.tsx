@@ -1,3 +1,5 @@
+'use client';
+
 import { DentallyPortal } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
