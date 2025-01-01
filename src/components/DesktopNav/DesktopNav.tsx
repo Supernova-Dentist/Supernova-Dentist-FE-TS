@@ -25,7 +25,7 @@ export default function DesktopNav() {
       <nav className='bg-grey p-6'>
         <ul className='flex gap-8 items-center justify-between'>
           <div>
-            <FlyoutLink href='#welcome' flyoutItems={[]}>
+            <FlyoutLink href='/' flyoutItems={[]}>
               Supernova Dental{' '}
               <img src='/favicon.ico' alt='Supernova Dental Logo' className='ml-2 h-10 w-auto inline ' />
             </FlyoutLink>
