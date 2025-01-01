@@ -17,6 +17,7 @@ import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
+import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), {
   ssr: false,
 });
@@ -28,6 +29,7 @@ export default function Home() {
       <PromotionForm />
       <AboutSection />
       <Pricing />
+      <DentallyTutorial />
       <SmileTransformations />
       <GoogleReviews />
       <Journey />

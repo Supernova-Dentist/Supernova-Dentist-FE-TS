@@ -37,7 +37,7 @@ export default function SmileTransformations() {
   return (
     <section
       id='results'
-      className='w-full py-20 md:py-24 lg:py-32 bg-gradient-to-b from-cream to-white'
+      className='w-full py-20 md:py-24 lg:py-32 bg-gradient-to-b from-white to-cream'
       ref={ref} // Attach the ref to the section
     >
       <div className='container mx-auto'>

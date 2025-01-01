@@ -16,7 +16,7 @@ export default function FindUs() {
   });
 
   return (
-    <div id='location' className='flex flex-col items-center justify-start py-12 bg-gradient-to-b from-cream to-white'>
+    <div id='location' className='flex flex-col items-center justify-start py-12 bg-gradient-to-b from-white to-cream'>
       <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
         <section ref={ref} className='mb-12'>
           <motion.h1
