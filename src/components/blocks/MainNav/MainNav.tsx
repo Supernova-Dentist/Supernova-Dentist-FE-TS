@@ -2,6 +2,7 @@
 
 import { CornerNav } from '@/components/CornerNav/CornerNav';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
+import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
 import { motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -35,8 +36,10 @@ const MainNav = () => {
   const { width } = useWindowSize();
   const [isMounted, setIsMounted] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(true);
+  const [cornerNavActive, setCornerNavActive] = useState(false);
 
   const scrollPosition = useRef(0); // Use ref to store scroll position
+  const isMobile = width <= 768; // Define your mobile breakpoint here
 
   useEffect(() => {
     // Initialize scroll position on mount
@@ -69,24 +72,28 @@ const MainNav = () => {
     return <nav></nav>; // Placeholder or a loading indicator
   }
 
-  const isMobile = width <= 768; // Define your mobile breakpoint here
-
-  
-
   return (
-   
-      <header
-        className={`${
-          !isMobile
-            ? `z-50 fixed top-0 left-0 w-full transition-transform duration-300 ${
-                navbarVisible ? 'translate-y-0' : '-translate-y-full'
-              }`
-            : ''
-        }`}
-      >
-        {isMobile ? <CornerNav /> : <DesktopNav />}
-      </header>
-   
+    <header
+      className={`${
+        !isMobile
+          ? `z-50 fixed top-0 left-0 w-full transition-transform duration-300 ${
+              navbarVisible ? 'translate-y-0' : '-translate-y-full'
+            }`
+          : ''
+      }`}
+    >
+      {isMobile ? (
+        <div
+          className={`z-50 fixed bg-grey top-0 left-0 w-full transition-transform duration-300 ${
+            navbarVisible ? 'translate-y-0' : '-translate-y-full'
+          }`}
+        >
+         <MobileNavigation setCornerNavActive={setCornerNavActive} />
+        </div>
+      ) : (
+        <DesktopNav />
+      )}
+    </header>
   );
 };
 

@@ -6,20 +6,26 @@ import React, { useState } from 'react';
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si';
 import Button from '../Button/Button';
 
-export const CornerNav = () => {
-  const [active, setActive] = useState(false);
-
+export const CornerNav = ({
+  active,
+  setActive,
+  handleClose,
+}: {
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  handleClose: () => void; // Passing handleClose to CornerNav
+}) => {
   return (
     <>
-      <HamburgerButton active={active} setActive={setActive} />
-      <AnimatePresence>{active && <LinksOverlay setActive={setActive} />}</AnimatePresence>
+      <HamburgerButton active={active} setActive={setActive} handleClose={handleClose} />
+      <AnimatePresence>{active && <LinksOverlay setActive={setActive} handleClose={handleClose} />}</AnimatePresence>
     </>
   );
 };
 
-const LinksOverlay = ({ setActive }: any) => {
+const LinksOverlay = ({ setActive, handleClose }: any) => {
   return (
-    <div className='fixed right-4 top-4 z-50 h-[calc(100vh_-_32px)] w-[calc(100%_-_32px)] overflow-y-scroll'>
+    <div className='relative mx-auto top-4 z-51 h-[calc(100vh)] w-[calc(100vw)] overflow-y-scroll'>
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{
@@ -34,7 +40,7 @@ const LinksOverlay = ({ setActive }: any) => {
         <div className='bg-gray-400/50 h-[50px] w-[1px] hidden sm:block' />
         <h2 className='text-3xl text-gray-50 items-center font-light'>Supernova Dental</h2>
       </motion.div>
-      <LinksContainer setActive={setActive} />
+      <LinksContainer setActive={setActive} handleClose={handleClose} />
 
       {/* Center the "Book Now" button horizontally */}
       <motion.div
@@ -49,7 +55,7 @@ const LinksOverlay = ({ setActive }: any) => {
           },
         }}
         exit={{ opacity: 0, y: -8 }}
-        className='flex justify-center w-full' // Center horizontally
+        className='flex justify-center w-full'
       >
         <Link target='_blank' href={`${DentallyPortal}`}>
           <Button className='text-white'>Book Now</Button>
@@ -61,11 +67,11 @@ const LinksOverlay = ({ setActive }: any) => {
   );
 };
 
-const LinksContainer = ({ setActive }: any) => {
+const LinksContainer = ({ setActive, handleClose }: any) => {
   return (
     <motion.div className='space-y-6 pt-2 pb-14 px-12 mx-auto'>
       {LINKS.map((l, idx) => (
-        <NavLink key={l.title} href={l.href} idx={idx} setActive={setActive}>
+        <NavLink key={l.title} href={l.href} idx={idx} setActive={setActive} handleClose={handleClose}>
           {l.title}
         </NavLink>
       ))}
@@ -78,11 +84,13 @@ const NavLink = ({
   href,
   idx,
   setActive,
+  handleClose, // Receive handleClose as a prop
 }: {
   children: React.ReactNode;
   href: string;
   idx: number;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  handleClose: () => void; // Pass handleClose to NavLink
 }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault(); // Prevent default anchor behavior
@@ -91,6 +99,7 @@ const NavLink = ({
 
     // Close the menu first
     setActive(false);
+    handleClose(); // Close the menu using handleClose
 
     if (targetElement) {
       // Use setTimeout to delay the scroll action slightly
@@ -147,9 +156,11 @@ const Logo = () => {
 const HamburgerButton = ({
   active,
   setActive,
+  handleClose, // Pass the handleClose function here
 }: {
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  handleClose: () => void; // Define the handleClose prop type
 }) => {
   return (
     <>
@@ -157,14 +168,17 @@ const HamburgerButton = ({
         initial={false}
         animate={active ? 'open' : 'closed'}
         variants={UNDERLAY_VARIANTS}
-        className={cn('fixed z-50', active ? 'top-0 right-0' : 'top-2 right-2')}
+        className={cn('fixed z-51', active ? 'top-0 right-0' : 'top-2 right-2')}
       />
 
       <motion.button
         initial={false}
         animate={active ? 'open' : 'closed'}
-        onClick={() => setActive((pv) => !pv)}
-        className={` bg-grey group fixed right-2 top-2 z-[60] h-[50px] w-[50px] transition-all ${
+        onClick={() => {
+          setActive((pv) => !pv);
+          if (active) handleClose(); // Close the menu when clicked
+        }}
+        className={`bg-grey group fixed right-2 top-2 z-[60] h-[50px] w-[50px] transition-all ${
           active ? 'rounded-bl-xl rounded-tr-xl' : 'rounded-xl'
         }`}
       >
