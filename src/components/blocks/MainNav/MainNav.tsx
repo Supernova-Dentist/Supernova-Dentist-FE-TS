@@ -41,6 +41,10 @@ const MainNav = () => {
   const isMobile = width <= 768; // Define your mobile breakpoint here
 
   useEffect(() => {
+    // Reset navbar visibility when switching to mobile
+    if (isMobile) {
+      setNavbarVisible(true); // Show navbar immediately on mobile
+    }
     // Initialize scroll position on mount
     scrollPosition.current = window.scrollY;
 
@@ -87,7 +91,7 @@ const MainNav = () => {
             navbarVisible ? 'translate-y-0' : '-translate-y-full'
           }`}
         >
-         <MobileNavigation />
+          <MobileNavigation />
         </div>
       ) : (
         <DesktopNav />
