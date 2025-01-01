@@ -38,7 +38,7 @@ export default function Home() {
       <FindUs />
       <PromotionFAQ />
       <ComingSoonSection />
-      <FloatingMenu />
+      
 
       {/* <Reviews /> */}
       {/* <Services />
