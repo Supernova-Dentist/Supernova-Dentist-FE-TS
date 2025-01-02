@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion';
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import OverallGoogleRating from '../OverallGoogleRating/OverallGoogleRating';
-import { useInView } from 'react-intersection-observer';
 
 export default function GoogleReviews() {
   const { ref, inView } = useInView({
@@ -15,7 +15,7 @@ export default function GoogleReviews() {
   return (
     <div
       id='reviews'
-      className='flex flex-col bg-cream px-4 py-12 bg-gradient-to-b from-white to-cream'
+      className='flex flex-col bg-cream px-4 py-12 bg-gradient-to-b from-cream to-white'
       ref={ref} // Attach the ref to the section
     >
       <div className='flex justify-center mb-4'>

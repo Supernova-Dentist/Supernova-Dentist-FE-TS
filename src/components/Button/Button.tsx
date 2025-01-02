@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 type ButtonTypeProps = 'button' | 'submit' | 'reset';
 
@@ -22,7 +23,16 @@ export default function Button({
   ...props
 }: ButtonProps) {
   return (
-    <button className={className} onClick={onClick} type={type} disabled={disabled} {...props}>
+    <button
+      className={cn(
+        'bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-grey',
+        className
+      )}
+      onClick={onClick}
+      type={type}
+      disabled={disabled}
+      {...props}
+    >
       {children !== undefined ? children : text}
     </button>
   );

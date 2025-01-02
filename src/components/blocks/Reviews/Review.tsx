@@ -27,7 +27,7 @@ export default function Reviews() {
   return (
     <div className='bg-cream flex flex-col gap-6 items-center px-6 py-12'>
       <div className='flex flex-col items-center gap-2'>
-        <h1 className='uppercase text-2xl font-semibold'>Bridgewaters top-rated dentist</h1>
+        <h1 className='uppercase text-2xl font-semibold'>Bridgwaters top-rated dentist</h1>
         <h5 className='text-xl text-lightGrey'>
           See what our patients are saying about our 5-star dental office
         </h5>

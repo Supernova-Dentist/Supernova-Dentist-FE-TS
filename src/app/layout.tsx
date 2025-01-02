@@ -1,14 +1,16 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import Script from 'next/script';
 import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
 import CrispChat from '@/components/blocks/CrispChat/CrispChat';
 import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
 import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
+import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import './reset.css';
+const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -84,7 +86,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <MainNav />
         {children}
-        <div aria-hidden='true'>{/* <CrispChat /> */}</div>
+        <FloatingMenu />
         <AccessibilityWidget />
         {/* <ScrollToTopButton /> */}
         <PromotionFooter />

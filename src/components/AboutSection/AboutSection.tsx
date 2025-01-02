@@ -37,8 +37,8 @@ export default function AboutSection() {
         <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>About Supernova Dental</h2>
         <p className='mt-4'>
           At Supernova Dental, we are a passionate team dedicated to providing the highest standard of dental care in
-          Bridgwater. Now open and accepting new patients, our state-of-the-art practice blends advanced technology with a personal
-          touch to ensure a comfortable and exceptional experience for every patient.
+          Bridgwater. Now open and accepting new patients, our state-of-the-art practice blends advanced technology with
+          a personal touch to ensure a comfortable and exceptional experience for every patient.
         </p>
         <Button onClick={scrollToPromotionForm} className='mt-6 w-fit'>
           Come see us!
@@ -54,7 +54,7 @@ export default function AboutSection() {
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
       >
         <Image
-          src='/assets/images/supernova_scott.png'
+          src='/assets/images/outerBuilding.jpg'
           alt='About Us'
           width={600}
           height={800}

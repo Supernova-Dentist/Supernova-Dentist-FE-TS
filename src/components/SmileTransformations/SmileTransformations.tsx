@@ -37,7 +37,7 @@ export default function SmileTransformations() {
   return (
     <section
       id='results'
-      className='w-full py-20 md:py-24 lg:py-32 bg-gradient-to-b from-cream to-white'
+      className='w-full py-20 md:py-24 lg:py-32 bg-gradient-to-b from-white to-cream'
       ref={ref} // Attach the ref to the section
     >
       <div className='container mx-auto'>
@@ -47,7 +47,7 @@ export default function SmileTransformations() {
             animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
             transition={{ duration: 0.5 }} // Animation duration
           >
-            <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Our Results</div>
+            <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Results</div>
           </motion.div>
         </div>
         <motion.h2
@@ -56,7 +56,7 @@ export default function SmileTransformations() {
           transition={{ duration: 0.5 }} // Animation duration
           className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-2 text-gold'
         >
-          Our Smile Transformations
+          Smile Transformations
         </motion.h2>
         <motion.hr
           initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
@@ -89,7 +89,7 @@ export default function SmileTransformations() {
         <div className='flex justify-center mt-8'>
           <button
             onClick={scrollToPromotionForm}
-            className='bg-lightGold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
+            className='bg-lightGold text-white px-8 py-4 rounded-lg text-lg font-semibold'
           >
             Transform now!
           </button>
