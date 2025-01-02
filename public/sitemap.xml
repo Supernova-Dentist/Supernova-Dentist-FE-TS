@@ -8,7 +8,7 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://firebasestorage.googleapis.com/v0/b/supernova-dental.appspot.com/o/Supernova_cover.png?alt=media&token=fce9e004-b06b-4348-a65f-ce6371631b15</image:loc>
+      <image:loc>https://firebasestorage.googleapis.com/v0/b/supernova-dental.appspot.com/o/Supernova_cover.png?alt=media&amp;token=fce9e004-b06b-4348-a65f-ce6371631b15</image:loc>
       <image:caption>Supernova Dental - Smile Brighter Promotion</image:caption>
     </image:image>
   </url>
