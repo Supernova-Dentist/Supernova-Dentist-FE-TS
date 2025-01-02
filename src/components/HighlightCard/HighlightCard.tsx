@@ -21,7 +21,7 @@ export function HighlightCard({
 }: HighlightCardProps) {
   return (
     <motion.div
-      className={cn('p-8', className)}
+      className={cn('md:p-8', className)}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
