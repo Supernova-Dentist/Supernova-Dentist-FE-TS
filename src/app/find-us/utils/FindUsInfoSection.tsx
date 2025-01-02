@@ -6,7 +6,7 @@ import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm'
 
 export default function FindUsInfoSection() {
   return (
-    <div className='flex flex-col lg:flex-row items-center justify-evenly space-y-6 lg:space-y-0'>
+    <div className='flex flex-col md:flex-row items-center justify-evenly space-y-6 md:space-y-0'>
       {/* Address and Contact Information */}
       <motion.div
         className='space-y-6 lg:space-y-8'

@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import FindUsInfoSection from './utils/FindUsInfoSection';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 
 const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
@@ -39,6 +40,10 @@ export default function FindUs() {
           title='Find Us - Supernova Dental'
           description='Locate Supernova Dental on the map, get directions, view reserved parking spots and check our contact details and opening hours.'
         />
+
+        <div className='p-4 md:px-6 pb-10 flex justify-start mx-auto max-w-3xl'>
+          <BreadCrumb />
+        </div>
 
         <div className='my-6'>
           <GoogleMap />

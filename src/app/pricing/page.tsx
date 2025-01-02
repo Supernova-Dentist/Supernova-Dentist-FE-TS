@@ -21,7 +21,7 @@ export default function Pricing() {
           logoSrc='/favicon.ico'
         />
 
-        <div className='px-4 md:px-6 pb-10 flex justify-start mx-auto max-w-3xl'>
+        <div className='p-4 md:px-6 pb-10 flex justify-start mx-auto max-w-3xl'>
           <BreadCrumb />
         </div>
 
