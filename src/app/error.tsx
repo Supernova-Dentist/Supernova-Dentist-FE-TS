@@ -29,7 +29,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
           Try again
         </Button>
         <Link href='/'>
-          <span className='text-white'>Go Home</span>
+          <Button className='text-white'>Go Home</Button>
         </Link>
       </div>
     </div>
