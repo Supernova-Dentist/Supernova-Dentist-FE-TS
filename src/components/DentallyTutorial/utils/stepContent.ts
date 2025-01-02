@@ -28,7 +28,7 @@ export const stepContent = [
     image: '/assets/images/portal_tutorial_7.png', // Image for Step 7
   },
   {
-    text: 'You will receive a booking confirmation via the portal and a confirmation email and SMS message.',
+    text: 'You will receive a booking confirmation via the portal, email and SMS message.',
     image: '/assets/images/portal_tutorial_8.png', // Image for Step 8
   },
 ];
