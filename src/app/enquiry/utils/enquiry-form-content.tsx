@@ -100,7 +100,7 @@ export function EnquiryFormContent() {
 
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense>
         <Search />
       </Suspense>
 
