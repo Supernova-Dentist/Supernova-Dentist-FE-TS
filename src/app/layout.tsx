@@ -10,7 +10,7 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import './reset.css';
-const FloatingMenu = dynamic(() => import('@/components/FloatingMenu/FloatingMenu'), { ssr: false });
+const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'] });
 
