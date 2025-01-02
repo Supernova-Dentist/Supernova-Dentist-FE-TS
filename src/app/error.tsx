@@ -12,7 +12,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
   }, [error]);
 
   return (
-    <div className='min-h-screen-minus-nav flex flex-col gap-4 justify-center items-center px-6 bg-cream'>
+    <div className='min-h-screen flex flex-col gap-4 justify-center items-center px-6 bg-cream'>
       <div className='flex flex-col gap-2 max-w-[650px] items-center'>
         <BiError size={50} />
         <h2 className='text-3xl'>Oops, something went wrong!</h2>

@@ -4,7 +4,7 @@ import Button from '@/components/Button/Button';
 
 export default function NotFound() {
   return (
-    <div className='min-h-screen-minus-nav flex flex-col gap-4 justify-center items-center px-6 bg-cream'>
+    <div className='min-h-screen flex flex-col gap-4 justify-center items-center px-6 bg-cream'>
       <Image width={100} height={100} src='/favicon.ico' alt='Brand logo' />
       <div className='flex flex-col gap-2 max-w-[650px] items-center'>
         <h2 className='text-3xl'>Oops! Page not found</h2>
@@ -12,7 +12,9 @@ export default function NotFound() {
       </div>
       <div className='flex gap-2 items-center'>
         <Link href='/'>
-          <Button><span className='text-white'>Go Home</span></Button>
+          <Button>
+            <span className='text-white'>Go Home</span>
+          </Button>
         </Link>
       </div>
     </div>
