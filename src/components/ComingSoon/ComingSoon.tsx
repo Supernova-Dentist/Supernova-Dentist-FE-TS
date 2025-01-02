@@ -56,36 +56,6 @@ export default function ComingSoonSection() {
             </motion.div>
           </div>
         </div>
-
-        <div className='mt-12 flex justify-evenly text-gray-700 md:justify-center gap-8'>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-            transition={{ duration: 0.5 }} // Duration of the animation
-            className='flex flex-col items-center max-w-[32%] w-full md:w-auto gap-2'
-          >
-            <FaTooth className='h-12 w-12 text-gold' />
-            <p className='text-sm font-medium text-center'>Advanced Treatments</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-            transition={{ duration: 0.5 }} // Duration of the animation
-            className='flex flex-col items-center max-w-[32%] w-full md:w-auto gap-2'
-          >
-            <BiSolidCalendarEvent className='h-12 w-12 text-gold' />
-            <p className='text-sm font-medium text-center'>Online Booking</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-            transition={{ duration: 0.5 }} // Duration of the animation
-            className='flex flex-col items-center max-w-[32%] w-full md:w-auto gap-2'
-          >
-            <UserCircleIcon className='h-12 w-12 text-gold' />
-            <p className='text-sm font-medium text-center'>Patient Portal</p>
-          </motion.div>
-        </div>
       </div>
     </section>
   );
