@@ -38,7 +38,7 @@ const MainNav = () => {
   const [navbarVisible, setNavbarVisible] = useState(true);
 
   const scrollPosition = useRef(0); // Use ref to store scroll position
-  const isMobile = width <= 768; // Define your mobile breakpoint here
+  const isMobile = width <= 915; // Define your mobile breakpoint here
 
   useEffect(() => {
     // Reset navbar visibility when switching to mobile
