@@ -1,5 +1,3 @@
-'use client';
-
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { FloatingPhone } from '../FloatingPhone/FloatingPhone';
@@ -7,24 +5,21 @@ import { FloatingPhone } from '../FloatingPhone/FloatingPhone';
 const SteppedProgress = ({ stepContent }: { stepContent: any }) => {
   const [stepsComplete, setStepsComplete] = useState(0);
 
-  console.log(stepContent);
-
   const handleSetStep = (num: number) => {
     if ((stepsComplete === 0 && num === -1) || (stepsComplete === stepContent.length - 1 && num === 1)) {
       return;
     }
-
     setStepsComplete((pv) => pv + num);
   };
 
   return (
     <motion.div
       className='px-4 py-14'
-      initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-      animate={{ opacity: 1, y: 0 }} // Animate to full opacity and default position
-      transition={{ duration: 0.5 }} // Animation duration
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <div className='p-8 bg-white shadow-lg rounded-md w-full max-w-2xl mx-auto'>
+      <div className='p-2 md:p-8 bg-white shadow-lg rounded-md w-full max-w-2xl mx-auto'>
         {stepContent[stepsComplete]?.header && (
           <motion.h2
             className='text-2xl font-bold text-center text-gray-800 mb-2'
@@ -35,27 +30,51 @@ const SteppedProgress = ({ stepContent }: { stepContent: any }) => {
             {stepContent[stepsComplete].header}
           </motion.h2>
         )}
-        <Steps numSteps={stepContent.length - 1} stepsComplete={stepsComplete} />
+
+        {/* Steps Progress Bar */}
+        <Steps numSteps={stepContent.length} stepsComplete={stepsComplete} />
+
         <div className='p-2 my-6 bg-gray-100 border-2 border-dashed border-gray-200 rounded-lg'>
           <motion.p
-            className='text-lg text-gray-700'
+            className='text-sm text-gray-700'
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             {stepContent[stepsComplete].text}
           </motion.p>
-          {stepsComplete === 0 ? <FloatingPhone /> : null}
-          {stepContent[stepsComplete]?.image && (
-            <motion.img
-              src={stepContent[stepsComplete].image}
-              alt='step-image'
-              className='w-72 h-48 mx-auto mt-4'
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            />
-          )}
+
+          {/* Step Image or Phone */}
+          <div className='relative mx-auto'>
+            <AnimatePresence mode='wait'>
+              {stepsComplete === 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <FloatingPhone />
+                </motion.div>
+              )}
+              {stepContent[stepsComplete]?.image && (
+                <motion.div
+                  key={stepContent[stepsComplete].image}
+                  className='max-w-[80%] w-full mx-auto mt-6 h-80 relative'
+                >
+                  <motion.img
+                    src={stepContent[stepsComplete].image}
+                    alt='step-image'
+                    className='w-full h-full object-contain'
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         <div className='flex items-center justify-end gap-2'>
@@ -75,14 +94,24 @@ const Steps = ({ numSteps, stepsComplete }: { numSteps: number; stepsComplete: n
   const stepArray = Array.from(Array(numSteps).keys());
 
   return (
-    <div className='flex items-center justify-between gap-3'>
+    <div className='flex items-center justify-center gap-3 flex-wrap'>
       {stepArray.map((num) => {
+        console.log('stepArray', stepArray);
+
         const stepNum = num + 1;
-        const isActive = stepNum <= stepsComplete;
+        const isActive = stepNum === stepsComplete + 1; // Show only the active step on mobile
+
         return (
           <React.Fragment key={stepNum}>
-            <Step num={stepNum} isActive={isActive} />
-            {stepNum !== stepArray.length && (
+            {/* Show only active step on mobile */}
+            <div
+              className={`${isActive ? 'block' : 'hidden'} sm:block`} // Hide non-active steps on mobile and show on larger screens
+            >
+              <Step num={stepNum} isActive={isActive} />
+            </div>
+
+            {/* Show step line only for active step */}
+            {stepNum !== stepArray.length && isActive && (
               <div className='w-full h-1 rounded-full bg-gray-200 relative'>
                 <motion.div
                   className='absolute top-0 bottom-0 left-0 bg-gold rounded-full'
