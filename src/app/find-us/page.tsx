@@ -1,4 +1,5 @@
 'use client';
+
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
 import { motion } from 'framer-motion';
 import type { Metadata } from 'next';
@@ -19,21 +20,21 @@ export default function FindUs() {
   return (
     <div id='location' className='flex flex-col items-center justify-start bg-gradient-to-b from-cream to-white'>
       <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
-        <section ref={ref} className='mb-12'>
+        <section ref={ref} className='mb-8'>
           <HighlightCard
             logoSrc='/assets/images/logo.png'
             title='Find Us - Supernova Dental'
             description='Locate Supernova Dental on the map, get directions, view reserved parking spots and check our contact details and opening hours.'
-            className='mt-16'
+            className='mt-8'
           />
 
           <div className='my-6'>
             <GoogleMap />
           </div>
-          <div className='flex flex-col lg:flex-row items-center justify-evenly space-y-8 lg:space-y-0'>
+          <div className='flex flex-col lg:flex-row items-center justify-evenly space-y-6 lg:space-y-0'>
             {/* Address and Contact Information */}
             <motion.div
-              className='space-y-8'
+              className='space-y-6 lg:space-y-8'
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -79,7 +80,7 @@ export default function FindUs() {
 
             {/* Video showing the 10 reserved parking spots */}
             <motion.div
-              className='space-y-8 md:col-span-1'
+              className='space-y-6 md:col-span-1'
               initial={{ opacity: 0, x: 20 }}
               animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -87,14 +88,19 @@ export default function FindUs() {
               <h2 className='text-xl xl:text-2xl font-semibold mb-4 text-center text-gray'>
                 10 Reserved Parking Spots
               </h2>
-              <div className='aspect-w-16 aspect-h-9'>
-                <video
-                  className='w-full h-full object-cover rounded-lg'
-                  src='/assets/videos/parking.mp4'
-                  controls
-                  autoPlay
-                  loop
-                  muted
+              {/* Video iframe with aspect ratio */}
+              <div className='relative w-full' style={{ paddingTop: `${(476 / 267) * 100}%` }}>
+                <iframe
+                  src='/assets/videos/supernova_parking.mp4'
+                  className='absolute top-0 left-0 w-full h-full rounded-lg lg:mt-8'
+                  style={{
+                    border: 'none',
+                    overflow: 'hidden',
+                  }}
+                  scrolling='no'
+                  frameBorder='0'
+                  allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+                  allowFullScreen={true}
                 />
               </div>
             </motion.div>
