@@ -41,7 +41,7 @@ export default function Search() {
           e.preventDefault();
           router.push(`/${referringPage}`);
         }}
-        className='inline-flex items-center gap-2 text-cream text-lg hover:text-gold hover:bg-cream transition'
+        className='inline-flex items-center gap-2 text-cream text-lg hover:text-white hover:bg-gold transition'
       >
         <ArrowLeftIcon className='h-5 w-5' />
         Back to {referringPageDisplay}

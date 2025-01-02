@@ -13,6 +13,7 @@ import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Search from './Search';
+import { motion } from 'framer-motion';
 
 // Define the max character limit
 const MAX_MESSAGE_LENGTH = 500;
@@ -103,9 +104,19 @@ export function EnquiryFormContent() {
         <Search />
       </Suspense>
 
-      <section className='px-4 pt-4 pb-24 md:pb-32'>
+      <motion.section
+        className='px-4 pt-4 pb-24 md:pb-32'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className='container mx-auto md:px-6'>
-          <div className='mx-auto max-w-2xl space-y-6 bg-white p-8 md:p-12 rounded-lg shadow-lg'>
+          <motion.div
+            className='mx-auto max-w-2xl space-y-6 bg-white p-8 md:p-12 rounded-lg shadow-lg'
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-8'>
                 <div className='grid gap-6'>
@@ -209,7 +220,6 @@ export function EnquiryFormContent() {
                                     <SelectItem value='general-enquiry' className='text-md lg:text-lg'>
                                       General Enquiry
                                     </SelectItem>
-
                                     <SelectItem value='emergency-care' className='text-md lg:text-lg'>
                                       Emergency Care
                                     </SelectItem>
@@ -279,9 +289,9 @@ export function EnquiryFormContent() {
                 </div>
               </form>
             </Form>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Success Modal */}
       {successModalVisible && (
@@ -297,7 +307,10 @@ export function EnquiryFormContent() {
             <p className='mb-4'>
               <strong>Phone:</strong> {submittedData.phone}
             </p>
-            <Button onClick={() => setSuccessModalVisible(false)} className='w-full text-lg py-2'>
+            <Button
+              onClick={() => setSuccessModalVisible(false)}
+              className='w-full bg-green-600 text-white text-lg py-3'
+            >
               Close
             </Button>
           </div>
@@ -308,9 +321,9 @@ export function EnquiryFormContent() {
       {errorModalVisible && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-2xl font-semibold mb-4'>Submission Failed</h2>
-            <p className='mb-4'>There was a problem with your enquiry submission. Please try again later.</p>
-            <Button onClick={() => setErrorModalVisible(false)} className='w-full text-lg py-2'>
+            <h2 className='text-2xl font-semibold mb-4'>Oops! Something went wrong.</h2>
+            <p className='mb-4'>There was an issue with your submission. Please try again later.</p>
+            <Button onClick={() => setErrorModalVisible(false)} className='w-full bg-red-600 text-white text-lg py-3'>
               Close
             </Button>
           </div>

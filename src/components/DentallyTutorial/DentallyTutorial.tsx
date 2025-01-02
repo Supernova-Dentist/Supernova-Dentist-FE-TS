@@ -7,7 +7,7 @@ import { stepContent } from './utils/stepContent';
 
 export default function DentallyTutorial() {
   return (
-    <section className='py-16 md:py-24 lg:py-32 bg-gradient-to-b from-cream to-white'>
+    <section className='py-16 bg-gradient-to-b from-cream to-white'>
       <div className='container mx-auto px-4 md:px-6 lg:px-8'>
         {/* Patient Portal section */}
         <div className='flex justify-center mb-4'>
@@ -56,7 +56,7 @@ export default function DentallyTutorial() {
               initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
               animate={{ opacity: 1, y: 0 }} // Animate when in view
               transition={{ duration: 0.5 }} // Animation duration
-              className='text-xl font-bold mb-2 px-6 text-gold text-center'
+              className='text-xl font-bold px-6 text-gold text-center'
             >
               First time? Let us help you get setup:
             </motion.h3>
