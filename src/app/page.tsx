@@ -33,7 +33,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/assets/images/logo.png',
+        url: '/favicon.ico',
         width: 500,
         height: 500,
         alt: 'Supernova Dental Logo',
