@@ -24,7 +24,7 @@ export const metadata = {
     title: 'Find Us | Supernova Dental - Bridgwater, Somerset',
     description:
       'Looking for a reliable dentist in Bridgwater? Find Supernova Dental on the map, view parking spots, opening hours and contact information.',
-    url: 'https://www.supernovadental.co.uk//find-us', 
+    url: 'https://www.supernovadental.co.uk//find-us',
     siteName: 'Supernova Dental',
     type: 'website',
   },
@@ -35,7 +35,7 @@ export default function FindUs() {
     <div id='location' className='flex flex-col align-middle justify-center bg-gradient-to-b from-white to-white'>
       <div className='container mx-auto py-24 px-8'>
         <HighlightCard
-          logoSrc='/assets/images/logo.png'
+          logoSrc='/favicon.ico'
           title='Find Us - Supernova Dental'
           description='Locate Supernova Dental on the map, get directions, view reserved parking spots and check our contact details and opening hours.'
         />
