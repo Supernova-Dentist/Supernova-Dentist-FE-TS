@@ -7,7 +7,7 @@ import { FiBatteryCharging, FiWifi } from 'react-icons/fi';
 export const FloatingPhone = () => {
   return (
     <div
-      className='rounded-[24px] bg-gold mx-auto w-56 h-84 relative my-6 transform md:scale-90 scale-50 sm:transform sm:rotate-y-[-30deg] sm:rotate-x-[15deg]'
+      className='rounded-[24px] bg-gold mx-auto w-56 h-84 relative my-6 transform md:scale-90 scale-60 sm:transform sm:rotate-y-[-30deg] sm:rotate-x-[15deg]'
       style={{
         transformStyle: 'preserve-3d',
       }}
