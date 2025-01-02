@@ -240,25 +240,10 @@ const FooterCTAs = () => {
 
 const LINKS = [
   {
-    title: 'home',
-    href: '#welcome',
+    title: 'Home',
+    href: '/',
   },
-  {
-    title: 'Offers',
-    href: '#offers',
-  },
-  {
-    title: 'Results',
-    href: '#results',
-  },
-  {
-    title: 'Reviews',
-    href: '#reviews',
-  },
-  {
-    title: 'Journey',
-    href: '#journey',
-  },
+
   //  TODO: Uncomment when there's an insta post
   // {
   //   title: 'Social',
@@ -266,11 +251,15 @@ const LINKS = [
   // },
   {
     title: 'Find us',
-    href: '#location',
+    href: '/find-us',
   },
   {
     title: 'Pricing',
     href: '/pricing',
+  },
+  {
+    title: 'Enquiry',
+    href: '/enquiry',
   },
 ];
 
