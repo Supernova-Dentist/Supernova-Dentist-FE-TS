@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaFacebookMessenger, FaInstagramSquare } from 'react-icons/fa';
-import { MdAdd, MdEmail } from 'react-icons/md';
+import { MdAdd, MdEmail, MdPhone } from 'react-icons/md'; // Import phone icon
 import { Action, Fab } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 import { useWindowSize } from '../blocks/MainNav/MainNav';
@@ -14,7 +14,7 @@ export default function FloatingMenu() {
   const event = isMobile ? 'click' : 'hover';
 
   function handleEmailClick() {
-    window.open('mailto:info@supernovadentalclinic.com', '_blank');
+    window.open('mailto:enquiries@supernovadental.co.uk', '_blank');
   }
 
   function handleMessengerClick() {
@@ -23,6 +23,10 @@ export default function FloatingMenu() {
 
   function handleInstagramClick() {
     window.open('https://ig.me/m/supernova.dental', '_blank');
+  }
+
+  function handlePhoneClick() {
+    window.open('tel:+441278228665'); // Use tel: protocol for phone numbers
   }
 
   return (
@@ -36,7 +40,7 @@ export default function FloatingMenu() {
         // Adjust position based on screen size
         style={{
           bottom: isMobile ? -8.5 : 10, // Change bottom position for mobile and desktop
-          right: isMobile ? -8.5 : 10 // Change right position for mobile and desktop
+          right: isMobile ? -8.5 : 10, // Change right position for mobile and desktop
         }}
         icon={<MdAdd size={26} />}
         event={event}
@@ -50,6 +54,9 @@ export default function FloatingMenu() {
         </Action>
         <Action style={{ backgroundColor: '#0f172a' }} text='Instagram' onClick={handleInstagramClick}>
           <FaInstagramSquare size={25} />
+        </Action>
+        <Action style={{ backgroundColor: '#0f172a' }} text='Call' onClick={handlePhoneClick}>
+          <MdPhone size={25} /> {/* Add phone icon */}
         </Action>
       </Fab>
     </motion.div>
