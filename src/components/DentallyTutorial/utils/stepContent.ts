@@ -1,6 +1,6 @@
 export const stepContent = [
   {
-    text: "Tap 'Get Started' on your mobile to begin the booking process and access the portal.",
+    text: "Tap 'Get Started' on the mobile below to begin the booking process and access the portal.",
     // No image for step 1
   },
   {
