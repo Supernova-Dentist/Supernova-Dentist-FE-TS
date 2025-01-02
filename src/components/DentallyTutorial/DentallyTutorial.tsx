@@ -43,10 +43,10 @@ export default function DentallyTutorial() {
           initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
           animate={{ opacity: 1, y: 0 }} // Animate when in view
           transition={{ duration: 0.5 }} // Animation duration
-          className='text-lg md:text-xl lg:text-2xl mb-16 pb-4 text-center md:px-16 lg:px-32'
+          className='text-lg mb-16 pb-4 text-center md:px-16 lg:px-32'
         >
-          Booking your appointment has never been easier, anytime, anywhere, even from your mobile device! Our online
-          system powered by Dentally allows you to schedule your visit with ease.
+          Booking your appointment has never been easier—anytime, anywhere, even from your mobile device! Our seamless
+          online system lets you schedule your visit with ease.
         </motion.p>
 
         {/* Steps to get set up */}
@@ -56,7 +56,7 @@ export default function DentallyTutorial() {
               initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
               animate={{ opacity: 1, y: 0 }} // Animate when in view
               transition={{ duration: 0.5 }} // Animation duration
-              className='text-2xl font-bold my-2 px-6 text-gold text-center'
+              className='text-xl font-bold mb-2 px-6 text-gold text-center'
             >
               First time? Let us help you get setup:
             </motion.h3>
