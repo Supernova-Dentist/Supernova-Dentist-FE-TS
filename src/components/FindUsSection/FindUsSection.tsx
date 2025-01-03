@@ -23,7 +23,7 @@ export default function FindUsSection() {
     <section className='flex flex-col bg-gradient-to-b from-white to-cream items-center justify-center' ref={ref}>
       {/* Text Section */}
       <motion.div
-        className='w-full lg:w-1/2 p-4 max-w-prose md:p-12 flex flex-col items-center text-center lg:text-left'
+        className='space-y-2 w-full lg:w-3/4 p-4 max-w-prose md:p-12 flex flex-col items-center text-center lg:text-left'
         initial='hidden'
         animate={inView ? 'visible' : 'hidden'}
         variants={containerVariants}
@@ -32,10 +32,9 @@ export default function FindUsSection() {
         <div className='flex justify-center mb-4'>
           <div className='rounded-xl bg-grey px-4 py-1 text-sm text-gray-50'>Location</div>
         </div>
-        <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>
-          Find Us at Supernova Dental
-        </h2>
-        <p className='mt-4'>
+        <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl pb-6'>Find Us in Bridgwater</h2>
+        <hr className='border-t-2 border-grey w-20 mx-auto mt-4 pb-8' />
+        <p className='mt-4 p-2'>
           Visit our dental practice located in Bridgwater! Find our contact details, opening hours, parking information
           and more on our Find Us page.
         </p>

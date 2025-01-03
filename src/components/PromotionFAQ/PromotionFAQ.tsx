@@ -54,11 +54,7 @@ export default function PromotionFAQ() {
   };
 
   return (
-    <section
-      id='faq'
-      ref={ref}
-      className='w-full py-12 md:py-24 lg:py-32 text-gray-900 bg-gradient-to-b from-cream to-white'
-    >
+    <section id='faq' ref={ref} className='w-full py-12 md:py-24 text-gray-900 bg-gradient-to-b from-cream to-white'>
       <div className='px-4 md:px-6 w-full'>
         <motion.div
           className='flex flex-col items-center space-y-6 text-center'
@@ -68,14 +64,14 @@ export default function PromotionFAQ() {
         >
           <div className='space-y-2'>
             <div className='flex justify-center mb-4'>
-              <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>FAQs</div>
+              <div className='rounded-xl bg-grey px-4 py-1 text-sm text-white'>FAQs</div>
             </div>
             <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter pb-6'>
               Frequently Asked Questions
             </h2>
             <hr className='border-t-2 border-grey w-20 mx-auto mt-4 pb-8' />
             <motion.div
-              className='w-full max-w-2xl shadow-lg rounded-lg p-6'
+              className='w-full max-w-2xl shadow-lg rounded-lg p-6 mt-4'
               initial={{ opacity: 0 }} // Initial state for the FAQ container
               animate={inView ? { opacity: 1 } : { opacity: 0 }} // Animate in
               transition={{ duration: 0.5, delay: 0.2 }} // Delay for the FAQ container
