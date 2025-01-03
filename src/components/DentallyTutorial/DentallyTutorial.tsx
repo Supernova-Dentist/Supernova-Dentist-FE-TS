@@ -43,7 +43,7 @@ export default function DentallyTutorial() {
           initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
           animate={{ opacity: 1, y: 0 }} // Animate when in view
           transition={{ duration: 0.5 }} // Animation duration
-          className='text-lg mb-16 pb-4 text-center md:px-16 lg:px-32'
+          className='text-lg mb-16 pb-4 text-center max-w-2xl mx-auto'
         >
           Booking your appointment has never been easier—anytime, anywhere, even from your mobile device! Our seamless
           online system lets you schedule your visit with ease.
