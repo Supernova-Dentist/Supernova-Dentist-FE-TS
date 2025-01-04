@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
@@ -98,6 +98,25 @@ export default function PromotionForm() {
     triggerOnce: true, // Only play the animation once
   });
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+
+      if (hash === '#form') {
+        const formElement = document.querySelector(hash);
+        const headerHeight = 80; // Adjust this to match your header's height
+
+        if (formElement) {
+          const formPosition = formElement.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: formPosition - headerHeight,
+            behavior: 'smooth',
+          });
+        }
+      }
+    }
+  }, []);
+
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
@@ -116,7 +135,10 @@ export default function PromotionForm() {
                 Invisalign treatments. Don&apos;t miss out! Register by 31st December 2024.
               </p>
             </div>
-            <Card id='form' className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
+            <Card
+              id='form'
+              className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'
+            >
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4 p-0 md:p-4'>
                   <CardTitle className='text-2xl'>Sign Up for Exclusive Offers</CardTitle>
