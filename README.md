@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Supernova Dental Website
 
-## Getting Started
+## Pages Overview
 
-First, run the development server:
+### **Home Page**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The homepage of Supernova Dental introduces the practice and provides key details about the services offered. It also highlights current promotions, including the _Smile Brighter_ promotion, which is visually represented on the page. The home page is the most important for SEO, containing strategic keywords and images to attract search engine traffic.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Find Us Page**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This page provides information about the Supernova Dental practice location. It includes details such as the address, directions, and possibly a map to help patients find the clinic. This page is optimized for local SEO to ensure people in the surrounding area can easily find the practice online.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### **Pricing Page**
 
-## Learn More
+The pricing page outlines the costs of various dental services offered at Supernova Dental. It includes information on pricing for treatments such as checkups, Invisalign, whitening, implants, and emergency care. The page also provides details about available payment plans or special offers for specific treatments.
 
-To learn more about Next.js, take a look at the following resources:
+### **Enquiry Page**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The enquiry page allows visitors to send in their questions or requests for appointments. It contains a contact form that collects details such as name, email, phone number, and the nature of the inquiry. This page is designed to encourage visitors to get in touch with the practice for further information or to book a consultation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Sitemap Details
 
-## Deploy on Vercel
+- **Home Page**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - URL: [https://www.supernovadental.co.uk/](https://www.supernovadental.co.uk/)
+  - Last Modified: January 1, 2025
+  - Frequency of Updates: Daily
+  - Priority: High
+  - Image: _Supernova Dental - Smile Brighter Promotion_
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Find Us Page**
+
+  - URL: [https://www.supernovadental.co.uk/find-us](https://www.supernovadental.co.uk/find-us)
+  - Last Modified: January 1, 2025
+  - Frequency of Updates: Weekly
+  - Priority: Medium
+
+- **Pricing Page**
+
+  - URL: [https://www.supernovadental.co.uk/pricing](https://www.supernovadental.co.uk/pricing)
+  - Last Modified: January 1, 2025
+  - Frequency of Updates: Weekly
+  - Priority: Medium
+
+- **Enquiry Page**
+  - URL: [https://www.supernovadental.co.uk/enquiry](https://www.supernovadental.co.uk/enquiry)
+  - Last Modified: January 1, 2025
+  - Frequency of Updates: Monthly
+  - Priority: Low
+
+These pages are structured to help search engines crawl and index the key content of the site, improving SEO and ensuring that visitors can easily find the information they need.
