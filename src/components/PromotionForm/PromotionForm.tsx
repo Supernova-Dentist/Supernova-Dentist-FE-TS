@@ -104,18 +104,22 @@ export default function PromotionForm() {
 
       if (hash === '#form') {
         const formElement = document.querySelector(hash);
-        const headerHeight = 80; // Adjust this to match your header's height
+
+        // Calculate offset in rem
+        const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize); // in pixels
+        const headerHeightInRem = 5; // Adjust this to match your header's height in rem
+        const headerHeightInPx = headerHeightInRem * rootFontSize;
 
         if (formElement) {
           const formPosition = formElement.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
-            top: formPosition - headerHeight,
+            top: formPosition - headerHeightInPx,
             behavior: 'smooth',
           });
         }
       }
     }
-  }, []);
+  }, []); // Runs only on the first load
 
   return (
     <>
