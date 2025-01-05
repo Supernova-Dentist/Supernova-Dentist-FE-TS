@@ -105,12 +105,14 @@ export default function PromotionForm() {
       if (hash === '#form') {
         const formElement = document.querySelector(hash);
 
-        // Calculate offset in rem
-        const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize); // in pixels
-        const headerHeightInRem = 5; // Adjust this to match your header's height in rem
-        const headerHeightInPx = headerHeightInRem * rootFontSize;
+        // Check if the screen width is less than a threshold (e.g., 1024px for tablets and mobile)
+        const isNonDesktop = window.innerWidth < 1024;
 
         if (formElement) {
+          const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize); // in pixels
+          const headerHeightInRem = isNonDesktop ? 5 : 0; // Adjust padding only for non-desktop
+          const headerHeightInPx = headerHeightInRem * rootFontSize;
+
           const formPosition = formElement.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
             top: formPosition - headerHeightInPx,
