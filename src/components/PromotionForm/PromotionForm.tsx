@@ -126,7 +126,7 @@ export default function PromotionForm() {
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section ref={ref} className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
+      <section id='form' ref={ref} className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
         <motion.div
           initial={{ opacity: 0, y: 20 }} // Initial state for the animation
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
@@ -141,10 +141,7 @@ export default function PromotionForm() {
                 Invisalign treatments. Don&apos;t miss out! Register by 31st January 2025.
               </p>
             </div>
-            <Card
-              id='form'
-              className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'
-            >
+            <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4 p-0 md:p-4'>
                   <CardTitle className='text-2xl'>Sign Up for Exclusive Offers</CardTitle>
