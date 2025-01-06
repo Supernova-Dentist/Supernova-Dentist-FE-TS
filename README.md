@@ -23,7 +23,7 @@ The enquiry page allows visitors to send in their questions or requests for appo
 - **Home Page**
 
   - URL: [https://www.supernovadental.co.uk/](https://www.supernovadental.co.uk/)
-  - Last Modified: January 1, 2025
+  - Last Modified: January 6, 2025
   - Frequency of Updates: Daily
   - Priority: High
   - Image: _Supernova Dental - Smile Brighter Promotion_

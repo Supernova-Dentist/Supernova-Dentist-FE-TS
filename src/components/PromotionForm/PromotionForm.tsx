@@ -138,7 +138,7 @@ export default function PromotionForm() {
               <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>Exclusive Promotions</h2>
               <p className='max-w-[700px] text-center sm:text-left text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
                 Take advantage of our limited-time offers, including savings on examinations, hygiene appointments and
-                Invisalign treatments. Don&apos;t miss out! Register by 31st December 2024.
+                Invisalign treatments. Don&apos;t miss out! Register by 31st January 2025.
               </p>
             </div>
             <Card
