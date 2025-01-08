@@ -1,9 +1,23 @@
+import fetchInstagramPosts from '@/actions/instagram';
+import InstagramPostGrid from '@/app/(media)/social/utils/InstagramPostGrid';
 import { ScottOutlineCards } from '@/components/OutlineCards/ScottOutlineCards';
 import StackedCardTestimonials from '@/components/StackedCardTestimonials/StackedCardTestimonials';
 import ScottWaterDropHero from '@/components/WaterDropHeros/ScottWaterDropHero';
 import { Reveal } from '@/utils/anim/Reveal';
 
-export default function Component() {
+export default async function Component() {
+  const ACCOUNT_ID = 1; // Replace with dynamic logic or a constant from a config file
+  let instagramPosts = [];
+  
+  try {
+    instagramPosts = await fetchInstagramPosts(ACCOUNT_ID);
+  } catch (error) {
+    console.error('Error fetching Instagram posts:', error);
+  }
+
+  const username = instagramPosts?.length > 0 ? instagramPosts[0].username : 'Our Instagram';
+  const instagramProfileUrl = `https://www.instagram.com/${username}/`;
+
   return (
     <div className='flex flex-col min-h-[100vh]'>
       <ScottWaterDropHero />
@@ -53,6 +67,12 @@ export default function Component() {
           </div>
         </div>
       </section>
+
+      {instagramPosts?.length > 0 ? (
+        <InstagramPostGrid posts={instagramPosts} />
+      ) : (
+        <span className='flex justify-center mt-20'>No Instagram posts yet. Check back later.</span>
+      )}
 
       <StackedCardTestimonials />
     </div>
