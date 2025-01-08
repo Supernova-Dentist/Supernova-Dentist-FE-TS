@@ -8,7 +8,7 @@ import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 
 export default async function SocialMedia() {
-  const instagramPosts = await fetchInstagramPosts();
+  const instagramPosts = await fetchInstagramPosts('social');
   const username = instagramPosts?.length > 0 ? instagramPosts?.[0].username : 'Our Instagram';
   const instagramProfileUrl = `https://www.instagram.com/${username}/`;
 

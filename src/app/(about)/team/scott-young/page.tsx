@@ -6,15 +6,7 @@ import ScottWaterDropHero from '@/components/WaterDropHeros/ScottWaterDropHero';
 import { Reveal } from '@/utils/anim/Reveal';
 
 export default async function Component() {
-  const ACCOUNT_ID = 1; // Replace with dynamic logic or a constant from a config file
-  let instagramPosts = [];
-  
-  try {
-    instagramPosts = await fetchInstagramPosts(ACCOUNT_ID);
-  } catch (error) {
-    console.error('Error fetching Instagram posts:', error);
-  }
-
+  const instagramPosts = await fetchInstagramPosts('scott-young');
   const username = instagramPosts?.length > 0 ? instagramPosts[0].username : 'Our Instagram';
   const instagramProfileUrl = `https://www.instagram.com/${username}/`;
 
