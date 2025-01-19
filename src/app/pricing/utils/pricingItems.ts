@@ -34,15 +34,15 @@ export const pricingItems = [
   {
     title: 'Hygiene Treatments',
     products: [
-      { description: 'Initial direct access hygiene assessment (60 minutes)', price: 195 },
+      { description: 'Initial direct access hygiene assessment', price: 195 },
       {
         description: `Includes pictures of teeth and gums, free hygiene support
 pack, superficial professional mechanical plaque removal and air polishing for stain removal`,
       },
-      { description: 'Routine hygiene maintenance appointment (30 minutes)', price: 85 },
+      { description: 'Routine hygiene maintenance appointment', price: 85 },
       { description: 'Air polish (includes routine hygiene appointment)', price: 150 },
       {
-        description: `Full root surface debridement (45 minutes per quadrant)`,
+        description: `Full root surface debridement`,
         price: 150,
         priceDescription: 'each',
       },
