@@ -65,7 +65,7 @@ export default function FindUs() {
                   <p className='text-base sm:text-lg text-center text-lightGrey'>Phone: 01278 228665</p>
                   <p className='text-base sm:text-lg text-center  text-lightGrey'>
                     Email:{' '}
-                    <a href='mailto:info@supernovadentalclinic.com' className='underline'>
+                    <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
                       enquiries@supernovadental.co.uk
                     </a>
                   </p>

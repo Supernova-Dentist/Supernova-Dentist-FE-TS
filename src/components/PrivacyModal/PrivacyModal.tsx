@@ -87,7 +87,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 </p>
                 <p>
                   If you have any questions regarding this privacy policy, please contact us at{' '}
-                  <a href='mailto:info@supernovadentalclinic.com' className='underline'>
+                  <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
                     enquiries@supernovadental.co.uk
                   </a>
                   .
@@ -212,7 +212,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <SubHeader>Contact Us</SubHeader>
                 <p>
                   If you have any questions about this privacy policy, please contact us at{' '}
-                  <a href='mailto:info@supernovadentalclinic.com' className='underline'>
+                  <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
                     enquiries@supernovadental.co.uk
                   </a>{' '}
                   or call us at 01278 228665.
