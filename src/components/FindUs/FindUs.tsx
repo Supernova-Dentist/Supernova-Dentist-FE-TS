@@ -49,7 +49,7 @@ export default function FindUs() {
               <div>
                 <h2 className='text-xl xl:text-2xl font-semibold mb-4 text-center text-gray'>Our Address</h2>
                 <ul className='text-center space-y-2'>
-                  <li>Supernova Building</li>
+                  <li>Supernova Building,</li>
                   <li>Marsh Lane,</li>
                   <li>Huntworth Gate, </li>
                   <li>Bridgwater</li>
