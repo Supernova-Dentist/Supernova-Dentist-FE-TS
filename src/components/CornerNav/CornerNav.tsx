@@ -243,6 +243,10 @@ const LINKS = [
     title: 'Home',
     href: '/',
   },
+  {
+    title: 'Invisalign',
+    href: '/invisalign',
+  },
 
   //  TODO: Uncomment when there's an insta post
   // {

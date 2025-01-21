@@ -54,6 +54,7 @@ export const navLinks = [
   // { name: 'About us', url: '/about', flyout: practiceInfo },
   // { name: 'Media', url: '/media', flyout: media },
   { name: 'Home', url: '/', flyout: [] },
+  { name: 'Invisalign', url: '/invisalign', flyout: [] },
   //  TODO: Uncomment when there is a insta post
   // { name: 'Social', url: '#social', flyout: [] },
   { name: 'Find Us', url: '/find-us', flyout: [] },
