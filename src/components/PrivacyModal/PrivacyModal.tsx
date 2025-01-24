@@ -157,7 +157,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <ul>
                   {/* <li>Payment processors (e.g., Dentally)</li> */}
                   {/* <li>Dentally for appointment scheduling</li> */}
-                  <li>Marketing services (e.g., Mailchimp)</li>
+                  <li>Marketing services (e.g. Mailchimp)</li>
                   {/* <li>Web analytics providers (e.g., Google Analytics)</li> */}
                 </ul>
                 <p>We also may disclose your information if required by law.</p>
@@ -223,7 +223,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <SubHeader>Changes to This Privacy Policy</SubHeader>
                 {/* TODO: Add updated at date programatically */}
                 <p>
-                  We may update this privacy policy from time to time. The last update was made on 1st Nov 2024. Please
+                  We may update this privacy policy from time to time. The last update was made on 24th January 2025. Please
                   review this policy periodically to stay informed about how we are protecting your data.
                 </p>
               </SectionSpacing>
