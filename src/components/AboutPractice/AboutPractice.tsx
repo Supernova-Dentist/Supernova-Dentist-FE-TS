@@ -10,11 +10,8 @@ export function AboutPractice() {
   });
 
   return (
-    <section className="py-16">
-      <div
-        ref={ref}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16"
-      >
+    <section className='py-16'>
+      <div ref={ref} className='grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16'>
         {/* Image Section */}
         <div
           className={cn(
@@ -23,38 +20,31 @@ export function AboutPractice() {
           )}
         >
           <img
-            src="/assets/images/outerBuilding.jpg"
-            alt="About Supernova Dental"
-            className="w-full h-full object-cover rounded-lg"
+            src='/assets/images/outerBuilding.jpg'
+            alt='About Supernova Dental'
+            className='w-full h-full object-cover rounded-lg'
             style={{ aspectRatio: '16/9' }} // Improved aspect ratio for the image
           />
         </div>
 
         {/* Text Section */}
-        <div
-          className={cn(
-            'transition-opacity duration-700',
-            inView ? 'opacity-100' : 'opacity-0'
-          )}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            About Supernova Dental
-          </h2>
-          <p className="text-lg md:text-xl text-gray-800 text-muted-foreground mb-8">
+        <div className={cn('transition-opacity duration-700', inView ? 'opacity-100' : 'opacity-0')}>
+          <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-900'>About Supernova Dental</h2>
+          <p className='text-md lg:text-lg md:text-xl text-gray-800 text-muted-foreground mb-8'>
             At Supernova Dental, we are committed to providing exceptional dental care in a modern, welcoming
-            environment. Our team of experienced professionals is dedicated to helping our patients achieve and
-            maintain optimal oral health.
+            environment. Our team of experienced professionals is dedicated to helping our patients achieve and maintain
+            optimal oral health.
           </p>
-          <p className="text-lg md:text-xl text-gray-800 text-muted-foreground mb-8">
-            With cutting-edge technology, a compassionate approach and a dedication to patient satisfaction, we
-            stand out as a premier dental provider. Our practice’s welcoming atmosphere, coupled with a team that
-            truly cares, makes every visit a positive experience.
+          <p className='text-md lg:text-lg md:text-xl text-gray-800 text-muted-foreground mb-8'>
+            With cutting-edge technology, a compassionate approach and a dedication to patient satisfaction, we stand
+            out as a premier dental provider based in Bridgwater. Our practice’s welcoming atmosphere, coupled with a
+            team that truly cares, makes every visit a positive experience.
           </p>
 
-          <p className="text-lg text-gray-800 text-muted-foreground mt-8">
+          <p className='text-md lg:text-lg md:text-xl text-gray-800 text-muted-foreground mt-8'>
             Need assistance? We are more than happy to provide support for any questions or concerns. Look for the
-            button with the plus icon in the bottom right corner of each page for various methods of contact, and
-            we will be in touch as soon as we can.
+            button with the plus icon in the bottom right corner of each page for various methods of contact, and we
+            will be in touch as soon as we can.
           </p>
         </div>
       </div>

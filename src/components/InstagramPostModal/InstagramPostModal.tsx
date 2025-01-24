@@ -46,7 +46,7 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
             <p className='text-sm text-gray-800'>{post.caption}</p>
           </div>
           {/* Instagram Link */}
-          <div className='mt-4 mx-auto'>
+          <div className='mt-4 mx-auto w-full'>
             <a
               href={post.permalink}
               target='_blank'

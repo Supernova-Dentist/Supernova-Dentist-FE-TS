@@ -202,7 +202,7 @@ export default function PromotionForm() {
                         onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                       />
                       <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
-                        I don’t want to receive emails about Supernova and related Supernova updates and promotions. By
+                        I don’t want to receive emails about Supernova Dental and related Supernova Dental updates and promotions. By
                         not checking the box, I agree to be opted in by default.
                       </Label>
                     </div>

@@ -26,8 +26,8 @@ export function FeaturesSectionDemo() {
       className: 'lg:col-span-2 border-gold',
     },
     {
-      title: 'Smile Zone Tour',
-      description: 'Discover our Smile Zone, designed to help visualise your future smile.',
+      title: 'Smile Zone',
+      description: 'Discover our Supernova Smile Zone, designed to help visualise your future smile.',
       skeleton: <SkeletonThree />,
       className: 'lg:col-span-2 border-gold',
     },
@@ -127,14 +127,14 @@ export const SkeletonThree = () => {
   const image = '/assets/images/supernova_smile_zone.jpg';
 
   return (
-    <div className='relative w-full max-h-[600px]'>
+    <div className='relative w-full' style={{ paddingTop: `${(476 / 267) * 100}%` }}>
       <Image
         src={image}
         alt='Smile Zone'
         layout='intrinsic'
         width={600}
         height={400} // Maintain aspect ratio
-        className='object-cover rounded-lg'
+        className='absolute top-0 left-0 w-full h-full rounded-lg'
       />
     </div>
   );

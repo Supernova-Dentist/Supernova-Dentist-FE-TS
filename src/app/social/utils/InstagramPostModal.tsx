@@ -54,7 +54,7 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
               alt='Instagram Post'
               className='absolute inset-0 w-full h-full object-cover rounded-t-lg'
               layout='fill'
-              objectFit='fill' // Ensure image maintains its aspect ratio
+              objectFit='fill' // Adjust to 'cover' to maintain aspect ratio without stretching
             />
           )}
         </div>
@@ -66,12 +66,12 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
           </div>
 
           {/* Instagram Link */}
-          <div className='mt-4 mx-auto'>
+          <div className='mt-4 flex justify-center'>
             <a
               href={post.permalink}
               target='_blank'
               rel='noopener noreferrer'
-              className='text-gold underline hover:lightGold'
+              className='text-gold underline hover:text-gold/70'
             >
               View on Instagram
             </a>
