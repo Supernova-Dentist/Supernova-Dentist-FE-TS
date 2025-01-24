@@ -250,6 +250,10 @@ const LINKS = [
   //   href: '#social',
   // },
   {
+    title: 'Practice',
+    href: '/practice',
+  },
+  {
     title: 'Find us',
     href: '/find-us',
   },
@@ -260,6 +264,10 @@ const LINKS = [
   {
     title: 'Enquiry',
     href: '/enquiry',
+  },
+  {
+    title: 'Social',
+    href: '/social',
   },
 ];
 

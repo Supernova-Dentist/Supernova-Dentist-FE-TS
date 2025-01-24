@@ -21,7 +21,7 @@ export function HighlightCard({
 }: HighlightCardProps) {
   return (
     <motion.div
-      className={cn('md:p-8', className)}
+      className={cn('md:p-8 p-2 mb-6 md:mb-2', className)}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -51,7 +51,7 @@ export function HighlightCard({
           {title}
         </motion.h1>
         <motion.p
-          className='text-white lg:text-lg mt-4 text-center font-medium'
+          className='text-white lg:text-lg mt-4 text-center font-medium max-w-[34rem] mx-auto'
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.4 }}

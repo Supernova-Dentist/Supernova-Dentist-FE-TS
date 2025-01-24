@@ -5,7 +5,7 @@ type CtaTextProps = {
 };
 
 export default function CtaText({ title, description, uppercase }: CtaTextProps) {
-  const defaultTitle = 'Welcome to our clinic';
+  const defaultTitle = 'Welcome to our practice';
   const defaultDescription = 'A better life through better dentistry';
 
   return (

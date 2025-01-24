@@ -56,9 +56,11 @@ export const navLinks = [
   { name: 'Home', url: '/', flyout: [] },
   //  TODO: Uncomment when there is a insta post
   // { name: 'Social', url: '#social', flyout: [] },
+  { name: 'Practice', url: '/practice', flyout: [] },
   { name: 'Find Us', url: '/find-us', flyout: [] },
   { name: 'Pricing', url: '/pricing', flyout: [] },
   { name: 'Enquiry', url: '/enquiry', flyout: [] },
+  { name: 'Social', url: '/social', flyout: [] },
 ];
 
 export const officeInfo = {
