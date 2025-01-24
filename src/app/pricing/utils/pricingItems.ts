@@ -53,8 +53,8 @@ pack, superficial professional mechanical plaque removal and air polishing for s
     products: [
       { description: 'Adult Membership Plan (16+)', price: 24.99, priceDescription: 'per month' },
       {
-        description: `- Includes 2 routine examinations and 2 hygiene maintenance appointments per
-year, required pictures and scans as well as up to 2 small x-rays each year if required.`,
+        description: `- Includes 2 routine examinations, 2 hygiene maintenance appointments and 1 emergency assessment per
+year, required pictures and scans as well as up to 2 routine small x-rays each year if required.`,
       },
       {
         description: `- Gives free access to worldwide emergency cover.`,
