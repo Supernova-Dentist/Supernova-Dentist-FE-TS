@@ -114,7 +114,7 @@ export const SkeletonTwo = () => {
         }}
         controls
         preload='metadata'
-        poster='/assets/images/why_supernova_thumbnail.png' // Optional: use an image as a placeholder before the video loads
+        poster='/assets/images/video_thumbnail.png' // Optional: use an image as a placeholder before the video loads
       >
         <source src={videoSrc} type='video/mp4' />
         Sorry, your browser doesn&apos;t support the video tag.
