@@ -25,7 +25,7 @@ export const metadata = {
     title: 'Find Us | Supernova Dental - Bridgwater, Somerset',
     description:
       'Looking for a reliable dentist in Bridgwater? Find Supernova Dental on the map, view parking spots, opening hours and contact information.',
-    url: 'https://www.supernovadental.co.uk//find-us',
+    url: 'https://www.supernovadental.co.uk/find-us',
     siteName: 'Supernova Dental',
     type: 'website',
   },

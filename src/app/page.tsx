@@ -16,7 +16,7 @@ export const metadata = {
   description:
     "Take advantage of Supernova Dental's 50% off offer on your first exam and hygiene appointment in Bridgwater. Book now and start your journey to a healthier smile!",
   keywords:
-    'dental exam offer, dental hygiene offer, Invisalign, Bridgwater dentist, teeth whitening, healthy smile, dentist promotions',
+    'invisalign bridgwater, invisalign, emergency dentist bridgwater, dental exam offer, dental hygiene offer, Invisalign, Bridgwater dentist, teeth whitening, healthy smile, dentist promotions',
   openGraph: {
     title: 'Supernova Dental - Exclusive Offers for New Patients',
     description:
