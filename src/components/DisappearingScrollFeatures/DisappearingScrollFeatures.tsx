@@ -84,7 +84,7 @@ const Carousel = () => {
       title: 'Accessibility Friendly Toilets',
       description: 'Our clinic is equipped with an accessible toilet for your convenience.',
       icon: <FaWheelchair className='w-12 h-12 mb-4 text-gold' />,
-      imgSrc: '/assets/images/toilet.JPG',
+      imgSrc: '/assets/images/toilet.jpeg',
     },
     {
       title: 'Ample Parking',
