@@ -64,7 +64,7 @@ const Carousel = () => {
   const clinicFeatures = [
     {
       title: 'Comfortable Chairs',
-      description: 'Our ergonomic chairs provide maximum comfort during your treatments.',
+      description: 'Our supportive chairs provide a balanced blend of comfort and stability during your treatments.',
       icon: <FaChair className='w-12 h-12 mb-4 text-gold' />,
       imgSrc: '/assets/images/surgery2.JPG',
     },
