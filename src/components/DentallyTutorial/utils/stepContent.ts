@@ -8,7 +8,7 @@ export const stepContent = [
     image: '/assets/images/portal_tutorial_2.png', // Image for Step 2
   },
   {
-    text: 'Choose the appointment type that suits your needs (e.g., consultation, treatment, etc.).',
+    text: 'Choose the appointment type that suits your needs (e.g. consultation, treatment, etc.).',
     image: '/assets/images/portal_tutorial_3.png', // Image for Step 3
   },
   {
