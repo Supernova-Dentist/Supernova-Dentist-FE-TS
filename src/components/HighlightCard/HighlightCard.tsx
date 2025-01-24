@@ -43,7 +43,7 @@ export function HighlightCard({
           </motion.div>
         )}
         <motion.h1
-          className='text-4xl lg:text-5xl leading-tight text-center tracking-tight font-bold text-gold'
+          className='text-2xl md:text-4xl lg:text-5xl leading-tight text-center tracking-tight font-bold text-gold'
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
