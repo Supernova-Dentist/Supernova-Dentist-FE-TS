@@ -12,9 +12,10 @@ import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 import { AboutPractice } from '@/components/AboutPractice/AboutPractice';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | Our Practice',
+  title: 'Supernova Dental | Your Patient Journey',
   description:
-    'Discover the welcoming environment of Supernova Dental. Learn about our exceptional dental care, state-of-the-art technology and services that prioritise your oral health.',
+    'Visit Supernova Dental in Bridgwater for top-tier dental care with state-of-the-art technology. We prioritise your oral health and well-being every step of your patient journey.',
+    keywords: 'dentist in Bridgwater, Supernova Dental, invisalign bridgwater, invisalign, cosmetic dentistry, dental care Bridgwater, emergency dental care, oral health, teeth whitening Bridgwater, dental practice Bridgwater',
 };
 
 export default function OurPractice() {

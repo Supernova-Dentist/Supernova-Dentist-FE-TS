@@ -6,9 +6,11 @@ import MakeEnquirySection from './utils/MakeEnquirySection';
 import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental Pricing | Affordable Dental Care in Bridgwater, Somerset',
+  title: 'Invisalign Pricing & Affordable Dental Care | Supernova Dental Bridgwater, Somerset',
   description:
-    'Discover affordable pricing options for dental services at Supernova Dental in Bridgwater, Somerset. Get the best dental care for you and your family.',
+    'Explore affordable Invisalign pricing and dental care options at Supernova Dental in Bridgwater, Somerset. Get clear aligners, consultations, and personalised treatment plans tailored to your needs.',
+  keywords:
+    'Invisalign pricing, dental pricing Bridgwater, affordable Invisalign, clear aligners Somerset, Invisalign consultation Bridgwater, Invisalign costs, dentist Bridgwater, dental care Somerset, affordable dental care, Supernova Dental pricing, orthodontics Somerset, teeth straightening Bridgwater, Invisalign treatment Bridgwater',
 };
 
 export default function Pricing() {

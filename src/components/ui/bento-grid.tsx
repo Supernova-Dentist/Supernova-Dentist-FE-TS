@@ -42,7 +42,7 @@ export function FeaturesSectionDemo() {
   return (
     <section className='relative z-20 py-10 lg:py-4 max-w-7xl mx-auto'>
       <HighlightCard
-        title='Supernova Dental Practice'
+        title='Supernova Dental - Your Patient Journey'
         description='From reception to surgery, discover our seamless patient journey designed to prioritise your comfort and care.'
         logoSrc='/assets/images/logo.png'
         className='mt-12'

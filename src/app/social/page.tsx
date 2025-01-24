@@ -11,8 +11,11 @@ import { type Metadata } from 'next';
 import SocialGridHeader from './utils/SocialGridHeader';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | Socials',
-  description: 'Follow Supernova Dental on Instagram and Facebook for the latest updates, dental tips.',
+  title: 'Supernova Dental | Social Media',
+  description:
+    'Stay connected with Supernova Dental on Instagram and Facebook for the latest updates, patient success stories, dental tips, and Supernova Dental events in Bridgwater.',
+  keywords:
+    'Supernova Dental, dental practice Bridgwater, dental care, Instagram dental updates, Facebook dental tips, patient success stories, dental tips Bridgwater, dental community Bridgwater, Supernova Dental social media, Instagram posts, dental practice Instagram, dental news Bridgwater, patient stories, dentist Bridgwater',
 };
 
 export default async function SocialMedia() {
