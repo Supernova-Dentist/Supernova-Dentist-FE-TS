@@ -43,7 +43,6 @@ const Card = ({
   card: any;
   scrollYProgress: MotionValue<number>;
 }) => {
-  console.log('card', card);
 
   const scaleFromPct = (position - 1) / CARDS.length;
   const y = useTransform(scrollYProgress, [scaleFromPct, 1], [0, -CARD_HEIGHT]);

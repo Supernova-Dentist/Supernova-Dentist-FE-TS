@@ -27,8 +27,6 @@ export default function Search() {
     if (ref != null) {
       const readableRef = urlToReadableMap[ref] || ref;
       setReferringPage(ref);
-      console.log('ref', ref);
-      console.log('readableRef', readableRef);
 
       setReferringPageDisplay(typeof readableRef === 'string' ? readableRef : '');
     }
