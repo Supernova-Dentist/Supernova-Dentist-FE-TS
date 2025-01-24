@@ -88,7 +88,7 @@ const CARDS = [
     id: 1,
     Icon: Award, // Use an icon that represents testimonials or feedback
     title: 'Had an Appointment with Us?',
-    description: 'Share your experience with Supernova Dental Practice. We’d love to hear your feedback!',
+    description: 'Share your experience with Supernova Dental. We’d love to hear your feedback!',
     buttonText: 'Write a Review',
     ctaClasses: 'bg-grey', // Adjust color scheme as needed
     routeTo: 'https://g.page/r/Cd1EdVyvZxVIEAI/review', // Assuming ReviewLink redirects to a review page
