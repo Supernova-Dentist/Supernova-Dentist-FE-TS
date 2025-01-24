@@ -4,7 +4,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -16,7 +16,7 @@
   <!-- Find Us Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/find-us</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -24,7 +24,7 @@
   <!-- Pricing Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/pricing</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -32,8 +32,24 @@
   <!-- Enquiry Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/enquiry</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- Practice Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/practice</loc>
+    <lastmod>2025-01-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Social Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/social</loc>
+    <lastmod>2025-01-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
