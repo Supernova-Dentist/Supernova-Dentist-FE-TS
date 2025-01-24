@@ -46,12 +46,12 @@ export default function InstagramPostModal({ post, onClose }: { post: InstagramP
             <p className='text-sm text-gray-800'>{post.caption}</p>
           </div>
           {/* Instagram Link */}
-          <div className='mt-4'>
+          <div className='mt-4 mx-auto'>
             <a
               href={post.permalink}
               target='_blank'
               rel='noopener noreferrer'
-              className='text-blue-600 underline hover:text-blue-800'
+              className='text-gold underline hover:lightGold'
             >
               View on Instagram
             </a>
