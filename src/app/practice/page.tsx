@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: 'Supernova Dental | Your Patient Journey',
   description:
     'Visit Supernova Dental in Bridgwater for top-tier dental care with state-of-the-art technology. We prioritise your oral health and well-being every step of your patient journey.',
-    keywords: 'dentist in Bridgwater, Supernova Dental, invisalign bridgwater, invisalign, cosmetic dentistry, dental care Bridgwater, emergency dental care, oral health, teeth whitening Bridgwater, dental practice Bridgwater',
+    keywords: 'dentist in Bridgwater, emergency dentist Bridgwater, Supernova Dental, invisalign bridgwater, invisalign, cosmetic dentistry, dental care Bridgwater, emergency dental care, oral health, teeth whitening Bridgwater, dental practice Bridgwater',
 };
 
 export default function OurPractice() {
