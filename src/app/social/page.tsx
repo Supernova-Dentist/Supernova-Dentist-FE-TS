@@ -8,11 +8,11 @@ import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import { Facebook } from 'react-feather';
 import { type Metadata } from 'next';
+import SocialGridHeader from './utils/SocialGridHeader';
 
 export const metadata: Metadata = {
   title: 'Supernova Dental | Socials',
-  description:
-    'Follow Supernova Dental on Instagram and Facebook for the latest updates, dental tips.',
+  description: 'Follow Supernova Dental on Instagram and Facebook for the latest updates, dental tips.',
 };
 
 export default async function SocialMedia() {
@@ -31,31 +31,8 @@ export default async function SocialMedia() {
       <div className='flex flex-col items-center justify-start py-12'>
         <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
           <BreadCrumb />
-          <div className='flex flex-col sm:flex-row sm:items-center justify-between'>
-            <div>
-              <h1 className='text-3xl font-bold break-words text-grey'>{username}</h1>
-            </div>
-            <div className='flex gap-4 justify-center mt-4'>
-              <a
-                href='https://www.facebook.com/profile.php?id=61567279201971'
-                target='_blank'
-                rel='noreferrer'
-                className='inline-flex w-fit items-center gap-2 bg-grey rounded-md px-4 py-2 hover:bg-primary/90 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring mt-2 sm:mt-0'
-              >
-                <Facebook className='w-5 h-5 text-cream' />
-                <span className='text-white'>Like</span>
-              </a>
-              <a
-                href={instagramProfileUrl}
-                target='_blank'
-                rel='noreferrer'
-                className='inline-flex w-fit items-center gap-2 bg-grey rounded-md px-4 py-2 hover:bg-primary/90 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring mt-2 sm:mt-0'
-              >
-                <InstagramLogoIcon className='w-5 h-5 text-cream' />
-                <span className='text-white'>Follow</span>
-              </a>
-            </div>
-          </div>
+
+          <SocialGridHeader username={username} instaSrc={instagramProfileUrl} />
 
           {instagramPosts !== undefined || instagramPosts?.length > 0 ? (
             <InstagramPostGrid posts={instagramPosts} />
