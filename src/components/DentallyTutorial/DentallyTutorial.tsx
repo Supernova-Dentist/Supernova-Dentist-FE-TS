@@ -45,7 +45,7 @@ export default function DentallyTutorial() {
           transition={{ duration: 0.5 }} // Animation duration
           className='text-lg mb-16 pb-4 text-center max-w-2xl mx-auto'
         >
-          Booking your appointment has never been easier—anytime, anywhere, even from your mobile device! Our seamless
+          Booking your appointment has never been easier. Anytime, anywhere, even from your mobile device! Our seamless
           online system lets you schedule your visit with ease.
         </motion.p>
 
