@@ -3,7 +3,7 @@
 import { ChatBubbleIcon } from '@radix-ui/react-icons';
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 import React, { useRef } from 'react';
-import { Award, Instagram } from 'react-feather';
+import { Award, Instagram, Facebook } from 'react-feather';
 import { FiArrowRight } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
 
@@ -21,10 +21,13 @@ export const StickyCards = () => {
 
   return (
     <div ref={inViewRef}>
-      <motion.div ref={ref} 
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.5, ease: 'easeInOut' }} className='relative'>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        className='relative'
+      >
         {CARDS.map((c, idx) => (
           <Card key={c.id} card={c} scrollYProgress={scrollYProgress} position={idx + 1} />
         ))}
@@ -43,7 +46,6 @@ const Card = ({
   card: any;
   scrollYProgress: MotionValue<number>;
 }) => {
-
   const scaleFromPct = (position - 1) / CARDS.length;
   const y = useTransform(scrollYProgress, [scaleFromPct, 1], [0, -CARD_HEIGHT]);
 
@@ -59,7 +61,10 @@ const Card = ({
       }}
       className='sticky top-0 flex w-full origin-top flex-col items-center justify-center px-4'
     >
-      <card.Icon width='48' height='48' className='mb-4' />
+      <div className='flex flex-row'>
+        <card.Icon width='48' height='48' className='mb-4' />
+        {card.Icon2 && <card.Icon2 width='48' height='48' className='mb-4 ml-2' />}
+      </div>
       <h3 className='mb-6 text-center text-4xl font-semibold md:text-6xl'>{card.title}</h3>
       <p className='mb-8 max-w-lg text-center text-sm md:text-base'>{card.description}</p>
       <a
@@ -96,9 +101,10 @@ const CARDS = [
   {
     id: 2,
     Icon: Instagram, // Use an icon that represents social media or updates
+    Icon2: Facebook,
     title: 'Keep in the Loop!',
     description:
-      'Check out the Supernova Dental Instagram and stay updated with the latest news, promotions and dental care tips by following us on social media.',
+      'Check out the Supernova Dental social media pages and stay updated with the latest news, promotions and dental care tips by following us.',
     buttonText: 'Follow Us',
     ctaClasses: 'bg-white', // Adjust color scheme as needed
     routeTo: '/social',
@@ -107,8 +113,7 @@ const CARDS = [
     id: 3,
     Icon: ChatBubbleIcon, // Use an icon that represents questions or contact
     title: 'Got a Question or Enquiry?',
-    description:
-      "If you have any questions or would like to make an enquiry, feel free to get in touch with us. We're happy to assist you!",
+    description: 'If you have any questions or would like to make an enquiry, feel free to get in touch with us.',
     buttonText: 'Make an Enquiry',
     ctaClasses: 'bg-gold', // Adjust colour scheme as needed
     routeTo: '/enquiry', // Link to the enquiry page
