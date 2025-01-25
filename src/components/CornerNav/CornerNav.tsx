@@ -71,12 +71,15 @@ const LinksOverlay = ({ setActive, handleClose }: any) => {
 
 const LinksContainer = ({ setActive, handleClose }: any) => {
   return (
-    <motion.div className='space-y-6 pt-2 pb-14 px-12 mx-auto'>
-      {LINKS.map((l, idx) => (
-        <NavLink key={l.title} href={l.href} idx={idx} setActive={setActive} handleClose={handleClose}>
-          {l.title}
-        </NavLink>
-      ))}
+    <motion.div className='space-y-6 pt-2 pb-8 px-12 mx-auto'>
+      {/* Grid layout for all links */}
+      <div className='grid grid-cols-2 gap-4 sm:grid-cols-2 xs:grid-cols-1'>
+        {LINKS.map((l, idx) => (
+          <NavLink key={l.title} href={l.href} idx={idx} setActive={setActive} handleClose={handleClose}>
+            {l.title}
+          </NavLink>
+        ))}
+      </div>
     </motion.div>
   );
 };
