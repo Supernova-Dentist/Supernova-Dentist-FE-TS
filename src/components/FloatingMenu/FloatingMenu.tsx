@@ -19,37 +19,20 @@ export default function FloatingMenu() {
 
   // Messenger action with proper fallback
   function handleMessengerClick() {
-    const messengerDeepLink = 'fb-messenger://user-thread/61567279201971';
+    // const messengerDeepLink = 'fb-messenger://user-thread/61567279201971';
     const messengerWebLink = 'https://www.messenger.com/t/61567279201971';
 
-    if (isMobile) {
-      // Attempt to open the deep link
-      window.location.href = messengerDeepLink;
-      setTimeout(() => {
-        // If the deep link fails, fall back to the web link
-        window.open(messengerWebLink, '_blank');
-      }, 500); // Allow time for the deep link to process
-    } else {
-      // Always use the web link for desktop
-      window.open(messengerWebLink, '_blank');
-    }
+    // Always use the web link for desktop
+    window.open(messengerWebLink, '_blank');
   }
 
   // Instagram action with proper fallback
   function handleInstagramClick() {
-    const instagramDeepLink = 'instagram://user?username=supernova.dental';
+    // const instagramDeepLink = 'instagram://user?username=supernova.dental';
     const instagramWebLink = 'https://www.instagram.com/supernova.dental/';
-    if (isMobile) {
-      // Attempt to open the deep link
-      window.location.href = instagramDeepLink;
-      setTimeout(() => {
-        // If the deep link fails, fall back to the web link
-        window.open(instagramWebLink, '_blank');
-      }, 500); // Give the deep link a chance to open
-    } else {
-      // Always use the web link for desktop
-      window.open(instagramWebLink, '_blank');
-    }
+
+    // Always use the web link for desktop
+    window.open(instagramWebLink, '_blank');
   }
 
   // Phone action
