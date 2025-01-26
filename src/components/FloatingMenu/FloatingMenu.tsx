@@ -2,49 +2,68 @@
 
 import { motion } from 'framer-motion';
 import { FaFacebookMessenger, FaInstagramSquare } from 'react-icons/fa';
-import { MdAdd, MdEmail, MdPhone } from 'react-icons/md'; // Import phone icon
+import { MdAdd, MdEmail, MdPhone } from 'react-icons/md';
 import { Action, Fab } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 import { useWindowSize } from '../blocks/MainNav/MainNav';
 
 export default function FloatingMenu() {
   const { width } = useWindowSize();
-
   const isMobile = width < 768;
   const event = isMobile ? 'click' : 'hover';
 
   // Email action
   function handleEmailClick() {
-    window.location.href = 'mailto:enquiries@supernovadental.co.uk'; // Use window.location.href instead of window.open for mailto
+    window.location.href = 'mailto:enquiries@supernovadental.co.uk';
   }
 
-  // Messenger action (native app deep link for mobile)
+  // Messenger action with proper fallback
   function handleMessengerClick() {
-    window.location.href = 'fb-messenger://user-thread/61567279201971'; // Use window.location.href for deep links
+    const messengerDeepLink = 'fb-messenger://user-thread/61567279201971';
+    const messengerWebLink = 'https://www.messenger.com/t/61567279201971';
+
+    if (isMobile) {
+      // Attempt to open the deep link
+      window.location.href = messengerDeepLink;
+      setTimeout(() => {
+        // If the deep link fails, fall back to the web link
+        window.open(messengerWebLink, '_blank');
+      }, 500); // Allow time for the deep link to process
+    } else {
+      // Always use the web link for desktop
+      window.open(messengerWebLink, '_blank');
+    }
   }
 
-  // Instagram action (native app deep link for mobile)
+  // Instagram action with proper fallback
   function handleInstagramClick() {
-    window.location.href = 'instagram://user?username=supernova.dental'; // Use window.location.href for deep links
+    const instagramDeepLink = 'instagram://user?username=supernova.dental';
+    const instagramWebLink = 'https://www.instagram.com/supernova.dental/';
+    if (isMobile) {
+      // Attempt to open the deep link
+      window.location.href = instagramDeepLink;
+      setTimeout(() => {
+        // If the deep link fails, fall back to the web link
+        window.open(instagramWebLink, '_blank');
+      }, 500); // Give the deep link a chance to open
+    } else {
+      // Always use the web link for desktop
+      window.open(instagramWebLink, '_blank');
+    }
   }
 
-  // Phone action (native dialer on mobile)
+  // Phone action
   function handlePhoneClick() {
-    window.location.href = 'tel:+441278228665'; // Use window.location.href for tel: protocol
+    window.location.href = 'tel:+441278228665';
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-      animate={{ opacity: 1, y: 0 }} // Animate in
-      transition={{ duration: 1.5 }} // Duration of the animation
-    >
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.5 }}>
       <Fab
         mainButtonStyles={{ backgroundColor: '#0f172a' }}
-        // Adjust position based on screen size
         style={{
-          bottom: isMobile ? -8.5 : 10, // Change bottom position for mobile and desktop
-          right: isMobile ? -8.5 : 10, // Change right position for mobile and desktop
+          bottom: isMobile ? -8.5 : 10,
+          right: isMobile ? -8.5 : 10,
         }}
         icon={<MdAdd size={26} />}
         event={event}
