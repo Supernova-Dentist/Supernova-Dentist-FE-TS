@@ -34,7 +34,7 @@ export const pricingItems = [
   {
     title: 'Hygiene Treatments',
     products: [
-      { description: 'Initial direct access hygiene assessment', price: 195 },
+      { description: 'Initial direct access hygiene assessment', price: 135 },
       {
         description: `Includes pictures of teeth and gums, free hygiene support
 pack, superficial professional mechanical plaque removal and air polishing for stain removal`,
