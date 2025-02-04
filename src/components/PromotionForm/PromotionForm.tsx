@@ -127,19 +127,25 @@ export default function PromotionForm() {
         >
           <div className='container grid items-center lg:justify-start justify-center gap-8 px-4 md:px-8 lg:grid-cols-2 lg:gap-16 mx-auto max-w-[1250px]'>
             <div className='space-y-6 text-center lg:text-left'>
-              <div className='inline-block rounded-lg bg-grey px-4 py-2 text-md text-gray-50'>Limited Time Offer</div>
-              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>Exclusive Promotions</h2>
+              <div className='inline-block rounded-lg bg-grey px-4 py-2 text-md text-gray-50'>
+                Welcoming New Patients!
+              </div>
+              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
+                Start Your Journey with Us
+              </h2>
               <p className='max-w-[700px] text-center sm:text-left text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
-                Take advantage of our limited-time offers, including savings on examinations, hygiene appointments and
-                Invisalign treatments. Don&apos;t miss out! Register by 31st January 2025.
+                We are excited to welcome new patients to our practice! Sign up today and get started on your path to a
+                healthier smile. Join us to experience top-quality care and personalised treatments for all your dental
+                needs.
               </p>
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4 p-0 md:p-4'>
-                  <CardTitle className='text-2xl'>Sign Up for Exclusive Offers</CardTitle>
+                  <CardTitle className='text-2xl'>Welcoming New Patients</CardTitle>
                   <CardDescription className='text-lg text-gray-500'>
-                    Fill out the form to sign up and receive our latest promotions and updates.
+                    Supernova Dental is now open to new patients! Whether you&apos;re looking for routine care or
+                    advanced treatments, our team is here to support your smile.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className='p-0 md:p-4 md:pt-0'>
@@ -202,8 +208,8 @@ export default function PromotionForm() {
                         onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                       />
                       <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
-                        I don’t want to receive emails about Supernova Dental and related Supernova Dental updates and promotions. By
-                        not checking the box, I agree to be opted in by default.
+                        I don’t want to receive emails about Supernova Dental and related Supernova Dental updates and
+                        promotions. By not checking the box, I agree to be opted in by default.
                       </Label>
                     </div>
                     {errors.optOutEmails && (
