@@ -29,7 +29,7 @@ export function VideoAnimationSection() {
   });
 
   return (
-    <div className='min-h-[101vh] flex flex-col items-center justify-center py-12 bg-gradient-to-b from-cream to-white'>
+    <div className='min-h-[101vh] flex flex-col items-center justify-center py-12 bg-gradient-to-b from-white to-cream'>
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
