@@ -12,15 +12,15 @@ import FindUsSection from '@/components/FindUsSection/FindUsSection';
 import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 
 export const metadata = {
-  title: 'Supernova Dental - 50% Off Your First Exam & Hygiene Appointment in Bridgwater',
+  title: 'Supernova Dental - Luxury Private Dental Care in Bridgwater',
   description:
-    "Take advantage of Supernova Dental's 50% off offer on your first exam and hygiene appointment in Bridgwater. Book now and start your journey to a healthier smile!",
+    "Supernova Dental is a luxury private dental practice in Bridgwater, welcoming new patients. Experience exceptional dental care tailored to your needs.",
   keywords:
-    'invisalign bridgwater, invisalign, emergency dentist bridgwater, dental exam offer, dental hygiene offer, Invisalign, Bridgwater dentist, teeth whitening, healthy smile, dentist promotions',
+    'luxury dental care, private dentist Bridgwater, Invisalign Bridgwater, teeth whitening, emergency dentist Bridgwater, dental implants, cosmetic dentistry, new patients',
   openGraph: {
-    title: 'Supernova Dental - Exclusive Offers for New Patients',
+    title: 'Supernova Dental - Luxury Private Dental Care in Bridgwater',
     description:
-      'Join Supernova Dental in Bridgwater with exclusive offers: 50% off your first dental exam and hygiene appointment. Book today!',
+      'Supernova Dental offers premium private dental care in Bridgwater. We are currently welcoming new patients. Book your free Invisalign and Implant consultations today!',
     url: 'https://www.supernovadental.co.uk',
     type: 'website',
     images: [
@@ -33,6 +33,7 @@ export const metadata = {
     ],
   },
 };
+
 
 export default function Home() {
   return (
