@@ -12,15 +12,15 @@ import FindUsSection from '@/components/FindUsSection/FindUsSection';
 import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 
 export const metadata = {
-  title: 'Supernova Dental - Luxury Private Dental Care in Bridgwater',
+  title: 'Supernova Dental - Free Invisalign & Implant Consultations in Bridgwater',
   description:
-    "Supernova Dental is a luxury private dental practice in Bridgwater, welcoming new patients. Experience exceptional dental care tailored to your needs.",
+    'Supernova Dental is a luxury private dental practice in Bridgwater, offering free Invisalign and implant consultations, emergency appointments, hygiene appointments, and practice plans. Now welcoming new patients.',
   keywords:
-    'luxury dental care, private dentist Bridgwater, Invisalign Bridgwater, teeth whitening, emergency dentist Bridgwater, dental implants, cosmetic dentistry, new patients',
+    'free Invisalign consultation, Bridgwater Invisalign, free implant consultation, private dentist Bridgwater, emergency dentist Bridgwater, Bridgwater dentist, dental hygiene appointment, practice plans, teeth whitening, cosmetic dentistry, dental implants, new patients',
   openGraph: {
-    title: 'Supernova Dental - Luxury Private Dental Care in Bridgwater',
+    title: 'Supernova Dental - Free Invisalign & Implant Consultations in Bridgwater',
     description:
-      'Supernova Dental offers premium private dental care in Bridgwater. We are currently welcoming new patients. Book your free Invisalign and Implant consultations today!',
+      'Supernova Dental offers luxury private dental care in Bridgwater, including free Invisalign and implant consultations, emergency appointments, and practice plans. Book your appointment today!',
     url: 'https://www.supernovadental.co.uk',
     type: 'website',
     images: [
@@ -35,13 +35,14 @@ export const metadata = {
 };
 
 
+
 export default function Home() {
   return (
     <main>
       <Welcome />
       <PromotionForm />
       <AboutSection />
-      <Pricing />
+      {/* <Pricing /> */}
       <DentallyTutorial />
       <SmileTransformations />
       <GoogleReviews />
