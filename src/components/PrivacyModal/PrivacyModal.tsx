@@ -109,7 +109,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <SubHeader>How We Collect Personal Data</SubHeader>
                 <p>We collect personal data through the following methods:</p>
                 <ul>
-                  <li>Contact forms for appointments or inquiries</li>
+                  <li>Contact forms for appointments or enquiries</li>
                   {/* <li>Online payments (handled by Dentally)</li> */}
                   {/* <li>Online booking through Dentally</li> */}
                   {/* <li>Website cookies and tracking tools</li> */}

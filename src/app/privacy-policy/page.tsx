@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
           <SubHeader>How We Collect Personal Data</SubHeader>
           <p className='text-left'>We collect personal data through the following methods:</p>
           <ul className='text-left'>
-            <li>Contact forms for appointments or inquiries</li>
+            <li>Contact forms for appointments or enquiries</li>
             <li>User account registration (if applicable)</li>
           </ul>
         </SectionSpacing>
