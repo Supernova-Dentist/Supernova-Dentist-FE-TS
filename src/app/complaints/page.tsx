@@ -61,9 +61,8 @@ export default function Complaints() {
           <SubHeader>Response and Resolution Timeline</SubHeader>
           <p>
             We will acknowledge receipt of your complaint in writing within two business days and provide you with a
-            copy of our complaints procedure. We aim to investigate and address the issue within{' '}
-            <strong>10 business days</strong>. If we cannot complete the investigation within this timeframe, we will
-            notify you of the reasons for the delay and provide an estimated resolution time.
+            copy of our complaints procedure. We will provide you with updates on the progress of your complaint every{' '}
+            <strong>10 business days</strong> until the matter is resolved.
           </p>
 
           <p>
