@@ -9,7 +9,7 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://firebasestorage.googleapis.com/v0/b/supernova-dental.appspot.com/o/Supernova_cover.png?alt=media&amp;token=fce9e004-b06b-4348-a65f-ce6371631b15</image:loc>
-      <image:caption>Supernova Dental - Smile Brighter Promotion</image:caption>
+      <image:caption>Supernova Dental - Smile Brighter</image:caption>
     </image:image>
   </url>
 
@@ -51,5 +51,21 @@
     <lastmod>2025-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Complaints Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/complaints</loc>
+    <lastmod>2025-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Privacy Policy Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/privacy-policy</loc>
+    <lastmod>2025-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

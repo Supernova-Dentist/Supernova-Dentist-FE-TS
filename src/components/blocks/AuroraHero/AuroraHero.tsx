@@ -55,7 +55,7 @@ const AuroraHero = () => {
           transition={{ duration: 1.2, delay: 0.7 }}
           className='mb-2 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm'
         >
-          Limited Time Offer Now Live!
+          Now Taking On New Patients!
         </motion.span>
         <SparklesPreview />
 
