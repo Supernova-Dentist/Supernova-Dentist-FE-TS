@@ -9,7 +9,7 @@ export const pricingItems = [
         price: 99,
       },
       {
-        description: '(Includes diagnostic small x-rays, free full mouth scan and diagnostic pictures)',
+        description: '(Includes diagnostic small X-rays, free full mouth scan and diagnostic pictures)',
       },
       { description: 'Routine examination', price: 55 },
       { description: 'Non-emergency consultation/assessment', price: 55 },
@@ -19,15 +19,20 @@ export const pricingItems = [
       { description: 'Small X-Rays', price: 12, priceDescription: 'each' },
       { description: 'Large full mouth X-ray (OPG)', price: 50 },
       { description: 'Cone-beam CT scan', price: 175 },
+    ],
+  },
+  {
+    title: 'Emergency',
+    products: [
       {
-        description: 'Emergency assessment (registered patient)',
+        description: 'Emergency Assessment (registered patient)',
         price: 65,
-        priceDescription: '+ treatment cost if required',
+        priceDescription: '+ Treatment cost if required',
       },
       {
-        description: 'One off emergency appointment (non registered)',
+        description: 'Emergency Appointment (non registered)',
         price: 150,
-        priceDescription: 'includes simple emergency treatment',
+        priceDescription: 'Includes simple emergency treatment',
       },
     ],
   },
@@ -44,7 +49,7 @@ pack, superficial professional mechanical plaque removal and air polishing for s
       {
         description: `Full root surface debridement`,
         price: 150,
-        priceDescription: 'each',
+        priceDescription: 'per appointment',
       },
     ],
   },
@@ -53,22 +58,40 @@ pack, superficial professional mechanical plaque removal and air polishing for s
     products: [
       { description: 'Adult Membership Plan (16+)', price: 24.99, priceDescription: 'per month' },
       {
-        description: `- Includes 2 routine examinations, 2 hygiene maintenance appointments and 1 emergency assessment per
-year, required pictures and scans as well as up to 2 routine small x-rays each year if required.`,
+        description: `Includes:`,
       },
       {
-        description: `- Gives free access to worldwide emergency cover.`,
+        description: `- 2 Routine examinations per year`,
+      },
+      {
+        description: `- 2 Hygiene maintenance appointments per year`,
+      },
+      {
+        description: `- 1 Emergency assessment per
+year`,
+      },
+      {
+        description: `- Routine small X-rays pictures and scans`,
+      },
+      {
+        description: `- Free access to worldwide emergency cover`,
       },
       {
         description: ``,
       },
       { description: "Children's Membership Plan", price: 5.99, priceDescription: 'per month' },
       {
-        description: `- Includes 2 routine examinations per
-year including tooth brushing and dietary advice.`,
+        description: `Includes:`,
       },
       {
-        description: `- Includes fluoride varnish application.`,
+        description: `- 2 Routine examinations per
+year`,
+      },
+      {
+        description: `- Fluoride varnish application`,
+      },
+      {
+        description: `- Free access to worldwide emergency cover`,
       },
     ],
   },
@@ -86,9 +109,9 @@ year including tooth brushing and dietary advice.`,
       { description: 'Porcelain, Emax or Zirconia', priceDescriptionBefore: 'from', price: 849 },
       { description: 'Gold - Additional charge depending on quantity.' },
       { isHeader: true, description: 'Dental Bridge:' },
-      { description: 'Resin bonded bridge', priceDescriptionBefore: 'from', price: 475, priceDescription: 'per unit' },
+      { description: 'Resin Bonded Bridge', priceDescriptionBefore: 'from', price: 475, priceDescription: 'per unit' },
       {
-        description: 'Conventional fixed bridge (fixed with crowns)',
+        description: 'Conventional Fixed Bridge',
         priceDescriptionBefore: 'from',
         price: 649,
         priceDescription: 'per unit',
@@ -99,11 +122,8 @@ year including tooth brushing and dietary advice.`,
     title: 'Dental Aesthetics/Smile Makeovers',
     products: [
       {
-        description: `Bespoke assessment and individual treatment plan required as part of assessment prior to treatment.
-`,
-      },
-      {
-        description: '',
+        isHeader: true,
+        description: `Composite:`,
       },
       {
         description: 'Composite edge bonding',
@@ -112,7 +132,7 @@ year including tooth brushing and dietary advice.`,
         priceDescription: 'per tooth',
       },
       {
-        description: 'Composite Bonding/Veneers',
+        description: 'Composite bonding/Veneers',
         priceDescriptionBefore: 'from',
         price: 275,
         priceDescription: 'per tooth',
@@ -123,7 +143,7 @@ year including tooth brushing and dietary advice.`,
         description: `Veneers:`,
       },
       {
-        description: 'Highly aesthetic custom porcelain/emax veneers',
+        description: 'Highly aesthetic custom Porcelain/Emax Veneers',
         priceDescriptionBefore: 'from',
         price: 799,
         priceDescription: 'per unit',
@@ -139,12 +159,12 @@ year including tooth brushing and dietary advice.`,
         description: `Tooth Whitening:`,
       },
       {
-        description: 'White dental beauty tooth whitening including assessments, before/after photos and custom trays',
+        description: 'White dental beauty tooth whitening',
         price: 425,
       },
 
       {
-        description: 'In house tooth whitening for when rapid results are required including home trays',
+        description: 'In house tooth whitening for rapid results including home trays',
         price: 799,
       },
     ],
@@ -153,7 +173,7 @@ year including tooth brushing and dietary advice.`,
     title: 'Root Canal Treatment',
     products: [
       { description: 'Single rooted tooth', priceDescriptionBefore: 'from', price: 599 },
-      { description: 'Premolar teeth', priceDescriptionBefore: 'from', price: 649 },
+      { description: 'Premolar tooth', priceDescriptionBefore: 'from', price: 649 },
       { description: 'Molar root canal treatment', priceDescriptionBefore: 'from', price: 749 },
       { description: 'Emergency extirpation', priceDescriptionBefore: 'from', price: 175 },
     ],
@@ -197,7 +217,7 @@ discomfort.`,
   {
     title: 'Invisalign',
     products: [
-      { description: 'Invisalign consultation', priceDescriptionBefore: 'free of charge' },
+      { description: 'Invisalign consultation', priceDescriptionBefore: 'Free' },
       { isHeader: true, description: 'Invisalign GO (up to 26 aligners):' },
       { description: 'Single arch', priceDescriptionBefore: 'from', price: 2895 },
       { description: 'Dual arch', priceDescriptionBefore: 'from', price: 3895 },
@@ -207,9 +227,9 @@ discomfort.`,
       },
       { description: 'Single arch', priceDescriptionBefore: 'from', price: 3999 },
       { description: 'Dual arch', priceDescriptionBefore: 'from', price: 4999 },
-      { isHeader: true, description: 'Retainers  *required as key part of any Invisalign course of treatment:' },
+      { isHeader: true, description: 'Retainers:' },
 
-      { description: 'Invisalign vivera retainers (3 sets included)', price: 399 },
+      { description: 'Invisalign Vivera retainers (3 sets included)', price: 399 },
       { description: 'Essix retainers', price: 199 },
       { description: 'Fixed/bonded wire retainer', price: 250, priceDescription: 'per arch' },
     ],
