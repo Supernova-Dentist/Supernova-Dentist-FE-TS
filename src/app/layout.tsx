@@ -90,7 +90,7 @@ export default function RootLayout({
         <FloatingMenu />
         <AccessibilityWidget />
         {/* <ScrollToTopButton /> */}
-        <PromotionFooter />
+        <Footer />
       </body>
     </html>
   );
