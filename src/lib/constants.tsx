@@ -13,12 +13,12 @@ export const cosmeticServices = [
 ];
 
 export const practiceInfo = [
-  { name: 'Our Clinic', link: '/clinic' },
-  { name: 'Meet Dr. Young', link: '/meet-dr-young' },
-  { name: 'Meet The Team', link: '/team' },
+  { name: 'Home', link: '/' },
+  { name: 'Practice', link: '/practice' },
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
+  { name: 'Social', link: '/social' },
 ];
 
 export const generalServices = [
@@ -63,17 +63,19 @@ export const navLinks = [
   { name: 'Social', url: '/social', flyout: [] },
 ];
 
-export const officeInfo = {
-  address: 'Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ',
+export const locationInfo = {
+  address: 'Supernova Building, Marsh Lane, Huntworth Gate, Bridgwater TA6 6LQ',
   phone: '(816) 555-5555',
   text: '(816) 555-4444',
 };
 
-export const reviewLinks = ['Google', 'Yelp', 'Facebook'];
-
 export const socialIcons = [
-  { icon: <IoLogoInstagram size={28} />, name: 'Instagram' },
-  { icon: <GrFacebookOption size={28} />, name: 'Facebook' },
+  { icon: <IoLogoInstagram size={28} />, name: 'Instagram', url: 'https://www.instagram.com/supernova.dental' },
+  {
+    icon: <GrFacebookOption size={28} />,
+    name: 'Facebook',
+    url: 'https://www.facebook.com/profile.php?id=61567279201971',
+  },
 ];
 
 export const DentallyPortal = 'https://supernova.dentr.net';
