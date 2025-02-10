@@ -26,17 +26,17 @@ export const faqItems: FAQItem[] = [
   {
     question: 'How long does Invisalign treatment take?',
     answer:
-      'The treatment can be completed in as little as 6 months. During your consultation, we will provide a tailored treatment plan and timeline just for you.',
+      'The treatment can be completed in less than 6 months. After your consultation, we will provide a tailored treatment plan and timeline just for you.',
   },
   {
     question: 'Are there food restrictions with Invisalign?',
     answer:
-      'With Invisalign, there are no food restrictions! Since the aligners are removable, you can enjoy all your favorite meals. Just remember to brush your teeth before reinserting the aligners to keep your smile fresh and clean.',
+      'With Invisalign, there are no food restrictions. Since the aligners are removable, you can enjoy all your favorite meals. Just remember to brush your teeth before reinserting the aligners to keep your smile fresh and clean.',
   },
   {
     question: 'How can my treatment cost be spread out?',
     answer:
-      'Following the initial deposit, the treatment cost can be spread evenly throughout the course of your planned treatment. This can be discussed and planned with our team to tailor to your needs.',
+      'Following the initial deposit, the treatment cost can be spread throughout the course of your planned treatment or even longer if required. This can be discussed and planned with our team to be tailored to your needs.',
   },
 ];
 

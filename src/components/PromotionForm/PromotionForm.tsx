@@ -60,13 +60,6 @@ export default function PromotionForm() {
         throw new Error(String(errorMessage));
       }
 
-      // Trigger Google Ads conversion tracking
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
-          send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
-        });
-      }
-
       setShowSuccessModal(true);
     } catch (error) {
       setShowErrorModal(true);
@@ -134,18 +127,17 @@ export default function PromotionForm() {
                 Start Your Journey with Us
               </h2>
               <p className='max-w-[700px] text-center sm:text-left text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
-                We are excited to welcome new patients to our practice! Sign up today and get started on your path to a
-                healthier smile. Join us to experience top-quality care and personalised treatments for all your dental
-                needs.
+                Looking for a reliable <strong>Bridgwater dentist</strong>? Supernova Dental is accepting new patients,
+                offering expert care for routine check-ups, cosmetic dentistry, and Invisalign treatments.
               </p>
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4 p-0 md:p-4'>
-                  <CardTitle className='text-2xl'>Welcoming New Patients</CardTitle>
+                  <CardTitle className='text-2xl'>Looking for a Dentist in Bridgwater?</CardTitle>
                   <CardDescription className='text-lg text-gray-500'>
-                    Supernova Dental is now open to new patients! Whether you&apos;re looking for routine care or
-                    advanced treatments, our team is here to support your smile.
+                    Supernova Dental provides expert dental care for all your needs. Register today and visit our
+                    trusted team in Bridgwater!
                   </CardDescription>
                 </CardHeader>
                 <CardContent className='p-0 md:p-4 md:pt-0'>
