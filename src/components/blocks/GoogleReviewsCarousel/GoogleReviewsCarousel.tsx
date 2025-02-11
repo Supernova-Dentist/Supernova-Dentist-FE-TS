@@ -86,19 +86,12 @@ export default function GoogleReviewsCarousel() {
             <p>{selectedReview.review}</p>
           </div>
           <div className='flex justify-center mt-2'>
-            <LinkPreview
-              isStatic
-              imageSrc={selectedReview.previewUrl}
-              url={selectedReview.url}
-              className='font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500'
+            <button
+              onClick={(e) => handleViewOnGoogleClick(e, selectedReview.url)}
+              className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
             >
-              <button
-                onClick={(e) => handleViewOnGoogleClick(e, selectedReview.url)}
-                className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
-              >
-                View on Google
-              </button>
-            </LinkPreview>
+              View on Google
+            </button>
           </div>
         </Modal>
       )}

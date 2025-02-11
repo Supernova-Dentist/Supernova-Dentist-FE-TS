@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { IoStar } from 'react-icons/io5';
-import { LinkPreview } from '../ui/link-preview';
 
 export default function GoogleReview({
   name,
@@ -51,19 +50,13 @@ export default function GoogleReview({
           >
             Read more
           </button>
-          <LinkPreview
-            isStatic
-            imageSrc={previewUrl}
-            url={url}
-            className='font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500'
+
+          <button
+            onClick={handleViewOnGoogleClick}
+            className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
           >
-            <button
-              onClick={handleViewOnGoogleClick}
-              className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
-            >
-              View on Google
-            </button>
-          </LinkPreview>
+            View on Google
+          </button>
         </div>
       </div>
     </div>
