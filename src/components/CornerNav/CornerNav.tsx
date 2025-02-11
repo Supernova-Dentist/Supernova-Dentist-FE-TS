@@ -160,7 +160,7 @@ const Logo = () => {
       exit={{ opacity: 0, y: -12 }}
       className=''
     >
-      <img src='/favicon.ico' alt='Supernova Dental Logo' className='w-20 h-auto inline' />
+      <img src='/favicon.ico' alt='Supernova Dental Logo - Bridgwater Dentist' className='w-20 h-auto inline' />
     </motion.a>
   );
 };

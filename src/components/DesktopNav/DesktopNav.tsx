@@ -27,7 +27,7 @@ export default function DesktopNav() {
           <div>
             <FlyoutLink href='/' flyoutItems={[]}>
               Supernova Dental{' '}
-              <img src='/favicon.ico' alt='Supernova Dental Logo' className='ml-2 h-10 w-auto inline ' />
+              <img src='/favicon.ico' alt='Supernova Dental Logo - Bridgwater Dentist' className='ml-2 h-10 w-auto inline ' />
             </FlyoutLink>
           </div>
 
