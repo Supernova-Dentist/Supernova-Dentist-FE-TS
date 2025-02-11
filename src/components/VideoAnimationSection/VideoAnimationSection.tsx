@@ -71,7 +71,7 @@ export function VideoAnimationSection() {
         <div className='mt-2 pt-8 pb-12 lg:pb-24 flex justify-center'>
           <button
             onClick={scrollToPromotionForm}
-            className='bg-lightGold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
+            className='bg-gold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
           >
             Take the first step!
           </button>

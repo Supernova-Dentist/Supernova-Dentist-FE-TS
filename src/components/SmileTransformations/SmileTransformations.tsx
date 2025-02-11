@@ -89,7 +89,7 @@ export default function SmileTransformations() {
         <div className='flex justify-center mt-8'>
           <button
             onClick={scrollToPromotionForm}
-            className='bg-lightGold text-white px-8 py-4 rounded-lg text-lg font-semibold'
+            className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
           >
             Transform now!
           </button>

@@ -119,15 +119,15 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
             />
           </div>
         </div>
-      </motion.div>
       <div className='flex justify-center pb-6'>
         <button
           onClick={scrollToPromotionForm}
-          className='bg-lightGold text-white px-8 py-4 rounded-lg text-lg font-semibold'
+          className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
         >
           Begin Your Journey!
         </button>
       </div>
+      </motion.div>
     </div>
   );
 };

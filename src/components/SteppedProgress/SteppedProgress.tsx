@@ -165,7 +165,7 @@ const Step = ({ num, isActive }: { num: number; isActive: boolean }) => {
           )}
         </AnimatePresence>
       </div>
-      {isActive && <div className='absolute z-0 -inset-1.5 bg-lightGold rounded-full animate-pulse' />}
+      {isActive && <div className='absolute z-0 -inset-1.5 bg-gold rounded-full animate-pulse' />}
     </div>
   );
 };
