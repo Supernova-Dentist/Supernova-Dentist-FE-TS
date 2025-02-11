@@ -10,17 +10,18 @@ import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
+import Head from 'next/head';
 
 export const metadata = {
-  title: 'Supernova Dental - Private Dentist in Bridgwater | Invisalign & Implants',
+  title: 'Bridgwater Dentist | Private Dental Care & Invisalign - Supernova Dental',
   description:
-    'Looking for a dentist in Bridgwater? Supernova Dental offers private dental care, including Invisalign, dental implants, and emergency appointments. Now welcoming new patients.',
+    'Looking for a trusted dentist in Bridgwater? Supernova Dental provides expert dental care, including Invisalign, implants, dental hygiene, and emergency appointments. Now accepting new patients!',
   keywords:
-    'dentist in Bridgwater, Bridgwater dentist, private dentist Bridgwater, Invisalign Bridgwater, dental implants Bridgwater, emergency dentist Bridgwater, dental hygiene appointment, teeth whitening, cosmetic dentistry, new patients',
+    'dentist in Bridgwater, Bridgwater dentist, private dentist Bridgwater, Invisalign Bridgwater, Bridgwater Invisalign, dental implants Bridgwater, emergency dentist Bridgwater, dental hygiene appointment, teeth whitening, teeth cleaning, cosmetic dentistry, new patients, dentist near me, best dentist in Bridgwater, private dental practice Bridgwater, family dentist Bridgwater, dental care Bridgwater, dental services in Bridgwater, Invisalign for adults Bridgwater, affordable dentist in Bridgwater, trusted dentist Bridgwater, teeth implants Bridgwater, best emergency dentist Bridgwater, dentist open weekends Bridgwater, children’s dentist in Bridgwater, best dental practice Bridgwater, Invisalign braces in Bridgwater, cosmetic dental services Bridgwater, gentle dentist Bridgwater, local dental care Bridgwater, dentist with payment plans Bridgwater',
   openGraph: {
-    title: 'Supernova Dental - Private Dentist in Bridgwater | Invisalign & Implants',
+    title: 'Supernova Dental - Trusted Private Dentist in Bridgwater | Invisalign & Implants',
     description:
-      'Supernova Dental is a trusted private dentist in Bridgwater, offering high-quality dental care, Invisalign, dental implants, and emergency appointments. Book today!',
+      'Need a dentist in Bridgwater? Supernova Dental offers Invisalign, dental implants, emergency care & more. Book today!',
     url: 'https://www.supernovadental.co.uk',
     type: 'website',
     images: [
@@ -35,8 +36,116 @@ export const metadata = {
 };
 
 export default function Home() {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: 'https://www.supernovadental.co.uk',
+    name: 'Supernova Dental',
+    description:
+      'Looking for a trusted dentist in Bridgwater? Supernova Dental provides expert dental care, including Invisalign, implants, dental hygiene, and emergency appointments. Now accepting new patients!',
+    keywords:
+      'dentist in Bridgwater, Bridgwater dentist, private dentist Bridgwater, Invisalign Bridgwater, Bridgwater Invisalign, dental implants Bridgwater, emergency dentist Bridgwater, dental hygiene appointment, teeth whitening, teeth cleaning, cosmetic dentistry, new patients, dentist near me, best dentist in Bridgwater, private dental practice Bridgwater, family dentist Bridgwater, dental care Bridgwater, dental services in Bridgwater, Invisalign for adults Bridgwater, affordable dentist in Bridgwater, trusted dentist Bridgwater, teeth implants Bridgwater, best emergency dentist Bridgwater, dentist open weekends Bridgwater, children’s dentist in Bridgwater, best dental practice Bridgwater, Invisalign braces in Bridgwater, cosmetic dental services Bridgwater, gentle dentist Bridgwater, local dental care Bridgwater, dentist with payment plans Bridgwater',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Supernova Dental',
+      url: 'https://www.supernovadental.co.uk',
+      logo: '/favicon.ico',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+44 1278 228665',
+        contactType: 'Customer Service',
+        email: 'enquiries@supernovadental.co.uk',
+        areaServed: 'GB',
+        availableLanguage: 'English',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
+        addressLocality: 'Bridgwater',
+        postalCode: 'TA6 6LQ',
+        addressCountry: 'GB',
+      },
+      sameAs: [
+        'https://www.facebook.com/profile.php?id=61567279201971',
+        'https://www.instagram.com/supernova.dental/',
+        'https://g.co/kgs/qqvPcF1',
+      ],
+    },
+    mainEntityOfPage: 'https://www.supernovadental.co.uk',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Monday',
+        opens: '08:15',
+        closes: '18:15',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Tuesday',
+        opens: '08:15',
+        closes: '18:15',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Wednesday',
+        opens: '08:15',
+        closes: '18:15',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Thursday',
+        opens: '08:15',
+        closes: '18:15',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '09:00',
+        closes: '13:00',
+      },
+    ],
+    openingHours: ['Mo 08:15-18:15', 'Tu 08:15-18:15', 'We 08:15-18:15', 'Th 08:15-18:15', 'Sa 09:00-13:00'],
+    rating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '13',
+    },
+    openGraph: {
+      title: 'Supernova Dental - Trusted Private Dentist in Bridgwater | Invisalign & Implants',
+      description:
+        'Need a dentist in Bridgwater? Supernova Dental offers Invisalign, dental implants, emergency care & more. Book today!',
+      url: 'https://www.supernovadental.co.uk',
+      type: 'website',
+      images: [
+        {
+          url: '/favicon.ico',
+          width: 500,
+          height: 500,
+          alt: 'Supernova Dental Logo',
+        },
+      ],
+    },
+  };
+
   return (
     <main>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name='description' content={metadata.description} />
+        <meta name='keywords' content={metadata.keywords} />
+        <meta property='og:title' content={metadata.openGraph.title} />
+        <meta property='og:description' content={metadata.openGraph.description} />
+        <meta property='og:url' content={metadata.openGraph.url} />
+        <meta property='og:type' content={metadata.openGraph.type} />
+        <meta property='og:image' content={metadata.openGraph.images[0].url} />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      </Head>
+
       <Welcome />
       <PromotionForm />
       <AboutSection />
