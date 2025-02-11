@@ -73,7 +73,7 @@ export default function FindUsInfoSection() {
             }}
             scrolling='no'
             frameBorder='0'
-            allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+            allow='clipboard-write; encrypted-media; picture-in-picture; web-share'
             allowFullScreen={true}
           />
         </div>
