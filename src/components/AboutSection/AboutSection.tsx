@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import OverallGoogleRating from '../blocks/OverallGoogleRating/OverallGoogleRating';
@@ -40,9 +41,9 @@ export default function AboutSection() {
           Bridgwater. Now open and accepting new patients, our state-of-the-art practice blends advanced technology with
           a personal touch to ensure a comfortable and exceptional experience for every patient.
         </p>
-        <Button onClick={scrollToPromotionForm} className='mt-6 w-fit'>
-          Come see us!
-        </Button>
+        <Link href='/practice'>
+          <Button className='mt-6 w-fit p-6'>Learn More!</Button>
+        </Link>
       </motion.div>
 
       {/* Image Section */}
