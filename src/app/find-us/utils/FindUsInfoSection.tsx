@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
+import { motion } from 'framer-motion';
+import React from 'react';
 
 export default function FindUsInfoSection() {
   return (
@@ -65,6 +65,7 @@ export default function FindUsInfoSection() {
         {/* Video iframe with aspect ratio */}
         <div className='relative w-full' style={{ paddingTop: `${(476 / 267) * 100}%` }}>
           <iframe
+            title='Supernova Dental Parking Information Video'
             src='/assets/videos/supernova_parking.mp4'
             className='absolute top-0 left-0 w-full h-full rounded-lg lg:mt-8'
             style={{

@@ -4,6 +4,7 @@ export default function GoogleMap() {
   return (
     <div className='relative'>
       <iframe
+        title='Supernova Dental Location - Bridgwater Dentist'
         width='100%'
         height='350'
         referrerPolicy='no-referrer-when-downgrade'
