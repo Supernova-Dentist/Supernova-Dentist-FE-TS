@@ -19,39 +19,37 @@ export default function MobileNavigation() {
   };
 
   return (
-    <>
-      <div className='flex items-center justify-between px-4 py-2'>
-        {/* Logo aligned to the start */}
-        {!active && showContent && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className='flex items-center justify-start'
-          >
-            <Link href='/'>
-              <img src='/favicon.ico' alt='Logo' className='h-12' />
-            </Link>
-          </motion.div>
-        )}
+    <nav className='flex items-center justify-between px-4 py-2'>
+      {/* Logo aligned to the start */}
+      {!active && showContent && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className='flex items-center justify-start'
+        >
+          <Link href='/'>
+            <img src='/favicon.ico' alt='Logo' className='h-12' />
+          </Link>
+        </motion.div>
+      )}
 
-        {/* Center the Book Now button */}
-        {!active && showContent && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className='absolute left-1/2 transform -translate-x-1/2'
-          >
-            <Link target='_blank' href={`${DentallyPortal}`}>
-              <Button className='text-white'>Book Now</Button>
-            </Link>
-          </motion.div>
-        )}
+      {/* Center the Book Now button */}
+      {!active && showContent && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className='absolute left-1/2 transform -translate-x-1/2'
+        >
+          <Link target='_blank' href={`${DentallyPortal}`}>
+            <Button className='text-white'>Book Now</Button>
+          </Link>
+        </motion.div>
+      )}
 
-        {/* Render CornerNav component */}
-        <CornerNav active={active} setActive={setActive} handleClose={handleClose} />
-      </div>
-    </>
+      {/* Render CornerNav component */}
+      <CornerNav active={active} setActive={setActive} handleClose={handleClose} />
+    </nav>
   );
 }
