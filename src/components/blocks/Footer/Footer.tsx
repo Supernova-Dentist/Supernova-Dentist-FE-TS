@@ -57,7 +57,9 @@ export default function Footer() {
           <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Review Us</li>
 
-            <ReviewLink />
+            <li>
+              <ReviewLink />
+            </li>
           </ul>
 
           {/* Contact Us Section */}
