@@ -70,7 +70,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
 
             {/* Modal Header */}
             <div className='flex flex-col items-center justify-end bg-grey py-4'>
-              <Image src={logo} alt='logo' className='w-16 h-16 object-cover mt-2' />
+              <Image src={logo} alt='Supernova Dental logo - Your trusted Bridgwater Dentist' className='w-16 h-16 object-cover mt-2' />
               <SectionTitle title='Privacy Policy' className='text-2xl' />
             </div>
 
