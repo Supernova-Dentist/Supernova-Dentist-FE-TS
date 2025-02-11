@@ -1,11 +1,11 @@
-import Table from '../blocks/Table/Table';
-import TableHead from '../blocks/Table/TableHead/TableHead';
-import TableRow from '../blocks/Table/TableRow/TableRow';
-import TableCell from '../blocks/Table/TableCell/TableCell';
-import TableHeadCell from '../blocks/Table/TableHeadCell/TableHeadCell';
-import TableBody from '../blocks/Table/TableBody/TableBody';
-import { CheckIcon } from '@radix-ui/react-icons';
 import { XIcon } from '@heroicons/react/outline';
+import { CheckIcon } from '@radix-ui/react-icons';
+import Table from '../blocks/Table/Table';
+import TableBody from '../blocks/Table/TableBody/TableBody';
+import TableCell from '../blocks/Table/TableCell/TableCell';
+import TableHead from '../blocks/Table/TableHead/TableHead';
+import TableHeadCell from '../blocks/Table/TableHeadCell/TableHeadCell';
+import TableRow from '../blocks/Table/TableRow/TableRow';
 
 export default function ComparisonTable({ data }: ComparisonTable) {
   const { tableHeadData, tableBodyData } = data;
