@@ -106,21 +106,22 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
   });
 
   return (
-    <motion.div
-      ref={ref}
-      id={id}
-      initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-      transition={{ duration: 0.5 }}
-      className='w-full py-12 bg-gradient-to-b from-cream to-white'
-    >
-      <h2 className='text-2xl md:text-3xl font-bold mb-8 text-center text-gold'>Your Invisalign Journey</h2>
-      <hr className='border-t-2 border-gold w-20 mx-auto mb-8' />
-      <p className='text-lg md:text-xl text-center max-w-[35rem] mx-auto'>
-        Transforming your smile with Invisalign is a journey that involves several steps. Here&apos;s what you can
-        expect along the way:
-      </p>
-      <InvisalignTimeline data={timelineData} setImagesLoaded={setImagesLoaded} imagesLoaded={imagesLoaded} />
-    </motion.div>
+    <section className='w-full py-12 bg-gradient-to-b from-cream to-white'>
+      <motion.div
+        ref={ref}
+        id={id}
+        initial={{ opacity: 0, y: 20 }} // Initial state for the animation
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
+        transition={{ duration: 0.5 }}
+      >
+        <h2 className='text-2xl md:text-3xl font-bold mb-8 text-center text-gold'>Your Invisalign Journey</h2>
+        <hr className='border-t-2 border-gold w-20 mx-auto mb-8' />
+        <p className='text-lg md:text-xl text-center max-w-[35rem] mx-auto'>
+          Transforming your smile with Invisalign is a journey that involves several steps. Here&apos;s what you can
+          expect along the way:
+        </p>
+        <InvisalignTimeline data={timelineData} setImagesLoaded={setImagesLoaded} imagesLoaded={imagesLoaded} />
+      </motion.div>
+    </section>
   );
 }
