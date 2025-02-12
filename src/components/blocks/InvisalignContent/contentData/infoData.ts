@@ -4,8 +4,8 @@ export default {
     'Invisalign is a popular and effective orthodontic treatment that uses a series of clear, removable aligners to gradually straighten your teeth. These aligners are custom-made to fit your teeth and are virtually invisible, making them a discreet option for achieving a straighter smile.',
     'With Invisalign, you can achieve a beautiful smile without the inconvenience of traditional braces.',
   ],
-  advantagesTitle: 'Advantages of Invisalign:',
-  useCaseTitle: 'Treatment Cases:',
+  advantagesTitle: 'Advantages of Invisalign',
+  useCaseTitle: 'Invisalign Treatment Cases',
   videoSrc: '/assets/videos/invisalign_service.mp4',
   advantagesData: [
     { id: 1, heading: 'Discreet', text: 'Clear aligners are virtually invisible.' },
