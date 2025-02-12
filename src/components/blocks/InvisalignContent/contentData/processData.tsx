@@ -101,14 +101,13 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
   ];
 
   const { ref, inView } = useInView({
-    threshold: 0.2, // Trigger when 10% of the component is in view
+    threshold: 0.05, // Trigger when 10% of the component is in view
     triggerOnce: true, // Only play the animation once
   });
 
   return (
-    <section className='w-full py-12 bg-gradient-to-b from-cream to-white'>
+    <section ref={ref} className='w-full py-12 bg-gradient-to-b from-cream to-white'>
       <motion.div
-        ref={ref}
         id={id}
         initial={{ opacity: 0, y: 20 }} // Initial state for the animation
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
