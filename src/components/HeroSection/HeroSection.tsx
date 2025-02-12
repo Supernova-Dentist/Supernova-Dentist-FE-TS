@@ -13,7 +13,7 @@ export default function HeroSection({ data }: HeroSection) {
   return (
     <section
       ref={ref}
-      className='flex items-center justify-center w-full mx-auto bg-gradient-to-b from-white to-cream   py-20 md:py-32'
+      className='flex items-center justify-center w-full mx-auto py-20 md:py-32'
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }} // Initial state for the animation
