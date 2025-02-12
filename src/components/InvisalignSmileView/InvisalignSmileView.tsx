@@ -1,11 +1,26 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useInView } from 'react-intersection-observer';
 import Button from '../Button/Button';
 import SectionTitle from '../SectionTitle/SectionTitle';
 
 const InvisalignSmileView = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.2, // Trigger when 10% of the component is in view
+    triggerOnce: true, // Only play the animation once
+  });
+
   return (
-    <div className='py-12 p-4 mx-auto max-w-4xl'>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5 }}
+      className='py-12 p-4 mx-auto max-w-4xl'
+    >
       <SectionTitle title='Invisalign SmileView' />
 
       <hr className='border-t-2 border-gold w-20 mx-auto mt-4 mb-8' />
@@ -34,7 +49,7 @@ const InvisalignSmileView = () => {
           </Button>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
