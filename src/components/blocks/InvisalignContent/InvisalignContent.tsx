@@ -4,6 +4,7 @@ import ComparisonSection from '@/components/ComparisonSection/ComparisonSection'
 import FaqSection from '@/components/FaqSection/FaqSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import InfoSection from '@/components/InfoSection/InfoSection';
+import InvisalignSmileView from '@/components/InvisalignSmileView/InvisalignSmileView';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import benefitsData from './contentData/benefitsData';
@@ -16,10 +17,14 @@ import { tableData } from './contentData/tableData';
 export default function InvisalignContent() {
   return (
     <>
-      <HeroSection data={invisalignHeroData} />
+      <div className='from-white to-cream bg-gradient-to-b'>
+        <HeroSection data={invisalignHeroData} />
+        <InvisalignSmileView />
+      </div>
+
       <ServiceForm
         serviceName='Invisalign'
-        serviceChip='Free Consultation & Custom Treatment Plan'
+        serviceChip='Free Invisalign Consultation'
         serviceDescription='Get a personalised Invisalign treatment plan and discover how clear aligners can transform your smile.'
         formTitle='Sign up for your Free Invisalign Consultation'
         formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
@@ -28,6 +33,7 @@ export default function InvisalignContent() {
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
       </div>
+
       <div className='block'>
         <SlideTabsExample />
       </div>
