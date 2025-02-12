@@ -117,7 +117,7 @@ export default function ServiceForm({
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='form' ref={ref} className='w-full pb-8 bg-gradient-to-b from-cream to-white'>
+      <section id='form' ref={ref} className='w-full py-16 bg-gradient-to-b from-cream to-white'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ export default function ServiceForm({
               </h2>
               <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
             </div>
-            <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl p-8'>
+            <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl p-4 mt-4'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4'>
                   <CardTitle className='text-2xl'>{formTitle}</CardTitle>
