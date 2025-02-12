@@ -56,11 +56,11 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
             <ServiceGridList listItems={advantagesData} />
           </div>
 
-          <div className='flex-1'>
+          <div className='flex-1 '>
             {treatmentCasesVideoSrc !== undefined && treatmentCasesVideoSrc !== null ? (
-              <div className='w-full mx-auto'>
+              <div className='w-full mx-auto text-center'>
                 <ServiceGridTitle title={useCaseTitle} />
-                <ServiceDescription description={treatmentCasesDescription} />
+                <ServiceDescription description={treatmentCasesDescription} className='max-w-[30rem] mx-auto' />
                 <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
                   <video
                     className='w-full h-full object-cover rounded-lg lg:mt-8'
