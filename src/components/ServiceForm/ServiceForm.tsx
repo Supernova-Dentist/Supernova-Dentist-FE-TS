@@ -117,7 +117,7 @@ export default function ServiceForm({
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='form' ref={ref} className='w-full py-16 bg-gradient-to-b from-cream to-white'>
+      <section id='form' ref={ref} className='w-full py-16 md:py-24 bg-gradient-to-b from-cream to-white'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
