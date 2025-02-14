@@ -106,7 +106,7 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
   });
 
   return (
-    <section ref={ref} className='w-full py-12 bg-gradient-to-b from-cream to-white'>
+    <section ref={ref} className='w-full py-12 pt-24 bg-gradient-to-b from-cream to-white'>
       <motion.div
         id={id}
         initial={{ opacity: 0, y: 20 }} // Initial state for the animation
