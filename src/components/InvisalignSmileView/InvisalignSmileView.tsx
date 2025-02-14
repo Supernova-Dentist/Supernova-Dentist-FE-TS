@@ -7,7 +7,11 @@ import { useInView } from 'react-intersection-observer';
 import Button from '../Button/Button';
 import SectionTitle from '../SectionTitle/SectionTitle';
 
-const InvisalignSmileView = () => {
+interface InvisalignSmileViewProps {
+  id: string;
+}
+
+const InvisalignSmileView = ({ id }: InvisalignSmileViewProps) => {
   const { ref, inView } = useInView({
     threshold: 0.2, // Trigger when 10% of the component is in view
     triggerOnce: true, // Only play the animation once
@@ -15,6 +19,7 @@ const InvisalignSmileView = () => {
 
   return (
     <motion.div
+      id={id}
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
