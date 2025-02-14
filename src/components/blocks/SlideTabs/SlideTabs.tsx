@@ -35,7 +35,16 @@ const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
   });
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const offset = 176; // 9rem in pixels
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -50,20 +59,20 @@ const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
         isGeneralServicePage ? 'max-w-[36rem]' : 'max-w-[56rem]'
       } rounded-full border-2 border-black bg-lightGrey p-1`}
     >
+      {/* <Tab setPosition={setPosition} onClick={() => scrollToSection('smileView')}>
+        Virtual Smile
+      </Tab> */}
       <Tab setPosition={setPosition} onClick={() => scrollToSection('info')}>
         Introduction
       </Tab>
       <Tab setPosition={setPosition} onClick={() => scrollToSection('benefits')}>
         Benefits
       </Tab>
-      <Tab setPosition={setPosition} onClick={() => scrollToSection('process')}>
-        Process
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('journey')}>
+        Journey
       </Tab>
       {!isGeneralServicePage && (
         <>
-          <Tab setPosition={setPosition} onClick={() => scrollToSection('testimonials')}>
-            Testimonials
-          </Tab>
           <Tab setPosition={setPosition} onClick={() => scrollToSection('comparison')}>
             Comparisons
           </Tab>
