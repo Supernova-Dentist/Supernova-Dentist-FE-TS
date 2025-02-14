@@ -19,7 +19,7 @@ export default function InvisalignContent() {
     <>
       <div className='from-white to-cream bg-gradient-to-b'>
         <HeroSection data={invisalignHeroData} />
-        <InvisalignSmileView />
+        <InvisalignSmileView id='smileView' />
       </div>
 
       <ServiceForm
@@ -34,12 +34,14 @@ export default function InvisalignContent() {
         <BreadCrumb />
       </div>
 
-      <div className='block'>
+      <div className='sticky top-24 z-10'>
         <SlideTabsExample />
       </div>
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
-      <InvisalignJourney id='process' />
+   
+      <InvisalignJourney id='journey' />
+     
       <ComparisonSection id='comparison' data={tableData} />
       <FaqSection id='faq' faqItems={faqItems} />
     </>
