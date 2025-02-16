@@ -132,15 +132,20 @@ export default function PromotionForm() {
                 offering expert care for routine check-ups, cosmetic dentistry, Invisalign treatments and more.
               </p>
 
-              <Image
-                src='/assets/images/dental_hyiene_offer.png'
-                alt='About Us'
-                width={600}
-                height={800}
-                layout={'responsive'}
-                quality={100}
-                className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4 mx-auto'
-              />
+              <figure className='max-w-[40rem] mx-auto text-center'>
+                <Image
+                  src='/assets/images/dental_hyiene_offer.png'
+                  alt='Dental Hygiene Offer'
+                  width={600}
+                  height={800}
+                  layout='responsive'
+                  quality={100}
+                  className='object-contain h-auto w-auto rounded-lg p-4'
+                />
+                <figcaption className='mt-2 text-sm text-gray-600'>
+                  Valentine&apos;s sale ends Monday, 24th February
+                </figcaption>
+              </figure>
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
               <form onSubmit={handleSubmit(onSubmit)}>
