@@ -65,7 +65,7 @@ export default [
   {
     id: 8,
     name: 'Dan Lathall',
-    date: 'a month ago',
+    date: '4 weeks ago',
     rating: 5,
     review: `I’m a new patient here, I saw an ad on online and wanted to take my dental care seriously now. What an experience so far, Loving every second of my journey.
 
