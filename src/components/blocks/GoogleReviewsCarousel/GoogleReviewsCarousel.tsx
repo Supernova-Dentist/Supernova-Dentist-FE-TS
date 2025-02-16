@@ -73,7 +73,7 @@ export default function GoogleReviewsCarousel() {
 
       {isModalOpen && selectedReview != null && (
         <Modal isOpen={isModalOpen} onClose={() => toggleModal(null)}>
-          <div>
+          <div className='max-h-[80vh] w-full overflow-y-auto p-4'>
             <h2 className='text-lg font-semibold mb-2'>{selectedReview.name}</h2>
             <p className='text-gray-500 text-sm'>{selectedReview.date}</p>
             <div className='flex mt-2 mb-4'>
