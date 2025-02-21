@@ -21,8 +21,7 @@ export default function GoogleReview({
 
   return (
     <div className='min-w-[180px] flex flex-col justify-between h-full'>
-      <div className='p-5 bg-white h-[240px] shadow-md cursor-pointer rounded-sm transform transition-transform duration-300 ease-in-out hover:-translate-y-2 flex flex-col'>
-
+      <div className='p-5 bg-white h-[265px] shadow-md cursor-pointer rounded-sm transform transition-transform duration-300 ease-in-out hover:-translate-y-2 flex flex-col'>
         <div className='flex flex-col flex-grow'>
           <div className='flex justify-between gap-2'>
             <span className='text-sm leading-none'>{name}</span>
@@ -42,8 +41,7 @@ export default function GoogleReview({
           </div>
         </div>
         <div className='flex items-center'>
-        <p className='text-[15px] max-h-[70px] overflow-hidden'>{review}</p>
-
+          <p className='text-[15px] max-h-[70px] overflow-hidden'>{review}</p>
         </div>
 
         <div className='flex flex-col mt-4'>
