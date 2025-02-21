@@ -40,23 +40,29 @@ export default function GoogleReview({
             ))}
           </div>
         </div>
-        <div className='flex-grow'>
-          <p className='text-[15px] max-h-[87px] overflow-hidden'>{review}</p>
+        <div className='flex items-center'>
+          <p className='text-[15px] max-h-[70px] overflow-hidden'>{review}</p>
         </div>
-        <div className='flex flex-row w-full justify-center mt-4 space-x-6 items-baseline'>
-          <button
-            onClick={() => onClickReview && onClickReview({ name, date, review, rating, url, previewUrl })}
-            className='text-xs text-gray-500 bg-transparent border-none leading-none cursor-pointer hover:underline hover:text-gray-800'
-          >
-            Read more
-          </button>
 
-          <button
-            onClick={handleViewOnGoogleClick}
-            className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
-          >
-            View on Google
-          </button>
+        <div className='flex flex-col mt-4'>
+          <div className='flex flex-row w-full justify-center space-x-6 items-baseline'>
+            <button
+              onClick={() => onClickReview && onClickReview({ name, date, review, rating, url, previewUrl })}
+              className='text-sm text-gray-500 bg-transparent border-none leading-none cursor-pointer hover:underline hover:text-gray-800'
+            >
+              Read more
+            </button>
+
+            <button
+              onClick={handleViewOnGoogleClick}
+              className='text-sm text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
+            >
+              View on Google
+            </button>
+          </div>
+          <div className='mt-4 text-xs text-center text-gray-500'>
+            <p>Your Trusted Bridgwater Dentist – Supernova Dental</p>
+          </div>
         </div>
       </div>
     </div>
