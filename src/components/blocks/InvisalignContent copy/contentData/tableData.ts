@@ -1,25 +1,29 @@
-const tableHeadData = ['Feature', 'Professional Hygiene', 'At-Home Cleaning'];
+const tableHeadData = ['Feature', 'Professional Hygiene + Airflow', 'Professional Hygiene', 'Do Nothing'];
 
 const tableBodyData = [
   {
     feature: 'Removes Plaque & Tartar',
-    data: [true, false],
+    data: [true, true, 'N/A'],
   },
   {
-    feature: 'Prevents Gum Disease',
-    data: [true, 'Limited'],
+    feature: 'Prevents/Treats Gum Disease',
+    data: [true, true, 'N/A'],
+  },
+  {
+    feature: 'Stain Removal',
+    data: ['Moderate', 'Mild', 'N/A'],
   },
   {
     feature: 'Brightens Teeth',
-    data: [true, 'Moderate'],
+    data: [true, true, 'N/A'],
   },
   {
     feature: 'Freshens Breath',
-    data: [true, 'Temporary'],
+    data: [true, true, 'N/A'],
   },
   {
     feature: 'Recommended Frequency',
-    data: ['3 - 6 months', 'Daily'],
+    data: ['3 - 6 months', '3 - 6 months', 'N/A'],
   },
 ];
 
