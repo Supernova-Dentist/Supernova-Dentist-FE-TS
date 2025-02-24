@@ -21,10 +21,10 @@ export default function HygieneContent() {
       </div>
 
       <ServiceForm
-        serviceName='Hygiene'
-        serviceChip='Expert Teeth Cleaning & Gum Disease Prevention'
+        serviceName='Dental Hygiene'
+        serviceChip='Guided Hygiene Journey'
         serviceDescription='Maintain a healthy smile with professional teeth cleaning and gum disease prevention treatments.'
-        formTitle='Book Your Hygiene Appointment'
+        formTitle='Sign Up For A Dental Hygiene Appointment'
         formDescription='Sign up now for a professional hygiene appointment with our expert team, ensuring your teeth stay clean and your gums healthy.'
       />
 
