@@ -33,7 +33,7 @@ export default function DesktopNav() {
 
           <div className='flex-1 flex gap-8 items-center justify-center'>
             {navLinks.map(({ name, flyout, url }) => (
-              <FlyoutLink key={name} href={url} flyoutItems={flyout}>
+              <FlyoutLink key={name} href={url ?? '#'} flyoutItems={flyout}>
                 {name}
               </FlyoutLink>
             ))}
