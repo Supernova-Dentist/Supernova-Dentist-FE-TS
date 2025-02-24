@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si';
 import Button from '../Button/Button';
 
@@ -20,12 +21,12 @@ export const CornerNav = ({
   return (
     <>
       <HamburgerButton active={active} setActive={setActive} handleClose={handleClose} />
-      <AnimatePresence>{active && <LinksOverlay setActive={setActive} handleClose={handleClose} />}</AnimatePresence>
+      <AnimatePresence>{active && <LinksOverlay />}</AnimatePresence>
     </>
   );
 };
 
-const LinksOverlay = ({ setActive, handleClose }: any) => {
+const LinksOverlay = () => {
   return (
     <div className='relative mx-auto top-4 z-51 h-[calc(100vh)] w-[calc(100vw)] overflow-y-scroll'>
       <motion.div
@@ -42,9 +43,9 @@ const LinksOverlay = ({ setActive, handleClose }: any) => {
         <div className='bg-gray-400/50 h-[50px] w-[1px] hidden sm:block' />
         <h2 className='text-3xl text-gray-50 items-center font-light'>Supernova Dental</h2>
       </motion.div>
-      <LinksContainer setActive={setActive} handleClose={handleClose} />
+      <LinksContainer />
 
-      {/* Center the "Book Now" button horizontally */}
+      {/* Flexbox container for "Book Now" button at the bottom */}
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{
@@ -57,7 +58,7 @@ const LinksOverlay = ({ setActive, handleClose }: any) => {
           },
         }}
         exit={{ opacity: 0, y: -8 }}
-        className='flex justify-center w-full'
+        className='flex justify-center w-full py-6 ' // Added mt-auto to push it to the bottom
       >
         <Link target='_blank' href={`${DentallyPortal}`}>
           <Button className='text-white'>Book Now</Button>
@@ -69,13 +70,30 @@ const LinksOverlay = ({ setActive, handleClose }: any) => {
   );
 };
 
-const LinksContainer = ({ setActive, handleClose }: any) => {
+const LinksContainer = () => {
+  const [activeLink, setActiveLink] = useState<number | null>(null);
+
   return (
-    <motion.div className='space-y-6 pt-2 pb-8 px-12 mx-auto'>
+    <motion.div className='space-y-6 pt-2 pb-8 px-4 mx-auto overflow-y-auto'>
       {/* Grid layout for all links */}
       <div className='grid grid-cols-2 gap-4 sm:grid-cols-2 xs:grid-cols-1'>
         {LINKS.map((l, idx) => (
-          <NavLink key={l.title} href={l.href} idx={idx} setActive={setActive} handleClose={handleClose}>
+          <NavLink
+            key={l.title}
+            href={l.href}
+            idx={idx}
+            subLinks={l.subLinks}
+            isActive={activeLink === idx}
+            onClick={() => {
+              if (l.subLinks && l.subLinks.length > 0) {
+                // Toggle active state for the clicked link with subLinks
+                setActiveLink(activeLink === idx ? null : idx);
+              } else {
+                // If no subLinks, redirect to the href
+                window.location.href = l.href;
+              }
+            }}
+          >
             {l.title}
           </NavLink>
         ))}
@@ -88,46 +106,23 @@ const NavLink = ({
   children,
   href,
   idx,
-  setActive,
-  handleClose,
+  subLinks,
+  isActive,
+  onClick,
 }: {
   children: React.ReactNode;
   href: string;
   idx: number;
-  setActive: React.Dispatch<React.SetStateAction<boolean>>;
-  handleClose: () => void;
+  subLinks?: any[];
+  isActive: boolean;
+  onClick: () => void;
 }) => {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault(); // Prevent default anchor behavior
-
-    // If the link is internal (starts with #), handle smooth scroll
-    if (href.startsWith('#')) {
-      const targetId = href.replace('#', '');
-      const targetElement = document.getElementById(targetId);
-
-      // Close the menu first
-      setActive(false);
-      handleClose(); // Close the menu using handleClose
-
-      if (targetElement) {
-        // Use setTimeout to delay the scroll action slightly
-        setTimeout(() => {
-          // Smooth scroll to the target element
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-          // Remove #id from URL without refreshing the page
-          history.pushState(null, '', window.location.pathname);
-        }, 300); // Adjust the delay as needed
-      }
-    } else {
-      // For external links (like /pricing), allow the default behavior
-      window.location.href = href;
-    }
-  };
+  // Determine the number of columns based on the number of subLinks
+  const columnsClass = subLinks && subLinks.length > 4 ? 'grid-cols-3' : 'grid-cols-2';
 
   return (
     <div>
       <motion.a
-        href={href}
         initial={{ opacity: 0, y: -8 }}
         animate={{
           opacity: 1,
@@ -139,11 +134,60 @@ const NavLink = ({
           },
         }}
         exit={{ opacity: 0, y: -8 }}
-        onClick={handleClick} // Attach the click handler
-        className='flex items-center justify-center text-lg font-semibold text-cream transition-colors md:text-3xl cursor-pointer capitalize'
+        onClick={onClick} // Attach the click handler
+        className='flex items-center justify-between text-lg font-semibold text-cream md:text-3xl cursor-pointer capitalize'
       >
         {children}
+        {subLinks && subLinks.length > 0 && (
+          <motion.div
+            className='flex items-center'
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+            }}
+            exit={{ opacity: 0 }}
+          >
+            {isActive ? <FiChevronUp className='text-xl' /> : <FiChevronDown className='text-xl' />}
+          </motion.div>
+        )}
       </motion.a>
+
+      {/* Only show sublinks when this link is active */}
+      {isActive && subLinks && (
+        <AnimatePresence>
+          <motion.div
+            className={`mt-4 grid gap-4 ${columnsClass}`}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: { duration: 0.5, ease: 'easeInOut' },
+            }}
+            exit={{ opacity: 0 }}
+          >
+            {subLinks.map((subLink, subIndex) => (
+              <motion.a
+                key={subLink.href}
+                href={subLink.href}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    delay: subIndex * 0.1,
+                    duration: 0.5,
+                    ease: 'easeInOut',
+                  },
+                }}
+                exit={{ opacity: 0, x: -10 }}
+                className={`text-md font-medium text-white ${isActive ? 'highlight' : ''}`} // Add active state class
+              >
+                {subLink.title}
+              </motion.a>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      )}
     </div>
   );
 };
@@ -257,20 +301,27 @@ const LINKS = [
     href: '/practice',
   },
   {
-    title: 'Find us',
-    href: '/find-us',
+    title: 'Cosmetic Dentistry',
+    href: '#',
+    subLinks: [{ title: 'Invisalign', href: '/invisalign' }],
   },
   {
-    title: 'Pricing',
-    href: '/pricing',
+    title: 'General Dentistry',
+    href: '#',
+    subLinks: [{ title: 'Dental Hygiene', href: '/dental-hygiene' }],
   },
   {
-    title: 'Enquiry',
-    href: '/enquiry',
-  },
-  {
-    title: 'Social',
-    href: '/social',
+    title: 'about us',
+    href: '#',
+    subLinks: [
+      { title: 'Find us', href: '/find-us' },
+      { title: 'Social', href: '/social' },
+      { title: 'Pricing', href: '/pricing' },
+      {
+        title: 'Enquiry',
+        href: '/enquiry',
+      },
+    ],
   },
 ];
 
