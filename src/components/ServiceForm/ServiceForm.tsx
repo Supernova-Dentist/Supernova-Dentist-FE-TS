@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useInView } from 'react-intersection-observer';
@@ -41,6 +42,7 @@ export default function ServiceForm({
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const {
     register,
@@ -59,16 +61,30 @@ export default function ServiceForm({
 
   async function onSubmit(data: PromotionFormData) {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}`, {
+      const decodedSource = decodeURIComponent(pathname); // Decode URL encoding
+
+      // If you need to remove the leading slash, you can do that
+      const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
+
+      const dataWithSource = { ...data, source: cleanedSource };
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(dataWithSource),
       });
 
       if (!res.ok) {
         const errorData = await res.json();
         setError(errorData.message || 'There was a problem with your submission. Please try again later.');
         throw new Error(errorData.message);
+      }
+
+      // Trigger Google Ads conversion tracking
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+        });
       }
 
       setShowSuccessModal(true);
