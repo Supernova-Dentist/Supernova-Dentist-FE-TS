@@ -1,7 +1,7 @@
 export default {
   title: 'What is Hygiene Treatment?',
   descriptions: [
-    'Hygiene treatments keep your teeth and gums healthy with professional cleaning. Our hygienists remove plaque and calculus buildup, preventing gum disease and bad breath.',
+    'Hygiene treatments keep your teeth and gums healthy with professional cleaning. Our hygienist removes plaque and calculus buildup, preventing gum disease and bad breath.',
     'Regular hygiene visits help maintain oral health, prevent cavities, and brighten your smile. We use Airflow technology, a gentle system combining air, water, and fine powder to remove plaque, tartar, and stains for a smoother, fresher smile.',
   ],
   
