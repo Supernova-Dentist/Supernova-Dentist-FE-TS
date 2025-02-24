@@ -1,11 +1,11 @@
 export default {
   header: {
-    title: 'Hygiene',
+    title: 'Dental Hygiene',
     subTitle: 'Keep your smile healthy with professional teeth cleaning and gum care.',
   },
 
   benefitText:
-    'Maintain fresh breath, healthy gums, and a bright smile with expert hygiene treatments. Book your appointment today for a professional clean and gum disease prevention.',
+    'Maintain fresh breath, healthy gums, and a bright smile with expert dental hygiene treatments. Book your appointment today for a professional clean and gum disease prevention.',
 
   serviceStats: [
     {
