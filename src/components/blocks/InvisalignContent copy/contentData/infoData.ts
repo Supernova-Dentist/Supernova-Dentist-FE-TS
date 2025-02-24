@@ -8,7 +8,7 @@ export default {
 
   advantagesTitle: 'Benefits of Hygiene Treatment',
   useCaseTitle: 'Why Regular Hygiene Visits Matter',
-  videoSrc: '/assets/videos/airflow_vid.mov',
+  videoSrc: '/assets/videos/airflow_vid.mp4',
   advantagesData: [
     { id: 1, heading: 'Prevent & Treat Gum Disease', text: 'Reduces the risk of gingivitis and periodontitis.' },
     { id: 2, heading: 'Fresh Breath', text: 'Removes plaque and bacteria that cause bad breath.' },
