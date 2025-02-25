@@ -3,11 +3,12 @@ import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignContent';
 
 export const metadata: Metadata = {
-  title: 'Invisalign Bridgwater | Supernova Dental',
-  description: 
-    'Looking for Invisalign in Bridgwater? Book your free consultation at Supernova Dental and get started on your journey to a straighter smile with clear aligners and invisible braces.',
+  title: 'Invisalign Bridgwater',
+  description:
+    'Achieve a perfect smile with Invisalign in Bridgwater at Supernova Dental. Start your journey to straight teeth with clear aligners. Book a free consultation today!',
+  keywords:
+    'Invisalign Bridgwater, clear aligners Bridgwater, teeth straightening Bridgwater, Invisalign treatment Bridgwater, invisible braces Bridgwater, Invisalign cost Bridgwater, best Invisalign dentist Bridgwater, adult braces Bridgwater, orthodontic treatment Bridgwater, Invisalign consultation Bridgwater, Supernova Dental Invisalign, private Invisalign dentist Bridgwater, cosmetic dentistry Bridgwater',
 };
-
 
 export default function Invisalign() {
   return (
