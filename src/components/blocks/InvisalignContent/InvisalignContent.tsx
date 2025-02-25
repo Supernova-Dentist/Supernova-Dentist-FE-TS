@@ -34,9 +34,9 @@ export default function InvisalignContent() {
         <BreadCrumb />
       </div>
 
-      <div className='sticky top-24 z-10'>
+      {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />
-      </div>
+      </div> */}
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
    
