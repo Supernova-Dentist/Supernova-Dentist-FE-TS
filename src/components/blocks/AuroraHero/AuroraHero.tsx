@@ -55,7 +55,7 @@ const AuroraHero = () => {
           transition={{ duration: 1.2, delay: 0.7 }}
         >
           <h2 className='mb-2 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm'>
-            Trusted Dentist in Bridgwater
+            Trusted Bridgwater Dentist
           </h2>
         </motion.span>
         <SparklesPreview />
