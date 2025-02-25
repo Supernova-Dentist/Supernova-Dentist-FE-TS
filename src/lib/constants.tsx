@@ -28,6 +28,27 @@ export const generalServices = [
   { name: 'Emergency', link: '/general-dentistry/emergency' },
 ];
 
+export const cosmetic = [
+  {
+    name: 'Invisalign',
+    link: '/invisalign',
+  },
+];
+
+export const general = [
+  {
+    name: 'Dental Hygiene',
+    link: '/dental-hygiene',
+  },
+];
+
+export const aboutUs = [
+  { name: 'Find Us', link: '/find-us' },
+  { name: 'Social', link: '/social' },
+  { name: 'Pricing', link: '/pricing' },
+  { name: 'Enquiry', link: '/enquiry' },
+];
+
 export const media = [
   {
     name: 'Blog',
@@ -48,7 +69,7 @@ export const navLinks = [
   // {
   //   name: 'Cosmetic Dentistry',
   //   url: '/cosmetic-dentistry',
-  //   flyout: cosmeticServices,
+  //   flyout: cosmetic,
   // },
   // { name: 'General Dentistry', url: '/general-dentistry', flyout: generalServices },
   // { name: 'About us', url: '/about', flyout: practiceInfo },
@@ -57,10 +78,9 @@ export const navLinks = [
   //  TODO: Uncomment when there is a insta post
   // { name: 'Social', url: '#social', flyout: [] },
   { name: 'Practice', url: '/practice', flyout: [] },
-  { name: 'Find Us', url: '/find-us', flyout: [] },
-  { name: 'Pricing', url: '/pricing', flyout: [] },
-  { name: 'Enquiry', url: '/enquiry', flyout: [] },
-  { name: 'Social', url: '/social', flyout: [] },
+  { name: 'Cosmetic Dentistry', flyout: cosmetic },
+  { name: 'General Dentistry', flyout: general },
+  { name: 'About us', flyout: aboutUs },
 ];
 
 export const locationInfo = {

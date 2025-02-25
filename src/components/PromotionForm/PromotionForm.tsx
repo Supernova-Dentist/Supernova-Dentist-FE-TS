@@ -14,6 +14,7 @@ import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 import BarLoader from '../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
+import { usePathname } from 'next/navigation';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -27,6 +28,7 @@ export default function PromotionForm() {
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const {
     register,
@@ -45,12 +47,21 @@ export default function PromotionForm() {
 
   async function onSubmit(data: PromotionFormData) {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
+        const decodedSource = decodeURIComponent(pathname); // Decode URL encoding
+  
+        // If you need to remove the leading slash, you can do that
+        let cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
+
+        if (cleanedSource === '') {
+          cleanedSource = 'Homepage';
+        }
+  
+        const dataWithSource = { ...data, source: cleanedSource };
+  
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dataWithSource),
       });
 
       if (!res.ok) {
