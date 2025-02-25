@@ -4,10 +4,11 @@ import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignC
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | Professional Teeth Cleaning & Hygiene',
+  title: 'Dental Hygiene & Teeth Cleaning in Bridgwater | Supernova Dental',
   description:
-    'Keep your smile healthy with professional teeth cleaning at Supernova Dental. Prevent gum disease, freshen your breath, and maintain optimal oral hygiene.',
+    'Looking for professional teeth cleaning in Bridgwater? Keep your smile healthy with Supernova Dental. Prevent gum disease, freshen your breath, and maintain optimal oral hygiene with expert dental care.',
 };
+
 
 export default function Invisalign() {
   return (
