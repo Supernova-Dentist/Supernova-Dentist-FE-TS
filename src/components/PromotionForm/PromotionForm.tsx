@@ -131,32 +131,18 @@ export default function PromotionForm() {
           transition={{ duration: 0.5 }} // Duration of the animation
         >
           <div className='container grid items-center lg:justify-start justify-center gap-8 px-4 md:px-8 lg:grid-cols-2 lg:gap-16 mx-auto max-w-[1250px]'>
-            <div className='space-y-6 text-center'>
+            <div className='space-y-6 text-center lg:text-left'>
               <div className='inline-block rounded-lg bg-grey px-4 py-2 text-md text-gray-50'>
                 Welcoming New Patients!
               </div>
               <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
                 Start Your Journey with Us
               </h2>
-              <p className='max-w-[700px] text-center text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
+              <p className='max-w-[700px] text-center lg:text-left text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
                 Looking for a reliable <strong>Bridgwater dentist</strong>? Supernova Dental is accepting new patients,
                 offering expert care for routine check-ups, cosmetic dentistry, Invisalign treatments and more.
               </p>
 
-              <figure className='max-w-[40rem] mx-auto text-center'>
-                <Image
-                  src='/assets/images/dental_hyiene_offer.png'
-                  alt='Dental Hygiene Offer'
-                  width={600}
-                  height={800}
-                  layout='responsive'
-                  quality={100}
-                  className='object-contain h-auto w-auto rounded-lg p-4'
-                />
-                <figcaption className='mt-2 text-sm text-gray-600'>
-                  Valentine&apos;s sale ends Monday, 24th February
-                </figcaption>
-              </figure>
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
               <form onSubmit={handleSubmit(onSubmit)}>
