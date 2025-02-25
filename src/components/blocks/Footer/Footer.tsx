@@ -15,7 +15,7 @@ export default function Footer() {
     <footer className='bg-grey'>
       <div className='w-full px-4 py-12 sm:px-10'>
         {/* Centering the content within the footer */}
-        <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 text-gray-300 max-w-screen-lg gap-6'>
+        <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-gray-300 max-w-screen-lg gap-6'>
           {/* Practice Info Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Practice Info</li>
@@ -38,7 +38,7 @@ export default function Footer() {
 
           {/* Social Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
-            <li className='text-gold text-lg uppercase'>Follow Us</li>
+            <li className='text-gold text-lg uppercase'>Follow/Review Us</li>
             <li className='flex gap-4'>
               {socialIcons.map((social, index) => (
                 <Link
@@ -51,13 +51,7 @@ export default function Footer() {
                 </Link>
               ))}
             </li>
-          </ul>
-
-          {/* Review Us Section */}
-          <ul className='flex flex-col items-center sm:items-start gap-1'>
-            <li className='text-gold text-lg uppercase'>Review Us</li>
-
-            <li>
+            <li className='mt-4'>
               <ReviewLink />
             </li>
           </ul>
