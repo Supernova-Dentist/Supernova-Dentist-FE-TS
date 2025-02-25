@@ -19,7 +19,7 @@ export default function FindUsInfoSection() {
           <ul className='text-center space-y-2'>
             <li>Supernova Building,</li>
             <li>Marsh Lane,</li>
-            <li>Huntworth Gate, </li>
+            <li>Huntworth Gate,</li>
             <li>Bridgwater</li>
             <li>TA6 6LQ</li>
           </ul>
