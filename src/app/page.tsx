@@ -15,13 +15,13 @@ import Head from 'next/head';
 export const metadata = {
   title: 'Bridgwater Dentist | Trusted Private Dental Practice - Supernova Dental',
   description:
-    'Looking for a trusted dentist in Bridgwater? Supernova Dental provides expert dental care, including Invisalign, implants, dental hygiene, and emergency appointments. Now accepting new patients!',
+    'Looking for a trusted dentist in Bridgwater? Supernova Dental provides expert dental care, including Invisalign, implants, dental hygiene, and emergency appointments. Register today and experience a tailored patient journey at your new Bridgwater Dentist!',
   keywords:
     'dentist in Bridgwater, Bridgwater dentist, private dentist Bridgwater, Invisalign Bridgwater, Bridgwater Invisalign, dental implants Bridgwater, emergency dentist Bridgwater, dental hygiene appointment, teeth whitening, teeth cleaning, cosmetic dentistry, new patients, dentist near me, best dentist in Bridgwater, private dental practice Bridgwater, family dentist Bridgwater, dental care Bridgwater, dental services in Bridgwater, Invisalign for adults Bridgwater, affordable dentist in Bridgwater, trusted dentist Bridgwater, teeth implants Bridgwater, best emergency dentist Bridgwater, dentist open weekends Bridgwater, children’s dentist in Bridgwater, best dental practice Bridgwater, Invisalign braces in Bridgwater, cosmetic dental services Bridgwater, gentle dentist Bridgwater, local dental care Bridgwater, dentist with payment plans Bridgwater',
   openGraph: {
     title: 'Bridgwater Dentist | Trusted Private Dental Practice - Supernova Dental',
     description:
-      'Need a dentist in Bridgwater? Supernova Dental offers Invisalign, dental implants, emergency care & more. Book today!',
+      'Need a dentist in Bridgwater? Supernova Dental offers Invisalign, dental implants, emergency care & more. Register today and experience a tailored patient journey at your new Bridgwater Dentist!',
     url: 'https://www.supernovadental.co.uk',
     type: 'website',
     images: [
@@ -29,7 +29,7 @@ export const metadata = {
         url: '/favicon.ico',
         width: 500,
         height: 500,
-        alt: 'Supernova Dental Logo',
+        alt: 'Bridgwater Dentist - Supernova Dental Logo',
       },
     ],
   },
@@ -87,7 +87,7 @@ export default function Home() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",
-      "reviewCount": "13"
+      "reviewCount": "21"
     },
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61567279201971",
