@@ -1,8 +1,39 @@
 export default [
   {
+    id: 21,
+    name: 'Zikra Pervez',
+    date: 'yesterday',
+    rating: 5,
+    review: `I had a great experience at Supernova Dental, my new dentist in Bridgwater. The team were friendly and explained everything clearly, helping me understand my options for the smile I’ve always wanted.
+
+Dr. Scott Young gave me an Invisalign consultation which included a 3D scan to visualise my future smile, it was amazing and I’m excited to start my Invisalign journey here.
+
+I highly recommend Supernova Dental to anyone looking for a friendly and professional dentist in Bridgwater.`,
+    url: 'https://g.co/kgs/nsNV1rm',
+    previewUrl: '/assets/images/wendy-review.png',
+  },
+  {
+    id: 20,
+    name: 'Jackie Charles',
+    date: 'yesterday',
+    rating: 5,
+    review: `It’s refreshing to finally find a Dentist practice that are warm ,  welcoming and friendly , all the staff I’ve met are lovely , Scott explaines everything clearly and your not TOLD what you HAVE to have done , you’re advised what needs to be done with no pressure attached , It’s  nice and easy to get an appointment , no having to wait for weeks , and no issues at all with parking which makes a massive difference not having to worry where you can park ,  all in all I would definitely recommend Supernova for a friendly and hassle free experience. 😀`,
+    url: 'https://g.co/kgs/dTC5qpP',
+    previewUrl: '/assets/images/wendy-review.png',
+  },
+  {
+    id: 19,
+    name: 'Flavia Bacchas Temlett',
+    date: 'yesterday',
+    rating: 5,
+    review: `Great experience I had a fast first appointment and even faster work done. The staff is very friendly and helpful, definitely recommend it!`,
+    url: 'https://g.co/kgs/1FYbYfq',
+    previewUrl: '/assets/images/wendy-review.png',
+  },
+  {
     id: 1,
     name: 'Brooke Griffiths',
-    date: 'yesterday',
+    date: 'a week ago',
     rating: 5,
     review: `A wonderful team, all very welcoming. From the moment I signed up - To my first appointment. A full detailed explanation during and after my exam, going through each part thoroughly, helping me understand my teeth, gums and their future. Then a full oral hygiene exam to which my teeth have never felt cleaner, and another full explanation of my oral health and how I can improve on it. Could not recommend enough! Incredible and Amazing, and looking forward to the teeth I’ve always wanted! X`,
     url: 'https://g.co/kgs/gRfzwpL',
@@ -11,7 +42,7 @@ export default [
   {
     id: 2,
     name: 'Troy Woollan',
-    date: 'a few days ago',
+    date: 'a week ago',
     rating: 5,
     review: `I cannot recommend all the staff here enough !!! After getting me in for an emergency appointment this morning , all the staff were friendly and welcoming , Kayleigh and the nurse with her (sorry didn’t get your name) who seen me today was friendly, professional and kept me at ease every step of the way will be using this practice from now on ! Thank you`,
     url: 'https://g.co/kgs/WFYuoUN',
@@ -20,7 +51,7 @@ export default [
   {
     id: 3,
     name: 'Sophie Rayner',
-    date: 'a few days ago',
+    date: 'a week ago',
     rating: 5,
     review: `After avoiding the dentist for over 15 years due to past traumatic experiences, I finally decided to book an appointment at Supernova Dental after seeing a TikTok post about someone else’s experience. To say I was terrified would be an understatement! As someone who is neurodivergent, I also struggle with the sensory aspects of dental visits, which only added to my anxiety.
 
@@ -37,7 +68,7 @@ I never thought I’d say this, but I am actually excited to go back! Supernova 
   {
     id: 4,
     name: 'Mathieu ROSSI',
-    date: 'a few days ago',
+    date: '2 weeks ago',
     rating: 5,
     review: `Very good team, very good job from the appointment to the care itself.
 The dentist is very careful and take into consideration your wellbeing. Thanks again, but still don’t look forward to see the dentist anyway 😃`,
@@ -47,7 +78,7 @@ The dentist is very careful and take into consideration your wellbeing. Thanks a
   {
     id: 5,
     name: 'Hollie Tudor-Smith',
-    date: 'a week ago',
+    date: '2 weeks ago',
     rating: 5,
     review: `I had a fantastic experience with Scott and the team at Supernova. He is extremely knowledgeable and experienced, and I felt confident in his care throughout my visit. The team is always accommodating, ensuring they cater to my availability and make the process as smooth as possible. Highly recommend!`,
     url: 'https://g.co/kgs/DHd4rJi',
@@ -56,7 +87,7 @@ The dentist is very careful and take into consideration your wellbeing. Thanks a
   {
     id: 6,
     name: 'Patricia Boyce',
-    date: '2 weeks ago',
+    date: '3 weeks ago',
     rating: 5,
     review: `This was my first visit and Scott the dentist was great, I am not one for going to the dentist , (bad experiences) he was very caring, plain speaking, told me what was needed but left it in my hands if I wanted it done. The practice is very relaxing, loved it. Although this was my first visit I would recommend Scott. Thank you Scott and your team, see you soon.`,
     url: 'https://g.co/kgs/B5HdTA2',
@@ -65,7 +96,7 @@ The dentist is very careful and take into consideration your wellbeing. Thanks a
   {
     id: 7,
     name: 'Suzanne Radford',
-    date: '2 weeks ago',
+    date: '3 weeks ago',
     rating: 5,
     review: `I had an emergency appointment today with Scott due to having a broken tooth. Scott & his team greeted me with care and kindness. The repair was done efficiently & was pain free. I would recommend Supernova to anyone. A dentist you can trust.`,
     url: 'https://g.co/kgs/G7x44rD',
@@ -74,7 +105,7 @@ The dentist is very careful and take into consideration your wellbeing. Thanks a
   {
     id: 8,
     name: 'Danny Shadbolt',
-    date: '3 weeks ago',
+    date: '4 weeks ago',
     rating: 5,
     review: `Got me in straight away and did the job I asked very clean and very clear instructions`,
     url: 'https://g.co/kgs/gCiHVVT',
@@ -83,7 +114,7 @@ The dentist is very careful and take into consideration your wellbeing. Thanks a
   {
     id: 9,
     name: 'Dan Prowse',
-    date: '3 weeks ago',
+    date: '4 weeks ago',
     rating: 5,
     review: `Excellent experience; friendly and knowledgeable staff. Thank you!`,
     url: 'https://g.co/kgs/UZ9W9gB',
@@ -92,7 +123,7 @@ The dentist is very careful and take into consideration your wellbeing. Thanks a
   {
     id: 10,
     name: 'Vanessa Felstead',
-    date: '4 weeks ago',
+    date: '5 weeks ago',
     rating: 5,
     review: `Extremely helpful & understanding.`,
     url: 'https://g.co/kgs/KGWb6X7',
@@ -101,7 +132,7 @@ The dentist is very careful and take into consideration your wellbeing. Thanks a
   {
     id: 11,
     name: 'Jay M',
-    date: '5 weeks ago',
+    date: '6 weeks ago',
     rating: 5,
     review: `Highly recommend Supernova Dental. I experienced a friendly and professional welcome from Mia, professional and comforting experience with my appointment with Scott and a fantastic professional experience with Kayleigh for my Hygienist appointment, can honestly say it was the most thorough and pleasant hygienist appointment I've experienced. Fantastic team in a lovely/stylish practice. Thanks to all. Josh`,
     url: 'https://g.co/kgs/dNE52b8',
@@ -110,7 +141,7 @@ The dentist is very careful and take into consideration your wellbeing. Thanks a
   {
     id: 12,
     name: 'Dan Lathall',
-    date: '5 weeks ago',
+    date: '6 weeks ago',
     rating: 5,
     review: `I’m a new patient here, I saw an ad on online and wanted to take my dental care seriously now. What an experience so far, Loving every second of my journey.
 
@@ -133,7 +164,7 @@ Well done Kay you got yourself a lifetime patient here. I even recommended my da
   {
     id: 13,
     name: 'Matthew Vowles',
-    date: '6 weeks ago',
+    date: '7 weeks ago',
     rating: 5,
     review: `Great service with very friendly staff. The dental practice is very modern and spotless. Would definitely recommend.`,
     url: 'https://g.co/kgs/qMxx5nf',
@@ -142,7 +173,7 @@ Well done Kay you got yourself a lifetime patient here. I even recommended my da
   {
     id: 14,
     name: 'George Talbot',
-    date: '6 weeks ago',
+    date: '7 weeks ago',
     rating: 5,
     review: `Scott has been so helpful with sorting out my teeth. The practice is very nice and modern and all the staff are fantastic`,
     url: 'https://g.co/kgs/qkPQuC1',
@@ -151,7 +182,7 @@ Well done Kay you got yourself a lifetime patient here. I even recommended my da
   {
     id: 15,
     name: 'Nigel White',
-    date: '8 weeks ago',
+    date: '9 weeks ago',
     rating: 5,
     review: `Absolutely first class emergency same day modern technology pain-free fantastic staff I would highly recommend this Dentist to my family and friends`,
     url: 'https://g.co/kgs/hr2p2ee',
@@ -160,7 +191,7 @@ Well done Kay you got yourself a lifetime patient here. I even recommended my da
   {
     id: 16,
     name: 'Anthony Hales',
-    date: '9 weeks ago',
+    date: '10 weeks ago',
     rating: 5,
     review: `I was so nervous about having dental treatment as I have had bad experiences before but when I signed up with supernova dental they was very understanding I had my first treatment on the 16th December they was amazing going back on the 19th for more treatment the nerves are gone I would highly recommend Supernova dental ANTHONY BURNELL.`,
     url: 'https://g.co/kgs/vfJmXQt',
@@ -169,7 +200,7 @@ Well done Kay you got yourself a lifetime patient here. I even recommended my da
   {
     id: 17,
     name: 'Dean Whitaker',
-    date: '9 weeks ago',
+    date: '10 weeks ago',
     rating: 5,
     review: `I am not a great patient when it comes to the dentist. But I have found my experience at Supernova so far to be fabulous. The team there were very friendly and professional putting me at ease straight away. Scott has made me feel much more confident in visiting the dentist, and has been fantastic.`,
     url: 'https://g.co/kgs/qiUhyye',
@@ -178,7 +209,7 @@ Well done Kay you got yourself a lifetime patient here. I even recommended my da
   {
     id: 18,
     name: 'Ray Cox',
-    date: '10 weeks ago',
+    date: '11 weeks ago',
     rating: 5,
     review: `Great staff and service - Best experience I've had and it was very informative.`,
     url: 'https://g.co/kgs/2fek9h5',
