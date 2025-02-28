@@ -149,8 +149,7 @@ export default function PromotionForm() {
                 <CardHeader className='text-center mb-4 p-0 md:p-4'>
                   <CardTitle className='text-2xl'>Looking for a Dentist in Bridgwater?</CardTitle>
                   <CardDescription className='text-lg text-gray-500'>
-                    Supernova Dental provides expert dental care for all your needs. Register today and visit our
-                    trusted team in Bridgwater!
+                    Register today and experience a tailored patient journey at your new Bridgwater Dentist!
                   </CardDescription>
                 </CardHeader>
                 <CardContent className='p-0 md:p-4 md:pt-0'>
