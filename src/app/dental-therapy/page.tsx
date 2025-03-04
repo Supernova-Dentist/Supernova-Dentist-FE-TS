@@ -54,9 +54,9 @@ export default function DentalHygiene() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      <HygieneContent />
+      <DentalTherapyContent />
       {/* Sticky EnquiryButton */}
-      <EnquiryButton referringPage={'dental-hygiene'} />
+      <EnquiryButton referringPage={'dental-therapy'} />
     </div>
   );
 }
