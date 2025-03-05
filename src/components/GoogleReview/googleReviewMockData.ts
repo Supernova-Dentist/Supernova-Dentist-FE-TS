@@ -2,7 +2,7 @@ export default [
   {
     id: 24,
     name: 'Kevin Drew',
-    date: 'today',
+    date: 'yesterday',
     rating: 5,
     review: `Best experience ever !!! very happy 😃 just had a extraction and it went brilliantly not worried about going back for more treatment.thank you would recommend this dental practice to anyone.`,
     url: 'https://g.co/kgs/BNS1872',
