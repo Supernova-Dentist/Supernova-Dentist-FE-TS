@@ -147,13 +147,13 @@ export default function ServiceForm({
               </h2>
               <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
             </div>
-            <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl p-4 mt-4'>
+            <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 mt-4'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4'>
-                  <CardTitle className='text-2xl'>{formTitle}</CardTitle>
-                  <CardDescription className='text-lg text-gray-500'>{formDescription}</CardDescription>
+                  <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
+                  <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>
                 </CardHeader>
-                <CardContent className='p-0 md:p-4 md:pt-0'>
+                <CardContent className='p-2 md:p-4 md:pt-0'>
                   <div className='grid gap-1'>
                     <Label htmlFor='fullname' className='text-md text-gray-800'>
                       Full Name
