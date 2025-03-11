@@ -1,20 +1,14 @@
 export default {
   header: {
-    title: 'Dental Hygiene',
-    subTitle: 'Keep your smile healthy with professional teeth cleaning and gum care.',
+    title: 'Dental Therapy',
+    subTitle: 'Comprehensive care for your teeth and gums, provided by skilled dental therapists.',
   },
 
   benefitText:
-    'Maintain fresh breath, healthy gums, and a bright smile with expert dental hygiene treatments. Book your appointment today for a professional clean and gum disease prevention.',
+    'Receive expert care in preventive and restorative treatments, from fillings to gum disease management. Book your appointment today for personalised dental care.',
 
   serviceStats: [
-    {
-      title: '30-45 minutes',
-      text: 'appointment duration',
-    },
-    {
-      title: 'every 3-6 months',
-      text: 'recommended visit',
-    },
+    { title: 'Varies by treatment', text: 'appointment duration' },
+    { title: 'Every 3-6 months', text: 'recommended for preventive care' },
   ],
 };

@@ -1,25 +1,33 @@
 export default {
-  title: 'What is Hygiene Treatment?',
+  title: 'What is Dental Therapy?',
   descriptions: [
-    'Hygiene treatments keep your teeth and gums healthy with professional cleaning. Our hygienist removes plaque and calculus buildup, preventing gum disease and bad breath.',
-    'Regular hygiene visits help maintain oral health, prevent cavities, and brighten your smile. We use Airflow technology, a gentle system combining air, water, and fine powder to remove plaque, tartar, and stains for a smoother, fresher smile.',
+    'Dental therapy involves a wide range of treatments provided by skilled dental therapists, including preventive care, restorative treatments, and gum disease management.',
+    'Regular dental therapy appointments help maintain oral health, manage tooth decay, and prevent gum disease. Our therapists use the latest techniques to ensure your teeth and gums stay healthy.',
   ],
-  
 
-  advantagesTitle: 'Benefits of Hygiene Treatment',
-  useCaseTitle: 'Why Regular Hygiene Visits Matter',
-  videoSrc: '/assets/videos/airflow_vid.mp4',
-  advantagesData: [
-    { id: 1, heading: 'Prevent & Treat Gum Disease', text: 'Reduces the risk of gingivitis and periodontitis.' },
-    { id: 2, heading: 'Fresh Breath', text: 'Removes plaque and bacteria that cause bad breath.' },
-    { id: 3, heading: 'Brighter Smile', text: 'Eliminates stains and keeps teeth looking clean.' },
+  useCaseTitle: 'Use cases of Dental Therapy',
+  videoSrc: '/assets/videos/dental_therapy_vid.mp4',
+
+  useCaseData: [
+    {
+      id: 1,
+      heading: 'Treat Gum Disease',
+      text: 'Manage and prevent the progression of gum disease, including advanced stages like periodontitis.',
+    },
+    {
+      id: 2,
+      heading: 'Restore Damaged Teeth',
+      text: 'Fill cavities and restore teeth with treatments like fillings, crowns, and other restorative procedures.',
+    },
+    {
+      id: 3,
+      heading: 'Maintain Oral Health',
+      text: 'Keep your teeth and gums healthy with regular preventive care, including scaling and root planing.',
+    },
     {
       id: 4,
-      heading: 'Overall Health',
-      text: 'Good oral hygiene supports overall well-being and reduces health risks.',
+      heading: 'Care for Children’s Teeth',
+      text: 'Provide pediatric dental treatments, including preventive care and early cavity treatment.',
     },
   ],
-  treatmentCasesVideoSrc: '/assets/videos/pmpr_vid.mov',
-  treatmentCasesDescription:
-    'Regular hygiene appointments help prevent serious dental issues. See how professional cleaning and gum care contribute to long-term oral health.',
 };

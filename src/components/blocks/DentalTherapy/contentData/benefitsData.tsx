@@ -3,27 +3,27 @@ import { GiToothbrush } from 'react-icons/gi';
 import { IoHappy } from 'react-icons/io5';
 
 export default {
-  title: 'How Hygiene Treatments Benefit You',
+  title: 'How Dental Therapy Benefits You',
   description:
-    'Regular hygiene appointments are essential for maintaining a healthy mouth and preventing dental issues:',
+    'Regular dental therapy appointments are essential for maintaining optimal oral health and preventing more serious dental issues:',
   content: [
     {
       id: 1,
       icon: <GiToothbrush className='h-12 w-12 text-gold' />,
-      header: 'Preventative Care',
-      text: 'Professional cleanings remove plaque and tartar buildup, reducing the risk of cavities and gum disease.',
+      header: 'Preventive Care',
+      text: 'Dental therapy treatments, including scaling and root surface debridement, help prevent gum disease and manage oral health.',
     },
     {
       id: 2,
       icon: <FaTooth className='h-12 w-12 text-gold' />,
-      header: 'Brighter Smile',
-      text: 'Polishing helps remove stains from coffee, tea, and other foods, leaving your teeth looking fresh and clean.',
+      header: 'Restorative Treatments',
+      text: 'Therapists carry out fillings, pulpotomies, and other treatments to restore damaged teeth and maintain their health.',
     },
     {
       id: 3,
       icon: <IoHappy className='h-12 w-12 text-gold' />,
-      header: 'Fresh Breath',
-      text: 'Hygiene treatments eliminate bacteria that cause bad breath, keeping your mouth feeling fresh and healthy.',
+      header: 'Gum Health',
+      text: 'Dental therapy helps manage gum disease and keeps your gums healthy, supporting overall oral health and comfort.',
     },
   ],
 };

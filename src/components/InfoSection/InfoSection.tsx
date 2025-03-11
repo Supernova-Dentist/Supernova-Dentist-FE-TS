@@ -51,13 +51,18 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
 
         {/* Grids / Treatment Cases */}
         <div className='mt-8 flex flex-col gap-8'>
-          <div className='flex-1'>
-            <ServiceGridTitle title={advantagesTitle} />
-            <ServiceGridList listItems={advantagesData} />
-          </div>
+          {advantagesData && advantagesData.length > 0 && (
+            // Grids / Treatment Cases
+            <div className='mt-8 flex flex-col gap-8'>
+              <div className='flex-1'>
+                <ServiceGridTitle title={advantagesTitle} />
+                <ServiceGridList listItems={advantagesData} />
+              </div>
+            </div>
+          )}
 
           <div className='flex-1 '>
-            {treatmentCasesVideoSrc !== undefined && treatmentCasesVideoSrc !== null ? (
+            {treatmentCasesVideoSrc ? (
               <div className='w-full mx-auto text-center'>
                 <ServiceGridTitle title={useCaseTitle} />
                 <ServiceDescription description={treatmentCasesDescription} className='max-w-[30rem] mx-auto' />

@@ -1,35 +1,44 @@
-const tableHeadData = ['Feature', 'Professional Hygiene + Airflow', 'Professional Hygiene', 'Do Nothing'];
+const tableHeadData = ['Feature', 'Dental Therapy', 'Professional Hygiene'];
 
 const tableBodyData = [
   {
     feature: 'Removes Plaque & Tartar',
-    data: [true, true, 'N/A'],
+    data: [true, true],
   },
   {
     feature: 'Prevents/Treats Gum Disease',
-    data: [true, true, 'N/A'],
+    data: [true, true],
   },
   {
     feature: 'Stain Removal',
-    data: ['Moderate', 'Mild', 'N/A'],
+    data: ['Moderate to High', 'Mild'],
+  },
+  {
+    feature: 'Restores Damaged Teeth (Fillings, Crowns)',
+    data: [true, 'N/A'],
   },
   {
     feature: 'Brightens Teeth',
-    data: [true, true, 'N/A'],
+    data: [true, true],
   },
   {
     feature: 'Freshens Breath',
-    data: [true, true, 'N/A'],
+    data: [true, true],
+  },
+  {
+    feature: 'Paediatric Care (Children’s Dental Needs)',
+    data: [true, 'N/A'],
   },
   {
     feature: 'Recommended Frequency',
-    data: ['3 - 6 months', '3 - 6 months', 'N/A'],
+    data: ['Every 3-6 months or as needed', 'Every 3-6 months'],
   },
 ];
 
 export const tableData = {
-  title: 'Hygiene Treatment Comparison',
-  description: 'Compare professional hygiene treatments with at-home cleaning to understand the benefits of each:',
+  title: 'Dental Therapy vs. Professional Hygiene Comparison',
+  description:
+    'Compare dental therapy treatments, professional hygiene, and doing nothing to understand their benefits:',
   content: {
     tableHeadData,
     tableBodyData,
