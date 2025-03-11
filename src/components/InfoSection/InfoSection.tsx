@@ -6,12 +6,14 @@ import ServiceGridList from '@/components/ServiceGridList/ServiceGridList';
 import ServiceGridTitle from '@/components/ServiceGridTitle/ServiceGridTitle';
 import ServiceVideo from '@/components/ServiceVideo/ServiceVideo';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 export default function InfoSection({ data, id }: { data: any; id?: string }) {
   const {
     title,
     descriptions,
+    imageSrc,
     advantagesTitle,
     useCaseTitle,
     advantagesData,
@@ -43,10 +45,18 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
           <div>
             <ServiceDescription className='mt-6 mb-4' description={descriptions[0]} />
             <ServiceDescription description={descriptions[1]} />
+            {imageSrc && (
+              <Image
+                width={100}
+                height={800}
+                layout='responsive'
+                className='max-w-[30rem] mx-auto py-8 mt-4'
+                src={imageSrc}
+              />
+            )}
           </div>
 
-          {/* Video */}
-          <ServiceVideo videoSrc={videoSrc} />
+          {videoSrc && <ServiceVideo videoSrc={videoSrc} />}
         </div>
 
         {/* Grids / Treatment Cases */}

@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import Airflow from '../../../public/assets/images/airflow.jpeg';
-import HygieneAdvice from '../../../public/assets/images/carousel-1.png';
-import PaediatricCare from '../../../public/assets/images/Invisalign_Smile_View.jpg';
-import PlaqueRemoval from '../../../public/assets/images/plaque_removal.jpeg';
+import DentalTherapyCare from '../../../public/assets/images/therapy_3.jpg';
+import DentalTherapyBuild from '../../../public/assets/images/therapy_1.jpg';
+import TherapyAssess from '../../../public/assets/images/therapy_2.jpg';
 import { Timeline } from '../ui/timeline';
 
 export function DentalTherapyJourney({ id }: { id: string }) {
@@ -24,8 +24,8 @@ export function DentalTherapyJourney({ id }: { id: string }) {
             your oral health and identify any issues, including gum disease or tooth decay.
           </p>
           <Image
-            src={PlaqueRemoval}
-            alt='Plaque Removal'
+            src={TherapyAssess}
+            alt='Dental Therapy Assess'
             width={100}
             height={800}
             layout='responsive'
@@ -43,8 +43,8 @@ export function DentalTherapyJourney({ id }: { id: string }) {
             a personalized treatment plan to address your specific dental needs.
           </p>
           <Image
-            src={Airflow}
-            alt='Airflow'
+            src={DentalTherapyBuild}
+            alt='Dental Therapy Build'
             width={100}
             height={800}
             layout='responsive'
@@ -62,8 +62,8 @@ export function DentalTherapyJourney({ id }: { id: string }) {
             for your teeth and gums through preventive care, restorative treatments, and ongoing maintenance.
           </p>
           <Image
-            src={HygieneAdvice}
-            alt='Gum Health Advice'
+            src={DentalTherapyCare}
+            alt='Dental Therapy Care'
             width={100}
             height={800}
             layout='responsive'

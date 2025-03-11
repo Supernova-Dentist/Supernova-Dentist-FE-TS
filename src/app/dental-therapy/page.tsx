@@ -1,25 +1,24 @@
 import DentalTherapyContent from '@/components/blocks/DentalTherapy/DentalTherapyContent';
-import HygieneContent from '@/components/blocks/HygieneContent/HygieneContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Dental Hygiene & Teeth Cleaning in Bridgwater | Supernova Dental',
+  title: 'Dental Therapy & Teeth Cleaning in Bridgwater | Supernova Dental',
   description:
-    'Looking for professional dental hygiene and teeth cleaning in Bridgwater? Keep your smile fresh and healthy with expert dental care at Supernova Dental. Prevent gum disease, remove plaque, and enjoy a brighter smile today.',
+    'Discover professional dental therapy, teeth cleaning, and gum disease prevention at Supernova Dental in Bridgwater. Keep your smile healthy with expert dental care and preventive treatments.',
   keywords:
-    'dental hygiene Bridgwater, teeth cleaning Bridgwater, professional teeth cleaning Bridgwater, private dental hygiene Bridgwater, gum disease prevention Bridgwater, fresh breath treatment Bridgwater, dental hygienist Bridgwater, scale and polish Bridgwater, tartar removal Bridgwater, plaque removal Bridgwater, oral health Bridgwater, healthy gums Bridgwater, bad breath treatment Bridgwater, stain removal teeth Bridgwater, best dental hygienist Bridgwater, teeth whitening Bridgwater, preventative dentistry Bridgwater, Supernova Dental hygiene',
+    'dental therapy Bridgwater, teeth cleaning Bridgwater, gum disease prevention Bridgwater, dental hygienist Bridgwater, scale and polish Bridgwater, oral health Bridgwater, restorative dental care Bridgwater, children’s dental care Bridgwater, plaque removal Bridgwater, tooth fillings Bridgwater, gum care Bridgwater, preventive dental treatments Bridgwater, Supernova Dental therapy',
 };
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Supernova Dental - Dental Hygiene & Teeth Cleaning in Bridgwater',
-  url: 'https://www.supernovadental.co.uk/dental-hygiene',
+  name: 'Supernova Dental - Dental Therapy & Teeth Cleaning in Bridgwater',
+  url: 'https://www.supernovadental.co.uk/dental-therapy',
   description:
-    'Looking for professional dental hygiene and teeth cleaning in Bridgwater? Keep your smile fresh and healthy with expert dental care at Supernova Dental. Prevent gum disease, remove plaque, and enjoy a brighter smile today.',
+    'Supernova Dental offers professional dental therapy, teeth cleaning, and gum disease prevention in Bridgwater. Our expert team provides restorative dental care and preventive treatments to keep your smile healthy.',
   keywords:
-    'dental hygiene Bridgwater, teeth cleaning Bridgwater, private dental hygiene Bridgwater, gum disease prevention Bridgwater, scale and polish Bridgwater, oral health Bridgwater, best dental hygienist Bridgwater',
+    'dental therapy Bridgwater, teeth cleaning Bridgwater, gum disease prevention Bridgwater, restorative dental care Bridgwater, oral health Bridgwater, preventive treatments Bridgwater, children’s dental care Bridgwater',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
@@ -38,9 +37,9 @@ const structuredData = {
   openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
   serviceProvided: {
     '@type': 'MedicalProcedure',
-    name: 'Dental Hygiene & Teeth Cleaning',
+    name: 'Dental Therapy & Teeth Cleaning',
     description:
-      'Supernova Dental provides professional dental hygiene and teeth cleaning services in Bridgwater. Our expert hygienists remove plaque, prevent gum disease, and ensure fresh breath.',
+      'Supernova Dental provides professional dental therapy services in Bridgwater, including teeth cleaning, gum disease prevention, and restorative treatments such as fillings and crowns.',
     procedureType: 'Non-invasive',
     areaServed: 'Bridgwater, UK',
   },
@@ -51,7 +50,7 @@ const structuredData = {
   ],
 };
 
-export default function DentalHygiene() {
+export default function DentalTherapy() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />

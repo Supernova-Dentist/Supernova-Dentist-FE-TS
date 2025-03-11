@@ -4,9 +4,8 @@ export default {
     'Dental therapy involves a wide range of treatments provided by skilled dental therapists, including preventive care, restorative treatments, and gum disease management.',
     'Regular dental therapy appointments help maintain oral health, manage tooth decay, and prevent gum disease. Our therapists use the latest techniques to ensure your teeth and gums stay healthy.',
   ],
-
+  imageSrc: '/assets/images/therapy_intro.jpg',
   useCaseTitle: 'Use cases of Dental Therapy',
-  videoSrc: '/assets/videos/dental_therapy_vid.mp4',
 
   useCaseData: [
     {
