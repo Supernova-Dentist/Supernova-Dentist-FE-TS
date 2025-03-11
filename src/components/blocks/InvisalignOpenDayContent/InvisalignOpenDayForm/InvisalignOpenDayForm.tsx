@@ -133,7 +133,7 @@ export default function InvisalignOpenDayForm({
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='form' ref={ref} className='w-full py-16 md:py-24'>
+      <section id='form' ref={ref} className='w-full py-28 min-h-screen flex items-center justify-center'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -146,12 +146,11 @@ export default function InvisalignOpenDayForm({
                 Begin Your {serviceName} Journey
               </h2>
               <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
-              <div className='hidden md:flex md:flex-col gap-4'>
-                <img src='/assets/images/supernova_dental_cover.png' alt='Invisalign Logo' className='h-auto mx-auto' />
-                <img src='/assets/images/Invisalign_Logo.png' alt='Invisalign Logo' className='w-56 h-auto mx-auto' />
+              <div className='hidden lg:flex items-center justify-center mx-auto gap-4 pt-4 pb-8'>
+                <img src='/assets/images/invisalign_1.jpg' alt='Invisalign Logo' className=' w-80' />
               </div>
             </div>
-            <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 mt-4'>
+            <Card className=' max-h-[50rem] md:max-h-[40rem] mt-6 mx-auto lg:m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-6 flex items-center justify-center'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4'>
                   <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
@@ -204,12 +203,12 @@ export default function InvisalignOpenDayForm({
                         onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                       />
                       <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground'>
-                        I don’t want updates or promotions.
+                        I don’t want to receive emails.
                       </Label>
                     </div>
                     {errors.optOutEmails && <p className='text-red-500 text-sm'>{errors.optOutEmails?.message}</p>}
                   </div>
-                  <p>By signing up, you agree to our</p>
+                  <p>By signing up, you ackowledge and agree to our</p>
                   <Button
                     type='button'
                     variant='link'
@@ -226,7 +225,9 @@ export default function InvisalignOpenDayForm({
                 </CardFooter>
               </form>
             </Card>
-            <div className='flex flex-col md:hidden py-12 mt-4'>
+
+            <div className='flex flex-col lg:hidden py-12 mt-4'>
+              <img src='/assets/images/invisalign_1.jpg' alt='Invisalign Logo' className=' w-80 mx-auto pb-4' />
               <img
                 src='/assets/images/supernova_dental_cover.png'
                 alt='Invisalign Logo'
@@ -235,6 +236,10 @@ export default function InvisalignOpenDayForm({
               <img src='/assets/images/Invisalign_Logo.png' alt='Invisalign Logo' className='w-56 h-auto mx-auto' />
               <div />
             </div>
+          </div>
+          <div className='hidden lg:flex items-center justify-center mx-auto gap-4 pt-12'>
+            <img src='/assets/images/supernova_dental_cover.png' alt='Invisalign Logo' className='' />
+            <img src='/assets/images/Invisalign_Logo.png' alt='Invisalign Logo' className='w-56' />
           </div>
         </motion.div>
       </section>

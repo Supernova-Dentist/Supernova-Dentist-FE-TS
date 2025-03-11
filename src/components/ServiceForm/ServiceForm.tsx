@@ -29,6 +29,7 @@ interface ServiceFormProps {
   serviceDescription: string;
   formTitle: string;
   formDescription: string;
+  imgSrc?: string;
 }
 
 export default function ServiceForm({
@@ -37,6 +38,7 @@ export default function ServiceForm({
   serviceDescription,
   formTitle,
   formDescription,
+  imgSrc,
 }: ServiceFormProps) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -133,7 +135,11 @@ export default function ServiceForm({
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='form' ref={ref} className='w-full py-16 md:py-24 bg-gradient-to-b from-cream to-white'>
+      <section
+        id='form'
+        ref={ref}
+        className='w-full py-28 bg-gradient-to-b from-white to-cream min-h-screen flex items-center justify-center'
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -146,8 +152,11 @@ export default function ServiceForm({
                 Start Your {serviceName} Journey
               </h2>
               <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
+              {imgSrc && (
+                <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 hidden lg:block' />
+              )}
             </div>
-            <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 mt-4'>
+            <Card className='max-h-[40rem] m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 flex items-center justify-center'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4'>
                   <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
@@ -160,7 +169,7 @@ export default function ServiceForm({
                     </Label>
                     <Input
                       id='fullname'
-                      placeholder='John Smith'
+                      placeholder='John Doe'
                       className='py-1 text-lg px-3'
                       {...register('fullname')}
                     />
@@ -238,6 +247,7 @@ export default function ServiceForm({
                 </CardFooter>
               </form>
             </Card>
+            {imgSrc && <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 block lg:hidden' />}
           </div>
         </motion.div>
       </section>
