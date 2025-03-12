@@ -23,7 +23,7 @@ export default function AboutSection() {
 
   return (
     <section
-      className='flex flex-col lg:flex-row-reverse bg-gradient-to-b from-cream to-white items-center justify-center lg:py-16'
+      className='flex flex-col lg:flex-row-reverse bg-gradient-to-b from-cream to-white items-center justify-center'
       ref={ref}
     >
       {/* Text Section */}
