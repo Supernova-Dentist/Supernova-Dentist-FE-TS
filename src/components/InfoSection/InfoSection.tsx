@@ -47,6 +47,7 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
             <ServiceDescription description={descriptions[1]} />
             {imageSrc && (
               <Image
+                alt={`${title} Image`}
                 width={100}
                 height={800}
                 layout='responsive'
