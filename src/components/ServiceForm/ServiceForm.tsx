@@ -148,10 +148,10 @@ export default function ServiceForm({
           <div className='container max-w-[1250px] mx-auto px-4 md:px-8 lg:grid lg:grid-cols-2 gap-8'>
             <div className='text-center lg:text-left space-y-6'>
               <div className='bg-grey px-4 py-2 text-md text-gray-50 rounded-lg inline-block'>{serviceChip}</div>
-              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
+              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl max-w-[32rem] mx-auto'>
                 Start Your {serviceName} Journey
               </h2>
-              <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
+              <p className='text-muted-foreground md:text-2xl max-w-[32rem] mx-auto pb-4'>{serviceDescription}</p>
               {imgSrc && (
                 <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 hidden lg:block' />
               )}
