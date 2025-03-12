@@ -37,7 +37,7 @@ export const faqItems = [
   {
     question: 'How much does tooth whitening cost?',
     answer:
-      'The cost of tooth whitening varies depending on the type of treatment. In-office whitening typically ranges from £300 to £600, while take-home whitening kits are generally priced between £100 and £300. Over-the-counter products are more affordable, but often less effective. Contact us for a personalized quote based on your needs and treatment preferences.',
+      'The cost of tooth whitening varies depending on the type of treatment. In-office whitening typically ranges from £300 to £600, while take-home whitening kits are generally priced between £100 and £300. Over-the-counter products are more affordable, but often less effective. Contact us for a personalised quote based on your needs and treatment preferences.',
   },
   {
     question: 'Can tooth whitening be done on crowns or fillings?',

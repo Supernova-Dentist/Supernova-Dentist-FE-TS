@@ -40,7 +40,7 @@ export function DentalTherapyJourney({ id }: { id: string }) {
       content: (
         <div className='px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            a personalized treatment plan to address your specific dental needs.
+            a personalised treatment plan to address your specific dental needs.
           </p>
           <Image
             src={DentalTherapyBuild}

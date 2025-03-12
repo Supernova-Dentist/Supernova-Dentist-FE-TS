@@ -15,7 +15,7 @@ export default {
     },
     {
       id: 3,
-      heading: 'Personalized Advice',
+      heading: 'personalised Advice',
       text: 'Get tailored health advice based on your individual risk factors.',
     },
     {
