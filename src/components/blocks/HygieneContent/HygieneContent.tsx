@@ -17,7 +17,7 @@ export default function HygieneContent() {
   return (
     <>
       <ServiceForm
-        serviceName='Dental Hygiene'
+        serviceName='Dental Hygiene Journey'
         serviceChip='Guided Hygiene Journey'
         serviceDescription='Maintain a healthy smile with professional teeth cleaning and gum disease prevention treatments.'
         formTitle='Sign Up For A Dental Hygiene Appointment'

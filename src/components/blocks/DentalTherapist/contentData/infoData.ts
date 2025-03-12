@@ -27,7 +27,7 @@ export default {
     {
       id: 4,
       heading: 'Children’s Dental Care',
-      text: 'Offer pediatric dental care, including preventive treatments and early cavity intervention.',
+      text: 'Offer pediatric dental care, including preventive treatments, primary tooth extractions and early cavity intervention.',
     },
   ],
 };

@@ -18,7 +18,7 @@ export default function InvisalignContent() {
   return (
     <>
       <ServiceForm
-        serviceName='Invisalign'
+        serviceName='Invisalign Journey'
         serviceChip='Free Invisalign Consultation'
         serviceDescription='Get a personalised Invisalign treatment plan and discover how clear aligners can transform your smile.'
         formTitle='Sign up for your Free Invisalign Consultation'

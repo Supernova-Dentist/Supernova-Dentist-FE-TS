@@ -1,7 +1,7 @@
 export default {
   header: {
     title: 'Dental Therapist Services',
-    subTitle: 'Expert preventive and restorative dental care provided by a skilled dental therapist.',
+    subTitle: 'Expert preventive and restorative dental care provided by our skilled dental therapist.',
   },
 
   benefitText:

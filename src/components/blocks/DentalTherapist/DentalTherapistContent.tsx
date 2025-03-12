@@ -18,11 +18,11 @@ export default function DentalTherapistContent() {
   return (
     <>
       <ServiceForm
-        serviceName='Dental Therapist'
+        serviceName='Dental Therapist Treatment'
         serviceChip='Expert Dental Care'
         serviceDescription='Enhance your oral health with professional dental therapist treatments, including preventive and restorative care.'
         formTitle='Sign Up For Dental Therapist Services'
-        formDescription='Sign up now for professional dental therapist care with our expert team, ensuring optimal oral health and wellbeing.'
+        formDescription='Sign up now for professional dental therapist care, ensuring optimal oral health and wellbeing.'
         imgSrc='/assets/images/easter_dental_therapy_promo.png'
       />
       <div className='from-cream to-white bg-gradient-to-b'>
