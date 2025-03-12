@@ -70,7 +70,7 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
         animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
         transition={{ duration: 0.5 }} // Animation duration
       >
-        <div className='max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10'>
+        <div className='max-w-7xl mx-auto pt-6 px-4 md:px-8 lg:px-10'>
           <div className='flex justify-center mb-4'>
             <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Your Journey</div>
           </div>
@@ -86,7 +86,7 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
 
         <div ref={ref} className='relative max-w-7xl mx-auto pb-20'>
           {data.map((item, index) => (
-            <div key={index} className='flex justify-start pt-10 md:pt-40 md:gap-10'>
+            <div key={index} className='flex justify-start pt-10 md:pt-20 md:gap-10'>
               <div className='sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full'>
                 <div className='h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center'>
                   <div className='h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2' />
@@ -119,14 +119,14 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
             />
           </div>
         </div>
-      <div className='flex justify-center pb-6'>
-        <button
-          onClick={scrollToPromotionForm}
-          className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
-        >
-          Begin Your Journey!
-        </button>
-      </div>
+        <div className='flex justify-center pb-6'>
+          <button
+            onClick={scrollToPromotionForm}
+            className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
+          >
+            Begin Your Journey!
+          </button>
+        </div>
       </motion.div>
     </div>
   );
