@@ -159,7 +159,7 @@ export default function PromotionForm() {
                     </Label>
                     <Input
                       id='fullname'
-                      placeholder='John Doe'
+                      placeholder='John Smith'
                       className='py-1 text-lg px-3'
                       {...register('fullname')}
                     />
