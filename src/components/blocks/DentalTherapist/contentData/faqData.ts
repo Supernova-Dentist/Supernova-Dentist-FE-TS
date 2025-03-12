@@ -11,22 +11,7 @@ export const faqItems = [
   {
     question: 'What treatments can a dental therapist provide?',
     answer:
-      'Dental therapists perform a range of treatments, including scaling and polishing, fillings, fluoride applications, treating gum disease, and placing temporary crowns.',
-  },
-  {
-    question: 'How does a dental therapist differ from a dental hygienist?',
-    answer:
-      'While both focus on oral health, dental therapists can perform restorative treatments like fillings, while hygienists focus primarily on cleaning and preventive care.',
-  },
-  {
-    question: 'Can a dental therapist treat gum disease?',
-    answer:
-      'Yes! Dental therapists are trained to diagnose and manage gum disease with treatments such as scaling and root surface debridement.',
-  },
-  {
-    question: 'What restorative procedures can a dental therapist perform?',
-    answer:
-      'Dental therapists can provide fillings, pulpotomies (root treatments for primary teeth), and place temporary crowns to restore oral health.',
+      'Dental therapists perform a range of treatments, including fillings, direct and indirect restorations of primary teeth, pulpotomies of primary teeth, direct restorations of secondary teeth (including multi-surface, large, and deep restorations not involving the pulp), direct and indirect pulp capping, and extraction of primary teeth. See more in the Comparison of Scopes section above.',
   },
   {
     question: 'When should I visit a dental therapist?',
@@ -36,7 +21,7 @@ export const faqItems = [
   {
     question: 'Are dental therapists trained to treat children?',
     answer:
-      'Yes! Dental therapists are trained to provide specialized dental care for children, including preventive treatments and early intervention for cavities.',
+      'Yes! Dental therapists are trained to provide specialised dental care for children, including preventive treatments and early intervention for cavities.',
   },
   {
     question: 'Is dental therapist treatment covered by insurance?',
