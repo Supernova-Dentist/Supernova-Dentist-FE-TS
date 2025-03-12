@@ -17,11 +17,6 @@ import { tableData } from './contentData/tableData';
 export default function InvisalignContent() {
   return (
     <>
-      <div className='from-white to-cream bg-gradient-to-b'>
-        <HeroSection data={invisalignHeroData} />
-        <InvisalignSmileView id='smileView' />
-      </div>
-
       <ServiceForm
         serviceName='Invisalign'
         serviceChip='Free Invisalign Consultation'
@@ -29,6 +24,11 @@ export default function InvisalignContent() {
         formTitle='Sign up for your Free Invisalign Consultation'
         formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
       />
+
+      <div className='from-cream to-white bg-gradient-to-b'>
+        <HeroSection data={invisalignHeroData} />
+        <InvisalignSmileView id='smileView' />
+      </div>
 
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
@@ -39,9 +39,9 @@ export default function InvisalignContent() {
       </div> */}
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
-   
+
       <InvisalignJourney id='journey' />
-     
+
       <ComparisonSection id='comparison' data={tableData} />
       <FaqSection id='faq' faqItems={faqItems} />
     </>

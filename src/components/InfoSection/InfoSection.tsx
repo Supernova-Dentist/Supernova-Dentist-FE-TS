@@ -61,7 +61,7 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
         </div>
 
         {/* Grids / Treatment Cases */}
-        <div className='mt-8 flex flex-col gap-8'>
+        <div className='flex flex-col gap-8'>
           {advantagesData && advantagesData.length > 0 && (
             // Grids / Treatment Cases
             <div className='mt-8 flex flex-col gap-8'>
@@ -79,7 +79,7 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
                 <ServiceDescription description={treatmentCasesDescription} className='max-w-[30rem] mx-auto' />
                 <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
                   <video
-                    className='w-full h-full object-cover rounded-lg lg:mt-8'
+                    className='w-full h-full object-cover rounded-lg mt-8'
                     controls
                     preload='metadata'
                     src={treatmentCasesVideoSrc}

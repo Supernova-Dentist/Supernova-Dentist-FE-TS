@@ -5,7 +5,6 @@ import FaqSection from '@/components/FaqSection/FaqSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import InfoSection from '@/components/InfoSection/InfoSection';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
-import { DentalTherapyJourney } from '@/components/TherapyJourney/TherapyJourney';
 import { HygieneJourney } from '../../HygieneJourney/HygieneJourney';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import benefitsData from './contentData/benefitsData';
@@ -13,16 +12,17 @@ import { faqItems } from './contentData/faqData';
 import hygieneHeroData from './contentData/heroData';
 import infoData from './contentData/infoData';
 import { tableData } from './contentData/tableData';
+import { DentalTherapyJourney } from '@/components/TherapyJourney/TherapyJourney';
 
-export default function DentalTherapyContent() {
+export default function DentalTherapistContent() {
   return (
     <>
       <ServiceForm
-        serviceName='Dental Therapy'
-        serviceChip='Guided Therapy Journey'
-        serviceDescription='Enhance your oral health with professional dental therapy treatments, including preventive and restorative care.'
-        formTitle='Sign Up For Dental Therapy'
-        formDescription='Sign up now for a professional dental therapy appointment with our expert team, ensuring optimal oral health and wellbeing.'
+        serviceName='Dental Therapist'
+        serviceChip='Expert Dental Care'
+        serviceDescription='Enhance your oral health with professional dental therapist treatments, including preventive and restorative care.'
+        formTitle='Sign Up For Dental Therapist Services'
+        formDescription='Sign up now for professional dental therapist care with our expert team, ensuring optimal oral health and wellbeing.'
         imgSrc='/assets/images/easter_dental_therapy_promo.png'
       />
       <div className='from-cream to-white bg-gradient-to-b'>
@@ -38,9 +38,7 @@ export default function DentalTherapyContent() {
       </div> */}
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
-
       <DentalTherapyJourney id='journey' />
-
       <ComparisonSection id='comparison' data={tableData} />
       <FaqSection id='faq' faqItems={faqItems} />
     </>

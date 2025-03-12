@@ -16,10 +16,6 @@ import { tableData } from './contentData/tableData';
 export default function HygieneContent() {
   return (
     <>
-      <div className='from-white to-cream bg-gradient-to-b'>
-        <HeroSection data={hygieneHeroData} />
-      </div>
-
       <ServiceForm
         serviceName='Dental Hygiene'
         serviceChip='Guided Hygiene Journey'
@@ -27,6 +23,9 @@ export default function HygieneContent() {
         formTitle='Sign Up For A Dental Hygiene Appointment'
         formDescription='Sign up now for a professional hygiene appointment with our expert team, ensuring your teeth stay clean and your gums healthy.'
       />
+      <div className='from-cream to-white bg-gradient-to-b'>
+        <HeroSection data={hygieneHeroData} />
+      </div>
 
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
