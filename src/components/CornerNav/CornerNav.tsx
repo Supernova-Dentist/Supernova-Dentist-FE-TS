@@ -308,7 +308,10 @@ const LINKS = [
   {
     title: 'General Dentistry',
     href: '#',
-    subLinks: [{ title: 'Dental Hygiene', href: '/dental-hygiene' }],
+    subLinks: [
+      { title: 'Dental Therapist', href: '/dental-therapist' },
+      { title: 'Dental Hygiene', href: '/dental-hygiene' },
+    ],
   },
   {
     title: 'about us',

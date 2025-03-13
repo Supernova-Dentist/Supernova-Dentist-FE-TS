@@ -6,12 +6,14 @@ import ServiceGridList from '@/components/ServiceGridList/ServiceGridList';
 import ServiceGridTitle from '@/components/ServiceGridTitle/ServiceGridTitle';
 import ServiceVideo from '@/components/ServiceVideo/ServiceVideo';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 export default function InfoSection({ data, id }: { data: any; id?: string }) {
   const {
     title,
     descriptions,
+    imageSrc,
     advantagesTitle,
     useCaseTitle,
     advantagesData,
@@ -43,27 +45,41 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
           <div>
             <ServiceDescription className='mt-6 mb-4' description={descriptions[0]} />
             <ServiceDescription description={descriptions[1]} />
+            {imageSrc && (
+              <Image
+                alt={`${title} Image`}
+                width={100}
+                height={800}
+                layout='responsive'
+                className='max-w-[30rem] mx-auto py-8 mt-4'
+                src={imageSrc}
+              />
+            )}
           </div>
 
-          {/* Video */}
-          <ServiceVideo videoSrc={videoSrc} />
+          {videoSrc && <ServiceVideo videoSrc={videoSrc} />}
         </div>
 
         {/* Grids / Treatment Cases */}
-        <div className='mt-8 flex flex-col gap-8'>
-          <div className='flex-1'>
-            <ServiceGridTitle title={advantagesTitle} />
-            <ServiceGridList listItems={advantagesData} />
-          </div>
+        <div className='flex flex-col gap-8'>
+          {advantagesData && advantagesData.length > 0 && (
+            // Grids / Treatment Cases
+            <div className='mt-8 flex flex-col gap-8'>
+              <div className='flex-1'>
+                <ServiceGridTitle title={advantagesTitle} />
+                <ServiceGridList listItems={advantagesData} />
+              </div>
+            </div>
+          )}
 
           <div className='flex-1 '>
-            {treatmentCasesVideoSrc !== undefined && treatmentCasesVideoSrc !== null ? (
+            {treatmentCasesVideoSrc ? (
               <div className='w-full mx-auto text-center'>
                 <ServiceGridTitle title={useCaseTitle} />
                 <ServiceDescription description={treatmentCasesDescription} className='max-w-[30rem] mx-auto' />
                 <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
                   <video
-                    className='w-full h-full object-cover rounded-lg lg:mt-8'
+                    className='w-full h-full object-cover rounded-lg mt-8'
                     controls
                     preload='metadata'
                     src={treatmentCasesVideoSrc}

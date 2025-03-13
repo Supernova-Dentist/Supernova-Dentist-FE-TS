@@ -4,30 +4,27 @@ import ComparisonSection from '@/components/ComparisonSection/ComparisonSection'
 import FaqSection from '@/components/FaqSection/FaqSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import InfoSection from '@/components/InfoSection/InfoSection';
-import InvisalignSmileView from '@/components/InvisalignSmileView/InvisalignSmileView';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
+import { HygieneJourney } from '../../HygieneJourney/HygieneJourney';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import benefitsData from './contentData/benefitsData';
 import { faqItems } from './contentData/faqData';
-import invisalignHeroData from './contentData/heroData';
+import hygieneHeroData from './contentData/heroData';
 import infoData from './contentData/infoData';
-import { InvisalignJourney } from './contentData/processData';
 import { tableData } from './contentData/tableData';
 
-export default function InvisalignContent() {
+export default function HygieneContent() {
   return (
     <>
       <ServiceForm
-        serviceName='Invisalign Journey'
-        serviceChip='Free Invisalign Consultation'
-        serviceDescription='Get a personalised Invisalign treatment plan and discover how clear aligners can transform your smile.'
-        formTitle='Sign up for your Free Invisalign Consultation'
-        formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
+        serviceName='Dental Hygiene Journey'
+        serviceChip='Guided Hygiene Journey'
+        serviceDescription='Maintain a healthy smile with professional teeth cleaning and gum disease prevention treatments.'
+        formTitle='Sign Up For A Dental Hygiene Appointment'
+        formDescription='Sign up now for a professional hygiene appointment with our expert team, ensuring your teeth stay clean and your gums healthy.'
       />
-
       <div className='from-cream to-white bg-gradient-to-b'>
-        <HeroSection data={invisalignHeroData} />
-        <InvisalignSmileView id='smileView' />
+        <HeroSection data={hygieneHeroData} />
       </div>
 
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
@@ -40,7 +37,7 @@ export default function InvisalignContent() {
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
 
-      <InvisalignJourney id='journey' />
+      <HygieneJourney id='journey' />
 
       <ComparisonSection id='comparison' data={tableData} />
       <FaqSection id='faq' faqItems={faqItems} />

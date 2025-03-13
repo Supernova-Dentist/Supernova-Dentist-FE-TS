@@ -11,36 +11,38 @@ export default function ComparisonTable({ data }: ComparisonTable) {
   const { tableHeadData, tableBodyData } = data;
 
   return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          {tableHeadData.map((heading, index) => (
-            <TableHeadCell key={index} className={`font-medium ${index === 0 ? 'text-left' : 'text-center'}`}>
-              {heading}
-            </TableHeadCell>
-          ))}
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {tableBodyData.map((row, rowIndex) => (
-          <TableRow key={rowIndex}>
-            <TableCell className='font-medium text-gold'>{row.feature}</TableCell>
-            {row.data.map((cell, cellIndex) => (
-              <TableCell key={cellIndex} className='text-center'>
-                {typeof cell === 'boolean' ? (
-                  cell ? (
-                    <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
-                  ) : (
-                    <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
-                  )
-                ) : (
-                  cell
-                )}
-              </TableCell>
+    <div className='max-h-96 overflow-y-auto border border-gray-300 rounded-lg'>
+      <Table>
+        <TableHead>
+          <TableRow>
+            {tableHeadData.map((heading, index) => (
+              <TableHeadCell key={index} className={`font-medium ${index === 0 ? 'text-left' : 'text-center'}`}>
+                {heading}
+              </TableHeadCell>
             ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody>
+          {tableBodyData.map((row, rowIndex) => (
+            <TableRow key={rowIndex}>
+              <TableCell className='font-medium text-gold'>{row.feature}</TableCell>
+              {row.data.map((cell, cellIndex) => (
+                <TableCell key={cellIndex} className='text-center'>
+                  {typeof cell === 'boolean' ? (
+                    cell ? (
+                      <CheckIcon className='h-6 w-6 text-gold inline-block align-middle' />
+                    ) : (
+                      <XIcon className='h-6 w-6 text-red-500 inline-block align-middle' />
+                    )
+                  ) : (
+                    cell
+                  )}
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 }

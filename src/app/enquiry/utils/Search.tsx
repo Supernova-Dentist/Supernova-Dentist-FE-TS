@@ -4,7 +4,8 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const urlToReadableMap: { [key: string]: string } = {
-  'invisalign': 'Invisalign',
+  invisalign: 'Invisalign',
+  'dental-therapist': 'Dental Therapist',
   'dental-hygiene': 'Dental Hygiene',
   'cosmetic-dentistry/composite-bonding': 'Composite Bonding',
   'cosmetic-dentistry/tooth-whitening': 'Tooth Whitening',

@@ -126,7 +126,7 @@ export default function Home() {
       <VideoAnimationSection />
       <FindUsSection />
       <PromotionFAQ />
-      <ComingSoonSection />
+      {/* <ComingSoonSection /> */}
     </main>
   );
 }

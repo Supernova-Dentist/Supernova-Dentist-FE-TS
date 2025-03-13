@@ -18,8 +18,8 @@ export default {
     {
       id: 3,
       src: '/assets/images/general-checkup-consultation.jpg',
-      header: 'Step 3: Personalized Advice and Next Steps',
-      text: "After your checkup and cleaning, we'll provide personalized advice on maintaining your oral health and discuss any recommended treatments if necessary. We’ll ensure you leave with a clear plan for your dental care.",
+      header: 'Step 3: personalised Advice and Next Steps',
+      text: "After your checkup and cleaning, we'll provide personalised advice on maintaining your oral health and discuss any recommended treatments if necessary. We’ll ensure you leave with a clear plan for your dental care.",
     },
   ],
 };

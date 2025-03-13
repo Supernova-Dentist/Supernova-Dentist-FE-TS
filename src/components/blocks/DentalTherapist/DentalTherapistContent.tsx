@@ -12,21 +12,22 @@ import { faqItems } from './contentData/faqData';
 import hygieneHeroData from './contentData/heroData';
 import infoData from './contentData/infoData';
 import { tableData } from './contentData/tableData';
+import { DentalTherapyJourney } from '@/components/TherapyJourney/TherapyJourney';
 
-export default function HygieneContent() {
+export default function DentalTherapistContent() {
   return (
     <>
-      <div className='from-white to-cream bg-gradient-to-b'>
+      <ServiceForm
+        serviceName='Dental Therapist Treatment'
+        serviceChip='Expert Dental Care'
+        serviceDescription='Enhance your oral health with professional dental therapist treatments, including preventive and restorative care.'
+        formTitle='Sign Up For Dental Therapist Services'
+        formDescription='Sign up now for professional dental therapist care, ensuring optimal oral health and wellbeing.'
+        imgSrc='/assets/images/easter_dental_therapy_promo.png'
+      />
+      <div className='from-cream to-white bg-gradient-to-b'>
         <HeroSection data={hygieneHeroData} />
       </div>
-
-      <ServiceForm
-        serviceName='Dental Hygiene'
-        serviceChip='Guided Hygiene Journey'
-        serviceDescription='Maintain a healthy smile with professional teeth cleaning and gum disease prevention treatments.'
-        formTitle='Sign Up For A Dental Hygiene Appointment'
-        formDescription='Sign up now for a professional hygiene appointment with our expert team, ensuring your teeth stay clean and your gums healthy.'
-      />
 
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
         <BreadCrumb />
@@ -37,9 +38,7 @@ export default function HygieneContent() {
       </div> */}
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
-
-      <HygieneJourney id='journey' />
-
+      <DentalTherapyJourney id='journey' />
       <ComparisonSection id='comparison' data={tableData} />
       <FaqSection id='faq' faqItems={faqItems} />
     </>

@@ -75,12 +75,12 @@ export const HygieneTimeline = ({ data, setImagesLoaded, imagesLoaded }: Timelin
             <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Your Journey</div>
           </div>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-2 text-gold'>
-            Your Dental Hygiene Transformation Journey
+            Your Dental Therapy Journey
           </h2>
           <hr className='border-t-2 border-gold w-20 mx-auto mt-6 mb-8' />
           <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 max-w-[35rem] mx-auto'>
-            Improving your smile can be as easy as 1 2 3. Here&apos;s how we can help you achieve the Supernova smile
-            you&apos;ve always wanted 🌠:
+            Achieving optimal oral health can be as simple as A, B, C. Here`&apos;s how dental therapy can help you
+            maintain healthy gums and a beautiful smile 🌟:
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export const HygieneTimeline = ({ data, setImagesLoaded, imagesLoaded }: Timelin
                 <div className='h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center'>
                   <div className='h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2' />
                 </div>
-                <h3 className='hidden md:block z-9 text-3xl lg:text-5xl md:pl-20 md:text-4xl font-bold text-neutral-500 dark:text-neutral-500 '>
+                <h3 className='hidden md:block z-9 text-3xl lg:text-3xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500'>
                   {item.title}
                 </h3>
               </div>
