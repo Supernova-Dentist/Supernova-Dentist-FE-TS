@@ -8,7 +8,7 @@ export default {
     'Receive professional care in preventive and restorative treatments, including fillings, gum disease management, and oral health maintenance. Get expert dental therapist care tailored to your needs.',
 
   serviceStats: [
-    { title: 'Varies', text: 'treatment duration' },
-    { title: '3-6 months', text: 'recommended preventive care visits' },
+    { title: 'treatment duration', text: 'Varies' },
+    { title: 'recommended visits', text: '3-6 months' },
   ],
 };
