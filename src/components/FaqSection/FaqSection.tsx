@@ -11,11 +11,7 @@ export default function FaqSection({ faqItems, id }: { faqItems: any; id: string
   });
 
   return (
-    <section
-      id={id}
-      ref={ref}
-      className='w-full text-gray-900 bg-gradient-to-b from-cream to-white'
-    >
+    <section id={id} ref={ref} className='w-full text-gray-900 bg-gradient-to-b from-cream to-white pb-4 md:pb-8'>
       <div className='px-4 md:px-6 w-full'>
         <motion.div
           className='flex flex-col items-center space-y-6 text-center'
