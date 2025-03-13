@@ -2,15 +2,15 @@ const tableHeadData = ['Treatments', 'Hygienist', 'Dental Therapist', 'Dentist']
 
 const tableBodyData = [
   {
-    feature: 'Clinical exam inc MH + DH. Oral cancer screening.',
+    feature: 'Clinical exam including medical & dental history & oral cancer screening',
     data: [true, true, true],
   },
   {
-    feature: 'Periodontal exam + indices',
+    feature: 'Periodontal exam & indices',
     data: [true, true, true],
   },
   {
-    feature: 'Diagnosis + treatment plan within competence',
+    feature: 'Diagnosis & treatment plan within competence',
     data: [true, true, true],
   },
   {
@@ -18,7 +18,7 @@ const tableBodyData = [
     data: [true, true, true],
   },
   {
-    feature: 'Take, process, and interpret radiographic films within scope',
+    feature: 'Take, process & interpret radiographic films within scope',
     data: [true, true, true],
   },
   {
@@ -26,7 +26,7 @@ const tableBodyData = [
     data: [true, true, true],
   },
   {
-    feature: 'Sub and supra PMPR including adjustments of PRFs',
+    feature: 'Sub and supra Professional Mechanical Plaque Removal (PMPR)',
     data: [true, true, true],
   },
   {
@@ -34,7 +34,7 @@ const tableBodyData = [
     data: [true, true, true],
   },
   {
-    feature: 'Administer LA',
+    feature: 'Administer local anaesthetic',
     data: [true, true, true],
   },
   {
@@ -55,7 +55,7 @@ const tableBodyData = [
   },
   {
     feature:
-      'Direct restorations of secondary teeth (including multi surface, large + “deep” restorations not involving the pulp)',
+      'Direct restorations of secondary teeth (including multi surface, large & “deep” restorations not involving the pulp)',
     data: [false, true, true],
   },
   {
@@ -71,7 +71,7 @@ const tableBodyData = [
     data: [false, false, true],
   },
   {
-    feature: 'Fit lab made items- crowns, bridges, dentures',
+    feature: 'Fit lab made items - crowns, bridges, dentures',
     data: [false, false, true],
   },
   {
