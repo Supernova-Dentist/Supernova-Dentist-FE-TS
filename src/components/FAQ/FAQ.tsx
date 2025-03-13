@@ -8,18 +8,21 @@ import useMeasure from 'react-use-measure';
 const Question = ({
   title,
   children,
-  defaultOpen = false,
+  isOpen,
+  onToggle,
+  index,
 }: {
   title: string;
   children: React.ReactNode;
-  defaultOpen?: boolean;
+  isOpen: boolean;
+  onToggle: (index: number) => void;
+  index: number;
 }) => {
   const [ref, { height }] = useMeasure();
-  const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <motion.div animate={open ? 'open' : 'closed'} className='border-b-[1px] border-b-slate-300'>
-      <button onClick={() => setOpen((pv) => !pv)} className='flex w-full items-center justify-between gap-4 py-2'>
+    <motion.div animate={isOpen ? 'open' : 'closed'} className='border-b-[1px] border-b-slate-300'>
+      <button onClick={() => onToggle(index)} className='flex w-full items-center justify-between gap-4 py-2'>
         <motion.span
           variants={{
             open: {
@@ -51,8 +54,8 @@ const Question = ({
       <motion.div
         initial={false}
         animate={{
-          height: open ? height : '0px',
-          marginBottom: open ? '24px' : '0px',
+          height: isOpen ? height : '0px',
+          marginBottom: isOpen ? '24px' : '0px',
         }}
         className='overflow-hidden text-slate-800'
       >
@@ -65,11 +68,25 @@ const Question = ({
 };
 
 const FAQ = ({ faqItems }: { faqItems: Array<{ question: string; answer: string }> }) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    // Toggle the clicked question, close others
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <div>
       {faqItems.map((item, index) => (
         <div key={index}>
-          <Question title={item.question}>{item.answer}</Question>
+          <Question
+            title={item.question}
+            isOpen={openIndex === index} // Only open if index matches
+            onToggle={handleToggle}
+            index={index}
+          >
+            {item.answer}
+          </Question>
           {index < faqItems.length - 1 && <hr className='my-6 border-b-[1px] border-b-gray-200' />}
         </div>
       ))}
