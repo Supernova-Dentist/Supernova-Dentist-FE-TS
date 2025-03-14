@@ -1,8 +1,17 @@
 export default [
   {
+    id: 25,
+    name: 'Temika Skye',
+    date: 'a week ago',
+    rating: 5,
+    review: `Me and my partner had a fantastic experience at Supernova Dentist! The staff were super friendly and made our visit enjoyable from start to finish. Their care and support really stood out. We’re so thankful for the positive vibe and professionalism of the team. Definitely recommend!`,
+    url: 'https://g.co/kgs/9ibsqiJ',
+    previewUrl: '/assets/images/wendy-review.png',
+  },
+  {
     id: 24,
     name: 'Kevin Drew',
-    date: 'yesterday',
+    date: 'a week ago',
     rating: 5,
     review: `Best experience ever !!! very happy 😃 just had a extraction and it went brilliantly not worried about going back for more treatment.thank you would recommend this dental practice to anyone.`,
     url: 'https://g.co/kgs/BNS1872',
@@ -11,7 +20,7 @@ export default [
   {
     id: 23,
     name: 'Neil Owen',
-    date: 'a few days ago',
+    date: 'a week ago',
     rating: 5,
     review: `My first time at Supernova dental practice was great the staff and service is amazing Best experience I've had Scott and his team are so friendly`,
     url: 'https://g.co/kgs/mHS2znk',
@@ -20,7 +29,7 @@ export default [
   {
     id: 22,
     name: 'Lee Mallett',
-    date: 'a few days ago',
+    date: 'a week ago',
     rating: 5,
     review: `Amazing all round, dental surgery looks incredible. Staff are so friendly and polite. Scott (dentist owner) again so friendly after not seeing a dentist for a good 7 years made me feel at ease. So glad I decided to push myself to get in contact with the team`,
     url: 'https://g.co/kgs/xEuwHSA',
@@ -29,7 +38,7 @@ export default [
   {
     id: 21,
     name: 'Zikra Pervez',
-    date: 'a week ago',
+    date: '2 weeks ago',
     rating: 5,
     review: `I had a great experience at Supernova Dental, my new dentist in Bridgwater. The team were friendly and explained everything clearly, helping me understand my options for the smile I’ve always wanted.
 
@@ -42,7 +51,7 @@ I highly recommend Supernova Dental to anyone looking for a friendly and profess
   {
     id: 20,
     name: 'Jackie Charles',
-    date: 'a week ago',
+    date: '2 weeks ago',
     rating: 5,
     review: `It’s refreshing to finally find a Dentist practice that are warm ,  welcoming and friendly , all the staff I’ve met are lovely , Scott explaines everything clearly and your not TOLD what you HAVE to have done , you’re advised what needs to be done with no pressure attached , It’s  nice and easy to get an appointment , no having to wait for weeks , and no issues at all with parking which makes a massive difference not having to worry where you can park ,  all in all I would definitely recommend Supernova for a friendly and hassle free experience. 😀`,
     url: 'https://g.co/kgs/dTC5qpP',
@@ -51,7 +60,7 @@ I highly recommend Supernova Dental to anyone looking for a friendly and profess
   {
     id: 19,
     name: 'Flavia Bacchas Temlett',
-    date: 'a week ago',
+    date: '2 weeks ago',
     rating: 5,
     review: `Great experience I had a fast first appointment and even faster work done. The staff is very friendly and helpful, definitely recommend it!`,
     url: 'https://g.co/kgs/1FYbYfq',
@@ -60,7 +69,7 @@ I highly recommend Supernova Dental to anyone looking for a friendly and profess
   {
     id: 1,
     name: 'Brooke Griffiths',
-    date: '2 weeks ago',
+    date: '3 weeks ago',
     rating: 5,
     review: `A wonderful team, all very welcoming. From the moment I signed up - To my first appointment. A full detailed explanation during and after my exam, going through each part thoroughly, helping me understand my teeth, gums and their future. Then a full oral hygiene exam to which my teeth have never felt cleaner, and another full explanation of my oral health and how I can improve on it. Could not recommend enough! Incredible and Amazing, and looking forward to the teeth I’ve always wanted! X`,
     url: 'https://g.co/kgs/gRfzwpL',
@@ -69,7 +78,7 @@ I highly recommend Supernova Dental to anyone looking for a friendly and profess
   {
     id: 2,
     name: 'Troy Woollan',
-    date: '2 weeks ago',
+    date: '3 weeks ago',
     rating: 5,
     review: `I cannot recommend all the staff here enough !!! After getting me in for an emergency appointment this morning , all the staff were friendly and welcoming , Kayleigh and the nurse with her (sorry didn’t get your name) who seen me today was friendly, professional and kept me at ease every step of the way will be using this practice from now on ! Thank you`,
     url: 'https://g.co/kgs/WFYuoUN',
@@ -78,7 +87,7 @@ I highly recommend Supernova Dental to anyone looking for a friendly and profess
   {
     id: 3,
     name: 'Sophie Rayner',
-    date: '2 weeks ago',
+    date: '3 weeks ago',
     rating: 5,
     review: `After avoiding the dentist for over 15 years due to past traumatic experiences, I finally decided to book an appointment at Supernova Dental after seeing a TikTok post about someone else’s experience. To say I was terrified would be an understatement! As someone who is neurodivergent, I also struggle with the sensory aspects of dental visits, which only added to my anxiety.
 
