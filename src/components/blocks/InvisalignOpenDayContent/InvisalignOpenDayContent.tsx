@@ -12,6 +12,7 @@ import InvisalignOpenDayCard from './InvisalignOpenDayCard/InvisalignOpenDayCard
 import InvisalignOpenDayForm from './InvisalignOpenDayForm/InvisalignOpenDayForm';
 import InvisalignOpenDayJourney from './InvisalignOpenDayJourney/InvisalignOpenDayJourney';
 import Results from './Results/Results';
+import { InvisalignOpenDayHero } from './InvisalignOpenDayHero/InvisalignOpenDayHero';
 
 const pricing = [
   {
@@ -31,6 +32,7 @@ const pricing = [
 export const InvisalignOpenDayContent = () => {
   return (
     <div className='bg-cream'>
+      <InvisalignOpenDayHero />
       <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
         <InvisalignOpenDayForm
           serviceName='Invisalign'
