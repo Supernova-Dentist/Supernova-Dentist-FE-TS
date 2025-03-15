@@ -10,14 +10,18 @@ export function InvisalignOpenDayHero() {
     '/assets/images/outerBuilding.jpg',
     '/assets/images/invisalign_2.jpg',
     '/assets/images/invisalign_3.jpg',
-    '/assets/images/outerBuilding.jpg',
+    '/assets/images/invisalign_openday_4.jpg',
+    '/assets/images/invisalign_5.jpg',
+    '/assets/images/adam_mia_reception.jpg',
   ];
 
   const mobileImages = [
     '/assets/images/invisalign_1.jpg',
     '/assets/images/outerBuilding.jpg',
-    '/assets/images/logo.png',
-    '/assets/images/invisalign_1.jpg',
+    '/assets/images/invisalign_4.jpg',
+    '/assets/images/invis_6.jpg',
+    '/assets/images/invis_7.jpg',
+    '/assets/images/invis_8.jpg',
   ];
 
   const border = useMotionTemplate`1px solid #a4693d`;
