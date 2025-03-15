@@ -32,7 +32,7 @@ export const faqItems = [
   {
     question: 'What is the cost of dental implants?',
     answer:
-      'The cost of dental implants varies depending on the complexity of the case and the type of implant used. On average, implants can range from £2,000 to £4,000 per tooth, including the placement and restoration. Although the initial cost may be higher than other options like bridges or dentures, implants offer a longer-term investment due to their durability and permanence. Contact us for a personalized quote and financing options to fit your needs.',
+      'The cost of dental implants varies depending on the complexity of the case and the type of implant used. On average, implants can range from £2,000 to £4,000 per tooth, including the placement and restoration. Although the initial cost may be higher than other options like bridges or dentures, implants offer a longer-term investment due to their durability and permanence. Contact us for a personalised quote and financing options to fit your needs.',
   },
   {
     question: 'Are dental implants covered by insurance?',
@@ -42,7 +42,7 @@ export const faqItems = [
   {
     question: 'Can dental implants be placed if I have bone loss?',
     answer:
-      'Yes, dental implants can often be placed even if you have experienced bone loss. We may recommend a bone grafting procedure to build up the bone before placing the implants. Our team will assess your specific situation and develop a personalized treatment plan to ensure successful implant placement. The ability to restore your smile with implants, even in challenging cases, is one of the many benefits of modern dental techniques.',
+      'Yes, dental implants can often be placed even if you have experienced bone loss. We may recommend a bone grafting procedure to build up the bone before placing the implants. Our team will assess your specific situation and develop a personalised treatment plan to ensure successful implant placement. The ability to restore your smile with implants, even in challenging cases, is one of the many benefits of modern dental techniques.',
   },
   {
     question: 'How do dental implants compare to other tooth replacement options?',

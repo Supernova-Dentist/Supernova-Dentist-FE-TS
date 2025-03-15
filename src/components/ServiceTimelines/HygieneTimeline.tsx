@@ -80,18 +80,18 @@ export const HygieneTimeline = ({ data, setImagesLoaded, imagesLoaded }: Timelin
           <hr className='border-t-2 border-gold w-20 mx-auto mt-6 mb-8' />
           <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 max-w-[35rem] mx-auto'>
             Improving your smile can be as easy as 1 2 3. Here&apos;s how we can help you achieve the Supernova smile
-            you&apos;ve always wanted🌠:
+            you&apos;ve always wanted 🌠:
           </p>
         </div>
 
         <div ref={ref} className='relative max-w-7xl mx-auto pb-20'>
           {data.map((item, index) => (
-            <div key={index} className='flex justify-start pt-10 md:pt-40 md:gap-10'>
+            <div key={index} className='flex justify-start pt-10 md:gap-10'>
               <div className='sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full'>
                 <div className='h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center'>
                   <div className='h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2' />
                 </div>
-                <h3 className='hidden md:block z-9 text-3xl lg:text-3xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500'>
+                <h3 className='hidden md:block z-9 text-3xl lg:text-5xl md:pl-20 md:text-4xl font-bold text-neutral-500 dark:text-neutral-500 '>
                   {item.title}
                 </h3>
               </div>
@@ -123,7 +123,7 @@ export const HygieneTimeline = ({ data, setImagesLoaded, imagesLoaded }: Timelin
       <div className='flex justify-center pb-6'>
         <button
           onClick={scrollToPromotionForm}
-          className='bg-lightGold text-white px-8 py-4 rounded-lg text-lg font-semibold'
+          className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
         >
           Begin Your Journey!
         </button>

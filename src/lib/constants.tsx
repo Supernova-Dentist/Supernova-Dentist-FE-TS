@@ -39,6 +39,10 @@ export const cosmetic = [
 
 export const general = [
   {
+    name: 'Dental Therapist',
+    link: '/dental-therapist',
+  },
+  {
     name: 'Dental Hygiene',
     link: '/dental-hygiene',
   },

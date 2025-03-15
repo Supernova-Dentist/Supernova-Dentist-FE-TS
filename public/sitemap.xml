@@ -4,7 +4,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/</loc>
-    <lastmod>2025-02-25</lastmod>
+    <lastmod>2025-03-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -40,7 +40,7 @@
   <!-- Practice Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/practice</loc>
-    <lastmod>2025-01-24</lastmod>
+    <lastmod>2025-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -72,7 +72,7 @@
   <!-- Invisalign Page -->
 <url>
   <loc>https://www.supernovadental.co.uk/invisalign</loc>
-  <lastmod>2025-02-25</lastmod>
+  <lastmod>2025-03-13</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
 </url>
@@ -80,9 +80,17 @@
 <!-- Dental Hygiene Page -->
 <url>
   <loc>https://www.supernovadental.co.uk/dental-hygiene</loc>
-  <lastmod>2025-02-25</lastmod>
+  <lastmod>2025-03-13</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
+</url>
+
+<!-- Dental Therapist Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/dental-therapist</loc>
+  <lastmod>2025-03-13</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 
 </urlset>

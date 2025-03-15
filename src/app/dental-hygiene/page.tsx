@@ -1,4 +1,4 @@
-import HygieneContent from '@/components/blocks/InvisalignContent copy/HygieneContent';
+import HygieneContent from '@/components/blocks/HygieneContent/HygieneContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import type { Metadata } from 'next';
 

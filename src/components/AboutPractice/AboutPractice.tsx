@@ -1,7 +1,8 @@
 'use client';
 
-import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 
 export function AboutPractice() {
   const { ref, inView } = useInView({
@@ -19,11 +20,14 @@ export function AboutPractice() {
             inView ? 'opacity-100 transition-opacity duration-700' : 'opacity-0'
           )}
         >
-          <img
+          <Image
             src='/assets/images/outerBuilding.jpg'
-            alt='About Supernova Dental'
-            className='w-full h-full object-cover rounded-lg'
-            style={{ aspectRatio: '16/9' }} // Improved aspect ratio for the image
+            alt='About Us'
+            width={600}
+            height={800}
+            layout={'responsive'}
+            quality={100}
+            className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4'
           />
         </div>
 

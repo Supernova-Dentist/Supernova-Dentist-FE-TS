@@ -148,15 +148,15 @@ export default function ServiceForm({
           <div className='container max-w-[1250px] mx-auto px-4 md:px-8 lg:grid lg:grid-cols-2 gap-8'>
             <div className='text-center lg:text-left space-y-6'>
               <div className='bg-grey px-4 py-2 text-md text-gray-50 rounded-lg inline-block'>{serviceChip}</div>
-              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
-                Start Your {serviceName} Journey
+              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl max-w-[32rem] mx-auto'>
+                Start Your {serviceName}
               </h2>
-              <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
+              <p className='text-muted-foreground md:text-2xl max-w-[32rem] mx-auto pb-4'>{serviceDescription}</p>
               {imgSrc && (
                 <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 hidden lg:block' />
               )}
             </div>
-            <Card className='max-h-[40rem] m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 flex items-center justify-center'>
+            <Card className='max-h-[52rem] m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 flex items-center justify-center'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4'>
                   <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
@@ -258,7 +258,7 @@ export default function ServiceForm({
             <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
             <div className='mb-6 flex flex-col gap-2'>
               <p>
-                You&apos;ve been successfully signed up for our promotions and updates. We&apos;ll send details to{' '}
+                You&apos;ve been successfully signed up. We&apos;ll send details to{' '}
                 {values.email}.
               </p>
               <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
