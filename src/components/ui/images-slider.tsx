@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
 export const ImagesSlider = ({
@@ -41,7 +41,7 @@ export const ImagesSlider = ({
       }
     };
 
-     void load();
+    void load();
   }, []);
 
   const loadImages = async () => {
@@ -62,6 +62,7 @@ export const ImagesSlider = ({
       })
       .catch((error) => console.error('Failed to load images', error));
   };
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'ArrowRight') {
@@ -89,29 +90,17 @@ export const ImagesSlider = ({
 
   const slideVariants = {
     initial: {
-      scale: 0,
       opacity: 0,
-      rotateX: 45,
     },
     visible: {
-      scale: 1,
-      rotateX: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 1.5,
         ease: [0.645, 0.045, 0.355, 1.0],
       },
     },
-    upExit: {
-      opacity: 1,
-      y: '-150%',
-      transition: {
-        duration: 1,
-      },
-    },
-    downExit: {
-      opacity: 1,
-      y: '150%',
+    exit: {
+      opacity: 0,
       transition: {
         duration: 1,
       },
@@ -121,12 +110,7 @@ export const ImagesSlider = ({
   const areImagesLoaded = loadedImages.length > 0;
 
   return (
-    <div
-      className={cn('overflow-hidden h-full w-full relative flex items-center justify-center', className)}
-      style={{
-        perspective: '1000px',
-      }}
-    >
+    <div className={cn('overflow-hidden h-full w-full relative flex items-center justify-center', className)}>
       {areImagesLoaded && children}
       {areImagesLoaded && overlay && <div className={cn('absolute inset-0 bg-black/60 z-40', overlayClassName)} />}
 
@@ -137,7 +121,7 @@ export const ImagesSlider = ({
             src={loadedImages[currentIndex]}
             initial='initial'
             animate='visible'
-            exit={direction === 'up' ? 'upExit' : 'downExit'}
+            exit='exit'
             variants={slideVariants}
             className='image h-full w-full absolute inset-0 object-cover object-center'
           />
