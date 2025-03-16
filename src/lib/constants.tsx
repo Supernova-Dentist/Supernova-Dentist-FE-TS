@@ -14,7 +14,7 @@ export const cosmeticServices = [
 
 export const practiceInfo = [
   { name: 'Home', link: '/' },
-  { name: 'Offer', link: '' },
+  { name: 'Practice', link: '/practice' },
   { name: 'Invisalign', link: '/invisalign' },
   { name: 'Dental Hygiene', link: '/dental-hygiene' },
   { name: 'Find Us', link: '/find-us' },
@@ -31,6 +31,10 @@ export const generalServices = [
 ];
 
 export const cosmetic = [
+  {
+    name: 'Invisalign Open Day',
+    link: '/invisalign-open-day',
+  },
   {
     name: 'Invisalign',
     link: '/invisalign',
@@ -83,10 +87,10 @@ export const navLinks = [
   { name: 'Home', url: '/', flyout: [] },
   //  TODO: Uncomment when there is a insta post
   // { name: 'Social', url: '#social', flyout: [] },
-  { name: 'Offer', url: '#offer', flyout: [] },
-  { name: 'Cases', url: '#cases', flyout: [] },
-  { name: 'Journey', url: '#journey', flyout: [] },
-  { name: 'Results', url: '#results', flyout: [] },
+  { name: 'Practice', url: '/practice', flyout: [] },
+  { name: 'Cosmetic Dentistry', flyout: cosmetic },
+  { name: 'General Dentistry', flyout: general },
+  { name: 'About us', flyout: aboutUs },
 ];
 
 export const locationInfo = {
