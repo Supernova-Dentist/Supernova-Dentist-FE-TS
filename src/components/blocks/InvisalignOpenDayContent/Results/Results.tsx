@@ -41,14 +41,6 @@ export default function Results() {
       ref={ref} // Attach the ref to the section
     >
       <div className='container mx-auto'>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
-          animate={inView ? { opacity: 1, y: 0 } : {}} // Animate when in view
-          transition={{ duration: 0.5 }} // Animation duration
-          className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 mb-12'
-        >
-          In as little as 4 months ✨
-        </motion.p>
         <div className='flex flex-col-reverse md:flex-row-reverse justify-center gap-8 items-center px-4'>
           {transformations.map((item) => (
             <div key={item.id} className='flex justify-center p-4 border rounded-3xl bg-neutral-100 border-neutral-200'>
