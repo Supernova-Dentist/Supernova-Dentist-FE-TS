@@ -29,8 +29,8 @@ export function InvisalignOpenDayHero() {
 
   return (
     <>
-      <div className='hidden md:block'>
-        <ImagesSlider className='h-[100vh]' images={desktopImages}>
+      <div className='hidden md:block h-[100vh]'>
+        <ImagesSlider  images={desktopImages}>
           <motion.div
             initial={{
               opacity: 0,
@@ -68,8 +68,8 @@ export function InvisalignOpenDayHero() {
           </motion.div>
         </ImagesSlider>
       </div>
-      <div className='block md:hidden'>
-        <ImagesSlider className='h-[100vh]' images={mobileImages}>
+      <div className='block md:hidden h-[100vh]'>
+        <ImagesSlider images={mobileImages}>
           <motion.div
             initial={{
               opacity: 0,
