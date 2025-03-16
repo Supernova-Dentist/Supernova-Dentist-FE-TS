@@ -8,11 +8,13 @@ import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoA
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { type ReactNode, useRef } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
+import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import InvisalignOpenDayCard from './InvisalignOpenDayCard/InvisalignOpenDayCard';
 import InvisalignOpenDayForm from './InvisalignOpenDayForm/InvisalignOpenDayForm';
-import InvisalignOpenDayJourney from './InvisalignOpenDayJourney/InvisalignOpenDayJourney';
-import Results from './Results/Results';
 import { InvisalignOpenDayHero } from './InvisalignOpenDayHero/InvisalignOpenDayHero';
+import InvisalignOpenDayJourney from './InvisalignOpenDayJourney/InvisalignOpenDayJourney';
+import { InvisalignOpenDaySlideTabs } from './InvisalignOpenDaySlideTabs/InvisalignOpenDaySlideTabs';
+import Results from './Results/Results';
 
 const pricing = [
   {
@@ -43,50 +45,72 @@ export const InvisalignOpenDayContent = () => {
         />
       </div>
 
-      <TextParallaxContent
-        imgUrl='/assets/images/invisalign_1.jpeg'
-        subheading='Huge Savings'
-        heading="Don't miss out."
-      >
-        <div className='flex items-center justify-center pt-8 pb-16'>
-          {pricing.map((planData, index) => (
-            <InvisalignOpenDayCard
-              key={index}
-              plan={planData.plan}
-              price={planData.price}
-              offerPrice={planData.offerPrice}
-              features={planData.features}
-              monthly={false}
-              isMiddle
+      <section id='offer'>
+        <InvisalignOpenDaySlideTabs />
+        <TextParallaxContent
+          imgUrl='/assets/images/invisalign_1.jpeg'
+          subheading='Huge Savings'
+          heading="Don't miss out."
+        >
+          <div className='flex items-center justify-center pt-8 pb-16'>
+            {pricing.map((planData, index) => (
+              <InvisalignOpenDayCard
+                key={index}
+                plan={planData.plan}
+                price={planData.price}
+                offerPrice={planData.offerPrice}
+                features={planData.features}
+                monthly={false}
+                isMiddle
+              />
+            ))}
+          </div>
+        </TextParallaxContent>
+      </section>
+      <section id='cases'>
+        <InvisalignOpenDaySlideTabs />
+        <TextParallaxContent
+          imgUrl='/assets/images/invisalign_2.jpg'
+          subheading='Treatment Cases'
+          heading='See how it can help.'
+        >
+          <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
+            <video
+              className='w-full h-full object-fit rounded-lg lg:mt-8'
+              controls
+              preload='metadata'
+              src='/assets/videos/invisalign_treatment_cases.mp4'
             />
-          ))}
-        </div>
-      </TextParallaxContent>
-      <TextParallaxContent
-        imgUrl='/assets/images/invisalign_2.jpg'
-        subheading='Treatment Cases'
-        heading='See how it can help.'
-      >
-        <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
-          <video
-            className='w-full h-full object-cover rounded-lg lg:mt-8'
-            controls
-            preload='metadata'
-            src='/assets/videos/invisalign_treatment_cases.mp4'
-          />
-        </div>
-      </TextParallaxContent>
-      <TextParallaxContent imgUrl='/assets/images/invisalign_3.jpg' subheading='Modern' heading='See the journey.'>
-        <InvisalignOpenDayJourney />
-      </TextParallaxContent>
-      <TextParallaxContent
-        imgUrl='/assets/images/invisalign_4.jpg'
-        subheading='Results'
-        heading='See the difference we can make.'
-      >
-        <Results />
-        <VideoAnimationSection />
-      </TextParallaxContent>
+          </div>
+        </TextParallaxContent>
+      </section>
+      <section id='journey'>
+        <InvisalignOpenDaySlideTabs />
+        <TextParallaxContent imgUrl='/assets/images/invisalign_3.jpg' subheading='Modern' heading='See the journey.'>
+          <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
+            <video
+              className='w-full h-full object-fit rounded-lg lg:mt-8'
+              controls
+              preload='metadata'
+              poster='/assets/images/video_thumbnail.png' // Optional: use an image as a placeholder before the video loads
+            >
+              <source src={'/assets/videos/why_supernova.mp4'} type='video/mp4' />
+              Sorry, your browser doesn&apos;t support the video tag.
+            </video>
+          </div>
+        </TextParallaxContent>
+      </section>
+      <section id='results'>
+        <InvisalignOpenDaySlideTabs />
+        <TextParallaxContent
+          imgUrl='/assets/images/invisalign_4.jpg'
+          subheading='Results'
+          heading='See the difference we can make.'
+        >
+          <Results />
+        </TextParallaxContent>
+      </section>
+      <VideoAnimationSection />
     </div>
   );
 };
@@ -113,11 +137,11 @@ const TextParallaxContent = ({
         paddingRight: IMG_PADDING,
       }}
     >
-      <div className='relative h-[150vh]'>
+      <div className='relative h-[250vh]'>
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} logoSrc={logoSrc} />
+        {children}
       </div>
-      {children}
     </div>
   );
 };
