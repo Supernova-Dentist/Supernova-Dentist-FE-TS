@@ -1,5 +1,14 @@
 export default [
   {
+    id: 26,
+    name: 'Katie Sinclair',
+    date: 'a few days ago',
+    rating: 5,
+    review: `I really liked it here, they use new technology and it’s a very clean environment. Would highly recommend!`,
+    url: 'https://g.co/kgs/YZMiyFx',
+    previewUrl: '/assets/images/wendy-review.png',
+  },
+  {
     id: 25,
     name: 'Temika Skye',
     date: 'a week ago',
