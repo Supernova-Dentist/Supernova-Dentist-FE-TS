@@ -30,7 +30,7 @@ export function InvisalignOpenDayHero() {
   return (
     <>
       <div className='hidden md:block h-[100vh]'>
-        <ImagesSlider  images={desktopImages}>
+        <ImagesSlider images={desktopImages}>
           <motion.div
             initial={{
               opacity: 0,
@@ -43,7 +43,7 @@ export function InvisalignOpenDayHero() {
             transition={{
               duration: 0.6,
             }}
-            className='z-50 flex flex-col justify-center items-center'
+            className='z-40 flex flex-col justify-center items-center'
           >
             <motion.p className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
               Supernova Dental <br /> Invisalign Open Day <br /> April 2025
