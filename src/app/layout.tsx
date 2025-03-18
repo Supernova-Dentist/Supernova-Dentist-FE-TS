@@ -40,7 +40,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -88,7 +87,7 @@ export default function RootLayout({
         <MainNav />
         {children}
         <FloatingMenu />
-        <AccessibilityWidget />
+
         {/* <ScrollToTopButton /> */}
         <Footer />
       </body>

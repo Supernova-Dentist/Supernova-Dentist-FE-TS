@@ -1,4 +1,5 @@
 import AboutSection from '@/components/AboutSection/AboutSection';
+import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
 import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
 import Welcome from '@/components/blocks/Welcome/Welcome';
 import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
@@ -37,64 +38,66 @@ export const metadata = {
 
 export default function Home() {
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Dentist",
-    "name": "Supernova Dental",
-    "url": "https://www.supernovadental.co.uk",
-    "description": "Looking for a trusted private dentist in Bridgwater? Supernova Dental provides expert dental care, including Invisalign, implants, and emergency appointments. Book a consultation today!",
-    "keywords": "best private dentist in Bridgwater, Invisalign dentist near Bridgwater, affordable dental implants Bridgwater, emergency dental care in Bridgwater, gentle and trusted dentist Bridgwater",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Supernova Building, Marsh Lane, Huntworth Gate",
-      "addressLocality": "Bridgwater",
-      "postalCode": "TA6 6LQ",
-      "addressCountry": "GB"
+    '@context': 'https://schema.org',
+    '@type': 'Dentist',
+    name: 'Supernova Dental',
+    url: 'https://www.supernovadental.co.uk',
+    description:
+      'Looking for a trusted private dentist in Bridgwater? Supernova Dental provides expert dental care, including Invisalign, implants, and emergency appointments. Book a consultation today!',
+    keywords:
+      'best private dentist in Bridgwater, Invisalign dentist near Bridgwater, affordable dental implants Bridgwater, emergency dental care in Bridgwater, gentle and trusted dentist Bridgwater',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
+      addressLocality: 'Bridgwater',
+      postalCode: 'TA6 6LQ',
+      addressCountry: 'GB',
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+44 1278 228665",
-      "contactType": "Customer Service",
-      "email": "enquiries@supernovadental.co.uk",
-      "areaServed": "GB",
-      "availableLanguage": "English"
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+44 1278 228665',
+      contactType: 'Customer Service',
+      email: 'enquiries@supernovadental.co.uk',
+      areaServed: 'GB',
+      availableLanguage: 'English',
     },
-    "openingHoursSpecification": [
+    openingHoursSpecification: [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        "opens": "08:15",
-        "closes": "18:15"
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+        opens: '08:15',
+        closes: '18:15',
       },
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "09:00",
-        "closes": "13:00"
-      }
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '09:00',
+        closes: '13:00',
+      },
     ],
-    "openingHours": ["Mo-Th 08:15-18:15", "Sa 09:00-13:00"],
-    "review": {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
+    openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
+    review: {
+      '@type': 'Review',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '5',
       },
-      "author": {
-        "@type": "Person",
-        "name": "Verified Patient"
-      }
+      author: {
+        '@type': 'Person',
+        name: 'Verified Patient',
+      },
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "21"
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '21',
     },
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61567279201971",
-      "https://www.instagram.com/supernova.dental/",
-      "https://g.co/kgs/qqvPcF1"
-    ]
-  }
+    sameAs: [
+      'https://www.facebook.com/profile.php?id=61567279201971',
+      'https://www.instagram.com/supernova.dental/',
+      'https://g.co/kgs/qqvPcF1',
+    ],
+  };
 
   return (
     <main>
@@ -126,6 +129,7 @@ export default function Home() {
       <VideoAnimationSection />
       <FindUsSection />
       <PromotionFAQ />
+      {/* <AccessibilityWidget /> */}
       {/* <ComingSoonSection /> */}
     </main>
   );
