@@ -52,6 +52,7 @@ export const InvisalignOpenDayContent = () => {
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_1.jpg'
           landscapeImgUrl='/assets/images/invisalign_1.jpeg'
+          logoSrc='/assets/images/logo.png'
           subheading='Huge Savings'
           heading="Don't miss out."
         >
@@ -75,6 +76,7 @@ export const InvisalignOpenDayContent = () => {
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_p_1.jpg'
           landscapeImgUrl='/assets/images/invisalign_2.jpg'
+          logoSrc='/assets/images/logo.png'
           subheading='Treatment Cases'
           heading='See how it can help.'
         >
@@ -93,6 +95,7 @@ export const InvisalignOpenDayContent = () => {
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_p_2.jpg'
           landscapeImgUrl='/assets/images/invisalign_landscape_2.jpg'
+          logoSrc='/assets/images/logo.png'
           subheading='Modern'
           heading='See the journey.'
         >
@@ -114,6 +117,7 @@ export const InvisalignOpenDayContent = () => {
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_4.jpg'
           landscapeImgUrl='/assets/images/invisalign_4.jpg'
+          logoSrc='/assets/images/logo.png'
           subheading='Results'
           heading='See the difference we can make.'
         >
@@ -158,40 +162,6 @@ const TextParallaxContent = ({
 
         <div ref={contentRef}>{children}</div>
       </div>
-    </div>
-  );
-};
-
-const TextParallaxContentForm = ({
-  imgUrl,
-  subheading,
-  heading,
-  children,
-  logoSrc,
-}: {
-  imgUrl: string;
-  subheading: string;
-  heading: string;
-  children: ReactNode;
-  logoSrc?: string;
-}) => {
-  return (
-    <div
-      style={{
-        paddingLeft: IMG_PADDING,
-        paddingRight: IMG_PADDING,
-      }}
-    >
-      <div className='relative h-[150vh]'>
-        <InvisalignOpenDayForm
-          serviceName='Invisalign'
-          serviceChip='Invisalign® Open Day'
-          serviceDescription='Get a personalised Invisalign treatment plan and discover how clear aligners can transform your smile.'
-          formTitle='Sign up for your Free Invisalign Consultation'
-          formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
-        />
-      </div>
-      {children}
     </div>
   );
 };
@@ -266,19 +236,12 @@ const OverlayCopy = ({
       className='absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white z-40'
     >
       <p className='mb-2 text-center text-xl md:mb-4 md:text-3xl'>{subheading}</p>
-      <p className='text-center text-4xl font-bold md:text-7xl'>{heading}</p>
+      <p className='text-center text-4xl font-bold md:text-7xl max-w-[56rem]'>{heading}</p>
       {logoSrc && <img src={logoSrc} className='w-auto h-auto max-w-full mt-4 md:w-32 md:h-32' alt='Logo' />}
 
       {/* Animated Arrow Button */}
       <button onClick={handleScroll} className='mt-6 flex flex-col items-center'>
-        <video
-          src='/arrow.webm' // Ensure the file is in the public folder
-          autoPlay
-          loop
-          muted
-          playsInline
-          className='w-12 h-12 mt-2'
-        />
+        <video src='assets/videos/arrow.webm' autoPlay loop muted playsInline className='w-12 h-12 mt-2' />
       </button>
     </motion.div>
   );
