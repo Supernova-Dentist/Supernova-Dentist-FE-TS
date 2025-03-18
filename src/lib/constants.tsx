@@ -15,6 +15,7 @@ export const cosmeticServices = [
 export const practiceInfo = [
   { name: 'Home', link: '/' },
   { name: 'Practice', link: '/practice' },
+  { name: 'Invisalign Open Day', link: '/invisalign-open-day' },
   { name: 'Invisalign', link: '/invisalign' },
   { name: 'Dental Hygiene', link: '/dental-hygiene' },
   { name: 'Find Us', link: '/find-us' },
