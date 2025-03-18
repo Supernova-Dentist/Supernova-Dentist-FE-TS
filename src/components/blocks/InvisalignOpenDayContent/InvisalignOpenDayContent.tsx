@@ -21,15 +21,15 @@ import Image from 'next/image';
 
 const pricing = [
   {
-    plan: 'Invisalign Deluxe',
+    plan: 'Invisalign',
     price: { number: 1000, text: 'Over' },
     offerPrice: 1470,
     features: [
       'Free Invisalign assessment',
-      'Includes Dual arch Invisalign',
+      'For Comprehensive Invisalign cases',
       '£500 off Treatment cost',
       'Free whitening worth £425',
-      'Free vivera retainers worth £399',
+      '3 Free sets of vivera retainers worth £399',
     ],
   },
 ];

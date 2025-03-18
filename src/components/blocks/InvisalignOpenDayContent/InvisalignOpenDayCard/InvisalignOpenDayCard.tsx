@@ -33,12 +33,9 @@ export default function InvisalignOpenDayCard({
         'min-h-[600px]' // Increased height for more room
       )}
     >
-      <img src='/favicon.ico' alt='Supernova Dental Logo' className='absolute top-4 right-4 h-16 w-auto' />{' '}
+      <img src='/favicon.ico' alt='Supernova Dental Logo' className='mx-auto h-20 w-auto' />{' '}
       {/* Slightly larger logo */}
       <div className='flex flex-col flex-grow'>
-        <div className={cn('rounded-sm px-6 py-2 w-fit mb-6', isMiddle ? 'bg-gray-700 text-gray-50' : 'bg-gray-200')}>
-          <span className='text-lg'>{plan}</span> {/* Slightly larger text */}
-        </div>
         <span className='text-gold'>{price?.text}</span>
         <span className={cn('text-6xl mb-2 font-semibold', isMiddle ? 'text-gray-50' : null)}>
           {' '}
