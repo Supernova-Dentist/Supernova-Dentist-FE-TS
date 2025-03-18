@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/promise-function-async */
 'use client';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -21,100 +22,81 @@ export const ImagesSlider = ({
   direction?: 'up' | 'down';
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(false);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1 === images.length ? 0 : prevIndex + 1));
-  };
-
-  const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1));
-  };
-
+  // Load images one by one
   useEffect(() => {
-    const load = async () => {
-      try {
-        await loadImages();
-      } catch (error) {
-        console.error('Failed to load images', error);
+    const loadImage = (src: string) => {
+      return new Promise<string>((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => resolve(src);
+        img.onerror = reject;
+      });
+    };
+
+    let isMounted = true;
+    const loadAllImages = async () => {
+      const newLoadedImages: string[] = [];
+      for (const image of images) {
+        try {
+          const loadedSrc = await loadImage(image);
+          if (isMounted) {
+            newLoadedImages.push(loadedSrc);
+            setLoadedImages([...newLoadedImages]); // Update as each image loads
+          }
+        } catch (error) {
+          console.error('Failed to load image:', image, error);
+        }
       }
     };
 
-    void load();
-  }, []);
+    void loadAllImages();
+    return () => {
+      isMounted = false;
+    };
+  }, [images]);
 
-  const loadImages = async () => {
-    setLoading(true);
-    const loadPromises = images.map(async (image) => {
-      return await new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = image;
-        img.onload = () => resolve(image);
-        img.onerror = reject;
-      });
-    });
+  // Autoplay (only after first image is loaded)
+  useEffect(() => {
+    if (loadedImages.length === 0) return;
 
-    Promise.all(loadPromises)
-      .then((loadedImages) => {
-        setLoadedImages(loadedImages as string[]);
-        setLoading(false);
-      })
-      .catch((error) => console.error('Failed to load images', error));
-  };
+    let interval: NodeJS.Timeout;
+    if (autoplay) {
+      interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % loadedImages.length);
+      }, 5000);
+    }
 
+    return () => clearInterval(interval);
+  }, [loadedImages, autoplay]);
+
+  // Keyboard Navigation
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'ArrowRight') {
-        handleNext();
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % loadedImages.length);
       } else if (event.key === 'ArrowLeft') {
-        handlePrevious();
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + loadedImages.length) % loadedImages.length);
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
-
-    // autoplay
-    let interval: NodeJS.Timeout;
-    if (autoplay) {
-      interval = setInterval(() => {
-        handleNext();
-      }, 5000);
-    }
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      clearInterval(interval);
-    };
-  }, []);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [loadedImages]);
 
   const slideVariants = {
-    initial: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 1.5,
-        ease: [0.645, 0.045, 0.355, 1.0],
-      },
-    },
-    exit: {
-      opacity: 0,
-      transition: {
-        duration: 1,
-      },
-    },
+    initial: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.5, ease: [0.645, 0.045, 0.355, 1.0] } },
+    exit: { opacity: 0, transition: { duration: 1 } },
   };
 
-  const areImagesLoaded = loadedImages.length > 0;
-
   return (
-    <div className={cn('overflow-hidden h-full w-full relative flex items-center justify-center', className)}>
-      {areImagesLoaded && children}
-      {areImagesLoaded && overlay && <div className={cn('absolute inset-0 bg-black/60 z-20', overlayClassName)} />}
+    <div className={`overflow-hidden h-full w-full relative flex items-center justify-center ${className}`}>
+      {loadedImages.length > 0 && children}
+      {overlay && <div className={`absolute inset-0 bg-black/40 z-20 ${overlayClassName}`} />}
 
-      {areImagesLoaded && (
+      {loadedImages.length > 0 && (
         <AnimatePresence>
           <motion.img
             key={currentIndex}
