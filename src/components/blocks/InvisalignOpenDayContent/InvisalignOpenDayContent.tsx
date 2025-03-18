@@ -179,18 +179,18 @@ const StickyImage = ({ portraitImgUrl, landscapeImgUrl }: { portraitImgUrl: stri
   return (
     <motion.div
       ref={targetRef}
-      style={{ scale }}
+      style={{ scale, willChange: 'transform' }}
       className='sticky z-0 overflow-hidden rounded-3xl h-[calc(100vh-3rem)] top-12 bg-cover bg-center'
     >
       {/* Portrait image (default for mobile) */}
       <div
-        className='absolute inset-0 bg-cover bg-center sm:hidden'
+        className='absolute inset-0 bg-cover bg-center sm:hidden w-full h-full'
         style={{ backgroundImage: `url(${portraitImgUrl})` }}
       />
 
       {/* Landscape image (for medium screens and above) */}
       <div
-        className='absolute inset-0 hidden sm:block bg-cover bg-center'
+        className='absolute inset-0 hidden sm:block bg-cover bg-center w-full h-full'
         style={{ backgroundImage: `url(${landscapeImgUrl})` }}
       />
 
