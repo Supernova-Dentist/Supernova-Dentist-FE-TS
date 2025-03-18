@@ -87,6 +87,7 @@ export const InvisalignOpenDayContent = () => {
               controls
               preload='metadata'
               src='/assets/videos/invisalign_treatment_cases.mp4'
+              poster='/assets/images/treatment_cases.png'
             />
           </div>
         </TextParallaxContent>
