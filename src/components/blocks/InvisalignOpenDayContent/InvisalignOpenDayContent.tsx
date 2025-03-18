@@ -252,9 +252,9 @@ const OverlayCopy = ({
       <p className='text-center text-4xl font-bold md:text-7xl max-w-[56rem]'>{heading}</p>
 
       {/* Animated Arrow Button */}
-      <button onClick={handleScroll} className='mt-6 flex flex-col items-center'>
+      {/* <button onClick={handleScroll} className='mt-6 flex flex-col items-center'>
         <video src='assets/videos/arrow.webm' autoPlay loop muted playsInline className='w-12 h-12 mt-2' />
-      </button>
+      </button> */}
     </motion.div>
   );
 };
