@@ -132,6 +132,8 @@ const TextParallaxContent = ({
   children: ReactNode;
   logoSrc?: string;
 }) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
   return (
     <div
       style={{
@@ -141,9 +143,9 @@ const TextParallaxContent = ({
     >
       <div className='relative h-[250vh]'>
         <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy heading={heading} subheading={subheading} logoSrc={logoSrc} />
+        <OverlayCopy heading={heading} subheading={subheading} logoSrc={logoSrc} scrollToRef={contentRef} />
 
-        {children}
+        <div ref={contentRef}>{children}</div>
       </div>
     </div>
   );
@@ -216,7 +218,17 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
   );
 };
 
-const OverlayCopy = ({ subheading, heading, logoSrc }: { subheading: string; heading: string; logoSrc?: string }) => {
+const OverlayCopy = ({
+  subheading,
+  heading,
+  logoSrc,
+  scrollToRef,
+}: {
+  subheading: string;
+  heading: string;
+  logoSrc?: string;
+  scrollToRef: React.RefObject<HTMLDivElement>;
+}) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -226,6 +238,12 @@ const OverlayCopy = ({ subheading, heading, logoSrc }: { subheading: string; hea
   const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
   const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
 
+  const handleScroll = () => {
+    if (scrollToRef.current) {
+      scrollToRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.div
       style={{
@@ -233,11 +251,23 @@ const OverlayCopy = ({ subheading, heading, logoSrc }: { subheading: string; hea
         opacity,
       }}
       ref={targetRef}
-      className='absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white'
+      className='absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white z-40'
     >
       <p className='mb-2 text-center text-xl md:mb-4 md:text-3xl'>{subheading}</p>
       <p className='text-center text-4xl font-bold md:text-7xl'>{heading}</p>
       {logoSrc && <img src={logoSrc} className='w-auto h-auto max-w-full mt-4 md:w-32 md:h-32' alt='Logo' />}
+
+      {/* Animated Arrow Button */}
+      <button onClick={handleScroll} className='mt-6 flex flex-col items-center'>
+        <video
+          src='/assets/videos/arrow.webm' // Ensure the file is in the public folder
+          autoPlay
+          loop
+          muted
+          playsInline
+          className='w-12 h-12 mt-2'
+        />
+      </button>
     </motion.div>
   );
 };
