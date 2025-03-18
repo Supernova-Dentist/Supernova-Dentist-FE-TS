@@ -133,7 +133,7 @@ export default function InvisalignOpenDayForm({
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='form' ref={ref} className='w-full py-28 min-h-screen flex items-center justify-center'>
+      <section id='form' ref={ref} className='w-full py-12 min-h-screen flex items-center justify-center'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -226,7 +226,7 @@ export default function InvisalignOpenDayForm({
               </form>
             </Card>
 
-            <div className='flex flex-col lg:hidden py-12 mt-4'>
+            <div className='flex flex-col lg:hidden py-2 lg:py-12 mt-4'>
               <img
                 src='/assets/images/invisalign_open_Day_poster.jpg'
                 alt='Invisalign Logo'
