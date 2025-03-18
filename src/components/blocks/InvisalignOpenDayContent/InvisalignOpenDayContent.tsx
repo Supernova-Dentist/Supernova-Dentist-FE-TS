@@ -16,6 +16,7 @@ import InvisalignOpenDayJourney from './InvisalignOpenDayJourney/InvisalignOpenD
 import { InvisalignOpenDaySlideTabs } from './InvisalignOpenDaySlideTabs/InvisalignOpenDaySlideTabs';
 import Results from './Results/Results';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { InvisalignOpenDayVideoSection } from './InvisalignOpenDayVideoSection/InvisalignOpenDayVideoSection';
 
 const pricing = [
   {
@@ -40,7 +41,7 @@ export const InvisalignOpenDayContent = () => {
         <InvisalignOpenDayForm
           serviceName='Invisalign'
           serviceChip='Invisalign® Open Day'
-          serviceDescription='Exclusive open day bonuses and discounts worth over £1000 if you go ahead at the event'
+          serviceDescription='Exclusive open day bonuses and discounts worth over £1470 if you go ahead at the event'
           formTitle='Sign Up for a Free Consultation'
           formDescription='Meet with our experts, ask questions, and learn how Invisalign can transform your smile.'
         />
@@ -49,7 +50,8 @@ export const InvisalignOpenDayContent = () => {
       <section id='offer'>
         <InvisalignOpenDaySlideTabs />
         <TextParallaxContent
-          imgUrl='/assets/images/invisalign_1.jpeg'
+          portraitImgUrl='/assets/images/invisalign_1.jpg'
+          landscapeImgUrl='/assets/images/invisalign_1.jpeg'
           subheading='Huge Savings'
           heading="Don't miss out."
         >
@@ -71,7 +73,8 @@ export const InvisalignOpenDayContent = () => {
       <section id='cases'>
         <InvisalignOpenDaySlideTabs />
         <TextParallaxContent
-          imgUrl='/assets/images/invisalign_2.jpg'
+          portraitImgUrl='/assets/images/invisalign_p_1.jpg'
+          landscapeImgUrl='/assets/images/invisalign_2.jpg'
           subheading='Treatment Cases'
           heading='See how it can help.'
         >
@@ -87,7 +90,12 @@ export const InvisalignOpenDayContent = () => {
       </section>
       <section id='journey'>
         <InvisalignOpenDaySlideTabs />
-        <TextParallaxContent imgUrl='/assets/images/invisalign_3.jpg' subheading='Modern' heading='See the journey.'>
+        <TextParallaxContent
+          portraitImgUrl='/assets/images/invisalign_p_2.jpg'
+          landscapeImgUrl='/assets/images/invisalign_landscape_2.jpg'
+          subheading='Modern'
+          heading='See the journey.'
+        >
           <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
             <video
               className='w-full h-full object-fit rounded-lg lg:mt-8'
@@ -104,7 +112,8 @@ export const InvisalignOpenDayContent = () => {
       <section id='results'>
         <InvisalignOpenDaySlideTabs />
         <TextParallaxContent
-          imgUrl='/assets/images/invisalign_4.jpg'
+          portraitImgUrl='/assets/images/invisalign_4.jpg'
+          landscapeImgUrl='/assets/images/invisalign_4.jpg'
           subheading='Results'
           heading='See the difference we can make.'
         >
@@ -112,7 +121,7 @@ export const InvisalignOpenDayContent = () => {
         </TextParallaxContent>
       </section>
 
-      <VideoAnimationSection />
+      <InvisalignOpenDayVideoSection />
     </div>
   );
 };
@@ -120,13 +129,15 @@ export const InvisalignOpenDayContent = () => {
 const IMG_PADDING = 12;
 
 const TextParallaxContent = ({
-  imgUrl,
+  portraitImgUrl,
+  landscapeImgUrl,
   subheading,
   heading,
   children,
   logoSrc,
 }: {
-  imgUrl: string;
+  portraitImgUrl: string;
+  landscapeImgUrl: string;
   subheading: string;
   heading: string;
   children: ReactNode;
@@ -142,7 +153,7 @@ const TextParallaxContent = ({
       }}
     >
       <div className='relative h-[250vh]'>
-        <StickyImage imgUrl={imgUrl} />
+        <StickyImage portraitImgUrl={portraitImgUrl} landscapeImgUrl={landscapeImgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} logoSrc={logoSrc} scrollToRef={contentRef} />
 
         <div ref={contentRef}>{children}</div>
@@ -185,7 +196,7 @@ const TextParallaxContentForm = ({
   );
 };
 
-const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
+const StickyImage = ({ portraitImgUrl, landscapeImgUrl }: { portraitImgUrl: string; landscapeImgUrl: string }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -197,23 +208,24 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
 
   return (
     <motion.div
-      style={{
-        backgroundImage: `url(${imgUrl})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: `calc(100vh - ${IMG_PADDING * 2}px)`,
-        top: IMG_PADDING,
-        scale,
-      }}
       ref={targetRef}
-      className='sticky z-0 overflow-hidden rounded-3xl'
+      style={{ scale }}
+      className='sticky z-0 overflow-hidden rounded-3xl h-[calc(100vh-3rem)] top-12 bg-cover bg-center'
     >
-      <motion.div
-        className='absolute inset-0 bg-neutral-950/70'
-        style={{
-          opacity,
-        }}
+      {/* Portrait image (default for mobile) */}
+      <div
+        className='absolute inset-0 bg-cover bg-center sm:hidden'
+        style={{ backgroundImage: `url(${portraitImgUrl})` }}
       />
+
+      {/* Landscape image (for medium screens and above) */}
+      <div
+        className='absolute inset-0 hidden sm:block bg-cover bg-center'
+        style={{ backgroundImage: `url(${landscapeImgUrl})` }}
+      />
+
+      {/* Overlay for dimming effect */}
+      <motion.div className='absolute inset-0 bg-neutral-950/70' style={{ opacity }} />
     </motion.div>
   );
 };
@@ -260,7 +272,7 @@ const OverlayCopy = ({
       {/* Animated Arrow Button */}
       <button onClick={handleScroll} className='mt-6 flex flex-col items-center'>
         <video
-          src='/assets/videos/arrow.webm' // Ensure the file is in the public folder
+          src='/arrow.webm' // Ensure the file is in the public folder
           autoPlay
           loop
           muted
