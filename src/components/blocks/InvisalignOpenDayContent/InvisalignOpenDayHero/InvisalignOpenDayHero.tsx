@@ -16,7 +16,6 @@ export function InvisalignOpenDayHero() {
   ];
 
   const mobileImages = [
-    '/assets/images/invisalign_1.jpg',
     '/assets/images/outerBuilding.jpg',
     '/assets/images/invisalign_4.jpg',
     '/assets/images/invis_6.jpg',
