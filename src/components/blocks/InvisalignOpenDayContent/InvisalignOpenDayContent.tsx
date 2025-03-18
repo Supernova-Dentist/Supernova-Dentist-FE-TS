@@ -17,6 +17,7 @@ import { InvisalignOpenDaySlideTabs } from './InvisalignOpenDaySlideTabs/Invisal
 import Results from './Results/Results';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { InvisalignOpenDayVideoSection } from './InvisalignOpenDayVideoSection/InvisalignOpenDayVideoSection';
+import Image from 'next/image';
 
 const pricing = [
   {
@@ -180,21 +181,33 @@ const StickyImage = ({ portraitImgUrl, landscapeImgUrl }: { portraitImgUrl: stri
     <motion.div
       ref={targetRef}
       style={{ scale, willChange: 'transform' }}
-      className='sticky z-0 overflow-hidden rounded-3xl h-[calc(100vh-3rem)] top-12 bg-cover bg-center'
+      className='sticky z-0 overflow-hidden rounded-3xl h-[calc(100vh-3rem)] top-12'
     >
-      {/* Portrait image (default for mobile) */}
-      <div
-        className='absolute inset-0 bg-cover bg-center sm:hidden w-full h-full'
-        style={{ backgroundImage: `url(${portraitImgUrl})` }}
-      />
+      {/* Portrait Image (Mobile) */}
+      <div className='absolute inset-0 sm:hidden w-full h-full'>
+        <Image
+          src={portraitImgUrl}
+          alt='Invisalign Portrait'
+          fill
+          className='object-cover'
+          priority
+          sizes='(max-width: 640px) 100vw'
+        />
+      </div>
 
-      {/* Landscape image (for medium screens and above) */}
-      <div
-        className='absolute inset-0 hidden sm:block bg-cover bg-center w-full h-full'
-        style={{ backgroundImage: `url(${landscapeImgUrl})` }}
-      />
+      {/* Landscape Image (Desktop) */}
+      <div className='absolute inset-0 hidden sm:block w-full h-full'>
+        <Image
+          src={landscapeImgUrl}
+          alt='Invisalign Landscape'
+          fill
+          className='object-cover'
+          priority
+          sizes='(min-width: 640px) 100vw'
+        />
+      </div>
 
-      {/* Overlay for dimming effect */}
+      {/* Overlay for Dimming Effect */}
       <motion.div className='absolute inset-0 bg-neutral-950/70' style={{ opacity }} />
     </motion.div>
   );
@@ -237,7 +250,6 @@ const OverlayCopy = ({
     >
       <p className='mb-2 text-center text-xl md:mb-4 md:text-3xl'>{subheading}</p>
       <p className='text-center text-4xl font-bold md:text-7xl max-w-[56rem]'>{heading}</p>
-      {logoSrc && <img src={logoSrc} className='w-auto h-auto max-w-full mt-4 md:w-32 md:h-32' alt='Logo' />}
 
       {/* Animated Arrow Button */}
       <button onClick={handleScroll} className='mt-6 flex flex-col items-center'>

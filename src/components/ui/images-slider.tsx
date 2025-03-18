@@ -4,6 +4,8 @@ import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
+import Image from 'next/image';
+
 export const ImagesSlider = ({
   images,
   children,
@@ -24,40 +26,11 @@ export const ImagesSlider = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
-  // Load images one by one
   useEffect(() => {
-    const loadImage = (src: string) => {
-      return new Promise<string>((resolve, reject) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = () => resolve(src);
-        img.onerror = reject;
-      });
-    };
-
-    let isMounted = true;
-    const loadAllImages = async () => {
-      const newLoadedImages: string[] = [];
-      for (const image of images) {
-        try {
-          const loadedSrc = await loadImage(image);
-          if (isMounted) {
-            newLoadedImages.push(loadedSrc);
-            setLoadedImages([...newLoadedImages]); // Update as each image loads
-          }
-        } catch (error) {
-          console.error('Failed to load image:', image, error);
-        }
-      }
-    };
-
-    void loadAllImages();
-    return () => {
-      isMounted = false;
-    };
+    setLoadedImages(images); // No need to manually preload, Next.js handles this
   }, [images]);
 
-  // Autoplay (only after first image is loaded)
+  // Autoplay logic
   useEffect(() => {
     if (loadedImages.length === 0) return;
 
@@ -71,7 +44,7 @@ export const ImagesSlider = ({
     return () => clearInterval(interval);
   }, [loadedImages, autoplay]);
 
-  // Keyboard Navigation
+  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'ArrowRight') {
@@ -98,15 +71,23 @@ export const ImagesSlider = ({
 
       {loadedImages.length > 0 && (
         <AnimatePresence>
-          <motion.img
+          <motion.div
             key={currentIndex}
-            src={loadedImages[currentIndex]}
             initial='initial'
             animate='visible'
             exit='exit'
             variants={slideVariants}
-            className='image h-full w-full absolute inset-0 object-cover object-center'
-          />
+            className='absolute inset-0 h-full w-full'
+          >
+            <Image
+              src={loadedImages[currentIndex]}
+              alt={`Slide ${currentIndex}`}
+              fill
+              priority={currentIndex === 0} // Prioritize the first image
+              sizes='100vw'
+              className='object-cover'
+            />
+          </motion.div>
         </AnimatePresence>
       )}
     </div>
