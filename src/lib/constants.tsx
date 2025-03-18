@@ -15,6 +15,7 @@ export const cosmeticServices = [
 export const practiceInfo = [
   { name: 'Home', link: '/' },
   { name: 'Practice', link: '/practice' },
+  { name: 'Invisalign Open Day', link: '/invisalign-open-day' },
   { name: 'Invisalign', link: '/invisalign' },
   { name: 'Dental Hygiene', link: '/dental-hygiene' },
   { name: 'Find Us', link: '/find-us' },
@@ -31,6 +32,10 @@ export const generalServices = [
 ];
 
 export const cosmetic = [
+  {
+    name: 'Invisalign Open Day',
+    link: '/invisalign-open-day',
+  },
   {
     name: 'Invisalign',
     link: '/invisalign',
@@ -118,11 +123,11 @@ export const pricing = [
     id: 2,
     plan: 'Invisalign Deluxe',
     price: { number: 1000, text: 'Over' },
-    offerPrice: 49,
+    offerPrice: 1470,
     features: [
       'Free Invisalign assessment',
       'Includes Dual arch Invisalign',
-      '£250 off Treatment cost',
+      '£500 off Treatment cost',
       'Free whitening worth £425',
       'Free vivera retainers worth £399',
     ],

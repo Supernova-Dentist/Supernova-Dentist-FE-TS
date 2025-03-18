@@ -169,7 +169,7 @@ export default function ServiceForm({
                     </Label>
                     <Input
                       id='fullname'
-                      placeholder='John Smith'
+                      placeholder='John Doe'
                       className='py-1 text-lg px-3'
                       {...register('fullname')}
                     />
