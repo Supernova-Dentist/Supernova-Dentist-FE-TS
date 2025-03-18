@@ -55,14 +55,6 @@ export default function Results() {
             </div>
           ))}
         </div>
-        <div className='flex justify-center mt-8'>
-          <button
-            onClick={scrollToPromotionForm}
-            className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
-          >
-            Transform now!
-          </button>
-        </div>
       </div>
     </section>
   );

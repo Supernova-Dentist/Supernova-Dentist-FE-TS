@@ -15,16 +15,17 @@ import { InvisalignOpenDayHero } from './InvisalignOpenDayHero/InvisalignOpenDay
 import InvisalignOpenDayJourney from './InvisalignOpenDayJourney/InvisalignOpenDayJourney';
 import { InvisalignOpenDaySlideTabs } from './InvisalignOpenDaySlideTabs/InvisalignOpenDaySlideTabs';
 import Results from './Results/Results';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 
 const pricing = [
   {
     plan: 'Invisalign Deluxe',
     price: { number: 1000, text: 'Over' },
-    offerPrice: 49,
+    offerPrice: 1470,
     features: [
       'Free Invisalign assessment',
       'Includes Dual arch Invisalign',
-      '£250 off Treatment cost',
+      '£500 off Treatment cost',
       'Free whitening worth £425',
       'Free vivera retainers worth £399',
     ],
@@ -110,6 +111,7 @@ export const InvisalignOpenDayContent = () => {
           <Results />
         </TextParallaxContent>
       </section>
+
       <VideoAnimationSection />
     </div>
   );
@@ -140,6 +142,7 @@ const TextParallaxContent = ({
       <div className='relative h-[250vh]'>
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} logoSrc={logoSrc} />
+
         {children}
       </div>
     </div>
