@@ -30,6 +30,8 @@ interface ServiceFormProps {
   formTitle: string;
   formDescription: string;
   imgSrc?: string;
+  videoSrc?: string;
+  videoThumbnailSrc?: string;
 }
 
 export default function ServiceForm({
@@ -39,6 +41,8 @@ export default function ServiceForm({
   formTitle,
   formDescription,
   imgSrc,
+  videoSrc,
+  videoThumbnailSrc,
 }: ServiceFormProps) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -155,6 +159,22 @@ export default function ServiceForm({
               {imgSrc && (
                 <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 hidden lg:block' />
               )}
+              {/* Video for large screens - shown ABOVE the form */}
+              {videoSrc && (
+                <div className='hidden lg:block mb-8'>
+                  <div className='w-full max-w-56 aspect-[9/17] relative mx-auto'>
+                    <video
+                      className='absolute top-0 left-0 w-full h-full rounded-lg'
+                      controls
+                      preload='metadata'
+                      poster={videoThumbnailSrc}
+                    >
+                      <source src={videoSrc} type='video/mp4' />
+                      Sorry, your browser doesn&apos;t support the video tag.
+                    </video>
+                  </div>
+                </div>
+              )}
             </div>
             <Card className='max-h-[52rem] m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 flex items-center justify-center'>
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -248,6 +268,22 @@ export default function ServiceForm({
               </form>
             </Card>
             {imgSrc && <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 block lg:hidden' />}
+            {/* Video for small/medium screens - shown BELOW the form */}
+            {videoSrc && (
+              <div className='block lg:hidden mt-8'>
+                <div className='w-full max-w-56 aspect-[9/17] relative mx-auto'>
+                  <video
+                    className='absolute top-0 left-0 w-full h-full rounded-lg'
+                    controls
+                    preload='metadata'
+                    poster={videoThumbnailSrc}
+                  >
+                    <source src={videoSrc} type='video/mp4' />
+                    Sorry, your browser doesn&apos;t support the video tag.
+                  </video>
+                </div>
+              </div>
+            )}
           </div>
         </motion.div>
       </section>
@@ -257,10 +293,7 @@ export default function ServiceForm({
           <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full'>
             <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
             <div className='mb-6 flex flex-col gap-2'>
-              <p>
-                You&apos;ve been successfully signed up. We&apos;ll send details to{' '}
-                {values.email}.
-              </p>
+              <p>You&apos;ve been successfully signed up. We&apos;ll send details to {values.email}.</p>
               <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
             </div>
             <Button onClick={handleSuccessModalClose} className='w-full text-xl py-3'>
