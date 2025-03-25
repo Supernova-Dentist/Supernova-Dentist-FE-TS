@@ -218,9 +218,7 @@ discomfort.`,
     title: 'Invisalign',
     products: [
       { description: 'Invisalign consultation', priceDescriptionBefore: 'Free' },
-      { isHeader: true, description: 'Invisalign GO (up to 26 aligners):' },
-      { description: 'Single arch', priceDescriptionBefore: 'from', price: 2895 },
-      { description: 'Dual arch', priceDescriptionBefore: 'from', price: 3895 },
+
       {
         isHeader: true,
         description: 'Invisalign comprehensive (over 26 aligners):',
