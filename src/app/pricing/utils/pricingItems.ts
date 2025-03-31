@@ -221,10 +221,10 @@ discomfort.`,
 
       {
         isHeader: true,
-        description: 'Invisalign comprehensive (over 26 aligners):',
+        description: 'Invisalign:',
       },
-      { description: 'Single arch', priceDescriptionBefore: 'from', price: 3999 },
-      { description: 'Dual arch', priceDescriptionBefore: 'from', price: 4999 },
+      { description: 'Includes Invisalign Vivera retainers (3 sets included)', price: 3999 },
+      { description: '*Can vary depending on complexity' },
       { isHeader: true, description: 'Retainers:' },
 
       { description: 'Invisalign Vivera retainers (3 sets included)', price: 399 },
