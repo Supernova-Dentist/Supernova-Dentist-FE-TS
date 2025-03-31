@@ -327,6 +327,10 @@ const LINKS = [
         title: 'Enquiry',
         href: '/enquiry',
       },
+      {
+        title: 'Referral',
+        href: '/referral',
+      },
     ],
   },
 ];

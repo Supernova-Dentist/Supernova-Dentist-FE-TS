@@ -58,6 +58,7 @@ export const aboutUs = [
   { name: 'Social', link: '/social' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
+  { name: 'Referral', link: '/referral' },
 ];
 
 export const media = [
