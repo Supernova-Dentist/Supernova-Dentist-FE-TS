@@ -54,6 +54,7 @@ export const general = [
 ];
 
 export const aboutUs = [
+  { name: 'Team', link: '/team' },
   { name: 'Find Us', link: '/find-us' },
   { name: 'Social', link: '/social' },
   { name: 'Pricing', link: '/pricing' },
