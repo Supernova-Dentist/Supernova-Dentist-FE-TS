@@ -18,7 +18,7 @@ export const pricingItems = [
 
       { description: 'Small X-Rays', price: 12, priceDescription: 'each' },
       { description: 'Large full mouth X-ray (OPG)', price: 50 },
-      { description: 'Cone-beam CT scan', price: 175 },
+      { description: 'Cone-beam CT scan', price: 200 },
     ],
   },
   {
