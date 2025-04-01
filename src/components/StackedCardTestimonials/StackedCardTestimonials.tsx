@@ -9,10 +9,10 @@ const StackedCardTestimonials = () => {
   return (
     <section className='bg-white py-24 px-4 lg:px-8 grid items-center grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 overflow-hidden'>
       <div className='p-4'>
-        <h3 className='text-5xl font-semibold'>What patients say about Scott</h3>
+        <h3 className='text-5xl font-semibold'>Patient Testimonials for Dr. Scott Young</h3>
         <p className='text-slate-500 my-4'>
-          Discover why our patients rave about Dr. Young&apos;s exceptional care, from Invisalign and composite bonding to
-          tooth whitening and emergency services.
+          Discover why patients consistently praise Dr. Scott Young for his exceptional care, including services such as
+          Invisalign, composite bonding, teeth whitening, and emergency dentistry.
         </p>
         <SelectBtns numTracks={testimonials.length} setSelected={setSelected} selected={selected} />
       </div>
@@ -145,32 +145,32 @@ interface Testimonial {
 const testimonials = [
   {
     description:
-      'Dr. Young transformed my smile with Invisalign and I couldn’t be happier. His professionalism and care were exceptional throughout the entire process.',
-    name: 'Emily Thompson',
-    title: 'Invisalign Patient',
+      'Scott and his team are absolutely fantastic.His reception staff are incredibly welcoming. They made me feel at ease from my initial call, right through to my appointment with Scott. I am on course to achieve the smile I want. Outstanding level of professionalism. Highly recommend.',
+    name: 'Steve Bury',
+    title: 'Smile Design Patient',
   },
   {
     description:
-      'The composite bonding treatment I received from Dr. Scott was flawless. He explained every step and made sure I was comfortable. Highly recommended!',
-    name: 'Michael Adams',
-    title: 'Composite Bonding Patient',
-  },
-  {
-    description:
-      'My teeth whitening experience with Dr. Scott was incredible. I saw results immediately and his friendly demeanor made the process smooth and enjoyable.',
-    name: 'Sarah Lee',
+      'I had a fantastic experience with Scott and the team at Supernova. He is extremely knowledgeable and experienced, and I felt confident in his care throughout my visit. The team is always accommodating, ensuring they cater to my availability and make the process as smooth as possible. Highly recommend!',
+    name: 'Hollie Tudor-Smith',
     title: 'Teeth Whitening Patient',
   },
   {
     description:
-      'Dr. Scott’s implant work was precise and his attention to detail was impressive. I feel confident with my new smile thanks to his expertise.',
-    name: 'James Brown',
-    title: 'Implant Patient',
+      'I am deathly nervous of the dentist, but I called up Thursday as I was in so much pain and spoke to Kayleigh, who was amazing, I was booked in with Scott for today, I was so scared, he was brilliant I had xrays first then asked to come back later, he did an extraction, I have never had some one so gentle and helpful in all my life, I need a few more appointments with things to be done, but Scott put my mind at ease and im ready to do this now 😀 Thank Supernova team',
+    name: 'Rebecca Bryan',
+    title: 'Emergency Care Patient',
   },
   {
     description:
-      'I had a dental emergency and Dr. Scott handled it with exceptional skill and compassion. I was grateful for his prompt and effective treatment.',
-    name: 'Laura Green',
+      'I had an emergency appointment today with Scott due to having a broken tooth. Scott & his team greeted me with care and kindness. The repair was done efficiently & was pain free. I would recommend Supernova to anyone. A dentist you can trust.',
+    name: 'Suzanne Radford',
     title: 'Emergency Care Patient',
+  },
+
+  {
+    description:
+      'Amazing all round, dental surgery looks incredible. Staff are so friendly and polite. Scott (dentist owner) again so friendly after not seeing a dentist for a good 7 years made me feel at ease. So glad I decided to push myself to get in contact with the team',
+    title: 'General Dentistry Patient',
   },
 ];

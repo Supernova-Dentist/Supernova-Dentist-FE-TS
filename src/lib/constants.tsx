@@ -141,3 +141,8 @@ export const pricing = [
   //   features: ['50% off new patient assessment', '50% off 1st routine hygiene appointment', 'Includes air polish'],
   // },
 ];
+
+export const instagramAccountsConfig = {
+  social: '17841470126685683',
+  'scott-young': '17841468241198700',
+};

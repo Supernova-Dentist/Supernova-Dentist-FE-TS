@@ -7,7 +7,7 @@ export const MiaOutlineCards = () => {
   return (
     <section className='overflow-hidden md:max-w-5xl px-8 pb-12 pt-16'>
       <div className='mx-auto flex flex-col items-center justify-center gap-8 lg:flex-row'>
-        <Card title='Enquiries' href='/contact' bgUrl='/assets/images/form3.png' />
+        <Card title='Enquiries' href='/enquiry' bgUrl='/assets/images/form3.png' />
       </div>
     </section>
   );

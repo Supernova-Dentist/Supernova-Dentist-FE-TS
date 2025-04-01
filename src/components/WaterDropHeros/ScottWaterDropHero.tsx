@@ -1,5 +1,7 @@
+import { DentallyPortal } from '@/lib/constants';
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ScottWaterDropHero = () => {
   return (
@@ -14,31 +16,42 @@ const ScottWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'> Principal Dentist/Owner</span>
+                I&apos;m the <span className='font-semibold text-gold'> Principal Dentist/Owner</span>
               </h2>
-              <h3 className='text-lightGold'>
+              <h3 className='text-gold'>
                 BDS (Hons) PGCert Restorative and Aesthetic Dentistry (FGFP) PGDip Orthodontics (SDC) CGD
               </h3>
-              <h3 className='text-lightGold'>GDC Registration Number: 284371</h3>
+              <h3 className='text-gold'>GDC Registration Number: 284371</h3>
             </>
           </Reveal>
           <Reveal>
-            <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-              My passion for high quality dentistry has led me to learn from some of the top specialists in the UK and
-              worldwide, going on multiple postgraduate courses to hone my skills and ultimately founding Supernova
-              Dental. I take immense pride in knowing that our patients feel truly looked after and cared for. The huge
-              confidence boosts people gain after just a few appointments are a joy to behold whether that is nervous
-              patients feeling fully at ease or the smile transformations from cosmetic procedures.
-            </p>
+            <>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                My passion for high-quality dentistry has led me to learn from some of the top specialists in the UK and
+                worldwide, going on multiple postgraduate courses to hone my skills and ultimately founding Supernova
+                Dental.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                I take immense pride in knowing that our patients feel truly looked after and cared for.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                The huge confidence boosts people gain after just a few appointments are a joy to behold—whether that is
+                nervous patients feeling fully at ease or the smile transformations from cosmetic procedures
+              </p>
+            </>
           </Reveal>
           <Reveal>
             <div className='flex gap-4 mt-4 mx-auto justify-center w-full'>
-              <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Book with me
-              </button>
-              <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Get in touch
-              </button>
+              <Link target='_blank' href={`${DentallyPortal}`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Book with me
+                </button>
+              </Link>
+              <Link href={`/enquiry`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Get in touch
+                </button>
+              </Link>
             </div>
           </Reveal>
         </div>

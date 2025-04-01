@@ -6,9 +6,9 @@ import ScottWaterDropHero from '@/components/WaterDropHeros/ScottWaterDropHero';
 import { Reveal } from '@/utils/anim/Reveal';
 
 export default async function Component() {
-  const instagramPosts = await fetchInstagramPosts('scott-young');
-  const username = instagramPosts?.length > 0 ? instagramPosts[0].username : 'Our Instagram';
-  const instagramProfileUrl = `https://www.instagram.com/${username}/`;
+  // const instagramPosts = await fetchInstagramPosts('scott-young');
+  // const username = instagramPosts?.length > 0 ? instagramPosts[0].username : 'Our Instagram';
+  // const instagramProfileUrl = `https://www.instagram.com/${username}/`;
 
   return (
     <div className='flex flex-col min-h-[100vh]'>
@@ -39,32 +39,31 @@ export default async function Component() {
               <h2 className='text-3xl font-bold tracking-tight md:text-4xl'>Hear from Scott</h2>
               <hr className='bg-gold h-1 w-16 mx-auto' />
               <p className='max-w-[600px] text-muted-foreground md:text-xl mx-auto'>
-                Get to know Scott Young, his journey and his passion for aesthetics and dentistry.
+                Get to know Dr. Scott Young, his journey and his passion for aesthetics and dentistry.
               </p>
             </div>
           </Reveal>
           <div className='w-full flex justify-center'>
-            <div className='w-full max-w-[1200px] aspect-video bg-gray-200'>
-              {/* Placeholder for YouTube video */}
-              <iframe
-                width='100%'
-                height='100%'
-                src='https://www.youtube.com/embed/your-video-id'
-                title='Meet Scott Young'
-                frameBorder='0'
-                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                allowFullScreen
-              ></iframe>
+            <div className='w-full max-w-96 aspect-[9/17] relative mx-auto'>
+              <video
+                className='absolute top-0 left-0 w-full h-full rounded-lg'
+                controls
+                preload='metadata'
+                poster={'/assets/images/dr_scott_young_intro_poster.png'}
+              >
+                <source src={'/assets/videos/dr_scott_young_intro.mp4'} type='video/mp4' />
+                Sorry, your browser doesn&apos;t support the video tag.
+              </video>
             </div>
           </div>
         </div>
       </section>
 
-      {instagramPosts?.length > 0 ? (
+      {/* {instagramPosts?.length > 0 ? (
         <InstagramPostGrid posts={instagramPosts} />
       ) : (
         <span className='flex justify-center mt-20'>No Instagram posts yet. Check back later.</span>
-      )}
+      )} */}
 
       <StackedCardTestimonials />
     </div>

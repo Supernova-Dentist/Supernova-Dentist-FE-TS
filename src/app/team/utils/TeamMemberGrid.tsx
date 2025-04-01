@@ -1,8 +1,8 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const teamMembers = [
   {
@@ -22,7 +22,19 @@ const teamMembers = [
     title: 'Lead Front of House',
     image: '/assets/images/Headshots/Supernova-05.jpg',
     slug: 'mia-coakley',
-  }
+  },
+  {
+    name: 'Adam Young',
+    title: 'Operations Director',
+    image: '/assets/images/Headshots/adam.jpg',
+    slug: 'adam-young',
+  },
+  {
+    name: 'Charlotte Stockwell',
+    title: 'Treatment Coordinator',
+    image: '/assets/images/Headshots/charlotte.jpg',
+    slug: 'charlotte-stockwell',
+  },
 ];
 
 export default function TeamMemberGrid() {
@@ -57,7 +69,7 @@ export default function TeamMemberGrid() {
               <div className='mx-auto flex justify-center p-2'>
                 <Button
                   variant='link'
-                  className='mt-4 text-cream hover:underline bg-lightGold p-6 text-lg'
+                  className='mt-4 text-cream hover:underline bg-gold p-6 text-lg'
                   onClick={() => handleShowBio(member.slug)}
                 >
                   View Profile

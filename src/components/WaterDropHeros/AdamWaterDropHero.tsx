@@ -1,5 +1,6 @@
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const AdamWaterDropHero = () => {
   return (
@@ -14,39 +15,41 @@ const AdamWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'> Principal Dentist/Owner</span>
+                I&apos;m the <span className='font-semibold text-gold'>Operations Director</span>
               </h2>
-              <h3 className='text-lightGold'>
-                BDS (Hons) PGCert Restorative and Aesthetic Dentistry (FGFP) PGDip Orthodontics (SDC) CGD
-              </h3>
-              <h3 className='text-lightGold'>GDC Registration Number: 284371</h3>
             </>
           </Reveal>
           <Reveal>
-            <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-              My passion for high quality dentistry has led me to learn from some of the top specialists in the UK and
-              worldwide, going on multiple postgraduate courses to hone my skills and ultimately founding Supernova
-              Dental. I take immense pride in knowing that our patients feel truly looked after and cared for. The huge
-              confidence boosts people gain after just a few appointments are a joy to behold whether that is nervous
-              patients feeling fully at ease or the smile transformations from cosmetic procedures.
-            </p>
+            <>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                As the Operations Director, my focus is on business strategy, maintaining our website, while also
+                driving our social media and external marketing efforts.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                I also built the website to ensure a seamless online experience for our patients. I guide them to
+                understand and feel confident about their journey with Supernova Dental.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                My goal is to ensure they feel informed, comfortable, and excited about their future smile before they
+                even step through the door.
+              </p>
+            </>
           </Reveal>
           <Reveal>
             <div className='flex gap-4 mt-4 mx-auto justify-center w-full'>
-              <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Book with me
-              </button>
-              <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Get in touch
-              </button>
+              <Link href={`/enquiry`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Get in touch
+                </button>
+              </Link>
             </div>
           </Reveal>
         </div>
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/Supernova-03.jpg'
-              alt='Dr. Scott Young headshot'
+              src='/assets/images/Headshots/adam.jpg'
+              alt='Adam headshot'
               width={600}
               height={800}
               layout={'responsive'}
@@ -60,4 +63,4 @@ const AdamWaterDropHero = () => {
   );
 };
 
-export default ScottWaterDropHero;
+export default AdamWaterDropHero;

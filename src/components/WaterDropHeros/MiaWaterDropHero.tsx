@@ -1,5 +1,7 @@
+import { DentallyPortal } from '@/lib/constants';
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const MiaWaterDropHero = () => {
   return (
@@ -14,25 +16,34 @@ const MiaWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'>Lead Front of House</span>
+                I&apos;m the <span className='font-semibold text-gold'>Lead Front of House</span>
               </h2>
             </>
           </Reveal>
           <Reveal>
-            <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-              With extensive experience in dental practice, I am dedicated to providing top-notch care to all my
-              patients. My goal is to ensure a comfortable and efficient experience for everyone who walks through our
-              doors. Let&apos;s connect!
-            </p>
+            <>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                I’m the first face you&apos;ll see at Supernova Dental, and I’ll always greet you with a smile! With
+                over 5 years of experience in dentistry, I love meeting new patients and making everyone feel welcome.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                I’m passionate about learning and staying up to date with the latest in the field to provide the best
+                experience for our patients.
+              </p>
+            </>
           </Reveal>
           <Reveal>
             <div className='flex gap-4 mt-4 mx-auto justify-center w-full'>
-              <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Get booked in
-              </button>
-              <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Get in touch
-              </button>
+              <Link target='_blank' href={`${DentallyPortal}`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Book with me
+                </button>
+              </Link>
+              <Link href={`/enquiry`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Get in touch
+                </button>
+              </Link>
             </div>
           </Reveal>
         </div>
