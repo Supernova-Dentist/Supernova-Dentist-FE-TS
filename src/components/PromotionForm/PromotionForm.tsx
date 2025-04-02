@@ -15,6 +15,9 @@ import { promotionSignupSchema, type PromotionFormData } from '../../../types/Pr
 import BarLoader from '../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { DentallyPortal } from '@/lib/constants';
+import { FaTimes } from 'react-icons/fa';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -47,21 +50,21 @@ export default function PromotionForm() {
 
   async function onSubmit(data: PromotionFormData) {
     try {
-        const decodedSource = decodeURIComponent(pathname); // Decode URL encoding
-  
-        // If you need to remove the leading slash, you can do that
-        let cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
+      const decodedSource = decodeURIComponent(pathname); // Decode URL encoding
 
-        if (cleanedSource === '') {
-          cleanedSource = 'Homepage';
-        }
-  
-        const dataWithSource = { ...data, source: cleanedSource };
-  
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
+      // If you need to remove the leading slash, you can do that
+      let cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
+
+      if (cleanedSource === '') {
+        cleanedSource = 'Homepage';
+      }
+
+      const dataWithSource = { ...data, source: cleanedSource };
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
         method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataWithSource),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dataWithSource),
       });
 
       if (!res.ok) {
@@ -142,7 +145,6 @@ export default function PromotionForm() {
                 Looking for a reliable <strong>Bridgwater dentist</strong>? Supernova Dental is accepting new patients,
                 offering expert care for routine check-ups, cosmetic dentistry, Invisalign treatments and more.
               </p>
-
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -244,18 +246,30 @@ export default function PromotionForm() {
       {/* Success Modal */}
       {showSuccessModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full'>
+          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative'>
+            {/* Close button (X) in the top-right corner of the modal */}
+            <button
+              onClick={handleSuccessModalClose}
+              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+            >
+              <FaTimes />
+            </button>
+
             <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
             <div className='mb-6 flex flex-col gap-2'>
-              <p>
-                You&apos;ve been successfully signed up. We&apos;ll send details to{' '}
-                {values.email}.
-              </p>
+              <p>You&apos;ve been successfully signed up. We&apos;ll send details to {values.email}.</p>
               <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
             </div>
-            <Button onClick={handleSuccessModalClose} className='w-full text-xl py-3'>
-              Close
-            </Button>
+
+            {/* New text and button */}
+            <p className='mb-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
+            <div className='w-full flex justify-center mb-4'>
+              <Link target='_blank' href={`${DentallyPortal}`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Book Now!
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       )}
