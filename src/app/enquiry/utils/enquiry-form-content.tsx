@@ -298,8 +298,8 @@ export function EnquiryFormContent() {
 
       {/* Success Modal */}
       {successModalVisible && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
+        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
+          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative'>
             {/* Close button (X) in the top-right corner of the modal */}
             <button
               onClick={() => setSuccessModalVisible(false)}
@@ -327,8 +327,6 @@ export function EnquiryFormContent() {
                 </button>
               </Link>
             </div>
-
-           
           </div>
         </div>
       )}
