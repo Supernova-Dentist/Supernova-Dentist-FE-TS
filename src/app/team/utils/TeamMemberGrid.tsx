@@ -35,6 +35,24 @@ const teamMembers = [
     image: '/assets/images/Headshots/charlotte.jpg',
     slug: 'charlotte-stockwell',
   },
+  {
+    name: 'Victoria Hands',
+    title: 'Dental Nuse',
+    image: '/assets/images/Headshots/tori.jpg',
+    slug: 'victoria-hands',
+  },
+  {
+    name: 'Rebecca Redstone',
+    title: 'Practice Manager',
+    image: '/assets/images/Headshots/becca.jpg',
+    slug: 'victoria-hands',
+  },
+  {
+    name: 'Nico Minascurta',
+    title: 'Dental Nuse',
+    image: '/assets/images/Headshots/nico.jpg',
+    slug: 'nico-minascurta',
+  },
 ];
 
 export default function TeamMemberGrid() {
