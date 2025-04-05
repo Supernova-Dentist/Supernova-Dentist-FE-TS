@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import useMeasure from 'react-use-measure';
 
-const Question = ({
+export const Question = ({
   title,
   children,
   isOpen,

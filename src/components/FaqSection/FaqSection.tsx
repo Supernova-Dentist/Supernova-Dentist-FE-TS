@@ -4,7 +4,7 @@ import FAQ from '@/components/FAQ/FAQ';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-export default function FaqSection({ faqItems, id }: { faqItems: any; id: string }) {
+export default function  FaqSection({ faqItems, id }: { faqItems: any; id: string }) {
   const { ref, inView } = useInView({
     threshold: 0.2, // Trigger when 20% of the component is in view
     triggerOnce: true, // Only play the animation once

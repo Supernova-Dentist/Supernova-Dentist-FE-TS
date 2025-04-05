@@ -3,17 +3,18 @@
 
 import BarLoader from '@/components/BarLoader/BarLoader';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { motion } from 'framer-motion';
 import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Search from './Search';
-import { motion } from 'framer-motion';
 
 // Define the max character limit
 const MAX_MESSAGE_LENGTH = 500;
@@ -57,6 +58,8 @@ export function ReferralFormContent() {
       message: '',
     },
   });
+
+  const { register, setValue } = form;
 
   const onSubmit = async (data: any) => {
     setLoading(true);
@@ -121,23 +124,29 @@ export function ReferralFormContent() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
+            <h2 className='text-3xl font-bold text-center'>Referral Form</h2>
+            <p className='text-lg text-center text-gray-600'>
+              Please fill in the form below or download and post to Supernova Building, Marsh Lane, Huntworth Gate,
+              Bridgwater TA6 6LQ.
+            </p>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-8'>
                 <div className='grid gap-6'>
+                  <h3 className='text-lg font-bold'>Referring Dentist Details</h3>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
-                      <Label htmlFor='name' className='text-lg font-medium'>
-                        Name
+                      <Label htmlFor='practiceName' className='text-lg font-medium'>
+                        Practice Name
                       </Label>
                       <FormField
                         control={form.control}
-                        name='name'
+                        name='practiceName'
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
                               <Input
-                                id='name'
-                                placeholder='Enter your name'
+                                id='practiceName'
+                                placeholder='Practice Name'
                                 maxLength={75}
                                 {...field}
                                 className='text-md lg:text-lg p-3'
@@ -148,6 +157,276 @@ export function ReferralFormContent() {
                         )}
                       />
                     </div>
+                    <div className='space-y-3'>
+                      <Label htmlFor='practiceEmail' className='text-lg font-medium'>
+                        Practice Email
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='practiceEmail'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='practiceEmail'
+                                type='email'
+                                maxLength={75}
+                                placeholder=' Practice Email'
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+                    <div className='space-y-3'>
+                      <Label htmlFor='practiceAddress' className='text-lg font-medium'>
+                        Practice Address
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='practiceAddress'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='practiceAddress'
+                                placeholder='Practice Address'
+                                maxLength={50}
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className='space-y-3'>
+                      <Label htmlFor='practicePhone' className='text-lg font-medium'>
+                        Practice Phone
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='practicePhone'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='practicePhone'
+                                placeholder='Practice Phone'
+                                maxLength={15}
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+                  <div className='space-y-3'>
+                    <Label htmlFor='dentistName' className='text-lg font-medium'>
+                      Referring Dentist Name
+                    </Label>
+                    <FormField
+                      control={form.control}
+                      name='dentistName'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input
+                              id='dentistName'
+                              placeholder='Referring Dentist Name'
+                              maxLength={15}
+                              {...field}
+                              className='text-md lg:text-lg p-3'
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <h3 className='text-lg font-bold'>Patient Details</h3>
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+                    <div className='space-y-3'>
+                      <Label htmlFor='patientTitle' className='text-lg font-medium'>
+                        Patient Title
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='patientTitle'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='patientTitle'
+                                placeholder='Patient Title'
+                                maxLength={75}
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className='space-y-3'>
+                      <Label htmlFor='firstName' className='text-lg font-medium'>
+                        First Name
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='firstName'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='firstName'
+                                maxLength={75}
+                                placeholder=' First Name'
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className='space-y-3'>
+                      <Label htmlFor='lastName' className='text-lg font-medium'>
+                        Last Name
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='lastName'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='lastName'
+                                maxLength={75}
+                                placeholder='Last Name'
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+                    <div className='space-y-3'>
+                      <Label htmlFor='middleNames' className='text-lg font-medium'>
+                        Middle Name(s)
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='middleNames'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='middleNames'
+                                placeholder='Middle Name(s)'
+                                maxLength={75}
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className='space-y-3'>
+                      <Label htmlFor='dateOfBirth' className='text-lg font-medium'>
+                        Date of Birth
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='dateOfBirth'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='dateOfBirth'
+                                type='date'
+                                maxLength={75}
+                                placeholder='Select your Date of Birth'
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+                    <div className='space-y-3'>
+                      <Label htmlFor='address' className='text-lg font-medium'>
+                        Address
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='address'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='address'
+                                placeholder='Address'
+                                maxLength={50}
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className='space-y-3'>
+                      <Label htmlFor='postcode' className='text-lg font-medium'>
+                        Postcode
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='postcode'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='postcode'
+                                placeholder='Postcode'
+                                maxLength={15}
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
                       <Label htmlFor='email' className='text-lg font-medium'>
                         Email
@@ -160,9 +439,31 @@ export function ReferralFormContent() {
                             <FormControl>
                               <Input
                                 id='email'
-                                type='email'
-                                maxLength={75}
-                                placeholder='Enter your email'
+                                placeholder='@'
+                                maxLength={50}
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className='space-y-3'>
+                      <Label htmlFor='phoneNumber' className='text-lg font-medium'>
+                        Home/Mobile Number
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='phoneNumber'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='phoneNumber'
+                                placeholder='Home/Mobile Number'
+                                maxLength={15}
                                 {...field}
                                 className='text-md lg:text-lg p-3'
                               />
@@ -173,70 +474,62 @@ export function ReferralFormContent() {
                       />
                     </div>
                   </div>
+
                   <div className='space-y-3'>
-                    <Label htmlFor='dateOfBirth' className='text-lg font-medium'>
-                      Date of Birth
+                    <Label htmlFor='referralPurpose' className='text-lg font-medium'>
+                      Purpose of Referral
                     </Label>
                     <FormField
                       control={form.control}
-                      name='dateOfBirth'
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input
-                              id='dateOfBirth'
-                              type='date'
-                              maxLength={75}
-                              placeholder='Select your Date of Birth'
-                              {...field}
-                              className='text-md lg:text-lg p-3'
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  <div className='space-y-3'>
-                    <Label htmlFor='phone' className='text-lg font-medium'>
-                      Phone
-                    </Label>
-                    <FormField
-                      control={form.control}
-                      name='phone'
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input
-                              id='phone'
-                              placeholder='Enter your phone number'
-                              maxLength={15}
-                              {...field}
-                              className='text-md lg:text-lg p-3'
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  <div className='space-y-3'>
-                    <Label htmlFor='referralType' className='text-lg font-medium'>
-                      Category of Referral
-                    </Label>
-                    <FormField
-                      control={form.control}
-                      name='referralType'
+                      name='referralPurpose'
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
                             <Controller
-                              name='referralType'
+                              name='referralPurpose'
                               control={form.control}
                               render={({ field }) => (
                                 <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
-                                  <SelectTrigger id='referralType'>
-                                    <SelectValue placeholder='Select referral type' className='text-md lg:text-lg' />
+                                  <SelectTrigger id='referralPurpose'>
+                                    <SelectValue placeholder='Select referral purpose' className='text-md lg:text-lg' />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value='consultation' className='text-md lg:text-lg'>
+                                      Consultation
+                                    </SelectItem>
+                                    <SelectItem value='second-opinion' className='text-md lg:text-lg'>
+                                      Second Opinion
+                                    </SelectItem>
+                                    <SelectItem value='consultation-and-treatment' className='text-md lg:text-lg'>
+                                      Consultation and Treatment
+                                    </SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              )}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <div className='space-y-3'>
+                    <Label htmlFor='referralReason' className='text-lg font-medium'>
+                      Reason for Referral
+                    </Label>
+                    <FormField
+                      control={form.control}
+                      name='referralReason'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Controller
+                              name='referralReason'
+                              control={form.control}
+                              render={({ field }) => (
+                                <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
+                                  <SelectTrigger id='referralReason'>
+                                    <SelectValue placeholder='Select referral reason' className='text-md lg:text-lg' />
                                   </SelectTrigger>
                                   <SelectContent>
                                     <SelectItem value='cbct-opg' className='text-md lg:text-lg'>
@@ -262,18 +555,18 @@ export function ReferralFormContent() {
                     />
                   </div>
                   <div className='space-y-3'>
-                    <Label htmlFor='message' className='text-lg font-medium'>
-                      Message
+                    <Label htmlFor='explanation' className='text-lg font-medium'>
+                      Please Explain
                     </Label>
                     <FormField
                       control={form.control}
-                      name='message'
+                      name='explanation'
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
                             <Textarea
-                              id='message'
-                              placeholder='Enter your message'
+                              id='explanation'
+                              placeholder='Please Explain'
                               rows={5}
                               {...field}
                               maxLength={MAX_MESSAGE_LENGTH}
@@ -292,6 +585,69 @@ export function ReferralFormContent() {
                     <div className='text-sm text-gray-500'>
                       {messageLength} / {MAX_MESSAGE_LENGTH} characters
                     </div>
+                  </div>
+                  <div className='space-y-3'>
+                    <Label htmlFor='medicalHistory' className='text-lg font-medium'>
+                      Relevant Medical History
+                    </Label>
+                    <FormField
+                      control={form.control}
+                      name='medicalHistory'
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Textarea
+                              id='medicalHistory'
+                              placeholder='Relevant Medical History'
+                              rows={5}
+                              {...field}
+                              maxLength={MAX_MESSAGE_LENGTH}
+                              onChange={(e) => {
+                                field.onChange(e);
+                                handleMessageChange(e);
+                              }}
+                              className='text-md lg:text-lg p-3'
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    {/* Character count */}
+                    <div className='text-sm text-gray-500'>
+                      {messageLength} / {MAX_MESSAGE_LENGTH} characters
+                    </div>
+                  </div>
+                  <div className='space-y-3'>
+                    <p className='text-lg font-medium'>
+                      This confidential form provides us with the information we require to receive a patient referral.
+                      The information contained within this form should be true and accurate to the best of your
+                      knowledge and with the patient’s knowledge and consent. By submitting this form, we will securely
+                      collect your details and the patient’s details. We will then store and process this information in
+                      accordance with our Privacy policy, a copy of which can be found on our website.
+                    </p>
+                  </div>
+                  <div className='flex items-center mt-2'>
+                    <Checkbox
+                      id='clinicianConsent'
+                      {...register('clinicianConsent')}
+                      defaultChecked={false}
+                      onCheckedChange={(checked: boolean) => setValue('clinicianConsent', checked)}
+                    />
+                    <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                      I understand and agree to the processing of my personal data as the referring Clinician.
+                    </Label>
+                  </div>
+                  <div className='flex items-center mt-2'>
+                    <Checkbox
+                      id='patientConsent'
+                      {...register('patientConsent')}
+                      defaultChecked={false}
+                      onCheckedChange={(checked: boolean) => setValue('patientConsent', checked)}
+                    />
+                    <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                      I have made my patient aware of this referral and the provision of their data for this purpose.
+                    </Label>
                   </div>
                   <Button
                     type='submit'

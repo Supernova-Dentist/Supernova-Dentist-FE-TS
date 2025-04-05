@@ -1,7 +1,8 @@
-import { type Metadata } from 'next';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-import { ReferralFormContent } from './utils/referral-form-content';
+import FAQ, { Question } from '@/components/FAQ/FAQ';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
+import { type Metadata } from 'next';
+import { ReferralFormContent } from './utils/referral-form-content';
 
 export const metadata: Metadata = {
   title: 'Contact Supernova Dental | Your Trusted Dental Practice in Bridgwater, Somerset',
@@ -10,6 +11,21 @@ export const metadata: Metadata = {
   keywords:
     'contact Supernova Dental, dental enquiries Bridgwater, dentist contact Bridgwater, dental practice Bridgwater, dental consultation Somerset, get in touch with dentist, contact a dentist Bridgwater, dental services Somerset, dentist appointment Bridgwater, trusted dentist Bridgwater, Supernova Dental contact, dental assistance Bridgwater',
 };
+
+const faqItems = [
+  {
+    question: 'Referral Form',
+    answer: <ReferralFormContent />,
+  },
+  {
+    question: 'Endodontal Referral',
+    answer: 'You can book an appointment through our website or by calling our office directly.',
+  },
+  {
+    question: 'CBCT/ OPT referral',
+    answer: 'If you have a dental emergency, please contact us immediately for assistance.',
+  },
+];
 
 export default function ReferralForm() {
   return (
@@ -23,12 +39,12 @@ export default function ReferralForm() {
         />
 
         {/* Breadcrumb */}
-        <div className='p-4 md:px-6 pb-10 flex justify-start mx-auto max-w-3xl'>
+        <div className='p-4 md:px-6 pb-10 flex flex-col justify-start mx-auto max-w-3xl'>
           <BreadCrumb />
+        <p className='mt-8'>PLEASE SELECT:</p>
+        <FAQ faqItems={faqItems} />
         </div>
 
-        {/* Enquiry Form Content */}
-        <ReferralFormContent />
       </div>
     </div>
   );
