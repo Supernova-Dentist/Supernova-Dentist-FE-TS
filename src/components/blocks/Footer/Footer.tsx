@@ -13,9 +13,9 @@ const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMa
 export default function Footer() {
   return (
     <footer className='bg-grey'>
-      <div className='w-full px-4 py-12 sm:px-10'>
+      <div className='w-full px-4 py-12 sm:px-10 flex flex-col items-center justify-center'>
         {/* Centering the content within the footer */}
-        <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-gray-300 max-w-screen-lg gap-6'>
+        <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  text-gray-300 max-w-screen-lg gap-6'>
           {/* Practice Info Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Practice Info</li>
@@ -24,17 +24,17 @@ export default function Footer() {
             ))}
           </ul>
 
-          {/* Office Info Section with Map */}
-          <div className='flex flex-col items-center sm:items-start gap-1'>
-            <ul className='w-full'>
-              <li className='text-gold text-lg uppercase text-center sm:text-left'>Location</li>
-              <li className='text-center sm:text-left'>{locationInfo.address}</li>
-            </ul>
-            <div className='mb-2'>
-              <GoogleMap />
-            </div>
-            <GetDirectionsForm />
-          </div>
+          {/* Contact Us Section */}
+          <ul className='flex flex-col items-center sm:items-start gap-1'>
+            <li className='text-gold text-lg uppercase'>Opening Hours</li>
+            <li>Monday: 08:15–18:15</li>
+            <li>Tuesday: 08:15–18:15</li>
+            <li>Wednesday: 08:15–18:15</li>
+            <li>Thursday: 08:15–18:15</li>
+            <li>Friday: Closed</li>
+            <li>Saturday: 09:00–13:00</li>
+            <li>Sunday: Closed</li>
+          </ul>
 
           {/* Social Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
@@ -56,7 +56,6 @@ export default function Footer() {
             </li>
           </ul>
 
-          {/* Contact Us Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Contact Us</li>
             <li>enquiries@supernovadental.co.uk</li>
@@ -70,6 +69,17 @@ export default function Footer() {
               </a>
             </li>
           </ul>
+        </div>
+        {/* Office Info Section with Map */}
+        <div className='flex flex-col items-center sm:items-start gap-1 text-white mx-auto justify-center mt-6'>
+          <ul className='w-full'>
+            <li className='text-gold text-lg uppercase text-center sm:text-left'>Location</li>
+            <li className='text-center sm:text-left max-w-[10rem] mx-auto md:mx-0'>{locationInfo.address}</li>
+          </ul>
+          <div className='mb-2'>
+            <GoogleMap />
+          </div>
+          <GetDirectionsForm />
         </div>
       </div>
       {/* Add the PromotionFooter at the bottom */}
