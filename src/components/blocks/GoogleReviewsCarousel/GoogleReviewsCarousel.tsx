@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { LinkPreview } from '@/components/ui/link-preview';
 import Autoplay from 'embla-carousel-autoplay';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { IoStar } from 'react-icons/io5';
 import ReviewLink from '../ReviewLink/ReviewLink';
@@ -73,9 +74,16 @@ export default function GoogleReviewsCarousel() {
 
       {isModalOpen && selectedReview != null && (
         <Modal isOpen={isModalOpen} onClose={() => toggleModal(null)}>
+            <Image
+              src='/assets/svgs/GoogleTrustIcon.svg'
+              width={48}
+              height={48}
+              className='w-[48px] h-[48px] mx-auto'
+              alt='google trust'
+            />
           <div className='max-h-[80vh] w-full overflow-y-auto p-4'>
             <h2 className='text-lg font-semibold mb-2'>{selectedReview.name}</h2>
-            <p className='text-gray-500 text-sm'>{selectedReview.date}</p>
+            {/* <p className='text-gray-500 text-sm'>{selectedReview.date}</p> */}
             <div className='flex mt-2 mb-4'>
               {Array(selectedReview.rating)
                 .fill(0)
