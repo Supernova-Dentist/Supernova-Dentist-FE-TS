@@ -59,9 +59,9 @@ export const Question = ({
         }}
         className='overflow-hidden text-slate-800'
       >
-        <p className='text-left' ref={ref}>
+        <div className='text-left' ref={ref}>
           {children}
-        </p>
+        </div>
       </motion.div>
     </motion.div>
   );
