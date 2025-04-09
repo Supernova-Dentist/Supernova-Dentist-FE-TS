@@ -19,50 +19,106 @@ import Search from './Search';
 // Define the max character limit
 const MAX_MESSAGE_LENGTH = 500;
 
-const formSchema = z.object({
-  // Required fields
-  email: z.string().email({ message: 'Invalid email address.' }),
-  phoneNumber: z
-    .string()
-    .min(10, { message: 'Phone number must be at least 10 characters.' })
-    .max(15, { message: 'Phone number must not exceed 15 characters.' }),
+const formSchema = z
+  .object({
+    // Required fields for referring dentist and patient
+    name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
+    email: z.string().email({ message: 'Invalid email address.' }),
+    dateOfBirth: z.coerce.date({ message: 'Invalid date.' }),
+    phone: z.string().min(10, { message: 'Phone number must be at least 10 characters.' }),
+    referralType: z.string().min(1, { message: 'Please select a referral type.' }),
+    message: z.string().min(5, { message: 'Message must be at least 5 characters.' }),
 
-  // Optional fields (make required if needed)
-  practiceName: z.string().min(1, { message: 'Please provide the referring practice name.' }),
-  practiceEmail: z.string().email({ message: 'Please provide a valid practice email.' }),
-  practicePhone: z.string().min(10, { message: 'Please provide the practice phone number.' }),
-  dentistName: z.string().min(2, { message: 'Please provide the referring dentist’s name.' }),
+    // Required fields for practice information (added as required)
+    practiceName: z.string().min(1, { message: 'Please provide the referring practice name.' }),
+    practiceEmail: z.string().email({ message: 'Please provide a valid practice email.' }),
+    practicePhone: z.string().min(10, { message: 'Please provide the practice phone number.' }),
+    dentistName: z.string().min(2, { message: 'Please provide the referring dentist’s name.' }),
 
-  patientTitle: z.string().optional(),
-  firstName: z.string().min(2, { message: 'Please provide the patient’s first name.' }),
-  lastName: z.string().min(2, { message: 'Please provide the patient’s last name.' }),
-  middleNames: z.string().optional(),
+    // Required patient information
+    patientTitle: z.string().min(1, { message: 'Please provide the patient’s title.' }),
+    firstName: z.string().min(2, { message: 'Please provide the patient’s first name.' }),
+    lastName: z.string().min(2, { message: 'Please provide the patient’s last name.' }),
+    middleNames: z.string().optional(),
+    address: z.string().min(1, { message: 'Please provide the patient’s address.' }),
+    postcode: z.string().min(1, { message: 'Please provide the patient’s postcode.' }),
 
-  address: z.string().min(1, { message: 'Please provide the patient’s address.' }),
-  postcode: z.string().min(1, { message: 'Please provide the patient’s postcode.' }),
-  referralReason: z.string().min(1, { message: 'Please provide a referral reason.' }),
-  explanation: z.string().min(1, { message: 'Please provide an explanation for the referral.' }),
-  medicalHistory: z.string().min(1, { message: 'Please provide the patient’s medical history.' }),
+    // Referral-related information (all required)
+    referralPurpose: z.string().min(5, { message: 'Please specify the referral purpose.' }),
+    referralReason: z.string().min(5, { message: 'Please specify the referral reason.' }),
+    explanation: z.string().min(5, { message: 'Please provide a detailed explanation.' }),
+    medicalHistory: z.string().min(5, { message: 'Please provide relevant medical history.' }),
 
-  // Consent fields (required for legal reasons)
-  clinicianConsent: z.boolean().refine((val) => val, { message: 'Clinician consent is required.' }),
-  patientConsent: z.boolean().refine((val) => val, { message: 'Patient consent is required.' }),
-});
+    // Endodontic treatment options (at least one treatment should be selected)
+    consultation: z.boolean(),
+    secondOpinion: z.boolean(),
+    consultationAndTreatment: z.boolean(),
+    rootCanalTreatment: z.boolean(),
+    rootCanalRetreatment: z.boolean(),
+    postOrInstrumentRemoval: z.boolean(),
+    perforationRepair: z.boolean(),
+    resorptionTreatment: z.boolean(),
+    traumaTreatmentOrDiagnosis: z.boolean(),
+    bleaching: z.boolean(),
+    endodonticSurgery: z.boolean(),
+    postEndo1: z.boolean(),
+    postEndo2: z.boolean(),
+    postEndo3: z.boolean(),
+    postEndo4: z.boolean(),
+    postEndo5: z.boolean(),
 
-export function ReferralFormContent() {
+    // Consent fields (required for legal reasons)
+    clinicianConsent: z.boolean().refine((val) => val, { message: 'Clinician consent is required.' }),
+    patientConsent: z.boolean().refine((val) => val, { message: 'Patient consent is required.' }),
+  })
+  .refine(
+    (data) => {
+      // Ensure at least one endodontic treatment checkbox is selected
+      const treatments = [
+        data.consultation,
+        data.secondOpinion,
+        data.consultationAndTreatment,
+        data.rootCanalTreatment,
+        data.rootCanalRetreatment,
+        data.postOrInstrumentRemoval,
+        data.perforationRepair,
+        data.resorptionTreatment,
+        data.traumaTreatmentOrDiagnosis,
+        data.bleaching,
+        data.endodonticSurgery,
+        data.postEndo1,
+        data.postEndo2,
+        data.postEndo3,
+        data.postEndo4,
+        data.postEndo5,
+      ];
+      if (treatments.every((treatment) => !treatment)) {
+        return false; // At least one treatment needs to be selected
+      }
+      return true;
+    },
+    {
+      message: 'Please select at least one endodontic treatment.',
+      path: ['consultation'], // Error will appear on the first treatment checkbox field
+    }
+  );
+
+export function EndodontalReferralFormContent() {
   const [successModalVisible, setSuccessModalVisible] = useState(false);
   const [errorModalVisible, setErrorModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submittedData, setSubmittedData] = useState<any>(null);
-  const [explanationLength, setExplanationLength] = useState(0);
-  const [medicalHistoryLength, setMedicialHistoryLength] = useState(0);
+  const [messageLength, setMessageLength] = useState(0); // Track the message length
 
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      name: '',
       email: '',
       dateOfBirth: '',
       phone: '',
+      referralType: '',
+      message: '',
       practiceName: '',
       practiceEmail: '',
       practiceAddress: '',
@@ -80,6 +136,22 @@ export function ReferralFormContent() {
       explanation: '',
       medicalHistory: '',
       clinicianConsent: false,
+      consultation: false,
+      secondOpinion: false,
+      consultationAndTreatment: false,
+      rootCanalTreatment: false,
+      rootCanalRetreatment: false,
+      postOrInstrumentRemoval: false,
+      perforationRepair: false,
+      resorptionTreatment: false,
+      traumaTreatmentOrDiagnosis: false,
+      bleaching: false,
+      endodonticSurgery: false,
+      postEndo1: false,
+      postEndo2: false,
+      postEndo3: false,
+      postEndo4: false,
+      postEndo5: false,
       patientConsent: false,
     },
   });
@@ -87,11 +159,9 @@ export function ReferralFormContent() {
   const { register, setValue } = form;
 
   const onSubmit = async (data: any) => {
-    console.log('Form data:', data);
-
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:3001/submit-referral`, {
+      const response = await fetch(`http://localhost:3001/referral`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -114,7 +184,7 @@ export function ReferralFormContent() {
       console.log('Form submitted successfully:', responseData);
       setSubmittedData(data);
       setSuccessModalVisible(true);
-      form.reset({ name: '', email: '', dateOfBirth: '', phone: '', message: '' });
+      form.reset({ name: '', email: '', dateOfBirth: '', phone: '', referralType: '', message: '' });
     } catch (error) {
       console.error('There was a problem with the form submission:', error);
       setErrorModalVisible(true);
@@ -123,23 +193,12 @@ export function ReferralFormContent() {
     }
   };
 
-  const handleExplanationChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const explanation = e.target.value;
-    console.log('explanation', explanation);
-
-    setExplanationLength(explanation.length); // Update the message length
-  };
-
-  const handleMedicialHistoryChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    console.log('e.target.value', e.target.value);
-
-    const medicialHistory = e.target.value;
-    setMedicialHistoryLength(medicialHistory.length); // Update the message length
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const message = e.target.value;
+    setMessageLength(message.length); // Update the message length
   };
 
   const handleSubmit = (data: any) => {
-    console.log('Form data:', data);
-
     onSubmit(data).catch(console.error);
   };
 
@@ -157,7 +216,7 @@ export function ReferralFormContent() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className='text-3xl font-bold text-center'>Referral Form</h2>
+            <h2 className='text-3xl font-bold text-center'>Endodontal Referral</h2>
             <p className='text-lg text-center text-gray-600'>
               Please fill in the form below or download and post to Supernova Building, Marsh Lane, Huntworth Gate,
               Bridgwater TA6 6LQ.
@@ -507,85 +566,219 @@ export function ReferralFormContent() {
                       />
                     </div>
                   </div>
+                  <div className='flex flex-col space-y-1'>
+                    <h3 className='text-lg font-bold'>Endodontic Treatment</h3>
+                    <p className='mt-4 mb-2'>Endodontic treatment:</p>
+                    <div className='flex items-center mt-2'>
+                      <Checkbox
+                        id='consultation'
+                        {...register('consultation')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('consultation', checked)}
+                      />
+                      <Label htmlFor='consultation' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Consultation
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='secondOpinion'
+                        {...register('secondOpinion')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('secondOpinion', checked)}
+                      />
+                      <Label htmlFor='secondOpinion' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Second Opinion
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='consultationAndTreatment'
+                        {...register('consultationAndTreatment')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('consultationAndTreatment', checked)}
+                      />
+                      <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Consultation and Treatment
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='rootCanalTreatment'
+                        {...register('rootCanalTreatment')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('rootCanalTreatment', checked)}
+                      />
+                      <Label htmlFor='rootCanalTreatment' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Root canal treatment
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='rootCanalRetreatment'
+                        {...register('rootCanalRetreatment')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('rootCanalRetreatment', checked)}
+                      />
+                      <Label
+                        htmlFor='rootCanalRetreatment'
+                        className='ml-3 text-sm text-muted-foreground text-gray-500'
+                      >
+                        Root canal retreatment
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='postOrInstrumentRemoval'
+                        {...register('postOrInstrumentRemoval')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('postOrInstrumentRemoval', checked)}
+                      />
+                      <Label
+                        htmlFor='postOrInstrumentRemoval'
+                        className='ml-3 text-sm text-muted-foreground text-gray-500'
+                      >
+                        Removal of post / instrument
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='perforationRepair'
+                        {...register('perforationRepair')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('perforationRepair', checked)}
+                      />
+                      <Label htmlFor='perforationRepair' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Repair of perforation
+                      </Label>
+                    </div>
 
-                  <div className='space-y-3'>
-                    <Label htmlFor='referralPurpose' className='text-lg font-medium'>
-                      Purpose of Referral
-                    </Label>
-                    <FormField
-                      control={form.control}
-                      name='referralPurpose'
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Controller
-                              name='referralPurpose'
-                              control={form.control}
-                              render={({ field }) => (
-                                <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
-                                  <SelectTrigger id='referralPurpose'>
-                                    <SelectValue placeholder='Select referral purpose' className='text-md lg:text-lg' />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectItem value='consultation' className='text-md lg:text-lg'>
-                                      Consultation
-                                    </SelectItem>
-                                    <SelectItem value='second-opinion' className='text-md lg:text-lg'>
-                                      Second Opinion
-                                    </SelectItem>
-                                    <SelectItem value='consultation-and-treatment' className='text-md lg:text-lg'>
-                                      Consultation and Treatment
-                                    </SelectItem>
-                                  </SelectContent>
-                                </Select>
-                              )}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  <div className='space-y-3'>
-                    <Label htmlFor='referralReason' className='text-lg font-medium'>
-                      Reason for Referral
-                    </Label>
-                    <FormField
-                      control={form.control}
-                      name='referralReason'
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Controller
-                              name='referralReason'
-                              control={form.control}
-                              render={({ field }) => (
-                                <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
-                                  <SelectTrigger id='referralReason'>
-                                    <SelectValue placeholder='Select referral reason' className='text-md lg:text-lg' />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectItem value='cbct-opg' className='text-md lg:text-lg'>
-                                      CBCT/OPG
-                                    </SelectItem>
-                                    <SelectItem value='invisalign' className='text-md lg:text-lg'>
-                                      Invisalign
-                                    </SelectItem>
-                                    <SelectItem value='root-canal-treatment' className='text-md lg:text-lg'>
-                                      Root Canal Treatment
-                                    </SelectItem>
-                                    <SelectItem value='implants' className='text-md lg:text-lg'>
-                                      Implants
-                                    </SelectItem>
-                                  </SelectContent>
-                                </Select>
-                              )}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='resorptionTreatment'
+                        {...register('resorptionTreatment')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('resorptionTreatment', checked)}
+                      />
+                      <Label htmlFor='resorptionTreatment' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Treatment of resorption
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='traumaTreatmentOrDiagnosis'
+                        {...register('traumaTreatmentOrDiagnosis')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('traumaTreatmentOrDiagnosis', checked)}
+                      />
+                      <Label
+                        htmlFor='traumaTreatmentOrDiagnosis'
+                        className='ml-3 text-sm text-muted-foreground text-gray-500'
+                      >
+                        Diagnosis / Treatment of trauma
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='bleaching'
+                        {...register('bleaching')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('bleaching', checked)}
+                      />
+                      <Label htmlFor='bleaching' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Internal non-vital bleaching following specialist root treatment
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='endodonticSurgery'
+                        {...register('endodonticSurgery')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('endodonticSurgery', checked)}
+                      />
+                      <Label htmlFor='endodonticSurgery' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Endodontic Surgery (Apicectomy, Hemisection, Amputation, Fracture investigation)
+                      </Label>
+                    </div>
+                    <p className='mt-4 mb-2'>Post-endodontic treatment:</p>
+                    <div className='flex items-center mt-2'>
+                      <Checkbox
+                        id='postEndo1'
+                        {...register('postEndo1')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('postEndo1', checked)}
+                      />
+                      <Label htmlFor='postEndo1' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Please provide root canal treatment and send the patient back for the restoration
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='postEndo2'
+                        {...register('postEndo2')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('postEndo2', checked)}
+                      />
+                      <Label htmlFor='postEndo2' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Please preserve old crown if possible
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='postEndo3'
+                        {...register('postEndo3')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('postEndo3', checked)}
+                      />
+                      <Label htmlFor='postEndo3' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Please provide root canal treatment, core build up and post where necessary
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='postEndo4'
+                        {...register('postEndo4')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('postEndo4', checked)}
+                      />
+                      <Label htmlFor='postEndo4' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Please provide root canal treatment and leave space for a post
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='postEndo5'
+                        {...register('postEndo5')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('postEndo5', checked)}
+                      />
+                      <Label htmlFor='postEndo5' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Please provide root canal treatment and place onlay/crown in Supernova Dental Practice
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='postEndo5'
+                        {...register('postEndo5')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('postEndo5', checked)}
+                      />
+                      <Label htmlFor='postEndo5' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Please organise extraction of the tooth in the Bond Dental Clinic if unrestorable or fractured
+                      </Label>
+                    </div>
+                    <div className='flex items-center'>
+                      <Checkbox
+                        id='postEndo5'
+                        {...register('postEndo5')}
+                        defaultChecked={false}
+                        onCheckedChange={(checked: boolean) => setValue('postEndo5', checked)}
+                      />
+                      <Label htmlFor='postEndo5' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Please arrange for a consultation in the Bond Dental Clinic for a possible implant placement if
+                        required
+                      </Label>
+                    </div>
                   </div>
                   <div className='space-y-3'>
                     <Label htmlFor='explanation' className='text-lg font-medium'>
@@ -605,7 +798,7 @@ export function ReferralFormContent() {
                               maxLength={MAX_MESSAGE_LENGTH}
                               onChange={(e) => {
                                 field.onChange(e);
-                                handleExplanationChange(e);
+                                handleMessageChange(e);
                               }}
                               className='text-md lg:text-lg p-3'
                             />
@@ -616,7 +809,7 @@ export function ReferralFormContent() {
                     />
                     {/* Character count */}
                     <div className='text-sm text-gray-500'>
-                      {explanationLength} / {MAX_MESSAGE_LENGTH} characters
+                      {messageLength} / {MAX_MESSAGE_LENGTH} characters
                     </div>
                   </div>
                   <div className='space-y-3'>
@@ -637,7 +830,7 @@ export function ReferralFormContent() {
                               maxLength={MAX_MESSAGE_LENGTH}
                               onChange={(e) => {
                                 field.onChange(e);
-                                handleMedicialHistoryChange(e);
+                                handleMessageChange(e);
                               }}
                               className='text-md lg:text-lg p-3'
                             />
@@ -648,7 +841,7 @@ export function ReferralFormContent() {
                     />
                     {/* Character count */}
                     <div className='text-sm text-gray-500'>
-                      {medicalHistoryLength} / {MAX_MESSAGE_LENGTH} characters
+                      {messageLength} / {MAX_MESSAGE_LENGTH} characters
                     </div>
                   </div>
                   <div className='space-y-3'>
@@ -671,7 +864,7 @@ export function ReferralFormContent() {
                       I understand and agree to the processing of my personal data as the referring Clinician.
                     </Label>
                   </div>
-                  <div className='flex items-center mt-2'>
+                  <div className='flex items-center'>
                     <Checkbox
                       id='patientConsent'
                       {...register('patientConsent')}

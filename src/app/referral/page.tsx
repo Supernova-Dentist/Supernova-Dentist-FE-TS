@@ -2,6 +2,8 @@ import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import FAQ, { Question } from '@/components/FAQ/FAQ';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import { type Metadata } from 'next';
+import { CBCTOPTReferralFormContent } from './utils/cbct-opt-referral-form-content';
+import { EndodontalReferralFormContent } from './utils/endodontal-referral-form-content';
 import { ReferralFormContent } from './utils/referral-form-content';
 
 export const metadata: Metadata = {
@@ -19,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'Endodontal Referral',
-    answer: 'You can book an appointment through our website or by calling our office directly.',
+    answer: <EndodontalReferralFormContent />,
   },
   {
     question: 'CBCT/ OPT referral',
-    answer: 'If you have a dental emergency, please contact us immediately for assistance.',
+    answer: <CBCTOPTReferralFormContent />,
   },
 ];
 
@@ -41,10 +43,9 @@ export default function ReferralForm() {
         {/* Breadcrumb */}
         <div className='p-4 md:px-6 pb-10 flex flex-col justify-start mx-auto max-w-3xl'>
           <BreadCrumb />
-        <p className='mt-8'>PLEASE SELECT:</p>
-        <FAQ faqItems={faqItems} />
+          <p className='mt-8'>PLEASE SELECT:</p>
+          <FAQ faqItems={faqItems} />
         </div>
-
       </div>
     </div>
   );
