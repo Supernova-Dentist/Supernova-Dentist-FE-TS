@@ -27,7 +27,7 @@ export const pricingItems = [
       {
         description: 'Emergency Assessment (registered patient)',
         price: 65,
-        priceDescription: '+ Treatment cost if required',
+        priceDescription: 'Contributes towards treatment cost if required',
       },
       {
         description: 'Emergency Appointment (non registered)',
@@ -41,8 +41,7 @@ export const pricingItems = [
     products: [
       { description: 'Initial direct access hygiene assessment', price: 135 },
       {
-        description: `Includes pictures of teeth and gums, free hygiene support
-pack, superficial professional mechanical plaque removal and air polishing for stain removal`,
+        description: `Includes pictures of teeth and gums, superficial professional mechanical plaque removal and air polishing for stain removal`,
       },
       { description: 'Routine hygiene maintenance appointment', price: 85 },
       { description: 'Air polish (includes routine hygiene appointment)', price: 150 },
