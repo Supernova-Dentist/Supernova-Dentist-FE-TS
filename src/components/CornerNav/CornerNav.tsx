@@ -305,7 +305,7 @@ const LINKS = [
     title: 'Cosmetic Dentistry',
     href: '#',
     subLinks: [
-      { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
+      // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
       { title: 'Invisalign', href: '/invisalign' },
     ],
   },
