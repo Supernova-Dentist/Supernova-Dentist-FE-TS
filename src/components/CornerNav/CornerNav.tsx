@@ -234,6 +234,7 @@ const HamburgerButton = ({
           setActive((pv) => !pv);
           if (active) handleClose(); // Close the menu when clicked
         }}
+        aria-label='Menu Button'
         className={`bg-grey group fixed right-2 top-2 z-[60] h-[50px] w-[50px] transition-all ${
           active ? 'rounded-bl-xl rounded-tr-xl' : 'rounded-xl'
         }`}
@@ -304,7 +305,7 @@ const LINKS = [
     title: 'Cosmetic Dentistry',
     href: '#',
     subLinks: [
-      { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
+      // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
       { title: 'Invisalign', href: '/invisalign' },
     ],
   },

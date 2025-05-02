@@ -3,6 +3,7 @@
 import { DentallyPortal, navLinks } from '@/lib/constants';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -27,7 +28,14 @@ export default function DesktopNav() {
           <div>
             <FlyoutLink href='/' flyoutItems={[]}>
               Supernova Dental{' '}
-              <img src='/favicon.ico' alt='Supernova Dental Logo - Bridgwater Dentist' className='ml-2 h-10 w-auto inline ' />
+              <Image
+                width={120}
+                height={120}
+                priority
+                src='/favicon.ico'
+                alt='Supernova Dental Logo - Bridgwater Dentist'
+                className='ml-2 h-10 w-auto inline '
+              />
             </FlyoutLink>
           </div>
 

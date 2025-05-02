@@ -21,8 +21,8 @@ export default function GoogleReview({
 
   return (
     <div className='min-w-[180px] flex flex-col justify-between h-full'>
-      <div className='p-5 bg-white h-[265px] shadow-md cursor-pointer rounded-sm transform transition-transform duration-300 ease-in-out hover:-translate-y-2 flex flex-col'>
-        <div className='flex flex-col flex-grow'>
+      <div className='p-5 bg-white h-[235px] shadow-md cursor-pointer rounded-sm transform transition-transform duration-300 ease-in-out hover:-translate-y-2 flex flex-col'>
+        <div className='flex flex-col  my-auto'>
           <div className='flex justify-between gap-2'>
             <span className='text-sm leading-none'>{name}</span>
             <Image
@@ -33,7 +33,7 @@ export default function GoogleReview({
               alt='google trust'
             />
           </div>
-          <span className='text-gray-500 text-xs leading-none'>{date}</span>
+          {/* <span className='text-gray-500 text-xs leading-none'>{date}</span> */}
           <div className='flex mt-2 mb-2'>
             {reviewStars.map((_, i) => (
               <IoStar color='#F6BB06' key={i} />
