@@ -21,7 +21,7 @@ export const practiceInfo = [
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
-  { name: 'Social', link: '/social' },
+  // { name: 'Social', link: '/social' },
 ];
 
 export const generalServices = [
@@ -55,7 +55,7 @@ export const general = [
 
 export const aboutUs = [
   { name: 'Find Us', link: '/find-us' },
-  { name: 'Social', link: '/social' },
+  // { name: 'Social', link: '/social' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
 ];

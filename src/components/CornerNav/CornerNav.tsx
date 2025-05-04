@@ -322,7 +322,7 @@ const LINKS = [
     href: '#',
     subLinks: [
       { title: 'Find us', href: '/find-us' },
-      { title: 'Social', href: '/social' },
+      // { title: 'Social', href: '/social' },
       { title: 'Pricing', href: '/pricing' },
       {
         title: 'Enquiry',
