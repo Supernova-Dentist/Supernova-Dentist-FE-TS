@@ -18,6 +18,12 @@ const teamMembers = [
     slug: 'kayleigh-dowdle',
   },
   {
+    name: 'Dr. Sara D Banuri',
+    title: 'Implantologist',
+    image: '/assets/images/Headshots/sara.jpg',
+    slug: 'dr-sara-d-banuri',
+  },
+  {
     name: 'Mia Coakley',
     title: 'Lead Front of House',
     image: '/assets/images/Headshots/Supernova-05.jpg',
@@ -30,10 +36,10 @@ const teamMembers = [
     slug: 'adam-young',
   },
   {
-    name: 'Charlotte Stockwell',
-    title: 'Treatment Coordinator',
-    image: '/assets/images/Headshots/charlotte.jpg',
-    slug: 'charlotte-stockwell',
+    name: 'Paula Cox',
+    title: 'Receptionist',
+    image: '/assets/images/Headshots/paula.jpeg',
+    slug: 'paula-cox',
   },
   {
     name: 'Victoria Hands',
