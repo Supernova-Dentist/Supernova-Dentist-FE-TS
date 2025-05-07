@@ -10,16 +10,16 @@ const KayleighWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 md:flex-1 '>
           <Reveal>
             <h1 className='pointer-events-auto text-6xl font-black text-slate-100 md:text-8xl'>
-              Hi, I&apos;m Kayleigh<span className='text-gold'>.</span>
+              Hi, I&apos;m Kayleigh<span className='text-lightGold'>.</span>
             </h1>
           </Reveal>
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m a <span className='font-semibold text-gold'>Dental Therapist</span>
+                I&apos;m a <span className='font-semibold text-lightGold'>Dental Therapist</span>
               </h2>
-              <h3 className='text-gold'>BSc (Hons)</h3>
-              <h3 className='text-gold'>GDC Registration Number: 245370</h3>
+              <h3 className='text-lightGold'>BSc (Hons)</h3>
+              <h3 className='text-lightGold'>GDC Registration Number: 245370</h3>
             </>
           </Reveal>
           <Reveal>

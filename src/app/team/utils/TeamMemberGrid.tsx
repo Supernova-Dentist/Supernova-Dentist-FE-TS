@@ -25,8 +25,8 @@ const teamMembers = [
   },
   {
     name: 'Mia Coakley',
-    title: 'Lead Front of House',
-    image: '/assets/images/Headshots/Supernova-05.jpg',
+    title: 'Trainee Dental Nurse',
+    image: '/assets/images/Headshots/mia_headshot.jpeg',
     slug: 'mia-coakley',
   },
   {

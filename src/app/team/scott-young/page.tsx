@@ -20,7 +20,7 @@ export default async function Component() {
             <Reveal>
               <>
                 <h2 className='text-3xl font-bold tracking-tight md:text-4xl text-gold pt-4'>
-                  How Scott Can Brighten Your Smile
+                  How Scott Can Transform Your Smile
                 </h2>
                 <hr className='bg-gold h-1 w-16 mx-auto mt-4' />
               </>
@@ -44,14 +44,14 @@ export default async function Component() {
             </div>
           </Reveal>
           <div className='w-full flex justify-center'>
-            <div className='w-full max-w-96 aspect-[9/17] relative mx-auto'>
+            <div className='w-full max-w-96 aspect-[1/1] relative mx-auto'>
               <video
                 className='absolute top-0 left-0 w-full h-full rounded-lg'
                 controls
                 preload='metadata'
-                poster={'/assets/images/dr_scott_young_intro_poster.png'}
+                poster={'/assets/images/scott_intro_placeholder.png'}
               >
-                <source src={'/assets/videos/dr_scott_young_intro.mp4'} type='video/mp4' />
+                <source src={'/assets/videos/scott_intro.mp4'} type='video/mp4' />
                 Sorry, your browser doesn&apos;t support the video tag.
               </video>
             </div>
