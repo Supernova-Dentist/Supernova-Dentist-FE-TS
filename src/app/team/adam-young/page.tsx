@@ -12,7 +12,7 @@ export default async function Component() {
             <Reveal>
               <>
                 <h2 className='text-3xl font-bold tracking-tight md:text-4xl text-gold pt-4'>
-                  Got website feedback? Let Adam know!
+                  Got a question? We can help!
                 </h2>
                 <hr className='bg-gold h-1 w-16 mx-auto mt-4' />
               </>

@@ -38,15 +38,9 @@ const SelectBtns = ({
             {selected === n ? (
               <motion.span
                 className='absolute top-0 left-0 bottom-0 bg-slate-950'
-                initial={{
-                  width: '0%',
-                }}
-                animate={{
-                  width: '100%',
-                }}
-                transition={{
-                  duration: 5,
-                }}
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 5 }}
                 onAnimationComplete={() => {
                   setSelected(selected === numTracks - 1 ? 0 : selected + 1);
                 }}
@@ -54,9 +48,7 @@ const SelectBtns = ({
             ) : (
               <span
                 className='absolute top-0 left-0 bottom-0 bg-slate-950'
-                style={{
-                  width: selected > n ? '100%' : '0%',
-                }}
+                style={{ width: selected > n ? '100%' : '0%' }}
               />
             )}
           </button>
@@ -76,7 +68,7 @@ const Cards = ({
   setSelected: Dispatch<SetStateAction<number>>;
 }) => {
   return (
-    <div className='p-4 relative h-[450px] lg:h-[500px] shadow-xl'>
+    <div className='p-4 relative h-[500px] shadow-xl'>
       {testimonials.map((t, i) => {
         return <Card {...t} key={i} position={i} selected={selected} setSelected={setSelected} />;
       })}
@@ -122,13 +114,13 @@ const Card = ({
         ease: 'easeOut',
       }}
       onClick={() => setSelected(position)}
-      className='absolute top-0 left-0 w-full min-h-full p-8 lg:p-12 cursor-pointer flex flex-col justify-between'
+      className='absolute top-0 left-0 w-full h-full p-8 lg:p-12 cursor-pointer flex flex-col justify-between'
     >
       <img src='/favicon.ico' alt='Supernova logo' className='w-20 h-20 mx-auto' />
-      <p className='text-lg lg:text-xl font-light italic my-8'>&quot;{description}&quot;</p>
+      <p className='text-md lg:text-lg font-light italic my-4 flex-1 overflow-auto'>&quot;{description}&quot;</p>
       <div>
-        <span className='block font-semibold text-lg'>{name}</span>
-        <span className='block text-sm'>{title}</span>
+        <span className='block font-semibold text-md lg:text-lg'>{name || 'Anonymous'}</span>
+        <span className='block text-xs lg:text-sm'>{title}</span>
       </div>
     </motion.div>
   );
@@ -138,14 +130,14 @@ export default StackedCardTestimonials;
 
 interface Testimonial {
   title: string;
-  name: string;
+  name?: string;
   description: string;
 }
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     description:
-      'Scott and his team are absolutely fantastic.His reception staff are incredibly welcoming. They made me feel at ease from my initial call, right through to my appointment with Scott. I am on course to achieve the smile I want. Outstanding level of professionalism. Highly recommend.',
+      'Scott and his team are absolutely fantastic. His reception staff are incredibly welcoming. They made me feel at ease from my initial call, right through to my appointment with Scott. I am on course to achieve the smile I want. Outstanding level of professionalism. Highly recommend.',
     name: 'Steve Bury',
     title: 'Smile Design Patient',
   },
@@ -157,7 +149,7 @@ const testimonials = [
   },
   {
     description:
-      'I am deathly nervous of the dentist, but I called up Thursday as I was in so much pain and spoke to Kayleigh, who was amazing, I was booked in with Scott for today, I was so scared, he was brilliant I had xrays first then asked to come back later, he did an extraction, I have never had some one so gentle and helpful in all my life, I need a few more appointments with things to be done, but Scott put my mind at ease and im ready to do this now 😀 Thank Supernova team',
+      "I am deathly nervous of the dentist, but I called up Thursday as I was in so much pain and spoke to Kayleigh, who was amazing, I was booked in with Scott for today, I was so scared, he was brilliant I had xrays first then asked to come back later, he did an extraction, I have never had some one so gentle and helpful in all my life, I need a few more appointments with things to be done, but Scott put my mind at ease and I'm ready to do this now 😀 Thank you Supernova team.",
     name: 'Rebecca Bryan',
     title: 'Emergency Care Patient',
   },
@@ -167,7 +159,6 @@ const testimonials = [
     name: 'Suzanne Radford',
     title: 'Emergency Care Patient',
   },
-
   {
     description:
       'Amazing all round, dental surgery looks incredible. Staff are so friendly and polite. Scott (dentist owner) again so friendly after not seeing a dentist for a good 7 years made me feel at ease. So glad I decided to push myself to get in contact with the team',

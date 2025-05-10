@@ -7,7 +7,7 @@ export const AdamOutlineCards = () => {
   return (
     <section className='overflow-hidden md:max-w-5xl px-8 pb-12 pt-16'>
       <div className='mx-auto flex flex-col items-center justify-center gap-8 lg:flex-row'>
-        <Card title='Website Feedback' href='/enquiry' bgUrl='/assets/images/form3.png' />
+        <Card title='Enquiry' href='/enquiry' bgUrl='/assets/images/form3.png' />
       </div>
     </section>
   );

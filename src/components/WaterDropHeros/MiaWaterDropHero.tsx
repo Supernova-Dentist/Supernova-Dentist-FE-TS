@@ -34,11 +34,6 @@ const MiaWaterDropHero = () => {
           </Reveal>
           <Reveal>
             <div className='flex gap-4 mt-4 mx-auto justify-center w-full'>
-              <Link target='_blank' href={`${DentallyPortal}`}>
-                <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                  Book with me
-                </button>
-              </Link>
               <Link href={`/enquiry`}>
                 <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
                   Get in touch
@@ -50,7 +45,7 @@ const MiaWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/Supernova-05.jpg'
+              src='/assets/images/Headshots/mia_headshot.jpeg'
               alt='Mia Coakley headshot'
               width={600}
               height={800}
