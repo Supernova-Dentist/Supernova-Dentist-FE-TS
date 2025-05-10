@@ -161,7 +161,8 @@ const testimonials: Testimonial[] = [
   },
   {
     description:
-      'Amazing all round, dental surgery looks incredible. Staff are so friendly and polite. Scott (dentist owner) again so friendly after not seeing a dentist for a good 7 years made me feel at ease. So glad I decided to push myself to get in contact with the team',
+      "I would just like to say how wonderful Scott and his team are as I suffer from anxiety and going to the dentist was a very upsetting time for me,I found as soon as you walk in to supernova dental practice it's totally different from other dentists it's more like a spa and no dentist smells. I had a root filling and never felt a thing which is a first for me best dentist I have ever been to I highly recommend. Thankyou lorraine",
+    name: 'Lorraine Drew',
     title: 'General Dentistry Patient',
   },
 ];

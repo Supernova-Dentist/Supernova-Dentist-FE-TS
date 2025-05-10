@@ -58,7 +58,7 @@ const ScottWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/Supernova-03.jpg'
+              src='/assets/images/Headshots/scott_headshot.jpeg'
               alt='Dr. Scott Young headshot'
               width={600}
               height={800}

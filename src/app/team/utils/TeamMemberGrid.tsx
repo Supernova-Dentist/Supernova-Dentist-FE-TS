@@ -8,13 +8,13 @@ const teamMembers = [
   {
     name: 'Dr. Scott Young',
     title: 'Principal Dentist/Owner',
-    image: '/assets/images/Headshots/Supernova-03.jpg',
+    image: '/assets/images/Headshots/scott_headshot.jpeg',
     slug: 'scott-young',
   },
   {
     name: 'Kayleigh Dowdle',
     title: 'Dental Therapist',
-    image: '/assets/images/Headshots/Supernova-02.jpg',
+    image: '/assets/images/Headshots/kayleigh_headshot.jpeg',
     slug: 'kayleigh-dowdle',
   },
   {
