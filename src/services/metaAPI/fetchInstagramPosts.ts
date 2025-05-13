@@ -1,11 +1,14 @@
 'use server';
 
 import { ensureValidToken } from '@/data-access/instagram';
-import { INSTAGRAM_API_BASE_URL } from '@/lib/constants';
+import { INSTAGRAM_API_BASE_URL, instagramAccountsConfig } from '@/lib/constants';
 
 export default async function fetchInstagramPosts() {
+  const accountId = instagramAccountsConfig.social;
+  if (!accountId) throw new Error('Invalid page');
+
   try {
-    const validToken = await ensureValidToken();
+    const validToken = await ensureValidToken(accountId);
     const url = `${INSTAGRAM_API_BASE_URL}/me/media?fields=id,media_type,media_url,username,timestamp,caption,permalink&access_token=${validToken}`;
 
     const res = await fetch(url);

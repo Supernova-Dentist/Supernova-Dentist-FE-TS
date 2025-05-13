@@ -4,19 +4,21 @@ import type { InstagramToken } from '@prisma/client';
 
 const REFRESH_THRESHOLD = 86400 * 7; // 1 week in seconds
 
-export async function getCurrentInstagramAccessToken(): Promise<InstagramToken | null> {
-  const tokenRecord = await prisma.instagramToken.findUnique({ where: { id: 1 } });
+export async function getCurrentInstagramAccessToken(accountId: string): Promise<InstagramToken | null> {
+  const tokenRecord = await prisma.instagramToken.findUnique({ where: { id: Number(accountId) } });
 
   if (tokenRecord === null || tokenRecord === undefined) return null;
 
   return tokenRecord;
 }
 
-export async function updateInstagramToken(newToken: string, newExpiry: Date): Promise<InstagramToken> {
+export async function updateInstagramToken(
+  newToken: string,
+  newExpiry: Date,
+  accountId: string
+): Promise<InstagramToken> {
   const updatedToken = await prisma.instagramToken.update({
-    where: {
-      id: 1,
-    },
+    where: { id: Number(accountId) },
     data: {
       access_token: newToken,
       expires_in: newExpiry,
@@ -26,7 +28,7 @@ export async function updateInstagramToken(newToken: string, newExpiry: Date): P
   return updatedToken;
 }
 
-export async function refreshAccessToken(currentToken: string): Promise<string> {
+export async function refreshAccessToken(currentToken: string, accountId: string): Promise<string> {
   const refreshUrl = `${INSTAGRAM_API_BASE_URL}/refresh_access_token?grant_type=ig_refresh_token&access_token=${currentToken}`;
 
   try {
@@ -41,7 +43,7 @@ export async function refreshAccessToken(currentToken: string): Promise<string> 
     const data: { access_token: string; expires_in: number } = await response.json();
 
     const newExpiresIn = new Date(Date.now() + data.expires_in * 1000);
-    const updatedToken = await updateInstagramToken(data.access_token, newExpiresIn);
+    const updatedToken = await updateInstagramToken(data.access_token, newExpiresIn, accountId);
 
     return updatedToken.access_token;
   } catch (error) {
@@ -50,8 +52,8 @@ export async function refreshAccessToken(currentToken: string): Promise<string> 
   }
 }
 
-export async function ensureValidToken(): Promise<string> {
-  const currentToken = await getCurrentInstagramAccessToken();
+export async function ensureValidToken(accountId: string): Promise<string> {
+  const currentToken = await getCurrentInstagramAccessToken(accountId);
 
   if (currentToken === null || currentToken === undefined) {
     throw new Error('No access token found');
@@ -63,7 +65,7 @@ export async function ensureValidToken(): Promise<string> {
   const timeLeft = expiresIn.getTime() - currentTime.getTime();
 
   if (timeLeft < REFRESH_THRESHOLD) {
-    const refreshedToken = await refreshAccessToken(tokenString);
+    const refreshedToken = await refreshAccessToken(tokenString, accountId);
     return refreshedToken;
   }
 

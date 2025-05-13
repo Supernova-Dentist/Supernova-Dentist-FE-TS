@@ -1,0 +1,162 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { type Dispatch, type SetStateAction, useState } from 'react';
+
+const KayleighTestimonials = () => {
+  const [selected, setSelected] = useState(0);
+
+  return (
+    <section className='bg-white py-12 px-4 lg:px-8 grid items-center grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 overflow-hidden'>
+      <div className='p-4'>
+        <h3 className='text-5xl font-semibold'>Patient Testimonials for Kayleigh Dowdle</h3>
+        <p className='text-slate-500 my-4'>
+          Discover why patients consistently praise Kayleigh Dowdle for her exceptional care, including dental hygiene
+          services and emergency dentistry.
+        </p>
+
+        <SelectBtns numTracks={testimonials.length} setSelected={setSelected} selected={selected} />
+      </div>
+      <Cards testimonials={testimonials} setSelected={setSelected} selected={selected} />
+    </section>
+  );
+};
+
+const SelectBtns = ({
+  numTracks,
+  setSelected,
+  selected,
+}: {
+  numTracks: number;
+  setSelected: Dispatch<SetStateAction<number>>;
+  selected: number;
+}) => {
+  return (
+    <div className='flex gap-1 mt-8'>
+      {Array.from(Array(numTracks).keys()).map((n) => {
+        return (
+          <button key={n} onClick={() => setSelected(n)} className='h-1.5 w-full bg-slate-300 relative'>
+            {selected === n ? (
+              <motion.span
+                className='absolute top-0 left-0 bottom-0 bg-slate-950'
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 5 }}
+                onAnimationComplete={() => {
+                  setSelected(selected === numTracks - 1 ? 0 : selected + 1);
+                }}
+              />
+            ) : (
+              <span
+                className='absolute top-0 left-0 bottom-0 bg-slate-950'
+                style={{ width: selected > n ? '100%' : '0%' }}
+              />
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+
+const Cards = ({
+  testimonials,
+  selected,
+  setSelected,
+}: {
+  testimonials: Testimonial[];
+  selected: number;
+  setSelected: Dispatch<SetStateAction<number>>;
+}) => {
+  return (
+    <div className='p-12 relative h-[570px] shadow-xl'>
+      {testimonials.map((t, i) => {
+        return <Card {...t} key={i} position={i} selected={selected} setSelected={setSelected} />;
+      })}
+    </div>
+  );
+};
+
+const Card = ({
+  description,
+  name,
+  title,
+  position,
+  selected,
+  setSelected,
+}: Testimonial & {
+  position: number;
+  selected: number;
+  setSelected: Dispatch<SetStateAction<number>>;
+}) => {
+  const scale = position <= selected ? 1 : 1 + 0.015 * (position - selected);
+  const offset = position <= selected ? 0 : 95 + (position - selected) * 3;
+  const background = position % 2 ? 'black' : 'white';
+  const color = position % 2 ? 'white' : 'black';
+
+  return (
+    <motion.div
+      initial={false}
+      style={{
+        zIndex: position,
+        transformOrigin: 'left bottom',
+        background,
+        color,
+      }}
+      animate={{
+        x: `${offset}%`,
+        scale,
+      }}
+      whileHover={{
+        translateX: position === selected ? 0 : -3,
+      }}
+      transition={{
+        duration: 0.25,
+        ease: 'easeOut',
+      }}
+      onClick={() => setSelected(position)}
+      className='absolute top-0 left-0 w-full h-full p-8 lg:p-12 cursor-pointer flex flex-col justify-between'
+    >
+      <img src='/favicon.ico' alt='Supernova logo' className='w-20 h-20 mx-auto' />
+      <p className='text-md lg:text-lg font-light italic my-4 flex-1 overflow-auto'>&quot;{description}&quot;</p>
+      <div>
+        <span className='block font-semibold text-md lg:text-lg'>{name}</span>
+        <span className='block text-xs lg:text-sm'>{title}</span>
+      </div>
+    </motion.div>
+  );
+};
+
+export default KayleighTestimonials;
+
+interface Testimonial {
+  title: string;
+  name: string;
+  description: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    description:
+      'Thank you to Kayleigh and all staff at Supernova today. Lovely caring people. Was nervous before appointment but they all made be feel at ease. Kayleigh done a wonderful job with my teeth they are feeling and looking much cleaner. Won’t feel so anxious about my next appointment in 3 months.',
+    name: 'Charlotte Allen',
+    title: 'Initial Direct Access Patient',
+  },
+  {
+    description:
+      'What an experience so far, Loving every second of my journey. Professional curtesy call, text reminders and updates. Earlier appointment provided nothing is to much for this team. I was seen by Kay and her nurse Tori. So professional. Walked me through everything she was doing. Any questions I had, any little issue I have been living with for years was no problem for her. Tori her nurse was amazing so friendly and removed all my excess dribble and I dribble a lot. I had my teeth all cleaned up and now they are exceptionally smooth. How did they make the water taste like cola too, this place just works magic✨',
+    name: 'Dan Lathall',
+    title: 'Dental Therapist Services Patient',
+  },
+  {
+    description: `Highly recommend Supernova Dental. I experienced a friendly and professional welcome from Mia, professional and comforting experience with my appointment with Scott and a fantastic professional experience with Kayleigh for my Hygienist appointment, can honestly say it was the most thorough and pleasant hygienist appointment I've experienced. Fantastic team in a lovely/stylish practice. Thanks to all. Josh`,
+    name: 'Jay M',
+    title: 'Dental Hygiene Patient',
+  },
+  {
+    description:
+      "I came for a direct access hygienist appointment with Kayleigh and I couldn't be more impressed! From the moment I arrived, the staff were friendly and welcoming. The practice is a clean and calming environment and I highly recommend this practice for anyone looking for a professional, friendly, and efficient dental hygienist!",
+    name: 'Ellie',
+    title: 'Initial Direct Access Patient',
+  },
+];
