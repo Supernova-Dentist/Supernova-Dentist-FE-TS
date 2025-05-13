@@ -1,11 +1,11 @@
 import { AdamOutlineCards } from '@/components/OutlineCards/AdamOutlineCards';
-import ToriWaterDropHero from '@/components/WaterDropHeros/ToriWaterdropHero';
+import RebeccaWaterDropHero from '@/components/WaterDropHeros/RebeccaWaterdropHero';
 import { Reveal } from '@/utils/anim/Reveal';
 
 export default async function Component() {
   return (
     <div className='flex flex-col min-h-[100vh]'>
-      <ToriWaterDropHero />
+      <RebeccaWaterDropHero />
       <section className='w-full py-12 md:py-24 lg:py-32 bg-grey'>
         <div className='container mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-6 text-center'>
           <div className='flex flex-col items-center justify-center space-y-4'>

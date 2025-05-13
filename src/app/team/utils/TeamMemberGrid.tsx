@@ -24,22 +24,16 @@ const teamMembers = [
     slug: 'dr-sara-d-banuri',
   },
   {
-    name: 'Mia Coakley',
-    title: 'Trainee Dental Nurse',
-    image: '/assets/images/Headshots/mia_headshot.jpeg',
-    slug: 'mia-coakley',
-  },
-  {
     name: 'Adam Young',
     title: 'Operations Director',
     image: '/assets/images/Headshots/adam.jpg',
     slug: 'adam-young',
   },
   {
-    name: 'Paula Cox',
-    title: 'Receptionist',
-    image: '/assets/images/Headshots/paula.jpeg',
-    slug: 'paula-cox',
+    name: 'Rebecca Redstone',
+    title: 'Practice Manager',
+    image: '/assets/images/Headshots/becca.jpg',
+    slug: 'rebecca-redstone',
   },
   {
     name: 'Victoria Hands',
@@ -48,16 +42,22 @@ const teamMembers = [
     slug: 'victoria-hands',
   },
   {
-    name: 'Rebecca Redstone',
-    title: 'Practice Manager',
-    image: '/assets/images/Headshots/becca.jpg',
-    slug: 'victoria-hands',
-  },
-  {
     name: 'Nico Minascurta',
     title: 'Dental Nuse',
     image: '/assets/images/Headshots/nico.jpg',
     slug: 'nico-minascurta',
+  },
+  {
+    name: 'Mia Coakley',
+    title: 'Trainee Dental Nurse',
+    image: '/assets/images/Headshots/mia_headshot.jpeg',
+    slug: 'mia-coakley',
+  },
+  {
+    name: 'Paula Cox',
+    title: 'Receptionist',
+    image: '/assets/images/Headshots/paula.jpeg',
+    slug: 'paula-cox',
   },
 ];
 

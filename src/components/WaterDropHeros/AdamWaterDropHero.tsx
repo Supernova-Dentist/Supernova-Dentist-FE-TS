@@ -14,18 +14,26 @@ const ScottWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'> Operations Director</span>
+                I&apos;m the <span className='font-semibold text-lightGold'>Operations Director</span>
               </h2>
             </>
           </Reveal>
           <Reveal>
-            <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-            As the Operations Director, my focus is on business strategy, maintaining our website, while also driving our social media and external marketing efforts.
+            <>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                As the Operations Director, my focus is on business strategy, maintaining our website, while also
+                driving our social media and external marketing efforts.
+              </p>
 
-I also built the website to ensure a seamless online experience for our patients. I guide them to understand and feel confident about their journey with Supernova Dental.
-
-My goal is to ensure they feel informed, comfortable, and excited about their future smile before they even step through the door.
-            </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                I also built the website to ensure a seamless online experience for our patients. I guide them to
+                understand and feel confident about their journey with Supernova Dental.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                My goal is to ensure they feel informed, comfortable, and excited about their future smile before they
+                even step through the door.
+              </p>
+            </>
           </Reveal>
           <Reveal>
             <div className='flex gap-4 mt-4 mx-auto justify-center w-full'>
@@ -41,7 +49,7 @@ My goal is to ensure they feel informed, comfortable, and excited about their fu
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/Supernova-03.jpg'
+              src='/assets/images/Headshots/adam.jpg'
               alt='Dr. Scott Young headshot'
               width={600}
               height={800}

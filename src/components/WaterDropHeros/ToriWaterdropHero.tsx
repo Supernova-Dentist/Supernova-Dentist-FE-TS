@@ -23,7 +23,9 @@ const ToriWaterDropHero = () => {
             <>
               <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
                 I’m Tori, one of the dental nurses here at Supernova Dental. I’ve been nursing for over five years and
-                qualified in 2023. I love seeing their confidence grow when they see their results. I’m also currently
+                qualified in 2023. 
+                
+                I love seeing their confidence grow when they see their results. I’m also currently
                 training to become an Oral Health Practitioner, allowing me to expand my skills and provide even more
                 comprehensive care.
               </p>

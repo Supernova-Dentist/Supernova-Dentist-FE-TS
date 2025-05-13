@@ -1,5 +1,5 @@
 import fetchInstagramPosts from '@/actions/instagram';
-import InstagramPostGrid from '@/app/social/utils/InstagramPostGrid';
+// import InstagramPostGrid from '@/app/social/utils/InstagramPostGrid';
 import { ScottOutlineCards } from '@/components/OutlineCards/ScottOutlineCards';
 import StackedCardTestimonials from '@/components/StackedCardTestimonials/StackedCardTestimonials';
 import ScottWaterDropHero from '@/components/WaterDropHeros/ScottWaterDropHero';

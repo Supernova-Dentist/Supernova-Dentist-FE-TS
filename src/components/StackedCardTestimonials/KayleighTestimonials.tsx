@@ -155,8 +155,8 @@ const testimonials: Testimonial[] = [
   },
   {
     description:
-      'I am deathly nervous of the dentist, but I called up Thursday as I was in so much pain and spoke to Kayleigh, who was amazing, I was booked in with Scott for today, I was so scared, he was brilliant I had xrays first then asked to come back later, he did an extraction, I have never had some one so gentle and helpful in all my life, I need a few more appointments with things to be done, but Scott put my mind at ease and im ready to do this now 😀 Thank Supernova team',
-    name: 'Rebecca Bryan',
-    title: 'Emergency Care Patient',
+      "I came for a direct access hygienist appointment with Kayleigh and I couldn't be more impressed! From the moment I arrived, the staff were friendly and welcoming. The practice is a clean and calming environment and I highly recommend this practice for anyone looking for a professional, friendly, and efficient dental hygienist!",
+    name: 'Ellie',
+    title: 'Initial Direct Access Patient',
   },
 ];

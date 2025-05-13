@@ -18,7 +18,7 @@ const KayleighWaterDropHero = () => {
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
                 I&apos;m a <span className='font-semibold text-lightGold'>Dental Therapist</span>
               </h2>
-              <h3 className='text-lightGold'>BSc (Hons)</h3>
+              <h3 className='text-lightGold'>BSc (Hons) Dental Hygiene & Therapy</h3>
               <h3 className='text-lightGold'>GDC Registration Number: 245370</h3>
             </>
           </Reveal>
@@ -60,7 +60,7 @@ const KayleighWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/Supernova-02.jpg'
+              src='/assets/images/Headshots/kayleigh_headshot.jpeg'
               alt='Kayleigh Dowdle headshot'
               width={600}
               height={800}
