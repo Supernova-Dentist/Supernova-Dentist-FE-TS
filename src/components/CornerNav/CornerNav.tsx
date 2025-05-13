@@ -321,6 +321,7 @@ const LINKS = [
     title: 'about us',
     href: '#',
     subLinks: [
+      { title: 'Team', href: '/team' },
       { title: 'Find us', href: '/find-us' },
       // { title: 'Social', href: '/social' },
       { title: 'Pricing', href: '/pricing' },
@@ -333,7 +334,7 @@ const LINKS = [
 ];
 
 const SOCIAL_CTAS = [
-  {
+  { 
     Component: SiFacebook,
     href: 'https://www.facebook.com/profile.php?id=61567279201971',
   },
