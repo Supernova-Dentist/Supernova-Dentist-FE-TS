@@ -6,7 +6,7 @@ export default async function fetchInstagramPosts(cursor?: string, direction: 'a
 
   try {
     const validToken = await ensureValidToken();
-    let url = `${INSTAGRAM_API_BASE_URL}/me/media?fields=${fields}&access_token=${validToken}&limit=1`;
+    let url = `${INSTAGRAM_API_BASE_URL}/me/media?fields=${fields}&access_token=${validToken}&limit=16`;
 
     if (cursor) {
       url += `&${direction}=${cursor}`;
