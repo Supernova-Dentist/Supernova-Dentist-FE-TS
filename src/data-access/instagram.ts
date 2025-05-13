@@ -5,7 +5,7 @@ import type { InstagramToken } from '@prisma/client';
 const REFRESH_THRESHOLD = 86400 * 7; // 1 week in seconds
 
 export async function getCurrentInstagramAccessToken(accountId: string): Promise<InstagramToken | null> {
-  const tokenRecord = await prisma.instagramToken.findUnique({ where: { accountId } });
+  const tokenRecord = await prisma.instagramToken.findUnique({ where: { id: Number(accountId) } });
 
   if (tokenRecord === null || tokenRecord === undefined) return null;
 
@@ -18,7 +18,7 @@ export async function updateInstagramToken(
   accountId: string
 ): Promise<InstagramToken> {
   const updatedToken = await prisma.instagramToken.update({
-    where: { accountId },
+    where: { id: Number(accountId) },
     data: {
       access_token: newToken,
       expires_in: newExpiry,
