@@ -42,6 +42,12 @@ const teamMembers = [
     slug: 'victoria-hands',
   },
   {
+    name: 'Maria-Mihaela Morar',
+    title: 'Dental Nuse',
+    image: '/assets/images/Headshots/maria_headshot.jpg',
+    slug: 'maria-mihaela-morar',
+  },
+  {
     name: 'Mia Coakley',
     title: 'Trainee Dental Nurse',
     image: '/assets/images/Headshots/mia_headshot.jpeg',
