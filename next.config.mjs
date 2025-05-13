@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['cdninstagram.com', 'scontent-man2-1.cdninstagram.com'],
     remotePatterns: [
       {
         hostname: '*.cdninstagram.com',
@@ -9,6 +8,14 @@ const nextConfig = {
       },
       {
         hostname: 'api.microlink.io',
+        protocol: 'https',
+      },
+      {
+        hostname: 'www.instagram.com',
+        protocol: 'https',
+      },
+      {
+        hostname: 'scontent.cdninstagram.com',
         protocol: 'https',
       },
     ],
