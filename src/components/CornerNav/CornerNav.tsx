@@ -294,10 +294,10 @@ const LINKS = [
   },
 
   //  TODO: Uncomment when there's an insta post
-  {
-    title: 'Social',
-    href: '/social',
-  },
+  // {
+  //   title: 'Social',
+  //   href: '/social',
+  // },
   {
     title: 'Practice',
     href: '/practice',

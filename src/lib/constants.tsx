@@ -29,7 +29,7 @@ export const practiceInfo = [
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
-  { name: 'Social', link: '/social' },
+  // { name: 'Social', link: '/social' },
 ];
 
 export const generalServices = [
@@ -64,7 +64,7 @@ export const general = [
 export const aboutUs = [
   { name: 'Team', link: '/team' },
   { name: 'Find Us', link: '/find-us' },
-  // { name: 'Social', link: '/social' },
+  { name: 'Social', link: '/social' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
 ];
@@ -100,7 +100,7 @@ export const navLinks = [
   // { name: 'Media', url: '/media', flyout: media },
   { name: 'Home', url: '/', flyout: [] },
   //  TODO: Uncomment when there is a insta post
-  // { name: 'Social', url: '#social', flyout: [] },
+  // { name: 'Social', url: '/social', flyout: [] },
   { name: 'Practice', url: '/practice', flyout: [] },
   { name: 'Cosmetic Dentistry', flyout: cosmetic },
   { name: 'General Dentistry', flyout: general },
