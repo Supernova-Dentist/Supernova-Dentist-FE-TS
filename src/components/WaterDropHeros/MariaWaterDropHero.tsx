@@ -49,7 +49,7 @@ const MariaWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/mia_headshot.jpeg'
+              src='/assets/images/Headshots/maria_headshot.jpg'
               alt='Mia Coakley headshot'
               width={600}
               height={800}
