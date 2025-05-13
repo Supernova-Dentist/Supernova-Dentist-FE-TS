@@ -16,7 +16,7 @@ const DrSaraDBanuriWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m an <span className='font-semibold text-lightGold'>Implantologist</span>
+                I&apos;m an <span className='font-semibold text-lightGold'>Implantologist/Oral Surgeon</span>
               </h2>
               <h3 className='text-lightGold'>DDS, PGDip (Ortho), MSc Implantology</h3>
               <h3 className='text-lightGold'>GDC Registration Number: 182411</h3>

@@ -19,7 +19,7 @@ const teamMembers = [
   },
   {
     name: 'Dr. Sara D Banuri',
-    title: 'Implantologist',
+    title: 'Implantologist/Oral Surgeon',
     image: '/assets/images/Headshots/sara.jpg',
     slug: 'dr-sara-d-banuri',
   },
