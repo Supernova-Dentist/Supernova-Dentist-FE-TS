@@ -6,17 +6,17 @@ import ScottWaterDropHero from '@/components/WaterDropHeros/ScottWaterDropHero';
 import { Reveal } from '@/utils/anim/Reveal';
 
 export default async function Component() {
-  const ACCOUNT_ID = 1; // Replace with dynamic logic or a constant from a config file
-  let instagramPosts = [];
-  
-  try {
-    instagramPosts = await fetchInstagramPosts(ACCOUNT_ID);
-  } catch (error) {
-    console.error('Error fetching Instagram posts:', error);
-  }
+  // const ACCOUNT_ID = 1; // Replace with dynamic logic or a constant from a config file
+  // let instagramPosts = [];
 
-  const username = instagramPosts?.length > 0 ? instagramPosts[0].username : 'Our Instagram';
-  const instagramProfileUrl = `https://www.instagram.com/${username}/`;
+  // try {
+  //   instagramPosts = await fetchInstagramPosts(ACCOUNT_ID);
+  // } catch (error) {
+  //   console.error('Error fetching Instagram posts:', error);
+  // }
+
+  // const username = instagramPosts?.length > 0 ? instagramPosts[0].username : 'Our Instagram';
+  // const instagramProfileUrl = `https://www.instagram.com/${username}/`;
 
   return (
     <div className='flex flex-col min-h-[100vh]'>
@@ -68,11 +68,11 @@ export default async function Component() {
         </div>
       </section>
 
-      {instagramPosts?.length > 0 ? (
+      {/* {instagramPosts?.length > 0 ? (
         <InstagramPostGrid posts={instagramPosts} />
       ) : (
         <span className='flex justify-center mt-20'>No Instagram posts yet. Check back later.</span>
-      )}
+      )} */}
 
       <StackedCardTestimonials />
     </div>
