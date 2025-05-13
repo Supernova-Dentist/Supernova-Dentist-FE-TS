@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import LearnMoreButton from '../LearnMoreButton/LearnMoreButton';
+import SignUpButton from '../LearnMoreButton/LearnMoreButton';
 import { DentallyPortal } from '@/lib/constants';
 
 export default function ServiceActions() {
@@ -13,7 +13,7 @@ export default function ServiceActions() {
       >
         Book Now
       </Link>
-      <LearnMoreButton />
+      <SignUpButton />
     </div>
   );
 }

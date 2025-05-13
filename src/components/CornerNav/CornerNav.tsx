@@ -1,24 +1,34 @@
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi'; // Import Chevron icons
+'use client';
+
+import { DentallyPortal } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 import React, { useState } from 'react';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si';
+import Button from '../Button/Button';
 
-export const CornerNav = () => {
-  const [active, setActive] = useState(false);
-
+export const CornerNav = ({
+  active,
+  setActive,
+  handleClose,
+}: {
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  handleClose: () => void; // Passing handleClose to CornerNav
+}) => {
   return (
     <>
-      <HamburgerButton active={active} setActive={setActive} />
-
-      <AnimatePresence>{active && <LinksOverlay setActive={setActive} />}</AnimatePresence>
+      <HamburgerButton active={active} setActive={setActive} handleClose={handleClose} />
+      <AnimatePresence>{active && <LinksOverlay />}</AnimatePresence>
     </>
   );
 };
 
-const LinksOverlay = ({ setActive }: any) => {
+const LinksOverlay = () => {
   return (
-    <div className='fixed right-4 top-4 z-50 h-full w-[calc(100%_-_32px)] overflow-y-scroll'>
+    <div className='relative mx-auto top-4 z-51 h-[calc(100vh)] w-[calc(100vw)] overflow-y-scroll'>
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{
@@ -34,6 +44,27 @@ const LinksOverlay = ({ setActive }: any) => {
         <h2 className='text-3xl text-gray-50 items-center font-light'>Supernova Dental</h2>
       </motion.div>
       <LinksContainer />
+
+      {/* Flexbox container for "Book Now" button at the bottom */}
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: 1.5, // Adjust the delay as needed
+            duration: 0.5,
+            ease: 'easeInOut',
+          },
+        }}
+        exit={{ opacity: 0, y: -8 }}
+        className='flex justify-center w-full py-6 ' // Added mt-auto to push it to the bottom
+      >
+        <Link target='_blank' href={`${DentallyPortal}`}>
+          <Button className='text-white'>Book Now</Button>
+        </Link>
+      </motion.div>
+
       <FooterCTAs />
     </div>
   );
@@ -43,27 +74,30 @@ const LinksContainer = () => {
   const [activeLink, setActiveLink] = useState<number | null>(null);
 
   return (
-    <motion.div className='space-y-6 pt-8 mb-12 pb-20 px-12 pl-4 md:pl-20'>
-      {LINKS.map((l, idx) => (
-        <NavLink
-          key={l.title}
-          href={l.href}
-          idx={idx}
-          subLinks={l.subLinks}
-          isActive={activeLink === idx}
-          onClick={() => {
-            if (l.subLinks && l.subLinks.length > 0) {
-              // Toggle active state for the clicked link with subLinks
-              setActiveLink(activeLink === idx ? null : idx);
-            } else {
-              // If no subLinks, redirect to the href
-              window.location.href = l.href;
-            }
-          }}
-        >
-          {l.title}
-        </NavLink>
-      ))}
+    <motion.div className='space-y-6 pt-2 pb-8 px-4 mx-auto overflow-y-auto'>
+      {/* Grid layout for all links */}
+      <div className='grid grid-cols-2 gap-4 sm:grid-cols-2 xs:grid-cols-1'>
+        {LINKS.map((l, idx) => (
+          <NavLink
+            key={l.title}
+            href={l.href}
+            idx={idx}
+            subLinks={l.subLinks}
+            isActive={activeLink === idx}
+            onClick={() => {
+              if (l.subLinks && l.subLinks.length > 0) {
+                // Toggle active state for the clicked link with subLinks
+                setActiveLink(activeLink === idx ? null : idx);
+              } else {
+                // If no subLinks, redirect to the href
+                window.location.href = l.href;
+              }
+            }}
+          >
+            {l.title}
+          </NavLink>
+        ))}
+      </div>
     </motion.div>
   );
 };
@@ -171,7 +205,7 @@ const Logo = () => {
       href='/'
       className='grid h-20 w-20 place-content-center rounded-br-xl rounded-tl-xl bg-lightGrey transition-colors hover:bg-violet-50'
     >
-      <img src='/favicon.ico' alt='Supernova Dental Logo' className='w-16 h-auto inline' />
+      <img src='/favicon.ico' alt='Supernova Dental Logo - Bridgwater Dentist' className='w-20 h-auto inline' />
     </motion.a>
   );
 };
@@ -179,9 +213,11 @@ const Logo = () => {
 const HamburgerButton = ({
   active,
   setActive,
+  handleClose, // Pass the handleClose function here
 }: {
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  handleClose: () => void; // Define the handleClose prop type
 }) => {
   return (
     <>
@@ -189,14 +225,18 @@ const HamburgerButton = ({
         initial={false}
         animate={active ? 'open' : 'closed'}
         variants={UNDERLAY_VARIANTS}
-        className={cn('fixed z-50', active ? 'top-0 right-0' : 'top-2 right-2')}
+        className={cn('fixed z-51', active ? 'top-0 right-0' : 'top-2 right-2')}
       />
 
       <motion.button
         initial={false}
         animate={active ? 'open' : 'closed'}
-        onClick={() => setActive((pv) => !pv)}
-        className={` bg-grey group fixed right-2 top-2 z-[60] h-[50px] w-[50px] transition-all ${
+        onClick={() => {
+          setActive((pv) => !pv);
+          if (active) handleClose(); // Close the menu when clicked
+        }}
+        aria-label='Menu Button'
+        className={`bg-grey group fixed right-2 top-2 z-[60] h-[50px] w-[50px] transition-all ${
           active ? 'rounded-bl-xl rounded-tr-xl' : 'rounded-xl'
         }`}
       >
@@ -249,48 +289,47 @@ const FooterCTAs = () => {
 
 const LINKS = [
   {
-    title: 'home',
+    title: 'Home',
     href: '/',
   },
+
+  //  TODO: Uncomment when there's an insta post
   {
-    title: 'cosmetic dentistry',
-    href: '/cosmetic-dentistry',
+    title: 'Social',
+    href: '/social',
+  },
+  {
+    title: 'Practice',
+    href: '/practice',
+  },
+  {
+    title: 'Cosmetic Dentistry',
+    href: '#',
     subLinks: [
-      { title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' },
-      { title: 'Bonding', href: '/cosmetic-dentistry/composite-bonding' },
-      { title: 'Whitening', href: '/cosmetic-dentistry/tooth-whitening' },
-      { title: 'Implants', href: '/cosmetic-dentistry/dental-implants' },
+      // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
+      { title: 'Invisalign', href: '/invisalign' },
     ],
   },
   {
-    title: 'general dentistry',
-    href: '/general-dentistry',
+    title: 'General Dentistry',
+    href: '#',
     subLinks: [
-      { title: 'Check-up', href: '/general-dentistry/general-checkup' },
-      { title: 'Fillings', href: '/general-dentistry/filling' },
-      { title: 'Root canal', href: '/general-dentistry/root-canal-treatment' },
-      { title: 'Emergency', href: '/general-dentistry/emergency' },
+      { title: 'Dental Therapist', href: '/dental-therapist' },
+      { title: 'Dental Hygiene', href: '/dental-hygiene' },
     ],
   },
   {
     title: 'about us',
     href: '#',
     subLinks: [
-      { title: 'Our clinic', href: '/clinic' },
-      { title: 'Meet the team', href: '/team' },
+      { title: 'Team', href: '/team' },
       { title: 'Find us', href: '/find-us' },
-      { title: 'Pricing', href: '/pricing' },
-      { title: 'Enquiry', href: '/enquiry' },
-      { title: 'Faq', href: '/faq' },
-    ],
-  },
-  {
-    title: 'media',
-    href: '#',
-    subLinks: [
-      { title: 'Blog', href: '/blog' },
-      { title: 'Gallery', href: '/gallery' },
       { title: 'Social', href: '/social' },
+      { title: 'Pricing', href: '/pricing' },
+      {
+        title: 'Enquiry',
+        href: '/enquiry',
+      },
     ],
   },
 ];

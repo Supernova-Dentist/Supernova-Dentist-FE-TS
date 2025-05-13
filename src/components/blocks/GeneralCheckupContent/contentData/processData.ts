@@ -17,9 +17,9 @@ export default {
     },
     {
       id: 3,
-      image: '/assets/images/general-checkup-consultation.jpg',
-      header: 'Step 3: personalised Care and Recommendations',
-      text: 'At the end of your visit, we’ll provide tailored advice to maintain your oral health and discuss any next steps, if needed. At Supernova Dental, we ensure you leave with confidence in your smile and a clear plan for future care.',
+      src: '/assets/images/general-checkup-consultation.jpg',
+      header: 'Step 3: personalised Advice and Next Steps',
+      text: "After your checkup and cleaning, we'll provide personalised advice on maintaining your oral health and discuss any recommended treatments if necessary. We’ll ensure you leave with a clear plan for your dental care.",
     },
   ],
 };

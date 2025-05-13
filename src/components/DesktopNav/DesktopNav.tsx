@@ -1,6 +1,7 @@
 'use client';
 
 import { DentallyPortal, navLinks } from '@/lib/constants';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -29,13 +30,20 @@ export default function DesktopNav() {
           <div>
             <FlyoutLink href='/' flyoutItems={[]}>
               Supernova Dental{' '}
-              <img src='/favicon.ico' alt='Supernova Dental Logo' className='ml-2 h-10 w-auto inline ' />
+              <Image
+                width={120}
+                height={120}
+                priority
+                src='/favicon.ico'
+                alt='Supernova Dental Logo - Bridgwater Dentist'
+                className='ml-2 h-10 w-auto inline '
+              />
             </FlyoutLink>
           </div>
 
           <div className='flex-1 flex gap-8 items-center justify-center'>
-            {navLinks.map(({ name, subLinks, url }: { name: string; subLinks: any[]; url?: string | undefined }) => (
-              <FlyoutLink key={name} href={url} flyoutItems={subLinks}>
+            {navLinks.map(({ name, flyout, url }) => (
+              <FlyoutLink key={name} href={url ?? '#'} flyoutItems={flyout}>
                 {name}
               </FlyoutLink>
             ))}

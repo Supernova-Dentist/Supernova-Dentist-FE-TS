@@ -2,7 +2,7 @@
 
 import { CornerNav } from '@/components/CornerNav/CornerNav';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
-
+import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
 import { motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -38,8 +38,13 @@ const MainNav = () => {
   const [navbarVisible, setNavbarVisible] = useState(true);
 
   const scrollPosition = useRef(0); // Use ref to store scroll position
+  const isMobile = width <= 915; // Define your mobile breakpoint here
 
   useEffect(() => {
+    // Reset navbar visibility when switching to mobile
+    if (isMobile) {
+      setNavbarVisible(true); // Show navbar immediately on mobile
+    }
     // Initialize scroll position on mount
     scrollPosition.current = window.scrollY;
 
@@ -70,8 +75,6 @@ const MainNav = () => {
     return <nav></nav>; // Placeholder or a loading indicator
   }
 
-  const isMobile = width <= 850; // Define your mobile breakpoint here
-
   return (
     <header
       className={`${
@@ -82,7 +85,17 @@ const MainNav = () => {
           : ''
       }`}
     >
-      {isMobile ? <CornerNav /> : <DesktopNav />}
+      {isMobile ? (
+        <div
+          className={`z-50 fixed bg-grey top-0 left-0 w-full transition-transform duration-300 ${
+            navbarVisible ? 'translate-y-0' : '-translate-y-full'
+          }`}
+        >
+          <MobileNavigation />
+        </div>
+      ) : (
+        <DesktopNav />
+      )}
     </header>
   );
 };

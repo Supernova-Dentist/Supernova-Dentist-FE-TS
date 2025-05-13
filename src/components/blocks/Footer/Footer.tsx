@@ -1,31 +1,21 @@
-import Link from 'next/link';
-import { cosmeticServices, generalServices, officeInfo, practiceInfo, reviewLinks, socialIcons } from '@/lib/constants';
-import FooterLink from '../FooterLink/FooterLink';
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
-import Button from '@/components/Button/Button';
-import DynamicGoogleMap from '../GoogleMap/DynamicGoogleMap';
+import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
+import { cosmeticServices, generalServices, locationInfo, practiceInfo, socialIcons } from '@/lib/constants';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import FooterLink from '../FooterLink/FooterLink';
+import ReviewLink from '../ReviewLink/ReviewLink';
+
+const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
+  ssr: false,
+});
 
 export default function Footer() {
   return (
     <footer className='bg-grey'>
-      <div className='w-full px-4 py-12 sm:px-10'>
-        <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 min-[1500px]:grid-cols-6 gap-8 text-gray-300'>
-          {/* General Services Section */}
-          <ul className='flex flex-col items-center sm:items-start gap-1'>
-            <li className='text-gold text-lg uppercase'>General Services</li>
-            {generalServices.map((service, index) => (
-              <FooterLink key={service.name} link={service.link} name={service.name} index={index} />
-            ))}
-          </ul>
-
-          {/* Cosmetic Services Section */}
-          <ul className='flex flex-col items-center sm:items-start gap-1'>
-            <li className='text-gold text-lg uppercase'>Cosmetic Services</li>
-            {cosmeticServices.map((service, index) => (
-              <FooterLink key={service.name} link={service.link} name={service.name} index={index} />
-            ))}
-          </ul>
-
+      <div className='w-full px-4 py-12 sm:px-10 flex flex-col items-center justify-center'>
+        {/* Centering the content within the footer */}
+        <div className='mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  text-gray-300 max-w-screen-lg gap-6'>
           {/* Practice Info Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Practice Info</li>
@@ -34,57 +24,66 @@ export default function Footer() {
             ))}
           </ul>
 
-          {/* Office Info Section with Map */}
-          <div className='flex flex-col items-center sm:items-start gap-1'>
-            <ul className='w-full'>
-              <li className='text-gold text-lg uppercase text-center sm:text-left'>Office</li>
-              <li className='text-center sm:text-left'>{officeInfo.address}</li>
-            </ul>
-            <DynamicGoogleMap />
-            <div className='mt-2'>
-              <GetDirectionsForm />
-            </div>
-          </div>
-
-          {/* Review Us Section */}
+          {/* Contact Us Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
-            <li className='text-gold text-lg uppercase'>Review Us</li>
-            {reviewLinks.map((link, index) => (
-              <Link href={link.link} target='_blank' key={index}>
-                <li>{link.name}</li>
-              </Link>
-            ))}
-            <li className='flex gap-1'>
+            <li className='text-gold text-lg uppercase'>Opening Hours</li>
+            <li>Monday: 08:15–18:15</li>
+            <li>Tuesday: 08:15–18:15</li>
+            <li>Wednesday: 08:15–18:15</li>
+            <li>Thursday: 08:15–18:15</li>
+            <li>Friday: Closed</li>
+            <li>Saturday: 09:00–13:00</li>
+            <li>Sunday: Closed</li>
+          </ul>
+
+          {/* Social Section */}
+          <ul className='flex flex-col items-center sm:items-start gap-1'>
+            <li className='text-gold text-lg uppercase'>Follow/Review Us</li>
+            <li className='flex gap-4'>
               {socialIcons.map((social, index) => (
-                <Link href={social.link} target='_blank' key={index}>
-                  <Button className='p-1 flex justify-center items-center text-cream'>{social.icon}</Button>
+                <Link
+                  key={index}
+                  href={social.url}
+                  target='_blank'
+                  className='bg-gold p-1 rounded-sm flex justify-center items-center'
+                >
+                  <div className='bg-gold p-1 rounded-sm flex justify-center items-center'>{social.icon}</div>
                 </Link>
               ))}
             </li>
+            <li className='mt-4'>
+              <ReviewLink />
+            </li>
           </ul>
 
-          {/* Contact Us Section */}
           <ul className='flex flex-col items-center sm:items-start gap-1'>
             <li className='text-gold text-lg uppercase'>Contact Us</li>
-            <li>Email: enquiries@supernovadental.co.uk</li>
+            <li>enquiries@supernovadental.co.uk</li>
             <li>Phone: 01278 228665</li>
             <li className='flex gap-2'>
-              <a
-                href='mailto:contact@supernovadental.com'
-                className='bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-white'
-              >
+              <a href='mailto:enquiries@supernovadental.co.uk' className='bg-gold py-1 px-2 rounded-sm text-white'>
                 Email Us
               </a>
-              <a
-                href='tel:+1234567890'
-                className='bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-white'
-              >
+              <a href='tel:+441278228665' className='bg-gold py-1 px-2 rounded-sm text-white'>
                 Call Us
               </a>
             </li>
           </ul>
         </div>
+        {/* Office Info Section with Map */}
+        <div className='flex flex-col items-center sm:items-start gap-1 text-white mx-auto justify-center mt-6'>
+          <ul className='w-full'>
+            <li className='text-gold text-lg uppercase text-center sm:text-left'>Location</li>
+            <li className='text-center sm:text-left max-w-[10rem] mx-auto md:mx-0'>{locationInfo.address}</li>
+          </ul>
+          <div className='mb-2'>
+            <GoogleMap />
+          </div>
+          <GetDirectionsForm />
+        </div>
       </div>
+      {/* Add the PromotionFooter at the bottom */}
+      <PromotionFooter />
     </footer>
   );
 }

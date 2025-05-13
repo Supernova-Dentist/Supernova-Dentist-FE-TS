@@ -1,10 +1,10 @@
 'use client';
 
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
-import React, { useRef, useState } from 'react';
-import { TextRevealCard, TextRevealCardDescription, TextRevealCardTitle } from '../ui/text-reveal-card';
-import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { TextRevealCard, TextRevealCardDescription, TextRevealCardTitle } from '../ui/text-reveal-card';
 
 export function VideoAnimationSection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -71,7 +71,7 @@ export function VideoAnimationSection() {
         <div className='mt-2 pt-8 pb-12 lg:pb-24 flex justify-center'>
           <button
             onClick={scrollToPromotionForm}
-            className='bg-lightGold text-white px-8 py-4 rounded-lg text-lg font-semibold'
+            className='bg-gold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
           >
             Take the first step!
           </button>

@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 
 export default function AccessibilityWidget() {
   useEffect(() => {
-    console.log('Component mounted');
 
     // load the script
     const script = document.createElement('script');

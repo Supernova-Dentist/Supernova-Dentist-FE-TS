@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
           <p className='text-left'>
             Welcome to <span className='text-gold font-semibold text-lg'>Supernova Dental</span>. We are committed to
             safeguarding your privacy and protecting your personal data. This privacy policy explains how we collect,
-            use and protect your information when you use our website or services.
+            use, and protect your information when you use our website or services.
           </p>
           <p className='text-left'>
             If you have any questions regarding this privacy policy, please contact us at{' '}
@@ -47,7 +47,10 @@ export default function PrivacyPolicyPage() {
           <p className='text-left'>We collect personal data through the following methods:</p>
           <ul className='text-left'>
             <li>Contact forms for appointments or enquiries</li>
-            <li>User account registration (if applicable)</li>
+            <li>Online payments (handled by Dentally)</li>
+            <li>Online booking through Dentally</li>
+            <li>Website cookies and tracking tools</li>
+            <li>Newsletter sign-ups</li>
           </ul>
         </SectionSpacing>
 
@@ -55,7 +58,10 @@ export default function PrivacyPolicyPage() {
           <SubHeader>Purpose of Data Collection</SubHeader>
           <p className='text-left'>We collect and use your data for the following purposes:</p>
           <ul className='text-left'>
+            <li>To schedule and manage appointments through Dentally</li>
+            <li>To process payments (handled by Dentally)</li>
             <li>To provide customer support</li>
+            <li>To send marketing communications (with your consent)</li>
             <li>To improve website functionality and performance</li>
           </ul>
         </SectionSpacing>
@@ -77,7 +83,10 @@ export default function PrivacyPolicyPage() {
             We may share your personal information with the following third parties to provide our services:
           </p>
           <ul className='text-left'>
-            <li>Data storage and management services (e.g., Dentally for the patient portal)</li>
+            <li>Payment processors (e.g. Stripe through Dentally)</li>
+            <li>Dentally for appointment scheduling</li>
+            <li>Marketing services (e.g. Mailchimp)</li>
+            <li>Web analytics providers (e.g. Google Analytics)</li>
           </ul>
           <p className='text-left'>We also may disclose your information if required by law.</p>
         </SectionSpacing>
@@ -133,7 +142,7 @@ export default function PrivacyPolicyPage() {
         <SectionSpacing>
           <SubHeader>Changes to This Privacy Policy</SubHeader>
           <p className='text-left'>
-            We may update this privacy policy from time to time. The last update was made on 29th December 2024. Please
+            We may update this privacy policy from time to time. The last update was made on 6th February 2025. Please
             review this policy periodically to stay informed about how we are protecting your data.
           </p>
         </SectionSpacing>

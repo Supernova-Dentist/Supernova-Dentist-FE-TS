@@ -1,5 +1,7 @@
+import { DentallyPortal } from '@/lib/constants';
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ScottWaterDropHero = () => {
   return (
@@ -8,7 +10,7 @@ const ScottWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 md:flex-1 '>
           <Reveal>
             <h1 className='pointer-events-auto text-6xl font-black text-slate-100 md:text-8xl'>
-              Hi, I&apos;m Scott<span className='text-gold'>.</span>
+              Hi, I&apos;m Scott<span className='text-lightGold'>.</span>
             </h1>
           </Reveal>
           <Reveal>
@@ -23,29 +25,40 @@ const ScottWaterDropHero = () => {
             </>
           </Reveal>
           <Reveal>
-            <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-              My passion for high quality dentistry has led me to learn from some of the top specialists in the UK and
-              worldwide, going on multiple postgraduate courses to hone my skills and ultimately founding Supernova
-              Dental. I take immense pride in knowing that our patients feel truly looked after and cared for. The huge
-              confidence boosts people gain after just a few appointments are a joy to behold whether that is nervous
-              patients feeling fully at ease or the smile transformations from cosmetic procedures.
-            </p>
+            <>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                My passion for high-quality dentistry has led me to learn from some of the top specialists in the UK and
+                worldwide, going on multiple postgraduate courses to hone my skills and ultimately founding Supernova
+                Dental.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                I take immense pride in knowing that our patients feel truly looked after and cared for.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                The huge confidence boosts people gain after just a few appointments are a joy to behold—whether that is
+                nervous patients feeling fully at ease or the smile transformations from cosmetic procedures
+              </p>
+            </>
           </Reveal>
           <Reveal>
             <div className='flex gap-4 mt-4 mx-auto justify-center w-full'>
-              <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Book with me
-              </button>
-              <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Get in touch
-              </button>
+              <Link target='_blank' href={`${DentallyPortal}`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Book with me
+                </button>
+              </Link>
+              <Link href={`/enquiry`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Get in touch
+                </button>
+              </Link>
             </div>
           </Reveal>
         </div>
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/Supernova-03.jpg'
+              src='/assets/images/Headshots/scott_headshot.jpeg'
               alt='Dr. Scott Young headshot'
               width={600}
               height={800}

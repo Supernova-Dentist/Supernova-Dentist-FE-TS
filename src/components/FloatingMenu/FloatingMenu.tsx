@@ -2,66 +2,74 @@
 
 import { motion } from 'framer-motion';
 import { FaFacebookMessenger, FaInstagramSquare } from 'react-icons/fa';
-import { MdAdd, MdEmail } from 'react-icons/md';
+import { MdAdd, MdEmail, MdPhone } from 'react-icons/md';
 import { Action, Fab } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 import { useWindowSize } from '../blocks/MainNav/MainNav';
 
 export default function FloatingMenu() {
   const { width } = useWindowSize();
-
   const isMobile = width < 768;
   const event = isMobile ? 'click' : 'hover';
 
+  // Email action
   function handleEmailClick() {
-    window.open('mailto:info@supernovadentalclinic.com', '_blank');
+    window.location.href = 'mailto:enquiries@supernovadental.co.uk';
   }
 
+  // Messenger action with proper fallback
   function handleMessengerClick() {
-    window.open('https://m.me/61567279201971', '_blank');
+    // const messengerDeepLink = 'fb-messenger://user-thread/61567279201971';
+    const messengerWebLink = 'https://www.messenger.com/t/61567279201971';
+
+    // Always use the web link for desktop
+    window.open(messengerWebLink, '_blank');
   }
 
+  // Instagram action with proper fallback
   function handleInstagramClick() {
-    window.open('https://ig.me/m/supernova.dental', '_blank');
+    // const instagramDeepLink = 'instagram://user?username=supernova.dental';
+    const instagramWebLink = 'https://www.instagram.com/supernova.dental/';
+
+    // Always use the web link for desktop
+    window.open(instagramWebLink, '_blank');
+  }
+
+  // Phone action
+  function handlePhoneClick() {
+    window.location.href = 'tel:+441278228665';
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-      animate={{ opacity: 1, y: 0 }} // Animate in
-      transition={{ duration: 1.5 }} // Duration of the animation
-    >
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.5 }}>
       <Fab
-        mainButtonStyles={{ backgroundColor: '#0f172a', border: '1px solid white' }}
-        // Adjust position based on screen size
+        mainButtonStyles={{ backgroundColor: '#0f172a' }}
         style={{
-          bottom: isMobile ? -8.5 : 10, // Change bottom position for mobile and desktop
-          right: isMobile ? -8.5 : 20, // Change right position for mobile and desktop
+          bottom: isMobile ? -8.5 : 10,
+          right: isMobile ? -8.5 : 10,
         }}
         icon={<MdAdd size={26} />}
         event={event}
         alwaysShowTitle={isMobile}
       >
-        <Action
-          style={{ backgroundColor: '#0f172a', border: '1px solid white' }}
-          text='Email'
-          onClick={handleEmailClick}
-        >
+        {/* Email Action */}
+        <Action style={{ backgroundColor: '#0f172a' }} text='Email' onClick={handleEmailClick}>
           <MdEmail size={25} />
         </Action>
-        <Action
-          style={{ backgroundColor: '#0f172a', border: '1px solid white' }}
-          text='Messenger'
-          onClick={handleMessengerClick}
-        >
+
+        {/* Messenger Action */}
+        <Action style={{ backgroundColor: '#0f172a' }} text='Messenger' onClick={handleMessengerClick}>
           <FaFacebookMessenger size={25} />
         </Action>
-        <Action
-          style={{ backgroundColor: '#0f172a', border: '1px solid white' }}
-          text='Instagram'
-          onClick={handleInstagramClick}
-        >
+
+        {/* Instagram Action */}
+        <Action style={{ backgroundColor: '#0f172a' }} text='Instagram' onClick={handleInstagramClick}>
           <FaInstagramSquare size={25} />
+        </Action>
+
+        {/* Call Action */}
+        <Action style={{ backgroundColor: '#0f172a' }} text='Call' onClick={handlePhoneClick}>
+          <MdPhone size={25} />
         </Action>
       </Fab>
     </motion.div>

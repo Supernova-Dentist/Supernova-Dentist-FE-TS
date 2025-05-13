@@ -8,6 +8,7 @@ type InstagramPost = {
   permalink: string;
   like_count?: number;
   comments_count?: number;
+  thumbnail_url?: string;
 };
 
 type InstagramPostGridProps = {

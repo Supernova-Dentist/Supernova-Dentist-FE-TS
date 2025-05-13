@@ -6,6 +6,7 @@ import React, { useRef } from 'react';
 import { Wifi } from 'react-feather';
 import { FaChair, FaBookMedical, FaWheelchair, FaParking, FaClinicMedical } from 'react-icons/fa';
 import { FaPumpMedical } from 'react-icons/fa6';
+import { useInView } from 'react-intersection-observer';
 
 export const DisappearingFeatures = () => {
   return (
@@ -20,23 +21,33 @@ export const DisappearingFeatures = () => {
 };
 
 const Features = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.025, // Trigger when 10% of the component is in view
+    triggerOnce: true, // Only play the animation once
+  });
   return (
-    <div className='relative mx-auto grid h-full w-full max-w-7xl grid-cols-1 gap-8 px-6 md:grid-cols-2'>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      className='relative mx-auto grid h-full w-full max-w-7xl grid-cols-1 gap-8 px-6 md:grid-cols-2'
+    >
       <Copy />
       <Carousel />
-    </div>
+    </motion.div>
   );
 };
 
 const Copy = () => {
   return (
     <div className='flex h-fit w-full flex-col justify-center py-12 md:sticky md:top-0 md:h-screen'>
-      <span className='w-fit rounded-full bg-gold px-4 py-2 text-sm uppercase text-gray-50'>Our Clinic Features</span>
+      <span className='w-fit rounded-full bg-gold px-4 py-2 text-sm uppercase text-gray-50'>Our Practice Features</span>
       <h2 className='mb-4 mt-2 text-5xl text-gold font-medium leading-tight'>
         Discover the Exceptional Amenities We Offer
       </h2>
       <p className='text-lg text-gray-50'>
-        Our clinic is designed with your comfort and convenience in mind, offering state-of-the-art technology and
+        Our practice is designed with your comfort and convenience in mind, offering state-of-the-art technology and
         amenities that ensure a pleasant experience every time you visit.
       </p>
     </div>
@@ -53,7 +64,7 @@ const Carousel = () => {
   const clinicFeatures = [
     {
       title: 'Comfortable Chairs',
-      description: 'Our ergonomic chairs provide maximum comfort during your treatments.',
+      description: 'Our supportive chairs provide a balanced blend of comfort and stability during your treatments.',
       icon: <FaChair className='w-12 h-12 mb-4 text-gold' />,
       imgSrc: '/assets/images/surgery2.JPG',
     },
@@ -71,13 +82,13 @@ const Carousel = () => {
     },
     {
       title: 'Accessibility Friendly Toilets',
-      description: 'Our clinic is equipped with an accessible toilet for your convenience.',
+      description: 'Our practice is equipped with an accessible toilet for your convenience.',
       icon: <FaWheelchair className='w-12 h-12 mb-4 text-gold' />,
-      imgSrc: '/assets/images/toilet.JPG',
+      imgSrc: '/assets/images/toilet.jpeg',
     },
     {
       title: 'Ample Parking',
-      description: 'Plenty of parking spaces available, ensuring a hassle-free visit every time.',
+      description: '10 reserved car parking spaces available, ensuring a hassle-free visit every time.',
       icon: <FaParking className='w-12 h-12 mb-4 text-gold' />,
       imgSrc: '/assets/images/parking.jpg',
     },
@@ -130,7 +141,7 @@ const CarouselItem = ({
       }}
       className='grid w-full shrink-0 place-content-center rounded-2xl bg-neutral-900 p-4 md:p-6'
     >
-      <div className='flex flex-col items-center text-center text-cream'>
+      <div className='flex flex-col items-center text-center text-cream max-w-[20rem]'>
         {feature.icon}
         <h3 className='text-3xl font-bold mb-2 text-gold'>{feature.title}</h3>
         <p className='p-4'>{feature.description}</p>
@@ -139,7 +150,7 @@ const CarouselItem = ({
           alt={feature.title}
           width={600}
           height={600}
-          className='w-full h-auto object-contain rounded-2xl'
+          className='w-full h-auto object-fit rounded-2xl'
         />
       </div>
     </motion.div>

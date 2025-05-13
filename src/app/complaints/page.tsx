@@ -60,9 +60,10 @@ export default function Complaints() {
         <SectionSpacing className='flex flex-col gap-2'>
           <SubHeader>Response and Resolution Timeline</SubHeader>
           <p>
-            We will acknowledge receipt of your complaint in writing within two business days and provide you with a
-            copy of our complaints procedure. We will provide you with updates on the progress of your complaint every{' '}
-            <strong>10 business days</strong> until the matter is resolved.
+            We will acknowledge receipt of your complaint in writing within <strong>2 business days</strong> and provide
+            you with a copy of our complaints procedure. If we cannot complete the investigation within{' '}
+            <strong>10 business days</strong>, we will provide an update and continue to provide an update every{' '}
+            <strong>10 business days</strong> until the complaint is resolved.
           </p>
 
           <p>

@@ -7,7 +7,8 @@ export const KayleighOutlineCards = () => {
   return (
     <section className='overflow-hidden md:max-w-5xl px-8 pb-12 pt-16'>
       <div className='mx-auto flex flex-col items-center justify-center gap-8 lg:flex-row'>
-        <Card title='Hygiene' href='/cosmetic-dentistry/tooth-whitening' bgUrl='/assets/images/scaling.jpeg' />
+        <Card title='Dental Therapist' href='/dental-therapist' bgUrl='/assets/images/plaque_removal.jpeg' />
+        <Card title='Dental Hygiene' href='/dental-hygiene' bgUrl='/assets/images/airflow.jpeg' />
       </div>
     </section>
   );

@@ -7,12 +7,17 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 import BarLoader from '../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { DentallyPortal } from '@/lib/constants';
+import { FaTimes } from 'react-icons/fa';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -26,6 +31,7 @@ export default function PromotionForm() {
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const {
     register,
@@ -44,12 +50,21 @@ export default function PromotionForm() {
 
   async function onSubmit(data: PromotionFormData) {
     try {
+      const decodedSource = decodeURIComponent(pathname); // Decode URL encoding
+
+      // If you need to remove the leading slash, you can do that
+      let cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
+
+      if (cleanedSource === '') {
+        cleanedSource = 'Homepage';
+      }
+
+      const dataWithSource = { ...data, source: cleanedSource };
+
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dataWithSource),
       });
 
       if (!res.ok) {
@@ -58,13 +73,6 @@ export default function PromotionForm() {
           String(errorData.message) || 'There was a problem with your submission. Please try again later.';
         setError(String(errorMessage));
         throw new Error(String(errorMessage));
-      }
-
-      // Trigger Google Ads conversion tracking
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
-          send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
-        });
       }
 
       setShowSuccessModal(true);
@@ -98,10 +106,28 @@ export default function PromotionForm() {
     triggerOnce: true, // Only play the animation once
   });
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+
+      if (hash === '#form') {
+        const formElement = document.querySelector(hash);
+
+        if (formElement) {
+          const formPosition = formElement.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: formPosition,
+            behavior: 'smooth',
+          });
+        }
+      }
+    }
+  }, []); // Runs only on the first load
+
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section ref={ref} id='form' className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
+      <section id='form' ref={ref} className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
         <motion.div
           initial={{ opacity: 0, y: 20 }} // Initial state for the animation
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
@@ -109,19 +135,23 @@ export default function PromotionForm() {
         >
           <div className='container grid items-center lg:justify-start justify-center gap-8 px-4 md:px-8 lg:grid-cols-2 lg:gap-16 mx-auto max-w-[1250px]'>
             <div className='space-y-6 text-center lg:text-left'>
-              <div className='inline-block rounded-lg bg-grey px-4 py-2 text-md text-gray-50'>Limited Time Offer</div>
-              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>Exclusive Promotions</h2>
-              <p className='max-w-[700px] text-center sm:text-left text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
-                Take advantage of our limited-time offers, including savings on Invisalign treatments and dental
-                wellness assessments. Don&apos;t miss out! Register by 31st December 2024.
+              <div className='inline-block rounded-lg bg-grey px-4 py-2 text-md text-gray-50'>
+                Welcoming New Patients!
+              </div>
+              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
+                Start Your Journey with Us
+              </h2>
+              <p className='max-w-[700px] text-center lg:text-left text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
+                Looking for a reliable <strong>Bridgwater dentist</strong>? Supernova Dental is accepting new patients,
+                offering expert care for routine check-ups, cosmetic dentistry, Invisalign treatments and more.
               </p>
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4 p-0 md:p-4'>
-                  <CardTitle className='text-2xl'>Sign Up for Exclusive Offers</CardTitle>
+                  <CardTitle className='text-2xl'>Looking for a Dentist in Bridgwater?</CardTitle>
                   <CardDescription className='text-lg text-gray-500'>
-                    Fill out the form to sign up and receive our latest promotions and updates.
+                    Register today and experience a tailored patient journey at your new Bridgwater Dentist!
                   </CardDescription>
                 </CardHeader>
                 <CardContent className='p-0 md:p-4 md:pt-0'>
@@ -131,7 +161,7 @@ export default function PromotionForm() {
                     </Label>
                     <Input
                       id='fullname'
-                      placeholder='John Doe'
+                      placeholder='John Smith'
                       className='py-1 text-lg px-3'
                       {...register('fullname')}
                     />
@@ -184,8 +214,8 @@ export default function PromotionForm() {
                         onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                       />
                       <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
-                        I don’t want to receive emails about Supernova and related Supernova updates and promotions. By
-                        not checking the box, I agree to be opted in by default.
+                        I don’t want to receive emails about Supernova Dental and related Supernova Dental updates and
+                        promotions. By not checking the box, I agree to be opted in by default.
                       </Label>
                     </div>
                     {errors.optOutEmails && (
@@ -216,18 +246,30 @@ export default function PromotionForm() {
       {/* Success Modal */}
       {showSuccessModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full'>
+          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative'>
+            {/* Close button (X) in the top-right corner of the modal */}
+            <button
+              onClick={handleSuccessModalClose}
+              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+            >
+              <FaTimes />
+            </button>
+
             <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
             <div className='mb-6 flex flex-col gap-2'>
-              <p>
-                You&apos;ve been successfully signed up for our promotions and updates. We&apos;ll send details to{' '}
-                {values.email}.
-              </p>
+              <p>You&apos;ve been successfully signed up. We&apos;ll send details to {values.email}.</p>
               <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
             </div>
-            <Button onClick={handleSuccessModalClose} className='w-full text-xl py-3'>
-              Close
-            </Button>
+
+            {/* New text and button */}
+            <p className='mb-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
+            <div className='w-full flex justify-center mb-4'>
+              <Link target='_blank' href={`${DentallyPortal}`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Book Now!
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       )}

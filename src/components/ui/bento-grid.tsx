@@ -4,8 +4,14 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { HighlightCard } from '../HighlightCard/HighlightCard';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
+import { useInView } from 'react-intersection-observer';
 
 export function FeaturesSectionDemo() {
+  const { ref, inView } = useInView({
+    threshold: 0.025, // Trigger when 2.5% of the component is in view
+    triggerOnce: true, // Only play the animation once
+  });
+
   const features = [
     {
       title: 'Welcome to Reception',
@@ -20,8 +26,8 @@ export function FeaturesSectionDemo() {
       className: 'lg:col-span-2 border-gold',
     },
     {
-      title: 'Smile Zone Tour',
-      description: 'Discover our Smile Zone, designed for comfort and state-of-the-art dental care.',
+      title: 'Smile Zone',
+      description: 'Discover our Supernova Smile Zone, designed to help visualise your future smile.',
       skeleton: <SkeletonThree />,
       className: 'lg:col-span-2 border-gold',
     },
@@ -34,9 +40,9 @@ export function FeaturesSectionDemo() {
   ];
 
   return (
-    <div className='relative z-20 py-10 lg:py-4 max-w-7xl mx-auto'>
+    <section className='relative z-20 py-10 lg:py-4 max-w-7xl mx-auto'>
       <HighlightCard
-        title='Supernova Dental Clinic'
+        title='Supernova Dental - Your Patient Journey'
         description='From reception to surgery, discover our seamless patient journey designed to prioritise your comfort and care.'
         logoSrc='/assets/images/logo.png'
         className='mt-12'
@@ -45,11 +51,15 @@ export function FeaturesSectionDemo() {
       <div className='px-4'>
         <BreadCrumb />
       </div>
-      <div className='grid grid-cols-1 lg:grid-cols-6 gap-8 mt-12 border-gold border-4 rounded-md p-4'>
+      <div ref={ref} className='grid grid-cols-1 lg:grid-cols-6 gap-8 mt-12 border-gold border-4 rounded-md p-4'>
         {features.map((feature) => (
           <FeatureCard
             key={feature.title}
-            className={cn('relative overflow-hidden p-6 shadow-lg rounded-lg', feature.className)}
+            className={cn(
+              'relative overflow-hidden p-6 shadow-lg rounded-lg transition-opacity duration-700', // Added transition and opacity styles
+              feature.className,
+              inView ? 'opacity-100' : 'opacity-0' // Apply opacity based on inView state
+            )}
           >
             <FeatureTitle>{feature.title}</FeatureTitle>
             <FeatureDescription>{feature.description}</FeatureDescription>
@@ -57,7 +67,7 @@ export function FeaturesSectionDemo() {
           </FeatureCard>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -89,23 +99,26 @@ export const SkeletonOne = () => {
 };
 
 export const SkeletonTwo = () => {
+  const videoSrc = '/assets/videos/why_supernova.mp4';
+
   return (
     <div
       className='relative w-full'
       style={{ paddingTop: `${(476 / 267) * 100}%` }} // Aspect ratio based on video dimensions
     >
-      <iframe
-        src='/assets/videos/why_supernova.mp4'
+      <video
         className='absolute top-0 left-0 w-full h-full rounded-lg lg:mt-8'
         style={{
           border: 'none',
           overflow: 'hidden',
         }}
-        scrolling='no'
-        frameBorder='0'
-        allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
-        allowFullScreen={true}
-      />
+        controls
+        preload='metadata'
+        poster='/assets/images/video_thumbnail.png' // Optional: use an image as a placeholder before the video loads
+      >
+        <source src={videoSrc} type='video/mp4' />
+        Sorry, your browser doesn&apos;t support the video tag.
+      </video>
     </div>
   );
 };
@@ -114,14 +127,14 @@ export const SkeletonThree = () => {
   const image = '/assets/images/supernova_smile_zone.jpg';
 
   return (
-    <div className='relative w-full max-h-[600px]'>
+    <div className='relative w-full' style={{ paddingTop: `${(476 / 267) * 100}%` }}>
       <Image
         src={image}
         alt='Smile Zone'
         layout='intrinsic'
         width={600}
         height={400} // Maintain aspect ratio
-        className='object-cover rounded-lg'
+        className='absolute top-0 left-0 w-full h-full rounded-lg'
       />
     </div>
   );

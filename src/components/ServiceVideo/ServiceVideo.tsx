@@ -21,8 +21,8 @@ export default function ServiceVideo({ videoSrc }: ServiceVideoProps) {
 
   // Replay the video when Lottie animation is clicked
   const handleReplayClick = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
+    if (videoRef.current != null) {
+      void videoRef.current.play();
       setIsVideoEnded(false); // Hide Lottie animation when the video is playing
     }
   };
@@ -68,7 +68,7 @@ export default function ServiceVideo({ videoSrc }: ServiceVideoProps) {
         </div>
         <div className='mt-2 pt-8 pb-12 lg:pb-24 flex justify-center'>
           <Link href={`${DentallyPortal}`} target='_blank'>
-            <button className='bg-lightGold text-white px-8 py-4 rounded-lg text-lg font-semibold'>
+            <button className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'>
               Take the first step!
             </button>
           </Link>

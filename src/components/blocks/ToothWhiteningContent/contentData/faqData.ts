@@ -27,6 +27,26 @@ export const faqItems = [
   {
     question: 'Can whitening be done on crowns or fillings?',
     answer:
-      'Teeth whitening only works on natural tooth enamel and will not affect crowns, fillings, or other dental restorations. If your restorations are discolored, we may recommend replacing them after whitening to match the new color of your teeth for a consistent, natural look.',
+      'After whitening, maintain good oral hygiene by brushing twice a day, flossing daily, and avoiding foods and drinks that can stain your teeth. Regular dental check-ups and cleanings will help keep your teeth bright and healthy. We also recommend using a whitening toothpaste to help prolong the results.',
+  },
+  {
+    question: 'What is the difference between in-office whitening and over-the-counter whitening products?',
+    answer:
+      'In-office whitening treatments use professional-grade whitening agents and advanced techniques to achieve faster and more dramatic results. Over-the-counter products, such as strips or gels, are less potent and may take longer to show results. In-office treatments are also supervised by our dental team, ensuring safety and effectiveness.',
+  },
+  {
+    question: 'How much does tooth whitening cost?',
+    answer:
+      'The cost of tooth whitening varies depending on the type of treatment. In-office whitening typically ranges from £300 to £600, while take-home whitening kits are generally priced between £100 and £300. Over-the-counter products are more affordable, but often less effective. Contact us for a personalised quote based on your needs and treatment preferences.',
+  },
+  {
+    question: 'Can tooth whitening be done on crowns or fillings?',
+    answer:
+      'Tooth whitening only works on natural tooth enamel and will not affect crowns, fillings, or other dental restorations. If you have restorations that are discolored or need to match your newly whitened teeth, we may recommend replacing them after your whitening treatment to ensure a consistent appearance.',
+  },
+  {
+    question: 'Is tooth whitening covered by insurance?',
+    answer:
+      'Tooth whitening is generally considered a cosmetic procedure and may not be covered by dental insurance. However, if whitening is needed for restorative purposes or part of a larger dental treatment plan, there might be partial coverage. Check with your insurance provider for specific details regarding your coverage.',
   },
 ];

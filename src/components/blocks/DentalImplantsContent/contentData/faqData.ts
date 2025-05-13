@@ -22,6 +22,21 @@ export const faqItems = [
   {
     question: 'How should I care for dental implants?',
     answer:
-      'Caring for implants is as simple as maintaining good oral hygiene—brushing, flossing and using an antimicrobial mouthwash. Regular dental check-ups help monitor the health of your implants and surrounding gums. Avoid habits like smoking to ensure long-term success.',
+      'The cost of dental implants varies depending on the complexity of the case and the type of implant used. On average, implants can range from £2,000 to £4,000 per tooth, including the placement and restoration. Although the initial cost may be higher than other options like bridges or dentures, implants offer a longer-term investment due to their durability and permanence. Contact us for a personalised quote and financing options to fit your needs.',
+  },
+  {
+    question: 'Are dental implants covered by insurance?',
+    answer:
+      'Dental implants are often considered a more advanced and costly treatment, and insurance coverage can vary. While some plans may offer partial coverage, others may not cover implants at all. We recommend checking with your insurance provider for specific details about your coverage. Our practice also offers flexible payment plans to help make dental implants more accessible.',
+  },
+  {
+    question: 'Can dental implants be placed if I have bone loss?',
+    answer:
+      'Yes, dental implants can often be placed even if you have experienced bone loss. We may recommend a bone grafting procedure to build up the bone before placing the implants. Our team will assess your specific situation and develop a personalised treatment plan to ensure successful implant placement. The ability to restore your smile with implants, even in challenging cases, is one of the many benefits of modern dental techniques.',
+  },
+  {
+    question: 'How do dental implants compare to other tooth replacement options?',
+    answer:
+      'Dental implants stand out due to their stability, durability, and ability to preserve jawbone health. Unlike bridges and dentures, implants do not rely on adjacent teeth or require removal for cleaning. They also offer a natural appearance and function similar to your own teeth. While the initial cost may be higher, the long-term benefits make implants a superior choice for many patients looking for a permanent solution to tooth loss.',
   },
 ];

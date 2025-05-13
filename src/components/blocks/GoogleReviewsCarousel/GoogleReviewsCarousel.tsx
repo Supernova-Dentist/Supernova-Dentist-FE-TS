@@ -7,8 +7,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { LinkPreview } from '@/components/ui/link-preview';
 import Autoplay from 'embla-carousel-autoplay';
-import { IoStar } from 'react-icons/io5';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { IoStar } from 'react-icons/io5';
 import ReviewLink from '../ReviewLink/ReviewLink';
 
 export default function GoogleReviewsCarousel() {
@@ -73,9 +74,16 @@ export default function GoogleReviewsCarousel() {
 
       {isModalOpen && selectedReview != null && (
         <Modal isOpen={isModalOpen} onClose={() => toggleModal(null)}>
-          <div>
+          <Image
+            src='/assets/svgs/GoogleTrustIcon.svg'
+            width={48}
+            height={48}
+            className='w-[48px] h-[48px] mx-auto'
+            alt='google trust'
+          />
+          <div className='max-h-[80vh] w-full overflow-y-auto p-4'>
             <h2 className='text-lg font-semibold mb-2'>{selectedReview.name}</h2>
-            <p className='text-gray-500 text-sm'>{selectedReview.date}</p>
+            {/* <p className='text-gray-500 text-sm'>{selectedReview.date}</p> */}
             <div className='flex mt-2 mb-4'>
               {Array(selectedReview.rating)
                 .fill(0)
@@ -86,19 +94,12 @@ export default function GoogleReviewsCarousel() {
             <p>{selectedReview.review}</p>
           </div>
           <div className='flex justify-center mt-2'>
-            <LinkPreview
-              isStatic
-              imageSrc={selectedReview.previewUrl}
-              url={selectedReview.url}
-              className='font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500'
+            <button
+              onClick={(e) => handleViewOnGoogleClick(e, selectedReview.url)}
+              className='text-sm text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
             >
-              <button
-                onClick={(e) => handleViewOnGoogleClick(e, selectedReview.url)}
-                className='text-xs text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
-              >
-                View on Google
-              </button>
-            </LinkPreview>
+              View on Google
+            </button>
           </div>
         </Modal>
       )}

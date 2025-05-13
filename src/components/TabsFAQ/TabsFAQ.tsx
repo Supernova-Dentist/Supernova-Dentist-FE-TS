@@ -9,7 +9,7 @@ export const TabsFAQ = () => {
   const [selected, setSelected] = useState(TABS[0]);
 
   return (
-    <section className='flex flex-col items-center justify-center overflow-hidden bg-lightGrey px-4 py-24 text-slate-50 min-h-screen-minus-nav'>
+    <section className='flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-cream  px-4 py-4 min-h-screen'>
       <Heading />
       <Tabs selected={selected} setSelected={setSelected} />
       <Questions selected={selected} />
@@ -21,10 +21,7 @@ const Heading = () => {
   return (
     <>
       <div className='relative flex flex-col items-center justify-center'>
-        <span className='mb-8 bg-gradient-to-r from-slate-500 to-slate-500 bg-clip-text font-medium text-transparent'>
-          Let&apos;s answer some questions
-        </span>
-        <span className='mb-8 text-5xl font-bold'>FAQs</span>
+        <span className='mb-8 text-5xl font-bold text-gold'>FAQs</span>
       </div>
     </>
   );
@@ -43,7 +40,7 @@ const Tabs = ({
         <button
           onClick={() => setSelected(tab)}
           className={`relative overflow-hidden whitespace-nowrap rounded-md border-[1px] px-3 py-1.5 text-sm font-medium transition-colors duration-500 ${
-            selected === tab ? 'border-cream text-slate-50' : 'border-slate-600 bg-transparent text-slate-400'
+            selected === tab ? 'border-cream text-white' : 'border-grey bg-transparent text-gold'
           }`}
           key={tab}
         >
@@ -103,12 +100,10 @@ const Question = ({ question, answer }: { question: string; answer: string }) =>
   return (
     <motion.div
       animate={open ? 'open' : 'closed'}
-      className={`rounded-xl border-[1px] border-slate-700 p-4 transition-colors ${open ? 'bg-grey' : 'bg-slate-900'}`}
+      className={`rounded-xl border-[1px] border-lightGrey p-4 transition-colors ${open ? 'bg-grey' : 'bg-grey'}`}
     >
       <button onClick={() => setOpen((pv) => !pv)} className='flex w-full items-center justify-between gap-4 py-4'>
-        <span
-          className={`text-left text-lg font-medium transition-colors ${open ? 'text-slate-50' : 'text-slate-400'}`}
-        >
+        <span className={`text-left text-lg font-medium transition-colors ${open ? 'text-gold' : 'text-white'}`}>
           {question}
         </span>
         <motion.span
@@ -121,7 +116,7 @@ const Question = ({ question, answer }: { question: string; answer: string }) =>
             },
           }}
         >
-          <FiPlus className={`text-2xl transition-colors ${open ? 'text-slate-50' : 'text-slate-400'}`} />
+          <FiPlus className={`text-2xl transition-colors ${open ? 'text-white' : 'text-white'}`} />
         </motion.span>
       </button>
       <motion.div
@@ -130,7 +125,7 @@ const Question = ({ question, answer }: { question: string; answer: string }) =>
           height: open ? height : '0px',
           marginBottom: open ? '24px' : '0px',
         }}
-        className='overflow-hidden text-slate-400'
+        className='overflow-hidden text-white'
       >
         <p ref={ref}>{answer}</p>
       </motion.div>
@@ -138,50 +133,60 @@ const Question = ({ question, answer }: { question: string; answer: string }) =>
   );
 };
 
-const TABS = ['General', 'Procedures', 'Insurance', 'Appointments'];
+const TABS = ['General', 'Appointments', 'Parking & Location', 'Insurance'];
 
 const QUESTIONS = {
   General: [
     {
-      question: 'What are your office hours?',
+      question: 'What are your opening hours?',
       answer:
-        'Our office is open from 8:15 AM to 6:15 PM, Monday through Friday and 9 AM to 1PM on Saturdays. We are closed on Sundays and major holidays.',
-    },
-    {
-      question: 'Where are you located?',
-      answer: 'We are located at Marsh Lane, Huntworth, Bridgwater, Alliance Building TA6 6LQ.',
+        'Our opening hours are from 8:15 AM to 6:15 PM, Monday through Thursday and 9 AM to 1PM on Saturdays. We are closed on Sundays and major holidays.',
     },
     {
       question: 'Do you accept new patients?',
       answer:
-        'Yes, we are currently accepting new patients. You can schedule your first appointment by calling our office or booking online.',
+        'Yes, we are currently accepting new patients. You can register and schedule your first appointment by calling us at 01278 228665 or through our patient portal at https://supernova.portal.dental.',
     },
     {
-      question: 'What should I bring to my first appointment?',
+      question: 'What services do you offer?',
       answer:
-        'Please bring a valid ID, your insurance card and any previous dental records you might have. If you have a list of medications you are currently taking, please bring that as well.',
+        'We offer a wide range of procedures, including routine cleanings and examinations, fillings, crowns, bridges, root canals and cosmetic dentistry like Invisalign, teeth whitening and veneers.',
     },
   ],
-  Procedures: [
+  Location: [
     {
-      question: 'What types of procedures do you offer?',
-      answer:
-        'We offer a wide range of procedures, including routine cleanings, fillings, crowns, bridges, root canals and cosmetic dentistry like teeth whitening and veneers.',
+      question: 'Where are you located?',
+      answer: `We are located at Supernova Building,
+                  Marsh Lane,
+                  Huntworth Gate, 
+                  Bridgwater
+                  TA6 6LQ`,
     },
     {
-      question: 'Is teeth whitening safe?',
+      question: 'Is there parking?',
+      answer: `Yes we have 10 reserved parking spaces for patients on your right hand side as your driving down Marsh Lane.`,
+    },
+  ],
+  Appointments: [
+    {
+      question: 'How do I schedule an appointment?',
       answer:
-        'Yes, professional teeth whitening is a safe and effective way to enhance your smile. Our dentists use the latest technology to ensure optimal results with minimal sensitivity.',
+        'You can schedule an appointment calling us at 01278 228665 or through our patient portal at https://supernova.portal.dental. We recommend booking in advance to secure your preferred time.',
     },
     {
-      question: 'Do you offer orthodontic treatments?',
+      question: 'What is your cancellation policy?',
       answer:
-        'Yes, we offer orthodontic treatments including traditional braces and Invisalign. Our orthodontist will work with you to determine the best treatment plan for your needs.',
+        'We ask that you provide at least 48 hours notice if you need to cancel or reschedule your appointment. This allows us to offer the time slot to another patient, if we are not able to fill your slot if you cancel within 48 hours of your appointment you will lose your deposit.',
     },
     {
-      question: 'What is a root canal?',
+      question: 'How often should I visit the dentist?',
       answer:
-        'A root canal is a procedure used to treat infection or damage inside a tooth. It involves removing the affected tissue, cleaning the inside of the tooth and sealing it to prevent further issues.',
+        'We recommend visiting the dentist every six months for a routine checkup and cleaning. However, some patients may need to visit more frequently depending on their oral health.',
+    },
+    {
+      question: 'What if I have an emergency?',
+      answer:
+        'If you have a dental emergency, please call/email us immediately. We will do our best to see you as soon as possible, often the same day.',
     },
   ],
   Insurance: [
@@ -204,28 +209,6 @@ const QUESTIONS = {
       question: 'Do you offer payment plans?',
       answer:
         'Yes, we offer a variety of payment plans to make dental care more accessible. Please speak with our billing department to find a plan that works for you.',
-    },
-  ],
-  Appointments: [
-    {
-      question: 'How do I schedule an appointment?',
-      answer:
-        'You can schedule an appointment by calling our office or using our online booking system. We recommend booking in advance to secure your preferred time.',
-    },
-    {
-      question: 'What is your cancellation policy?',
-      answer:
-        'We ask that you provide at least 24 hours notice if you need to cancel or reschedule your appointment. This allows us to offer the time slot to another patient.',
-    },
-    {
-      question: 'How often should I visit the dentist?',
-      answer:
-        'We recommend visiting the dentist every six months for a routine checkup and cleaning. However, some patients may need to visit more frequently depending on their oral health.',
-    },
-    {
-      question: 'What if I have an emergency?',
-      answer:
-        'If you have a dental emergency, please call our office immediately. We will do our best to see you as soon as possible, often the same day.',
     },
   ],
 };

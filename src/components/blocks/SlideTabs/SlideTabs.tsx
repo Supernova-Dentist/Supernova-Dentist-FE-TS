@@ -2,12 +2,24 @@
 
 import { motion } from 'framer-motion';
 import React, { useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 export const SlideTabsExample = ({ isGeneralServicePage = false }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.2, // Trigger when 10% of the component is in view
+    triggerOnce: true, // Only play the animation once
+  });
+
   return (
-    <div className='bg-transparent pt-4 pb-24 px-4'>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }} // Initial state for the animation
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
+      transition={{ duration: 0.5 }} // Duration of the animation
+      ref={ref}
+      className='bg-transparent pt-4 pb-24 px-4'
+    >
       <SlideTabs isGeneralServicePage={isGeneralServicePage} />
-    </div>
+    </motion.div>
   );
 };
 
@@ -23,7 +35,16 @@ const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
   });
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const offset = 176; // 9rem in pixels
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -34,22 +55,24 @@ const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
           opacity: 0,
         }));
       }}
-      className={`relative mx-auto flex flex-wrap justify-center w-full ${isGeneralServicePage ? 'max-w-[36rem]': 'max-w-[56rem]'} rounded-full border-2 border-black bg-lightGrey p-1`}
+      className={`relative mx-auto flex flex-wrap justify-center w-full ${
+        isGeneralServicePage ? 'max-w-[36rem]' : 'max-w-[56rem]'
+      } rounded-full border-2 border-black bg-lightGrey p-1`}
     >
+      {/* <Tab setPosition={setPosition} onClick={() => scrollToSection('smileView')}>
+        Virtual Smile
+      </Tab> */}
       <Tab setPosition={setPosition} onClick={() => scrollToSection('info')}>
         Introduction
       </Tab>
       <Tab setPosition={setPosition} onClick={() => scrollToSection('benefits')}>
         Benefits
       </Tab>
-      <Tab setPosition={setPosition} onClick={() => scrollToSection('process')}>
-        Process
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('journey')}>
+        Journey
       </Tab>
       {!isGeneralServicePage && (
         <>
-          <Tab setPosition={setPosition} onClick={() => scrollToSection('testimonials')}>
-            Testimonials
-          </Tab>
           <Tab setPosition={setPosition} onClick={() => scrollToSection('comparison')}>
             Comparisons
           </Tab>

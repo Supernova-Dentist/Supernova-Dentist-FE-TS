@@ -4,10 +4,10 @@ import { Button } from '@/components/ui/button';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import OverallGoogleRating from '../blocks/OverallGoogleRating/OverallGoogleRating';
-import Link from 'next/link';
 
 export default function AboutSection() {
   // Animation variants
@@ -23,7 +23,7 @@ export default function AboutSection() {
 
   return (
     <section
-      className='flex flex-col lg:flex-row-reverse bg-gradient-to-b from-cream to-white items-center justify-center lg:py-16'
+      className='flex flex-col lg:flex-row-reverse bg-gradient-to-b from-cream to-white items-center justify-center'
       ref={ref}
     >
       {/* Text Section */}
@@ -38,12 +38,11 @@ export default function AboutSection() {
         <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>About Supernova Dental</h2>
         <p className='mt-4'>
           At Supernova Dental, we are a passionate team dedicated to providing the highest standard of dental care in
-          Bridgewater. Now open and accepting new patients, our state-of-the-art practice blends advanced technology
-          with a personal touch to ensure a comfortable and exceptional experience for every patient.
+          Bridgwater. Now open and accepting new patients, our state-of-the-art practice blends advanced technology with
+          a personal touch to ensure a comfortable and exceptional experience for every patient.
         </p>
-
-        <Link href='/clinic'>
-          <Button className='mt-6 w-fit p-6'>Learn more!</Button>
+        <Link href='/practice'>
+          <Button className='mt-6 w-fit p-6'>Learn More!</Button>
         </Link>
       </motion.div>
 

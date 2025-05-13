@@ -7,21 +7,7 @@ export const ScottOutlineCards = () => {
   return (
     <section className='overflow-hidden md:max-w-5xl px-8 pb-12 pt-16'>
       <div className='mx-auto flex flex-col items-center justify-center gap-8 lg:flex-row'>
-        <Card
-          title='Invisalign'
-          href='/cosmetic-dentistry/invisalign'
-          bgUrl='/assets/images/ScottServices/invisalign.jpeg'
-        />
-        <Card
-          title='Composite Bonding'
-          href='/cosmetic-dentistry/composite-bonding'
-          bgUrl='/assets/images/ScottServices/bonding.jpeg'
-        />
-        <Card
-          title='Whitening'
-          href='/cosmetic-dentistry/tooth-whitening'
-          bgUrl='/assets/images/ScottServices/whitening.jpeg'
-        />
+        <Card title='Invisalign' href='/invisalign' bgUrl='/assets/images/invisalign.jpeg' />
       </div>
     </section>
   );

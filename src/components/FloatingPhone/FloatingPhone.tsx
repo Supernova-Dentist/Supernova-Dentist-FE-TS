@@ -7,11 +7,10 @@ import { FiBatteryCharging, FiWifi } from 'react-icons/fi';
 export const FloatingPhone = () => {
   return (
     <div
+      className='rounded-[24px] bg-gold mx-auto w-56 h-84 relative my-6 transform md:scale-90 scale-60 sm:transform sm:rotate-y-[-30deg] sm:rotate-x-[15deg]'
       style={{
         transformStyle: 'preserve-3d',
-        transform: 'rotateY(-30deg) rotateX(15deg)',
       }}
-      className='rounded-[24px] bg-gold'
     >
       <motion.div
         initial={{
@@ -50,8 +49,11 @@ const HeaderBar = () => {
 const Screen = () => {
   return (
     <div className='relative z-0 grid h-full w-full place-content-center overflow-hidden rounded-[20px] bg-white'>
-      {/* Example logo from logoispum */}
-      <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-16 md:h-24 w-auto inline' />
+      <img
+        src='/favicon.ico'
+        alt='Supernova Dental logo - Your trusted Bridgwater Dentist'
+        className='h-16 md:h-24 w-auto inline'
+      />
 
       <Link target='_blank' href={`${DentallyPortal}`}>
         <button className='absolute bottom-4 left-4 right-4 z-10 rounded-lg border-[1px] bg-white py-2 text-sm font-medium text-gold backdrop-blur'>

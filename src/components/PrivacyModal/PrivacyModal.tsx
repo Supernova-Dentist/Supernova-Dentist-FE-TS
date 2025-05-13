@@ -70,7 +70,11 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
 
             {/* Modal Header */}
             <div className='flex flex-col items-center justify-end bg-grey py-4'>
-              <Image src={logo} alt='logo' className='w-16 h-16 object-cover mt-2' />
+              <Image
+                src={logo}
+                alt='Supernova Dental logo - Your trusted Bridgwater Dentist'
+                className='w-16 h-16 object-cover mt-2'
+              />
               <SectionTitle title='Privacy Policy' className='text-2xl' />
             </div>
 
@@ -87,7 +91,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 </p>
                 <p>
                   If you have any questions regarding this privacy policy, please contact us at{' '}
-                  <a href='mailto:info@supernovadentalclinic.com' className='underline'>
+                  <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
                     enquiries@supernovadental.co.uk
                   </a>
                   .
@@ -110,11 +114,11 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <p>We collect personal data through the following methods:</p>
                 <ul>
                   <li>Contact forms for appointments or enquiries</li>
-                  {/* <li>Online payments (handled by Dentally)</li> */}
-                  {/* <li>Online booking through Dentally</li> */}
-                  {/* <li>Website cookies and tracking tools</li> */}
-                  {/* <li>Newsletter sign-ups</li> */}
-                  <li>User account registration (if applicable)</li>
+                  <li>Online payments (handled by Dentally)</li>
+                  <li>Online booking through Dentally</li>
+                  <li>Website cookies and tracking tools</li>
+                  <li>Newsletter sign-ups</li>
+                  {/* <li>User account registration (if applicable)</li> */}
                 </ul>
               </SectionSpacing>
 
@@ -122,8 +126,8 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <SubHeader>Purpose of Data Collection</SubHeader>
                 <p>We collect and use your data for the following purposes:</p>
                 <ul>
-                  {/* <li>To schedule and manage appointments through Dentally</li> */}
-                  {/* <li>To process payments (handled by Dentally)</li> */}
+                  <li>To schedule and manage appointments through Dentally</li>
+                  <li>To process payments (handled by Dentally)</li>
                   <li>To provide customer support</li>
                   <li>To send marketing communications (with your consent)</li>
                   <li>To improve website functionality and performance</li>
@@ -155,10 +159,10 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <SubHeader>Data Sharing with Third Parties</SubHeader>
                 <p>We may share your personal information with the following third parties to provide our services:</p>
                 <ul>
-                  {/* <li>Payment processors (e.g., Dentally)</li> */}
-                  {/* <li>Dentally for appointment scheduling</li> */}
-                  <li>Marketing services (e.g., Mailchimp)</li>
-                  {/* <li>Web analytics providers (e.g., Google Analytics)</li> */}
+                  <li>Payment processors (e.g. Stripe through Dentally)</li>
+                  <li>Dentally for appointment scheduling</li>
+                  <li>Marketing services (e.g. Mailchimp)</li>
+                  <li>Web analytics providers (e.g. Google Analytics)</li>
                 </ul>
                 <p>We also may disclose your information if required by law.</p>
               </SectionSpacing>
@@ -212,7 +216,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <SubHeader>Contact Us</SubHeader>
                 <p>
                   If you have any questions about this privacy policy, please contact us at{' '}
-                  <a href='mailto:info@supernovadentalclinic.com' className='underline'>
+                  <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
                     enquiries@supernovadental.co.uk
                   </a>{' '}
                   or call us at 01278 228665.
@@ -223,8 +227,8 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <SubHeader>Changes to This Privacy Policy</SubHeader>
                 {/* TODO: Add updated at date programatically */}
                 <p>
-                  We may update this privacy policy from time to time. The last update was made on 1st Nov 2024. Please
-                  review this policy periodically to stay informed about how we are protecting your data.
+                  We may update this privacy policy from time to time. The last update was made on 6th February 2025.
+                  Please review this policy periodically to stay informed about how we are protecting your data.
                 </p>
               </SectionSpacing>
             </div>

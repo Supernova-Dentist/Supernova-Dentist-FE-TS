@@ -25,10 +25,12 @@ export default function MainLink({ href, showFlyout, children, flyoutItems, open
     setLocalShowFlyout(true); // Toggle flyout visibility
   };
 
-  const handleHomeNavigation = () => {
+  const handleHrefNavigation = (href: string | undefined) => {
     setLocalShowFlyout(false);
-    window.location.href = '/';
-  }
+    if (href) {
+      window.location.href = href;
+    }
+  };
 
   const renderLinkContent = () => (
     <>
@@ -52,9 +54,11 @@ export default function MainLink({ href, showFlyout, children, flyoutItems, open
   // If no href, render a clickable element (like div or span)
   return (
     <span
-      onClick={flyoutItems.length > 0 ? handleClick : handleHomeNavigation} // Add click handler for toggling flyout
+      onClick={flyoutItems.length > 0 ? handleClick : () => handleHrefNavigation(href)} // Add click handler for toggling flyout
       aria-expanded={localShowFlyout}
-      className={`relative text-white transition-all duration-300 ease-out flex items-center cursor-pointer ${flyoutItems.length > 0 && open ? 'hover:cursor-default' : ''}`}
+      className={`relative text-white transition-all duration-300 ease-out flex items-center cursor-pointer ${
+        flyoutItems.length > 0 && open ? 'hover:cursor-default' : ''
+      }`}
     >
       {renderLinkContent()}
     </span>

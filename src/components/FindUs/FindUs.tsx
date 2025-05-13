@@ -16,7 +16,7 @@ export default function FindUs() {
   });
 
   return (
-    <div id='location' className='flex flex-col items-center justify-start py-12 bg-gradient-to-b from-cream to-white'>
+    <div id='location' className='flex flex-col items-center justify-start py-12 bg-gradient-to-b from-white to-cream'>
       <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
         <section ref={ref} className='mb-12'>
           <motion.h1
@@ -33,7 +33,7 @@ export default function FindUs() {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Locate Supernova Dental Clinic on the map. Find our address, contact information and directions.
+            Locate Supernova Dental Practice on the map. Find our address, contact information and directions.
           </motion.p>
           <div className='my-6'>
             <GoogleMap />
@@ -49,8 +49,9 @@ export default function FindUs() {
               <div>
                 <h2 className='text-xl xl:text-2xl font-semibold mb-4 text-center text-gray'>Our Address</h2>
                 <ul className='text-center space-y-2'>
-                  <li>Supernova Building</li>
-                  <li>Huntworth Gate, Marsh Lane,</li>
+                  <li>Supernova Building,</li>
+                  <li>Marsh Lane,</li>
+                  <li>Huntworth Gate, </li>
                   <li>Bridgwater</li>
                   <li>TA6 6LQ</li>
                 </ul>
@@ -64,7 +65,7 @@ export default function FindUs() {
                   <p className='text-base sm:text-lg text-center text-lightGrey'>Phone: 01278 228665</p>
                   <p className='text-base sm:text-lg text-center  text-lightGrey'>
                     Email:{' '}
-                    <a href='mailto:info@supernovadentalclinic.com' className='underline'>
+                    <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
                       enquiries@supernovadental.co.uk
                     </a>
                   </p>

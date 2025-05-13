@@ -1,39 +1,40 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import dynamic from 'next/dynamic';
-import AccessibilityWidget from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
+import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
+import CrispChat from '@/components/blocks/CrispChat/CrispChat';
 import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
-import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
+import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import './reset.css';
 
-const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), {
-  ssr: false,
-});
+const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental - Expert Dental Care in Bridgwater',
+  metadataBase: new URL('https://www.supernovadental.co.uk'),
+  title: 'Supernova Dental - Luxury Private Dental Care in Bridgwater',
   description:
-    'Discover premium dental care in Bridgwater with Supernova Dental. Explore our services, promotions and team. Your journey to a brighter smile starts here!',
-  keywords: 'Supernova Dental, dental care Bridgwater, dentist, Invisalign, teeth whitening, cosmetic dentistry',
+    'Supernova Dental is a luxury private dental practice in Bridgwater, providing expert care in cosmetic and general dentistry. Now welcoming new patients. Book your consultation today!',
+  keywords:
+    'Supernova Dental, private dentist Bridgwater, luxury dental care, cosmetic dentistry Bridgwater, Invisalign Bridgwater, teeth whitening Bridgwater, dental implants Bridgwater, emergency dentist Bridgwater, best dentist in Bridgwater, new patients',
   openGraph: {
-    title: 'Supernova Dental - Expert Dental Care in Bridgwater',
-    description: 'Providing premium dental services in Bridgwater. Start your journey to a brighter smile today!',
-    url: 'https://www.supernovadental.co.uk',
+    title: 'Supernova Dental - Luxury Private Dental Care in Bridgwater',
+    description:
+      'Experience premium private dental care at Supernova Dental in Bridgwater. We offer expert cosmetic and general dentistry services and are currently accepting new patients.',
+    url: 'https://www.supernovadental.co.uk/',
     type: 'website',
     locale: 'en_GB',
     siteName: 'Supernova Dental',
     images: [
       {
-        url: '/assets/images/logo.png',
-        width: 500,
-        height: 500,
-        alt: 'Supernova Dental Logo',
+        url: 'https://firebasestorage.googleapis.com/v0/b/supernova-dental.appspot.com/o/Supernova_cover.png?alt=media&token=fce9e004-b06b-4348-a65f-ce6371631b15',
+        width: 1080,
+        height: 1080,
+        alt: 'Supernova Dental - Premium Dental Care',
       },
     ],
   },
@@ -85,11 +86,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <MainNav />
         {children}
-        <Footer />
-        <ScrollToTopButton />
         <FloatingMenu />
-        <AccessibilityWidget />
-        <PromotionFooter />
+
+        {/* <ScrollToTopButton /> */}
+        <Footer />
       </body>
     </html>
   );
