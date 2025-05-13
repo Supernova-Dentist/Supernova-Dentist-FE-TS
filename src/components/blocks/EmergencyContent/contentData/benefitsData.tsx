@@ -1,26 +1,27 @@
-import { FaExclamationCircle, FaAmbulance, FaHeadSideCough } from 'react-icons/fa';
+import { FaAmbulance, FaHeadSideCough, FaExclamationTriangle } from 'react-icons/fa';
 
 export default {
-  title: 'Who Can Benefit from an Emergency Dental Appointment?',
-  description: 'Emergency dental appointments are crucial for addressing urgent and critical dental issues:',
+  title: 'When to Seek an Emergency Dental Appointment',
+  description:
+    'Emergency dental appointments are essential for addressing urgent issues that require immediate attention:',
   content: [
     {
       id: 1,
-      icon: <FaExclamationCircle className='h-12 w-12 text-red-600' />,
+      icon: <FaExclamationTriangle className='h-12 w-12 text-gold' />,
       header: 'Severe Tooth Pain',
-      text: 'For individuals experiencing intense or persistent tooth pain, immediate care is needed to relieve discomfort and address the underlying issue.',
+      text: 'Intense or persistent tooth pain needs urgent attention to relieve discomfort and identify the cause of the pain.',
     },
     {
       id: 2,
-      icon: <FaAmbulance className='h-12 w-12 text-red-600' />,
+      icon: <FaAmbulance className='h-12 w-12 text-gold' />,
       header: 'Dental Trauma',
-      text: 'Patients with injuries such as broken or knocked-out teeth can benefit from urgent treatment to repair and stabilize their dental health.',
+      text: 'Injuries like broken or knocked-out teeth require immediate care to repair the damage and preserve your dental health.',
     },
     {
       id: 3,
-      icon: <FaHeadSideCough className='h-12 w-12 text-red-600' />,
+      icon: <FaHeadSideCough className='h-12 w-12 text-gold' />,
       header: 'Signs of Infection',
-      text: 'Those showing signs of infection, such as swelling or abscesses, require immediate care to manage and prevent the spread of the infection.',
+      text: 'If you notice swelling, abscesses, or other infection symptoms, it’s crucial to seek care immediately to prevent complications.',
     },
   ],
 };

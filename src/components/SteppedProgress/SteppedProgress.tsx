@@ -96,7 +96,6 @@ const Steps = ({ numSteps, stepsComplete }: { numSteps: number; stepsComplete: n
   return (
     <div className='flex items-center justify-center gap-3 flex-wrap'>
       {stepArray.map((num) => {
-
         const stepNum = num + 1;
         const isActive = stepNum === stepsComplete + 1; // Show only the active step on mobile
 

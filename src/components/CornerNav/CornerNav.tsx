@@ -202,7 +202,8 @@ const Logo = () => {
         transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
       }}
       exit={{ opacity: 0, y: -12 }}
-      className=''
+      href='/'
+      className='grid h-20 w-20 place-content-center rounded-br-xl rounded-tl-xl bg-lightGrey transition-colors hover:bg-violet-50'
     >
       <img src='/favicon.ico' alt='Supernova Dental Logo - Bridgwater Dentist' className='w-20 h-auto inline' />
     </motion.a>
@@ -295,7 +296,7 @@ const LINKS = [
   //  TODO: Uncomment when there's an insta post
   // {
   //   title: 'Social',
-  //   href: '#social',
+  //   href: '/social',
   // },
   {
     title: 'Practice',
@@ -323,7 +324,7 @@ const LINKS = [
     subLinks: [
       { title: 'Team', href: '/team' },
       { title: 'Find us', href: '/find-us' },
-      // { title: 'Social', href: '/social' },
+      { title: 'Social', href: '/social' },
       { title: 'Pricing', href: '/pricing' },
       {
         title: 'Enquiry',
@@ -342,14 +343,6 @@ const SOCIAL_CTAS = [
     Component: SiInstagram,
     href: 'https://www.instagram.com/supernova.dental',
   },
-  // {
-  //   Component: SiLinkedin,
-  //   href: '#',
-  // },
-  // {
-  //   Component: SiYoutube,
-  //   href: '#',
-  // },
 ];
 
 const UNDERLAY_VARIANTS = {

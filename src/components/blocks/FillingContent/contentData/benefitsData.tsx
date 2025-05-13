@@ -1,5 +1,4 @@
-import { FaTooth, FaShieldAlt } from 'react-icons/fa';
-import { IoMedicalOutline } from 'react-icons/io5';
+import { FaTooth, FaShieldAlt, FaExclamationTriangle } from 'react-icons/fa';
 
 export default {
   title: 'Who Can Benefit from Dental Fillings?',
@@ -7,19 +6,19 @@ export default {
   content: [
     {
       id: 1,
-      icon: <FaTooth className='h-12 w-12 text-teal' />,
+      icon: <FaTooth className='h-12 w-12 text-gold' />,
       header: 'Anyone with Cavities',
       text: 'Individuals with cavities or dental decay can benefit from fillings to restore tooth function and prevent further decay.',
     },
     {
       id: 2,
-      icon: <IoMedicalOutline className='h-12 w-12 text-teal' />,
+      icon: <FaExclamationTriangle className='h-12 w-12 text-gold' />,
       header: 'Patients with Cracked Teeth',
       text: 'People with cracked or broken teeth can use fillings to repair damage and maintain the tooth’s structural integrity.',
     },
     {
       id: 3,
-      icon: <FaShieldAlt className='h-12 w-12 text-teal' />,
+      icon: <FaShieldAlt className='h-12 w-12 text-gold' />,
       header: 'Those Seeking Preventative Care',
       text: 'Fillings can be used proactively to address small imperfections or early signs of decay before they become more severe.',
     },

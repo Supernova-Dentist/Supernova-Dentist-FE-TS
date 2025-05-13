@@ -2,8 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
-import Button from '../Button/Button';
-import { cn } from '@/lib/utils';
+import FilterButton from '../FilterButton/FilterButton';
 
 const filters = [
   {
@@ -48,16 +47,7 @@ export default function BlogFilterButtons() {
     <div className='flex gap-4'>
       {filters.map(({ id, text }) => (
         <React.Fragment key={id}>
-          <Button
-            text={text}
-            id={id}
-            className={cn(
-              `bg-gray-200 px-6 py-2 rounded-sm hover:bg-gray-100 duration-150 border border-transparent hover:border-gray-200 ${
-                activeFilter === id ? 'bg-gray-100 border-gray-200' : null
-              }`
-            )}
-            onClick={handleClick}
-          />
+          <FilterButton activeFilter={activeFilter} text={text} id={id} handleClick={handleClick} />
         </React.Fragment>
       ))}
     </div>

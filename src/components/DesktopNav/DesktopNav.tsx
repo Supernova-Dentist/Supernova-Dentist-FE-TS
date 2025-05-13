@@ -7,8 +7,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import Logo from '../../../public/assets/images/logo.png';
 import Button from '../Button/Button';
 import FlyoutLink from './FlyoutLink/FlyoutLink';
+import { NonUndefined } from 'react-hook-form';
 
 export default function DesktopNav() {
   const { ref, inView } = useInView({

@@ -20,12 +20,13 @@ const tableBodyData = [
   {
     feature: 'Treatment Duration (Average)',
     data: ['6 months', '12+ months'],
-  }
+  },
 ];
 
 export const tableData = {
   title: 'Treatment Comparison',
-  description: 'Compare Invisalign with traditional braces and taking no action to find the best option for your needs:',
+  description:
+    'Compare Invisalign with traditional braces and taking no action to find the best option for your needs:',
   content: {
     tableHeadData,
     tableBodyData,

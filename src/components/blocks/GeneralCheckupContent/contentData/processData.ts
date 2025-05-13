@@ -1,19 +1,19 @@
 export default {
   title: 'Your General Checkup Process',
   description:
-    'Our dental practice makes it simple and stress-free to maintain your oral health. Here’s what you can expect during your general checkup:',
-  content: [
+    'At Supernova Dental, we make your checkup simple, comfortable and focused on your unique needs. Here’s how we care for your smile during a general checkup:',
+  stepContent: [
     {
       id: 1,
-      src: '/assets/images/general-checkup-consultation.jpg',
+      image: '/assets/images/general-checkup-consultation.jpg',
       header: 'Step 1: Comprehensive Examination',
-      text: "During your visit, our dentist will conduct a thorough examination of your teeth, gums, and mouth. We'll also review your dental history and discuss any concerns you may have.",
+      text: "Your Checkup starts with a detailed examination of your teeth, gums and mouth. Our dentist will review your dental history and take the time to answer any questions or address concerns, ensuring you're fully informed every step of the way.",
     },
     {
       id: 2,
-      src: '/assets/images/general-checkup-cleaning.jpg',
-      header: 'Step 2: Professional Cleaning',
-      text: 'Our hygienist will perform a professional cleaning to remove plaque, tartar, and stains, leaving your teeth feeling fresh and polished.',
+      image: '/assets/images/general-checkup-cleaning.jpg',
+      header: 'Step 2: Gentle, Professional Cleaning',
+      text: 'Our experienced hygienist will carefully clean your teeth, removing plaque, tartar and surface stains. We focus on making the process as comfortable as possible while leaving your smile fresh and polished.',
     },
     {
       id: 3,

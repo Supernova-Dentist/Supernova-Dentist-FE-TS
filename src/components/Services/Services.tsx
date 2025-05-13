@@ -26,7 +26,7 @@ const Services = () => {
           </div>
           <div className='flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12'>
             {serviceData.slice(0, 4).map((service, index) => (
-              <Link href={`/${slugify(service.title)}`} key={index}>
+              <Link href={`/cosmetic-dentistry/${slugify(service.title)}`} key={index}>
                 <TiltCard icon={service.icon} title={service.title} text={service.text} />
               </Link>
             ))}
@@ -40,7 +40,7 @@ const Services = () => {
           </div>
           <div className='flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12'>
             {serviceData.slice(4).map((service, index) => (
-              <Link href={`/${slugify(service.title)}`} key={index}>
+              <Link href={`/general-denistry/${slugify(service.title)}`} key={index}>
                 <TiltCard icon={service.icon} title={service.title} text={service.text} />
               </Link>
             ))}

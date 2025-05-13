@@ -81,6 +81,7 @@ type ServiceTestimonial = {
 
 type ServiceTestimonials = {
   data: ServiceTestimonial[];
+  id: string;
 };
 
 type HeroHeaderContent = {

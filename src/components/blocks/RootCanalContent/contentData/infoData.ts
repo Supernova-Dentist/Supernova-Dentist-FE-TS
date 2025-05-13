@@ -1,7 +1,7 @@
 export default {
   title: 'What is a Root Canal Treatment?',
   descriptions: [
-    'A Root Canal Treatment is a dental procedure used to save a tooth that is badly decayed or infected. It involves removing the infected pulp from inside the tooth, cleaning and disinfecting the root canals, and then filling and sealing them. This treatment helps restore the tooth’s function and alleviates pain caused by the infection.',
+    'A Root Canal Treatment is a dental procedure used to save a tooth that is badly decayed or infected. It involves removing the infected pulp from inside the tooth, cleaning and disinfecting the root canals and then filling and sealing them. This treatment helps restore the tooth’s function and alleviates pain caused by the infection.',
     'Root Canal Treatments are essential for preserving teeth that would otherwise need to be extracted. By addressing the infection and repairing the tooth, you maintain your natural smile and avoid further complications.',
   ],
   advantagesTitle: 'Advantages of a Root Canal Treatment:',

@@ -1,7 +1,7 @@
 export default {
   title: 'What is an Emergency Dental Appointment?',
   descriptions: [
-    'An emergency dental appointment is designed to address urgent and unexpected dental issues, such as severe pain, trauma, or infections. During the appointment, our team will quickly assess the problem, provide immediate relief, and recommend further treatment if needed.',
+    'An emergency dental appointment is designed to address urgent and unexpected dental issues, such as severe pain, trauma, or infections. During the appointment, our team will quickly assess the problem, provide immediate relief and recommend further treatment if needed.',
     'Emergency appointments are crucial for stabilizing acute dental conditions and preventing further complications. Our goal is to relieve your discomfort and provide prompt, effective care to protect your oral health.',
   ],
   advantagesTitle: 'Advantages of Emergency Dental Appointments:',

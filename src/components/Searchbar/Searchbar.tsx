@@ -28,7 +28,7 @@ export default function Searchbar({ className, placeholder = 'Search...' }: Sear
   return (
     <input
       className={cn(
-        'outline-none border border-gray-300 px-4 py-2 hover:border-gray-400 focus:border-gray-400 rounded-sm duration-150',
+        'outline-none border border-gray-300 px-4 py-2 mt-6 lg:mt-0 hover:border-gray-400 focus:border-gray-400 rounded-sm duration-150',
         className
       )}
       type='text'

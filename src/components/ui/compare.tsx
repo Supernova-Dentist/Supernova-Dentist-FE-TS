@@ -1,5 +1,5 @@
 'use client';
-import { SparklesCore } from '@/components/ui/Sparkles';
+import { SparklesCore } from '@/components/ui/SparklesCore';
 import { cn } from '@/lib/utils';
 import { IconDotsVertical } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'framer-motion';

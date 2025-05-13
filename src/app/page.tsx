@@ -1,14 +1,15 @@
 import AboutSection from '@/components/AboutSection/AboutSection';
-import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
+import AccessibilityWidget from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
 import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
 import Welcome from '@/components/blocks/Welcome/Welcome';
 import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
 import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 import FindUsSection from '@/components/FindUsSection/FindUsSection';
 import { Journey } from '@/components/Journey/Journey';
-import Pricing from '@/components/Pricing/Pricing';
 import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
+import Steps from '@/components/blocks/Steps/Steps';
+import Pricing from './(about)/pricing/page';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
 import Head from 'next/head';
@@ -120,6 +121,7 @@ export default function Home() {
 
       <Welcome />
       <PromotionForm />
+      <AccessibilityWidget />
       <AboutSection />
       {/* <Pricing /> */}
       <DentallyTutorial />

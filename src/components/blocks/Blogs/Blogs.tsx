@@ -17,7 +17,7 @@ export default async function Blogs({ posts, page, totalPages }: PostsProps) {
             <BlogBox
               key={post.id}
               id={post.id}
-              title={decodeHtmlEntities(post.title.rendered)}
+              title={decodeHtmlEntities(post.title.rendered as string)}
               date={post.date}
               excerpt={post.excerpt.rendered}
             />

@@ -5,4 +5,5 @@ type FAQItem = {
 
 type FAQProps = {
   faqItems: FAQItem[];
+  id?: string;
 };

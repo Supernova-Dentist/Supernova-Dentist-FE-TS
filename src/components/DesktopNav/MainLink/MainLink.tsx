@@ -1,7 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
 
 type MainLinkProps = {
   href?: string;

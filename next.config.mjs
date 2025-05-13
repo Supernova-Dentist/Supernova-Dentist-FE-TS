@@ -3,12 +3,20 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
         hostname: '*.cdninstagram.com',
+        protocol: 'https',
       },
       {
-        protocol: 'https',
         hostname: 'api.microlink.io',
+        protocol: 'https',
+      },
+      {
+        hostname: 'www.instagram.com',
+        protocol: 'https',
+      },
+      {
+        hostname: 'scontent.cdninstagram.com',
+        protocol: 'https',
       },
       {
         protocol: 'https',

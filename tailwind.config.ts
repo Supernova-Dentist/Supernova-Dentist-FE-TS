@@ -17,14 +17,20 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        rotation: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        rotation: 'rotation 2s linear infinite',
       },
       colors: {
+        offWhite: 'var(--off-white)',
         gold: 'var(--gold)',
-        lightGold: 'var(--lightGold)',
+        lightGold: 'var(--light-gold)',
         grey: 'var(--grey)',
         cream: 'var(--cream)',
         lightGrey: 'var(--light-grey)',
@@ -41,8 +47,9 @@ const config = {
         'center-top': 'center top',
       },
       minHeight: {
-        'screen-minus-nav': 'calc(100vh - 84px)',
+        'screen-minus-nav': 'calc(100vh - 88px)',
       },
+      height: { 'screen-minus-nav': 'calc(100vh - 88px)' },
       maxHeight: {
         'privacy-policy-content': 'calc(100% - 124px)',
       },

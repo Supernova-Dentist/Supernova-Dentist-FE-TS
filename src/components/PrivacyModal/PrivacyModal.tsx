@@ -70,7 +70,11 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
 
             {/* Modal Header */}
             <div className='flex flex-col items-center justify-end bg-grey py-4'>
-              <Image src={logo} alt='Supernova Dental logo - Your trusted Bridgwater Dentist' className='w-16 h-16 object-cover mt-2' />
+              <Image
+                src={logo}
+                alt='Supernova Dental logo - Your trusted Bridgwater Dentist'
+                className='w-16 h-16 object-cover mt-2'
+              />
               <SectionTitle title='Privacy Policy' className='text-2xl' />
             </div>
 
@@ -81,7 +85,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                 <p>
                   Welcome to <span className='text-gold font-semibold text-lg'>Supernova Dental</span>. We are committed
                   to safeguarding your privacy and protecting your personal data. This privacy policy explains how we
-                  collect, use, and protect your information when you use our website or services.{' '}
+                  collect, use and protect your information when you use our website or services.{' '}
                   {/* including our online booking
               system powered by Dentally. */}
                 </p>

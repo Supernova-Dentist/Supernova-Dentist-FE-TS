@@ -6,6 +6,7 @@ export default {
   ],
   advantagesTitle: 'Advantages of Dental Implants:',
   useCaseTitle: 'Use Cases of Dental Implants',
+  videoSrc: '/assets/videos/implants_service.mp4',
   advantagesData: [
     { id: 1, heading: 'Natural Appearance', text: 'Blends seamlessly with your existing teeth for a natural look.' },
     { id: 2, heading: 'Durability', text: 'Provides a long-lasting solution with proper care.' },

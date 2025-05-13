@@ -58,10 +58,10 @@ export default function AboutSection() {
           src='/assets/images/outerBuilding.jpg'
           alt='About Us'
           width={600}
-          height={800}
+          height={600}
           layout={'responsive'}
           quality={100}
-          className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4'
+          className='object-contain h-auto w-auto max-w-[46rem] rounded-lg p-4'
         />
       </motion.div>
     </section>

@@ -1,27 +1,29 @@
 import { ensureValidToken } from '@/data-access/instagram';
-import { INSTAGRAM_API_BASE_URL, instagramAccountsConfig } from '@/lib/constants';
+import { INSTAGRAM_API_BASE_URL } from '@/lib/constants';
 
-export default async function fetchInstagramPosts(page: string) {
-  const accountId = instagramAccountsConfig[page as keyof typeof instagramAccountsConfig];
-
-  if (!accountId) throw new Error('Invalid page');
+export default async function fetchInstagramPosts(cursor?: string, direction: 'after' | 'before' = 'after') {
+  const fields = ['id', 'media_type', 'media_url', 'username', 'timestamp', 'caption', 'permalink'].join(',');
 
   try {
-    const validToken = await ensureValidToken(accountId);
-    const url = `${INSTAGRAM_API_BASE_URL}/me/media?fields=id,media_type,media_url,username,timestamp,caption,permalink&access_token=${validToken}`;
+    const validToken = await ensureValidToken();
+    let url = `${INSTAGRAM_API_BASE_URL}/me/media?fields=${fields}&access_token=${validToken}&limit=16`;
 
-    const res = await fetch(url);
+    if (cursor) {
+      url += `&${direction}=${cursor}`;
+    }
+
+    const res = await fetch(url, { next: { revalidate: 3600 } });
 
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
 
-    const { data } = await res.json();
+    const { data, paging } = await res.json();
 
-    return data;
+    return { data, paging };
   } catch (error) {
     console.log({ error });
 
-    throw error;
+    return { data: [], paging: {} };
   }
 }

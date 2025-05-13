@@ -34,7 +34,7 @@ export default function ScrollToTopButton() {
   return visible ? (
     <Button
       onClick={scrollToTop}
-      className='fixed bottom-24 right-0 p-2 bg-grey text-cream rounded-l-md opacity-90 border border-solid border-cream shadow-lg hover:opacity-100 hover:bg-grey-dark transition-all duration-300 ease-in-out'
+      className='z-20 fixed bottom-24 right-0 p-2 bg-grey text-cream rounded-l-md opacity-90 border border-solid border-white shadow-lg hover:opacity-100 hover:bg-grey-dark transition-all duration-300 ease-in-out'
     >
       <MdOutlineKeyboardArrowUp size={26} />
     </Button>

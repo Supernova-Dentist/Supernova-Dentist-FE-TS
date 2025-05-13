@@ -7,12 +7,17 @@ import BlogFilterButtons from '@/components/BlogFilterButtons/BlogFilterButtons'
 
 export default function BlogFilteringBar({ className }: { className?: string }) {
   return (
-    <div className={cn(`flex justify-between items-center ${className}`)}>
-      {/* <div>Filters</div> */}
-      <BlogFilterButtons />
+    <div className={cn(`relative flex lg:flex-row flex-col items-center w-full ${className}`)}>
+      <div className='lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 justify-center'>
+        <BlogFilterButtons />
+      </div>
+      
       <Suspense fallback={null}>
-        <Searchbar placeholder='Search blogs...' />
+        <div className='lg:ml-auto justify-center'>
+          <Searchbar placeholder='Search blogs...' />
+        </div>
       </Suspense>
+
     </div>
   );
 }

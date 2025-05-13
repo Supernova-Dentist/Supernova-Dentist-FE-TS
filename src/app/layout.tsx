@@ -2,7 +2,6 @@ import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/Acc
 import CrispChat from '@/components/blocks/CrispChat/CrispChat';
 import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
-import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
@@ -10,6 +9,7 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import './reset.css';
+
 const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'] });
@@ -55,8 +55,8 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
           
-            gtag('config', 'G-8M5WQJ7R5Z'); // Google Analytics ID
-            gtag('config', 'AW-16737398524'); // Google Ads ID
+            gtag('config', 'G-8M5WQJ7R5Z');
+            gtag('config', 'AW-16737398524');
           `}
         </Script>
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
@@ -65,9 +65,9 @@ export default function RootLayout({
             !function(f,b,e,v,n,t,s) {
               if(f.fbq) return; n=f.fbq=function(){n.callMethod?
               n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-              n.queue=[]; t=b.createElement(e); t.async=!0;
-              t.src=v; s=b.getElementsByTagName(e)[0];
+              if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0;
+              n.version='2.0'; n.queue=[]; t=b.createElement(e);
+              t.async=!0; t.src=v; s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)
             }(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '539899052125710');

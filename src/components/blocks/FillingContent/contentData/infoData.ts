@@ -1,7 +1,7 @@
 export default {
   title: 'What is a Dental Filling?',
   descriptions: [
-    'A dental filling is a treatment used to restore a tooth damaged by decay. The procedure involves cleaning out the decayed portion of the tooth and filling it with a material to restore its function and shape. Common materials used for fillings include amalgam, composite resin, gold, and ceramics.',
+    'A dental filling is a treatment used to restore a tooth damaged by decay. The procedure involves cleaning out the decayed portion of the tooth and filling it with a material to restore its function and shape. Common materials used for fillings include amalgam, composite resin, gold and ceramics.',
     'Dental fillings help to prevent further decay and damage to the tooth. They also help to maintain the integrity of the tooth structure, enabling you to chew and speak effectively while protecting your overall oral health.',
   ],
   advantagesTitle: 'Advantages of Dental Fillings:',

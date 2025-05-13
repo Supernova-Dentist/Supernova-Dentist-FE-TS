@@ -14,3 +14,11 @@ type InstagramPost = {
 type InstagramPostGridProps = {
   posts: InstagramPost[];
 };
+
+type InstagramPaginationProps = {
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+  nextPageCursor?: string;
+  prevPageCursor?: string;
+  currentPage: number;
+};

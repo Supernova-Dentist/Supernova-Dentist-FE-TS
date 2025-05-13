@@ -1,8 +1,16 @@
+import { link } from 'fs';
 import { GrFacebookOption } from 'react-icons/gr';
 import { IoLogoInstagram } from 'react-icons/io';
 
 export const BLOG_LIMIT = 9;
-export const { INSTAGRAM_API_BASE_URL, META_API_CLIENT_ID, META_API_CLIENT_SECRET, META_ACCESS_TOKEN } = process.env;
+
+export const {
+  NEXT_PUBLIC_INSTAGRAM_API_BASE_URL,
+  INSTAGRAM_API_BASE_URL,
+  META_API_CLIENT_ID,
+  META_API_CLIENT_SECRET,
+  META_ACCESS_TOKEN,
+} = process.env;
 
 // Navigation
 export const cosmeticServices = [
@@ -27,7 +35,7 @@ export const practiceInfo = [
 export const generalServices = [
   { name: 'General Check-up', link: '/general-dentistry/general-checkup' },
   { name: 'Filling', link: '/general-dentistry/filling' },
-  { name: 'Root Canal', link: '/general-dentistry/root-canal' },
+  { name: 'Root Canal', link: '/general-dentistry/root-canal-treatment' },
   { name: 'Emergency', link: '/general-dentistry/emergency' },
 ];
 
@@ -56,7 +64,7 @@ export const general = [
 export const aboutUs = [
   { name: 'Team', link: '/team' },
   { name: 'Find Us', link: '/find-us' },
-  // { name: 'Social', link: '/social' },
+  { name: 'Social', link: '/social' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
 ];
@@ -69,6 +77,10 @@ export const media = [
   {
     name: 'Gallery',
     link: '/gallery',
+  },
+  {
+    name: 'Social',
+    link: '/social',
   },
   //  TODO: Uncomment when there is an instagram post
   // {
@@ -88,7 +100,7 @@ export const navLinks = [
   // { name: 'Media', url: '/media', flyout: media },
   { name: 'Home', url: '/', flyout: [] },
   //  TODO: Uncomment when there is a insta post
-  // { name: 'Social', url: '#social', flyout: [] },
+  // { name: 'Social', url: '/social', flyout: [] },
   { name: 'Practice', url: '/practice', flyout: [] },
   { name: 'Cosmetic Dentistry', flyout: cosmetic },
   { name: 'General Dentistry', flyout: general },

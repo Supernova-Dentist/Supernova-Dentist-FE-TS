@@ -5,6 +5,8 @@
 
 @layer base {
   :root {
+    --off-white: #f9fafc;
+    --light-gold: #d3a17a;
     --gold: #a4693d;
     --lightGold: #d3a27c;
     --grey: #121c26;

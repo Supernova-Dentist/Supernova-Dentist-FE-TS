@@ -31,5 +31,5 @@ export default {
   content: { tableHeadData, tableBodyData },
   title: 'Cosmetic Treatment Comparison',
   description:
-    'Compare our professional tooth whitening with veneers and teeth bonding to discover the ideal solution for your smile enhancement.',
+    'Compare our professional tooth whitening with veneers and teeth bonding to discover the ideal solution for your smile enhancement:',
 };
