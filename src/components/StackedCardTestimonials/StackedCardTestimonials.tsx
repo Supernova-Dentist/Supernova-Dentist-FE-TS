@@ -119,7 +119,7 @@ const Card = ({
       <img src='/favicon.ico' alt='Supernova logo' className='w-20 h-20 mx-auto' />
       <p className='text-md lg:text-lg font-light italic my-4 flex-1 overflow-auto'>&quot;{description}&quot;</p>
       <div>
-        <span className='block font-semibold text-md lg:text-lg'>{name || 'Anonymous'}</span>
+        <span className='block font-semibold text-md lg:text-lg'>{name ?? 'Anonymous'}</span>
         <span className='block text-xs lg:text-sm'>{title}</span>
       </div>
     </motion.div>
