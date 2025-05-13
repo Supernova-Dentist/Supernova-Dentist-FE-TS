@@ -2,14 +2,44 @@ import { InstagramLogoIcon } from '@radix-ui/react-icons';
 import fetchInstagramPosts from '@/actions/instagram';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import InstagramPostGrid from './utils/InstagramPostGrid';
-import PageHero from '@/components/blocks/PageHero/PageHero';
-import GalleryCarousel from '@/components/blocks/GalleryCarousel/GalleryCarousel';
-import DynamicGoogleMap from '@/components/blocks/GoogleMap/DynamicGoogleMap';
+import InstagramPaginationControls from '@/components/PaginationControls/InstagramPagination';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 
-export default async function SocialMedia() {
-  const instagramPosts = await fetchInstagramPosts();
-  const username = instagramPosts?.length > 0 ? instagramPosts?.[0].username : 'Our Instagram';
+export default async function SocialMedia({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
+  // Parse page number (default to 1)
+  const currentPage = searchParams?.page
+    ? parseInt(Array.isArray(searchParams.page) ? searchParams.page[0] : searchParams.page)
+    : 1;
+
+  // Parse cursor if it exists
+  const cursor = searchParams?.cursor
+    ? Array.isArray(searchParams.cursor)
+      ? searchParams.cursor[0]
+      : searchParams.cursor
+    : undefined;
+
+  // Parse direction (default to 'after')
+  const direction = searchParams?.direction
+    ? Array.isArray(searchParams.direction)
+      ? searchParams.direction[0]
+      : searchParams.direction
+    : 'after';
+
+  // Fetch posts with the current cursor and direction
+  const { data, paging } = (await fetchInstagramPosts(cursor, direction as 'after' | 'before')) || {
+    data: [],
+    paging: {},
+  };
+
+  // Determine if we have previous/next pages
+  const hasNextPage = !!paging?.next;
+  const hasPrevPage = currentPage > 1 && !!paging?.cursors?.before;
+
+  const username = data?.length > 0 ? data?.[0].username : 'Our Instagram';
   const instagramProfileUrl = `https://www.instagram.com/${username}/`;
 
   return (
@@ -38,8 +68,18 @@ export default async function SocialMedia() {
             </a>
           </div>
 
-          {instagramPosts !== undefined || instagramPosts?.length > 0 ? (
-            <InstagramPostGrid posts={instagramPosts} />
+          {data?.length > 0 ? (
+            <div>
+              <InstagramPostGrid posts={data} />
+              <InstagramPaginationControls
+                hasNextPage={hasNextPage}
+                hasPrevPage={hasPrevPage}
+                nextPageCursor={paging?.cursors?.after}
+                prevPageCursor={paging?.cursors?.before}
+                currentPage={currentPage}
+                currentCursor={cursor}
+              />
+            </div>
           ) : (
             <span className='flex justify-center mt-20'>No Instagram posts yet. Check back later.</span>
           )}
