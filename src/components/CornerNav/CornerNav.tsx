@@ -321,6 +321,7 @@ const LINKS = [
     title: 'about us',
     href: '#',
     subLinks: [
+      { title: 'Team', href: '/team' },
       { title: 'Find us', href: '/find-us' },
       // { title: 'Social', href: '/social' },
       { title: 'Pricing', href: '/pricing' },
