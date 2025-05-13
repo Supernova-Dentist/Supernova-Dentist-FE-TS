@@ -9,7 +9,7 @@ const teamMembers = [
     name: 'Dr. Scott Young',
     title: 'Principal Dentist/Owner',
     image: '/assets/images/Headshots/scott_headshot.jpeg',
-    slug: 'scott-young',
+    slug: 'dr-scott-young',
   },
   {
     name: 'Kayleigh Dowdle',
@@ -40,12 +40,6 @@ const teamMembers = [
     title: 'Dental Nuse',
     image: '/assets/images/Headshots/tori.jpg',
     slug: 'victoria-hands',
-  },
-  {
-    name: 'Nico Minascurta',
-    title: 'Dental Nuse',
-    image: '/assets/images/Headshots/nico.jpg',
-    slug: 'nico-minascurta',
   },
   {
     name: 'Mia Coakley',
