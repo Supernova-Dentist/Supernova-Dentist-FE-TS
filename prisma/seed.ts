@@ -5,7 +5,7 @@ const prisma = new PrismaClient().$extends(withAccelerate());
 
 const tokenData: Prisma.InstagramTokenCreateInput[] = [
   {
-    access_token: process.env.INSTAGRAM_ACCESS_TOKEN || '',
+    access_token: process.env.PROD_INSTAGRAM_ACCESS_TOKEN || '',
     expires_in: (() => {
       const date = new Date();
       date.setMonth(date.getMonth() + 2);
