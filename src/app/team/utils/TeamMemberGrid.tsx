@@ -53,12 +53,6 @@ const teamMembers = [
     image: '/assets/images/Headshots/mia_headshot.jpeg',
     slug: 'mia-coakley',
   },
-  {
-    name: 'Paula Cox',
-    title: 'Receptionist',
-    image: '/assets/images/Headshots/paula.jpeg',
-    slug: 'paula-cox',
-  },
 ];
 
 export default function TeamMemberGrid() {
