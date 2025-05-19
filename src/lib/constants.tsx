@@ -31,7 +31,7 @@ export const generalServices = [
   { name: 'Emergency', link: '/general-dentistry/emergency' },
 ];
 
-export const cosmetic = [
+export const services = [
   // {
   //   name: 'Invisalign Open Day',
   //   link: '/invisalign-open-day',
@@ -40,9 +40,6 @@ export const cosmetic = [
     name: 'Invisalign',
     link: '/invisalign',
   },
-];
-
-export const general = [
   {
     name: 'Dental Therapist',
     link: '/dental-therapist',
@@ -52,6 +49,17 @@ export const general = [
     link: '/dental-hygiene',
   },
 ];
+
+// export const general = [
+//   {
+//     name: 'Dental Therapist',
+//     link: '/dental-therapist',
+//   },
+//   {
+//     name: 'Dental Hygiene',
+//     link: '/dental-hygiene',
+//   },
+// ];
 
 export const aboutUs = [
   { name: 'Team', link: '/team' },
@@ -90,8 +98,8 @@ export const navLinks = [
   //  TODO: Uncomment when there is a insta post
   // { name: 'Social', url: '#social', flyout: [] },
   { name: 'Practice', url: '/practice', flyout: [] },
-  { name: 'Cosmetic Dentistry', flyout: cosmetic },
-  { name: 'General Dentistry', flyout: general },
+  { name: 'Services', flyout: services },
+  // { name: 'General Dentistry', flyout: general },
   { name: 'About us', flyout: aboutUs },
 ];
 
