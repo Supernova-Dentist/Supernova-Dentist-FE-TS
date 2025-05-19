@@ -97,6 +97,7 @@ export const navLinks = [
   { name: 'Home', url: '/', flyout: [] },
   //  TODO: Uncomment when there is a insta post
   // { name: 'Social', url: '#social', flyout: [] },
+  { name: 'Refer A Friend', url: '/refer-a-friend', flyout: [] },
   { name: 'Practice', url: '/practice', flyout: [] },
   { name: 'Services', flyout: services },
   // { name: 'General Dentistry', flyout: general },
