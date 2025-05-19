@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import React, { useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-export const InvisalignOpenDaySlideTabs = ({ isGeneralServicePage = false }) => {
+export const ReferAFriendSlideTabs = ({ isGeneralServicePage = false }) => {
   const { ref, inView } = useInView({
     threshold: 0.2, // Trigger when 10% of the component is in view
     triggerOnce: true, // Only play the animation once

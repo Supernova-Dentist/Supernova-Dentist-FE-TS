@@ -6,7 +6,7 @@ import React, { useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { TextRevealCard, TextRevealCardDescription, TextRevealCardTitle } from '../../../ui/text-reveal-card';
 
-export function InvisalignOpenDayVideoSection() {
+export function ReferAFriendVideoSection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isVideoEnded, setIsVideoEnded] = useState(false);
 

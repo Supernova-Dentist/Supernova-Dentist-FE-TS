@@ -6,7 +6,7 @@ import { FiArrowRight } from 'react-icons/fi';
 import { ImagesSlider } from '../../../ui/images-slider';
 import { ReferAFriendContainerTextFlip } from './ReferAFriendTitle';
 
-export function InvisalignOpenDayHero() {
+export function ReferAFriendHero() {
   const desktopImages = [
     '/assets/images/outerBuilding.jpg',
     '/assets/images/invisalign_2.jpg',
