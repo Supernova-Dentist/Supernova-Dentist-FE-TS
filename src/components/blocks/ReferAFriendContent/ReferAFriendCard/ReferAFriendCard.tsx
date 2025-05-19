@@ -12,6 +12,7 @@ type PricingCardProps = {
   features: string[];
   monthly: boolean;
   isMiddle?: boolean;
+  postText?: string;
 };
 
 export default function ReferAFriendCard({
@@ -21,6 +22,7 @@ export default function ReferAFriendCard({
   features,
   isMiddle,
   monthly,
+  postText,
 }: PricingCardProps) {
   return (
     <motion.div
@@ -50,7 +52,7 @@ export default function ReferAFriendCard({
             preserveValue
           />
         </span>
-        <span className='text-gray-500 text-sm'>CREDIT PER REFERRAL</span>
+        <span className='text-gray-500 text-sm'>{postText}</span>
         <div className={cn('bg-gray-200 w-full h-[1px] my-10', isMiddle ? 'bg-gray-700' : 'bg-gray-200')}></div>{' '}
         {/* Increased spacing */}
         <ul className='flex flex-col gap-4'>

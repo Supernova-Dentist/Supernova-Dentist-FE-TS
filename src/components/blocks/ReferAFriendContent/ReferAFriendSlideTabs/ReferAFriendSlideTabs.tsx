@@ -63,14 +63,15 @@ const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
         Virtual Smile
       </Tab> */}
       <Tab setPosition={setPosition} onClick={() => scrollToSection('form')}>
-        Sign Up
+        Refer A Friend
       </Tab>
       <Tab setPosition={setPosition} onClick={() => scrollToSection('offer')}>
-        Offer
+        Dental Credit 
       </Tab>
-      <Tab setPosition={setPosition} onClick={() => scrollToSection('cases')}>
-        Cases
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('offer')}>
+        Leaderboard
       </Tab>
+
       {!isGeneralServicePage && (
         <>
           <Tab setPosition={setPosition} onClick={() => scrollToSection('journey')}>

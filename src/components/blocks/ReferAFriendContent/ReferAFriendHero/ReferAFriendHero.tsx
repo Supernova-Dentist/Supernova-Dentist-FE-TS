@@ -82,9 +82,7 @@ export function ReferAFriendHero() {
             }}
             className='z-30 relative flex flex-col justify-center items-center'
           >
-            <motion.p className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
-              Supernova Dental <br /> Invisalign Open Day <br /> April 2025
-            </motion.p>
+            <ReferAFriendContainerTextFlip />
             <motion.button
               onClick={scrollToPromotionForm}
               style={{
@@ -97,9 +95,9 @@ export function ReferAFriendHero() {
               whileTap={{
                 scale: 0.985,
               }}
-              className='group relative flex w-fit items-center gap-1.5 lg:mt-4 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
+              className='group relative flex w-fit items-center gap-1.5 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
-              Sign Up Now
+              Refer A Friend Now
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
             </motion.button>
           </motion.div>

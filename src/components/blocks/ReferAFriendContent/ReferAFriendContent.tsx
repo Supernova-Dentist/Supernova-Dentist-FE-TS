@@ -11,39 +11,50 @@ import Image from 'next/image';
 import React, { type ReactNode, useRef } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
-import { InvisalignOpenDayHero } from './ReferAFriendHero/ReferAFriendHero';
-import InvisalignOpenDayJourney from './ReferAFriendJourney/ReferAFriendJourney';
-import { InvisalignOpenDaySlideTabs } from './ReferAFriendSlideTabs/ReferAFriendSlideTabs';
-import { InvisalignOpenDayVideoSection } from './ReferAFriendVideoSection/ReferAFriendVideoSection';
 import ReferAFriendCard from './ReferAFriendCard/ReferAFriendCard';
 import ReferAFriendForm from './ReferAFriendForm/ReferAFriendForm';
+import { ReferAFriendHero } from './ReferAFriendHero/ReferAFriendHero';
+import InvisalignOpenDayJourney from './ReferAFriendJourney/ReferAFriendJourney';
+import { ReferAFriendSlideTabs } from './ReferAFriendSlideTabs/ReferAFriendSlideTabs';
+import { ReferAFriendVideoSection } from './ReferAFriendVideoSection/ReferAFriendVideoSection';
 import Results from './Results/Results';
 
-const pricing = [
+const dentalCreditData = [
   {
     plan: 'Referral Credit',
     price: { number: 60, text: 'Up to' },
     offerPrice: 60,
     features: ['General Dentistry', 'Cosmetic Dentistry', 'Restorative Dentistry', 'Implants', 'Invisalign'],
+    postText: 'CREDIT PER REFERRAL',
+  },
+];
+
+const leaderboardData = [
+  {
+    plan: 'Referral Credit',
+    price: { number: 60, text: 'Over' },
+    offerPrice: 710,
+    features: ['Top 3 Win Prizes', 'Teeth Whitening', 'Oral B Toothbrush', 'Hygiene Appointment'],
+    postText: 'WORTH OF PRIZES TO BE WON',
   },
 ];
 
 export const ReferAFriendContent = () => {
   return (
     <div className='bg-cream'>
-      <InvisalignOpenDayHero />
+      <ReferAFriendHero />
       <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
         <ReferAFriendForm
           serviceName='Supernova Dental'
-          serviceChip='Refer a Friend'
-          serviceDescription='Earn up to £60 credit when you refer a friend - £10 each after their new patient exam, plus £50 if they start Invisalign.'
-          formTitle='Refer a Friend Today'
+          serviceChip='Refer A Friend'
+          serviceDescription='Earn up to £60 credit when you refer a friend - £10 each after their new patient examination, plus £50 if they start Invisalign.'
+          formTitle='Refer A Friend Today'
           formDescription='Fill in the details to refer someone. Both of you will earn account credit once they attend their new patient exam, and even more if they start Invisalign.'
         />
       </div>
 
       <section id='offer'>
-        <InvisalignOpenDaySlideTabs />
+        <ReferAFriendSlideTabs />
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_1.jpg'
           landscapeImgUrl='/assets/images/invisalign_1.jpeg'
@@ -52,13 +63,14 @@ export const ReferAFriendContent = () => {
           heading="Don't miss out."
         >
           <div className='flex items-center justify-center pt-8 pb-16'>
-            {pricing.map((planData, index) => (
+            {dentalCreditData.map((planData, index) => (
               <ReferAFriendCard
                 key={index}
                 plan={planData.plan}
                 price={planData.price}
                 offerPrice={planData.offerPrice}
                 features={planData.features}
+                postText={planData.postText}
                 monthly={false}
                 isMiddle
               />
@@ -66,28 +78,34 @@ export const ReferAFriendContent = () => {
           </div>
         </TextParallaxContent>
       </section>
-      <section id='cases'>
-        <InvisalignOpenDaySlideTabs />
+      <section id='leaderboard'>
+        <ReferAFriendSlideTabs />
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_p_1.jpg'
           landscapeImgUrl='/assets/images/invisalign_2.jpg'
           logoSrc='/assets/images/logo.png'
-          subheading='Invisalign Treatment Cases'
-          heading='See how it can help.'
+          subheading='Referral Leaderboard'
+          heading='Prizes to be won.'
         >
-          <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
-            <video
-              className='w-full h-full object-fit rounded-lg lg:mt-8'
-              controls
-              preload='metadata'
-              src='/assets/videos/invisalign_treatment_cases.mp4'
-              poster='/assets/images/treatment_cases.png'
-            />
+          <div className='flex items-center justify-center pt-8 pb-16'>
+            {leaderboardData.map((planData, index) => (
+              <ReferAFriendCard
+                key={index}
+                plan={planData.plan}
+                price={planData.price}
+                offerPrice={planData.offerPrice}
+                features={planData.features}
+                postText={planData.postText}
+                monthly={false}
+                isMiddle
+              />
+            ))}
           </div>
         </TextParallaxContent>
       </section>
+
       <section id='journey'>
-        <InvisalignOpenDaySlideTabs />
+        <ReferAFriendSlideTabs />
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_p_2.jpg'
           landscapeImgUrl='/assets/images/invisalign_landscape_2.jpg'
@@ -109,7 +127,7 @@ export const ReferAFriendContent = () => {
         </TextParallaxContent>
       </section>
       <section id='results'>
-        <InvisalignOpenDaySlideTabs />
+        <ReferAFriendSlideTabs />
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_4.jpg'
           landscapeImgUrl='/assets/images/invisalign_4.jpg'
@@ -121,7 +139,7 @@ export const ReferAFriendContent = () => {
         </TextParallaxContent>
       </section>
 
-      <InvisalignOpenDayVideoSection />
+      <ReferAFriendVideoSection />
     </div>
   );
 };

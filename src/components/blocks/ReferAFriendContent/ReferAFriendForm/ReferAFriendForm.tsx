@@ -6,18 +6,18 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { DentallyPortal } from '@/lib/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../../../types/PromotionForm';
 import BarLoader from '../../../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../../../PrivacyModal/PrivacyModal';
-import Link from 'next/link';
-import { DentallyPortal } from '@/lib/constants';
-import { FaTimes } from 'react-icons/fa';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -64,9 +64,7 @@ export default function ReferAFriendForm({
 
   async function onSubmit(data: PromotionFormData) {
     try {
-      const decodedSource = decodeURIComponent(pathname); // Decode URL encoding
-
-      // If you need to remove the leading slash, you can do that
+      const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
 
       const dataWithSource = { ...data, source: cleanedSource };
@@ -83,7 +81,6 @@ export default function ReferAFriendForm({
         throw new Error(errorData.message);
       }
 
-      // Trigger Google Ads conversion tracking
       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
@@ -111,8 +108,8 @@ export default function ReferAFriendForm({
   }
 
   const { ref, inView } = useInView({
-    threshold: 0.2, // Trigger when 10% of the component is in view
-    triggerOnce: true, // Only play the animation once
+    threshold: 0.2,
+    triggerOnce: true,
   });
 
   useEffect(() => {
@@ -131,7 +128,7 @@ export default function ReferAFriendForm({
         }
       }
     }
-  }, []); // Runs only on the first load
+  }, []);
 
   return (
     <>
@@ -142,109 +139,105 @@ export default function ReferAFriendForm({
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <div className='container max-w-[1250px] mx-auto px-4 md:px-8 lg:grid lg:grid-cols-2 gap-8'>
-            <div className='text-center lg:text-left space-y-6'>
-              <div className='bg-grey px-4 py-2 text-md text-gray-50 rounded-lg inline-block'>{serviceChip}</div>
-              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
-                Begin Your {serviceName} Journey
-              </h2>
-              <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
-              <div className='hidden lg:flex items-center justify-center mx-auto gap-4 pt-4 pb-8'>
-                <img src='/assets/images/invisalign_open_Day_poster.jpg' alt='Invisalign Logo' className=' w-96' />
+          <div className='container max-w-[1250px] mx-auto px-4 flex flex-col gap-8'>
+            <div className='flex flex-col lg:flex-row lg:items-start gap-8'>
+              {/* Description */}
+              <div className='lg:w-1/2 space-y-6'>
+                <div className='bg-grey px-4 py-2 text-md text-gray-50 rounded-lg inline-block'>{serviceChip}</div>
+                <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
+                  Begin Your {serviceName} Journey
+                </h2>
+                <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
               </div>
-            </div>
-            <Card className=' max-h-[50rem] md:max-h-[40rem] mt-6 mx-auto lg:m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-6 flex items-center justify-center'>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <CardHeader className='text-center mb-4'>
-                  <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
-                  <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>
-                </CardHeader>
-                <CardContent className='p-2 md:p-4 md:pt-0'>
-                  <div className='grid gap-1'>
-                    <Label htmlFor='fullname'>Full Name</Label>
-                    <Input
-                      id='fullname'
-                      placeholder='John Smith'
-                      className='py-1 text-lg px-3'
-                      {...register('fullname')}
-                    />
-                    <div className='h-5'>
-                      {errors.fullname && <p className='text-red-500 text-sm'>{errors.fullname?.message}</p>}
-                    </div>
-                  </div>
-                  <div className='grid gap-1'>
-                    <Label htmlFor='email'>Email Address</Label>
-                    <Input
-                      id='email'
-                      type='email'
-                      placeholder='john@example.com'
-                      className='py-1 text-lg px-3'
-                      {...register('email')}
-                    />
-                    <div className='h-5'>
-                      {errors.email && <p className='text-red-500 text-sm'>{errors.email?.message}</p>}
-                    </div>
-                  </div>
-                  <div className='grid gap-1'>
-                    <Label htmlFor='phone'>Contact Number</Label>
-                    <Input
-                      id='phone'
-                      type='tel'
-                      placeholder='(+44) 1234567890'
-                      className='py-1 text-lg px-3'
-                      {...register('phone')}
-                    />
-                    <div className='h-5'>
-                      {errors.phone && <p className='text-red-500 text-sm'>{errors.phone?.message}</p>}
-                    </div>
-                  </div>
-                  <div className='grid gap-1 mb-4'>
-                    <div className='flex items-center mt-2'>
-                      <Checkbox
-                        id='optOutEmails'
-                        {...register('optOutEmails')}
-                        onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
-                      />
-                      <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground'>
-                        I don’t want to receive emails.
-                      </Label>
-                    </div>
-                    {errors.optOutEmails && <p className='text-red-500 text-sm'>{errors.optOutEmails?.message}</p>}
-                  </div>
-                  <p>By signing up, you ackowledge and agree to our</p>
-                  <Button
-                    type='button'
-                    variant='link'
-                    className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition mb-4 sm:mb-0'
-                    onClick={handlePrivacyModalOpen}
-                  >
-                    Privacy Policy
-                  </Button>
-                </CardContent>
-                <CardFooter>
-                  <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
-                    {isSubmitting ? <BarLoader /> : 'Sign Up'}
-                  </Button>
-                </CardFooter>
-              </form>
-            </Card>
 
-            <div className='flex flex-col lg:hidden py-2 lg:py-12 mt-4'>
+              {/* Form */}
+              <Card className='lg:w-1/2 w-full bg-gray-50 shadow-2xl p-2 md:p-6'>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <CardHeader className='text-center mb-4'>
+                    <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
+                    <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>
+                  </CardHeader>
+                  <CardContent className='p-2 md:p-4 md:pt-0'>
+                    <div className='grid gap-1'>
+                      <Label htmlFor='fullname'>Full Name</Label>
+                      <Input
+                        id='fullname'
+                        placeholder='John Smith'
+                        className='py-1 text-lg px-3'
+                        {...register('fullname')}
+                      />
+                      <div className='h-5'>
+                        {errors.fullname && <p className='text-red-500 text-sm'>{errors.fullname?.message}</p>}
+                      </div>
+                    </div>
+                    <div className='grid gap-1'>
+                      <Label htmlFor='email'>Email Address</Label>
+                      <Input
+                        id='email'
+                        type='email'
+                        placeholder='john@example.com'
+                        className='py-1 text-lg px-3'
+                        {...register('email')}
+                      />
+                      <div className='h-5'>
+                        {errors.email && <p className='text-red-500 text-sm'>{errors.email?.message}</p>}
+                      </div>
+                    </div>
+                    <div className='grid gap-1'>
+                      <Label htmlFor='phone'>Contact Number</Label>
+                      <Input
+                        id='phone'
+                        type='tel'
+                        placeholder='(+44) 1234567890'
+                        className='py-1 text-lg px-3'
+                        {...register('phone')}
+                      />
+                      <div className='h-5'>
+                        {errors.phone && <p className='text-red-500 text-sm'>{errors.phone?.message}</p>}
+                      </div>
+                    </div>
+                    <div className='grid gap-1 mb-4'>
+                      <div className='flex items-center mt-2'>
+                        <Checkbox
+                          id='optOutEmails'
+                          {...register('optOutEmails')}
+                          onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
+                        />
+                        <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground'>
+                          I don’t want to receive emails.
+                        </Label>
+                      </div>
+                      {errors.optOutEmails && <p className='text-red-500 text-sm'>{errors.optOutEmails?.message}</p>}
+                    </div>
+                    <p>By signing up, you acknowledge and agree to our</p>
+                    <Button
+                      type='button'
+                      variant='link'
+                      className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition mb-4 sm:mb-0'
+                      onClick={handlePrivacyModalOpen}
+                    >
+                      Privacy Policy
+                    </Button>
+                  </CardContent>
+                  <CardFooter>
+                    <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
+                      {isSubmitting ? <BarLoader /> : 'Sign Up'}
+                    </Button>
+                  </CardFooter>
+                </form>
+              </Card>
+            </div>
+
+            {/* Full-width Poster Below */}
+            <div className='w-full mt-8'>
               <img
-                src='/assets/images/invisalign_open_Day_poster.jpg'
-                alt='Invisalign Logo'
-                className=' w-96 mx-auto pb-4'
+                src='/assets/images/sd_refer_friend.png'
+                alt='Refer a Friend Poster'
+                className='w-full h-auto object-cover rounded-xl shadow-lg'
               />
-              <img
-                src='/assets/images/supernova_dental_cover.png'
-                alt='Invisalign Logo'
-                className='h-auto mx-auto mb-2'
-              />
-              <img src='/assets/images/Invisalign_Logo.png' alt='Invisalign Logo' className='w-56 h-auto mx-auto' />
-              <div />
             </div>
           </div>
-          <div className='hidden lg:flex items-center justify-center mx-auto gap-4 pt-12'>
+          <div className='flex flex-col lg:flex-row items-center justify-center mx-auto gap-4 pt-12'>
             <img src='/assets/images/supernova_dental_cover.png' alt='Invisalign Logo' className='' />
             <img src='/assets/images/Invisalign_Logo.png' alt='Invisalign Logo' className='w-56' />
           </div>

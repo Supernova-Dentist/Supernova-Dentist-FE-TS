@@ -297,10 +297,7 @@ const LINKS = [
   //   title: 'Social',
   //   href: '#social',
   // },
-  {
-    title: 'Refer A Friend',
-    href: '/refer-a-friend',
-  },
+
   {
     title: 'Practice',
     href: '/practice',
@@ -335,6 +332,10 @@ const LINKS = [
         href: '/enquiry',
       },
     ],
+  },
+  {
+    title: 'Refer A Friend',
+    href: '/refer-a-friend',
   },
 ];
 
