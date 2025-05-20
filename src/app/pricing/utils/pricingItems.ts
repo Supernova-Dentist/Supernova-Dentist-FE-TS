@@ -231,4 +231,10 @@ discomfort.`,
       { description: 'Fixed/bonded wire retainer', price: 250, priceDescription: 'per arch' },
     ],
   },
+  {
+    title: 'Implant Dentistry',
+    products: [
+      { description: 'Implants', priceDescriptionBefore: 'From', price: 2750  },
+    ],
+  },
 ];
