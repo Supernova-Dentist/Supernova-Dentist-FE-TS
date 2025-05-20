@@ -11,7 +11,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
@@ -24,6 +24,7 @@ const defaultValues: PromotionFormData = {
   email: '',
   phone: '',
   optOutEmails: false,
+  referrerName: '',
 };
 
 interface ServiceFormProps {
@@ -45,6 +46,8 @@ export default function ReferAFriendForm({
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+  const [referralLink, setReferralLink] = useState('');
   const pathname = usePathname();
 
   const {
@@ -54,6 +57,7 @@ export default function ReferAFriendForm({
     getValues,
     setValue,
     clearErrors,
+    watch,
     formState: { isSubmitting, errors },
   } = useForm<PromotionFormData>({
     resolver: zodResolver(promotionSignupSchema),
@@ -66,7 +70,6 @@ export default function ReferAFriendForm({
     try {
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
-
       const dataWithSource = { ...data, source: cleanedSource };
 
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
@@ -115,24 +118,61 @@ export default function ReferAFriendForm({
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash;
-
       if (hash === '#form') {
         const formElement = document.querySelector(hash);
-
         if (formElement) {
           const formPosition = formElement.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({
-            top: formPosition,
-            behavior: 'smooth',
-          });
+          window.scrollTo({ top: formPosition, behavior: 'smooth' });
         }
       }
     }
   }, []);
 
+  const referrerName = watch('referrerName');
+
+  const computedReferralLink = useMemo(() => {
+    if (referrerName && typeof window !== 'undefined') {
+      const params = new URLSearchParams({
+        referrerName,
+      });
+      return `${window.location.origin}${pathname}?${params.toString()}`;
+    }
+    return null;
+  }, [referrerName, pathname]);
+
+  const isValidFullName = (name: string) => {
+    // Check if name has at least two words separated by space
+    const words = name.trim().split(/\s+/);
+    if (words.length < 2) return false;
+
+    // Check that each word contains only letters (and maybe apostrophes/hyphens)
+    const nameRegex = /^[a-zA-Z'-]+$/;
+    return words.every((word) => nameRegex.test(word));
+  };
+
+  const shouldShowReferralLink = isValidFullName(referrerName);
+
+  useEffect(() => {
+    if (shouldShowReferralLink) {
+      const encodedName = encodeURIComponent(referrerName || '');
+      setReferralLink(`${window.location.origin}/refer?name=${encodedName}`);
+    } else {
+      setReferralLink('');
+    }
+  }, [referrerName, shouldShowReferralLink]);
+
+  const handleCopyLink = async () => {
+    if (computedReferralLink) {
+      await navigator.clipboard.writeText(referralLink);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 5000);
+    }
+  };
+
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
+
       <section id='form' ref={ref} className='w-full py-12 min-h-screen flex items-center justify-center'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -157,43 +197,76 @@ export default function ReferAFriendForm({
                     <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
                     <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>
                   </CardHeader>
-                  <CardContent className='p-2 md:p-4 md:pt-0'>
-                    <div className='grid gap-1'>
-                      <Label htmlFor='fullname'>Full Name</Label>
-                      <Input
-                        id='fullname'
-                        placeholder='John Smith'
-                        className='py-1 text-lg px-3'
-                        {...register('fullname')}
-                      />
-                      <div className='h-5'>
-                        {errors.fullname && <p className='text-red-500 text-sm'>{errors.fullname?.message}</p>}
+
+                  <CardContent className='p-2 md:p-4 md:pt-0 space-y-5'>
+                    {/* Referrer */}
+                    <div>
+                      <h3 className='text-lg font-semibold mb-1'>Referrer&apos;s Details</h3>
+                      <div className='grid gap-1'>
+                        <Label htmlFor='referrerName'>Full Name</Label>
+                        <Input
+                          id='referrerName'
+                          placeholder='Jane Doe'
+                          className='py-1 text-lg px-3'
+                          {...register('referrerName')}
+                        />
+                        <div className='h-5'>
+                          {errors.referrerName && <p className='text-red-500 text-sm'>{errors.referrerName.message}</p>}
+                        </div>
+                      </div>
+                      <div className='mt-2 mb-4 h-[42px] flex items-center justify-center'>
+                        <div
+                          className={`transition-opacity duration-300 ${
+                            referralLink ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                          }`}
+                        >
+                          <Button onClick={handleCopyLink} type='button' size='sm'>
+                            {copied ? 'Copied!' : 'Copy Your Referral Link'}
+                          </Button>
+                        </div>
                       </div>
                     </div>
-                    <div className='grid gap-1'>
-                      <Label htmlFor='email'>Email Address</Label>
-                      <Input
-                        id='email'
-                        type='email'
-                        placeholder='john@example.com'
-                        className='py-1 text-lg px-3'
-                        {...register('email')}
-                      />
-                      <div className='h-5'>
-                        {errors.email && <p className='text-red-500 text-sm'>{errors.email?.message}</p>}
+
+                    {/* Friend */}
+                    <div>
+                      <h3 className='text-lg font-semibold mt-4 mb-1'>Friend&apos;s Details</h3>
+                      <div className='grid gap-1'>
+                        <Label htmlFor='fullname'>Full Name</Label>
+                        <Input
+                          id='fullname'
+                          placeholder='John Smith'
+                          className='py-1 text-lg px-3'
+                          {...register('fullname')}
+                        />
+                        <div className='h-5'>
+                          {errors.fullname && <p className='text-red-500 text-sm'>{errors.fullname.message}</p>}
+                        </div>
                       </div>
-                    </div>
-                    <div className='grid gap-1'>
-                      <Label htmlFor='phone'>Contact Number</Label>
-                      <Input
-                        id='phone'
-                        type='tel'
-                        placeholder='(+44) 1234567890'
-                        className='py-1 text-lg px-3'
-                        {...register('phone')}
-                      />
-                      <div className='h-5'>
-                        {errors.phone && <p className='text-red-500 text-sm'>{errors.phone?.message}</p>}
+                      <div className='grid gap-1'>
+                        <Label htmlFor='email'>Email Address</Label>
+                        <Input
+                          id='email'
+                          type='email'
+                          placeholder='john@example.com'
+                          className='py-1 text-lg px-3'
+                          {...register('email')}
+                        />
+                        <div className='h-5'>
+                          {errors.email && <p className='text-red-500 text-sm'>{errors.email.message}</p>}
+                        </div>
+                      </div>
+                      <div className='grid gap-1'>
+                        <Label htmlFor='phone'>Contact Number</Label>
+                        <Input
+                          id='phone'
+                          type='tel'
+                          placeholder='(+44) 1234567890'
+                          className='py-1 text-lg px-3'
+                          {...register('phone')}
+                        />
+                        <div className='h-5'>
+                          {errors.phone && <p className='text-red-500 text-sm'>{errors.phone.message}</p>}
+                        </div>
                       </div>
                     </div>
                     <div className='grid gap-1 mb-4'>
@@ -219,9 +292,10 @@ export default function ReferAFriendForm({
                       Privacy Policy
                     </Button>
                   </CardContent>
-                  <CardFooter>
-                    <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
-                      {isSubmitting ? <BarLoader /> : 'Sign Up'}
+
+                  <CardFooter className='pt-4'>
+                    <Button type='submit' className='w-full' disabled={isSubmitting}>
+                      {isSubmitting ? <BarLoader /> : 'Submit Referral'}
                     </Button>
                   </CardFooter>
                 </form>
