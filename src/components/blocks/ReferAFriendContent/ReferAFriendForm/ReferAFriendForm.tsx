@@ -135,10 +135,20 @@ export default function ReferAFriendForm({
       const params = new URLSearchParams({
         referrerName,
       });
-      return `${window.location.origin}${pathname}?${params.toString()}`;
+      return `${window.location.origin}/refer-a-friend?referrerName=${params.toString()}#form`;
     }
     return null;
   }, [referrerName, pathname]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      const name = searchParams.get('referrerName');
+      if (name) {
+        setValue('referrerName', name);
+      }
+    }
+  }, [setValue]);
 
   const isValidFullName = (name: string) => {
     // Check if name has at least two words separated by space
@@ -155,7 +165,7 @@ export default function ReferAFriendForm({
   useEffect(() => {
     if (shouldShowReferralLink) {
       const encodedName = encodeURIComponent(referrerName || '');
-      setReferralLink(`${window.location.origin}/refer?name=${encodedName}`);
+      setReferralLink(`${window.location.origin}/refer-a-friend?referrerName=${encodedName.toString()}#form`);
     } else {
       setReferralLink('');
     }
