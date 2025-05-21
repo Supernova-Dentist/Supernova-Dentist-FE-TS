@@ -58,9 +58,9 @@ export function ReferAFriendHero() {
               whileTap={{
                 scale: 0.985,
               }}
-              className='group relative flex w-fit items-center gap-1.5 lg:mt-12 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
+              className='group relative flex w-fit items-center gap-1.5 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
-              Refer A Friend Now
+              Refer By August 31st
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
             </motion.button>
           </motion.div>
@@ -97,7 +97,7 @@ export function ReferAFriendHero() {
               }}
               className='group relative flex w-fit items-center gap-1.5 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
-              Refer A Friend Now
+              Refer By August 31st
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
             </motion.button>
           </motion.div>

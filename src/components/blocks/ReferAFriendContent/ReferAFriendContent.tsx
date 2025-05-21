@@ -33,8 +33,14 @@ const leaderboardData = [
   {
     plan: 'Referral Credit',
     price: { number: 60, text: 'Over' },
-    offerPrice: 710,
-    features: ['Top 3 Win Prizes', 'Teeth Whitening', 'Oral B Toothbrush', 'Hygiene Appointment'],
+    offerPrice: 1000,
+    features: [
+      'Top 5 Win Prizes',
+      'Teeth Whitening + £100 Dental Credit (Worth £525)',
+      'Electric Toothbrush + Airflow Hygiene Appointment (Worth £350)',
+      'Complimentary Hygiene Appointment  (Worth £25)',
+      '2x £25 Dental Credit',
+    ],
     postText: 'WORTH OF PRIZES TO BE WON',
   },
 ];
@@ -47,9 +53,9 @@ export const ReferAFriendContent = () => {
         <ReferAFriendForm
           serviceName='Supernova Dental'
           serviceChip='Refer A Friend'
-          serviceDescription='Earn up to £60 credit when you refer a friend - £10 each after their new patient examination, plus £50 if they start Invisalign.'
+          serviceDescription='Refer a friend and earn up to £60 credit! You both get £10 after their new patient examination, plus you get £50 if they start Invisalign within 2 months. Referrer must be a patient. Ends August 31.'
           formTitle='Refer A Friend Today'
-          formDescription='Fill in the details to refer someone. Both of you will earn account credit once they attend their new patient exam, and even more if they start Invisalign.'
+          formDescription='Fill in the details to refer someone. Both of you will earn account credit once they attend their new patient exam, and even more if they start Invisalign within 2 months.'
         />
       </div>
 
@@ -271,13 +277,3 @@ const OverlayCopy = ({
     </motion.div>
   );
 };
-
-const ExampleContent = () => (
-  <InvisalignOpenDayForm
-    serviceName='Invisalign'
-    serviceChip='Invisalign® Open Day'
-    serviceDescription='Get a personalised Invisalign treatment plan and discover how clear aligners can transform your smile.'
-    formTitle='Sign up for your Free Invisalign Consultation'
-    formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
-  />
-);

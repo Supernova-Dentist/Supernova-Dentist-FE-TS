@@ -15,11 +15,12 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
-import { promotionSignupSchema, type PromotionFormData } from '../../../../../types/PromotionForm';
+import { referAFriendSignupSchema, type ReferAFriendFormData } from '../../../../../types/ReferAFriendForm';
 import BarLoader from '../../../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../../../PrivacyModal/PrivacyModal';
+import PatientToggleSection from '@/components/ui/toggle';
 
-const defaultValues: PromotionFormData = {
+const defaultValues: ReferAFriendFormData = {
   fullname: '',
   email: '',
   phone: '',
@@ -45,6 +46,7 @@ export default function ReferAFriendForm({
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [isExistingPatient, setIsExistingPatient] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [referralLink, setReferralLink] = useState('');
@@ -59,20 +61,20 @@ export default function ReferAFriendForm({
     clearErrors,
     watch,
     formState: { isSubmitting, errors },
-  } = useForm<PromotionFormData>({
-    resolver: zodResolver(promotionSignupSchema),
+  } = useForm<ReferAFriendFormData>({
+    resolver: zodResolver(referAFriendSignupSchema),
     defaultValues,
   });
 
   const values = getValues();
 
-  async function onSubmit(data: PromotionFormData) {
+  async function onSubmit(data: ReferAFriendFormData) {
     try {
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
       const dataWithSource = { ...data, source: cleanedSource };
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
+      const res = await fetch(`http://localhost:3001/refer-a-friend`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dataWithSource),
@@ -202,40 +204,55 @@ export default function ReferAFriendForm({
 
               {/* Form */}
               <Card className='lg:w-1/2 w-full bg-gray-50 shadow-2xl p-2 md:p-6'>
+                <PatientToggleSection
+                  isExistingPatient={isExistingPatient}
+                  setIsExistingPatient={setIsExistingPatient}
+                />
+
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <CardHeader className='text-center mb-4'>
-                    <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
-                    <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>
+                    <CardTitle className='text-xl md:text-2xl'>
+                      {isExistingPatient ? 'Refer a Friend' : 'Register as a New Patient'}
+                    </CardTitle>
+                    <CardDescription className='text-md md:text-lg text-gray-500'>
+                      {isExistingPatient
+                        ? formDescription
+                        : 'Join our dental practice today. Fill in your details and we’ll be in touch soon.'}
+                    </CardDescription>
                   </CardHeader>
 
                   <CardContent className='p-2 md:p-4 md:pt-0 space-y-5'>
-                    {/* Referrer */}
-                    <div>
-                      <h3 className='text-lg font-semibold mb-1'>Referrer&apos;s Details</h3>
-                      <div className='grid gap-1'>
-                        <Label htmlFor='referrerName'>Full Name</Label>
-                        <Input
-                          id='referrerName'
-                          placeholder='Jane Doe'
-                          className='py-1 text-lg px-3'
-                          {...register('referrerName')}
-                        />
-                        <div className='h-5'>
-                          {errors.referrerName && <p className='text-red-500 text-sm'>{errors.referrerName.message}</p>}
+                    {isExistingPatient && (
+                      <div>
+                        <h3 className='text-lg font-semibold mb-1'>Referrer&apos;s Details (Existing Patient)</h3>
+                        <div className='grid gap-1'>
+                          <Label htmlFor='referrerName'>Full Name</Label>
+                          <Input
+                            id='referrerName'
+                            placeholder='Jane Doe'
+                            className='py-1 text-lg px-3'
+                            {...register('referrerName')}
+                          />
+                          <div className='h-5'>
+                            {errors.referrerName && (
+                              <p className='text-red-500 text-sm'>{errors.referrerName.message}</p>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className='mt-2 mb-4 h-[42px] flex items-center justify-center'>
+                          <div
+                            className={`transition-opacity duration-300 ${
+                              referralLink ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                            }`}
+                          >
+                            <Button onClick={handleCopyLink} type='button' size='sm'>
+                              {copied ? 'Copied!' : 'Copy Your Referral Link'}
+                            </Button>
+                          </div>
                         </div>
                       </div>
-                      <div className='mt-2 mb-4 h-[42px] flex items-center justify-center'>
-                        <div
-                          className={`transition-opacity duration-300 ${
-                            referralLink ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                          }`}
-                        >
-                          <Button onClick={handleCopyLink} type='button' size='sm'>
-                            {copied ? 'Copied!' : 'Copy Your Referral Link'}
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
+                    )}
 
                     {/* Friend */}
                     <div>

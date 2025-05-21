@@ -2,7 +2,8 @@ import validator from 'validator';
 import { z } from 'zod';
 
 // For some reason zod not giving correct errors for when input are empty. Should get the default field is required message, so added min(1) for that
-export const promotionSignupSchema = z.object({
+export const referAFriendSignupSchema = z.object({
+  referrerName: z.string().min(1, 'Referrer name is required').max(99, 'Name too long'),
 
   fullname: z.string().min(1, 'Full name is required').max(99, 'Name too long'),
   email: z.string().min(1, 'Email is required').email(),
@@ -13,4 +14,4 @@ export const promotionSignupSchema = z.object({
   optOutEmails: z.boolean(),
 });
 
-export type PromotionFormData = z.infer<typeof promotionSignupSchema>;
+export type ReferAFriendFormData = z.infer<typeof referAFriendSignupSchema>;

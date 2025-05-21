@@ -22,12 +22,12 @@ export function ReferAFriendContainerTextFlip() {
         layout
         className='inline-block max-w-[56rem] text-4xl font-bold md:text-7xl '
       >
-        <p className='text-2xl md:text-4xl lg:text-6xl'>
+        <p className='text-lg md:text-2xl lg:text-4xl'>
           Refer A Friend <br />& Earn Credit For
         </p>
         <ContainerTextFlip
           words={words}
-          textClassName='text-2xl md:text-4xl lg:text-6xl leading-[1.1] will-change-transform antialiased flex items-center justify-center'
+          textClassName='text-lg md:text-2xl lg:text-4xl leading-[1.1] will-change-transform antialiased flex items-center justify-center'
           className='mt-4'
         />
       </motion.h1>
