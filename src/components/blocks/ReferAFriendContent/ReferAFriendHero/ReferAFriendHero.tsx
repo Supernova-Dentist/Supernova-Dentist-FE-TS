@@ -43,7 +43,7 @@ export function ReferAFriendHero() {
             transition={{
               duration: 0.6,
             }}
-            className='z-40 flex flex-col justify-center items-center'
+            className='z-40 mt-24 flex flex-col justify-center items-center'
           >
             <ReferAFriendContainerTextFlip />
             <motion.button
@@ -58,7 +58,7 @@ export function ReferAFriendHero() {
               whileTap={{
                 scale: 0.985,
               }}
-              className='group relative flex w-fit items-center gap-1.5 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
+              className='group relative flex w-fit mt-6 items-center gap-1.5 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
               Refer By August 31st
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
@@ -95,7 +95,7 @@ export function ReferAFriendHero() {
               whileTap={{
                 scale: 0.985,
               }}
-              className='group relative flex w-fit items-center gap-1.5 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
+              className='group relative flex w-fit mt-6 items-center gap-1.5 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
               Refer By August 31st
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
