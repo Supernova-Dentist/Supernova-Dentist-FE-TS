@@ -1,4 +1,4 @@
-import type { InstagramToken } from '@prisma/client';
+import type { InstagramToken } from '@/generated/prisma/client';
 import { INSTAGRAM_API_BASE_URL } from '@/lib/constants';
 import prisma from '@/lib/db';
 
