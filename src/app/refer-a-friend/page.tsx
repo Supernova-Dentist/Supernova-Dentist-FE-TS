@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Refer a Friend - Supernova Dental',
   description:
-    'Refer a friend to Supernova Dental and both receive £10 credit after their new patient exam. Earn £50 credit if your friend starts Invisalign treatment. Spread smiles in Bridgwater!',
+    'Refer a friend to Supernova Dental and both receive £10 credit after their new patient exam. Earn £50 credit if your friend starts Invisalign treatment within 2 months. Spread smiles in Bridgwater!',
   keywords:
     'Refer a friend Bridgwater, dental referral Bridgwater, Supernova Dental referral, Invisalign referral, dental credit offer Bridgwater, new patient exam referral, dental referral bonus, teeth straightening referral',
 };
