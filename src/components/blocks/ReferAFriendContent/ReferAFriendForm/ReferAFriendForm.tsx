@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import StaggeredDropDown from '@/components/ui/staggered-dropdown';
 import PatientToggleSection from '@/components/ui/toggle';
 import { DentallyPortal } from '@/lib/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -187,6 +188,21 @@ export default function ReferAFriendForm({
     }
   };
 
+  const handleShareLink = async () => {
+    if (computedReferralLink) {
+      const shareData = {
+        title: 'Check out this referral link!',
+        text: `I recommend you to visit our dental practice. Here is my referral link: ${computedReferralLink}`,
+        url: computedReferralLink,
+      };
+      try {
+        await navigator.share(shareData);
+      } catch (error) {
+        console.error('Error sharing:', error);
+      }
+    }
+  };
+
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
@@ -248,12 +264,15 @@ export default function ReferAFriendForm({
 
                         <div className='mt-2 mb-4 h-[42px] flex items-center justify-center'>
                           <div
-                            className={`transition-opacity duration-300 ${
+                            className={`transition-opacity flex gap-8 duration-300 ${
                               referralLink ? 'opacity-100' : 'opacity-0 pointer-events-none'
                             }`}
                           >
+                            <Button onClick={handleShareLink} type='button' size='lg'>
+                              Share Link
+                            </Button>
                             <Button onClick={handleCopyLink} type='button' size='lg'>
-                              {copied ? 'Copied!' : 'Copy Your Referral Link'}
+                              {copied ? 'Copied!' : 'Copy Link'}
                             </Button>
                           </div>
                         </div>
@@ -363,10 +382,7 @@ export default function ReferAFriendForm({
             </button>
             <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for your enquiry!</h2>
             <div className='mb-6 flex flex-col gap-2'>
-              <p>
-                You&apos;ve been successfully signed up. We&apos;ll send details to{' '}
-                {values.email}.
-              </p>
+              <p>You&apos;ve been successfully signed up. We&apos;ll send details to {values.email}.</p>
               <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
             </div>
 
