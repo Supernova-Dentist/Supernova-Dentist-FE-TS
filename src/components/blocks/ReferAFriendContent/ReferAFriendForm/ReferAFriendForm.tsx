@@ -336,7 +336,7 @@ export default function ReferAFriendForm({
             </div>
 
             {/* Full-width Poster Below */}
-            <div className='w-full mt-8'>
+            <div className='md:w-2/3 mt-8 mx-auto'>
               <img
                 src='/assets/images/sd_refer_friend.png'
                 alt='Refer a Friend Poster'
