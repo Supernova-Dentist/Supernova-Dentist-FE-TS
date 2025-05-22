@@ -190,9 +190,9 @@ export default function ReferAFriendForm({
   const handleShareLink = async () => {
     if (computedReferralLink) {
       const shareData = {
-        title: 'Check out this referral link!',
-        text: `I recommend you to visit our dental practice. Here is my referral link: ${computedReferralLink}`,
+        title: 'Sign up to Supernova Dental with my referral link!',
         url: computedReferralLink,
+        image: '/assets/images/supernova_dental_cover.png',
       };
       try {
         await navigator.share(shareData);
