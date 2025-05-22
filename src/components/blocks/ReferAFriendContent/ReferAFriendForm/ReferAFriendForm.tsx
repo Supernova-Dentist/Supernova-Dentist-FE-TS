@@ -70,6 +70,11 @@ export default function ReferAFriendForm({
 
   async function onSubmit(data: ReferAFriendFormData) {
     try {
+      if (isExistingPatient) {
+        data.referrerName = data.referrerName.trim();
+      } else {
+        data.referrerName = 'NoFriendReferral';
+      }
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
       const dataWithSource = { ...data, source: cleanedSource };
