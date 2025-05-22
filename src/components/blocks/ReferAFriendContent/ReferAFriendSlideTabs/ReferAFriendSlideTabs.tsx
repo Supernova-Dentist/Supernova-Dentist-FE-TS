@@ -65,10 +65,10 @@ const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
       <Tab setPosition={setPosition} onClick={() => scrollToSection('form')}>
         Refer A Friend
       </Tab>
-      <Tab setPosition={setPosition} onClick={() => scrollToSection('offer')}>
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('credit')}>
         Dental Credit 
       </Tab>
-      <Tab setPosition={setPosition} onClick={() => scrollToSection('offer')}>
+      <Tab setPosition={setPosition} onClick={() => scrollToSection('leaderboard')}>
         Leaderboard
       </Tab>
 
