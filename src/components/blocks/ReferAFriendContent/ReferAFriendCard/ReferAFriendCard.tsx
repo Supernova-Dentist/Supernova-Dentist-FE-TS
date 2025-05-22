@@ -73,7 +73,7 @@ export default function ReferAFriendCard({
         <Button
           onClick={scrollToPromotionForm}
           className={cn('w-full text-gray-50 rounded-sm mt-8 px-6 py-3', isMiddle ? 'bg-gold' : 'bg-gray-900')}
-          text='Claim offer'
+          text='Refer A Friend'
         />
       </div>
     </motion.div>

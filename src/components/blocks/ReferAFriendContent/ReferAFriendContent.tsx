@@ -144,8 +144,6 @@ export const ReferAFriendContent = () => {
           <Results />
         </TextParallaxContent>
       </section>
-
-      <ReferAFriendVideoSection />
     </div>
   );
 };
