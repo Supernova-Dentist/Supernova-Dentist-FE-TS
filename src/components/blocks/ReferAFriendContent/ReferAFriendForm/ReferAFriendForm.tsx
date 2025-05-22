@@ -80,7 +80,7 @@ export default function ReferAFriendForm({
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
       const dataWithSource = { ...data, source: cleanedSource };
 
-      const res = await fetch(`http://localhost:3001/refer-a-friend`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/refer-a-friend`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dataWithSource),
