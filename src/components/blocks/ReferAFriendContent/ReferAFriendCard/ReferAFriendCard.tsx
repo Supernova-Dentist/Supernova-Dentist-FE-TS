@@ -56,14 +56,12 @@ export default function ReferAFriendCard({
         <div className={cn('bg-gray-200 w-full h-[1px] my-10', isMiddle ? 'bg-gray-700' : 'bg-gray-200')}></div>{' '}
         {/* Increased spacing */}
         <ul className='flex flex-col gap-4'>
-          {' '}
-          {/* Increased gap */}
           {features.map((feature) => (
-            <li className={cn('flex gap-2 items-center', isMiddle ? 'text-gray-50' : null)} key={feature}>
-              {' '}
-              {/* Increased gap */}
-              <IoCheckmarkCircle color={isMiddle ? 'var(--gold)' : ''} size={24} /> {/* Larger icon */}
-              {feature}
+            <li className={cn('flex gap-2 items-start', isMiddle ? 'text-gray-50' : null)} key={feature}>
+              <div className='min-w-[24px] h-[24px] flex items-center justify-center'>
+                <IoCheckmarkCircle color={isMiddle ? 'var(--gold)' : ''} size={24} />
+              </div>
+              <span className='leading-snug'>{feature}</span>
             </li>
           ))}
         </ul>
