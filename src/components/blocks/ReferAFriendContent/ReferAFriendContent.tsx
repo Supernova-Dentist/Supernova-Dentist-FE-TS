@@ -53,7 +53,7 @@ export const ReferAFriendContent = () => {
         <ReferAFriendForm
           serviceName='Supernova Dental'
           serviceChip='Refer A Friend'
-          serviceDescription='Refer a friend and earn up to £60 credit! You both get £10 after their new patient examination, plus you get £50 if they start Invisalign within 2 months. Referrer must be a patient. Ends August 31.'
+          serviceDescription='Refer a friend and earn up to £60 credit! You both get £10 after their new patient examination, plus you get £50 if they start Invisalign within 2 months. Referrer must be a registered patient. Scheme ends August 31.'
           formTitle='Refer A Friend Today'
           formDescription='Fill in the details to refer someone. Both of you will earn account credit once they attend their new patient exam, and even more if they start Invisalign within 2 months.'
         />

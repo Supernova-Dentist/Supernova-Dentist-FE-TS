@@ -245,7 +245,7 @@ export default function ReferAFriendForm({
                   <CardContent className='p-2 md:p-4 md:pt-0 space-y-5'>
                     {isExistingPatient && (
                       <div>
-                        <h3 className='text-lg font-semibold mb-1'>Referrer&apos;s Details (Existing Patient)</h3>
+                        <h3 className='text-lg font-semibold mb-1'>Referrer&apos;s Details (Registered Patient)</h3>
                         <div className='grid gap-1'>
                           <Label htmlFor='referrerName'>Full Name</Label>
                           <Input
