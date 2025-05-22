@@ -5,19 +5,20 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { DentallyPortal } from '@/lib/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 import BarLoader from '../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { DentallyPortal } from '@/lib/constants';
-import { FaTimes } from 'react-icons/fa';
+import { SOCIAL_CTAS } from '../CornerNav/CornerNav';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -269,6 +270,28 @@ export default function PromotionForm() {
                   Book Now!
                 </button>
               </Link>
+            </div>
+            <div className='flex gap-4 items-center justify-center mt-6 pt-4'>
+              {SOCIAL_CTAS.map((l, idx) => (
+                <motion.a
+                  key={idx}
+                  href={l.href}
+                  target='_blank'
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 1 + idx * 0.125,
+                      duration: 0.5,
+                      ease: 'easeInOut',
+                    },
+                  }}
+                  exit={{ opacity: 0, y: -8 }}
+                >
+                  <l.Component className='text-3xl text-grey transition-colors' />
+                </motion.a>
+              ))}
             </div>
           </div>
         </div>

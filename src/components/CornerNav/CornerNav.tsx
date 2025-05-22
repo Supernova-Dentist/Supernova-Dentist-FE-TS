@@ -261,7 +261,7 @@ const HamburgerButton = ({
 
 const FooterCTAs = () => {
   return (
-    <div className='absolute top-4 left-1/2 transform -translate-x-1/2 flex gap-4 md:flex-col'>
+    <div className='absolute top-4 left-1/2 transform -translate-x-1/2 flex gap-4'>
       {SOCIAL_CTAS.map((l, idx) => (
         <motion.a
           key={idx}
@@ -297,22 +297,24 @@ const LINKS = [
   //   title: 'Social',
   //   href: '#social',
   // },
+
   {
     title: 'Practice',
     href: '/practice',
   },
+  // {
+  //   title: 'Cosmetic Dentistry',
+  //   href: '#',
+  //   subLinks: [
+  //     // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
+  //     { title: 'Invisalign', href: '/invisalign' },
+  //   ],
+  // },
   {
-    title: 'Cosmetic Dentistry',
+    title: 'Services',
     href: '#',
     subLinks: [
-      // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
       { title: 'Invisalign', href: '/invisalign' },
-    ],
-  },
-  {
-    title: 'General Dentistry',
-    href: '#',
-    subLinks: [
       { title: 'Dental Therapist', href: '/dental-therapist' },
       { title: 'Dental Hygiene', href: '/dental-hygiene' },
     ],
@@ -331,9 +333,13 @@ const LINKS = [
       },
     ],
   },
+  {
+    title: 'Refer A Friend',
+    href: '/refer-a-friend',
+  },
 ];
 
-const SOCIAL_CTAS = [
+export const SOCIAL_CTAS = [
   {
     Component: SiFacebook,
     href: 'https://www.facebook.com/profile.php?id=61567279201971',

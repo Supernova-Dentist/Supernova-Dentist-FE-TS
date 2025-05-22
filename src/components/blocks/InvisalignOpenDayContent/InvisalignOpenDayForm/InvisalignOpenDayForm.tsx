@@ -261,10 +261,10 @@ export default function InvisalignOpenDayForm({
             >
               <FaTimes />
             </button>
-            <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
+            <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for your enquiry!</h2>
             <div className='mb-6 flex flex-col gap-2'>
               <p>
-                You&apos;ve been successfully signed up for our promotions and updates. We&apos;ll send details to{' '}
+                You&apos;ve been successfully signed up. We&apos;ll send details to{' '}
                 {values.email}.
               </p>
               <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
