@@ -50,6 +50,7 @@
     "react-tiny-fab": "^4.0.4",
     "react-use-measure": "^2.1.1",
     "sass": "^1.77.8",
+    "sharp": "^0.34.2",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.168.0",
