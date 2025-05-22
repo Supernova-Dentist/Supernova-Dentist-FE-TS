@@ -339,7 +339,7 @@ const LINKS = [
   },
 ];
 
-const SOCIAL_CTAS = [
+export const SOCIAL_CTAS = [
   {
     Component: SiFacebook,
     href: 'https://www.facebook.com/profile.php?id=61567279201971',

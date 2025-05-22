@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 'use client';
 
+import { SOCIAL_CTAS } from '@/components/CornerNav/CornerNav';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import PatientToggleSection from '@/components/ui/toggle';
 import { DentallyPortal } from '@/lib/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
@@ -18,7 +20,6 @@ import { useInView } from 'react-intersection-observer';
 import { referAFriendSignupSchema, type ReferAFriendFormData } from '../../../../../types/ReferAFriendForm';
 import BarLoader from '../../../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../../../PrivacyModal/PrivacyModal';
-import PatientToggleSection from '@/components/ui/toggle';
 
 const defaultValues: ReferAFriendFormData = {
   fullname: '',
@@ -251,7 +252,7 @@ export default function ReferAFriendForm({
                               referralLink ? 'opacity-100' : 'opacity-0 pointer-events-none'
                             }`}
                           >
-                            <Button onClick={handleCopyLink} type='button' size='sm'>
+                            <Button onClick={handleCopyLink} type='button' size='lg'>
                               {copied ? 'Copied!' : 'Copy Your Referral Link'}
                             </Button>
                           </div>
@@ -326,7 +327,7 @@ export default function ReferAFriendForm({
                   </CardContent>
 
                   <CardFooter className='pt-4'>
-                    <Button type='submit' className='w-full' disabled={isSubmitting}>
+                    <Button type='submit' className='w-full' disabled={isSubmitting} size='lg'>
                       {isSubmitting ? <BarLoader /> : 'Submit Referral'}
                     </Button>
                   </CardFooter>
@@ -360,10 +361,10 @@ export default function ReferAFriendForm({
             >
               <FaTimes />
             </button>
-            <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
+            <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for your enquiry!</h2>
             <div className='mb-6 flex flex-col gap-2'>
               <p>
-                You&apos;ve been successfully signed up for our promotions and updates. We&apos;ll send details to{' '}
+                You&apos;ve been successfully signed up. We&apos;ll send details to{' '}
                 {values.email}.
               </p>
               <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
@@ -377,6 +378,28 @@ export default function ReferAFriendForm({
                   Book Now!
                 </button>
               </Link>
+            </div>
+            <div className='flex gap-4 items-center justify-center mt-6 pt-4'>
+              {SOCIAL_CTAS.map((l, idx) => (
+                <motion.a
+                  key={idx}
+                  href={l.href}
+                  target='_blank'
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 1 + idx * 0.125,
+                      duration: 0.5,
+                      ease: 'easeInOut',
+                    },
+                  }}
+                  exit={{ opacity: 0, y: -8 }}
+                >
+                  <l.Component className='text-3xl text-grey transition-colors' />
+                </motion.a>
+              ))}
             </div>
           </div>
         </div>
