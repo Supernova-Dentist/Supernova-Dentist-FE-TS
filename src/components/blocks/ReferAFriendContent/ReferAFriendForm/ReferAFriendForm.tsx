@@ -143,7 +143,7 @@ export default function ReferAFriendForm({
       const params = new URLSearchParams({
         referrerName,
       });
-      return `${window.location.origin}/refer-a-friend?referrerName=${params.toString()}#form`;
+      return `${window.location.origin}/refer-a-friend?${params.toString()}#form`;
     }
     return null;
   }, [referrerName, pathname]);
