@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction } from 'react';
-import { BsPersonFill, BsPersonPlusFill } from 'react-icons/bs';
+import { BsPersonAdd, BsPersonFill, BsPersonHearts, BsPersonPlusFill } from 'react-icons/bs';
 
 const PatientToggleSection = ({
   isExistingPatient,
@@ -16,8 +16,8 @@ const PatientToggleSection = ({
           isExistingPatient ? 'bg-gold text-white' : 'bg-gray-200'
         }`}
       >
-        <BsPersonFill />
-        Existing Patient
+        <BsPersonAdd />
+        Friend Referral
       </button>
       <button
         onClick={() => setIsExistingPatient(false)}
