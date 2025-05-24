@@ -38,7 +38,7 @@ const leaderboardData = [
       'Top 5 Win Prizes',
       'Teeth Whitening + £100 Dental Credit (Worth £525)',
       'Electric Toothbrush + Airflow Hygiene Appointment (Worth £350)',
-      'Complimentary Hygiene Appointment  (Worth £25)',
+      'Complimentary Hygiene Appointment  (Worth £85)',
       '2x £25 Dental Credit',
     ],
     postText: 'WORTH OF PRIZES TO BE WON',
