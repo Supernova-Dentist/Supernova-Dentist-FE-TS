@@ -43,7 +43,7 @@ export function ReferAFriendHero() {
             transition={{
               duration: 0.6,
             }}
-            className='z-40 mt-24 flex flex-col justify-center items-center'
+            className='z-40 mt-48 flex flex-col justify-center items-center'
           >
             <ReferAFriendContainerTextFlip />
             <motion.button
@@ -80,7 +80,7 @@ export function ReferAFriendHero() {
             transition={{
               duration: 0.6,
             }}
-            className='z-30 relative flex flex-col justify-center items-center'
+            className='z-40 mt-48 flex flex-col justify-center items-center'
           >
             <ReferAFriendContainerTextFlip />
             <motion.button
