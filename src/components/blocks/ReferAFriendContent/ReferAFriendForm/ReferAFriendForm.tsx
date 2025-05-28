@@ -250,7 +250,7 @@ export default function ReferAFriendForm({
                           <Label htmlFor='referrerName'>Full Name</Label>
                           <Input
                             id='referrerName'
-                            placeholder='Jane Doe'
+                            placeholder='John Smith'
                             className='py-1 text-lg px-3'
                             {...register('referrerName')}
                           />
@@ -267,10 +267,10 @@ export default function ReferAFriendForm({
                               referralLink ? 'opacity-100' : 'opacity-0 pointer-events-none'
                             }`}
                           >
-                            <Button onClick={handleShareLink} type='button' size='lg'>
+                            <Button onClick={handleShareLink} type='button' size='lg' className='min-w-[8rem] py-6'>
                               Share Link
                             </Button>
-                            <Button onClick={handleCopyLink} type='button' size='lg'>
+                            <Button onClick={handleCopyLink} type='button' size='lg' className='min-w-[8rem] py-6'>
                               {copied ? 'Copied!' : 'Copy Link'}
                             </Button>
                           </div>
