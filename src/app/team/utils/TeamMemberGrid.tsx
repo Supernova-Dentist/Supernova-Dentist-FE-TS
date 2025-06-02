@@ -37,13 +37,13 @@ const teamMembers = [
   },
   {
     name: 'Victoria Hands',
-    title: 'Dental Nuse',
+    title: 'Dental Nurse',
     image: '/assets/images/Headshots/tori.jpg',
     slug: 'victoria-hands',
   },
   {
     name: 'Maria-Mihaela Morar',
-    title: 'Dental Nuse',
+    title: 'Dental Nurse',
     image: '/assets/images/Headshots/maria_headshot.jpg',
     slug: 'maria-mihaela-morar',
   },
