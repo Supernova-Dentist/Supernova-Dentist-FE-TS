@@ -8,7 +8,7 @@ const ScottWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 md:flex-1 '>
           <Reveal>
             <h1 className='pointer-events-auto text-6xl font-black text-slate-100 md:text-8xl'>
-              Hi, I&apos;m Adam<span className='text-gold'>.</span>
+              Hi, I&apos;m Adam<span className='text-lightGold'>.</span>
             </h1>
           </Reveal>
           <Reveal>

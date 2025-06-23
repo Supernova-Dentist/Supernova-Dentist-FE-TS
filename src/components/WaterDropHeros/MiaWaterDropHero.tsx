@@ -1,4 +1,3 @@
-import { DentallyPortal } from '@/lib/constants';
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,22 +15,19 @@ const MiaWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m a <span className='font-semibold text-lightGold'>Trainee Dental Nurse</span>
+                I&apos;m the <span className='font-semibold text-lightGold'>Lead Front of House</span>
               </h2>
             </>
           </Reveal>
           <Reveal>
             <>
               <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-                After over five wonderful years working in front-of-house roles, I&apos;ve taken a new step in my career
-                and begun training as a dental nurse.
+                I’m the first face you&apos;ll see at Supernova Dental, and I’ll always greet you with a smile! With
+                over 5 years of experience in dentistry, I love meeting new patients and making everyone feel welcome.
               </p>
               <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-                I&apos;m thrilled to now be working behind the scenes (and chairside!) helping patients transform their
-                smiles and feel more confident.
-              </p>
-              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-                I’m really looking forward to this next chapter—and to seeing you all in surgery soon!
+                I’m passionate about learning and staying up to date with the latest in the field to provide the best
+                experience for our patients.
               </p>
             </>
           </Reveal>
@@ -48,7 +44,7 @@ const MiaWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/mia_headshot.jpeg'
+              src='/assets/images/Headshots/Supernova-05.jpg'
               alt='Mia Coakley headshot'
               width={600}
               height={800}
