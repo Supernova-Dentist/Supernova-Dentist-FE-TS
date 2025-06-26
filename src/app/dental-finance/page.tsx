@@ -99,8 +99,8 @@ export default function DentalFinance() {
                 <strong>Schedule an appointment:</strong> We’ll assess your needs and provide a treatment plan.
               </li>
               <li>
-                <strong>Apply for finance:</strong> Complete a short online application - we can help you in-practice or
-                you can do it at home.
+                <strong>Apply for finance:</strong> We’ll send you a link via email to complete a short online
+                application – we can also help you apply in-practice if you prefer.
               </li>
               <li>
                 <strong>Get instant approval:</strong> 9 out of 10 decisions are made instantly. If you’re approved,
