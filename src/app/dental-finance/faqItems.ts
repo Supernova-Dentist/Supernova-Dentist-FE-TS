@@ -22,7 +22,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Will applying for dental finance affect my credit score?',
     answer:
-      'No, our partner Tabeo performs soft credit checks for finance applications only. These checks are for verification purposes and do not affect your credit rating or score.',
+      'No, applying will not affect your credit score. Tabeo performs an initial "soft" credit check to verify your information, which is only visible to you and does not impact your credit rating. A full "hard" credit check, which may affect your credit score, is only done by Tabeo after we (the merchant) approve your treatment and confirm the sale.',
   },
   {
     question: 'Are there any fees or hidden charges with dental finance?',
