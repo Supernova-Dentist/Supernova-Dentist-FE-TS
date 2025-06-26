@@ -1,6 +1,5 @@
-'use client';
-
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import FaqSection from '@/components/FaqSection/FaqSection';
 import SectionSpacing from '@/components/SectionSpacing/SectionSpacing';
 import SubHeader from '@/components/SubHeader/SubHeader';
@@ -8,12 +7,48 @@ import Image from 'next/image';
 import fcaLogo from '../../../public/assets/images/fca-logo.png';
 import logo from '../../../public/assets/images/logo.png';
 import { faqItems } from './faqItems';
-import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+
+export const metadata = {
+  title: 'Flexible Dental Finance Options | Supernova Dental Bridgwater',
+  description:
+    'Explore flexible dental finance options at Supernova Dental in Bridgwater. Enjoy 0% interest for up to 12 months and easy monthly payments to invest in your smile with confidence.',
+  keywords: [
+    'Dental finance',
+    'Flexible dental finance',
+    'Supernova Dental',
+    'Bridgwater dental finance',
+    '0% interest dental payments',
+  ],
+  openGraph: {
+    title: 'Flexible Dental Finance Options | Supernova Dental Bridgwater',
+    description:
+      'Explore flexible dental finance options at Supernova Dental in Bridgwater. Enjoy 0% interest for up to 12 months and easy monthly payments to invest in your smile with confidence.',
+    url: 'https://www.supernovadental.co.uk/dental-finance',
+    siteName: 'Supernova Dental',
+    images: [
+      {
+        url: 'https://www.supernovadental.co.uk/assets/images/logo.png',
+        width: 800,
+        height: 600,
+        alt: 'Supernova Dental Logo',
+      },
+    ],
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Flexible Dental Finance Options | Supernova Dental Bridgwater',
+    description:
+      'Explore flexible dental finance options at Supernova Dental in Bridgwater. Enjoy 0% interest for up to 12 months and easy monthly payments to invest in your smile with confidence.',
+    images: ['https://www.supernovadental.co.uk/assets/images/logo.png'],
+  },
+};
 
 export default function DentalFinance() {
   return (
     <>
-      <section className='text-left py-20 px-4 sm:px-10 bg-gradient-to-b from-white to-cream'>
+      <section className='text-left pt-20 px-4 md:pb-8 sm:px-10 bg-gradient-to-b from-white to-cream'>
         <div className='flex flex-col items-center text-center'>
           <div className='flex items-center gap-3 my-6'>
             <Image src={fcaLogo} alt='FCA Logo' className='w-28 h-auto ' />
