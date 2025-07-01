@@ -98,19 +98,19 @@ const CARDS = [
     ctaClasses: 'bg-grey', // Adjust color scheme as needed
     routeTo: 'https://g.page/r/Cd1EdVyvZxVIEAI/review', // Assuming ReviewLink redirects to a review page
   },
+  // {
+  //   id: 2,
+  //   Icon: Instagram, // Use an icon that represents social media or updates
+  //   Icon2: Facebook,
+  //   title: 'Keep in the Loop!',
+  //   description:
+  //     'Check out the Supernova Dental social media pages and stay updated with the latest news, promotions and dental care tips by following us.',
+  //   buttonText: 'Follow Us',
+  //   ctaClasses: 'bg-white', // Adjust color scheme as needed
+  //   routeTo: '/social',
+  // },
   {
     id: 2,
-    Icon: Instagram, // Use an icon that represents social media or updates
-    Icon2: Facebook,
-    title: 'Keep in the Loop!',
-    description:
-      'Check out the Supernova Dental social media pages and stay updated with the latest news, promotions and dental care tips by following us.',
-    buttonText: 'Follow Us',
-    ctaClasses: 'bg-white', // Adjust color scheme as needed
-    routeTo: '/social',
-  },
-  {
-    id: 3,
     Icon: ChatBubbleIcon, // Use an icon that represents questions or contact
     title: 'Got a Question or Enquiry?',
     description: 'If you have any questions or would like to make an enquiry, feel free to get in touch with us.',
@@ -118,4 +118,15 @@ const CARDS = [
     ctaClasses: 'bg-gold', // Adjust colour scheme as needed
     routeTo: '/enquiry', // Link to the enquiry page
   },
+  // {
+  //   id: 3,
+  //   Icon: Instagram, // Use an icon that represents social media or updates
+  //   Icon2: Facebook,
+  //   title: 'Keep in the Loop!',
+  //   description:
+  //     'Check out the Supernova Dental social media pages and stay updated with the latest news, promotions and dental care tips by following us.',
+  //   buttonText: 'Follow Us',
+  //   ctaClasses: 'bg-white', // Adjust color scheme as needed
+  //   routeTo: '/social',
+  // },
 ];

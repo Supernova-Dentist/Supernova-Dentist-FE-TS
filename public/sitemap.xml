@@ -94,11 +94,78 @@
 </url>
 
 <!-- Invisalign Open Day Page -->
-<url>
+<!-- <url>
   <loc>https://www.supernovadental.co.uk/invisalign-open-day</loc>
   <lastmod>2025-03-18</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
+</url> -->
+
+<!-- Refer-a-Friend Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/refer-a-friend</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
 </url>
+
+<!-- Team Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/team</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Team Member Profiles -->
+<url>
+  <loc>https://www.supernovadental.co.uk/team/dr-scott-young</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.supernovadental.co.uk/team/kayleigh-dowdle</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.supernovadental.co.uk/team/dr-sara-d-banuri</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.supernovadental.co.uk/team/adam-young</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.supernovadental.co.uk/team/rebecca-redstone</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.supernovadental.co.uk/team/victoria-hands</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.supernovadental.co.uk/team/maria-mihaela-morar</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://www.supernovadental.co.uk/team/mia-coakley</loc>
+  <lastmod>2025-05-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
 
 </urlset>

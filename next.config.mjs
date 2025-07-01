@@ -16,6 +16,16 @@ const nextConfig = {
       },
     ],
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/invisalign-smile-view',
+        destination: 'https://wwwinvisalign-ts-prd-eu.herokuapp.com/SV/1795073',
+        permanent: false, // Set to `true` if it's a permanent redirect (301)
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -15,13 +15,13 @@ export const cosmeticServices = [
 export const practiceInfo = [
   { name: 'Home', link: '/' },
   { name: 'Practice', link: '/practice' },
-  { name: 'Invisalign Open Day', link: '/invisalign-open-day' },
+  // { name: 'Invisalign Open Day', link: '/invisalign-open-day' },
   { name: 'Invisalign', link: '/invisalign' },
   { name: 'Dental Hygiene', link: '/dental-hygiene' },
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
-  { name: 'Social', link: '/social' },
+  // { name: 'Social', link: '/social' },
 ];
 
 export const generalServices = [
@@ -31,18 +31,15 @@ export const generalServices = [
   { name: 'Emergency', link: '/general-dentistry/emergency' },
 ];
 
-export const cosmetic = [
-  {
-    name: 'Invisalign Open Day',
-    link: '/invisalign-open-day',
-  },
+export const services = [
+  // {
+  //   name: 'Invisalign Open Day',
+  //   link: '/invisalign-open-day',
+  // },
   {
     name: 'Invisalign',
     link: '/invisalign',
   },
-];
-
-export const general = [
   {
     name: 'Dental Therapist',
     link: '/dental-therapist',
@@ -53,9 +50,21 @@ export const general = [
   },
 ];
 
+// export const general = [
+//   {
+//     name: 'Dental Therapist',
+//     link: '/dental-therapist',
+//   },
+//   {
+//     name: 'Dental Hygiene',
+//     link: '/dental-hygiene',
+//   },
+// ];
+
 export const aboutUs = [
+  { name: 'Team', link: '/team' },
   { name: 'Find Us', link: '/find-us' },
-  { name: 'Social', link: '/social' },
+  // { name: 'Social', link: '/social' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
   { name: 'Referral', link: '/referral' },
@@ -90,9 +99,10 @@ export const navLinks = [
   //  TODO: Uncomment when there is a insta post
   // { name: 'Social', url: '#social', flyout: [] },
   { name: 'Practice', url: '/practice', flyout: [] },
-  { name: 'Cosmetic Dentistry', flyout: cosmetic },
-  { name: 'General Dentistry', flyout: general },
+  { name: 'Services', flyout: services },
+  // { name: 'General Dentistry', flyout: general },
   { name: 'About us', flyout: aboutUs },
+  { name: 'Refer A Friend', url: '/refer-a-friend', flyout: [] },
 ];
 
 export const locationInfo = {
@@ -141,3 +151,8 @@ export const pricing = [
   //   features: ['50% off new patient assessment', '50% off 1st routine hygiene appointment', 'Includes air polish'],
   // },
 ];
+
+export const instagramAccountsConfig = {
+  social: '17841470126685683',
+  'scott-young': '17841468241198700',
+};

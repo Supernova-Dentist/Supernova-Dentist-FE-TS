@@ -23,6 +23,7 @@ export default function InvisalignContent() {
         serviceDescription='Get a personalised Invisalign treatment plan and discover how clear aligners can transform your smile.'
         formTitle='Sign up for your Free Invisalign Consultation'
         formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
+        imgSrc='/assets/images/Invisalign_Group.jpg'
       />
 
       <div className='from-cream to-white bg-gradient-to-b'>
