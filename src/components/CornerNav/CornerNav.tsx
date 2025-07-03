@@ -317,6 +317,7 @@ const LINKS = [
       { title: 'Invisalign', href: '/invisalign' },
       { title: 'Dental Therapist', href: '/dental-therapist' },
       { title: 'Dental Hygiene', href: '/dental-hygiene' },
+      { title: 'Dental Finance', href: '/dental-finance' },
     ],
   },
   {

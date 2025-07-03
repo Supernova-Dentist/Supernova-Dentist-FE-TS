@@ -8,15 +8,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { DentallyPortal } from '@/lib/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Suspense, useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { z } from 'zod';
-import Search from './Search';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { DentallyPortal } from '@/lib/constants';
+import { Suspense, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
+import { z } from 'zod';
+import Search from './Search';
 
 // Define the max character limit
 const MAX_MESSAGE_LENGTH = 500;
@@ -231,6 +231,9 @@ export function EnquiryFormContent() {
                                     </SelectItem>
                                     <SelectItem value='dental-hygiene' className='text-md lg:text-lg'>
                                       Dental Hygiene and Advice
+                                    </SelectItem>
+                                    <SelectItem value='dental-finance' className='text-md lg:text-lg'>
+                                      Dental Finance
                                     </SelectItem>
                                     <SelectItem value='feedback' className='text-md lg:text-lg'>
                                       Feedback

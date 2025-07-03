@@ -48,6 +48,10 @@ export const services = [
     name: 'Dental Hygiene',
     link: '/dental-hygiene',
   },
+  {
+    name: 'Dental Finance',
+    link: '/dental-finance',
+  },
 ];
 
 // export const general = [

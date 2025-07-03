@@ -15,6 +15,7 @@ const urlToReadableMap: { [key: string]: string } = {
   'general-dentistry/root-canal': 'Root Canal Treatment',
   'general-dentistry/emergency': 'Emergency Dental Care',
   pricing: 'Pricing',
+  'dental-finance': 'Dental Finance',
 };
 
 export default function Search() {
