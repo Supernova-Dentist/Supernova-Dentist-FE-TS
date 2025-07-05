@@ -836,7 +836,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size8x8cmFullUpper'
@@ -854,7 +854,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size8x8cmFullLower'
@@ -872,7 +872,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size8x8cmFullUpperLower'
@@ -890,7 +890,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size8x8cmURQ'
@@ -905,7 +905,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size8x8cmULQ'
@@ -920,7 +920,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size8x8cmLRQ'
@@ -935,7 +935,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size8x8cmLLQ'
@@ -953,7 +953,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size5x5cmUR8to6'
@@ -968,7 +968,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size5x5cmUR6to4'
@@ -983,7 +983,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size5x5cmUpper3to3'
@@ -1001,7 +1001,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size5x5cmUL4to6'
@@ -1016,7 +1016,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size5x5cmUL6to8'
@@ -1031,7 +1031,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size5x5cmLR8to6'
@@ -1046,7 +1046,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size5x5cmLL6to8'
@@ -1061,7 +1061,7 @@ export function CBCTOPGReferralFormContent() {
                         <div>
                           <Checkbox
                             disabled={
-                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                              form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                               form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                             }
                             id='size5x5cmLR6to4'
@@ -1078,7 +1078,7 @@ export function CBCTOPGReferralFormContent() {
                       <div>
                         <Checkbox
                           disabled={
-                            form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
+                            form.watch('referralPurpose') !== 'CBCTWithReportReferral' &&
                             form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'
                           }
                           id='size11x10cmFullUpperLower'
