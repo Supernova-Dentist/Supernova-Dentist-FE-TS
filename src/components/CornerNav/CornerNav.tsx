@@ -74,7 +74,7 @@ const LinksContainer = () => {
   const [activeLink, setActiveLink] = useState<number | null>(null);
 
   return (
-    <motion.div className='space-y-6 pt-2 pb-8 px-4 mx-auto overflow-y-auto'>
+    <motion.div className='space-y-6 pt-2 pb-8 px-2 mx-auto overflow-y-auto'>
       {/* Grid layout for all links */}
       <div className='grid grid-cols-2 gap-4 sm:grid-cols-2 xs:grid-cols-1'>
         {LINKS.map((l, idx) => (
@@ -118,8 +118,8 @@ const NavLink = ({
   onClick: () => void;
 }) => {
   // Determine the number of columns based on the number of subLinks
-  const columnsClass = subLinks && subLinks.length > 4 ? 'grid-cols-3' : 'grid-cols-2';
-
+  const isReferral = typeof children === 'string' && children.toLowerCase() === 'referral';
+  const columnsClass = isReferral ? 'grid-cols-1' : subLinks && subLinks.length > 4 ? 'grid-cols-3' : 'grid-cols-2';
   return (
     <div>
       <motion.a
@@ -180,7 +180,7 @@ const NavLink = ({
                   },
                 }}
                 exit={{ opacity: 0, x: -10 }}
-                className={`text-md font-medium text-white ${isActive ? 'highlight' : ''}`} // Add active state class
+                className={`text-md font-medium text-white ${isActive ? 'highlight' : ''}`}
               >
                 {subLink.title}
               </motion.a>
@@ -331,7 +331,7 @@ const LINKS = [
       {
         title: 'Enquiry',
         href: '/enquiry',
-      }
+      },
     ],
   },
   {
