@@ -331,16 +331,22 @@ const LINKS = [
       {
         title: 'Enquiry',
         href: '/enquiry',
-      },
-      {
-        title: 'Referral',
-        href: '/referral',
-      },
+      }
     ],
   },
   {
-    title: 'Refer A Friend',
-    href: '/refer-a-friend',
+    title: 'Referral',
+    href: '#',
+    subLinks: [
+      {
+        title: 'Professional Referrals',
+        href: '/professional-referrals',
+      },
+      {
+        title: 'Refer A Friend',
+        href: '/refer-a-friend',
+      },
+    ],
   },
 ];
 

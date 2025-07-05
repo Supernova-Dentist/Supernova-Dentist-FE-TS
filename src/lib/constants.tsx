@@ -71,7 +71,11 @@ export const aboutUs = [
   // { name: 'Social', link: '/social' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
-  { name: 'Referral', link: '/referral' },
+];
+
+export const referrals = [
+  { name: 'Professional Referrals', link: '/professional-referrals' },
+  { name: 'Refer A Friend', link: '/refer-a-friend' },
 ];
 
 export const media = [
@@ -106,7 +110,7 @@ export const navLinks = [
   { name: 'Services', flyout: services },
   // { name: 'General Dentistry', flyout: general },
   { name: 'About us', flyout: aboutUs },
-  { name: 'Refer A Friend', url: '/refer-a-friend', flyout: [] },
+  { name: 'Referral', flyout: referrals },
 ];
 
 export const locationInfo = {

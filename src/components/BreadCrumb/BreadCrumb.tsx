@@ -34,7 +34,10 @@ const BreadCrumb = () => {
 
           {pathNames.map((link, index) => {
             const href: string = `/${pathNames.slice(0, index + 1).join('/')}`;
-            const linkName: string = link[0].toUpperCase() + link.slice(1, link.length);
+            const linkName: string = link
+              .split('-')
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ');
             const isLastPath: boolean = pathNames.length === index + 1;
             return (
               <Fragment key={index}>
