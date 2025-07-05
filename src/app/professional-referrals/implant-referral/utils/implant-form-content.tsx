@@ -168,7 +168,7 @@ export function ImplantReferralFormContent() {
         formData.append('attachments', file); // note the identical key
       });
 
-      const response = await fetch('http://localhost:3001/referral', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/referral`, {
         method: 'POST',
         body: formData,
       });
