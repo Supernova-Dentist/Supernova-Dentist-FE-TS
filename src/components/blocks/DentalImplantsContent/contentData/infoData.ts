@@ -4,6 +4,7 @@ export default {
     'Dental implants are a modern, effective solution for replacing missing teeth. They consist of a titanium post surgically inserted into the jawbone, acting as a strong and stable root replacement for new teeth. This procedure creates a durable foundation for attaching crowns, bridges, or dentures.',
     'Implants provide a natural look and feel, restoring both the function and aesthetics of your smile. Whether you need to replace a single tooth, multiple teeth, or support full dentures, our expert team ensures a precise, comfortable procedure with long-lasting results.',
   ],
+  imageSrc: '/assets/images/implant_intro.webp',
   advantagesTitle: 'Advantages of Dental Implants',
   useCaseTitle: 'Common Uses for Dental Implants',
   advantagesData: [
