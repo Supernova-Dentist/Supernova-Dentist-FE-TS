@@ -5,9 +5,9 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 
 // Placeholder images — replace these with your actual imports when ready
-const ConsultationImage = '/assets/images/placeholder-consultation.jpg';
-const SurgeryImage = '/assets/images/placeholder-surgery.jpg';
-const RestorationImage = '/assets/images/placeholder-restoration.jpg';
+const ConsultationImage = '/assets/images/equipment.JPG';
+const SurgeryImage = '/assets/images/surgery2.JPG';
+const RestorationImage = '/assets/images/implant_journey_3.jpg';
 
 export function DentalImplantsJourney() {
   const [imagesLoaded, setImagesLoaded] = useState(0);

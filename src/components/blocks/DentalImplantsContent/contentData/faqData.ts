@@ -12,7 +12,7 @@ export const faqItems = [
   {
     question: 'What are the benefits of dental implants over dentures?',
     answer:
-      'Dental implants provide a stable and permanent solution compared to dentures, which can shift or cause discomfort. Implants are anchored in the jawbone, mimicking natural tooth roots and improving chewing efficiency. Unlike dentures, implants don’t require adhesives or daily removal and cleaning. They also help maintain jawbone health and prevent bone loss associated with dentures.',
+      'Dental implants provide a stable and permanent solution compared to dentures, which can shift or cause discomfort. One of the key advantages of implants is their superior bite strength — they restore a much higher level of chewing power, allowing you to eat a wider range of foods comfortably. Dentures often reduce bite efficiency and can feel less secure. Implants are fixed in the jawbone like natural teeth, helping maintain bone health and eliminating the need for adhesives or daily removal and cleaning.',
   },
   {
     question: 'How long do dental implants last?',
@@ -32,7 +32,7 @@ export const faqItems = [
   {
     question: 'What is the cost of dental implants?',
     answer:
-      'Costs vary based on case complexity and implant type. On average, implants range from £2,000 to £4,000 per tooth, including placement and restoration. While implants may have a higher upfront cost than bridges or dentures, their durability and longevity make them a valuable long-term investment. Contact us for a personalised quote and financing options.',
+      'Our dental implants start from £2,750 per tooth, including placement and restoration. While they involve a higher initial investment than bridges or dentures, their durability, longevity, and natural function make them a cost-effective long-term solution. We offer finance plans, including 0% APR over 12 months. A personalised quote will be provided following your consultation.',
   },
   {
     question: 'Are dental implants covered by insurance?',
