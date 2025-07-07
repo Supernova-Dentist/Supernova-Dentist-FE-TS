@@ -41,7 +41,7 @@ export default function DentalImplantsContent() {
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />
 
-      <DentalImplantsJourney id='journey' />
+      <DentalImplantsJourney />
 
       <ComparisonSection id='comparison' data={tableData} />
       <FaqSection id='faq' faqItems={faqItems} />
