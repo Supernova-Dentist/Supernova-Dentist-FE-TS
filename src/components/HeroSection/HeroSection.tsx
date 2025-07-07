@@ -10,6 +10,10 @@ export default function HeroSection({ data }: HeroSection) {
     triggerOnce: true, // Only play the animation once
   });
 
+  if (!data.statsTitle) {
+    data.statsTitle = 'On average:'; // Ensure statsTitle is defined
+  }
+
   return (
     <section ref={ref} className='flex items-center justify-center w-full mx-auto'>
       <motion.div
@@ -23,6 +27,7 @@ export default function HeroSection({ data }: HeroSection) {
           subTitle={data.header.subTitle}
           benefitText={data.benefitText}
           stats={data.serviceStats}
+          statsTitle={data.statsTitle}
         />
       </motion.div>
     </section>

@@ -1,9 +1,9 @@
-const tableHeadData = ['Feature', 'Dental Implants', 'Bridges', 'Dentures'];
+const tableHeadData = ['Feature', 'Dental Implants (Long-lasting)', 'Bridges', 'Dentures'];
 
 const tableBodyData = [
   {
-    feature: 'Longevity',
-    data: ['10-15 years or more', '5-10 years', '5-7 years'],
+    feature: 'Potential Lifetime Longevity',
+    data: [true, false, false],
   },
   {
     feature: 'Durability',
@@ -16,6 +16,10 @@ const tableBodyData = [
   {
     feature: 'Comfort and Fit',
     data: [true, true, true],
+  },
+  {
+    feature: 'Bite Strength',
+    data: ['Near natural bite force', 'Reduced bite force', 'Significantly reduced bite force'],
   },
   {
     feature: 'Maintenance',

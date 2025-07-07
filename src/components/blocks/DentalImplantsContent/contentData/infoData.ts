@@ -1,37 +1,53 @@
 export default {
-  title: 'What are Dental Implants?',
+  title: 'What Are Dental Implants?',
   descriptions: [
-    'Dental implants are a modern solution for replacing missing teeth. They consist of a titanium post that is surgically inserted into the jawbone, which acts as a replacement root for a new tooth. This procedure provides a stable and durable foundation for attaching crowns, bridges, or dentures.',
-    'Implants offer a natural look and feel, effectively restoring both the function and aesthetics of your smile. They can be used to replace a single tooth, multiple teeth, or even support full dentures. Our expert team ensures a precise and comfortable procedure with long-lasting results.',
+    'Dental implants are a modern, effective solution for replacing missing teeth. They consist of a titanium post surgically inserted into the jawbone, acting as a strong and stable root replacement for new teeth. This procedure creates a durable foundation for attaching crowns, bridges, or dentures.',
+    'Implants provide a natural look and feel, restoring both the function and aesthetics of your smile. Whether you need to replace a single tooth, multiple teeth, or support full dentures, our expert team ensures a precise, comfortable procedure with long-lasting results.',
   ],
-  advantagesTitle: 'Advantages of Dental Implants:',
-  useCaseTitle: 'Use Cases of Dental Implants',
+  advantagesTitle: 'Advantages of Dental Implants',
+  useCaseTitle: 'Common Uses for Dental Implants',
   advantagesData: [
-    { id: 1, heading: 'Natural Appearance', text: 'Blends seamlessly with your existing teeth for a natural look.' },
-    { id: 2, heading: 'Durability', text: 'Provides a long-lasting solution with proper care.' },
-    { id: 3, heading: 'Enhanced Functionality', text: 'Restores full chewing ability and support for adjacent teeth.' },
+    {
+      id: 1,
+      heading: 'Natural Appearance',
+      text: 'Implants blend seamlessly with your existing teeth for a natural and attractive smile.',
+    },
+    {
+      id: 2,
+      heading: 'Long-Lasting Durability',
+      text: 'With proper care, dental implants provide a permanent and reliable solution.',
+    },
+    {
+      id: 3,
+      heading: 'Restored Chewing Function',
+      text: 'Fully restore your ability to chew and speak comfortably.',
+    },
     {
       id: 4,
-      heading: 'No Impact on Adjacent Teeth',
-      text: 'Unlike bridges, implants don’t require modification of neighboring teeth.',
+      heading: 'Preserves Adjacent Teeth',
+      text: 'Unlike dental bridges, implants do not require altering or damaging neighboring teeth.',
     },
   ],
   useCaseData: [
     {
       id: 1,
       heading: 'Replace Missing Teeth',
-      text: 'Ideal for replacing one or more missing teeth with a natural-looking solution.',
+      text: 'Ideal for replacing one or more missing teeth with a natural-looking, permanent solution.',
     },
     {
       id: 2,
       heading: 'Support for Dentures',
-      text: 'Provides a stable foundation for dentures, reducing movement and enhancing comfort.',
+      text: 'Provides a secure and stable foundation for dentures, reducing movement and increasing comfort.',
     },
-    { id: 3, heading: 'Restore Chewing Function', text: 'Enables you to eat a wide variety of foods comfortably.' },
+    {
+      id: 3,
+      heading: 'Restore Chewing Ability',
+      text: 'Enables you to eat a wide variety of foods with confidence and ease.',
+    },
     {
       id: 4,
       heading: 'Improve Oral Health',
-      text: 'Helps maintain the integrity of the jawbone and prevents bone loss.',
+      text: 'Helps maintain jawbone density and prevents bone loss that occurs after tooth loss.',
     },
   ],
 };

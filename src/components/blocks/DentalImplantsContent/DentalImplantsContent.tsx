@@ -1,35 +1,50 @@
-// import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-// import HeroSection from '@/components/HeroSection/HeroSection';
-// import InfoSection from '@/components/InfoSection/InfoSection';
-// import BenefitSection from '@/components/BenefitSection/BenefitSection';
-// import ProcessSection from '@/components/ProcessSection/ProcessSection';
-// import TestimonialsSection from '@/components/TestimonialsSection/TestimonialsSection';
-// import AftercareSection from '@/components/AftercareSection/AftercareSection';
-// import ComparisonSection from '@/components/ComparisonSection/ComparisonSection';
-// import FaqSection from '@/components/FaqSection/FaqSection';
-// import dentalImplantsHeroData from './contentData/heroData';
-// import benefitsData from './contentData/benefitsData';
-// import processData from './contentData/processData';
-// import testimonialsData from './contentData/testimonialsData';
-// import afterCareData from './contentData/afterCareData';
-// import { tableData } from './contentData/tableData';
-// import { faqItems } from './contentData/faqData';
-// import infoData from './contentData/infoData';
+import BenefitSection from '@/components/BenefitSection/BenefitSection';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import ComparisonSection from '@/components/ComparisonSection/ComparisonSection';
+import { DentalImplantsJourney } from '@/components/DentalImplantsJourney/DentalImplantsJourney';
+import FaqSection from '@/components/FaqSection/FaqSection';
+import HeroSection from '@/components/HeroSection/HeroSection';
+import InfoSection from '@/components/InfoSection/InfoSection';
+import InvisalignSmileView from '@/components/InvisalignSmileView/InvisalignSmileView';
+import ServiceForm from '@/components/ServiceForm/ServiceForm';
+import { SlideTabsExample } from '../SlideTabs/SlideTabs';
+import benefitsData from './contentData/benefitsData';
+import { faqItems } from './contentData/faqData';
+import dentalImplantsHeroData from './contentData/heroData';
+import infoData from './contentData/infoData';
+import { tableData } from './contentData/tableData';
 
-// export default function DentalImplantsContent() {
-//   return (
-//     <>
-//       <HeroSection data={dentalImplantsHeroData} />
-//       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
-//         <BreadCrumb />
-//       </div>
-//       <InfoSection data={infoData} />
-//       <BenefitSection data={benefitsData} />
-//       <ProcessSection data={processData} />
-//       <TestimonialsSection data={testimonialsData} />
-//       <AftercareSection data={afterCareData} />
-//       <ComparisonSection data={tableData} />
-//       <FaqSection faqItems={faqItems} />
-//     </>
-//   );
-// }
+export default function DentalImplantsContent() {
+  return (
+    <>
+      <ServiceForm
+        serviceName='Dental Implants Journey'
+        serviceChip='Free Implant Consultation'
+        serviceDescription='Discover how dental implants can restore your smile, confidence, and quality of life with a personalised treatment plan.'
+        formTitle='Sign up for your Free Implant Consultation'
+        formDescription='Book a no-obligation consultation with our experienced implant team and take the first step toward a permanent solution for missing teeth.'
+        imgSrc='/assets/images/equipment.JPG'
+      />
+
+      <div className='from-cream to-white bg-gradient-to-b'>
+        <HeroSection data={dentalImplantsHeroData} />
+      
+      </div>
+
+      <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
+        <BreadCrumb />
+      </div>
+
+      {/* <div className='sticky top-24 z-10'>
+        <SlideTabsExample />
+      </div> */}
+      <InfoSection id='info' data={infoData} />
+      <BenefitSection id='benefits' data={benefitsData} />
+
+      <DentalImplantsJourney id='journey' />
+
+      <ComparisonSection id='comparison' data={tableData} />
+      <FaqSection id='faq' faqItems={faqItems} />
+    </>
+  );
+}

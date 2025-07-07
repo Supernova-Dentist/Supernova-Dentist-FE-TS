@@ -2,51 +2,51 @@ export const faqItems = [
   {
     question: 'What are dental implants?',
     answer:
-      'Dental implants are a permanent solution for replacing missing teeth. They consist of a titanium post inserted into the jawbone, which acts as a root for a custom-made crown. Unlike removable dentures or bridges, implants fuse with the bone, offering a stable, natural-looking, and long-lasting solution. At our practice, we use state-of-the-art technology to ensure precise placement and optimal results.',
+      'Dental implants are a permanent solution for replacing missing teeth. They consist of a titanium post inserted into the jawbone, acting as a root for a custom-made crown. Unlike removable dentures or bridges, implants fuse with the bone, offering a stable, natural-looking, and long-lasting replacement. Our practice uses state-of-the-art technology to ensure precise placement and optimal results.',
   },
   {
     question: 'How do dental implants compare to dental bridges?',
     answer:
-      'Dental implants are often preferred over bridges because they do not require the alteration of adjacent healthy teeth. While bridges rely on crowns placed on neighboring teeth to support the missing tooth, implants are standalone replacements that preserve the structure of your natural teeth. Implants also tend to have a longer lifespan and offer superior durability and functionality.',
+      'Dental implants are often preferred over bridges because they don’t require altering adjacent healthy teeth. Bridges rely on crowns placed on neighboring teeth to support the missing tooth, while implants are standalone replacements that preserve your natural teeth’s structure. Implants also tend to last longer and provide superior durability and function.',
   },
   {
     question: 'What are the benefits of dental implants over dentures?',
     answer:
-      'Dental implants provide a more stable and permanent solution compared to dentures, which can shift or cause discomfort. Implants are embedded in the jawbone, mimicking natural tooth roots and improving chewing efficiency. Unlike dentures, implants do not require adhesives and eliminate the need for daily removal and cleaning. They also help maintain bone structure and prevent bone loss, which can occur with dentures.',
+      'Dental implants provide a stable and permanent solution compared to dentures, which can shift or cause discomfort. Implants are anchored in the jawbone, mimicking natural tooth roots and improving chewing efficiency. Unlike dentures, implants don’t require adhesives or daily removal and cleaning. They also help maintain jawbone health and prevent bone loss associated with dentures.',
   },
   {
     question: 'How long do dental implants last?',
     answer:
-      'With proper care, dental implants can last 10-15 years or even a lifetime. The longevity of implants depends on factors such as oral hygiene, bone health, and lifestyle choices. Regular check-ups and cleanings at our practice will help ensure the health and longevity of your implants. In comparison, bridges and dentures generally require replacement or adjustment more frequently.',
+      'With proper care, dental implants can last 10-15 years or even a lifetime. Their longevity depends on factors like oral hygiene, bone health, and lifestyle. Regular dental check-ups at our practice help maintain the health and lifespan of your implants. In comparison, bridges and dentures generally need more frequent replacement or adjustment.',
   },
   {
     question: 'Is getting dental implants a painful procedure?',
     answer:
-      'Most patients experience minimal discomfort during and after the dental implant procedure. We use advanced techniques and local anesthesia to ensure you remain comfortable throughout the process. Post-procedure, you may experience some swelling and minor discomfort, but this is usually manageable with over-the-counter pain relief. Our team will provide detailed aftercare instructions to help you through the recovery process.',
+      'Most patients experience minimal discomfort during and after the implant procedure. We use advanced techniques and local anesthesia to keep you comfortable throughout. Afterward, some swelling and minor soreness may occur, which can be managed with over-the-counter pain relief. Our team provides detailed aftercare instructions to support your recovery.',
   },
   {
     question: 'How should I care for my dental implants?',
     answer:
-      'Caring for dental implants is similar to caring for natural teeth. Maintain good oral hygiene by brushing twice a day, flossing daily, and using an antimicrobial mouthwash. Regular dental check-ups are crucial to monitor the health of your implants and surrounding gums. Avoid smoking and excessive consumption of staining substances to ensure the longevity and appearance of your implants.',
+      'Caring for dental implants is similar to natural teeth. Brush twice daily, floss regularly, and use an antimicrobial mouthwash. Regular dental visits are essential to monitor your implants and gums. Avoid smoking and limit staining substances to ensure your implants remain healthy and look great.',
   },
   {
     question: 'What is the cost of dental implants?',
     answer:
-      'The cost of dental implants varies depending on the complexity of the case and the type of implant used. On average, implants can range from £2,000 to £4,000 per tooth, including the placement and restoration. Although the initial cost may be higher than other options like bridges or dentures, implants offer a longer-term investment due to their durability and permanence. Contact us for a personalised quote and financing options to fit your needs.',
+      'Costs vary based on case complexity and implant type. On average, implants range from £2,000 to £4,000 per tooth, including placement and restoration. While implants may have a higher upfront cost than bridges or dentures, their durability and longevity make them a valuable long-term investment. Contact us for a personalised quote and financing options.',
   },
   {
     question: 'Are dental implants covered by insurance?',
     answer:
-      'Dental implants are often considered a more advanced and costly treatment, and insurance coverage can vary. While some plans may offer partial coverage, others may not cover implants at all. We recommend checking with your insurance provider for specific details about your coverage. Our practice also offers flexible payment plans to help make dental implants more accessible.',
+      'Insurance coverage for dental implants varies. Some plans offer partial coverage, while others may not cover implants at all. We recommend checking with your provider for specifics. Our practice also offers flexible payment plans to make implants more affordable.',
   },
   {
     question: 'Can dental implants be placed if I have bone loss?',
     answer:
-      'Yes, dental implants can often be placed even if you have experienced bone loss. We may recommend a bone grafting procedure to build up the bone before placing the implants. Our team will assess your specific situation and develop a personalised treatment plan to ensure successful implant placement. The ability to restore your smile with implants, even in challenging cases, is one of the many benefits of modern dental techniques.',
+      'Yes. Even with bone loss, implants can often be placed successfully. We may recommend bone grafting to rebuild the jawbone before implant placement. Our team will assess your situation and create a personalised treatment plan to ensure the best outcome. Modern dental techniques make it possible to restore your smile, even in challenging cases.',
   },
   {
     question: 'How do dental implants compare to other tooth replacement options?',
     answer:
-      'Dental implants stand out due to their stability, durability, and ability to preserve jawbone health. Unlike bridges and dentures, implants do not rely on adjacent teeth or require removal for cleaning. They also offer a natural appearance and function similar to your own teeth. While the initial cost may be higher, the long-term benefits make implants a superior choice for many patients looking for a permanent solution to tooth loss.',
+      'Dental implants stand out for their stability, durability, and ability to preserve jawbone health. Unlike bridges and dentures, implants don’t affect adjacent teeth or require removal for cleaning. They offer a natural look and function similar to real teeth. Though the initial cost is higher, the long-term benefits make implants a superior choice for many seeking a permanent tooth replacement.',
   },
 ];
