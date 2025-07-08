@@ -2,9 +2,13 @@ import Link from 'next/link';
 import SignUpButton from '../LearnMoreButton/LearnMoreButton';
 import { DentallyPortal } from '@/lib/constants';
 
-export default function ServiceActions() {
+export default function ServiceActions({ shouldCentre = false }) {
   return (
-    <div className='lg:mt-6 mt-10 flex flex-col gap-4 sm:flex-row md:justify-start sm:justify-center'>
+    <div
+      className={`lg:mt-6 mt-10 flex flex-col gap-4 sm:flex-row ${
+        shouldCentre ? 'justify-center' : 'md:justify-start sm:justify-center'
+      }`}
+    >
       <Link
         target='_blank'
         href={`${DentallyPortal}`}

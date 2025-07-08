@@ -44,7 +44,7 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
           {/* Description */}
           <div>
             <ServiceDescription className='mt-6 mb-4' description={descriptions[0]} />
-            <ServiceDescription description={descriptions[1]} />
+            {descriptions[1] && <ServiceDescription description={descriptions[1]} />}
             {imageSrc && (
               <Image
                 alt={`${title} Image`}
@@ -72,26 +72,28 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
             </div>
           )}
 
-          <div className='flex-1 '>
-            {treatmentCasesVideoSrc ? (
-              <div className='w-full mx-auto text-center'>
-                <ServiceGridTitle title={useCaseTitle} />
-                <ServiceDescription description={treatmentCasesDescription} className='max-w-[30rem] mx-auto' />
-                <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
-                  <video
-                    className='w-full h-full object-fit rounded-lg mt-8'
-                    controls
-                    preload='metadata'
-                    src={treatmentCasesVideoSrc}
-                  />
+          <div className='flex-1'>
+            {treatmentCasesVideoSrc || (useCaseTitle && useCaseData?.length > 0) ? (
+              treatmentCasesVideoSrc ? (
+                <div className='w-full mx-auto text-center'>
+                  <ServiceGridTitle title={useCaseTitle} />
+                  <ServiceDescription description={treatmentCasesDescription} className='max-w-[30rem] mx-auto' />
+                  <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
+                    <video
+                      className='w-full h-full object-fit rounded-lg mt-8'
+                      controls
+                      preload='metadata'
+                      src={treatmentCasesVideoSrc}
+                    />
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <>
-                <ServiceGridTitle title={useCaseTitle} />
-                <ServiceGridList listItems={useCaseData} />
-              </>
-            )}
+              ) : (
+                <>
+                  <ServiceGridTitle title={useCaseTitle} />
+                  <ServiceGridList listItems={useCaseData} />
+                </>
+              )
+            ) : null}
           </div>
         </div>
       </motion.div>

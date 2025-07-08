@@ -2,51 +2,52 @@ export const faqItems = [
   {
     question: 'What are dental implants?',
     answer:
-      'Dental implants are a permanent solution for replacing missing teeth. They consist of a titanium post inserted into the jawbone, acting as a root for a custom-made crown. Unlike removable dentures or bridges, implants fuse with the bone, offering a stable, natural-looking, and long-lasting replacement. Our practice uses state-of-the-art technology to ensure precise placement and optimal results.',
+      'Dental implants are permanent tooth replacements made of titanium posts inserted into the jawbone, topped with a custom crown. They fuse with the bone for a stable, natural-looking, and long-lasting result.',
   },
   {
     question: 'How do dental implants compare to dental bridges?',
     answer:
-      'Dental implants are often preferred over bridges because they don’t require altering adjacent healthy teeth. Bridges rely on crowns placed on neighboring teeth to support the missing tooth, while implants are standalone replacements that preserve your natural teeth’s structure. Implants also tend to last longer and provide superior durability and function.',
+      'Unlike bridges, implants don’t rely on neighboring teeth and preserve natural tooth structure. They’re more durable, longer-lasting, and function independently.',
   },
   {
     question: 'What are the benefits of dental implants over dentures?',
     answer:
-      'Dental implants provide a stable and permanent solution compared to dentures, which can shift or cause discomfort. One of the key advantages of implants is their superior bite strength — they restore a much higher level of chewing power, allowing you to eat a wider range of foods comfortably. Dentures often reduce bite efficiency and can feel less secure. Implants are fixed in the jawbone like natural teeth, helping maintain bone health and eliminating the need for adhesives or daily removal and cleaning.',
+      'Implants are fixed, more secure, and offer better bite strength than dentures. They help preserve bone and don’t require adhesives or daily removal.',
   },
   {
     question: 'How long do dental implants last?',
     answer:
-      'With proper care, dental implants can last 10-15 years or even a lifetime. Their longevity depends on factors like oral hygiene, bone health, and lifestyle. Regular dental check-ups at our practice help maintain the health and lifespan of your implants. In comparison, bridges and dentures generally need more frequent replacement or adjustment.',
+      'With good care, implants can last 10–15 years or even a lifetime. They’re more durable than bridges or dentures, especially with regular dental check-ups.',
   },
   {
     question: 'Is getting dental implants a painful procedure?',
     answer:
-      'Most patients experience minimal discomfort during and after the implant procedure. We use advanced techniques and local anesthesia to keep you comfortable throughout. Afterward, some swelling and minor soreness may occur, which can be managed with over-the-counter pain relief. Our team provides detailed aftercare instructions to support your recovery.',
+      'The procedure involves minimal discomfort thanks to local anesthesia and modern techniques. Any post-op soreness is usually mild and manageable.',
   },
   {
     question: 'How should I care for my dental implants?',
     answer:
-      'Caring for dental implants is similar to natural teeth. Brush twice daily, floss regularly, and use an antimicrobial mouthwash. Regular dental visits are essential to monitor your implants and gums. Avoid smoking and limit staining substances to ensure your implants remain healthy and look great.',
+      'Care for implants like natural teeth: brush, floss, and use mouthwash daily. Regular check-ups help keep them and your gums healthy.',
   },
   {
     question: 'What is the cost of dental implants?',
     answer:
-      'Our dental implants start from £2,750 per tooth, including placement and restoration. While they involve a higher initial investment than bridges or dentures, their durability, longevity, and natural function make them a cost-effective long-term solution. We offer finance plans, including 0% APR over 12 months. A personalised quote will be provided following your consultation.',
+      'Dental implants can cost as little as £2,750 per tooth, including both placement and restoration. The exact cost depends on your individual treatment plan.',
   },
   {
-    question: 'Are dental implants covered by insurance?',
+    question: 'Do you offer finance options for dental implants?',
     answer:
-      'Insurance coverage for dental implants varies. Some plans offer partial coverage, while others may not cover implants at all. We recommend checking with your provider for specifics. Our practice also offers flexible payment plans to make implants more affordable.',
+      'Yes. We offer flexible finance plans, including 0% APR over 12 months, to make treatment more affordable. Full details are provided during your consultation.',
   },
+
   {
     question: 'Can dental implants be placed if I have bone loss?',
     answer:
-      'Yes. Even with bone loss, implants can often be placed successfully. We may recommend bone grafting to rebuild the jawbone before implant placement. Our team will assess your situation and create a personalised treatment plan to ensure the best outcome. Modern dental techniques make it possible to restore your smile, even in challenging cases.',
+      'Bone grafting may be needed first. We’ll assess your case and plan treatment to ensure a strong, lasting result—even with bone loss.',
   },
   {
     question: 'How do dental implants compare to other tooth replacement options?',
     answer:
-      'Dental implants stand out for their stability, durability, and ability to preserve jawbone health. Unlike bridges and dentures, implants don’t affect adjacent teeth or require removal for cleaning. They offer a natural look and function similar to real teeth. Though the initial cost is higher, the long-term benefits make implants a superior choice for many seeking a permanent tooth replacement.',
+      'Dental implants stand out as the longest-lasting restoration in all of dentistry and that’s a fact. While the initial cost is higher, the long-term benefits make implants an ideal choice for anyone looking to restore their smile.',
   },
 ];

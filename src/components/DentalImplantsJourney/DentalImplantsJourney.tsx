@@ -43,8 +43,8 @@ export function DentalImplantsJourney() {
       content: (
         <div className='px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            The dental implant is gently placed into your jawbone under local anaesthetic. Over the following months,
-            the implant integrates with the bone to provide a stable foundation.
+            The dental implant is gently placed under local anaesthetic. Over the following months, the implant
+            integrates with the bone to provide a stable foundation.
           </p>
           <Image
             src={SurgeryImage}
@@ -63,8 +63,8 @@ export function DentalImplantsJourney() {
       content: (
         <div className='px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            Once healing is complete, a custom-made crown, bridge, or denture is securely attached to the implant,
-            restoring full function and a natural-looking smile.
+            Once healing is complete, an aesthetic custom-made crown, bridge, or denture is securely attached to the
+            implant, restoring full function and a natural-looking Supernova smile.
           </p>
           <Image
             src={RestorationImage}

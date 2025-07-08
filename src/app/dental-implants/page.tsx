@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Dental Implants Bridgwater',
   description:
-    'Restore your smile with dental implants at Supernova Dental in Bridgwater. Book your free implant consultation today for a permanent solution to missing teeth.',
+    'Restore your smile with dental implants at Supernova Dental in Bridgwater. Book your dental implant consultation today for a permanent solution to missing teeth.',
   keywords:
     'Dental implants Bridgwater, missing teeth solution, implant dentist Bridgwater, tooth implant Bridgwater, All-on-4 implants Bridgwater, best implant dentist Bridgwater, permanent teeth replacement Bridgwater, implant consultation Bridgwater, Supernova Dental implants, cosmetic dentistry Bridgwater',
 };
@@ -16,7 +16,7 @@ const structuredData = {
   name: 'Supernova Dental - Dental Implants Bridgwater',
   url: 'https://www.supernovadental.co.uk/dental-implants',
   description:
-    'Restore your smile with dental implants at Supernova Dental in Bridgwater. Book your free implant consultation today for a permanent solution to missing teeth.',
+    'Restore your smile with dental implants at Supernova Dental in Bridgwater. Book your dental implant consultation today for a permanent solution to missing teeth.',
   keywords:
     'Dental implants Bridgwater, implant dentist Bridgwater, permanent teeth replacement, missing tooth solution Bridgwater',
   address: {

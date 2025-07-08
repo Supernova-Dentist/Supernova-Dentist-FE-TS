@@ -3,19 +3,11 @@ const tableHeadData = ['Feature', 'Dental Implants (Long-lasting)', 'Bridges', '
 const tableBodyData = [
   {
     feature: 'Potential Lifetime Longevity',
-    data: [true, false, false],
+    data: ['95% successful at 10 years', '70-80% successful at 10 years', '60-80% successful at 10 years'],
   },
   {
-    feature: 'Durability',
-    data: [true, true, false],
-  },
-  {
-    feature: 'Impact on Adjacent Teeth',
-    data: [false, true, false],
-  },
-  {
-    feature: 'Comfort and Fit',
-    data: [true, true, true],
+    feature: 'No Impact on Neighbouring Teeth',
+    data: [true, false, true],
   },
   {
     feature: 'Bite Strength',
@@ -24,10 +16,6 @@ const tableBodyData = [
   {
     feature: 'Maintenance',
     data: ['Regular brushing and flossing', 'Requires special cleaning', 'Daily removal and cleaning'],
-  },
-  {
-    feature: 'Cost-effective',
-    data: [false, false, true],
   },
 ];
 

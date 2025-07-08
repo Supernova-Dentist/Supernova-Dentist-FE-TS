@@ -26,7 +26,7 @@ export default function HeroSection({ data }: HeroSection) {
           title={data.header.title}
           subTitle={data.header.subTitle}
           benefitText={data.benefitText}
-          stats={data.serviceStats}
+          stats={data.serviceStats ?? []}
           statsTitle={data.statsTitle}
         />
       </motion.div>

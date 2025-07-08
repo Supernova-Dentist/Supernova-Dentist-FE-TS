@@ -19,16 +19,15 @@ export default function DentalImplantsContent() {
     <>
       <ServiceForm
         serviceName='Dental Implants Journey'
-        serviceChip='Free Implant Consultation'
+        serviceChip='Dental Implant Consultation'
         serviceDescription='Discover how dental implants can restore your smile, confidence, and quality of life with a personalised treatment plan.'
-        formTitle='Sign up for your Free Implant Consultation'
+        formTitle='Sign up for your Dental Implant Consultation'
         formDescription='Book a no-obligation consultation with our experienced implant team and take the first step toward a permanent solution for missing teeth.'
-        imgSrc='/assets/images/equipment.JPG'
+        imgSrc='/assets/images/sara_cbct.jpeg'
       />
 
       <div className='from-cream to-white bg-gradient-to-b'>
         <HeroSection data={dentalImplantsHeroData} />
-      
       </div>
 
       <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
