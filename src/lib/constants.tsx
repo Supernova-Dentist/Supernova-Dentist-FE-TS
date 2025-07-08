@@ -37,6 +37,10 @@ export const services = [
   //   link: '/invisalign-open-day',
   // },
   {
+    name: 'Dental Implants',
+    link: '/dental-implants',
+  },
+  {
     name: 'Invisalign',
     link: '/invisalign',
   },

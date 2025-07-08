@@ -28,13 +28,15 @@ type ServiceDescription = {
 };
 
 type ServiceStats = {
-  stats: ServiceStat[];
+  statsTitle?: string;
+  stats?: ServiceStat[];
 };
 
 type ServiceBox = {
   title: string;
   subTitle: string;
   benefitText: string;
+  statsTitle?: string;
   stats: ServiceStat[];
 };
 
@@ -84,10 +86,11 @@ type ServiceTestimonials = {
 };
 
 type HeroHeaderContent = {
+  statsTitle?: string;
   header: { title: string; subTitle: string };
   mainText?: string;
   benefitText: string;
-  serviceStats: ServiceStat[];
+  serviceStats?: ServiceStat[];
 };
 
 type HeroSection = {
