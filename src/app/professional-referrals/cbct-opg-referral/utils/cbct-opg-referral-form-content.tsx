@@ -69,17 +69,14 @@ const formSchema = z.object({
   size8x8cmLLQ: z.boolean(),
   size11x10cmFullUpper: z.boolean(),
   size11x10cmFullUpperLower: z.boolean(),
-  size5x5cmUR8to6: z.boolean(),
-  size5x5cmUR6to4: z.boolean(),
-  size5x5cmUpper3to3: z.boolean(),
-  size5x5cmUL4to6: z.boolean(),
-  size5x5cmUL6to8: z.boolean(),
-  size5x5cmLR8to6: z.boolean(),
-  size5x5cmLL6to8: z.boolean(),
-  size5x5cmLR6to4: z.boolean(),
-
-  reportBySara: z.boolean(),
-  noReportRequired: z.boolean(),
+  // size5x5cmUR8to6: z.boolean(),
+  // size5x5cmUR6to4: z.boolean(),
+  // size5x5cmUpper3to3: z.boolean(),
+  // size5x5cmUL4to6: z.boolean(),
+  // size5x5cmUL6to8: z.boolean(),
+  // size5x5cmLR8to6: z.boolean(),
+  // size5x5cmLL6to8: z.boolean(),
+  // size5x5cmLR6to4: z.boolean(),
 
   // Stent checkbox (at least one must be selected)
   stentToBeWornYes: z.boolean(),
@@ -185,16 +182,14 @@ export function CBCTOPGReferralFormContent() {
       size8x8cmLLQ: false,
       size11x10cmFullUpper: false,
       size11x10cmFullUpperLower: false,
-      size5x5cmUR8to6: false,
-      size5x5cmUR6to4: false,
-      size5x5cmUpper3to3: false,
-      size5x5cmUL4to6: false,
-      size5x5cmUL6to8: false,
-      size5x5cmLR8to6: false,
-      size5x5cmLL6to8: false,
-      size5x5cmLR6to4: false,
-      reportBySara: false,
-      noReportRequired: false,
+      // size5x5cmUR8to6: false,
+      // size5x5cmUR6to4: false,
+      // size5x5cmUpper3to3: false,
+      // size5x5cmUL4to6: false,
+      // size5x5cmUL6to8: false,
+      // size5x5cmLR8to6: false,
+      // size5x5cmLL6to8: false,
+      // size5x5cmLR6to4: false,
 
       stentToBeWornYes: false,
       stentToBeWornNo: false,
@@ -695,10 +690,10 @@ export function CBCTOPGReferralFormContent() {
                                     </SelectItem>
 
                                     <SelectItem value='CBCTWithoutReportReferral' className='text-md lg:text-lg'>
-                                      CBCT without report £150
+                                      CBCT without report £180
                                     </SelectItem>
                                     <SelectItem value='CBCTWithReportReferral' className='text-md lg:text-lg'>
-                                      CBCT with report £250
+                                      CBCT with report £270
                                     </SelectItem>
                                   </SelectContent>
                                 </Select>
@@ -948,7 +943,7 @@ export function CBCTOPGReferralFormContent() {
                           </Label>
                         </div>
                       </div>
-                      <p className='mt-4 mb-2'>5x5cm (sectional):</p>
+                      {/* <p className='mt-4 mb-2'>5x5cm (sectional):</p>
                       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2'>
                         <div>
                           <Checkbox
@@ -1073,7 +1068,7 @@ export function CBCTOPGReferralFormContent() {
                             LR6-4
                           </Label>
                         </div>
-                      </div>
+                      </div> */}
                       <p className='mt-4 mb-2'>11x10cm:</p>
                       <div>
                         <Checkbox
@@ -1128,11 +1123,7 @@ export function CBCTOPGReferralFormContent() {
                     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2'>
                       <div>
                         <Checkbox
-                          disabled={
-                            form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
-                            form.watch('referralPurpose') !== 'CBCTWithoutReportReferral' ||
-                            form.watch('stentToBeWornNo')
-                          }
+                          disabled={form.watch('referralPurpose') === 'OPGReferral' || form.watch('stentToBeWornNo')}
                           id='stentToBeWornYes'
                           {...register('stentToBeWornYes')}
                           defaultChecked={false}
@@ -1144,11 +1135,7 @@ export function CBCTOPGReferralFormContent() {
                       </div>
                       <div>
                         <Checkbox
-                          disabled={
-                            form.watch('referralPurpose') !== 'CBCTWithReportReferral' ||
-                            form.watch('referralPurpose') !== 'CBCTWithoutReportReferral' ||
-                            form.watch('stentToBeWornYes')
-                          }
+                          disabled={form.watch('referralPurpose') === 'OPGReferral' || form.watch('stentToBeWornYes')}
                           id='stentToBeWornNo'
                           {...register('stentToBeWornNo')}
                           defaultChecked={false}
@@ -1156,34 +1143,6 @@ export function CBCTOPGReferralFormContent() {
                         />
                         <Label htmlFor='stentToBeWornNo' className='ml-3 text-sm text-muted-foreground text-gray-500'>
                           NO
-                        </Label>
-                      </div>
-                    </div>
-                    <p className='mt-3 font-bold'>Reporting:</p>
-                    <div className='grid grid-cols-1  gap-2'>
-                      <div>
-                        <Checkbox
-                          id='reportBySara'
-                          {...register('reportBySara')}
-                          defaultChecked={false}
-                          disabled={form.watch('referralPurpose') !== 'CBCTWithReportReferral'}
-                          onCheckedChange={(checked: boolean) => setValue('reportBySara', checked)}
-                        />
-                        <Label htmlFor='reportBySara' className='ml-3 text-sm text-muted-foreground text-gray-500'>
-                          I would like a report by Dr. Sara D Banuri
-                        </Label>
-                      </div>
-                      <div>
-                        <Checkbox
-                          id='noReportRequired'
-                          {...register('noReportRequired')}
-                          defaultChecked={false}
-                          disabled={form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'}
-                          onCheckedChange={(checked: boolean) => setValue('noReportRequired', checked)}
-                        />
-                        <Label htmlFor='noReportRequired' className='ml-3 text-sm text-muted-foreground text-gray-500'>
-                          I will take responsibility and undertake to report on radiographs / scan as required by
-                          IR(ME)R 2000/2006
                         </Label>
                       </div>
                     </div>
@@ -1226,7 +1185,7 @@ export function CBCTOPGReferralFormContent() {
                       </div>
                       <div>
                         <Checkbox
-                          disabled={form.watch('referralPurpose') !== 'CBCTWithReportReferral'}
+                          // disabled={form.watch('referralPurpose') === 'OPGReferral'}
                           id='declaration3'
                           {...register('declaration3')}
                           defaultChecked={false}
@@ -1238,7 +1197,7 @@ export function CBCTOPGReferralFormContent() {
                       </div>
                       <div>
                         <Checkbox
-                          disabled={form.watch('referralPurpose') !== 'CBCTWithoutReportReferral'}
+                          // disabled={form.watch('referralPurpose') === 'OPGReferral'}
                           id='declaration4'
                           {...register('declaration4')}
                           defaultChecked={false}
@@ -1275,12 +1234,12 @@ export function CBCTOPGReferralFormContent() {
                       </div>
                     </div>
 
-                    <p>
+                    <div className='space-y-3'>
+                    <p className='mt-3'>
                       Unless otherwise specified the image data will be supplied in DICOM format. The Acteon Imaging
                       Software (compatible with Windows) will be included in the file. Files will be password protected
                       and sent to the e-mail provided via WeTransfer.
                     </p>
-                    <div className='space-y-3'>
                       <p>
                         This confidential form provides us with the information we require to receive a patient
                         referral. The information contained within this form should be true and accurate to the best of

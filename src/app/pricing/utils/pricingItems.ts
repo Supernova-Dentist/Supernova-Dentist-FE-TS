@@ -18,7 +18,8 @@ export const pricingItems = [
 
       { description: 'Small X-Rays', price: 12, priceDescription: 'each' },
       { description: 'Large full mouth X-ray (OPG)', price: 50 },
-      { description: 'Cone-beam CT scan', price: 200 },
+      { description: 'Cone-beam CT scan (without report)', price: 180 },
+      { description: 'Cone-beam CT scan (with report)', price: 270 },
     ],
   },
   {
@@ -204,10 +205,12 @@ discomfort.`,
     title: 'Mouth Guards',
     products: [
       {
+        priceDescriptionBefore: 'From',
         description: 'Dual laminate (soft inside/hard outside) nightguard',
         price: 175,
       },
       {
+        priceDescriptionBefore: 'From',
         description: 'Sports guard (selection of colours and designs available)',
         price: 150,
       },
@@ -234,7 +237,8 @@ discomfort.`,
   {
     title: 'Implant Dentistry',
     products: [
-      { description: 'Implants', priceDescriptionBefore: 'From', price: 2750  },
+      { description: 'Dental Implant', priceDescriptionBefore: 'From', price: 1400 },
+      { description: 'Dental Implant Crown', priceDescriptionBefore: 'From', price: 1350 },
     ],
   },
 ];
