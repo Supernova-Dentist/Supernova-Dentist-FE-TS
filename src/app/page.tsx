@@ -119,6 +119,11 @@ export default function Home() {
       </Head>
 
       <Welcome />
+      {/* change this to a meet the team section, also add finance info and referral info on front page, 
+      add referral links to footer and also add the faqs from mismile onto invisalign page to get it ranking number one
+      - add noncancial tag to main page to help also you can add patient portal somewhere else too and name it as that
+      <Welcome /> */}
+      
       <PromotionForm />
       <AboutSection />
       {/* <Pricing /> */}
