@@ -10,6 +10,7 @@ import Pricing from '@/components/Pricing/Pricing';
 import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
+import TeamSection from '@/components/TeamSection/TeamSection';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
 import Head from 'next/head';
 
@@ -122,6 +123,7 @@ export default function Home() {
       <Welcome />
       <PromotionForm />
       <AboutSection />
+      <TeamSection />
       {/* <Pricing /> */}
       <DentallyTutorial />
       <SmileTransformations />

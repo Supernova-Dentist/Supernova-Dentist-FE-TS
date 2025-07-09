@@ -1,11 +1,27 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import { type Metadata } from 'next';
 import TeamMemberGrid from './utils/TeamMemberGrid';
-import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | Our Team',
-  description: 'Meet the dedicated professionals who make our dental practice exceptional.',
+  title: 'Meet Our Skilled Dental Professionals | Supernova Dental Bridgwater',
+  description:
+    'Discover the expert dental team at Supernova Dental Bridgwater. Our dedicated dentists, implantologists, therapists, oral surgeons, and hygienists provide personalised care using advanced techniques. Compassionate, highly qualified professionals committed to your oral health and smile transformation in Bridgwater and surrounding areas.',
+  keywords: [
+    'dental team Bridgwater',
+    'qualified dentists Bridgwater',
+    'implantologists Bridgwater',
+    'dental therapists UK',
+    'oral surgeons Bridgwater',
+    'dental hygienists UK',
+    'experienced dental professionals',
+    'personalised dental care Bridgwater',
+    'compassionate dentists',
+    'advanced dental techniques',
+    'dental specialists UK',
+    'oral health experts Bridgwater',
+    'smile transformation dentists Bridgwater',
+  ].join(', '),
 };
 
 export default function TeamPage() {
