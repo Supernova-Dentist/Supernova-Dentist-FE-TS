@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Restore your smile with dental implants at Supernova Dental in Bridgwater. Book your dental implant consultation today for a permanent solution to missing teeth.',
   keywords:
-    'Dental implants Bridgwater, missing teeth solution, implant dentist Bridgwater, tooth implant Bridgwater, All-on-4 implants Bridgwater, best implant dentist Bridgwater, permanent teeth replacement Bridgwater, implant consultation Bridgwater, Supernova Dental implants, cosmetic dentistry Bridgwater',
+    'Dental implants Bridgwater, missing teeth solution, implant dentist Bridgwater, tooth implant Bridgwater, All-on-4 implants Bridgwater, best implant dentist Bridgwater, permanent teeth replacement Bridgwater, implant consultation Bridgwater, Supernova Dental implants, cosmetic dentistry Bridgwater, dental implants near Taunton, tooth implant Taunton',
 };
 
 const structuredData = {
@@ -18,7 +18,7 @@ const structuredData = {
   description:
     'Restore your smile with dental implants at Supernova Dental in Bridgwater. Book your dental implant consultation today for a permanent solution to missing teeth.',
   keywords:
-    'Dental implants Bridgwater, implant dentist Bridgwater, permanent teeth replacement, missing tooth solution Bridgwater',
+    'Dental implants Bridgwater, implant dentist Bridgwater, permanent teeth replacement, missing tooth solution Bridgwater, dental implants Taunton, implant dentist near Taunton',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
