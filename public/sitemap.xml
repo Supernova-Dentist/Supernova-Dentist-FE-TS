@@ -29,6 +29,15 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Dental Finance Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/dental-finance</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+
   <!-- Enquiry Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/enquiry</loc>
