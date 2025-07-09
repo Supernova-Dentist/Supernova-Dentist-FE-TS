@@ -6,6 +6,7 @@ import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
 import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 import FindUsSection from '@/components/FindUsSection/FindUsSection';
 import { Journey } from '@/components/Journey/Journey';
+import PracticeFAQsSection from '@/components/PracticeFAQsSection/PracticeFAQsSection';
 import Pricing from '@/components/Pricing/Pricing';
 import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
@@ -131,7 +132,7 @@ export default function Home() {
       <Journey />
       <VideoAnimationSection />
       <FindUsSection />
-      <PromotionFAQ />
+      <PracticeFAQsSection />
       {/* <AccessibilityWidget /> */}
       {/* <ComingSoonSection /> */}
     </main>
