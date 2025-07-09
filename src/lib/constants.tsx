@@ -16,11 +16,17 @@ export const practiceInfo = [
   { name: 'Home', link: '/' },
   { name: 'Practice', link: '/practice' },
   // { name: 'Invisalign Open Day', link: '/invisalign-open-day' },
+  { name: 'Dental Implants', link: '/dental-implants' },
   { name: 'Invisalign', link: '/invisalign' },
   { name: 'Dental Hygiene', link: '/dental-hygiene' },
+  { name: 'Dental Therapist', link: '/dental-therapist' },
+  { name: 'Dental Finance', link: '/dental-finance' },
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
+  { name: 'Professional Referrals', link: '/professional-referrals' },
+  { name: 'Refer A Friend', link: '/refer-a-friend' },
+  { name: 'Patient Portal', link: 'https://supernova.portal.dental' },
   // { name: 'Social', link: '/social' },
 ];
 
