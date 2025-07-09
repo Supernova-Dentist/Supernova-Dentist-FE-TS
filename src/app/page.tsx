@@ -14,15 +14,15 @@ import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoA
 import Head from 'next/head';
 
 export const metadata = {
-  title: 'Bridgwater Dentist | Trusted Private Dental Practice - Supernova Dental',
+  title: 'Private Dentist Bridgwater & Taunton | Cosmetic Dentistry & Same-Day Appointments',
   description:
-    'Looking for a trusted dentist in Bridgwater? Supernova Dental provides expert dental care, including Invisalign, implants, dental hygiene, and emergency appointments. Register today and experience a tailored patient journey at your new Bridgwater Dentist!',
+    'Supernova Dental offers high-quality private dental care in Bridgwater and Taunton. We provide cosmetic dentistry, same-day appointments, flexible payment plans, and emergency dental services. Register today!',
   keywords:
-    'dentist in Bridgwater, Bridgwater dentist, private dentist Bridgwater, Invisalign Bridgwater, Bridgwater Invisalign, dental implants Bridgwater, emergency dentist Bridgwater, dental hygiene appointment, teeth whitening, teeth cleaning, cosmetic dentistry, new patients, dentist near me, best dentist in Bridgwater, private dental practice Bridgwater, family dentist Bridgwater, dental care Bridgwater, dental services in Bridgwater, Invisalign for adults Bridgwater, affordable dentist in Bridgwater, trusted dentist Bridgwater, teeth implants Bridgwater, best emergency dentist Bridgwater, dentist open weekends Bridgwater, children’s dentist in Bridgwater, best dental practice Bridgwater, Invisalign braces in Bridgwater, cosmetic dental services Bridgwater, gentle dentist Bridgwater, local dental care Bridgwater, dentist with payment plans Bridgwater',
+    'private dentist Bridgwater, private dentist Taunton, cosmetic dentist Bridgwater, cosmetic dentist Taunton, teeth whitening, composite bonding, same-day dental appointments Bridgwater, dental payment plans, dental finance Bridgwater, dental implants Taunton, dental checkup, dental hygiene appointment, emergency dentist Bridgwater, dental practice near Taunton, private dental care Somerset',
   openGraph: {
-    title: 'Bridgwater Dentist | Trusted Private Dental Practice - Supernova Dental',
+    title: 'Private Dentist Bridgwater & Taunton | Cosmetic Dentistry & Same-Day Appointments',
     description:
-      'Need a dentist in Bridgwater? Supernova Dental offers Invisalign, dental implants, emergency care & more. Register today and experience a tailored patient journey at your new Bridgwater Dentist!',
+      'Looking for a cosmetic or private dentist in Bridgwater or Taunton? Supernova Dental offers expert care, flexible finance, and same-day appointments.',
     url: 'https://www.supernovadental.co.uk',
     type: 'website',
     images: [
@@ -30,7 +30,7 @@ export const metadata = {
         url: '/favicon.ico',
         width: 500,
         height: 500,
-        alt: 'Bridgwater Dentist - Supernova Dental Logo',
+        alt: 'Supernova Dental Logo',
       },
     ],
   },
@@ -43,9 +43,9 @@ export default function Home() {
     name: 'Supernova Dental',
     url: 'https://www.supernovadental.co.uk',
     description:
-      'Looking for a trusted private dentist in Bridgwater? Supernova Dental provides expert dental care, including Invisalign, implants, and emergency appointments. Book a consultation today!',
+      'Supernova Dental is a trusted private dental clinic in Bridgwater, welcoming patients from Taunton and surrounding areas. We offer cosmetic dentistry, same-day appointments, dental implants, and 0% finance options.',
     keywords:
-      'best private dentist in Bridgwater, Invisalign dentist near Bridgwater, affordable dental implants Bridgwater, emergency dental care in Bridgwater, gentle and trusted dentist Bridgwater',
+      'cosmetic dentist Bridgwater, private dentist Taunton, same-day dentist Somerset, dental payment plans, teeth whitening, composite bonding, emergency dentist Bridgwater, dental hygiene Taunton, finance for dental work, best private dentist in Somerset',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
@@ -110,6 +110,7 @@ export default function Home() {
         <meta property='og:url' content={metadata.openGraph.url} />
         <meta property='og:type' content={metadata.openGraph.type} />
         <meta property='og:image' content={metadata.openGraph.images[0].url} />
+        <link rel='canonical' href='https://www.supernovadental.co.uk' />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
@@ -119,11 +120,6 @@ export default function Home() {
       </Head>
 
       <Welcome />
-      {/* change this to a meet the team section, also add finance info and referral info on front page, 
-      add referral links to footer and also add the faqs from mismile onto invisalign page to get it ranking number one
-      - add noncancial tag to main page to help also you can add patient portal somewhere else too and name it as that
-      <Welcome /> */}
-      
       <PromotionForm />
       <AboutSection />
       {/* <Pricing /> */}
