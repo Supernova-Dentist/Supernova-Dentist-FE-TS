@@ -20,7 +20,7 @@ export default function InvisalignContent() {
       <ServiceForm
         serviceName='Invisalign Journey'
         serviceChip='Free Invisalign Consultation'
-        serviceDescription='Get a personalised Invisalign treatment plan and discover how clear aligners can transform your smile.'
+        serviceDescription='Get a personalised Invisalign treatment plan in Bridgwater and discover how clear aligners can transform your smile.'
         formTitle='Sign up for your Free Invisalign Consultation'
         formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
         imgSrc='/assets/images/Invisalign_Group.jpg'

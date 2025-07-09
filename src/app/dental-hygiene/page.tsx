@@ -31,7 +31,7 @@ const structuredData = {
     telephone: '+44 1278 228665',
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
-    areaServed: 'GB',
+    areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
     availableLanguage: 'English',
   },
   openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
@@ -41,7 +41,7 @@ const structuredData = {
     description:
       'Supernova Dental provides professional dental hygiene and teeth cleaning services in Bridgwater. Our expert hygienists remove plaque, prevent gum disease, and ensure fresh breath.',
     procedureType: 'Non-invasive',
-    areaServed: 'Bridgwater, UK',
+    areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
   },
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',

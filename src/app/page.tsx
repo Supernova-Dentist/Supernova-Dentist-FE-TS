@@ -58,7 +58,7 @@ export default function Home() {
       telephone: '+44 1278 228665',
       contactType: 'Customer Service',
       email: 'enquiries@supernovadental.co.uk',
-      areaServed: 'GB',
+      areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
       availableLanguage: 'English',
     },
     openingHoursSpecification: [
