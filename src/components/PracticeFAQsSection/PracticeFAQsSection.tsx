@@ -28,7 +28,7 @@ export default function PracticeFAQsSection() {
     {
       question: 'Where are you located?',
       answer:
-        'We are located at the Supernova Building, Marsh Lane, Huntworth Gate, Bridgwater TA6 6LQ - just off Junction 25 on the M5, making us easily accessible for patients traveling from surrounding areas.',
+        'We are located at the Supernova Building, Marsh Lane, Huntworth Gate, Bridgwater TA6 6LQ - just off Junction 24 on the M5, making us easily accessible for patients traveling from surrounding areas.',
     },
     {
       question: 'Do you have parking available?',
@@ -43,7 +43,7 @@ export default function PracticeFAQsSection() {
   ];
 
   return (
-    <section className='bg-gradient-to-b from-white to-cream py-12 px-6 md:px-12' ref={ref}>
+    <section className='bg-gradient-to-b from-white to-cream py-16 px-6 md:px-12' ref={ref}>
       <motion.div
         className='max-w-4xl mx-auto text-center'
         initial='hidden'
