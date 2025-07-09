@@ -119,7 +119,7 @@ const NavLink = ({
 }) => {
   // Determine the number of columns based on the number of subLinks
   const isReferral = typeof children === 'string' && children.toLowerCase() === 'referral';
-  const columnsClass = isReferral ? 'grid-cols-1' : subLinks && subLinks.length > 4 ? 'grid-cols-3' : 'grid-cols-2';
+  const columnsClass = isReferral ? 'grid-cols-1' : subLinks && 'grid-cols-2';
   return (
     <div>
       <motion.a
