@@ -167,5 +167,54 @@
   <priority>0.7</priority>
 </url>
 
+<!-- Dental Implants Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/dental-implants</loc>
+  <lastmod>2025-07-09</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- Professional Referrals Landing Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/professional-referrals</loc>
+  <lastmod>2025-07-09</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Invisalign Referral Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/professional-referrals/invisalign-referral</loc>
+  <lastmod>2025-07-09</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- Implant Referral Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/professional-referrals/implant-referral</loc>
+  <lastmod>2025-07-09</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- Oral Surgery Referral Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/professional-referrals/oral-surgery-referral</loc>
+  <lastmod>2025-07-09</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- CBCT & OPG Referral Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/professional-referrals/cbct-opg-referral</loc>
+  <lastmod>2025-07-09</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+
 
 </urlset>
