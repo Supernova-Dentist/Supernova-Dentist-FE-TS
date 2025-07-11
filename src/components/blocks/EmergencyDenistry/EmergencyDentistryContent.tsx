@@ -15,6 +15,7 @@ import { tableData } from './contentData/tableData';
 import { EmergencyDentistryJourney } from '@/components/EmergencyDentistryJourney/EmergencyDentistryJourney';
 import EmergencyHero from './utils/EmergencyHero';
 import EmergencyFormSelector from './EmergencyFormSelector';
+import EmergencyHeroSection from './utils/EmergencyHeroSection';
 
 export default function EmergencyDentistryContent() {
   return (
@@ -24,7 +25,7 @@ export default function EmergencyDentistryContent() {
       <EmergencyFormSelector />
 
       <div className='from-cream to-white bg-gradient-to-b'>
-        <HeroSection data={heroData} />
+        <EmergencyHeroSection data={heroData} />
         {/* <EmergencyDentistryView id='emergencyView' /> */}
       </div>
 
