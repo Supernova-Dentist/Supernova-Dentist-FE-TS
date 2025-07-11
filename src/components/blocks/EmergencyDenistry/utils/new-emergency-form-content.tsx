@@ -221,22 +221,18 @@ export function NewEmergencyFormContent() {
   };
 
   const handlePainExplanationChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-
     const painExlanation = e.target.value;
     setPainExplanationLength(painExlanation.length); // Update the message length
   };
   const handleSwellingExplanationChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-
     const swellingExplanation = e.target.value;
     setSwellingExplanationLength(swellingExplanation.length); // Update the message length
   };
   const handleMedicationExplanationChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-
     const medicationExplanation = e.target.value;
     setMedicationExplanationLength(medicationExplanation.length); // Update the message length
   };
   const handlePreviousDentalTreatmentExplanationChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-
     const previousDentalTreatmentExplanation = e.target.value;
     setPreviousDentalTreatmentExplanationLength(previousDentalTreatmentExplanation.length); // Update the message length
   };
@@ -901,7 +897,7 @@ export function NewEmergencyFormContent() {
       {/* Success Modal */}
       {successModalVisible && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
+          <div className='relative bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
             <button
               onClick={() => setSuccessModalVisible(false)}
               className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
@@ -909,7 +905,7 @@ export function NewEmergencyFormContent() {
               <FaTimes />
             </button>
             <h2 className='text-2xl font-semibold mb-4'>
-              Thank you, we have successfully recieved the emergency dentistry form for {submittedData.firstName}!
+              Thank you, we have successfully received the emergency dentistry form for {submittedData.firstName}!
             </h2>
             <p className='mb-4'>
               One of the Supernova team will be back in touch via the following details regarding your referral:
