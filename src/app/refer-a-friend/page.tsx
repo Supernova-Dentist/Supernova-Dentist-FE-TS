@@ -1,5 +1,4 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
-import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignContent';
 import ReferAFriendCard from '@/components/blocks/ReferAFriendContent/ReferAFriendCard/ReferAFriendCard';
 import { ReferAFriendContent } from '@/components/blocks/ReferAFriendContent/ReferAFriendContent';
 import type { Metadata } from 'next';

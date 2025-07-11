@@ -146,7 +146,6 @@ export function InvisalignReferralFormContent() {
   const { register, setValue } = form;
 
   const onSubmit = async (data: any) => {
-    console.log('submitting');
     setLoading(true);
 
     try {
@@ -177,7 +176,6 @@ export function InvisalignReferralFormContent() {
       const contentType = response.headers.get('content-type');
       const responseData = contentType?.includes('application/json') ? await response.json() : await response.text();
 
-      console.log('Form submitted successfully:', responseData);
       setSubmittedData(data);
       setSuccessModalVisible(true);
       form.reset();
@@ -191,13 +189,11 @@ export function InvisalignReferralFormContent() {
 
   const handleExplanationChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const explanation = e.target.value;
-    console.log('explanation', explanation);
 
     setExplanationLength(explanation.length); // Update the message length
   };
 
   const handleMedicialHistoryChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    console.log('e.target.value', e.target.value);
 
     const medicialHistory = e.target.value;
     setMedicialHistoryLength(medicialHistory.length); // Update the message length
@@ -209,12 +205,11 @@ export function InvisalignReferralFormContent() {
   // };
 
   const handleSubmit = (data: any) => {
-    console.log('SUBMIT', data);
     onSubmit(data).catch(console.error);
   };
 
   const onError = (errors: any) => {
-    console.log('FORM ERRORS:', errors);
+    // console.log('FORM ERRORS:', errors);
   };
 
   return (

@@ -15,7 +15,7 @@ interface TimelineProps {
   imagesLoaded: number;
 }
 
-export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps) => {
+export const DentalImplantTimeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -79,7 +79,7 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
           </h2>
           <hr className='border-t-2 border-gold w-20 mx-auto mt-6 mb-8' />
           <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 max-w-[35rem] mx-auto'>
-            Improving your smile can be as easy as A B C. Here&apos;s how we can help you achieve the Supernova smile
+            Improving your smile can be as easy as 1 2 3. Here&apos;s how we can help you achieve the Supernova smile
             you&apos;ve always wanted 🌠:
           </p>
         </div>

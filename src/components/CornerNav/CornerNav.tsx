@@ -314,6 +314,7 @@ const LINKS = [
     title: 'Services',
     href: '#',
     subLinks: [
+      { title: 'Emergency Dentistry', href: '/emergency-dentistry' },
       { title: 'Dental Implants', href: '/dental-implants' },
       { title: 'Invisalign', href: '/invisalign' },
       { title: 'Dental Therapist', href: '/dental-therapist' },

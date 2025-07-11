@@ -15,7 +15,7 @@ interface TimelineProps {
   imagesLoaded: number;
 }
 
-export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps) => {
+export const EmergencyDentistryTimeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -72,15 +72,15 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
       >
         <div className='max-w-7xl mx-auto pt-6 px-4 md:px-8 lg:px-10'>
           <div className='flex justify-center mb-4'>
-            <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Your Journey</div>
+            <div className='rounded-xl bg-gold px-4 py-1 text-sm text-gray-50'>Emergency Care Journey</div>
           </div>
           <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-2 text-gold'>
-            Your Smile Transformation Journey
+            Immediate Emergency Dental Care
           </h2>
           <hr className='border-t-2 border-gold w-20 mx-auto mt-6 mb-8' />
           <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 max-w-[35rem] mx-auto'>
-            Improving your smile can be as easy as A B C. Here&apos;s how we can help you achieve the Supernova smile
-            you&apos;ve always wanted 🌠:
+            When dental emergencies strike, prompt care is crucial. Here’s how Supernova Dental helps you get fast
+            relief and restore your smile with expert emergency treatment:
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export const Timeline = ({ data, setImagesLoaded, imagesLoaded }: TimelineProps)
             onClick={scrollToPromotionForm}
             className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
           >
-            Begin Your Journey!
+            Get Emergency Care!
           </button>
         </div>
       </motion.div>

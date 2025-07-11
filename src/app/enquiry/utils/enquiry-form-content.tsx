@@ -80,7 +80,6 @@ export function EnquiryFormContent() {
         responseData = await response.text();
       }
 
-      console.log('Form submitted successfully:', responseData);
       setSubmittedData(data);
       setSuccessModalVisible(true);
       form.reset({ name: '', email: '', phone: '', category: '', message: '' });

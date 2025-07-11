@@ -3,6 +3,7 @@ import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignC
 import type { Metadata } from 'next';
 import Head from 'next/head';
 
+
 export const metadata: Metadata = {
   title: 'Invisalign Bridgwater & Taunton | Clear Aligners & Invisible Braces',
   description:
