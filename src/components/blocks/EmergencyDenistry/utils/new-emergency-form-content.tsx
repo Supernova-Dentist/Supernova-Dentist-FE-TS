@@ -261,7 +261,7 @@ export function NewEmergencyFormContent() {
             transition={{ duration: 0.6 }}
           >
             <Form {...form}>
-              <form id='printable-cbct-form' onSubmit={form.handleSubmit(handleSubmit, onError)} className='space-y-8'>
+              <form id='form' onSubmit={form.handleSubmit(handleSubmit, onError)} className='space-y-8'>
                 <div className='grid gap-6'>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                     <div className='space-y-3'>
