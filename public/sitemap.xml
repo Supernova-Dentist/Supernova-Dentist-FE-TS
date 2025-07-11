@@ -224,6 +224,15 @@
   <priority>0.7</priority>
 </url>
 
+<!-- Emergency Dentistry Page -->
+<url>
+  <loc>https://www.supernovadental.co.uk/emergency-dentistry</loc>
+  <lastmod>2025-07-11</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+
 
 
 </urlset>
