@@ -7,12 +7,12 @@ export const faqItems: FAQItem[] = [
   {
     question: 'How quickly can I get an emergency appointment?',
     answer:
-      'We aim to see genuine emergencies **same-day** whenever possible. Please call us during opening hours to secure your slot immediately.',
+      'We aim to see genuine emergencies on the same day whenever possible. Please call us during opening hours to secure your slot immediately.',
   },
   {
     question: 'Do you offer out-of-hours emergency care?',
     answer:
-      'We do not offer out-of-hours appointments, but you can contact us via WhatsApp at +44 7863 338815 for urgent advice. We’ll assess your situation and arrange treatment during our next available hours.',
+      'We do not offer out-of-hours appointments, but you can contact us via WhatsApp at 07863 338815 for urgent advice. We’ll assess your situation and arrange treatment during our next available hours.',
   },
   {
     question: 'What should I do if I knock out a tooth?',
@@ -27,11 +27,6 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Can I book an emergency appointment through the patient portal?',
     answer:
-      'Yes, you can book emergency appointments via our patient portal. We advise filling out the triage form before your appointment to help us prioritise and provide more efficient care.',
-  },
-  {
-    question: 'Can I fill out a triage form online?',
-    answer:
-      'Absolutely—our online triage form helps us prioritise your case and make your care more efficient. You can complete it above, and we’ll contact you straight away to arrange treatment.',
+      'Yes, you can book emergency appointments via our patient portal. We advise filling out the triage form before your appointment to help us provide more efficient emergency dental care.',
   },
 ];

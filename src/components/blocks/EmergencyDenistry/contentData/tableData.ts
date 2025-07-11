@@ -7,7 +7,7 @@ const tableBodyData = [
   },
   {
     feature: 'After Hours Contact',
-    data: ['✓ WhatsApp support outside reception hours'],
+    data: ['✓ WhatsApp support at 07863 338815 outside reception hours'],
   },
   {
     feature: 'Types of Emergencies Treated',
@@ -15,10 +15,10 @@ const tableBodyData = [
   },
   {
     feature: 'Online Triage Form',
-    data: ['✓ Available helps us make care more efficient'],
+    data: ['✓ Available - Helps us make care more efficient'],
   },
   {
-    feature: 'Weekend / Saturday Appointments',
+    feature: 'Saturday Appointments',
     data: ['✓ Available'],
   },
 ];

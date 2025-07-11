@@ -5,5 +5,5 @@ export default {
   },
 
   benefitText:
-    'Facing a dental emergency? Whether it’s a severe toothache, broken tooth, or other urgent dental issues, we’re here to provide fast and effective care. Contact us today for immediate assistance and same-day appointments to get you back on track with your dental health!',
+    'Facing a dental emergency? Whether it’s a severe toothache, broken tooth, or other urgent dental issues, we’re here to provide fast and effective care. Contact reception on 01278 228665 or WhatsApp us at 07863 338815.',
 };

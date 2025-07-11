@@ -46,7 +46,7 @@ export function EmergencyDentistryJourney() {
         <div className='px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Once diagnosed, we provide immediate treatment, including pain relief, infection control, and procedures
-            like fillings, crowns, or root canals to address the emergency. The goal is to stop the pain and stabilize
+            like fillings, crowns, or root canals to address the emergency. The goal is to stop the pain and stabilise
             your dental health.
           </p>
           <Image
