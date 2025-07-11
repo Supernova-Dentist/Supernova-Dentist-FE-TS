@@ -17,7 +17,7 @@ function ServiceBox({ title, subTitle, benefitText, stats, statsTitle }: Service
       <ServiceDescription className='mt-6 mb-8' description={benefitText} />
       {stats && stats.length > 0 && <ServiceStatsContainer stats={stats} statsTitle={statsTitle} />}
       <div className={`lg:mt-6 mt-10 flex flex-col gap-4 sm:flex-row ${'justify-center'}`}>
-        <motion.button onClick={scrollToPromotionForm}>📝 Triage Form</motion.button>
+        <motion.button className='bg-gold text-cream px-8 py-4 rounded-lg text-lg font-semibold' onClick={scrollToPromotionForm}>📝 Triage Form</motion.button>
       </div>
     </div>
   );
