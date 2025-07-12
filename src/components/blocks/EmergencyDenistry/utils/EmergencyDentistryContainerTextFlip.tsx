@@ -32,7 +32,7 @@ export function EmergencyDentistryContainerTextFlip() {
       </div>
 
       {/* Main banner text */}
-      <div className='text-4xl lg:text-6xl font-normal max-w-3xl leading-tight'>
+      <div className='text-4xl lg:text-6xl font-normal max-w-2xl leading-tight'>
         <p>Supernova Dental Helps With:</p>
         <FlipWords words={words} />
       </div>
