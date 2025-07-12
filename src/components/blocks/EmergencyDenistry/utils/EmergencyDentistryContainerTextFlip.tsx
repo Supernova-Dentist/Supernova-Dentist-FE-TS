@@ -8,7 +8,6 @@ export function EmergencyDentistryContainerTextFlip() {
     'Same-Day Appointments',
     'Toothache Relief',
     'Broken Teeth',
-    'Infection Treatment',
     'Filling Repairs',
     'Saturday Visits',
     'Emergency Care',

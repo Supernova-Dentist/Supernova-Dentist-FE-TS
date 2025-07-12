@@ -70,7 +70,7 @@ const AuroraHero = () => {
             💬 WhatsApp
           </motion.a>
           <motion.button onClick={scrollToPromotionForm} {...sharedProps}>
-            📝 Triage Form
+            📝 Book Online
           </motion.button>
         </div>
       </motion.div>

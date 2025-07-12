@@ -12,7 +12,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Do you offer out-of-hours emergency care?',
     answer:
-      'We do not offer out-of-hours appointments, but you can contact us via WhatsApp at 07863 338815 for urgent advice. We’ll assess your situation and arrange treatment during our next available hours.',
+      'We do not offer out-of-hours appointments, but you can contact us via WhatsApp at 07863 338815 for urgent advice. We’ll assess your situation as soon as we can and arrange treatment during our next available hours.',
   },
   {
     question: 'What should I do if I knock out a tooth?',

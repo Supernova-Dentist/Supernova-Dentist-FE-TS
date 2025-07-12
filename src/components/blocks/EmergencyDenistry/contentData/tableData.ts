@@ -3,7 +3,7 @@ const tableHeadData = ['Feature', 'Supernova Emergency Dentistry'];
 const tableBodyData = [
   {
     feature: 'Same-Day Appointments',
-    data: ['✓ Available'],
+    data: ['✓ 2 reserved each working day'],
   },
   {
     feature: 'After Hours Contact',

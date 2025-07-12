@@ -7,7 +7,7 @@ export default {
   imageSrc: '/assets/images/emerg_intro.jpg',
   advantagesTitle: 'Use Cases of Emergency Dentistry',
   advantagesData: [
-    { id: 1, heading: 'Same-Day Appointments', text: 'Get treated on the same day for urgent dental issues.' },
+    { id: 1, heading: 'Same-Day Appointments', text: 'We reserve 2 emergency slots every working day.' },
     { id: 2, heading: 'Pain Relief', text: 'Effective solutions to alleviate dental pain quickly.' },
     { id: 3, heading: 'Expert Care', text: 'Our experienced team provides top-quality emergency dental treatment.' },
     {
