@@ -35,7 +35,6 @@ export function EmergencyDentistryContainerTextFlip() {
       <div className='text-4xl lg:text-6xl font-normal max-w-3xl leading-tight'>
         <p>Supernova Dental Helps With:</p>
         <FlipWords words={words} />
-        <p className='mt-2'>In Bridgwater</p>
       </div>
     </div>
   );
