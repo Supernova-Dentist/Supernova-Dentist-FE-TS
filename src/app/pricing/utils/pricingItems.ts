@@ -32,8 +32,8 @@ export const pricingItems = [
       },
       {
         description: 'Emergency Appointment (non registered)',
-        price: 150,
-        priceDescription: 'Includes simple emergency treatment',
+        price: 100,
+        priceDescription: 'Contributes towards treatment cost if required',
       },
     ],
   },
