@@ -30,12 +30,6 @@ const teamMembers = [
     slug: 'adam-young',
   },
   {
-    name: 'Rebecca Redstone',
-    title: 'Practice Manager',
-    image: '/assets/images/Headshots/becca.jpg',
-    slug: 'rebecca-redstone',
-  },
-  {
     name: 'Victoria Hands',
     title: 'Dental Nurse',
     image: '/assets/images/Headshots/tori.jpg',
