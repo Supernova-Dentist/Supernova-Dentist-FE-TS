@@ -15,7 +15,7 @@ const ToriWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m a <span className='font-semibold text-lightGold'>Dental Nurse</span>
+                I&apos;m the <span className='font-semibold text-lightGold'>Lead Dental Nurse</span>
               </h2>
               <h3 className='text-lightGold'>GDC Registration Number: 308678</h3>
             </>
@@ -23,7 +23,7 @@ const ToriWaterDropHero = () => {
           <Reveal>
             <>
               <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-                I’m Tori, one of the dental nurses here at Supernova Dental. I’ve been nursing for over five years and
+                I’m Tori, the Lead Dental Nurse here at Supernova Dental. I’ve been nursing for over five years and
                 qualified in 2023. I love seeing their confidence grow when they see their results. I’m also currently
                 training to become an Oral Health Practitioner, allowing me to expand my skills and provide even more
                 comprehensive care.

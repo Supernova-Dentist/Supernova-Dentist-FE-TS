@@ -31,7 +31,7 @@ const teamMembers = [
   },
   {
     name: 'Victoria Hands',
-    title: 'Dental Nurse',
+    title: 'Lead Dental Nurse',
     image: '/assets/images/Headshots/tori.jpg',
     slug: 'victoria-hands',
   },
