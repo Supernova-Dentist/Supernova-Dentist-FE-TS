@@ -23,9 +23,10 @@ export default function DesktopNav() {
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
       transition={{ duration: 1.5 }} // Duration of the animation
     >
-      <nav className='bg-grey p-6'>
-        <ul className='flex gap-8 items-center justify-between'>
-          <div>
+      <nav className='bg-grey p-6 relative'>
+        <ul className='flex items-center justify-between'>
+          {/* Left: Logo */}
+          <li>
             <FlyoutLink href='/' flyoutItems={[]}>
               Supernova Dental{' '}
               <Image
@@ -34,19 +35,32 @@ export default function DesktopNav() {
                 priority
                 src='/favicon.ico'
                 alt='Supernova Dental Logo - Bridgwater Dentist'
-                className='ml-2 h-10 w-auto inline '
+                className='ml-2 h-10 w-auto inline'
               />
             </FlyoutLink>
-          </div>
+          </li>
 
-          <div className='flex-1 flex gap-8 items-center justify-center'>
+          {/* Center: flyout links - absolutely positioned */}
+          <li
+            className='flex gap-8 items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
+            style={{ pointerEvents: 'auto' }} // keep links clickable
+          >
             {navLinks.map(({ name, flyout, url }) => (
               <FlyoutLink key={name} href={url ?? '#'} flyoutItems={flyout}>
                 {name}
               </FlyoutLink>
             ))}
-          </div>
-          <li>
+          </li>
+
+          {/* Right: Contact + Button */}
+          <li className='flex gap-6 items-center'>
+            <p className='text-base sm:text-lg text-center text-white mr-6 xl:block hidden'>📞 01278 228665</p>
+            {/* <p className='text-base sm:text-lg text-center text-white'>
+              Email:{' '}
+              <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
+                enquiries@supernovadental.co.uk
+              </a>
+            </p> */}
             <Link target='_blank' href={`${DentallyPortal}`}>
               <Button className='text-white'>Book Now</Button>
             </Link>
