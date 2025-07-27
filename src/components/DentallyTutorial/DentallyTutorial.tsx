@@ -58,7 +58,7 @@ export default function DentallyTutorial() {
               transition={{ duration: 0.5 }} // Animation duration
               className='text-xl font-bold px-6 text-gold text-center'
             >
-              First time? Let us help you get setup:
+              First time? Let us guide you through the setup:
             </motion.h3>
             <SteppedProgress stepContent={stepContent} />
           </div>
