@@ -98,6 +98,16 @@ export default function ReferAFriendForm({
         });
       }
 
+      if (data.referrerName !== 'NoFriendReferral') {
+        if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead', { lead_type: 'Refer A Friend' });
+        }
+      } else {
+        if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead', { lead_type: 'New Patient' });
+        }
+      }
+
       setShowSuccessModal(true);
     } catch (error) {
       setShowErrorModal(true);

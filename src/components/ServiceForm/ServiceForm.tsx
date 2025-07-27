@@ -6,18 +6,18 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { DentallyPortal } from '@/lib/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 import BarLoader from '../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
-import Link from 'next/link';
-import { DentallyPortal } from '@/lib/constants';
-import { FaTimes } from 'react-icons/fa';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -94,6 +94,11 @@ export default function ServiceForm({
         window.gtag('event', 'conversion', {
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
+      }
+
+      // Trigger Facebook Pixel Lead event with lead_type param
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead', { lead_type: 'New Patient' });
       }
 
       setShowSuccessModal(true);

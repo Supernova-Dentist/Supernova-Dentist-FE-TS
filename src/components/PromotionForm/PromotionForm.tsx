@@ -17,8 +17,8 @@ import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 import BarLoader from '../BarLoader/BarLoader';
-import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
 import { SOCIAL_CTAS } from '../CornerNav/CornerNav';
+import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -74,6 +74,12 @@ export default function PromotionForm() {
           String(errorData.message) || 'There was a problem with your submission. Please try again later.';
         setError(String(errorMessage));
         throw new Error(String(errorMessage));
+      }
+
+      // Trigger Facebook Pixel Lead event with lead_type param
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        console.log('Facebook Pixel Lead event triggered');
+        window.fbq('track', 'Lead', { lead_type: 'New Patient' });
       }
 
       setShowSuccessModal(true);

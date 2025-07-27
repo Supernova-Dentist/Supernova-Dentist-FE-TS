@@ -205,6 +205,13 @@ export function NewEmergencyFormContent() {
 
       setSubmittedData(data);
       setSuccessModalVisible(true);
+
+      // Trigger Facebook Pixel Lead event with lead_type param
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        console.log('Facebook Pixel Lead event triggered');
+        window.fbq('track', 'Lead', { lead_type: 'New Emergency Patient' });
+      }
+
       form.reset();
     } catch (error) {
       console.error('There was a problem with the form submission:', error);
