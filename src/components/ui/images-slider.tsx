@@ -66,8 +66,9 @@ export const ImagesSlider = ({
 
   return (
     <div className={`overflow-hidden h-full w-full relative flex items-center justify-center ${className}`}>
-      {loadedImages.length > 0 && children}
-      {overlay && <div className={`absolute inset-0 bg-black/40 z-20 ${overlayClassName}`} />}
+      {loadedImages.length > 0 && <div className='relative z-30'>{children}</div>
+}
+      {overlay && <div className={`absolute inset-0 bg-black/50 z-20 ${overlayClassName}`} />}
 
       {loadedImages.length > 0 && (
         <AnimatePresence>

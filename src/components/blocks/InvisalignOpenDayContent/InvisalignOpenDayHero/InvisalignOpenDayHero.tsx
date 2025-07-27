@@ -4,6 +4,7 @@ import React from 'react';
 import { ImagesSlider } from '../../../ui/images-slider';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { FiArrowRight } from 'react-icons/fi';
+import { FlipWords } from '@/components/ui/flip-words';
 
 export function InvisalignOpenDayHero() {
   const desktopImages = [
@@ -26,6 +27,18 @@ export function InvisalignOpenDayHero() {
   const border = useMotionTemplate`1px solid #a4693d`;
   const boxShadow = useMotionTemplate`0px 4px 24px #a4693d`;
 
+  const words = [
+  'Starts August 2025',
+  'Spaces Filling Fast',
+  'Only 25 Spaces',
+  'Complimentary Consultation',
+  'Exclusive Discounts',
+  'Book Today',
+  'Limited Availability',
+  'Secure Your Spot',
+];
+
+
   return (
     <>
       <div className='hidden md:block h-[100vh]'>
@@ -45,7 +58,7 @@ export function InvisalignOpenDayHero() {
             className='z-40 flex flex-col justify-center items-center'
           >
             <motion.p className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
-              Supernova Dental <br /> Invisalign Open Day <br /> April 2025
+              Supernova Dental <br /> Invisalign Flash Sale <br /> <br /> <FlipWords words={words} /> 
             </motion.p>
             <motion.button
               onClick={scrollToPromotionForm}
@@ -59,7 +72,7 @@ export function InvisalignOpenDayHero() {
               whileTap={{
                 scale: 0.985,
               }}
-              className='group relative flex w-fit items-center gap-1.5 lg:mt-4 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
+              className='group relative flex w-fit items-center gap-1.5 lg:mt-8 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
               Sign Up Now
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
@@ -84,7 +97,7 @@ export function InvisalignOpenDayHero() {
             className='z-30 relative flex flex-col justify-center items-center'
           >
             <motion.p className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
-              Supernova Dental <br /> Invisalign Open Day <br /> April 2025
+              Supernova Dental <br /> Invisalign Flash Sale <br /> <br /><FlipWords words={words} />
             </motion.p>
             <motion.button
               onClick={scrollToPromotionForm}
@@ -98,7 +111,7 @@ export function InvisalignOpenDayHero() {
               whileTap={{
                 scale: 0.985,
               }}
-              className='group relative flex w-fit items-center gap-1.5 lg:mt-4 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
+              className='group relative flex w-fit items-center gap-1.5 mt-6 lg:mt-8 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
               Sign Up Now
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
