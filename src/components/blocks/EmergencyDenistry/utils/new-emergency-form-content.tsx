@@ -208,8 +208,7 @@ export function NewEmergencyFormContent() {
 
       // Trigger Facebook Pixel Lead event with lead_type param
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        console.log('Facebook Pixel Lead event triggered');
-        window.fbq('track', 'Lead', { lead_type: 'New Emergency Patient' });
+        window.fbq('trackCustom', 'NewEmergencyPatientLead');
       }
 
       form.reset();

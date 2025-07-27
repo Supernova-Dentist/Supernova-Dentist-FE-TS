@@ -92,7 +92,6 @@ export default function InvisalignOpenDayForm({
 
       // Trigger Facebook Pixel Lead event with lead_type param
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        console.log('Facebook Pixel Lead event triggered');
         window.fbq('trackCustom', 'InvisalignFlashSaleLead');
       }
 

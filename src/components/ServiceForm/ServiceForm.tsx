@@ -98,7 +98,7 @@ export default function ServiceForm({
 
       // Trigger Facebook Pixel Lead event with lead_type param
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('track', 'Lead', { lead_type: 'New Patient' });
+        window.fbq('trackCustom', 'NewPatientLead');
       }
 
       setShowSuccessModal(true);

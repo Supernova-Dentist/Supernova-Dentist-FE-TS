@@ -5,22 +5,22 @@
 import BarLoader from '@/components/BarLoader/BarLoader';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { FileUpload } from '@/components/ui/file-upload';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { DentallyPortal } from '@/lib/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { half } from '@tsparticles/engine';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { MdFileUpload } from 'react-icons/md';
-import { FileUpload } from '@/components/ui/file-upload';
-import { half } from '@tsparticles/engine';
-import Link from 'next/link';
-import { DentallyPortal } from '@/lib/constants';
 import { FaTimes } from 'react-icons/fa';
+import { MdFileUpload } from 'react-icons/md';
+import { z } from 'zod';
 
 // Define the max character limit
 const MAX_MESSAGE_LENGTH = 500;
@@ -198,8 +198,7 @@ export function ExisitingEmergencyFormContent() {
 
       // Trigger Facebook Pixel Lead event with lead_type param
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        console.log('Facebook Pixel Lead event triggered');
-        window.fbq('track', 'Lead', { lead_type: 'New Emergency Patient' });
+        window.fbq('trackCustom', 'ExisitingEmergencyPatientLead');
       }
 
       form.reset();

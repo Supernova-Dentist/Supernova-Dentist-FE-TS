@@ -100,11 +100,11 @@ export default function ReferAFriendForm({
 
       if (data.referrerName !== 'NoFriendReferral') {
         if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-          window.fbq('track', 'Lead', { lead_type: 'Refer A Friend' });
+          window.fbq('trackCustom', 'ReferAFriendLead');
         }
       } else {
         if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-          window.fbq('track', 'Lead', { lead_type: 'New Patient' });
+          window.fbq('trackCustom', 'NewPatientLead');
         }
       }
 
