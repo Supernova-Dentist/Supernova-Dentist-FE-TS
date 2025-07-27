@@ -74,6 +74,22 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
+        {/* WhatConverts setup */}
+        <Script id='whatconverts-config' strategy='beforeInteractive'>
+          {`
+          var $wc_load=function(a){return JSON.parse(JSON.stringify(a))},
+          $wc_leads=$wc_leads||{
+            doc:{
+              url:$wc_load(document.URL),
+              ref:$wc_load(document.referrer),
+              search:$wc_load(location.search),
+              hash:$wc_load(location.hash)
+            }
+          };
+        `}
+        </Script>
+
+        <Script id='whatconverts-script' strategy='beforeInteractive' src='//s.ksrndkehqnwntyxlhgto.com/149415.js' />
         <noscript>
           <img
             height='1'
