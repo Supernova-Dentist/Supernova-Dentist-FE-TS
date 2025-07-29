@@ -1,7 +1,7 @@
 export default {
   title: 'What Are Sports Mouth Guards?',
   descriptions: [
-    'Sports mouth guards are custom-fitted protective devices designed to shield your teeth, gums, and jaw during physical activity. Made using comfortable digital scans meaning no messy impressions, our guards offer optimal fit, durability, and impact protection. Trusted by athletes at all levels, including guards worn in professional boxing bouts.',
+    'Sports mouth guards protect your teeth during contact sports. We offer custom-fit guards made from digital scans — no messy impressions — for better comfort, protection, and durability than store-bought options.',
   ],
 
   imageSrc: '/assets/images/website_intro_guard.png',
