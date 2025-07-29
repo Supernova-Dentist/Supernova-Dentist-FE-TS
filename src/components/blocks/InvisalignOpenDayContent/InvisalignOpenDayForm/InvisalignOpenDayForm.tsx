@@ -235,11 +235,11 @@ export default function InvisalignOpenDayForm({
             </Card>
 
             <div className='flex flex-col lg:hidden py-2 lg:py-12 mt-4'>
-              <img
+              {/* <img
                 src='/assets/images/invisalign_open_Day_poster.jpg'
                 alt='Invisalign Logo'
                 className=' w-96 mx-auto pb-4'
-              />
+              /> */}
               <img
                 src='/assets/images/supernova_dental_cover.png'
                 alt='Invisalign Logo'
