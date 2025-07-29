@@ -37,8 +37,8 @@ export default function MainLink({ href, showFlyout, children, flyoutItems, open
       {children}
       {flyoutItems.length > 0 && (
         <ChevronDownIcon
-          className={cn('ml-1 transform transition-transform duration-300', {
-            'rotate-180': localShowFlyout, // Rotate icon when flyout is open
+          className={cn('ml-1 w-4 h-4 shrink-0 transition-transform duration-300 transform', {
+            'rotate-180': localShowFlyout,
           })}
         />
       )}

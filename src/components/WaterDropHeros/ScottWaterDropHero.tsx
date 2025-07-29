@@ -16,7 +16,7 @@ const ScottWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'> Principal Dentist/Owner</span>
+                I&apos;m the <span className='font-semibold text-lightGold'> Principal Dentist/Owner</span> at Supernova Dental
               </h2>
               <h3 className='text-lightGold'>
                 BDS (Hons) PGCert Restorative and Aesthetic Dentistry (FGFP) PGDip Orthodontics (SDC) CGD

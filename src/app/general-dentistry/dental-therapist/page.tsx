@@ -56,7 +56,7 @@ export default function DentalTherapist() {
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <DentalTherapistContent />
       {/* Sticky EnquiryButton */}
-      <EnquiryButton referringPage={'dental-therapist'} />
+      <EnquiryButton referringPage={'general-dentistry/dental-therapist'} />
     </div>
   );
 }

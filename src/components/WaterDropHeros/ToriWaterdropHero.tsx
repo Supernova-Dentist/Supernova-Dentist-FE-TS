@@ -15,7 +15,7 @@ const ToriWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'>Lead Dental Nurse</span>
+                I&apos;m the <span className='font-semibold text-lightGold'>Lead Dental Nurse</span> at Supernova Dental
               </h2>
               <h3 className='text-lightGold'>GDC Registration Number: 308678</h3>
             </>

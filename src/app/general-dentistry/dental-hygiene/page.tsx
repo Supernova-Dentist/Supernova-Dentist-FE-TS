@@ -56,7 +56,7 @@ export default function DentalHygiene() {
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <HygieneContent />
       {/* Sticky EnquiryButton */}
-      <EnquiryButton referringPage={'dental-hygiene'} />
+      <EnquiryButton referringPage={'general-dentistry/dental-hygiene'} />
     </div>
   );
 }

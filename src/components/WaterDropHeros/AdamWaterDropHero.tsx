@@ -14,7 +14,7 @@ const ScottWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'>Operations Director</span>
+                I&apos;m the <span className='font-semibold text-lightGold'>Operations Director</span> at Supernova Dental
               </h2>
             </>
           </Reveal>

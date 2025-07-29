@@ -4,9 +4,10 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const urlToReadableMap: { [key: string]: string } = {
-  invisalign: 'Invisalign',
-  'dental-therapist': 'Dental Therapist',
-  'dental-hygiene': 'Dental Hygiene',
+  'cosmetic-dentistry/invisalign': 'Invisalign',
+  'general-dentistry/dental-therapist': 'Dental Therapist',
+  'general-dentistry/dental-hygiene': 'Dental Hygiene',
+  'general-dentistry/sports-mouthguards': 'Sports Mouthguards',
   'cosmetic-dentistry/composite-bonding': 'Composite Bonding',
   'cosmetic-dentistry/tooth-whitening': 'Tooth Whitening',
   'cosmetic-dentistry/dental-implants': 'Dental Implants',
@@ -14,9 +15,8 @@ const urlToReadableMap: { [key: string]: string } = {
   'general-dentistry/filling': 'Filling',
   'general-dentistry/root-canal': 'Root Canal Treatment',
   'general-dentistry/emergency': 'Emergency Dental Care',
-  pricing: 'Pricing',
-  'dental-finance': 'Dental Finance',
-  'dental-implants': 'Dental Implants',
+  pricing: 'Pricing', 
+  'general-dentistry/dental-finance': 'Dental Finance',
   'emergency-dentistry': 'Emergency Dentistry',
 };
 

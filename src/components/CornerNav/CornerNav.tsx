@@ -74,9 +74,9 @@ const LinksContainer = () => {
   const [activeLink, setActiveLink] = useState<number | null>(null);
 
   return (
-    <motion.div className='space-y-6 pt-2 pb-8 px-2 mx-auto overflow-y-auto'>
+    <motion.div className='space-y-6 pt-2 pb-8 px-1 mx-auto overflow-y-auto'>
       {/* Grid layout for all links */}
-      <div className='grid grid-cols-2 gap-4 sm:grid-cols-2 xs:grid-cols-1'>
+      <div className='grid grid-cols-2 gap-3 sm:grid-cols-2 xs:grid-cols-1'>
         {LINKS.map((l, idx) => (
           <NavLink
             key={l.title}
@@ -297,35 +297,35 @@ const LINKS = [
   //   title: 'Social',
   //   href: '#social',
   // },
-
   {
-    title: 'Practice',
-    href: '/practice',
-  },
-  // {
-  //   title: 'Cosmetic Dentistry',
-  //   href: '#',
-  //   subLinks: [
-  //     // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
-  //     { title: 'Invisalign', href: '/invisalign' },
-  //   ],
-  // },
-  {
-    title: 'Services',
+    title: 'Cosmetic Dentistry',
     href: '#',
     subLinks: [
-      { title: 'Emergency Dentistry', href: '/emergency-dentistry' },
-      { title: 'Dental Implants', href: '/dental-implants' },
-      { title: 'Invisalign', href: '/invisalign' },
-      { title: 'Dental Therapist', href: '/dental-therapist' },
-      { title: 'Dental Hygiene', href: '/dental-hygiene' },
-      { title: 'Dental Finance', href: '/dental-finance' },
+      // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
+      { title: 'Explore Cosmetic Dentistry', href: '/cosmetic-dentistry' },
+      // { title: 'Invisalign Flash Sale', href: '/cosmetic-dentistry/invisalign-flash-sale' },
+      { title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' },
+      { title: 'Dental Implants', href: '/cosmetic-dentistry/dental-implants' },
+    ],
+  },
+  {
+    title: 'General Dentistry',
+    href: '#',
+    subLinks: [
+      // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
+      { title: 'Explore General Dentistry', href: '/general-dentistry' },
+      { title: 'Emergency Dentistry', href: '/general-dentistry/emergency-dentistry' },
+      { title: 'Dental Therapist', href: '/general-dentistry/dental-therapist' },
+      { title: 'Dental Hygiene', href: '/general-dentistry/dental-hygiene' },
+      { title: 'Sports Mouthguards', href: '/general-dentistry/sports-mouthguards' },
+      { title: 'Dental Finance', href: '/general-dentistry/dental-finance' },
     ],
   },
   {
     title: 'about us',
     href: '#',
     subLinks: [
+      { title: 'Practice', href: '/practice' },
       { title: 'Team', href: '/team' },
       { title: 'Find us', href: '/find-us' },
       // { title: 'Social', href: '/social' },

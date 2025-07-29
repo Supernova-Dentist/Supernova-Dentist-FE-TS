@@ -56,7 +56,7 @@ export default function DentalImplants() {
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <DentalImplantsContent />
       {/* Sticky EnquiryButton */}
-      <EnquiryButton referringPage={'dental-implants'} />
+      <EnquiryButton referringPage={'cosmetic-dentistry/dental-implants'} />
     </div>
   );
 }

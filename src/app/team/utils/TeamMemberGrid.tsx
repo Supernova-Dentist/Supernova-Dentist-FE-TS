@@ -47,6 +47,12 @@ const teamMembers = [
     image: '/assets/images/Headshots/Supernova-05.jpg',
     slug: 'mia-coakley',
   },
+  {
+    name: 'Amy Skinner',
+    title: 'Receptionist',
+    image: '/assets/images/Headshots/amy.jpg',
+    slug: 'amy-skinner',
+  },
 ];
 
 export default function TeamMemberGrid() {

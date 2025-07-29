@@ -6,10 +6,22 @@ export const { INSTAGRAM_API_BASE_URL, META_API_CLIENT_ID, META_API_CLIENT_SECRE
 
 // Navigation
 export const cosmeticServices = [
-  { name: 'Invisalign', link: '/cosmetic-dentistry/invisalign' },
-  { name: 'Composite Bonding', link: '/cosmetic-dentistry/composite-bonding' },
-  { name: 'Tooth Whitening', link: '/cosmetic-dentistry/tooth-whitening' },
-  { name: 'Dental Implants', link: '/cosmetic-dentistry/dental-implants' },
+  {
+    name: 'Explore Cosmetic Dentistry',
+    link: '/cosmetic-dentistry',
+  },
+  // {
+  //   name: 'Invisalign Flash Sale',
+  //   link: '/cosmetic-dentistry/invisalign-flash-sale',
+  // },
+  {
+    name: 'Invisalign',
+    link: '/cosmetic-dentistry/invisalign',
+  },
+  {
+    name: 'Dental Implants',
+    link: '/cosmetic-dentistry/dental-implants',
+  },
 ];
 
 export const practiceInfo = [
@@ -32,10 +44,30 @@ export const practiceInfo = [
 ];
 
 export const generalServices = [
-  { name: 'General Check-up', link: '/general-dentistry/general-checkup' },
-  { name: 'Filling', link: '/general-dentistry/filling' },
-  { name: 'Root Canal', link: '/general-dentistry/root-canal' },
-  { name: 'Emergency', link: '/general-dentistry/emergency' },
+  {
+    name: 'Explore General Dentistry',
+    link: '/general-dentistry',
+  },
+  {
+    name: 'Emergency Dentistry',
+    link: '/general-dentistry/emergency-dentistry',
+  },
+  {
+    name: 'Dental Therapist',
+    link: '/general-dentistry/dental-therapist',
+  },
+  {
+    name: 'Dental Hygiene',
+    link: '/general-dentistry/dental-hygiene',
+  },
+  {
+    name: 'Sports Mouthguards',
+    link: '/general-dentistry/sports-mouthguards',
+  },
+  {
+    name: 'Dental Finance',
+    link: '/general-dentistry/dental-finance',
+  },
 ];
 
 export const services = [
@@ -81,6 +113,7 @@ export const services = [
 // ];
 
 export const aboutUs = [
+  { name: 'Practice', link: '/practice' },
   { name: 'Team', link: '/team' },
   { name: 'Find Us', link: '/find-us' },
   // { name: 'Social', link: '/social' },
@@ -121,8 +154,8 @@ export const navLinks = [
   { name: 'Home', url: '/', flyout: [] },
   //  TODO: Uncomment when there is a insta post
   // { name: 'Social', url: '#social', flyout: [] },
-  { name: 'Practice', url: '/practice', flyout: [] },
-  { name: 'Services', flyout: services },
+  { name: 'Cosmetic Dentistry', flyout: cosmeticServices },
+  { name: 'General Dentistry', flyout: generalServices },
   // { name: 'General Dentistry', flyout: general },
   { name: 'About us', flyout: aboutUs },
   { name: 'Referral', flyout: referrals },

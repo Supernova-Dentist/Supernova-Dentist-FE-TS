@@ -4,8 +4,8 @@ import FaqSection from '@/components/FaqSection/FaqSection';
 import SectionSpacing from '@/components/SectionSpacing/SectionSpacing';
 import SubHeader from '@/components/SubHeader/SubHeader';
 import Image from 'next/image';
-import fcaLogo from '../../../public/assets/images/fca-logo.png';
-import logo from '../../../public/assets/images/logo.png';
+import fcaLogo from '../../../../public/assets/images/fca-logo.png';
+import logo from '../../../../public/assets/images/logo.png';
 import { faqItems } from './faqItems';
 
 export const metadata = {
@@ -140,7 +140,7 @@ export default function DentalFinance() {
       <div className='pb-6 md:pb-12'>
         <FaqSection id='faq' faqItems={faqItems} />
       </div>
-      <EnquiryButton referringPage={'dental-finance'} />
+      <EnquiryButton referringPage={'general-dentistry/dental-finance'} />
     </>
   );
 }

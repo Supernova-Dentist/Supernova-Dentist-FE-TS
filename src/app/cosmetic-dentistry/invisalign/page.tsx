@@ -3,7 +3,6 @@ import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignC
 import type { Metadata } from 'next';
 import Head from 'next/head';
 
-
 export const metadata: Metadata = {
   title: 'Invisalign Bridgwater & Taunton | Clear Aligners & Invisible Braces',
   description:
@@ -83,7 +82,7 @@ export default function Invisalign() {
         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         <InvisalignContent />
         {/* Sticky EnquiryButton */}
-        <EnquiryButton referringPage={'invisalign'} />
+        <EnquiryButton referringPage={'cosmetic-dentistry/invisalign'} />
       </div>
     </>
   );

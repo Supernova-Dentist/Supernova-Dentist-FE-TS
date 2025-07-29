@@ -16,7 +16,7 @@ const KayleighWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m a <span className='font-semibold text-lightGold'>Dental Therapist</span>
+                I&apos;m a <span className='font-semibold text-lightGold'>Dental Therapist</span> at Supernova Dental
               </h2>
               <h3 className='text-lightGold'>BSc (Hons) Dental Hygiene & Therapy</h3>
               <h3 className='text-lightGold'>GDC Registration Number: 245370</h3>
