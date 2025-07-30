@@ -26,7 +26,7 @@ export const GeneralDentistryOutlineCards = () => {
         <Card
           title='Sports Mouthguards'
           href='/general-dentistry/sports-mouthguards'
-          bgUrl='/assets/images/website_intro_guard.png'
+          bgUrl='/assets/images/xs_guard.jpeg'
         />
         <Card
           title='Dental Finance'
