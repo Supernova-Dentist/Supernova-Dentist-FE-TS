@@ -31,7 +31,31 @@
 
   <!-- Dental Finance Page -->
   <url>
-    <loc>https://www.supernovadental.co.uk/dental-finance</loc>
+    <loc>https://www.supernovadental.co.uk/general-dentistry/dental-finance</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- General Dentistry Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/general-dentistry</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cosmetic Dentistry Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/cosmetic-dentistry</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sports Mouthguards Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/general-dentistry/sports-mouthguards</loc>
     <lastmod>2025-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -80,7 +104,7 @@
 
   <!-- Invisalign Page -->
 <url>
-  <loc>https://www.supernovadental.co.uk/invisalign</loc>
+  <loc>https://www.supernovadental.co.uk/cosmetic-dentistry/invisalign</loc>
   <lastmod>2025-03-13</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
@@ -88,7 +112,7 @@
 
 <!-- Dental Hygiene Page -->
 <url>
-  <loc>https://www.supernovadental.co.uk/dental-hygiene</loc>
+  <loc>https://www.supernovadental.co.uk/general-dentistry/dental-hygiene</loc>
   <lastmod>2025-03-13</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
@@ -96,7 +120,7 @@
 
 <!-- Dental Therapist Page -->
 <url>
-  <loc>https://www.supernovadental.co.uk/dental-therapist</loc>
+  <loc>https://www.supernovadental.co.uk/general-dentistry/dental-therapist</loc>
   <lastmod>2025-03-13</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
@@ -173,7 +197,7 @@
 
 <!-- Dental Implants Page -->
 <url>
-  <loc>https://www.supernovadental.co.uk/dental-implants</loc>
+  <loc>https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants</loc>
   <lastmod>2025-07-09</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
@@ -221,7 +245,7 @@
 
 <!-- Emergency Dentistry Page -->
 <url>
-  <loc>https://www.supernovadental.co.uk/emergency-dentistry</loc>
+  <loc>https://www.supernovadental.co.uk/general-dentistry/emergency-dentistry</loc>
   <lastmod>2025-07-11</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.9</priority>
