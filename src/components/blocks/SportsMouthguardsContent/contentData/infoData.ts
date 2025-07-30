@@ -4,7 +4,7 @@ export default {
     'Sports mouth guards protect your teeth during contact sports. We offer custom-fit guards made from digital scans meaning no messy impressions - for better comfort, protection, and durability than store-bought options.',
   ],
 
-  imageSrc: '/assets/images/website_intro_guard.png',
+  imageSrc: '/assets/images/xs_guard.jpeg',
   advantagesTitle: 'Advantages of Custom Sports Mouth Guards',
   advantagesData: [
     {
