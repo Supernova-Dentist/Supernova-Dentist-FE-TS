@@ -303,7 +303,7 @@ const LINKS = [
     subLinks: [
       // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
       { title: 'Explore Cosmetic Dentistry', href: '/cosmetic-dentistry' },
-      // { title: 'Invisalign Flash Sale', href: '/cosmetic-dentistry/invisalign-flash-sale' },
+      { title: 'Invisalign Flash Sale', href: '/cosmetic-dentistry/invisalign-flash-sale' },
       { title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' },
       { title: 'Dental Implants', href: '/cosmetic-dentistry/dental-implants' },
     ],
@@ -317,7 +317,7 @@ const LINKS = [
       { title: 'Emergency Dentistry', href: '/general-dentistry/emergency-dentistry' },
       { title: 'Dental Therapist', href: '/general-dentistry/dental-therapist' },
       { title: 'Dental Hygiene', href: '/general-dentistry/dental-hygiene' },
-      { title: 'Sports Mouthguards', href: '/general-dentistry/sports-mouthguards' },
+      { title: 'Mouthguards', href: '/general-dentistry/sports-mouthguards' },
       { title: 'Dental Finance', href: '/general-dentistry/dental-finance' },
     ],
   },

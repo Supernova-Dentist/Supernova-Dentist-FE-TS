@@ -10,10 +10,10 @@ export const cosmeticServices = [
     name: 'Explore Cosmetic Dentistry',
     link: '/cosmetic-dentistry',
   },
-  // {
-  //   name: 'Invisalign Flash Sale',
-  //   link: '/cosmetic-dentistry/invisalign-flash-sale',
-  // },
+  {
+    name: 'Invisalign Flash Sale',
+    link: '/cosmetic-dentistry/invisalign-flash-sale',
+  },
   {
     name: 'Invisalign',
     link: '/cosmetic-dentistry/invisalign',
