@@ -158,7 +158,7 @@ export default function InvisalignOpenDayForm({
               </h2>
               <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
               <div className='hidden lg:flex items-center justify-center mx-auto gap-4 pt-4 pb-8'>
-                <img src='/assets/images/flash_sale_share.png' alt='Invisalign Flash Sale' className=' w-11/12' />
+                <img src='/assets/images/supernova_flash_sale.png' alt='Invisalign Flash Sale' className=' w-11/12' />
               </div>
             </div>
             <Card className=' max-h-[50rem] md:max-h-[40rem] mt-6 mx-auto lg:m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-6 flex items-center justify-center'>
@@ -238,7 +238,7 @@ export default function InvisalignOpenDayForm({
             </Card>
 
             <div className='flex flex-col lg:hidden py-2 lg:py-12 mt-4'>
-              <img src='/assets/images/flash_sale_share.png' alt='Invisalign Flash Sale' className=' w-12/12 mx-auto pb-4' />
+              <img src='/assets/images/supernova_flash_sale.png' alt='Invisalign Flash Sale' className=' w-12/12 mx-auto pb-4' />
               <img
                 src='/assets/images/supernova_dental_cover.png'
                 alt='Invisalign Logo'
