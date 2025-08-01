@@ -57,9 +57,9 @@ export function InvisalignOpenDayHero() {
             }}
             className='z-40 flex flex-col justify-center items-center'
           >
-            <motion.p className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
+            <motion.h1 className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
               Supernova Dental <br /> Invisalign Flash Sale <br /> <br /> <FlipWords words={words} /> 
-            </motion.p>
+            </motion.h1>
             <motion.button
               onClick={scrollToPromotionForm}
               style={{

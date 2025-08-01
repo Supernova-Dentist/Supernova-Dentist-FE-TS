@@ -6,13 +6,23 @@ import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { Inter } from 'next/font/google';
+import { Playfair_Display, IBM_Plex_Sans  } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import './reset.css';
 const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), { ssr: false });
 
-const inter = Inter({ subsets: ['latin'] });
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  weight: ['400', '700'], // add weights if needed
+});
+
+const ibmPlex = IBM_Plex_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['400', '700'],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.supernovadental.co.uk'),
@@ -110,7 +120,8 @@ export default function RootLayout({
           />
         </noscript>
       </head>
-      <body className={inter.className}>
+      <body className={`${playfair.variable} ${ibmPlex.variable}`}>
+
         {/* Google Tag Manager (noscript) */}
         {/* <noscript>
           <iframe

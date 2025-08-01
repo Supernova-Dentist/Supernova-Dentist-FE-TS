@@ -10,6 +10,8 @@
     --grey: #121c26;
     --light-grey: #404244;
     --cream: #f6efe9;
+    --font-playfair: 'Playfair Display', serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
   }
 }
 
@@ -37,6 +39,14 @@
 
   body {
     background: white;
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  .heading {
+    font-family: var(--font-playfair);
   }
 
   table thead tr:first-child th:first-child {
