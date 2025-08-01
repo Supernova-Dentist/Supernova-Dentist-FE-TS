@@ -317,8 +317,8 @@ const LINKS = [
       { title: 'Emergency Dentistry', href: '/general-dentistry/emergency-dentistry' },
       { title: 'Dental Therapist', href: '/general-dentistry/dental-therapist' },
       { title: 'Dental Hygiene', href: '/general-dentistry/dental-hygiene' },
-      { title: 'Mouthguards', href: '/general-dentistry/sports-mouthguards' },
       { title: 'Dental Finance', href: '/general-dentistry/dental-finance' },
+      { title: 'Sports Mouthguards', href: '/general-dentistry/sports-mouthguards' },
     ],
   },
   {
