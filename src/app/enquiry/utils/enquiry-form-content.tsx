@@ -83,8 +83,9 @@ export function EnquiryFormContent() {
       setSubmittedData(data);
       setSuccessModalVisible(true);
 
-      window.fbq('trackCustom', 'NewEnquiryForm');
-      
+      window.dataLayer = window.dataLayer ?? [];
+      window.dataLayer.push({ event: 'NewEnquiryForm' });
+
       form.reset({ name: '', email: '', phone: '', category: '', message: '' });
     } catch (error) {
       console.error('There was a problem with the form submission:', error);

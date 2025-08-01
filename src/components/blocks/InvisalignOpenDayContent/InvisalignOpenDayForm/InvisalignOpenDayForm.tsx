@@ -83,17 +83,8 @@ export default function InvisalignOpenDayForm({
         throw new Error(errorData.message);
       }
 
-      // Trigger Google Ads conversion tracking
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
-          send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
-        });
-      }
-
-      // Trigger Facebook Pixel Lead event with lead_type param
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', 'InvisalignFlashSaleLead');
-      }
+      window.dataLayer = window.dataLayer ?? [];
+      window.dataLayer.push({ event: 'InvisalignFlashSaleLead' });
 
       setShowSuccessModal(true);
     } catch (error) {

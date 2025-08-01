@@ -196,10 +196,8 @@ export function ExisitingEmergencyFormContent() {
       setSubmittedData(data);
       setSuccessModalVisible(true);
 
-      // Trigger Facebook Pixel Lead event with lead_type param
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', 'ExisitingEmergencyPatientLead');
-      }
+      window.dataLayer = window.dataLayer ?? [];
+      window.dataLayer.push({ event: 'EmergencyPatientLead' });
 
       form.reset();
     } catch (error) {
