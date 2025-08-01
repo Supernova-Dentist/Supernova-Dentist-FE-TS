@@ -86,6 +86,18 @@ export function EnquiryFormContent() {
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({ event: 'NewEnquiryForm' });
 
+      // Trigger Google Ads conversion tracking
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+        });
+      }
+
+      // Trigger Facebook Pixel Lead event with lead_type param
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        window.fbq('trackCustom', 'NewEnquiryForm');
+      }
+
       form.reset({ name: '', email: '', phone: '', category: '', message: '' });
     } catch (error) {
       console.error('There was a problem with the form submission:', error);

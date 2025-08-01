@@ -92,6 +92,18 @@ export default function ServiceForm({
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({ event: 'NewPatientLead' });
 
+      // Trigger Google Ads conversion tracking
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+        });
+      }
+
+      // Trigger Facebook Pixel Lead event with lead_type param
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        window.fbq('trackCustom', 'NewPatientLead');
+      }
+
       setShowSuccessModal(true);
     } catch (error) {
       setShowErrorModal(true);

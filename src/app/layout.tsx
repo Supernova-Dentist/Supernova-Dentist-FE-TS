@@ -71,17 +71,55 @@ export default function RootLayout({
         </Script>
 
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
+        <Script id='meta-pixel' strategy='beforeInteractive'>
+          {`
+            !function(f,b,e,v,n,t,s) {
+              if(f.fbq) return; n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+              n.queue=[]; t=b.createElement(e); t.async=!0;
+              t.src=v; s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)
+            }(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '539899052125710');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        {/* WhatConverts setup */}
+        <Script id='whatconverts-config' strategy='beforeInteractive'>
+          {`
+          var $wc_load=function(a){return JSON.parse(JSON.stringify(a))},
+          $wc_leads=$wc_leads||{
+            doc:{
+              url:$wc_load(document.URL),
+              ref:$wc_load(document.referrer),
+              search:$wc_load(location.search),
+              hash:$wc_load(location.hash)
+            }
+          };
+        `}
+        </Script>
+
+        <Script id='whatconverts-script' strategy='beforeInteractive' src='//s.ksrndkehqnwntyxlhgto.com/149415.js' />
+        <noscript>
+          <img
+            height='1'
+            width='1'
+            style={{ display: 'none' }}
+            src='https://www.facebook.com/tr?id=539899052125710&ev=PageView&noscript=1'
+          />
+        </noscript>
       </head>
       <body className={inter.className}>
         {/* Google Tag Manager (noscript) */}
-        <noscript>
+        {/* <noscript>
           <iframe
             src='https://www.googletagmanager.com/ns.html?id=GTM-5Q5NWLHG'
             height='0'
             width='0'
             style={{ display: 'none', visibility: 'hidden' }}
           />
-        </noscript>
+        </noscript> */}
         <MainNav />
         {children}
         <FloatingMenu />
