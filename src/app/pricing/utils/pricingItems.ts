@@ -128,13 +128,13 @@ year`,
       {
         description: 'Composite edge bonding',
         priceDescriptionBefore: 'from',
-        price: 175,
+        price: 225,
         priceDescription: 'per tooth',
       },
       {
         description: 'Composite bonding/Veneers',
         priceDescriptionBefore: 'from',
-        price: 275,
+        price: 300,
         priceDescription: 'per tooth',
       },
 
