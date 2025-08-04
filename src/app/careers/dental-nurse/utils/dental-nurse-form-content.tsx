@@ -376,7 +376,7 @@ export function DentalNurseFormContent() {
                       }`}
                       disabled={loading}
                     >
-                      {loading ? <BarLoader /> : <span className='text-md lg:text-lg'>Register Interest</span>}
+                      {loading ? <BarLoader /> : <span className='text-md lg:text-lg'>Submit</span>}
                     </Button>
                   </div>
                 </div>
