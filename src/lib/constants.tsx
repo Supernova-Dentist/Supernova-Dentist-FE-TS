@@ -37,6 +37,7 @@ export const practiceInfo = [
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
+  { name: 'Careers', link: '/careers' },
   { name: 'Professional Referrals', link: '/professional-referrals' },
   { name: 'Refer A Friend', link: '/refer-a-friend' },
   { name: 'Patient Portal', link: 'https://supernova.portal.dental' },
