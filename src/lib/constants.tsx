@@ -119,6 +119,7 @@ export const aboutUs = [
   // { name: 'Social', link: '/social' },
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
+  { name: 'Careers', link: '/careers' },
 ];
 
 export const referrals = [

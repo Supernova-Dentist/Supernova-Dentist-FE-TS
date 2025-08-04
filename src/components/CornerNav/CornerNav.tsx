@@ -334,6 +334,10 @@ const LINKS = [
         title: 'Enquiry',
         href: '/enquiry',
       },
+      {
+        title: 'Careers',
+        href: '/careers',
+      },
     ],
   },
   {
