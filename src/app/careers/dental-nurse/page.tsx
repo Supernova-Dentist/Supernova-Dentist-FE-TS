@@ -8,9 +8,9 @@ import logo from '../../../../public/assets/images/logo.png';
 import { DentalNurseFormContent } from './utils/dental-nurse-form-content';
 
 export const metadata = {
-  title: 'Dental Nurse Job – North Petherton, Bridgwater | Supernova Dental Careers',
+  title: 'Dental Nurse Job – Bridgwater | Supernova Dental Careers',
   description:
-    'Apply now for a Dental Nurse role at Supernova Dental in North Petherton, near Bridgwater, Somerset. Full-time and part-time positions available with competitive pay and career growth opportunities.',
+    'Apply now for a Dental Nurse role at Supernova Dental in Bridgwater, Somerset. Full-time and part-time positions available with competitive pay and career growth opportunities.',
   keywords:
     'dental careers Bridgwater, jobs at Supernova Dental, dental nurse jobs Somerset, dentist jobs Bridgwater, careers in dentistry Somerset, Supernova Dental hiring, join our dental team, dental practice vacancies, dental jobs Somerset, Supernova Dental careers',
 };
@@ -24,8 +24,8 @@ export default function DentalNurseJob() {
           <div className='my-2'>
             <BreadCrumb />
           </div>
-          <h1 className='text-4xl font-semibold text-gold mb-2'>Dental Nurse Job – Now Hiring in North Petherton</h1>
-          <p className='text-lg text-gray-700'>Join Supernova Dental in North Petherton (near Bridgwater, Somerset)</p>
+          <h1 className='text-4xl font-semibold text-gold mb-2'>Dental Nurse Job – Now Hiring in Bridgwater</h1>
+          <p className='text-lg text-gray-700'>Join Supernova Dental in Bridgwater, Somerset</p>
           <p className='text-md text-gray-600'>From £13.50 an hour · Part-time & Full-time Dental Nurse Positions</p>
         </div>
 
@@ -50,7 +50,7 @@ export default function DentalNurseJob() {
               <div className='flex-1'>
                 <p>
                   Supernova Dental is a modern, growing dental practice based in{' '}
-                  <strong>North Petherton, near Bridgwater</strong>, serving patients across <strong>Somerset</strong>.
+                  <strong>Bridgwater</strong>, serving patients across <strong>Somerset</strong>.
                   We’re known for providing high-quality patient care using advanced technology in a calm, welcoming
                   environment.
                 </p>
@@ -114,8 +114,7 @@ export default function DentalNurseJob() {
           <SectionSpacing className='flex flex-col gap-4'>
             <SubHeader>How to Apply</SubHeader>
             <p>
-              If you’re a Dental Nurse looking for your next opportunity in{' '}
-              <strong>Bridgwater, North Petherton, or Somerset</strong>, we’d love to hear from you. You can either
+              If you’re a Dental Nurse looking for your next opportunity we’d love to hear from you. You can either
               email your CV and a brief cover letter to: <strong>scott@supernovadental.co.uk</strong> with the subject
               line <em>“Dental Nurse Application – [Your Name]”</em>, or use the application form below for easy
               submission.
