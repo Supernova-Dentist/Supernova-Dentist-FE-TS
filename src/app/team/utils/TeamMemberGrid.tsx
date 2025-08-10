@@ -12,16 +12,22 @@ const teamMembers = [
     slug: 'dr-scott-young',
   },
   {
-    name: 'Kayleigh Dowdle',
-    title: 'Dental Therapist',
-    image: '/assets/images/Headshots/kayleigh_headshot.jpeg',
-    slug: 'kayleigh-dowdle',
-  },
-  {
     name: 'Dr. Sara D Banuri',
     title: 'Implantologist/Oral Surgeon',
     image: '/assets/images/Headshots/sara.jpg',
     slug: 'dr-sara-d-banuri',
+  },
+  {
+    name: 'Dr. Jacqueline Amarin',
+    title: 'General and Restorative Dentist',
+    image: '/assets/images/Headshots/jackie.jpeg',
+    slug: 'dr-jacqueline-amarin',
+  },
+  {
+    name: 'Kayleigh Dowdle',
+    title: 'Dental Therapist',
+    image: '/assets/images/Headshots/kayleigh_headshot.jpeg',
+    slug: 'kayleigh-dowdle',
   },
   {
     name: 'Adam Young',
