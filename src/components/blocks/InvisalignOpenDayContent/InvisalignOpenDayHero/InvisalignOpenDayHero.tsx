@@ -30,7 +30,7 @@ export function InvisalignOpenDayHero() {
   const words = [
   'Starts August 2025',
   'Spaces Filling Fast',
-  'Only 25 Spaces',
+  'Only 20 Spaces',
   'Complimentary Consultation',
   'Exclusive Discounts',
   'Book Today',

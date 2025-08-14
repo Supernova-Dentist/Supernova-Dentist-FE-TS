@@ -42,7 +42,7 @@ export const InvisalignOpenDayContent = () => {
         <InvisalignOpenDayForm
           serviceName='Invisalign'
           serviceChip='Invisalign® Flash Sale'
-          serviceDescription='Exclusive Invisalign flash sale bonuses and discounts worth over £1470 - 25 spaces available.'
+          serviceDescription='Exclusive Invisalign flash sale bonuses and discounts worth over £1470 - 20 spaces left.'
           formTitle='Sign Up for a Free Consultation'
           formDescription='Meet with our experts, ask questions, and learn how Invisalign can transform your smile.'
         />
