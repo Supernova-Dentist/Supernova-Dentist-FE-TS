@@ -134,7 +134,7 @@ year`,
       {
         description: 'Composite bonding/Veneers',
         priceDescriptionBefore: 'from',
-        price: 300,
+        price: 325,
         priceDescription: 'per tooth',
       },
 
@@ -211,7 +211,7 @@ discomfort.`,
       {
         priceDescriptionBefore: 'From',
         description: 'Sports guard (selection of colours and designs available)',
-        price: 150,
+        price: 175,
       },
     ],
   },
