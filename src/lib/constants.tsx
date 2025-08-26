@@ -115,6 +115,7 @@ export const services = [
 
 export const aboutUs = [
   { name: 'Practice', link: '/practice' },
+  { name: 'Our Journey', link: '/our-journey' },
   { name: 'Team', link: '/team' },
   { name: 'Find Us', link: '/find-us' },
   // { name: 'Social', link: '/social' },
