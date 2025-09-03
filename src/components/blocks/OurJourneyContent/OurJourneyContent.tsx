@@ -11,13 +11,16 @@ import Image from 'next/image';
 import React, { type ReactNode, useRef } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
-import OurJourneyJourney from './OurJourney/OurJourney';
 import OurJourneyCard from './OurJourneyCard/OurJourneyOpenDayCard';
 import OurJourneyForm from './OurJourneyForm/OurJourneyForm';
 import { OurJourneyHero } from './OurJourneyHero/OurJourneyHero';
 import { OurJourneySlideTabs } from './OurJourneySlideTabs/OurJourneySlideTabs';
 import { OurJourneyVideoSection } from './OurJourneyVideoSection/OurJourneyVideoSection';
 import Results from './Results/Results';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { OurJourney } from './OurJourneyTimeline/contentData';
+import BuildingTransformations from './BuildingTransformations/BuildingTransformations';
 
 const pricing = [
   {
@@ -38,15 +41,6 @@ export const OurJourneyContent = () => {
   return (
     <div className='bg-cream'>
       <OurJourneyHero />
-      <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
-        <OurJourneyForm
-          serviceName='Invisalign'
-          serviceChip='Invisalign® Flash Sale'
-          serviceDescription='Exclusive Invisalign flash sale bonuses and discounts worth over £1470 - 20 spaces left.'
-          formTitle='Sign Up for a Free Consultation'
-          formDescription='Meet with our experts, ask questions, and learn how Invisalign can transform your smile.'
-        />
-      </div>
 
       <section id='offer'>
         <OurJourneySlideTabs />
@@ -54,22 +48,44 @@ export const OurJourneyContent = () => {
           portraitImgUrl='/assets/images/invisalign_1.jpg'
           landscapeImgUrl='/assets/images/invisalign_1.jpeg'
           logoSrc='/assets/images/logo.png'
-          subheading='Huge Savings'
-          heading="Don't miss out."
+          subheading='About Us'
+          heading='Who We Are.'
         >
-          <div className='flex items-center justify-center pt-8 pb-16'>
-            {pricing.map((planData, index) => (
-              <OurJourneyCard
-                key={index}
-                plan={planData.plan}
-                price={planData.price}
-                offerPrice={planData.offerPrice}
-                features={planData.features}
-                monthly={false}
-                isMiddle
+          <motion.div
+            className='relative w-full mx-auto max-w-7xl p-4 md:p-12 flex flex-col lg:flex-row items-center gap-8 justify-center'
+            initial='hidden'
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+          >
+            {/* Text + Button */}
+            <div className='w-full lg:w-1/2 flex flex-col text-center lg:text-left'>
+              <h2 className='text-gold text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>Who We Are</h2>
+              <p className='mt-4 text-white'>
+                We’re a proud, family-led practice built on the belief that every patient deserves to feel listened to,
+                respected, and truly cared for. Our close-knit team works together like family and we treat our patients
+                like part of it too. At Supernova Dental Practice from your very first visit you’ll notice our
+                commitment to creating a calm, comfortable environment throughout your whole patient journey.
+              </p>
+              <Link className='mx-auto' href='/practice'>
+                <Button className='mt-6 w-fit p-6 '>Learn More!</Button>
+              </Link>
+            </div>
+
+            {/* Image */}
+            <motion.div
+              className='w-full lg:w-1/2 flex justify-center'
+              initial='hidden'
+              transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
+            >
+              <Image
+                src='/assets/images/staff_1.jpg'
+                alt='About Us'
+                width={600}
+                height={800}
+                quality={100}
+                className='object-contain h-auto w-full max-w-[40rem] rounded-lg'
               />
-            ))}
-          </div>
+            </motion.div>
+          </motion.div>
         </TextParallaxContent>
       </section>
       <section id='cases'>
@@ -78,18 +94,13 @@ export const OurJourneyContent = () => {
           portraitImgUrl='/assets/images/invisalign_p_1.jpg'
           landscapeImgUrl='/assets/images/invisalign_2.jpg'
           logoSrc='/assets/images/logo.png'
-          subheading='Treatment Cases'
-          heading='See how it can help.'
+          subheading='Our Journey'
+          heading='From Shell to Success.'
         >
-          <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
-            <video
-              className='w-full h-full object-fit rounded-lg lg:mt-8'
-              controls
-              preload='metadata'
-              src='/assets/videos/invisalign_treatment_cases.mp4'
-              poster='/assets/images/treatment_cases.png'
-            />
-          </div>
+          <BuildingTransformations />
+          {/* <div className='relative w-full mx-auto'>
+            <OurJourney id='journey' />
+          </div> */}
         </TextParallaxContent>
       </section>
       <section id='journey'>
@@ -158,6 +169,7 @@ const TextParallaxContent = ({
         paddingRight: IMG_PADDING,
       }}
     >
+      // ADD A PROP TO BE ABLE TO TOGGLE THE HEIGHT FOR LONGER SECTIONS
       <div className='relative h-[250vh]'>
         <StickyImage portraitImgUrl={portraitImgUrl} landscapeImgUrl={landscapeImgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} logoSrc={logoSrc} scrollToRef={contentRef} />

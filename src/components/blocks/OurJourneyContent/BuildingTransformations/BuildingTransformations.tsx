@@ -7,7 +7,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Compare } from '../../../ui/compare';
 
-export default function Results() {
+export default function BuildingTransformations() {
   const transformations = [
     {
       id: 1,
@@ -41,7 +41,7 @@ export default function Results() {
       ref={ref} // Attach the ref to the section
     >
       <div className='container mx-auto'>
-        <div className='flex flex-col-reverse md:flex-row-reverse justify-center gap-8 items-center px-4'>
+        <div className='flex flex-col justify-center gap-8 items-center px-4'>
           {transformations.map((item) => (
             <div key={item.id} className='flex justify-center p-4 border rounded-3xl bg-neutral-100 border-neutral-200'>
               <Compare
