@@ -7,11 +7,11 @@ export const CosmeticDentistryOutlineCards = () => {
   return (
     <section className='overflow-hidden max-w-5xl md:max-w-6xl lg:max-w-7xl px-8 py-10'>
       <div className='mx-auto  items-center justify-center gap-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4'>
-        <Card
+        {/* <Card
           title='Invisalign Flash Sale'
           href='/cosmetic-dentistry/invisalign-flash-sale'
           bgUrl='/assets/images/invis_flash_sale.png'
-        />
+        /> */}
         <Card title='Invisalign' href='/cosmetic-dentistry/invisalign' bgUrl='/assets/images/invisalign.jpeg' />
         <Card
           title='Dental Implants'
