@@ -20,12 +20,12 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/invisalign-flash-sale',
-        destination: '/cosmetic-dentistry/invisalign-flash-sale',
+        source: '/invisalign',
+        destination: '/cosmetic-dentistry/invisalign',
         permanent: true,
       },
       {
-        source: '/invisalign',
+        source: '/cosmetic-dentistry/invisalign-flash-sale',
         destination: '/cosmetic-dentistry/invisalign',
         permanent: true,
       },
