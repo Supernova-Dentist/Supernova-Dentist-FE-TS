@@ -326,6 +326,7 @@ const LINKS = [
     href: '#',
     subLinks: [
       { title: 'Practice', href: '/practice' },
+      { title: 'Our Journey', href: '/our-journey' },
       { title: 'Team', href: '/team' },
       { title: 'Find us', href: '/find-us' },
       // { title: 'Social', href: '/social' },
