@@ -11,20 +11,20 @@ export default function BuildingTransformations() {
   const transformations = [
     {
       id: 1,
-      before: '/assets/images/transformation_before.png',
-      after: '/assets/images/transformation_after.png',
-      description: 'Teeth Whitening',
+      before: '/assets/images/transformation_1.jpg',
+      after: '/assets/images/transformation_5.jpg',
+      description: 'Hall Way',
     },
     {
       id: 2,
-      before: '/assets/images/teeth-before.jpg',
-      after: '/assets/images/teeth-after.png',
+      before: '/assets/images/transformation_4.jpg',
+      after: '/assets/images/transformation_3.jpg',
       description: 'Invisalign Treatment',
     },
     {
       id: 3,
-      before: '/assets/images/teeth-before.jpg',
-      after: '/assets/images/teeth-after.png',
+      before: '/assets/images/transformation_2.jpg',
+      after: '/assets/images/transformation_7.jpg',
       description: 'Dental Veneers',
     },
   ];

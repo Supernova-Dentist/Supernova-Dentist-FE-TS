@@ -1,6 +1,5 @@
 'use client';
 import { FlipWords } from '@/components/ui/flip-words';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useMotionTemplate } from 'framer-motion';
 import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
@@ -27,15 +26,7 @@ export function OurJourneyHero() {
   const border = useMotionTemplate`1px solid #a4693d`;
   const boxShadow = useMotionTemplate`0px 4px 24px #a4693d`;
 
-  const words = [
-    'Who We Are',
-    'Our Journey',
-    'Our Impact',
-    'Patient Feedback',
-    'Open Days',
-    "How We're Growing",
-    'Our Future Vision',
-  ];
+  const words = ['Who We Are', 'Our Transformation', 'Our Impact', 'Our Growth'];
 
   return (
     <>
@@ -59,7 +50,7 @@ export function OurJourneyHero() {
               Supernova Dental <br /> <FlipWords words={words} />
             </motion.h1>
             <motion.button
-              onClick={scrollToPromotionForm}
+              onClick={scrollToLearnMore}
               style={{
                 border,
                 boxShadow,
@@ -99,7 +90,7 @@ export function OurJourneyHero() {
               <FlipWords words={words} />
             </motion.p>
             <motion.button
-              onClick={scrollToPromotionForm}
+              onClick={scrollToLearnMore}
               style={{
                 border,
                 boxShadow,
@@ -112,7 +103,7 @@ export function OurJourneyHero() {
               }}
               className='group relative flex w-fit items-center gap-1.5 mt-6 lg:mt-8 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
-              Sign Up Now
+              Learn More!
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
             </motion.button>
           </motion.div>
@@ -121,3 +112,8 @@ export function OurJourneyHero() {
     </>
   );
 }
+
+export const scrollToLearnMore = () => {
+  const section = document.getElementById('about-us');
+  section?.scrollIntoView({ behavior: 'smooth' });
+};
