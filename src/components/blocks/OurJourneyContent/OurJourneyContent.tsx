@@ -50,7 +50,7 @@ export const OurJourneyContent = () => {
           logoSrc='/assets/images/logo.png'
           subheading='About Us'
           heading='Who We Are.'
-          height='h-[200vh]'
+          height='h-[225vh]'
         >
           <motion.div
             className='relative w-full mx-auto max-w-7xl p-4 md:p-12 flex flex-col lg:flex-row items-center gap-8 justify-center'
@@ -108,7 +108,7 @@ export const OurJourneyContent = () => {
           logoSrc='/assets/images/logo.png'
           subheading='Impact'
           heading='Supporting patients and community at every step.'
-          height={typeof window !== 'undefined' && window.innerWidth > 768 ? 'h-[300vh]' : 'h-[400vh]'}
+          height={typeof window !== 'undefined' && window.innerWidth > 1023 ? 'h-[300vh]' : 'h-[400vh]'}
         >
           <motion.div
             className='relative w-full mx-auto max-w-7xl p-4 md:p-12 flex flex-col lg:flex-row items-center gap-8 justify-center'
@@ -225,7 +225,7 @@ export const OurJourneyContent = () => {
           logoSrc='/assets/images/logo.png'
           subheading='Growth'
           heading='Growing together with our patients and community.'
-          height={typeof window !== 'undefined' && window.innerWidth > 768 ? 'h-[300vh]' : 'h-[400vh]'}
+          height={typeof window !== 'undefined' && window.innerWidth > 1023 ? 'h-[300vh]' : 'h-[400vh]'}
         >
           <motion.div
             className='relative w-full mx-auto max-w-7xl p-4 md:p-12 flex flex-col lg:flex-row items-center gap-8 justify-center'
