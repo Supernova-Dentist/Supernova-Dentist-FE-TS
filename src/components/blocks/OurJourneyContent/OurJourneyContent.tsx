@@ -84,7 +84,7 @@ export const OurJourneyContent = () => {
           </motion.div>
         </TextParallaxContent>
       </section>
-      <section id='our-trasnformation'>
+      <section id='our-transformation'>
         <OurJourneySlideTabs />
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_p_1.jpg'
