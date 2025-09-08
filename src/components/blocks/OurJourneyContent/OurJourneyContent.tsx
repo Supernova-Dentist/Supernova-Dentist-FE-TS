@@ -220,8 +220,8 @@ export const OurJourneyContent = () => {
       <section id='growth'>
         <OurJourneySlideTabs />
         <TextParallaxContent
-          portraitImgUrl='/assets/images/invisalign_p_2.jpg'
-          landscapeImgUrl='/assets/images/invisalign_landscape_2.jpg'
+          portraitImgUrl='/assets/images/invisalign_4.jpg'
+          landscapeImgUrl='/assets/images/invisalign_4.jpg'
           logoSrc='/assets/images/logo.png'
           subheading='Growth'
           heading='Growing together with our patients and community.'
