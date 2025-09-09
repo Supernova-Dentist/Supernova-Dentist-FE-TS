@@ -24,6 +24,8 @@ export default function DentalImplantsContent() {
         formTitle='Sign up for your Dental Implant Consultation'
         formDescription='Book a no-obligation consultation with our experienced implant team and take the first step toward a permanent solution for missing teeth.'
         imgSrc='/assets/images/sara_cbct.jpeg'
+        formId='implants-enquiry-form'
+        eventType='DentalImplantsLead'
       />
 
       <div className='from-cream to-white bg-gradient-to-b'>

@@ -35,6 +35,8 @@ interface ServiceFormProps {
   imgSrc?: string;
   videoSrc?: string;
   videoThumbnailSrc?: string;
+  eventType?: string;
+  formId?: string;
 }
 
 export default function ServiceForm({
@@ -46,6 +48,8 @@ export default function ServiceForm({
   imgSrc,
   videoSrc,
   videoThumbnailSrc,
+  eventType='NewPatientLead',
+  formId=''
 }: ServiceFormProps) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -90,7 +94,7 @@ export default function ServiceForm({
       }
 
       window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({ event: 'NewPatientLead' });
+      window.dataLayer.push({ event: eventType });
 
       // Trigger Google Ads conversion tracking
       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
@@ -188,7 +192,7 @@ export default function ServiceForm({
               )}
             </div>
             <Card className='max-h-[52rem] m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 flex items-center justify-center'>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form id={formId} onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4'>
                   <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
                   <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>

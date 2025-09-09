@@ -24,6 +24,8 @@ export default function InvisalignContent() {
         formTitle='Sign up for your Free Invisalign Consultation'
         formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
         imgSrc='/assets/images/Invisalign_Group.jpg'
+        eventType='InvisalignLead'
+        formId='invisalign-enquiry-form'
       />
 
       <div className='from-cream to-white bg-gradient-to-b'>

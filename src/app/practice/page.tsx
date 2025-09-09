@@ -37,6 +37,8 @@ export default function OurPractice() {
           formDescription='Join our Practice Plan from £5.99/month for children or £24.99/month for adults (16+). Enjoy routine check-ups, hygiene visits, emergency cover, and more. Sign up today for expert dental care and peace of mind.'
           videoSrc='/assets/videos/sd_practice_plan.mp4'
           videoThumbnailSrc='/assets/images/practice_plan_thumbnail.png'
+          formId='practice-enquiry-form'
+          eventType='PracticePlanLead'
         />
       </div>
 

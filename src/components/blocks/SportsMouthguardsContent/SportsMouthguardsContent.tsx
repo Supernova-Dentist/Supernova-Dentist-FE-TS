@@ -22,6 +22,8 @@ export default function SportsMouthguardsContent() {
         formTitle='Register Interest For Sports Mouthguards'
         formDescription='Secure your professionally fitted sports guard with a quick, digital scan at Supernova Dental.'
         imgSrc='/assets/images/post_supernova.png'
+        formId='sports-mouthguards-enquiry-form'
+        eventType='SportsMouthguardsLead'
       />
 
       <div className='from-cream to-white bg-gradient-to-b'>

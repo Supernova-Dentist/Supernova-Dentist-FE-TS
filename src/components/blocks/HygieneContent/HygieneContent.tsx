@@ -22,6 +22,8 @@ export default function HygieneContent() {
         serviceDescription='Maintain a healthy smile with professional teeth cleaning and gum disease prevention treatments.'
         formTitle='Sign Up For A Dental Hygiene Appointment'
         formDescription='Sign up now for a professional hygiene appointment with our expert team, ensuring your teeth stay clean and your gums healthy.'
+        eventType='HygieneLead'
+        formId='hygiene-enquiry-form'
       />
       <div className='from-cream to-white bg-gradient-to-b'>
         <HeroSection data={hygieneHeroData} />

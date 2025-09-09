@@ -23,6 +23,8 @@ export default function DentalTherapistContent() {
         serviceDescription='Enhance your oral health with professional dental therapist treatments, including preventive and restorative care.'
         formTitle='Sign Up For Dental Therapist Services'
         formDescription='Sign up now for professional dental therapist care, ensuring optimal oral health and wellbeing.'
+        formId='dental-therapist-enquiry-form'
+        eventType='DentalTherapistLead'
       />
       <div className='from-cream to-white bg-gradient-to-b'>
         <HeroSection data={hygieneHeroData} />
