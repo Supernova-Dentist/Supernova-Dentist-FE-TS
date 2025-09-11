@@ -93,6 +93,8 @@ export default function ServiceForm({
         throw new Error(errorData.message);
       }
 
+      console.log('Form submitted successfully');
+
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({ event: eventType });
 

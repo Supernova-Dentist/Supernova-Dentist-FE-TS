@@ -76,6 +76,16 @@ export default function PromotionForm() {
         throw new Error(String(errorMessage));
       }
 
+      window.dataLayer = window.dataLayer ?? [];
+      window.dataLayer.push({ event: 'NewPatientLead' });
+
+      // Trigger Google Ads conversion tracking
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+        });
+      }
+
       // Trigger Facebook Pixel Lead event with lead_type param
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
         console.log('Facebook Pixel Lead event triggered');
@@ -134,7 +144,7 @@ export default function PromotionForm() {
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='form' ref={ref} className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
+      <section id='home-page-enquiry-form' ref={ref} className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
         <motion.div
           initial={{ opacity: 0, y: 20 }} // Initial state for the animation
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
