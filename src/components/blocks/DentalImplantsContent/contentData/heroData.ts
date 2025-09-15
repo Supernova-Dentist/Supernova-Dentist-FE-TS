@@ -1,10 +1,11 @@
 export default {
   header: {
-    title: 'Dental Implants in Bridgwater | Restore Missing Teeth',
-    subTitle: 'Replace missing teeth and close gaps with advanced, long-lasting dental implants in Bridgwater.',
+    title: 'All-on-4 & Full-Arch Dental Implants in Bridgwater, Somerset',
+    subTitle:
+      'Restore an entire arch of missing teeth with advanced All-on-4 full-arch dental implants—secure, long-lasting, and natural-looking solutions in Bridgwater.',
   },
   mainText:
-    'Dental implants are the leading solution for missing teeth, offering durable, natural-looking replacements that restore your smile and chewing function. Whether you need to replace a single tooth or multiple teeth, our dental implants provide a versatile and permanent solution tailored to your needs in Bridgwater.',
+    'All-on-4 and full-arch dental implants provide a permanent, stable alternative to dentures, using strategically placed implants to support a complete arch of teeth. This innovative technique restores your smile, chewing function, and confidence in a single, streamlined procedure. At Supernova Dental in Bridgwater, Somerset, Dr. Sara D Banuri offers personalised full-arch implant treatments tailored to your needs.',
   benefitText:
-    'Regain your confidence and improve oral health with our state-of-the-art dental implants. Book your consultation in Bridgwater today!',
+    'Experience the life-changing benefits of All-on-4 and full-arch implants. Book your consultation with Dr. Sara D Banuri in Bridgwater, Somerset today!',
 };

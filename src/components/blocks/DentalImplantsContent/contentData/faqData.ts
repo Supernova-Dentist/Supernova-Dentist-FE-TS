@@ -2,52 +2,66 @@ export const faqItems = [
   {
     question: 'What are dental implants?',
     answer:
-      'Dental implants are permanent tooth replacements made of titanium posts inserted into the jawbone, topped with a custom crown. They fuse with the bone for a stable, natural-looking, and long-lasting result.',
+      'Dental implants are titanium posts placed in the jawbone to replace missing tooth roots. They support custom-made crowns, bridges, or dentures, creating a secure, natural-looking, and long-lasting replacement for missing teeth.',
   },
   {
-    question: 'How do dental implants compare to dental bridges?',
+    question: 'What is All-on-4 or full-arch dental implant treatment?',
     answer:
-      'Unlike bridges, implants don’t rely on neighboring teeth and preserve natural tooth structure. They’re more durable, longer-lasting, and function independently.',
+      'All-on-4, sometimes called full-arch treatment, replaces a complete set of teeth in the upper or lower jaw using four precisely positioned implants. These implants anchor a fixed bridge of teeth, giving you a stable, permanent smile without removable dentures.',
   },
   {
-    question: 'What are the benefits of dental implants over dentures?',
+    question: 'Will I leave with teeth on the same day using All-on-4?',
     answer:
-      'Implants are fixed, more secure, and offer better bite strength than dentures. They help preserve bone and don’t require adhesives or daily removal.',
+      'In most cases, yes. Once your implants are placed, we can often attach a temporary set of fixed teeth before you go home. After healing, a final, long-term bridge is fitted for optimal strength and appearance.',
   },
   {
-    question: 'How long do dental implants last?',
+    question: 'How does All-on-4 differ from traditional implant approaches?',
     answer:
-      'With good care, implants can last 10–15 years or even a lifetime. They’re more durable than bridges or dentures, especially with regular dental check-ups.',
+      'Traditional methods often require more implants and bone grafting, which can extend treatment time. All-on-4 uses fewer implants placed at specific angles, making it quicker and often more comfortable while still providing excellent stability.',
   },
   {
-    question: 'Is getting dental implants a painful procedure?',
+    question: 'How do dental implants compare to bridges?',
     answer:
-      'The procedure involves minimal discomfort thanks to local anesthesia and modern techniques. Any post-op soreness is usually mild and manageable.',
+      'Implants do not rely on adjacent teeth for support, unlike bridges. This means your healthy teeth remain untouched, and the result is typically more durable and natural-feeling.',
   },
   {
-    question: 'How should I care for my dental implants?',
+    question: 'Why choose implants over dentures?',
     answer:
-      'Care for implants like natural teeth: brush, floss, and use mouthwash daily. Regular check-ups help keep them and your gums healthy.',
+      'Implants stay firmly in place, giving you greater bite strength and comfort compared to dentures. They also help preserve jawbone health and remove the need for adhesives or nightly removal.',
   },
   {
-    question: 'What is the cost of dental implants?',
+    question: 'How long can All-on-4 implants last?',
     answer:
-      'Dental implants can cost as little as £2,750 per tooth, including both placement and restoration. The exact cost depends on your individual treatment plan.',
+      'With regular dental care and good oral hygiene, All-on-4 implants can last for decades. While the implant posts are designed for long-term use, the bridge may require maintenance or replacement over time.',
   },
   {
-    question: 'Do you offer finance options for dental implants?',
+    question: 'How long do single dental implants last?',
     answer:
-      'Yes. We offer flexible finance plans, including 0% APR over 12 months, to make treatment more affordable. Full details are provided during your consultation.',
-  },
-
-  {
-    question: 'Can dental implants be placed if I have bone loss?',
-    answer:
-      'Bone grafting may be needed first. We’ll assess your case and plan treatment to ensure a strong, lasting result—even with bone loss.',
+      'A single implant can last 15 years or longer—often for life—when cared for properly with routine check-ups and good oral hygiene habits.',
   },
   {
-    question: 'How do dental implants compare to other tooth replacement options?',
+    question: 'Is the implant procedure painful?',
     answer:
-      'Dental implants stand out as the longest-lasting restoration in all of dentistry and that’s a fact. While the initial cost is higher, the long-term benefits make implants an ideal choice for anyone looking to restore their smile.',
+      'Modern techniques and local anaesthetic keep discomfort to a minimum. Most patients describe the experience as easier than expected, and any post-treatment tenderness is typically mild and short-lived.',
+  },
+  {
+    question: 'How do I care for my implants or All-on-4 bridge?',
+    answer:
+      'Brush and floss daily, just like natural teeth, and attend regular dental visits. We’ll guide you on cleaning around implants to keep your gums and bone healthy for years to come.',
+  },
+  {
+    question: 'Do you provide finance options for implants or All-on-4 treatment?',
+    answer:
+      'Yes. To make treatment more accessible, we offer flexible finance, including interest-free options. Full details will be provided at your consultation.',
+  },
+  {
+    question: 'Can I still have implants if I’ve lost bone?',
+    answer:
+      'In many cases, yes. We may recommend additional procedures or use advanced planning to create a secure foundation for your implants. We’ll evaluate your needs during your consultation.',
+  },
+  {
+    question: 'How do implants compare with other replacement options?',
+    answer:
+      'Implants are considered the most durable and natural-feeling option available. Although they can cost more initially, their longevity and function make them an excellent long-term investment in your oral health.',
   },
 ];

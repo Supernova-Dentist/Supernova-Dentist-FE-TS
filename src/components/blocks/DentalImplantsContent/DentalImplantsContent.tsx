@@ -18,11 +18,11 @@ export default function DentalImplantsContent() {
   return (
     <>
       <ServiceForm
-        serviceName='Dental Implants Journey'
+        serviceName='Dental Implants Journey – Full-Arch (All-on-4) in Somerset'
         serviceChip='Dental Implant Consultation'
-        serviceDescription='Discover how dental implants can restore your smile, confidence, and quality of life with a personalised treatment plan.'
+        serviceDescription='Discover single-tooth implants and advanced full-arch solutions such as All-on-4 delivered by our experienced implantologist, Dr. Sara D Banuri, at Supernova Dental in Bridgwater, Somerset.'
         formTitle='Sign up for your Dental Implant Consultation'
-        formDescription='Book a no-obligation consultation with our experienced implant team and take the first step toward a permanent solution for missing teeth.'
+        formDescription='Book a no-obligation consultation with Dr. Sara D Banuri, our expert implantologist, and explore single implants or full-arch options like All-on-4 for a permanent, natural-looking smile.'
         imgSrc='/assets/images/sara_cbct.jpeg'
         formId='implants-enquiry-form'
         eventType='DentalImplantsLead'
