@@ -48,8 +48,8 @@ export default function ServiceForm({
   imgSrc,
   videoSrc,
   videoThumbnailSrc,
-  eventType='NewPatientLead',
-  formId=''
+  eventType = 'NewPatientLead',
+  formId = '',
 }: ServiceFormProps) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -74,45 +74,70 @@ export default function ServiceForm({
 
   async function onSubmit(data: PromotionFormData) {
     try {
-      const decodedSource = decodeURIComponent(pathname); // Decode URL encoding
-
-      // If you need to remove the leading slash, you can do that
+      const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
-
       const dataWithSource = { ...data, source: cleanedSource };
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
+      // Backend request
+      const backendRes = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dataWithSource),
       });
 
-      if (!res.ok) {
-        const errorData = await res.json();
-        setError(errorData.message || 'There was a problem with your submission. Please try again later.');
-        throw new Error(errorData.message);
+      const responseData = await backendRes.json();
+
+      if (!backendRes.ok) {
+        const errorMessage =
+          responseData.message || 'There was a problem with your submission. Please try again later.';
+        setError(errorMessage);
+        throw new Error(errorMessage);
+      }
+
+      // Dengro request (fire-and-forget)
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dataWithSource),
+        });
+      } catch (dengroError) {
+        console.warn('Dengro capture failed:', dengroError);
       }
 
       console.log('Form submitted successfully');
 
       window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({ event: eventType });
 
-      // Trigger Google Ads conversion tracking
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      // Determine event name using template literal
+      const eventType = `${responseData.alreadyExists ? 'Existing' : ''}PatientLead`;
+
+      // Push event to dataLayer including source
+      window.dataLayer.push({
+        event: eventType,
+        alreadyExists: responseData.alreadyExists,
+        source: cleanedSource,
+      });
+
+      // Trigger Google Ads conversion only for new patients
+      if (!responseData.alreadyExists && typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
-      // Trigger Facebook Pixel Lead event with lead_type param
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', eventType);
+      // Trigger Facebook Pixel event
+      if (typeof window.fbq === 'function') {
+        window.fbq('trackCustom', eventType, {
+          alreadyExists: responseData.alreadyExists,
+          source: cleanedSource,
+        });
       }
 
       setShowSuccessModal(true);
     } catch (error) {
       setShowErrorModal(true);
+      console.error('Form submission error:', error instanceof Error ? error.message : error);
     }
   }
 

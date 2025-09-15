@@ -51,14 +51,9 @@ export default function PromotionForm() {
 
   async function onSubmit(data: PromotionFormData) {
     try {
-      const decodedSource = decodeURIComponent(pathname); // Decode URL encoding
-
-      // If you need to remove the leading slash, you can do that
+      const decodedSource = decodeURIComponent(pathname);
       let cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
-
-      if (cleanedSource === '') {
-        cleanedSource = 'Homepage';
-      }
+      if (cleanedSource === '') cleanedSource = 'Homepage';
 
       const dataWithSource = { ...data, source: cleanedSource };
 
@@ -68,39 +63,48 @@ export default function PromotionForm() {
         body: JSON.stringify(dataWithSource),
       });
 
+      const responseData = await res.json();
+
       if (!res.ok) {
-        const errorData = await res.json();
-        const errorMessage =
-          String(errorData.message) || 'There was a problem with your submission. Please try again later.';
-        setError(String(errorMessage));
-        throw new Error(String(errorMessage));
+        const errorMessage = String(responseData.message) || 'There was a problem with your submission.';
+        setError(errorMessage);
+        throw new Error(errorMessage);
+      }
+
+      // Dengro request (fire-and-forget)
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dataWithSource),
+        });
+      } catch (dengroError) {
+        console.warn('Dengro capture failed:', dengroError);
       }
 
       window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({ event: 'NewPatientLead' });
 
-      // Trigger Google Ads conversion tracking
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      const eventName = responseData.alreadyExists ? 'ExistingPatientLead' : 'NewPatientLead';
+
+      // Push event to dataLayer
+      window.dataLayer.push({ event: eventName, alreadyExists: responseData.alreadyExists });
+
+      // Push event to Facebook Pixel
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        window.fbq('trackCustom', eventName, { alreadyExists: responseData.alreadyExists });
+      }
+
+      // Google Ads conversion only for new patients
+      if (!responseData.alreadyExists && typeof window !== 'undefined' && typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
-      // Trigger Facebook Pixel Lead event with lead_type param
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        console.log('Facebook Pixel Lead event triggered');
-        window.fbq('trackCustom', 'NewPatientLead');
-      }
-
       setShowSuccessModal(true);
     } catch (error) {
       setShowErrorModal(true);
-
-      if (error instanceof Error) {
-        console.log({ message: error.message });
-      } else {
-        console.log('An unknown error occurred');
-      }
+      console.error('Form submission error:', error instanceof Error ? error.message : error);
     }
   }
 
@@ -144,7 +148,11 @@ export default function PromotionForm() {
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='home-page-enquiry-form' ref={ref} className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
+      <section
+        id='home-page-enquiry-form'
+        ref={ref}
+        className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }} // Initial state for the animation
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in

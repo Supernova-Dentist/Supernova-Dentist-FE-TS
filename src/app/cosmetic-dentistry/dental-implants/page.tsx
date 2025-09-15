@@ -1,5 +1,3 @@
-'use client';
-
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import DentalImplantsContent from '@/components/blocks/DentalImplantsContent/DentalImplantsContent';
 import type { Metadata } from 'next';
