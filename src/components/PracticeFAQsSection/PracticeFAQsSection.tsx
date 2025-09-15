@@ -19,7 +19,7 @@ export default function PracticeFAQsSection() {
     {
       question: 'Why choose Supernova Dental Practice?',
       answer:
-        'We combine the latest dental technology with a personalised patient journey tailored to your needs. With over 50 five-star Google reviews, patients trust us for our high standards of care and comfort.',
+        'We combine the latest dental technology with a personalised patient journey tailored to your needs. With 75 five-star Google reviews, patients trust us for our high standards of care and comfort.',
     },
     {
       question: 'What are your opening hours?',
@@ -28,7 +28,7 @@ export default function PracticeFAQsSection() {
     {
       question: 'Where are you located?',
       answer:
-        'We are located at the Supernova Building, Marsh Lane, Huntworth Gate, Bridgwater TA6 6LQ - just off Junction 24 of the M5, making us easily accessible for patients travelling from surrounding areas.',
+        'We are located at the Supernova Building, Marsh Lane, Huntworth Gate, Bridgwater, Somerset TA6 6LQ - just off Junction 24 of the M5, making us easily accessible for patients travelling from surrounding areas.',
     },
     {
       question: 'Do you have parking available?',
