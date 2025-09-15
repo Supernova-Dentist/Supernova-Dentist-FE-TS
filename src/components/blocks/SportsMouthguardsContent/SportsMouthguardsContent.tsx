@@ -21,7 +21,6 @@ export default function SportsMouthguardsContent() {
         serviceDescription='Protect your Supernova smile with a professionally made, custom-fit mouthguard ideal for contact sports.'
         formTitle='Register Interest For Sports Mouthguards'
         formDescription='Secure your professionally fitted sports guard with a quick, digital scan at Supernova Dental.'
-        imgSrc='/assets/images/post_supernova.png'
         formId='sports-mouthguards-enquiry-form'
         eventType='SportsMouthguardsLead'
       />
