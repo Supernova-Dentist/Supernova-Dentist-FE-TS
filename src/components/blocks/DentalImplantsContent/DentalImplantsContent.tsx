@@ -6,6 +6,7 @@ import FaqSection from '@/components/FaqSection/FaqSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import InfoSection from '@/components/InfoSection/InfoSection';
 import InvisalignSmileView from '@/components/InvisalignSmileView/InvisalignSmileView';
+import SaraSection from '@/components/SaraSection/SaraSection';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import benefitsData from './contentData/benefitsData';
@@ -27,6 +28,9 @@ export default function DentalImplantsContent() {
         formId='implants-enquiry-form'
         eventType='DentalImplantsLead'
       />
+      <div className='bg-cream'>
+        <SaraSection />
+      </div>
 
       <div className='from-cream to-white bg-gradient-to-b'>
         <HeroSection data={dentalImplantsHeroData} />

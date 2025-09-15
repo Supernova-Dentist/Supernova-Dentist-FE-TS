@@ -159,7 +159,7 @@ export default function ServiceForm({
       <section
         id='form'
         ref={ref}
-        className='w-full py-28 bg-gradient-to-b from-white to-cream min-h-screen flex items-center justify-center'
+        className='w-full pt-28 bg-gradient-to-b from-white to-cream min-h-screen flex items-center justify-center'
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}

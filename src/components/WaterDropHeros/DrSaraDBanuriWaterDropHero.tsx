@@ -1,13 +1,20 @@
+'use client';
+
+import Search from '@/app/enquiry/utils/Search';
 import { DentallyPortal } from '@/lib/constants';
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 const DrSaraDBanuriWaterDropHero = () => {
   return (
-    <section className='text-slate-100 overflow-hidden bg-lightGrey px-8 py-24 md:px-12 md:py-32'>
+    <section className='text-slate-100 overflow-hidden bg-lightGrey px-8 py-24 md:px-12 md:py-32 min-h-[100vh] flex items-center'>
       <div className='relative mx-auto max-w-5xl flex flex-col md:flex-row items-center'>
-        <div className='pointer-events-none relative z-10 md:flex-1 '>
+        <div className='relative z-10 md:flex-1 '>
+      <Suspense>
+        <Search />
+      </Suspense>
           <Reveal>
             <h1 className='pointer-events-auto text-6xl font-black text-slate-100 md:text-8xl'>
               Hi, I&apos;m Sara<span className='text-lightGold'>.</span>
@@ -16,7 +23,8 @@ const DrSaraDBanuriWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m an <span className='font-semibold text-lightGold'>Implantologist/Oral Surgeon</span> at Supernova Dental
+                I&apos;m an <span className='font-semibold text-lightGold'>Implantologist/Oral Surgeon</span> at
+                Supernova Dental
               </h2>
               <h3 className='text-lightGold'>DDS, PGDip (Ortho), MSc Implantology</h3>
               <h3 className='text-lightGold'>GDC Registration Number: 182411</h3>

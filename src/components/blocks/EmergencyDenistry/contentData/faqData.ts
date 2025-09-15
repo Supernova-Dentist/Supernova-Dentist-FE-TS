@@ -22,8 +22,9 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Is there an upfront cost for emergency treatment?',
     answer:
-      'We charge a standard emergency consultation fee, after which any treatment costs are clearly explained before proceeding. Payment plans are available to spread the cost if required.',
+      'Yes. For non-registered patients, we charge £100 for emergency appointments this contributes toward any treatment needed on the day. For registered patients, the emergency appointments fee is £65. Any additional treatment costs will be clearly explained before proceeding.',
   },
+
   {
     question: 'Can I book an emergency appointment through the patient portal?',
     answer:
