@@ -61,7 +61,8 @@ export default function GoogleReview({
             </button>
           </div>
           <div className='mt-4 text-xs text-center text-gray-500'>
-            <p>Your Trusted Bridgwater Dentist – Supernova Dental</p>
+            <p>Trusted Dentist in Bridgwater, Somerset</p>
+            <p>Supernova Dental</p>
           </div>
         </div>
       </div>
