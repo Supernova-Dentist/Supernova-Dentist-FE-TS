@@ -18,13 +18,13 @@ import Head from 'next/head';
 export const metadata = {
   title: 'Private Dentist Bridgwater & Taunton | Cosmetic Dentistry & Same-Day Appointments',
   description:
-    'Supernova Dental offers high-quality private dental care in Bridgwater and Taunton. We provide cosmetic dentistry, same-day appointments, flexible payment plans, and emergency dental services. Register today!',
+    'Supernova Dental offers high-quality private dental care in Bridgwater, Taunton and Somerset. We provide cosmetic dentistry, same-day appointments, flexible payment plans, dental implants, and emergency dental services. Register today!',
   keywords:
-    'private dentist Bridgwater, private dentist Taunton, cosmetic dentist Bridgwater, cosmetic dentist Taunton, teeth whitening, composite bonding, same-day dental appointments Bridgwater, dental payment plans, dental finance Bridgwater, dental implants Taunton, dental checkup, dental hygiene appointment, emergency dentist Bridgwater, dental practice near Taunton, private dental care Somerset',
+    'private dentist Bridgwater, private dentist Taunton, cosmetic dentist Bridgwater, cosmetic dentist Taunton, teeth whitening, composite bonding, dental implants Somerset, same-day dental appointments Bridgwater, dental payment plans, emergency dentist Bridgwater, dental practice near Taunton, private dental care Somerset',
   openGraph: {
-    title: 'Private Dentist Bridgwater & Taunton | Cosmetic Dentistry & Same-Day Appointments',
+    title: 'Private Dentist in Bridgwater, Somerset | Cosmetic Dentistry & Same-Day Appointments',
     description:
-      'Looking for a cosmetic or private dentist in Bridgwater or Taunton? Supernova Dental offers expert care, flexible finance, and same-day appointments.',
+      'Looking for a cosmetic or private dentist in Bridgwater, Somerset? Supernova Dental offers expert care, flexible finance, and same-day appointments for patients across Bridgwater, Taunton, and the wider Somerset area.',
     url: 'https://www.supernovadental.co.uk',
     type: 'website',
     images: [
@@ -45,7 +45,7 @@ export default function Home() {
     name: 'Supernova Dental',
     url: 'https://www.supernovadental.co.uk',
     description:
-      'Supernova Dental is a trusted private dental clinic in Bridgwater, welcoming patients from Taunton and surrounding areas. We offer cosmetic dentistry, same-day appointments, dental implants, and 0% finance options.',
+      'Supernova Dental is a trusted private dental practice in Bridgwater, welcoming patients from Taunton and across Somerset. We offer cosmetic dentistry, dental implants, same-day appointments, and 0% finance options.',
     keywords:
       'cosmetic dentist Bridgwater, private dentist Taunton, same-day dentist Somerset, dental payment plans, teeth whitening, composite bonding, emergency dentist Bridgwater, dental hygiene Taunton, finance for dental work, best private dentist in Somerset',
     address: {
@@ -78,21 +78,28 @@ export default function Home() {
       },
     ],
     openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
-    review: {
-      '@type': 'Review',
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: '5',
+    review: [
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Verified Patient' },
+        datePublished: '2025-08-11',
+        reviewBody:
+          'I am 58 years old and Supernova is by far the best dentist I have ever been to. The people are so friendly and professional, the place is very smart and modern. The work I had done was amazing and it only cost half what I thought it would do. Going to the dentist always made me very nervous, NOT any more. I have now got myself a dental plan with them. Supernova is a top dentist.',
+        reviewRating: { '@type': 'Rating', ratingValue: '5' },
       },
-      author: {
-        '@type': 'Person',
-        name: 'Verified Patient',
+      {
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Verified Patient' },
+        datePublished: '2025-07-21',
+        reviewBody:
+          'I recently had composite veneers done on six of my teeth at Supernova Dental, and I couldn’t be happier with the results! Dr. Scott Young did an exceptional job – his attention to detail and skill made a huge difference in the final outcome. My smile looks completely transformed, yet still natural. From the moment I walked in, the staff were incredibly friendly and helpful. The whole experience was smooth, professional, and exceeded my expectations. Highly recommend!',
+        reviewRating: { '@type': 'Rating', ratingValue: '5' },
       },
-    },
+    ],
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5',
-      reviewCount: '21',
+      reviewCount: '75',
     },
     sameAs: [
       'https://www.facebook.com/profile.php?id=61567279201971',
