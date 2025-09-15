@@ -43,7 +43,7 @@ function SaraSection() {
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
       >
         <Image
-          src='/assets/images/headshots/sara.jpg'
+          src='/assets/images/Headshots/sara.jpg'
           alt='Dr. Sara D Banuri'
           width={600}
           height={800}
