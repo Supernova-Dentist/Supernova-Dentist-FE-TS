@@ -10,6 +10,7 @@ import PracticeFAQsSection from '@/components/PracticeFAQsSection/PracticeFAQsSe
 import Pricing from '@/components/Pricing/Pricing';
 import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
+import ServicesSelection from '@/components/ServicesSelection/ServicesSelection';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import TeamSection from '@/components/TeamSection/TeamSection';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
@@ -135,6 +136,7 @@ export default function Home() {
       {/* <Pricing /> */}
       <DentallyTutorial />
       <SmileTransformations />
+      <ServicesSelection />
       <GoogleReviews />
       <Journey />
       <VideoAnimationSection />
