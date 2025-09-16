@@ -58,13 +58,13 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        {/* <Script
+        <Script
           id='Cookiebot'
           src='https://consent.cookiebot.com/uc.js'
           data-cbid='aced3b94-7f1a-4ccd-a22f-90b2c1d4bf6b'
           data-blockingmode='auto'
-          strategy='beforeInteractive'
-        /> */}
+          type='text/javascript'
+        />
 
         <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z'></Script>
         <Script id='google-analytics'>
