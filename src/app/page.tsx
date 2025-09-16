@@ -17,23 +17,23 @@ import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoA
 import Head from 'next/head';
 
 export const metadata = {
-  title: 'Private Dentist Bridgwater & Taunton | Cosmetic Dentistry & Same-Day Appointments',
+  title: 'Private Dentist Bridgwater, Somerset | Cosmetic & General Dentistry',
   description:
-    'Supernova Dental offers high-quality private dental care in Bridgwater, Taunton and Somerset. We provide cosmetic dentistry, same-day appointments, flexible payment plans, dental implants, and emergency dental services. Register today!',
+    'Supernova Dental provides high-quality private dental care in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants, same-day appointments, and flexible payment plans. Accepting patients from Bridgwater, Taunton, and surrounding areas.',
   keywords:
-    'private dentist Bridgwater, private dentist Taunton, cosmetic dentist Bridgwater, cosmetic dentist Taunton, teeth whitening, composite bonding, dental implants Somerset, same-day dental appointments Bridgwater, dental payment plans, emergency dentist Bridgwater, dental practice near Taunton, private dental care Somerset',
+    'private dentist Bridgwater, cosmetic dentist Bridgwater, general dentist Bridgwater, dental implants Somerset, same-day dental appointments Bridgwater, dental payment plans, emergency dentist Bridgwater, cosmetic dentistry Somerset, dental care near Taunton',
   openGraph: {
-    title: 'Private Dentist in Bridgwater, Somerset | Cosmetic Dentistry & Same-Day Appointments',
+    title: 'Private Dentist Bridgwater, Somerset | Cosmetic & General Dentistry',
     description:
-      'Looking for a cosmetic or private dentist in Bridgwater, Somerset? Supernova Dental offers expert care, flexible finance, and same-day appointments for patients across Bridgwater, Taunton, and the wider Somerset area.',
+      'Looking for a trusted dentist in Bridgwater, Somerset? Supernova Dental offers cosmetic and general dentistry, dental implants, and same-day appointments. Accepting patients from Bridgwater, Taunton, and surrounding areas.',
     url: 'https://www.supernovadental.co.uk',
     type: 'website',
     images: [
       {
-        url: '/favicon.ico',
-        width: 500,
-        height: 500,
-        alt: 'Supernova Dental Logo',
+        url: '/assets/images/outerBuildingPreview.jpg',
+        width: 1200,
+        height: 900,
+        alt: 'Supernova Dental - Premium Dental Care',
       },
     ],
   },
@@ -46,9 +46,9 @@ export default function Home() {
     name: 'Supernova Dental',
     url: 'https://www.supernovadental.co.uk',
     description:
-      'Supernova Dental is a trusted private dental practice in Bridgwater, welcoming patients from Taunton and across Somerset. We offer cosmetic dentistry, dental implants, same-day appointments, and 0% finance options.',
+      'Supernova Dental is a trusted private dental practice in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants, same-day appointments, and flexible payment plans.',
     keywords:
-      'cosmetic dentist Bridgwater, private dentist Taunton, same-day dentist Somerset, dental payment plans, teeth whitening, composite bonding, emergency dentist Bridgwater, dental hygiene Taunton, finance for dental work, best private dentist in Somerset',
+      'private dentist Bridgwater, cosmetic dentist Bridgwater, general dentist Bridgwater, dental implants Somerset, same-day dental appointments Bridgwater, dental payment plans, emergency dentist Bridgwater, dental care near Taunton',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
