@@ -6,7 +6,7 @@ import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { Playfair_Display, IBM_Plex_Sans } from 'next/font/google';
+import { IBM_Plex_Sans, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import './reset.css';
@@ -58,6 +58,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
+        <Script
+          id='Cookiebot'
+          src='https://consent.cookiebot.com/uc.js'
+          data-cbid='aced3b94-7f1a-4ccd-a22f-90b2c1d4bf6b'
+          data-blockingmode='auto'
+          strategy='beforeInteractive'
+        />
+
         <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z'></Script>
         <Script id='google-analytics'>
           {`
