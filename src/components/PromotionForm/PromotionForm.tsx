@@ -149,7 +149,6 @@ export default function PromotionForm() {
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
       <section
-        id='home-page-enquiry-form'
         ref={ref}
         className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'
       >
@@ -172,7 +171,7 @@ export default function PromotionForm() {
               </p>
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form id='home-page-enquiry-form' onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4 p-0 md:p-4'>
                   <CardTitle className='text-2xl'>Looking for a Dentist in Bridgwater?</CardTitle>
                   <CardDescription className='text-lg text-gray-500'>
