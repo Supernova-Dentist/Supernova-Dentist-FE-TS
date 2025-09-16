@@ -48,7 +48,7 @@ export default function ServiceForm({
   imgSrc,
   videoSrc,
   videoThumbnailSrc,
-  eventType = 'NewPatientLead',
+  eventType = 'PatientLead',
   formId = '',
 }: ServiceFormProps) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -110,11 +110,11 @@ export default function ServiceForm({
       window.dataLayer = window.dataLayer ?? [];
 
       // Determine event name using template literal
-      const eventType = `${responseData.alreadyExists === true ? 'Existing' : ''}PatientLead`;
+      const updatedEventType = `${responseData.alreadyExists === true ? 'Existing' : 'New'}${eventType}`;
 
       // Push event to dataLayer including source
       window.dataLayer.push({
-        event: eventType,
+        event: updatedEventType,
         
       });
 
@@ -127,7 +127,7 @@ export default function ServiceForm({
 
       // Trigger Facebook Pixel event
       if (typeof window.fbq === 'function') {
-        window.fbq('trackCustom', eventType, );
+        window.fbq('trackCustom', updatedEventType, );
       }
 
       setShowSuccessModal(true);
