@@ -110,13 +110,12 @@ export default function ServiceForm({
       window.dataLayer = window.dataLayer ?? [];
 
       // Determine event name using template literal
-      const eventType = `${responseData.alreadyExists ? 'Existing' : ''}PatientLead`;
+      const eventType = `${responseData.alreadyExists === true ? 'Existing' : ''}PatientLead`;
 
       // Push event to dataLayer including source
       window.dataLayer.push({
         event: eventType,
-        alreadyExists: responseData.alreadyExists,
-        source: cleanedSource,
+        
       });
 
       // Trigger Google Ads conversion only for new patients
@@ -128,10 +127,7 @@ export default function ServiceForm({
 
       // Trigger Facebook Pixel event
       if (typeof window.fbq === 'function') {
-        window.fbq('trackCustom', eventType, {
-          alreadyExists: responseData.alreadyExists,
-          source: cleanedSource,
-        });
+        window.fbq('trackCustom', eventType, );
       }
 
       setShowSuccessModal(true);

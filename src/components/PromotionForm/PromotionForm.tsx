@@ -87,11 +87,11 @@ export default function PromotionForm() {
       const eventName = responseData.alreadyExists ? 'ExistingPatientLead' : 'NewPatientLead';
 
       // Push event to dataLayer
-      window.dataLayer.push({ event: eventName, alreadyExists: responseData.alreadyExists });
+      window.dataLayer.push({ event: eventName });
 
       // Push event to Facebook Pixel
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', eventName, { alreadyExists: responseData.alreadyExists });
+        window.fbq('trackCustom', eventName);
       }
 
       // Google Ads conversion only for new patients
