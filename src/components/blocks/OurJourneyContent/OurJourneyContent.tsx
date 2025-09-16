@@ -236,7 +236,7 @@ export const OurJourneyContent = () => {
             <div className='w-full lg:w-1/2 flex flex-col text-center lg:text-left'>
               <h2 className='text-gold text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>Reviews</h2>
               <p className='mt-4 text-white text-lg md:text-xl '>
-                We’re proud to have received 75 Google reviews, each reflecting the care, comfort, and service we aim to
+                We’re proud to have received over 75 Google reviews, each reflecting the care, comfort, and service we aim to
                 deliver. The feedback that inspires us to keep improving the patient journey.
               </p>
             </div>
@@ -248,7 +248,7 @@ export const OurJourneyContent = () => {
               transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
             >
               <Image
-                src='/assets/images/75_reviews.png'
+                src='/assets/images/76_reviews.png'
                 alt='About Us'
                 width={600}
                 height={800}
