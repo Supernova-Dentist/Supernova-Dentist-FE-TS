@@ -31,6 +31,7 @@ export const practiceInfo = [
   { name: 'Emergency Dentistry', link: '/emergency-dentistry' },
   { name: 'Dental Implants', link: '/dental-implants' },
   { name: 'Invisalign', link: '/invisalign' },
+  { name: 'White Composite Fillings', link: '/general-dentistry/white-composite-fillings' },
   { name: 'Dental Hygiene', link: '/dental-hygiene' },
   { name: 'Dental Therapist', link: '/dental-therapist' },
   { name: 'Dental Finance', link: '/dental-finance' },
@@ -52,6 +53,10 @@ export const generalServices = [
   {
     name: 'Emergency Dentistry',
     link: '/general-dentistry/emergency-dentistry',
+  },
+  {
+    name: 'White Composite Fillings',
+    link: '/general-dentistry/white-composite-fillings',
   },
   {
     name: 'Dental Therapist',

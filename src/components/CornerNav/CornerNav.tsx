@@ -315,6 +315,7 @@ const LINKS = [
       // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
       { title: 'Explore General Dentistry', href: '/general-dentistry' },
       { title: 'Emergency Dentistry', href: '/general-dentistry/emergency-dentistry' },
+      { title: 'White Composite Fillings', href: '/general-dentistry/white-composite-fillings' },
       { title: 'Dental Therapist', href: '/general-dentistry/dental-therapist' },
       { title: 'Dental Hygiene', href: '/general-dentistry/dental-hygiene' },
       { title: 'Dental Finance', href: '/general-dentistry/dental-finance' },
