@@ -2,7 +2,7 @@ export default {
   title: 'What Are White Composite Fillings?',
   descriptions: [
     'White composite fillings restore damaged or decayed teeth with natural-looking, tooth-coloured material. They blend seamlessly with your teeth, providing both function and aesthetics.',
-    'Composite fillings are durable, mercury-free, and protect your teeth from further decay. Our expert dentists ensure precise placement for a smooth, long-lasting result.',
+    'Composite fillings are durable, mercury-free, and protect your teeth from further decay. Our expert clinicians ensure precise placement for a smooth, long-lasting result.',
   ],
 
   advantagesTitle: 'Benefits of White Composite Fillings',
