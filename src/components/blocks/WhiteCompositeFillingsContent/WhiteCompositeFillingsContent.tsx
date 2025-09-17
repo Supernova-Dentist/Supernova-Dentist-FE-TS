@@ -21,7 +21,7 @@ export default function WhiteCompositeFillingsContent() {
         serviceChip='Natural-Looking Tooth Restoration'
         serviceDescription='Restore damaged or decayed teeth with durable, tooth-coloured white composite fillings that blend seamlessly with your natural smile.'
         formTitle='Book Your White Composite Filling Appointment'
-        formDescription='Schedule an appointment with our experienced dentists for natural-looking, long-lasting composite fillings.'
+        formDescription='Schedule an appointment with our experienced clinicians for natural-looking, long-lasting composite fillings.'
         eventType='FillingsLead'
         formId='fillings-enquiry-form'
       />
