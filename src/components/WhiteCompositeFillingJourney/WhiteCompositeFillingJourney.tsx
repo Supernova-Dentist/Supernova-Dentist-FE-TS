@@ -37,34 +37,24 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
       ),
     },
     {
-      title: '2 - Tooth Preparation',
+      title: '2 - Tooth Preparation and Composite Placement',
       content: (
         <div className='px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            The tooth is gently cleaned and any decay removed. We prepare the area for bonding while preserving as much
-            natural tooth structure as possible.
+            The tooth is gently cleaned and any decay removed to preserve as much natural structure as possible. We then
+            layer and sculpt the white composite material, hardening each layer with a curing light to ensure a secure,
+            natural-looking restoration.
           </p>
           <Image
             src={CavityPrep}
-            alt='Cavity Preparation'
+            alt='Tooth Preparation and Composite Placement'
             width={100}
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
             onLoad={handleImageLoad}
           />
-        </div>
-      ),
-    },
-    {
-      title: '3 - Composite Placement and Shaping',
-      content: (
-        <div className='px-12 py-8'>
-          <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            We carefully layer and sculpt the white composite material, hardening each layer with a curing light. The
-            filling is shaped to blend seamlessly with your natural tooth.
-          </p>
-          <Image
+          {/* <Image
             src={CompositePlacement}
             alt='Composite Filling Placement'
             width={100}
@@ -72,17 +62,17 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
             onLoad={handleImageLoad}
-          />
+          /> */}
         </div>
       ),
     },
     {
-      title: '4 - Finishing and Bite Check',
+      title: '3 - Finishing and Bite Check',
       content: (
         <div className='px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            The filling is polished for a smooth finish. We check your bite to ensure comfort and a natural feel,
-            leaving you with a restored, durable, and aesthetic tooth.
+            Finally, the filling is polished for a smooth finish. We check your bite to ensure comfort and a natural
+            feel, leaving you with a restored, durable, and aesthetic tooth.
           </p>
           <Image
             src={BiteCheck}
