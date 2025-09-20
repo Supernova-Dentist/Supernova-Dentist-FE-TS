@@ -15,7 +15,8 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
   name: 'Supernova Dental - Invisalign Bridgwater, Somerset',
-  url: 'https://www.supernovadental.co.uk/invisalign',
+  url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/invisalign',
+  image: 'https://www.supernovadental.co.uk/assets/images/Invisalign_Group.jpg', // team picture
   description:
     'Supernova Dental provides Invisalign clear aligners in Bridgwater, Somerset. We help patients achieve straight teeth with invisible braces and clear aligners. Serving patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas. Book a free consultation today!',
   keywords:
@@ -61,7 +62,7 @@ const structuredData = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '75',
+    reviewCount: '76',
   },
   potentialAction: {
     '@type': 'ReserveAction',

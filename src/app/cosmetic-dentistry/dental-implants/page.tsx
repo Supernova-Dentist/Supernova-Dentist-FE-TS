@@ -15,6 +15,7 @@ const structuredData = {
   '@type': 'Dentist',
   name: 'Dental Implants in Bridgwater, Somerset | All-on-4 & Full Arch Specialists',
   url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants',
+  image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
   description:
     'Missing teeth? Supernova Dental in Bridgwater, Somerset provides high-quality dental implants, including All-on-4 and full arch solutions. Book your consultation today for long-term teeth replacements.',
   address: {
@@ -44,7 +45,7 @@ const structuredData = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '75',
+    reviewCount: '76',
   },
   potentialAction: {
     '@type': 'ReserveAction',

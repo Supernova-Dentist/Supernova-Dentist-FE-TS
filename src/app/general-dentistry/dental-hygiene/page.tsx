@@ -15,6 +15,7 @@ const structuredData = {
   '@type': 'Dentist',
   name: 'Supernova Dental - Dental Hygiene & Teeth Cleaning in Bridgwater, Somerset',
   url: 'https://www.supernovadental.co.uk/dental-hygiene',
+  image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
   description:
     'Supernova Dental provides professional dental hygiene and teeth cleaning services in Bridgwater, Somerset. Our expert hygienists remove plaque, prevent gum disease, and ensure fresh breath. We serve patients from Bridgwater and surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.',
   keywords:

@@ -17,6 +17,7 @@ const structuredData = {
   url: 'https://www.supernovadental.co.uk/dental-therapist',
   description:
     'Supernova Dental provides expert dental therapist services in Bridgwater, Somerset, including preventive and restorative treatments. We serve patients from surrounding areas such as Taunton, Highbridge, and Burnham-on-Sea.',
+  image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
   keywords:
     'dental therapist Bridgwater, dental therapist Somerset, preventive dental care Bridgwater, restorative dental care Bridgwater, oral health Bridgwater, children’s dental care Bridgwater, gum care Bridgwater, dental care Taunton, dental care Highbridge, dental care Burnham-on-Sea',
   address: {

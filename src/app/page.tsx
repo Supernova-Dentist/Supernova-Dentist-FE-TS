@@ -145,7 +145,7 @@ export default function Home() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5',
-      reviewCount: '75',
+      reviewCount: '76',
     },
     sameAs: [
       'https://www.facebook.com/profile.php?id=61567279201971',

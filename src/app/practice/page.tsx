@@ -25,6 +25,7 @@ const structuredData = {
   '@type': 'Dentist',
   name: 'Supernova Dental - Dental Membership Plans Bridgwater',
   url: 'https://www.supernovadental.co.uk/practice',
+  image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
   description:
     'Supernova Dental in Bridgwater offers dental membership plans for adults and children. Enjoy routine check-ups, hygiene visits, emergency cover, and expert care. Our new practice is welcoming new patients today!',
   address: {

@@ -27,20 +27,57 @@ export const metadata: Metadata = {
   ].join(', '),
 };
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalOrganization',
+  name: 'Supernova Dental',
+  url: 'https://www.supernovadental.co.uk/team',
+  image: 'https://www.supernovadental.co.uk/assets/images/staff_1.jpg', // team picture
+  description:
+    'Meet the expert dental team at Supernova Dental in Bridgwater, Somerset. Our dentists, implantologist/oral surgeon, and therapist provide personalised, compassionate care for all patients.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
+    addressLocality: 'Bridgwater',
+    addressRegion: 'Somerset',
+    postalCode: 'TA6 6LQ',
+    addressCountry: 'GB',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+44 1278 228665',
+    contactType: 'Customer Service',
+    email: 'enquiries@supernovadental.co.uk',
+    availableLanguage: 'English',
+    areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
+  },
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=61567279201971',
+    'https://www.instagram.com/supernova.dental/',
+    'https://g.co/kgs/qqvPcF1',
+  ],
+};
+
 export default function TeamPage() {
   return (
     <div className='flex flex-col min-h-screen justify-center align-center bg-gradient-to-b from-white to-cream px-8'>
+      {/* Structured Data */}
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+
+      {/* Highlight Card */}
       <HighlightCard
         logoSrc='/assets/images/logo.png'
         title='Meet Our Dedicated Dental Team'
         description='Discover the friendly, highly skilled professionals behind Supernova Dental. Providing expert care for all patients, we are now welcoming new patients from Bridgwater, Taunton, and surrounding areas.'
         className='mx-auto mt-16'
       />
+
       {/* Breadcrumb */}
       <div className='mx-auto px-4 md:px-6 container pt-8 pb-4'>
         <BreadCrumb />
       </div>
 
+      {/* Team Members Grid */}
       <TeamMemberGrid />
     </div>
   );

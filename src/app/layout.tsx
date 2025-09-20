@@ -57,6 +57,7 @@ export const structuredData = {
   name: 'Supernova Dental',
   url: 'https://www.supernovadental.co.uk',
   logo: 'https://www.supernovadental.co.uk/assets/images/logo.png',
+  image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
   description:
     'Supernova Dental is a trusted private dental practice in Bridgwater, Somerset, offering cosmetic and general dentistry, dental implants, same-day appointments, and flexible payment plans.',
   address: {
@@ -98,7 +99,7 @@ export const structuredData = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '75',
+    reviewCount: '76',
   },
 };
 
