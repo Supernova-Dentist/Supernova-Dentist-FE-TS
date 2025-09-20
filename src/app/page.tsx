@@ -5,6 +5,7 @@ import Welcome from '@/components/blocks/Welcome/Welcome';
 import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
 import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 import FindUsSection from '@/components/FindUsSection/FindUsSection';
+import JoinUsSection from '@/components/JoinUsSection/JoinUsSection';
 import { Journey } from '@/components/Journey/Journey';
 import PracticeFAQsSection from '@/components/PracticeFAQsSection/PracticeFAQsSection';
 import Pricing from '@/components/Pricing/Pricing';
@@ -232,6 +233,7 @@ export default function Home() {
       <Journey />
       <VideoAnimationSection />
       <FindUsSection />
+      <JoinUsSection />
       <PracticeFAQsSection />
       {/* <AccessibilityWidget /> */}
       {/* <ComingSoonSection /> */}

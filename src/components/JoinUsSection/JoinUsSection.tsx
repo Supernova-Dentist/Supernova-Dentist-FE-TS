@@ -6,16 +6,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 
-export default function AboutSection() {
-  // Animation variants
+export default function JoinUsSection() {
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
 
   const { ref, inView } = useInView({
-    threshold: 0.2, // Trigger when 10% of the component is in view
-    triggerOnce: true, // Only play the animation once
+    threshold: 0.2,
+    triggerOnce: true,
   });
 
   return (
@@ -28,14 +27,16 @@ export default function AboutSection() {
         variants={containerVariants}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
-        <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mb-4 mt-6 lg:mt-0'>Meet the Team</h2>
+        <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mb-4 mt-6 lg:mt-0'>
+          Interested in Working With Us?
+        </h2>
         <p className='text-base md:text-lg'>
-          Get to know the passionate professionals behind Supernova Dental. Our friendly Bridgwater-based team is here
-          to support you on your journey to a healthier, more confident Supernova smile – from your first visit to your
-          final results.
+          Find out what roles we are actively hiring for to join our Bridgwater dental practice team. Even if we aren’t
+          currently hiring, you can submit your details— we are always open to considering passionate individuals who
+          want to strive to constantly improve the patient journey with us.
         </p>
-        <Link href='/team'>
-          <Button className='mt-6 p-6'>Meet Our Team</Button>
+        <Link href='/careers'>
+          <Button className='mt-6 p-6'>View Careers</Button>
         </Link>
       </motion.div>
 
@@ -48,11 +49,11 @@ export default function AboutSection() {
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
       >
         <Image
-          src='/assets/images/staff_1.jpg'
-          alt='About Us'
+          src='/assets/images/supernova_team.jpg'
+          alt='Supernova Dental team in Bridgwater, Somerset'
           width={600}
           height={800}
-          layout={'responsive'}
+          layout='responsive'
           quality={100}
           className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4'
         />
