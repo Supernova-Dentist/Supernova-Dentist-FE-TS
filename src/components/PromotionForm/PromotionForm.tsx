@@ -164,7 +164,7 @@ export default function PromotionForm() {
               </h2>
               <p className='max-w-[700px] text-center lg:text-left text-muted-foreground md:text-2xl lg:text-xl xl:text-2xl text-lightGrey tracking-tight'>
                 Looking for a reliable <strong>Bridgwater dentist</strong>? Supernova Dental is accepting new patients,
-                offering expert care for routine check-ups, cosmetic dentistry, Invisalign treatments and more.
+                offering expert care for routine check-ups, cosmetic dentistry, dental implants, Invisalign and more.
               </p>
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
