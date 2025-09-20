@@ -5,11 +5,11 @@ import { type Metadata } from 'next';
 import { CareerFormContent } from './utils/career-form-content';
 
 export const metadata: Metadata = {
-  title: 'Careers at Supernova Dental | Join Our Team in Bridgwater, Somerset',
+  title: 'Dental Jobs at Supernova Dental | Join Our Team in Bridgwater, Somerset',
   description:
-    'Discover exciting career opportunities at Supernova Dental. Join our expert team in Bridgwater and help deliver outstanding dental care across Somerset.',
+    'Explore dental jobs at Supernova Dental. We are looking for passionate professionals including dental nurses and treatment coordinators. Join our expert team in Bridgwater and help deliver outstanding dental care across Somerset.',
   keywords:
-    'dental careers Bridgwater, jobs at Supernova Dental, dental nurse jobs Somerset, dentist jobs Bridgwater, careers in dentistry Somerset, Supernova Dental hiring, join our dental team, dental practice vacancies, dental jobs Somerset, Supernova Dental careers',
+    'dental jobs Bridgwater, dental nurse jobs Somerset, treatment coordinator jobs Bridgwater, dental careers Somerset, dentist jobs Bridgwater, Supernova Dental hiring, dental practice vacancies, join our dental team, dental jobs near Taunton, careers in dentistry Somerset',
 };
 
 export default function CareersPage() {
@@ -17,7 +17,7 @@ export default function CareersPage() {
     <div className='min-h-screen flex bg-gradient-to-b from-white to-cream justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
         <HighlightCard
-          title='Careers at Supernova Dental'
+          title='Dental Jobs at Supernova Dental'
           description='We’re always looking for passionate professionals to join our growing team. Explore our current vacancies below.'
           logoSrc='/favicon.ico'
         />
@@ -44,9 +44,8 @@ export default function CareersPage() {
             feel free to register your interest using the form below.
           </p>
 
-          {/* Optional: Placeholder for a future form component */}
+          {/* Placeholder for career form */}
           <div className='bg-white rounded-xl p-6 shadow-md max-w-3xl mx-auto'>
-            {/* Replace this with your actual form */}
             <CareerFormContent />
           </div>
         </div>

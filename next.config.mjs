@@ -20,6 +20,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/refer-a-friend',
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/invisalign',
         destination: '/cosmetic-dentistry/invisalign',
         permanent: true,

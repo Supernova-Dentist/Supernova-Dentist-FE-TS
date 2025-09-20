@@ -13,8 +13,8 @@ export const ReferralOutlineCards = () => {
           bgUrl='/assets/images/invisalign.jpeg'
         />
         <Card
-          title='Implant'
-          href='/professional-referrals/implant-referral'
+          title='Dental Implant'
+          href='/professional-referrals/dental-implant-referral'
           bgUrl='/assets/images/implant_referral.jpg'
         />
         <Card

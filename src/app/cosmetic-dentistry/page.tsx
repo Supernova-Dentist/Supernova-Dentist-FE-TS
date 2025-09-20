@@ -4,11 +4,11 @@ import { CosmeticDentistryOutlineCards } from '@/components/OutlineCards/Cosmeti
 import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Cosmetic Dentistry | Supernova Dental in Bridgwater, Taunton & Beyond',
+  title: 'Cosmetic Dentistry | Supernova Dental in Bridgwater, Somerset & Surrounding Areas',
   description:
-    'Enhance your smile with expert cosmetic dentistry at Supernova Dental. We provide Invisalign, dental implants, teeth whitening, and more welcoming patients from across Somerset, including Bridgwater and Taunton.',
+    'Enhance your smile with expert cosmetic dentistry at Supernova Dental. We provide Invisalign, dental implants, composite bonding, veneers, teeth whitening, and more. Welcoming patients from Bridgwater, Taunton, Highbridge, Burnham-on-Sea, and across Somerset.',
   keywords:
-    'cosmetic dentist Bridgwater, cosmetic dentist Taunton, Invisalign Bridgwater, dental implants Taunton, smile makeover Somerset, teeth whitening Somerset, veneers Bridgwater, Supernova Dental cosmetic treatments, Somerset dental clinic, private dentist Bridgwater',
+    'cosmetic dentist Bridgwater, cosmetic dentist Somerset, cosmetic dentist Taunton, Invisalign Bridgwater, dental implants Somerset, composite bonding Bridgwater, veneers Bridgwater, teeth whitening Somerset, smile makeover Somerset, Supernova Dental cosmetic treatments, private dentist Bridgwater, cosmetic dentist Highbridge, cosmetic dentist Burnham-on-Sea',
 };
 
 export default function CosmeticDentistryPage() {
@@ -17,7 +17,7 @@ export default function CosmeticDentistryPage() {
       <div className='container mx-auto py-24 px-8'>
         <HighlightCard
           title='Explore Cosmetic Dentistry'
-          description='We offer expert cosmetic dental treatments including Invisalign and dental implants to patients from Bridgwater, Taunton, and beyond.'
+          description='We offer expert cosmetic dental treatments including Invisalign, dental implants, composite bonding, veneers, and teeth whitening for patients from Bridgwater, Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.'
           logoSrc='/favicon.ico'
         />
 

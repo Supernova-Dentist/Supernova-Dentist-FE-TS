@@ -58,6 +58,21 @@ const structuredData = {
     procedureType: 'Non-invasive',
     areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
   },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '75',
+  },
+  potentialAction: {
+    '@type': 'ReserveAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://www.supernovadental.co.uk/cosmetic-dentistry/invisalign',
+    },
+    actionStatus: 'PotentialActionStatus',
+    name: 'Book a Free Invisalign Consultation',
+  },
+  priceRange: 'From £2500, average price £3999',
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',
     'https://www.instagram.com/supernova.dental/',

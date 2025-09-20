@@ -1,14 +1,13 @@
 import { OurJourneyContent } from '@/components/blocks/OurJourneyContent/OurJourneyContent';
-import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import type { Metadata } from 'next';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: 'Our Journey | Supernova Dental',
+  title: 'Our Journey | Supernova Dental – Bridgwater & Somerset',
   description:
-    'Follow the journey of Supernova Dental – from our Rising Star nomination at the MiSmile Awards to future milestones, achievements, and community projects.',
+    'Follow the journey of Supernova Dental in Bridgwater, Somerset – from our beginnings to milestones, achievements, and community projects. Learn more about our story and patient-focused care.',
   keywords:
-    'Supernova Dental journey, dental awards Somerset, MiSmile Rising Star, dental achievements Bridgwater, dental awards Taunton, Supernova Dental story',
+    'Supernova Dental journey, dental practice Bridgwater, dental achievements Somerset, dental story Bridgwater, dental practice Taunton, Supernova Dental story',
 };
 
 const structuredData = {
@@ -17,7 +16,7 @@ const structuredData = {
   name: 'Supernova Dental',
   url: 'https://www.supernovadental.co.uk/our-journey',
   description:
-    'Follow the journey of Supernova Dental – from our Rising Star nomination at the MiSmile Awards to future milestones, achievements, and community projects.',
+    'Follow the journey of Supernova Dental in Bridgwater, Somerset – from our beginnings to milestones, achievements, and community projects.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',

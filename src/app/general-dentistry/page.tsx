@@ -6,9 +6,9 @@ import { type Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'General Dentistry | Supernova Dental in Bridgwater, Somerset',
   description:
-    'Explore our full range of general dentistry services at Supernova Dental, including emergency care, hygiene appointments, and routine checkups. Your local Bridgwater dental practice for professional, patient-focused dental care.',
+    'Explore our full range of general dentistry services at Supernova Dental in Bridgwater, Somerset, including emergency care, hygiene appointments, and routine checkups. Serving patients from Bridgwater, Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
   keywords:
-    'general dentistry Bridgwater, general dentistry Taunton, emergency dentist, dental hygiene Somerset, dentist checkup Bridgwater, oral health Bridgwater, Supernova Dental, routine dental care, family dentistry Somerset',
+    'general dentistry Bridgwater, general dentistry Somerset, general dentistry Taunton, emergency dentist Bridgwater, emergency dentist Somerset, dental hygiene Bridgwater, dental hygiene Somerset, dentist checkup Bridgwater, oral health Bridgwater, routine dental care Somerset, family dentistry Bridgwater, family dentistry Somerset, Supernova Dental',
 };
 
 export default function GeneralDentistryPage() {
@@ -17,7 +17,7 @@ export default function GeneralDentistryPage() {
       <div className='container mx-auto py-24 px-8'>
         <HighlightCard
           title='Explore General Dentistry'
-          description='Browse our essential dental services designed to support lifelong oral health for you and your family.'
+          description='Browse our essential dental services designed to support lifelong oral health for you and your family. Serving patients from Bridgwater, Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.'
           logoSrc='/favicon.ico'
         />
 

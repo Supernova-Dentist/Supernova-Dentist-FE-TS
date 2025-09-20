@@ -13,21 +13,85 @@ import { AboutPractice } from '@/components/AboutPractice/AboutPractice';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 
 export const metadata: Metadata = {
-  title: 'Supernova Dental | Your Patient Journey',
+  title: 'Dental Membership Plans in Bridgwater, Somerset | Supernova Dental',
   description:
-    'Visit Supernova Dental in Bridgwater for top-tier dental care with state-of-the-art technology. We prioritise your oral health and well-being every step of your patient journey.',
+    'Join Supernova Dental’s new practice in Bridgwater. Our dental membership plans for adults and children provide affordable, ongoing care including check-ups, hygiene visits, and emergency cover. Taking new patients—sign up today!',
   keywords:
-    'dentist in Bridgwater, emergency dentist Bridgwater, Supernova Dental, invisalign bridgwater, invisalign, cosmetic dentistry, dental care Bridgwater, emergency dental care, oral health, teeth whitening Bridgwater, dental practice Bridgwater',
+    'dental membership plans Bridgwater, dental membership Somerset, adult dental plan Bridgwater, children dental plan Bridgwater, affordable dental care Bridgwater, Supernova Dental membership, private dentist Bridgwater, routine dental checkups Bridgwater, dental hygiene plan Bridgwater, emergency dental cover Somerset, new dentist Bridgwater, taking new patients',
+};
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  name: 'Supernova Dental - Dental Membership Plans Bridgwater',
+  url: 'https://www.supernovadental.co.uk/practice',
+  description:
+    'Supernova Dental in Bridgwater offers dental membership plans for adults and children. Enjoy routine check-ups, hygiene visits, emergency cover, and expert care. Our new practice is welcoming new patients today!',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
+    addressLocality: 'Bridgwater',
+    addressRegion: 'Somerset',
+    postalCode: 'TA6 6LQ',
+    addressCountry: 'GB',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+44 1278 228665',
+    contactType: 'Customer Service',
+    email: 'enquiries@supernovadental.co.uk',
+    areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
+    availableLanguage: 'English',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+      opens: '08:15',
+      closes: '18:15',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '09:00',
+      closes: '13:00',
+    },
+  ],
+  serviceProvided: [
+    {
+      '@type': 'Service',
+      name: 'Adult Membership Plan (16+)',
+      description:
+        '£24.99/month. Includes 2 routine exams per year, 2 hygiene appointments per year, 1 emergency assessment per year, small X-rays, and worldwide emergency cover.',
+    },
+    {
+      '@type': 'Service',
+      name: "Children's Membership Plan",
+      description:
+        '£5.99/month. Includes 2 routine exams per year, fluoride varnish application, and worldwide emergency cover.',
+    },
+  ],
+  potentialAction: {
+    '@type': 'ReserveAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://www.supernovadental.co.uk/enquiry',
+    },
+    actionStatus: 'PotentialActionStatus',
+    name: 'Sign up for a Dental Membership Plan',
+  },
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=61567279201971',
+    'https://www.instagram.com/supernova.dental/',
+    'https://g.co/kgs/qqvPcF1',
+  ],
 };
 
 export default function OurPractice() {
   return (
     <div className='flex flex-col'>
-      {/* <PageHero
-        bgImage='bg-blog'
-        title='Welcome to Supernova Dental'
-        description='Exceptional dental care in a modern, welcoming environment.'
-      /> */}
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+
       <div className='mt-4'>
         <ServiceForm
           serviceName='Practice Plan'
@@ -42,7 +106,6 @@ export default function OurPractice() {
         />
       </div>
 
-      {/* About Section */}
       <section>
         <div className='container mx-auto px-4 md:px-6 lg:px-8'>
           <FeaturesSectionDemo />
@@ -50,11 +113,7 @@ export default function OurPractice() {
         </div>
       </section>
 
-      {/* Features Section */}
-
       <DisappearingFeatures />
-
-      {/* Online Booking Walkthrough Section */}
 
       <DentallyTutorial />
 

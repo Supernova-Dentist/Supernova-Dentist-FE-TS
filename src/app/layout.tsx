@@ -51,6 +51,57 @@ export const metadata: Metadata = {
   },
 };
 
+export const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  name: 'Supernova Dental',
+  url: 'https://www.supernovadental.co.uk',
+  logo: 'https://www.supernovadental.co.uk/assets/images/logo.png',
+  description:
+    'Supernova Dental is a trusted private dental practice in Bridgwater, Somerset, offering cosmetic and general dentistry, dental implants, same-day appointments, and flexible payment plans.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
+    addressLocality: 'Bridgwater',
+    postalCode: 'TA6 6LQ',
+    addressCountry: 'GB',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+44 1278 228665',
+      contactType: 'Customer Service',
+      email: 'enquiries@supernovadental.co.uk',
+      areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
+      availableLanguage: 'English',
+    },
+  ],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+      opens: '08:15',
+      closes: '18:15',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '09:00',
+      closes: '13:00',
+    },
+  ],
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=61567279201971',
+    'https://www.instagram.com/supernova.dental/',
+    'https://g.co/kgs/qqvPcF1',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '75',
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -114,6 +165,11 @@ export default function RootLayout({
             src='https://www.facebook.com/tr?id=539899052125710&ev=PageView&noscript=1'
           />
         </noscript>
+        <Script
+          id='structured-data'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </head>
       <body className={`${playfair.variable} ${ibmPlex.variable}`}>
         {/* <noscript>

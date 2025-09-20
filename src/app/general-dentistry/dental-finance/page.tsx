@@ -9,20 +9,23 @@ import logo from '../../../../public/assets/images/logo.png';
 import { faqItems } from './faqItems';
 
 export const metadata = {
-  title: 'Flexible Dental Finance Options | Supernova Dental Bridgwater',
+  title: 'Flexible Dental Finance Options in Bridgwater, Somerset | Supernova Dental',
   description:
-    'Explore flexible dental finance options at Supernova Dental in Bridgwater. Enjoy 0% interest for up to 12 months and easy monthly payments to invest in your smile with confidence.',
+    'Explore flexible dental finance options at Supernova Dental in Bridgwater, Somerset. Enjoy 0% interest for up to 12 months and easy monthly payments to invest in your smile. Serving patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
   keywords: [
-    'Dental finance',
-    'Flexible dental finance',
+    'Dental finance Bridgwater',
+    'Flexible dental finance Somerset',
     'Supernova Dental',
     'Bridgwater dental finance',
     '0% interest dental payments',
+    'Dental finance Taunton',
+    'Dental finance Highbridge',
+    'Dental finance Burnham-on-Sea',
   ],
   openGraph: {
-    title: 'Flexible Dental Finance Options | Supernova Dental Bridgwater',
+    title: 'Flexible Dental Finance Options in Bridgwater, Somerset | Supernova Dental',
     description:
-      'Explore flexible dental finance options at Supernova Dental in Bridgwater. Enjoy 0% interest for up to 12 months and easy monthly payments to invest in your smile with confidence.',
+      'Explore flexible dental finance options at Supernova Dental in Bridgwater, Somerset. Enjoy 0% interest for up to 12 months and easy monthly payments to invest in your smile. Serving patients from surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.',
     url: 'https://www.supernovadental.co.uk/dental-finance',
     siteName: 'Supernova Dental',
     images: [
@@ -38,9 +41,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Flexible Dental Finance Options | Supernova Dental Bridgwater',
+    title: 'Flexible Dental Finance Options in Bridgwater, Somerset | Supernova Dental',
     description:
-      'Explore flexible dental finance options at Supernova Dental in Bridgwater. Enjoy 0% interest for up to 12 months and easy monthly payments to invest in your smile with confidence.',
+      'Explore flexible dental finance options at Supernova Dental in Bridgwater, Somerset. Enjoy 0% interest for up to 12 months and easy monthly payments to invest in your smile. Serving patients from surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.',
     images: ['https://www.supernovadental.co.uk/assets/images/logo.png'],
   },
 };
@@ -66,8 +69,9 @@ export default function DentalFinance() {
           <SectionSpacing className='flex flex-col gap-4'>
             <p>
               At Supernova Dental we understand that investing in your oral health can sometimes feel overwhelming, both
-              emotionally and financially. That’s why we’re proud to offer <strong>flexible financing</strong> through
-              our partner, Tabeo – making your dental care more accessible and manageable.
+              emotionally and financially. That’s why we’re proud to offer <strong>flexible financing</strong>
+              through our partner, Tabeo – making your dental care more accessible and manageable. Serving patients from
+              Bridgwater and surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.
             </p>
             <p>
               With easy monthly payment options and <strong>0% interest for up to 12 months</strong>, you can start your

@@ -3,26 +3,27 @@ import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'White Composite Fillings in Bridgwater | Supernova Dental',
+  title: 'White Composite Fillings in Bridgwater, Somerset | Supernova Dental',
   description:
-    'Restore your teeth with natural-looking white composite fillings in Bridgwater. Supernova Dental provides durable, tooth-coloured fillings to protect and enhance your smile.',
+    'Restore your teeth with natural-looking white composite fillings in Bridgwater, Somerset. Supernova Dental provides durable, tooth-coloured fillings to protect and enhance your smile. Serving patients from Bridgwater and surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.',
   keywords:
-    'white fillings Bridgwater, composite fillings Bridgwater, tooth-coloured fillings Bridgwater, cavity treatment Bridgwater, dental fillings Bridgwater, Supernova Dental',
+    'white fillings Bridgwater, white fillings Somerset, composite fillings Bridgwater, composite fillings Somerset, tooth-coloured fillings Bridgwater, cavity treatment Bridgwater, dental fillings Bridgwater, dental fillings Somerset, Supernova Dental, dental care Taunton, dental care Highbridge, dental care Burnham-on-Sea',
 };
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Supernova Dental - White Composite Fillings in Bridgwater',
+  name: 'Supernova Dental - White Composite Fillings in Bridgwater, Somerset',
   url: 'https://www.supernovadental.co.uk/white-composite-fillings',
   description:
-    'Restore damaged or decayed teeth with natural-looking white composite fillings at Supernova Dental in Bridgwater. Durable, tooth-coloured, and aesthetically pleasing.',
+    'Restore damaged or decayed teeth with natural-looking white composite fillings at Supernova Dental in Bridgwater, Somerset. Durable, tooth-coloured, and aesthetically pleasing. Serving patients from surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.',
   keywords:
-    'white fillings Bridgwater, composite fillings Bridgwater, tooth-coloured fillings Bridgwater, cavity treatment Bridgwater, dental fillings Bridgwater',
+    'white fillings Bridgwater, white fillings Somerset, composite fillings Bridgwater, composite fillings Somerset, tooth-coloured fillings Bridgwater, cavity treatment Bridgwater, dental fillings Bridgwater, dental fillings Somerset, dental care Taunton, dental care Highbridge, dental care Burnham-on-Sea',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
     addressLocality: 'Bridgwater',
+    addressRegion: 'Somerset',
     postalCode: 'TA6 6LQ',
     addressCountry: 'GB',
   },
@@ -31,7 +32,7 @@ const structuredData = {
     telephone: '+44 1278 228665',
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
-    areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
+    areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
     availableLanguage: 'English',
   },
   openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
@@ -39,9 +40,9 @@ const structuredData = {
     '@type': 'MedicalProcedure',
     name: 'White Composite Fillings',
     description:
-      'Supernova Dental provides natural-looking white composite fillings to restore and protect teeth in Bridgwater.',
+      'Supernova Dental provides natural-looking white composite fillings to restore and protect teeth in Bridgwater, Somerset. Serving patients from surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.',
     procedureType: 'Restorative',
-    areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
+    areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
   },
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',

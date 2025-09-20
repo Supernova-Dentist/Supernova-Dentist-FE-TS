@@ -5,18 +5,18 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Dental Implants in Bridgwater, Somerset | All-on-4 & Full Arch Specialists',
   description:
-    'Missing teeth? Supernova Dental in Bridgwater, Somerset offers expert dental implants, including All-on-4 and full arch solutions. Enjoy natural-looking, permanent teeth replacements—book your consultation today.',
+    'Missing teeth? Supernova Dental in Bridgwater, Somerset offers expert dental implants, including All-on-4 and full arch solutions. Enjoy natural-looking, long-term teeth replacements—book your consultation today.',
   keywords:
-    'dental implants Bridgwater Somerset, All-on-4 Bridgwater, full arch implants Somerset, implant dentist Bridgwater, tooth replacement Somerset, permanent teeth replacement Bridgwater, dental implants near Taunton, Supernova Dental implants, missing teeth solution Somerset, All-on-4 Taunton, best dental implants Bridgwater',
+    'dental implants Bridgwater Somerset, All-on-4 Bridgwater, full arch implants Somerset, implant dentist Bridgwater, tooth replacement Somerset, long-term teeth replacement Bridgwater, dental implants near Taunton, Supernova Dental implants, missing teeth solution Somerset, All-on-4 Taunton, best dental implants Bridgwater',
 };
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Supernova Dental - Dental Implants Bridgwater',
-  url: 'https://www.supernovadental.co.uk/dental-implants',
+  name: 'Dental Implants in Bridgwater, Somerset | All-on-4 & Full Arch Specialists',
+  url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants',
   description:
-    'Missing teeth? Supernova Dental in Bridgwater, Somerset provides high-quality dental implants, including All-on-4 and full arch solutions. Book your consultation today for a permanent solution to missing teeth.',
+    'Missing teeth? Supernova Dental in Bridgwater, Somerset provides high-quality dental implants, including All-on-4 and full arch solutions. Book your consultation today for long-term teeth replacements.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
@@ -41,6 +41,21 @@ const structuredData = {
     procedureType: 'Surgical',
     areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
   },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '75',
+  },
+  potentialAction: {
+    '@type': 'ReserveAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants',
+    },
+    actionStatus: 'PotentialActionStatus',
+    name: 'Book a Dental Implant Consultation',
+  },
+  priceRange: 'From £1400 for a dental implant, £1350 for an implant crown',
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',
     'https://www.instagram.com/supernova.dental/',
