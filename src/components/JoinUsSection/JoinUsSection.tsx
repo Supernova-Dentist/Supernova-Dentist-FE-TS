@@ -32,7 +32,7 @@ export default function JoinUsSection() {
         </h2>
         <p className='text-base md:text-lg'>
           Find out what roles we are actively hiring for to join our Bridgwater dental practice team. Even if we aren’t
-          currently hiring, you can submit your details— we are always open to considering passionate individuals who
+          currently hiring, you can submit your details as we are always open to considering passionate individuals who
           want to strive to constantly improve the patient journey with us.
         </p>
         <Link href='/careers'>
