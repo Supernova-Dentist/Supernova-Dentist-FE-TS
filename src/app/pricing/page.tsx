@@ -6,11 +6,11 @@ import MakeEnquirySection from './utils/MakeEnquirySection';
 import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Invisalign Pricing & Affordable Dental Care | Supernova Dental Bridgwater, Somerset',
+  title: 'Dental Pricing & Affordable Care | Invisalign & Implants Bridgwater, Somerset',
   description:
-    'Explore affordable Invisalign pricing and dental care options at Supernova Dental in Bridgwater, Somerset. Get clear aligners, consultations, and personalised treatment plans tailored to your needs.',
+    'Explore affordable dental care options at Supernova Dental in Bridgwater, Somerset. Get pricing for Invisalign clear aligners, dental implants, consultations, and personalised treatment plans tailored to your needs. Serving patients from Bridgwater and surrounding areas.',
   keywords:
-    'Invisalign pricing, dental pricing Bridgwater, affordable Invisalign, clear aligners Somerset, Invisalign consultation Bridgwater, Invisalign costs, dentist Bridgwater, dental care Somerset, affordable dental care, Supernova Dental pricing, orthodontics Somerset, teeth straightening Bridgwater, Invisalign treatment Bridgwater',
+    'Invisalign pricing Bridgwater, dental implants pricing Bridgwater, affordable dental care Somerset, clear aligners Somerset, dental consultation Bridgwater, dental implant costs, orthodontics Somerset, teeth straightening Bridgwater, dentist pricing Bridgwater, Supernova Dental pricing, implants Bridgwater, cosmetic dentistry Somerset, dental treatments Bridgwater, emergency dental care Somerset',
 };
 
 export default function Pricing() {
@@ -28,7 +28,6 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Accordion with motion animation */}
-
         <PricingAccordion pricingItems={pricingItems} />
 
         {/* Make an Enquiry Section with motion animation */}
