@@ -78,13 +78,20 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Social Page -->
   <url>
+    <loc>https://www.supernovadental.co.uk/our-journey</loc>
+    <lastmod>2025-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Social Page -->
+  <!-- <url>
     <loc>https://www.supernovadental.co.uk/social</loc>
     <lastmod>2025-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
+  </url> -->
 
   <!-- Complaints Page -->
   <url>
