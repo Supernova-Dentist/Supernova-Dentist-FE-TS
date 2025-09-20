@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'Explore affordable dental care options at Supernova Dental in Bridgwater, Somerset. Get pricing for Invisalign clear aligners, dental implants, consultations, and personalised treatment plans tailored to your needs. Serving patients from Bridgwater and surrounding areas.',
   keywords:
-    'Invisalign pricing Bridgwater, dental implants pricing Bridgwater, affordable dental care Somerset, clear aligners Somerset, dental consultation Bridgwater, dental implant costs, orthodontics Somerset, teeth straightening Bridgwater, dentist pricing Bridgwater, Supernova Dental pricing, implants Bridgwater, cosmetic dentistry Somerset, dental treatments Bridgwater, emergency dental care Somerset',
+    'Invisalign pricing Bridgwater, cost of bridgwater dental implants, dental implants pricing Bridgwater, affordable dental care Somerset, clear aligners Somerset, dental consultation Bridgwater, dental implant costs, orthodontics Somerset, teeth straightening Bridgwater, dentist pricing Bridgwater, Supernova Dental pricing, implants Bridgwater, cosmetic dentistry Somerset, dental treatments Bridgwater, emergency dental care Somerset',
 };
 
 export default function Pricing() {
