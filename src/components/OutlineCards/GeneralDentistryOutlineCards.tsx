@@ -13,6 +13,11 @@ export const GeneralDentistryOutlineCards = () => {
           bgUrl='/assets/images/emerg_intro.jpg'
         />
         <Card
+          title='White Composite Fillings'
+          href='/general-dentistry/white-composite-fillings'
+          bgUrl='/assets/images/filling_intro.jpg'
+        />
+        <Card
           title='Dental Therapist'
           href='/general-dentistry/dental-therapist'
           bgUrl='/assets/images/therapy_intro.jpg'
