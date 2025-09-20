@@ -4,22 +4,22 @@ import type { Metadata } from 'next';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: 'Invisalign Bridgwater & Taunton | Clear Aligners & Invisible Braces',
+  title: 'Invisalign Bridgwater, Somerset | Clear Aligners & Invisible Braces',
   description:
-    'Achieve a perfect smile with Invisalign in Bridgwater and Taunton at Supernova Dental. Start your journey to straight teeth with clear aligners. Book a free consultation today!',
+    'Achieve a perfect smile with Invisalign in Bridgwater, Somerset at Supernova Dental. Start your journey to straight teeth with clear aligners. We also welcome patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas. Book a free consultation today!',
   keywords:
-    'Invisalign Bridgwater, Invisalign Taunton, clear aligners Bridgwater, clear aligners Taunton, teeth straightening Bridgwater, teeth straightening Taunton, Invisalign treatment Bridgwater, invisible braces Bridgwater, invisible braces Taunton, Invisalign cost Bridgwater, Invisalign cost Taunton, best Invisalign dentist Bridgwater, adult braces Bridgwater, orthodontic treatment Bridgwater, private Invisalign dentist Bridgwater, cosmetic dentistry Bridgwater, Invisalign near Taunton',
+    'Invisalign Bridgwater, Invisalign Somerset, clear aligners Bridgwater, invisible braces Bridgwater, Invisalign cost Bridgwater, teeth straightening Bridgwater, adult braces Somerset, orthodontic treatment Bridgwater, private Invisalign dentist Bridgwater, Invisalign near Taunton, Invisalign Taunton, invisible braces Taunton, clear aligners Taunton',
 };
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Supernova Dental - Invisalign Bridgwater & Taunton',
+  name: 'Supernova Dental - Invisalign Bridgwater, Somerset',
   url: 'https://www.supernovadental.co.uk/invisalign',
   description:
-    'Achieve a perfect smile with Invisalign in Bridgwater and Taunton at Supernova Dental. Start your journey to straight teeth with clear aligners. Book a free consultation today!',
+    'Supernova Dental provides Invisalign clear aligners in Bridgwater, Somerset. We help patients achieve straight teeth with invisible braces and clear aligners. Serving patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas. Book a free consultation today!',
   keywords:
-    'Invisalign Bridgwater, Invisalign Taunton, best Invisalign dentist Bridgwater, clear aligners Bridgwater, clear aligners Taunton, teeth straightening Bridgwater, Invisalign cost Bridgwater, Invisalign cost Taunton, Invisalign dentist near Taunton',
+    'Invisalign Bridgwater, Invisalign Somerset, clear aligners Bridgwater, invisible braces Bridgwater, Invisalign cost Bridgwater, teeth straightening Bridgwater, adult braces Somerset, orthodontic treatment Bridgwater, private Invisalign dentist Bridgwater, Invisalign near Taunton, Invisalign Taunton, invisible braces Taunton, clear aligners Taunton',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
@@ -33,7 +33,7 @@ const structuredData = {
     telephone: '+44 1278 228665',
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
-    areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
+    areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
     availableLanguage: 'English',
   },
   openingHoursSpecification: [
@@ -54,9 +54,9 @@ const structuredData = {
     '@type': 'MedicalProcedure',
     name: 'Invisalign Treatment',
     description:
-      'We offer Invisalign clear aligners for straightening teeth in Bridgwater and Taunton. Treatment includes a free consultation and digital smile preview.',
+      'Supernova Dental offers Invisalign clear aligners and invisible braces in Bridgwater, Somerset. Treatment includes a free consultation, digital smile preview, and personalized orthodontic planning. We serve patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
     procedureType: 'Non-invasive',
-    areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
+    areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
   },
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',
