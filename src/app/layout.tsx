@@ -112,13 +112,13 @@ export default function RootLayout({
     <html lang='en'>
       <head>
         {/* Cookiebot */}
-        {/* <Script
+        <Script
           id='Cookiebot'
           src='https://consent.cookiebot.com/uc.js'
           data-cbid='aced3b94-7f1a-4ccd-a22f-90b2c1d4bf6b'
           data-blockingmode='auto'
           type='text/javascript'
-        /> */}
+        />
 
         {/* Google Analytics */}
         <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z' />
@@ -146,25 +146,24 @@ export default function RootLayout({
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
 
         {/* Meta Pixel with Cookiebot Compliance */}
-        {/* <Script id='meta-pixel' data-cookieconsent='ignore'>
+        <Script id='meta-pixel' data-cookieconsent='ignore'>
           {`
-            !function(f,b,e,v,n,t,s){
-              if(f.fbq) return; n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-              n.queue=[]; t=b.createElement(e); t.async=!0;
-              t.src=v; s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)
-            }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-            fbq('consent','revoke'); 
+            !function(f,b,e,v,n,t,s) 
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'; 
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0]; 
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('consent', 'revoke');
             fbq('init','539899052125710');
             fbq('track','PageView');
-
             window.addEventListener('CookiebotOnConsentReady', function(e){
               fbq('consent', Cookiebot.consent.marketing ? 'grant' : 'revoke');
-            }, false);
+            }, !1);
           `}
-        </Script> */}
+        </Script>
 
         {/* Structured data */}
         <Script
