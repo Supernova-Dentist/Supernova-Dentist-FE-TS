@@ -145,8 +145,8 @@ export default function RootLayout({
 
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
 
-        {/* Meta Pixel with Cookiebot */}
-        <Script id='meta-pixel' data-cookieconsent='marketing' strategy='afterInteractive'>
+        {/* Meta Pixel with Cookiebot Compliance */}
+        <Script id='meta-pixel' data-cookieconsent='ignore' type='text/javascript'>
           {`
             !function(f,b,e,v,n,t,s){
               if(f.fbq) return; n=f.fbq=function(){n.callMethod?
@@ -156,32 +156,16 @@ export default function RootLayout({
               t.src=v; s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)
             }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '539899052125710');
-            fbq('consent','revoke'); // block until consent
+
+            fbq('consent','revoke'); // initially block
+            fbq('init','539899052125710');
+            fbq('track','PageView');
+
+            window.addEventListener('CookiebotOnConsentReady', function(e){
+              fbq('consent', Cookiebot.consent.marketing ? 'grant' : 'revoke');
+            }, false);
           `}
         </Script>
-
-        {/* Consent listener */}
-        <Script id='cookiebot-consent-handler' strategy='afterInteractive'>
-          {`
-            window.addEventListener('CookieConsentDeclaration', function() {
-              if (window.Cookiebot && Cookiebot.consent.marketing) {
-                fbq('consent','grant');
-                fbq('track','PageView');
-              }
-            });
-          `}
-        </Script>
-
-        <noscript>
-          <img
-            height='1'
-            width='1'
-            style={{ display: 'none' }}
-            src='https://www.facebook.com/tr?id=539899052125710&ev=PageView&noscript=1'
-            alt=''
-          />
-        </noscript>
 
         {/* Structured data */}
         <Script
