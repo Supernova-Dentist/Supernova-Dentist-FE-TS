@@ -112,13 +112,13 @@ export default function RootLayout({
     <html lang='en'>
       <head>
         {/* Cookiebot */}
-        <Script
+        {/* <Script
           id='Cookiebot'
           src='https://consent.cookiebot.com/uc.js'
           data-cbid='aced3b94-7f1a-4ccd-a22f-90b2c1d4bf6b'
           data-blockingmode='auto'
           type='text/javascript'
-        />
+        /> */}
 
         {/* Google Analytics */}
         <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z' />
