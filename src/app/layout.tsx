@@ -146,7 +146,7 @@ export default function RootLayout({
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
 
         {/* Meta Pixel with Cookiebot Compliance */}
-        <Script id='meta-pixel' data-cookieconsent='ignore' type='text/javascript'>
+        {/* <Script id='meta-pixel' data-cookieconsent='ignore'>
           {`
             !function(f,b,e,v,n,t,s){
               if(f.fbq) return; n=f.fbq=function(){n.callMethod?
@@ -156,8 +156,7 @@ export default function RootLayout({
               t.src=v; s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)
             }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-            fbq('consent','revoke'); // initially block
+            fbq('consent','revoke'); 
             fbq('init','539899052125710');
             fbq('track','PageView');
 
@@ -165,7 +164,7 @@ export default function RootLayout({
               fbq('consent', Cookiebot.consent.marketing ? 'grant' : 'revoke');
             }, false);
           `}
-        </Script>
+        </Script> */}
 
         {/* Structured data */}
         <Script
