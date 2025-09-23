@@ -111,6 +111,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
+        {/* Cookiebot */}
         <Script
           id='Cookiebot'
           src='https://consent.cookiebot.com/uc.js'
@@ -119,18 +120,19 @@ export default function RootLayout({
           type='text/javascript'
         />
 
+        {/* Google Analytics */}
         <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z' />
         <Script id='google-analytics'>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
-            gtag('config', 'G-8M5WQJ7R5Z'); // Google Analytics ID
-            gtag('config', 'AW-16737398524'); // Google Ads ID
+            gtag('config', 'G-8M5WQJ7R5Z');
+            gtag('config', 'AW-16737398524');
           `}
         </Script>
 
+        {/* Google Tag Manager */}
         <Script id='gtm-script' strategy='beforeInteractive'>
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -143,18 +145,31 @@ export default function RootLayout({
 
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
 
-        <Script id='meta-pixel' strategy='beforeInteractive'>
+        {/* Meta Pixel with Cookiebot */}
+        <Script id='meta-pixel' data-cookieconsent='marketing' strategy='afterInteractive'>
           {`
-            !function(f,b,e,v,n,t,s) {
+            !function(f,b,e,v,n,t,s){
               if(f.fbq) return; n=f.fbq=function(){n.callMethod?
               n.callMethod.apply(n,arguments):n.queue.push(arguments)};
               if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
               n.queue=[]; t=b.createElement(e); t.async=!0;
               t.src=v; s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)
-            }(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '539899052125710');
-            fbq('track', 'PageView');
+            fbq('consent','revoke'); // block until consent
+          `}
+        </Script>
+
+        {/* Consent listener */}
+        <Script id='cookiebot-consent-handler' strategy='afterInteractive'>
+          {`
+            window.addEventListener('CookieConsentDeclaration', function() {
+              if (window.Cookiebot && Cookiebot.consent.marketing) {
+                fbq('consent','grant');
+                fbq('track','PageView');
+              }
+            });
           `}
         </Script>
 
@@ -164,8 +179,11 @@ export default function RootLayout({
             width='1'
             style={{ display: 'none' }}
             src='https://www.facebook.com/tr?id=539899052125710&ev=PageView&noscript=1'
+            alt=''
           />
         </noscript>
+
+        {/* Structured data */}
         <Script
           id='structured-data'
           type='application/ld+json'
@@ -173,19 +191,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${playfair.variable} ${ibmPlex.variable}`}>
-        {/* <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-5Q5NWLHG"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript> */}
         <MainNav />
         {children}
         <FloatingMenu />
-
-        {/* <ScrollToTopButton /> */}
         <Footer />
       </body>
     </html>
