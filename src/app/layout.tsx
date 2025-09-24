@@ -112,13 +112,13 @@ export default function RootLayout({
     <html lang='en'>
       <head>
         {/* Cookiebot */}
-        <Script
+        {/* <Script
           id='Cookiebot'
           src='https://consent.cookiebot.com/uc.js'
           data-cbid='aced3b94-7f1a-4ccd-a22f-90b2c1d4bf6b'
           data-blockingmode='auto'
           type='text/javascript'
-        />
+        /> */}
 
         {/* Google Analytics */}
         <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z' />
@@ -146,7 +146,7 @@ export default function RootLayout({
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
 
         {/* Meta Pixel with Cookiebot Compliance */}
-        <Script id='meta-pixel' strategy='afterInteractive'>
+        {/* <Script id='meta-pixel' strategy='afterInteractive'>
           {`
   !function(f,b,e,v,n,t,s){
     if(f.fbq)return;
@@ -171,7 +171,7 @@ export default function RootLayout({
     }
   }, false);
 `}
-        </Script>
+        </Script> */}
 
         {/* Structured data */}
         <Script
