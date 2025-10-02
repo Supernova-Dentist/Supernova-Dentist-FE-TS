@@ -76,7 +76,7 @@ export default function InvisalignFlashSale() {
           name='keywords'
           content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords ?? ''}
         />
-        <link rel='canonical' href='https://www.supernovadental.co.uk/invisalign' />
+        <link rel='canonical' href='https://www.supernovadental.co.uk/cosmetic-dentistry/invisalign-open-day' />
       </Head>
 
       <div className='flex flex-col min-h-[100dvh]'>
