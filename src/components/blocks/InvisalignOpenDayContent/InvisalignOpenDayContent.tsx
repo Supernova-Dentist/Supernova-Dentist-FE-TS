@@ -5,7 +5,9 @@ import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import React, { type ReactNode, useRef } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
@@ -14,23 +16,15 @@ import InvisalignOpenDayForm from './InvisalignOpenDayForm/InvisalignOpenDayForm
 import { InvisalignOpenDayHero } from './InvisalignOpenDayHero/InvisalignOpenDayHero';
 import InvisalignOpenDayJourney from './InvisalignOpenDayJourney/InvisalignOpenDayJourney';
 import { InvisalignOpenDaySlideTabs } from './InvisalignOpenDaySlideTabs/InvisalignOpenDaySlideTabs';
-import Results from './Results/Results';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { InvisalignOpenDayVideoSection } from './InvisalignOpenDayVideoSection/InvisalignOpenDayVideoSection';
-import Image from 'next/image';
+import Results from './Results/Results';
 
 const pricing = [
   {
     plan: 'Invisalign',
-    price: { number: 1000, text: 'Over' },
-    offerPrice: 1470,
-    features: [
-      'Free Invisalign assessment',
-      'For Comprehensive Invisalign cases',
-      '£500 off Treatment cost',
-      'Free whitening worth £425',
-      '3 Free sets of vivera retainers worth £399',
-    ],
+    price: { number: 1000, text: 'Up To' },
+    offerPrice: 1500,
+    features: ['FREE consultation', 'FREE hygiene', 'FREE whitening', 'FREE retainers (Vivera)', '£250 OFF treatment'],
   },
 ];
 
@@ -41,8 +35,8 @@ export const InvisalignOpenDayContent = () => {
       <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
         <InvisalignOpenDayForm
           serviceName='Invisalign'
-          serviceChip='Invisalign® Flash Sale'
-          serviceDescription='Exclusive Invisalign flash sale bonuses and discounts worth over £1470 - 20 spaces left.'
+          serviceChip='Invisalign® Open Day'
+          serviceDescription='Exclusive Invisalign Open Day offer - save up to £1,500!'
           formTitle='Sign Up for a Free Consultation'
           formDescription='Meet with our experts, ask questions, and learn how Invisalign can transform your smile.'
         />
@@ -81,7 +75,7 @@ export const InvisalignOpenDayContent = () => {
           subheading='Treatment Cases'
           heading='See how it can help.'
         >
-          <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
+          <div className='relative w-full max-w-[600px] mx-auto aspect-[9/16]'>
             <video
               className='w-full h-full object-fit rounded-lg lg:mt-8'
               controls
@@ -101,16 +95,16 @@ export const InvisalignOpenDayContent = () => {
           subheading='Modern'
           heading='See the journey.'
         >
-          <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
-            <video
-              className='w-full h-full object-fit rounded-lg lg:mt-8'
-              controls
-              preload='metadata'
-              poster='/assets/images/video_thumbnail.png' // Optional: use an image as a placeholder before the video loads
-            >
-              <source src={'/assets/videos/why_supernova.mp4'} type='video/mp4' />
-              Sorry, your browser doesn&apos;t support the video tag.
-            </video>
+          <div className='relative w-full max-w-[600px] mx-auto aspect-[9/16]'>
+            <iframe
+              src='https://www.facebook.com/plugins/video.php?height=800&href=https%3A%2F%2Fwww.facebook.com%2F61567279201971%2Fvideos%2F692776213553871%2F&show_text=false&width=450&t=0'
+              className='w-full h-full'
+              style={{ border: 'none', overflow: 'hidden' }}
+              scrolling='no'
+              frameBorder='0'
+              allowFullScreen={true}
+              allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+            ></iframe>
           </div>
         </TextParallaxContent>
       </section>

@@ -66,7 +66,7 @@ const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
         Sign Up
       </Tab>
       <Tab setPosition={setPosition} onClick={() => scrollToSection('offer')}>
-        Sale
+        Offer
       </Tab>
       <Tab setPosition={setPosition} onClick={() => scrollToSection('cases')}>
         Cases

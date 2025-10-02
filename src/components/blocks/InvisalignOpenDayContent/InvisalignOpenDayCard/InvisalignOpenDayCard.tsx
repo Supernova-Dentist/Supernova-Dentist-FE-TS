@@ -50,7 +50,7 @@ export default function InvisalignOpenDayCard({
             preserveValue
           />
         </span>
-        <span className='text-gray-500 text-sm'>SAVING</span>
+        <span className='text-gray-500 text-sm'>IN SAVINGS</span>
         <div className={cn('bg-gray-200 w-full h-[1px] my-10', isMiddle ? 'bg-gray-700' : 'bg-gray-200')}></div>{' '}
         {/* Increased spacing */}
         <ul className='flex flex-col gap-4'>

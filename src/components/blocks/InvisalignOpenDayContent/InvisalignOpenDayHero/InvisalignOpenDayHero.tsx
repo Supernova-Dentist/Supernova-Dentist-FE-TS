@@ -28,9 +28,10 @@ export function InvisalignOpenDayHero() {
   const boxShadow = useMotionTemplate`0px 4px 24px #a4693d`;
 
   const words = [
-  'Starts August 2025',
+  'Friday 24th October',
+  'Saturday 25th October',
   'Spaces Filling Fast',
-  'Only 20 Spaces',
+  'Limited Spaces',
   'Complimentary Consultation',
   'Exclusive Discounts',
   'Book Today',
@@ -58,7 +59,7 @@ export function InvisalignOpenDayHero() {
             className='z-40 flex flex-col justify-center items-center'
           >
             <motion.h1 className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
-              Supernova Dental <br /> Invisalign Flash Sale <br /> <br /> <FlipWords words={words} /> 
+              Supernova Dental <br /> Invisalign Open Day <br /> <br /> <FlipWords words={words} /> 
             </motion.h1>
             <motion.button
               onClick={scrollToPromotionForm}

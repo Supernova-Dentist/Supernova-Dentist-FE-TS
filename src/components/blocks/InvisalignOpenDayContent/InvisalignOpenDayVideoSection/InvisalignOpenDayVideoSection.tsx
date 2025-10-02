@@ -60,7 +60,7 @@ export function InvisalignOpenDayVideoSection() {
 
           <video
             ref={videoRef}
-            src='assets/videos/invisalign_video2.mp4'
+            src='../../../../assets/videos/invisalign_video2.mp4'
             autoPlay
             muted
             playsInline // Helps with inline playback on mobile
