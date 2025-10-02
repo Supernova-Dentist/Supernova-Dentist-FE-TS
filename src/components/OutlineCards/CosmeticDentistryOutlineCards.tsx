@@ -12,6 +12,11 @@ export const CosmeticDentistryOutlineCards = () => {
           href='/cosmetic-dentistry/invisalign-flash-sale'
           bgUrl='/assets/images/invis_flash_sale.png'
         /> */}
+        <Card
+          title='Invisalign Open Day'
+          href='/cosmetic-dentistry/invisalign-open-day'
+          bgUrl='/assets/images/Invisalign_Group.jpg'
+        />
         <Card title='Invisalign' href='/cosmetic-dentistry/invisalign' bgUrl='/assets/images/invisalign.jpeg' />
         <Card
           title='Dental Implants'

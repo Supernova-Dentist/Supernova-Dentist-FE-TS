@@ -15,6 +15,10 @@ export const cosmeticServices = [
   //   link: '/cosmetic-dentistry/invisalign-flash-sale',
   // },
   {
+    name: 'Invisalign Open Day',
+    link: '/cosmetic-dentistry/invisalign-open-day',
+  },
+  {
     name: 'Invisalign',
     link: '/cosmetic-dentistry/invisalign',
   },
