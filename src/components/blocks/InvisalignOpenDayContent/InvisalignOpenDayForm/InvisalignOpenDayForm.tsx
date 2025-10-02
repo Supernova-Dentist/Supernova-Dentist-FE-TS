@@ -239,8 +239,8 @@ export default function InvisalignOpenDayForm({
 
             <div className='flex flex-col lg:hidden py-2 lg:py-12 mt-4'>
               <img
-                src='/assets/images/invis_20_spaces_left.png'
-                alt='Invisalign Flash Sale'
+                src='/assets/images/invis_open_day.png'
+                alt='Invisalign Open Day'
                 className=' w-12/12 mx-auto pb-4'
               />
               <img
