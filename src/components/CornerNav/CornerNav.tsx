@@ -307,6 +307,7 @@ const LINKS = [
       { title: 'Invisalign Open Day', href: '/cosmetic-dentistry/invisalign-open-day' },
       { title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' },
       { title: 'Dental Implants', href: '/cosmetic-dentistry/dental-implants' },
+      { title: 'Teeth Whitening', href: '/cosmetic-dentistry/teeth-whitening' },
     ],
   },
   {

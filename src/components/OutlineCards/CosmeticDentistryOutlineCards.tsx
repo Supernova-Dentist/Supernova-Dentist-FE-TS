@@ -20,8 +20,13 @@ export const CosmeticDentistryOutlineCards = () => {
         <Card title='Invisalign' href='/cosmetic-dentistry/invisalign' bgUrl='/assets/images/invisalign.jpeg' />
         <Card
           title='Dental Implants'
-          href='/general-dentistry/dental-hygiene'
+          href='/cosmetic-dentistry/dental-implants'
           bgUrl='/assets/images/implant_referral.jpg'
+        />
+        <Card
+          title='Teeth Whitening'
+          href='/cosmetic-dentistry/teeth-whitening'
+          bgUrl='/assets/images/teeth_whitening.jpg'
         />
       </div>
     </section>

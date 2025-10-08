@@ -26,6 +26,10 @@ export const cosmeticServices = [
     name: 'Dental Implants',
     link: '/cosmetic-dentistry/dental-implants',
   },
+  {
+    name: 'Teeth Whitening',
+    link: '/cosmetic-dentistry/teeth-whitening',
+  },
 ];
 
 export const practiceInfo = [
