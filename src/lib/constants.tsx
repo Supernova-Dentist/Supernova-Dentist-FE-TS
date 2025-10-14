@@ -49,6 +49,7 @@ export const practiceInfo = [
   { name: 'Enquiry', link: '/enquiry' },
   { name: 'Careers', link: '/careers' },
   { name: 'Professional Referrals', link: '/professional-referrals' },
+  { name: 'Refer A Friend', link: '/refer-a-friend' },
   // { name: 'Refer A Friend', link: '/refer-a-friend' },
   { name: 'Patient Portal', link: 'https://supernova.portal.dental' },
   // { name: 'Social', link: '/social' },
@@ -140,7 +141,7 @@ export const aboutUs = [
 
 export const referrals = [
   { name: 'Professional Referrals', link: '/professional-referrals' },
-  // { name: 'Refer A Friend', link: '/refer-a-friend' },
+  { name: 'Refer A Friend', link: '/refer-a-friend' },
 ];
 
 export const media = [

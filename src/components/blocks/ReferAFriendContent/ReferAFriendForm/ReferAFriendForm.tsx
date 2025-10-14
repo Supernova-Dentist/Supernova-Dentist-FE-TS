@@ -34,6 +34,7 @@ interface ServiceFormProps {
   serviceChip: string;
   serviceDescription: string;
   formTitle: string;
+  imgSrc?: string;
   formDescription: string;
 }
 
@@ -42,6 +43,7 @@ export default function ReferAFriendForm({
   serviceName,
   serviceDescription,
   formTitle,
+  imgSrc,
   formDescription,
 }: ServiceFormProps) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -231,6 +233,9 @@ export default function ReferAFriendForm({
                   Begin Your {serviceName} Journey
                 </h2>
                 <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
+                {imgSrc && (
+                  <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 hidden lg:block' />
+                )}
               </div>
 
               {/* Form */}
@@ -364,16 +369,9 @@ export default function ReferAFriendForm({
             </div>
 
             {/* Full-width Poster Below */}
-            <div className='md:w-2/3 mt-8 mx-auto'>
-              <img
-                src='/assets/images/sd_refer_friend.png'
-                alt='Refer a Friend Poster'
-                className='w-full h-auto object-cover rounded-xl shadow-lg'
-              />
-            </div>
           </div>
           <div className='flex flex-col lg:flex-row items-center justify-center mx-auto gap-4 pt-12'>
-            <img src='/assets/images/supernova_dental_cover.png' alt='Invisalign Logo' className='' />
+            <img src='/assets/images/supernova_dental_cover.png' alt='Invisalign Logo' className='w-56' />
             <img src='/assets/images/Invisalign_Logo.png' alt='Invisalign Logo' className='w-56' />
           </div>
         </motion.div>

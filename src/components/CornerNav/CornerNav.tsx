@@ -352,10 +352,10 @@ const LINKS = [
         title: 'Professional Referrals',
         href: '/professional-referrals',
       },
-      // {
-      //   title: 'Refer A Friend',
-      //   href: '/refer-a-friend',
-      // },
+      {
+        title: 'Refer A Friend',
+        href: '/refer-a-friend',
+      },
     ],
   },
 ];

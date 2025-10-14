@@ -1,10 +1,13 @@
 'use client';
+import { FlipWords } from '@/components/ui/flip-words';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useMotionTemplate } from 'framer-motion';
 import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { ImagesSlider } from '../../../ui/images-slider';
 import { ReferAFriendContainerTextFlip } from './ReferAFriendTitle';
+
+const words = ['General Dentistry', 'Cosmetic Dentistry', 'Restorative Dentistry', 'Implants', 'Invisalign'];
 
 export function ReferAFriendHero() {
   const desktopImages = [
@@ -45,7 +48,9 @@ export function ReferAFriendHero() {
             }}
             className='z-40 mt-48 flex flex-col justify-center items-center'
           >
-            <ReferAFriendContainerTextFlip />
+            <motion.h1 className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
+              Refer A Friend For Invisalign <br /> & Earn £50 Credit For <br /> <FlipWords words={words} />
+            </motion.h1>
             <motion.button
               onClick={scrollToPromotionForm}
               style={{
@@ -60,7 +65,7 @@ export function ReferAFriendHero() {
               }}
               className='group relative flex w-fit mt-6 items-center gap-1.5 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
-              Refer By August 31st
+              Refer A Friend
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
             </motion.button>
           </motion.div>
@@ -80,9 +85,11 @@ export function ReferAFriendHero() {
             transition={{
               duration: 0.6,
             }}
-            className='z-40 mt-48 flex flex-col justify-center items-center'
+            className='z-40 mt-36 flex flex-col justify-center items-center'
           >
-            <ReferAFriendContainerTextFlip />
+            <motion.h1 className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
+              Refer A Friend For Invisalign <br /> & Earn £50 Credit For <br /> <FlipWords words={words} />
+            </motion.h1>
             <motion.button
               onClick={scrollToPromotionForm}
               style={{
@@ -97,7 +104,7 @@ export function ReferAFriendHero() {
               }}
               className='group relative flex w-fit mt-6 items-center gap-1.5 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
             >
-              Refer By August 31st
+              Refer A Friend
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
             </motion.button>
           </motion.div>

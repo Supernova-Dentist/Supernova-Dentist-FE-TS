@@ -8,7 +8,7 @@ export const ReferAFriendSlideTabs = ({ isGeneralServicePage = false }) => {
   const { ref, inView } = useInView({
     threshold: 0.2, // Trigger when 10% of the component is in view
     triggerOnce: true, // Only play the animation once
-  })
+  });
 
   return (
     <motion.div
@@ -66,10 +66,10 @@ const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
         Refer A Friend
       </Tab>
       <Tab setPosition={setPosition} onClick={() => scrollToSection('credit')}>
-        Dental Credit 
+        Open Days
       </Tab>
       <Tab setPosition={setPosition} onClick={() => scrollToSection('leaderboard')}>
-        Leaderboard
+        Dental Credit
       </Tab>
 
       {!isGeneralServicePage && (
