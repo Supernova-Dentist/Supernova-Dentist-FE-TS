@@ -88,26 +88,48 @@ export default function ReferAFriendForm({
         body: JSON.stringify(dataWithSource),
       });
 
+      const responseData = await res.json();
+
       if (!res.ok) {
-        const errorData = await res.json();
-        setError(errorData.message || 'There was a problem with your submission. Please try again later.');
-        throw new Error(errorData.message);
+        const errorMessage =
+          responseData.message || 'There was a problem with your submission. Please try again later.';
+        setError(errorMessage);
+        throw new Error(errorMessage);
       }
 
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      // Dengro request (fire-and-forget)
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dataWithSource),
+        });
+      } catch (dengroError) {
+        console.warn('Dengro capture failed:', dengroError);
+      }
+
+      console.log('Form submitted successfully');
+
+      window.dataLayer = window.dataLayer ?? [];
+
+      // Determine event name using template literal
+      const updatedEventType = `${responseData.alreadyExists === true ? 'Existing' : 'New'}ReferAFriendSubmission`;
+
+      // Push event to dataLayer including source
+      window.dataLayer.push({
+        event: updatedEventType,
+      });
+
+      // Trigger Google Ads conversion only for new patients
+      if (!responseData.alreadyExists && typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
-      if (data.referrerName !== 'NoFriendReferral') {
-        if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-          window.fbq('trackCustom', 'ReferAFriendLead');
-        }
-      } else {
-        if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-          window.fbq('trackCustom', 'NewPatientLead');
-        }
+      // Trigger Facebook Pixel event
+      if (typeof window.fbq === 'function') {
+        window.fbq('trackCustom', updatedEventType);
       }
 
       setShowSuccessModal(true);
@@ -245,7 +267,7 @@ export default function ReferAFriendForm({
                   setIsExistingPatient={setIsExistingPatient}
                 />
 
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form id={'refer-a-friend-form'} onSubmit={handleSubmit(onSubmit)}>
                   <CardHeader className='text-center mb-4'>
                     <CardTitle className='text-xl md:text-2xl'>
                       {isExistingPatient ? 'Refer a Friend' : 'Register as a New Patient'}
