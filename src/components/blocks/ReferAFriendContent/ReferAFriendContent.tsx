@@ -117,15 +117,10 @@ export const ReferAFriendContent = () => {
           heading='See the Supernova Dental journey.'
         >
           <div className='relative w-full max-w-[600px] mx-auto aspect-[9/16]'>
-            <iframe
-              className='w-full h-full'
-              style={{ border: 'none', overflow: 'hidden' }}
-              scrolling='no'
-              frameBorder='0'
-              allowFullScreen={true}
-              allow='clipboard-write; encrypted-media; picture-in-picture; web-share'
-              src='/assets/videos/why_supernova.mp4'
-            ></iframe>
+            <video className='w-full h-full' controls preload='metadata' style={{ border: 'none', overflow: 'hidden' }}>
+              <source src='/assets/videos/why_supernova.mp4' type='video/mp4' />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </TextParallaxContent>
       </section>
