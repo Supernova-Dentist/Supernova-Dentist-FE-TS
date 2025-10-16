@@ -1,18 +1,13 @@
 'use client';
 
-import { CornerNav } from '@/components/CornerNav/CornerNav';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
-import { motion } from 'framer-motion';
+import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
 import React, { useEffect, useRef, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 
-// Custom hook to get window size
+// Hook to get window size
 export const useWindowSize = () => {
-  const [size, setSize] = useState({
-    width: 0,
-    height: 0,
-  });
+  const [size, setSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,80 +18,79 @@ export const useWindowSize = () => {
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Set initial window size
-
+    handleResize();
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return size;
 };
 
-// MainNav component for responsive navigation
+// MainNav component
 const MainNav = () => {
   const { width } = useWindowSize();
   const [isMounted, setIsMounted] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(true);
+  const [showBanner, setShowBanner] = useState(false);
+  const scrollPosition = useRef(0);
+  const isMobile = width <= 915;
 
-  const scrollPosition = useRef(0); // Use ref to store scroll position
-  const isMobile = width <= 915; // Define your mobile breakpoint here
-
+  // Check banner visibility from localStorage
   useEffect(() => {
-    // Reset navbar visibility when switching to mobile
-    if (isMobile) {
-      setNavbarVisible(true); // Show navbar immediately on mobile
+    const dismissed = localStorage.getItem('bannerDismissed');
+    if (dismissed !== 'true') {
+      setShowBanner(true);
     }
-    // Initialize scroll position on mount
+  }, []);
+
+  // Handle scroll-based navbar visibility
+  useEffect(() => {
+    if (isMobile) setNavbarVisible(true);
     scrollPosition.current = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollPosition = window.scrollY;
-
       if (currentScrollPosition < scrollPosition.current) {
-        setNavbarVisible(true); // Show navbar when scrolling up
+        setNavbarVisible(true);
       } else if (currentScrollPosition > 100) {
-        // Hide after scrolling down 100px
-        setNavbarVisible(false); // Hide navbar when scrolling down
+        setNavbarVisible(false);
       }
-
-      // Update scroll position after every scroll
       scrollPosition.current = currentScrollPosition;
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  if (!isMounted) {
-    return <nav></nav>; // Placeholder or a loading indicator
-  }
+  if (!isMounted) return <nav />;
 
   return (
-    <header
-      className={`${
-        !isMobile
-          ? `z-50 fixed top-0 left-0 w-full transition-transform duration-300 ${
-              navbarVisible ? 'translate-y-0' : '-translate-y-full'
-            }`
-          : ''
-      }`}
-    >
-      {isMobile ? (
-        <div
-          className={`z-50 fixed bg-grey top-0 left-0 w-full transition-transform duration-300 ${
-            navbarVisible ? 'translate-y-0' : '-translate-y-full'
-          }`}
-        >
-          <MobileNavigation />
+    <>
+      {/* ✅ Only render banner if not dismissed */}
+      {showBanner && (
+        <div className='fixed top-0 left-0 w-full z-[60]'>
+          <OpenDayBanner />
         </div>
-      ) : (
-        <DesktopNav />
       )}
-    </header>
+
+      {/* ✅ Navigation */}
+      <header
+        className={`fixed left-0 top-0 w-full z-50 transition-transform duration-300 ${
+          navbarVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        {isMobile ? (
+          <div className='bg-grey'>
+            <MobileNavigation />
+          </div>
+        ) : (
+          <DesktopNav />
+        )}
+      </header>
+    </>
   );
 };
 
