@@ -267,7 +267,7 @@ export const OurJourneyContent = () => {
               <h2 className='text-gold text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>Expanding</h2>
               <p className='mt-4 text-white text-lg md:text-xl '>
                 Supernova Dental is growing to meet patient needs, recently welcoming Dr Sara Banuri (implantologist)
-                and Dr Jaqueline Amarin (general and restorative dentist). Their expertise expands our appointment
+                and Dr Jacqueline Amarin (general and restorative dentist). Their expertise expands our appointment
                 availability and treatment range, ensuring advanced care under one roof.
               </p>
             </div>
