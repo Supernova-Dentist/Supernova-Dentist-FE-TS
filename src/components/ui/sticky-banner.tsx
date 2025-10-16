@@ -4,10 +4,12 @@ import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 import React, { type SVGProps, useEffect, useState } from 'react';
 
 export const StickyBanner = ({
+  onDismiss,
   className,
   children,
   hideOnScroll = false,
 }: {
+  onDismiss?: () => void;
   className?: string;
   children: React.ReactNode;
   hideOnScroll?: boolean;
@@ -15,7 +17,7 @@ export const StickyBanner = ({
   const [open, setOpen] = useState(true);
   const { scrollY } = useScroll();
 
-  // Check localStorage on mount
+  // ✅ Check localStorage on mount
   useEffect(() => {
     const dismissed = localStorage.getItem('bannerDismissed');
     if (dismissed === 'true') {
@@ -23,19 +25,20 @@ export const StickyBanner = ({
     }
   }, []);
 
-  // Handle scroll hide/show if enabled
+  // ✅ Handle scroll hide/show if enabled
   useMotionValueEvent(scrollY, 'change', (latest) => {
     if (hideOnScroll && latest > 40) {
       setOpen(false);
     } else if (!localStorage.getItem('bannerDismissed')) {
-      // only reopen if not dismissed
       setOpen(true);
     }
   });
 
+  // ✅ Handle close (and notify parent)
   const handleClose = () => {
     setOpen(false);
     localStorage.setItem('bannerDismissed', 'true');
+    if (onDismiss) onDismiss(); // ← this is the missing piece
   };
 
   return (
