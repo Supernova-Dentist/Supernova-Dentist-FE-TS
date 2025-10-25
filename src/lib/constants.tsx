@@ -14,10 +14,10 @@ export const cosmeticServices = [
   //   name: 'Invisalign Flash Sale',
   //   link: '/cosmetic-dentistry/invisalign-flash-sale',
   // },
-  {
-    name: 'Invisalign Open Day',
-    link: '/cosmetic-dentistry/invisalign-open-day',
-  },
+  // {
+  //   name: 'Invisalign Open Day',
+  //   link: '/cosmetic-dentistry/invisalign-open-day',
+  // },
   {
     name: 'Invisalign',
     link: '/cosmetic-dentistry/invisalign',
@@ -38,7 +38,7 @@ export const practiceInfo = [
   // { name: 'Invisalign Open Day', link: '/invisalign-open-day' },
   { name: 'Emergency Dentistry', link: '/emergency-dentistry' },
   { name: 'Dental Implants', link: '/dental-implants' },
-  { name: 'Invisalign Open Day', link: '/cosmetic-dentistry/invisalign-open-day' },
+  // { name: 'Invisalign Open Day', link: '/cosmetic-dentistry/invisalign-open-day' },
   { name: 'Invisalign', link: '/invisalign' },
   { name: 'White Composite Fillings', link: '/general-dentistry/white-composite-fillings' },
   { name: 'Dental Hygiene', link: '/dental-hygiene' },

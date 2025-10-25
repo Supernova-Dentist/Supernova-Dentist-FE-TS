@@ -55,7 +55,7 @@ export const ReferAFriendContent = () => {
         />
       </div>
 
-      <section id='credit'>
+      {/* <section id='credit'>
         <ReferAFriendSlideTabs />
         <TextParallaxContent
           portraitImgUrl='/assets/images/invisalign_1.jpg'
@@ -79,7 +79,7 @@ export const ReferAFriendContent = () => {
             ))}
           </div>
         </TextParallaxContent>
-      </section>
+      </section> */}
 
       <section id='leaderboard'>
         <ReferAFriendSlideTabs />

@@ -65,9 +65,7 @@ const SlideTabs = ({ isGeneralServicePage }: SlideTabsProps) => {
       <Tab setPosition={setPosition} onClick={() => scrollToSection('form')}>
         Refer A Friend
       </Tab>
-      <Tab setPosition={setPosition} onClick={() => scrollToSection('credit')}>
-        Open Days
-      </Tab>
+
       <Tab setPosition={setPosition} onClick={() => scrollToSection('leaderboard')}>
         Dental Credit
       </Tab>

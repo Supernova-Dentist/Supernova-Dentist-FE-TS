@@ -25,6 +25,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/cosmetic-dentistry/invisalign-open-day',
+        destination: '/cosmetic-dentistry/invisalign',
+        permanent: true,
+      },
+      {
         source: '/cosmetic-dentistry/invisalign-flash-sale',
         destination: '/cosmetic-dentistry/invisalign',
         permanent: true,

@@ -304,7 +304,7 @@ const LINKS = [
       // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
       { title: 'Explore Cosmetic Dentistry', href: '/cosmetic-dentistry' },
       // { title: 'Invisalign Flash Sale', href: '/cosmetic-dentistry/invisalign-flash-sale' },
-      { title: 'Invisalign Open Day', href: '/cosmetic-dentistry/invisalign-open-day' },
+      // { title: 'Invisalign Open Day', href: '/cosmetic-dentistry/invisalign-open-day' },
       { title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' },
       { title: 'Dental Implants', href: '/cosmetic-dentistry/dental-implants' },
       { title: 'Teeth Whitening', href: '/cosmetic-dentistry/teeth-whitening' },
