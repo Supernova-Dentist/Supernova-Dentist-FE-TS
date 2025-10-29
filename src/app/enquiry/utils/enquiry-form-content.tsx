@@ -51,7 +51,8 @@ export function EnquiryFormContent() {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       phone: '',
       category: '',
@@ -90,7 +91,7 @@ export function EnquiryFormContent() {
       setSuccessModalVisible(true);
 
       try {
-        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
+        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengroEnquiry`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(dataWithSource),
@@ -114,7 +115,7 @@ export function EnquiryFormContent() {
         window.fbq('trackCustom', 'NewEnquiryForm');
       }
 
-      form.reset({ name: '', email: '', phone: '', category: '', message: '' });
+      form.reset({ firstName: '', lastName: '', email: '', phone: '', category: '', message: '' });
     } catch (error) {
       console.error('There was a problem with the form submission:', error);
       setErrorModalVisible(true);
@@ -154,20 +155,43 @@ export function EnquiryFormContent() {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-8'>
                 <div className='grid gap-6'>
-                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                     <div className='space-y-3'>
-                      <Label htmlFor='name' className='text-lg font-medium'>
-                        Name
+                      <Label htmlFor='firstName' className='text-lg font-medium'>
+                        First Name
                       </Label>
                       <FormField
                         control={form.control}
-                        name='name'
+                        name='firstName'
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
                               <Input
                                 id='name'
-                                placeholder='Enter your name'
+                                placeholder='Enter your first name'
+                                maxLength={75}
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className='space-y-3'>
+                      <Label htmlFor='lastName' className='text-lg font-medium'>
+                        Last Name
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='lastName'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='lastName'
+                                placeholder='Enter your last name'
                                 maxLength={75}
                                 {...field}
                                 className='text-md lg:text-lg p-3'
