@@ -23,8 +23,11 @@ import { usePathname } from 'next/navigation';
 const MAX_MESSAGE_LENGTH = 500;
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: 'Name must be at least 2 characters.',
+  firstName: z.string().min(2, {
+    message: 'First Name must be at least 2 characters.',
+  }),
+  lastName: z.string().min(2, {
+    message: 'Last Name must be at least 2 characters.',
   }),
   email: z.string().email({
     message: 'Invalid email address.',
@@ -167,7 +170,7 @@ export function EnquiryFormContent() {
                           <FormItem>
                             <FormControl>
                               <Input
-                                id='name'
+                                id='firstName'
                                 placeholder='First Name'
                                 maxLength={75}
                                 {...field}
