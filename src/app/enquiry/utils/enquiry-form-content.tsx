@@ -205,7 +205,7 @@ export function EnquiryFormContent() {
                         )}
                       />
                     </div>
-                    <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+                   
                       <div className='space-y-3'>
                         <Label htmlFor='email' className='text-lg font-medium'>
                           Email
@@ -253,7 +253,7 @@ export function EnquiryFormContent() {
                           )}
                         />
                       </div>
-                    </div>
+                 
                   </div>
                   <div className='space-y-3'>
                     <Label htmlFor='category' className='text-lg font-medium'>
