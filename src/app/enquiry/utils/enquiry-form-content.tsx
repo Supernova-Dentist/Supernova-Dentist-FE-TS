@@ -368,7 +368,7 @@ export function EnquiryFormContent() {
             >
               <FaTimes />
             </button>
-            <h2 className='text-2xl font-semibold mb-4'>Thank you, {submittedData.name}, for your Enquiry!</h2>
+            <h2 className='text-2xl font-semibold mb-4'>Thank you, {submittedData.firstName}, for your Enquiry!</h2>
             <p className='mb-4'>
               One of the Supernova team will be back in touch via the following details regarding your enquiry:
             </p>
