@@ -168,7 +168,7 @@ export function EnquiryFormContent() {
                             <FormControl>
                               <Input
                                 id='name'
-                                placeholder='Enter your first name'
+                                placeholder='First Name'
                                 maxLength={75}
                                 {...field}
                                 className='text-md lg:text-lg p-3'
@@ -191,7 +191,7 @@ export function EnquiryFormContent() {
                             <FormControl>
                               <Input
                                 id='lastName'
-                                placeholder='Enter your last name'
+                                placeholder='Last Name'
                                 maxLength={75}
                                 {...field}
                                 className='text-md lg:text-lg p-3'
