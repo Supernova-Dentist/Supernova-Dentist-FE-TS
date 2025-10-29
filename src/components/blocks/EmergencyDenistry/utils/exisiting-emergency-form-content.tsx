@@ -16,6 +16,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { half } from '@tsparticles/engine';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
@@ -125,6 +126,7 @@ export function ExisitingEmergencyFormContent() {
   const [swellingExplanationLength, setSwellingExplanationLength] = useState(0);
   const [medicationExplanationLength, setMedicationExplanationLength] = useState(0);
   const [previousDentalTreatmentExplanationLength, setPreviousDentalTreatmentExplanationLength] = useState(0);
+  const pathname = usePathname();
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -166,6 +168,10 @@ export function ExisitingEmergencyFormContent() {
     setLoading(true);
 
     try {
+      const decodedSource = decodeURIComponent(pathname);
+      const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
+      const dataWithSource = { ...data, source: cleanedSource };
+
       const formData = new FormData();
 
       // Add referralType first
@@ -195,6 +201,16 @@ export function ExisitingEmergencyFormContent() {
 
       setSubmittedData(data);
       setSuccessModalVisible(true);
+
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dataWithSource),
+        });
+      } catch (dengroError) {
+        console.warn('Dengro capture failed:', dengroError);
+      }
 
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({ event: 'EmergencyPatientLead' });
@@ -267,7 +283,11 @@ export function ExisitingEmergencyFormContent() {
             transition={{ duration: 0.6 }}
           >
             <Form {...form}>
-              <form id='emergency-enquiry-form' onSubmit={form.handleSubmit(handleSubmit, onError)} className='space-y-8'>
+              <form
+                id='emergency-enquiry-form'
+                onSubmit={form.handleSubmit(handleSubmit, onError)}
+                className='space-y-8'
+              >
                 <div className='grid gap-6'>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                     {/* First Name */}

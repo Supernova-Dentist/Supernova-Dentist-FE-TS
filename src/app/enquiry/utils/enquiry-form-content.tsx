@@ -17,6 +17,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { z } from 'zod';
 import Search from './Search';
+import { usePathname } from 'next/navigation';
 
 // Define the max character limit
 const MAX_MESSAGE_LENGTH = 500;
@@ -45,6 +46,7 @@ export function EnquiryFormContent() {
   const [loading, setLoading] = useState(false);
   const [submittedData, setSubmittedData] = useState<any>(null);
   const [messageLength, setMessageLength] = useState(0); // Track the message length
+  const pathname = usePathname();
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -60,6 +62,10 @@ export function EnquiryFormContent() {
   const onSubmit = async (data: any) => {
     setLoading(true);
     try {
+      const decodedSource = decodeURIComponent(pathname);
+      const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
+      const dataWithSource = { ...data, source: cleanedSource };
+
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}`, {
         method: 'POST',
         headers: {
@@ -82,6 +88,16 @@ export function EnquiryFormContent() {
 
       setSubmittedData(data);
       setSuccessModalVisible(true);
+
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dataWithSource),
+        });
+      } catch (dengroError) {
+        console.warn('Dengro capture failed:', dengroError);
+      }
 
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({ event: 'NewEnquiryForm' });
