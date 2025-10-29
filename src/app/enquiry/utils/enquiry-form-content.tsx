@@ -158,7 +158,7 @@ export function EnquiryFormContent() {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-8'>
                 <div className='grid gap-6'>
-                  <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
                       <Label htmlFor='firstName' className='text-lg font-medium'>
                         First Name
@@ -205,53 +205,55 @@ export function EnquiryFormContent() {
                         )}
                       />
                     </div>
-                    <div className='space-y-3'>
-                      <Label htmlFor='email' className='text-lg font-medium'>
-                        Email
-                      </Label>
-                      <FormField
-                        control={form.control}
-                        name='email'
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormControl>
-                              <Input
-                                id='email'
-                                type='email'
-                                maxLength={75}
-                                placeholder='Enter your email'
-                                {...field}
-                                className='text-md lg:text-lg p-3'
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                    <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+                      <div className='space-y-3'>
+                        <Label htmlFor='email' className='text-lg font-medium'>
+                          Email
+                        </Label>
+                        <FormField
+                          control={form.control}
+                          name='email'
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormControl>
+                                <Input
+                                  id='email'
+                                  type='email'
+                                  maxLength={75}
+                                  placeholder='Enter your email'
+                                  {...field}
+                                  className='text-md lg:text-lg p-3'
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      <div className='space-y-3'>
+                        <Label htmlFor='phone' className='text-lg font-medium'>
+                          Phone
+                        </Label>
+                        <FormField
+                          control={form.control}
+                          name='phone'
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormControl>
+                                <Input
+                                  id='phone'
+                                  placeholder='Enter your phone number'
+                                  maxLength={15}
+                                  {...field}
+                                  className='text-md lg:text-lg p-3'
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className='space-y-3'>
-                    <Label htmlFor='phone' className='text-lg font-medium'>
-                      Phone
-                    </Label>
-                    <FormField
-                      control={form.control}
-                      name='phone'
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input
-                              id='phone'
-                              placeholder='Enter your phone number'
-                              maxLength={15}
-                              {...field}
-                              className='text-md lg:text-lg p-3'
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
                   </div>
                   <div className='space-y-3'>
                     <Label htmlFor='category' className='text-lg font-medium'>
