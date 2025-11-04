@@ -59,6 +59,12 @@ const teamMembers = [
     image: '/assets/images/Headshots/amy.jpg',
     slug: 'amy-skinner',
   },
+  {
+    name: 'Vanessa Speier',
+    title: 'Trainee Dental Nurse',
+    image: '/assets/images/Headshots/vanessa.jpg',
+    slug: 'amy-skinner',
+  },
 ];
 
 export default function TeamMemberGrid() {
