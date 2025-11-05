@@ -63,7 +63,7 @@ const teamMembers = [
     name: 'Vanessa Speier',
     title: 'Trainee Dental Nurse',
     image: '/assets/images/Headshots/vanessa.jpg',
-    slug: 'amy-skinner',
+    slug: 'vanessa-speier',
   },
 ];
 
