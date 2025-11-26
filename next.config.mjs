@@ -69,6 +69,11 @@ const nextConfig = {
         destination: 'https://wwwinvisalign-ts-prd-eu.herokuapp.com/SV/1795073',
         permanent: false,
       },
+      {
+        source: '/carees/dental-nurse',
+        destination: '/dental-nurse',
+        permanent: false,
+      },
     ];
   },
 };
