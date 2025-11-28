@@ -24,10 +24,6 @@ export default function CareersPage() {
         <div className='p-4 md:px-6 pb-10 flex flex-col justify-start mx-auto max-w-5xl md:max-w-6xl lg:max-w-7xl'>
           <BreadCrumb />
 
-          <h2 className='text-md md:text-xl lg:text-2xl leading-tight text-center tracking-tight font-bold text-gold mt-4'>
-            Current Opportunities:
-          </h2>
-
           {/* Renders outline-style cards for each job opening */}
         
 
