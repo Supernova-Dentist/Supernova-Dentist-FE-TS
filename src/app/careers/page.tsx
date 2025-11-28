@@ -30,7 +30,7 @@ export default function CareersPage() {
           </h2>
 
           {/* Renders outline-style cards for each job opening */}
-          <CareersOutlineCards />
+        
 
           {/* Divider */}
           <hr className='my-12 border-gold/40' />
