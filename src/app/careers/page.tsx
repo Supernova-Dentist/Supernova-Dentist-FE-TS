@@ -1,6 +1,5 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
-import { CareersOutlineCards } from '@/components/OutlineCards/CareersOutlineCards';
 import { type Metadata } from 'next';
 import { CareerFormContent } from './utils/career-form-content';
 
