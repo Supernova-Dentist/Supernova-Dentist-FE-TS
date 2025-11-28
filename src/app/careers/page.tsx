@@ -45,7 +45,7 @@ export default function CareersPage() {
           </p>
 
           {/* Placeholder for career form */}
-          <div className='bg-white rounded-xl p-6 shadow-md max-w-3xl mx-auto'>
+          <div className='bg-white rounded-xl p-2 shadow-md max-w-3xl mx-auto'>
             <CareerFormContent />
           </div>
         </div>
