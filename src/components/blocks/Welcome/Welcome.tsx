@@ -1,12 +1,21 @@
-import dynamic from 'next/dynamic';
-const AuroraHero = dynamic(async () => await import('../AuroraHero/AuroraHero'), {
-  ssr: false,
-});
+'use client';
+
+import Snowfall from 'react-snowfall';
+import AuroraHero from '../AuroraHero/AuroraHero';
 
 export default function Welcome() {
   return (
-    <div id='welcome' className='flex flex-col min-h-[100vh]'>
+    <div id='welcome' className='relative min-h-[100vh]'>
       <AuroraHero />
+
+      <Snowfall
+        style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+        }}
+        snowflakeCount={120}
+      />
     </div>
   );
 }
