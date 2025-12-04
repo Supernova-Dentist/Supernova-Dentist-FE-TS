@@ -79,7 +79,7 @@ export default async function Component() {
           </div>
         </section>
 
-        <StackedCardTestimonials />
+        
       </div>
     </>
   );
