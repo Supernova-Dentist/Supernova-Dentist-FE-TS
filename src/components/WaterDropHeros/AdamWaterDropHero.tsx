@@ -1,5 +1,6 @@
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ScottWaterDropHero = () => {
   return (
@@ -14,7 +15,8 @@ const ScottWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'>Operations Director</span> at Supernova Dental
+                I&apos;m the <span className='font-semibold text-lightGold'>Operations Director</span> at Supernova
+                Dental
               </h2>
             </>
           </Reveal>
@@ -37,9 +39,11 @@ const ScottWaterDropHero = () => {
           </Reveal>
           <Reveal>
             <div className='flex gap-4 mt-4 mx-auto justify-center w-full'>
-              <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                Get in touch
-              </button>
+              <Link href={`/enquiry`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Get in touch
+                </button>
+              </Link>
             </div>
           </Reveal>
         </div>
