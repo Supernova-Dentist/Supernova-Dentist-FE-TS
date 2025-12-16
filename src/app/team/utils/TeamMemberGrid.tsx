@@ -18,11 +18,18 @@ const teamMembers = [
     slug: 'dr-sara-d-banuri',
   },
   {
+    name: 'Dr. Souad Maddi',
+    title: 'General and Restorative Dentist',
+    image: '/assets/images/Headshots/dr-souad-maddi.jpeg',
+    slug: 'dr-souad-maddi',
+  },
+  {
     name: 'Dr. Jacqueline Amarin',
     title: 'General and Restorative Dentist',
     image: '/assets/images/Headshots/jackie.jpeg',
     slug: 'dr-jacqueline-amarin',
   },
+
   {
     name: 'Kayleigh Dowdle',
     title: 'Dental Therapist',
