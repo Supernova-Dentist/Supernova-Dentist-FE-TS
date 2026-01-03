@@ -8,7 +8,7 @@ import { DentalImplantTimeline } from '../ServiceTimelines/DentalImplantTimeline
 // Placeholder images — replace these with your actual imports when ready
 const ConsultationImage = '/assets/images/equipment.JPG';
 const SurgeryImage = '/assets/images/surgery2.JPG';
-const RestorationImage = '/assets/images/implant_journey_3.jpg';
+const RestorationImage = '/assets/images/implant_journey_3.jpeg';
 
 export function DentalImplantsJourney() {
   const [imagesLoaded, setImagesLoaded] = useState(0);
