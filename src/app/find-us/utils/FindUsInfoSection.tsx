@@ -76,7 +76,6 @@ export default function FindUsInfoSection() {
             frameBorder='0'
             allow='clipboard-write; encrypted-media; picture-in-picture; web-share'
             allowFullScreen={true}
-            
           />
         </div>
       </motion.div>
