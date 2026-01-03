@@ -19,7 +19,7 @@ export default function PracticeFAQsSection() {
     {
       question: 'Why choose Supernova Dental Practice?',
       answer:
-        'We combine the latest dental technology with a personalised patient journey tailored to your needs. With over 75 five-star Google reviews, patients trust us for our high standards of care and comfort.',
+        'We combine the latest dental technology with a personalised patient journey tailored to your needs. With over 100 five-star Google reviews, patients trust us for our high standards of care and comfort.',
     },
     {
       question: 'What are your opening hours?',
