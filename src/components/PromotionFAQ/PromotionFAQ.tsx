@@ -54,7 +54,7 @@ export default function PromotionFAQ() {
   };
 
   return (
-    <section id='faq' ref={ref} className='w-full py-12 md:py-24 text-gray-900 bg-gradient-to-b from-white to-cream'>
+    <section id='faq' ref={ref} className='w-full py-12 md:py-24 text-gray-900 bg-white to-cream'>
       <div className='px-4 md:px-6 w-full'>
         <motion.div
           className='flex flex-col items-center space-y-6 text-center'
