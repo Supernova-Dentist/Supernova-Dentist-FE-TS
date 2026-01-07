@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function PromotionFooter() {
   return (
@@ -40,7 +40,7 @@ export default function PromotionFooter() {
         <div className='flex items-center gap-2 flex-col-reverse sm:flex-row'>
           <span>&copy; 2025 Supernova Dental All Rights Reserved</span>
           <span className='hidden sm:block'>|</span>
-          <span>Website last updated: September 2025</span>
+          <span>Website last updated: January 2026</span>
         </div>
       </div>
     </div>
