@@ -47,7 +47,7 @@ export default function FindUsInfoSection() {
             <li>Tuesday: 08:15–18:15</li>
             <li>Wednesday: 08:15–18:15</li>
             <li>Thursday: 08:15–18:15</li>
-            <li>Friday: Closed</li>
+            <li>Friday: 08:15–18:15</li>
             <li>Saturday: 09:00–13:00</li>
             <li>Sunday: Closed</li>
           </ul>
