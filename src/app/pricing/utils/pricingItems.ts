@@ -26,13 +26,13 @@ export const pricingItems = [
     products: [
       {
         description: 'Emergency Assessment (registered patient)',
-        price: 65,
-        priceDescription: 'Contributes towards treatment cost if required in same appointment',
+        price: 55,
+        priceDescription: 'Plus treatment cost if required',
       },
       {
         description: 'Emergency Appointment (non registered)',
-        price: 100,
-        priceDescription: 'Contributes towards treatment cost if required in same appointment',
+        price: 75,
+        priceDescription: 'Plus treatment cost if required',
       },
     ],
   },
