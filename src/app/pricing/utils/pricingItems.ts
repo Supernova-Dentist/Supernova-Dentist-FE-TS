@@ -5,20 +5,21 @@ export const pricingItems = [
     title: 'Examinations',
     products: [
       {
-        description: 'New patient examination',
+        description: 'New Patient Consultation (Includes small X-rays, full mouth scan & clinical photos)',
         price: 99,
       },
-      {
-        description: '(Includes diagnostic small X-rays, free full mouth scan and diagnostic pictures)',
-      },
-      { description: 'Routine examination', price: 55 },
-      { description: 'Non-emergency consultation/assessment', price: 55 },
-      { description: 'Under 16 new patient examination', price: 49 },
-      { description: 'Under 16 routine examination', price: 25 },
-
-      { description: 'Small X-Rays', price: 12, priceDescription: 'each' },
-      { description: 'Large full mouth X-ray (OPG)', price: 50 },
-      { description: 'Cone-beam CT scan ', price: 225 },
+      { description: 'Routine Examination', price: 55 },
+      { description: 'Non-emergency Consultation/Assessment', price: 55 },
+      { description: 'Under 16 New Patient Examination', price: 49 },
+      { description: 'Under 16 Routine Examination', price: 25 },
+    ],
+  },
+  {
+    title: 'Radiographs & Imaging',
+    products: [
+      { description: 'Small Digital X-Ray', price: 12, priceDescription: 'each' },
+      { description: 'Large Full Mouth X-Ray (OPG)', price: 50 },
+      { description: 'CBCT Scan (3D Imaging)', price: 225 },
     ],
   },
   {
@@ -235,14 +236,19 @@ discomfort.`,
   {
     title: 'Implant Dentistry',
     products: [
-      { description: 'Dental Implant', priceDescriptionBefore: 'From', price: 1400 },
-      { description: 'Dental Implant Crown', priceDescriptionBefore: 'From', price: 1350 },
+      {
+        description: 'All-on-4® Full Arch Implants (Includes extractions)',
+        price: 17500,
+        priceDescription: 'per arch',
+      },
+      { description: 'Dental Implant', price: 1400 },
+      { description: 'Dental Implant Crown', price: 1350 },
     ],
   },
   {
     title: 'Referring Dentists',
     products: [
-      { description: 'Cone-beam CT scan (without report)', price: 180 },
+      { description: 'Cone-beam CT scan (without report)', price: 225 },
       { description: 'Cone-beam CT scan (with report)', price: 270 },
     ],
   },
