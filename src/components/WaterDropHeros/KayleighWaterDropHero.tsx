@@ -44,7 +44,10 @@ const KayleighWaterDropHero = () => {
           </Reveal>
           <Reveal>
             <div className='flex gap-4 mt-4 mx-auto justify-center w-full'>
-              <Link target='_blank' href={`${DentallyPortal}`}>
+              <Link
+                target='_blank'
+                href={`https://supernova.portal.dental/book/availability?appointment_type_id=-ER6OsMA7wsw&site_id=e7219c5b-2213-4cd0-a33a-dd826b631e68&practitioner_id=215357`}
+              >
                 <button className='pointer-events-auto mt-4 rounded bg-gold px-4 py-2 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
                   Book with me
                 </button>
