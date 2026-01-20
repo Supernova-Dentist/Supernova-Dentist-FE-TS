@@ -25,7 +25,7 @@ const KayleighWaterDropHero = () => {
           <Reveal>
             <>
               <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-                With 14 years in the dental field, I am a dedicated dental therapist passionate about preventative and
+                With 15 years in the dental field, I am a dedicated dental therapist passionate about preventative and
                 restorative care.
               </p>
               <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
