@@ -42,19 +42,19 @@ export default function FloatingMenu() {
           <ActionButton
             index={0}
             icon={<FaCalendarAlt />}
-            label='Book online'
+            label='Book Online'
             onClick={() => window.open(`${DentallyPortal}`, '_blank')}
           />
           <ActionButton
             index={1}
             icon={<FaMapMarkerAlt />}
-            label='Find us'
+            label='Find Us'
             onClick={() => window.open('https://maps.google.com/?q=Supernova+Dental+Bridgwater', '_blank')}
           />
           <ActionButton
             index={2}
             icon={<FaPhoneAlt />}
-            label='Call reception'
+            label='Call Reception'
             onClick={() => (window.location.href = 'tel:01278228665')}
           />
         </motion.div>
