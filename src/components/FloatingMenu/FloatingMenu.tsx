@@ -55,7 +55,7 @@ export default function FloatingMenu() {
             index={2}
             icon={<FaPhoneAlt />}
             label='Call reception'
-            onClick={() => (window.location.href = 'tel:+447863338815')}
+            onClick={() => (window.location.href = 'tel:01278228665')}
           />
         </motion.div>
       )}
