@@ -49,11 +49,19 @@ const MainNav = () => {
 
     const handleScroll = () => {
       const currentScrollPosition = window.scrollY;
+
       if (currentScrollPosition < scrollPosition.current) {
+        // Scrolling up: show both
         setNavbarVisible(true);
+        const cookiebot = document.getElementById('CookiebotWidget'); // or 'CybotCookiebotDialog'
+        if (cookiebot) cookiebot.style.display = 'block';
       } else if (currentScrollPosition > 100) {
+        // Scrolling down: hide both
         setNavbarVisible(false);
+        const cookiebot = document.getElementById('CookiebotWidget');
+        if (cookiebot && isMobile) cookiebot.style.display = 'none';
       }
+
       scrollPosition.current = currentScrollPosition;
     };
 

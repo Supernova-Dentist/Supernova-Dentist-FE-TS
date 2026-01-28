@@ -121,7 +121,7 @@ export default function RootLayout({
         /> */}
 
         {/* Google Analytics */}
-        <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z' />
+        {/* <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z' /> */}
         <Script id='google-analytics'>
           {`
             window.dataLayer = window.dataLayer || [];

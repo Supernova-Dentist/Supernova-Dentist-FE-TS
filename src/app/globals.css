@@ -37,6 +37,24 @@
     transform: translateX(0);
   }
 
+  /* Default: bottom-left (desktop) */
+  #CookiebotWidget {
+    top: auto !important;
+    left: 16px !important;
+    bottom: 16px !important;
+    right: auto !important;
+  }
+
+  /* Mobile: top-left */
+  @media (max-width: 915px) {
+    #CookiebotWidget {
+      top: 6px !important;
+      left: 6px !important;
+      bottom: auto !important;
+      right: auto !important;
+    }
+  }
+
   body {
     background: white;
     font-family: var(--font-body);
