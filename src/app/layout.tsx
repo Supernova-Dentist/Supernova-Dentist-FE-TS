@@ -145,6 +145,9 @@ export default function RootLayout({
 
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
 
+        {/* Crazy Egg */}
+        <Script src='//script.crazyegg.com/pages/scripts/0131/3081.js' strategy='afterInteractive' async />
+
         {/* Meta Pixel with Cookiebot Compliance */}
         {/* <Script id='meta-pixel' strategy='afterInteractive'>
           {`
