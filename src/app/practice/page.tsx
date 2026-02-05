@@ -1,16 +1,16 @@
-import { type Metadata } from 'next';
+import { AboutPractice } from '@/components/AboutPractice/AboutPractice';
 import PageHero from '@/components/blocks/PageHero/PageHero';
 import Button from '@/components/Button/Button';
+import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 import { DisappearingFeatures } from '@/components/DisappearingScrollFeatures/DisappearingScrollFeatures';
 import { FloatingPhone } from '@/components/FloatingPhone/FloatingPhone';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
+import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import SteppedProgress from '@/components/SteppedProgress/SteppedProgress';
 import { StickyCards } from '@/components/StickyCards/StickyCards';
 import { FeaturesSectionDemo } from '@/components/ui/bento-grid';
+import { type Metadata } from 'next';
 import Link from 'next/link';
-import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
-import { AboutPractice } from '@/components/AboutPractice/AboutPractice';
-import ServiceForm from '@/components/ServiceForm/ServiceForm';
 
 export const metadata: Metadata = {
   title: 'Dental Membership Plans in Bridgwater, Somerset | Supernova Dental',
@@ -47,7 +47,7 @@ const structuredData = {
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '08:15',
       closes: '18:15',
     },

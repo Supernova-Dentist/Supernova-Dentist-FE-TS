@@ -39,7 +39,7 @@ const structuredData = {
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '08:15',
       closes: '18:15',
     },
@@ -88,7 +88,7 @@ export default function TeethWhitening() {
         <meta name='description' content={metadata.description ?? ''} />
         <meta
           name='keywords'
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords ?? ''}
+          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : (metadata.keywords ?? '')}
         />
         <link rel='canonical' href='https://www.supernovadental.co.uk/cosmetic-dentistry/teeth-whitening' />
       </Head>
