@@ -41,7 +41,7 @@ export const SupernovaSmileStoriesContent = () => {
       <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
         <SmileStoryForm
           serviceName='Smile Transformation'
-          serviceChip='Supernova Smile Story'
+          serviceChip='Supernova Smile Stories'
           serviceDescription='Bespoke patient journeys - transform your smile today!'
           formTitle='Register For A Consultation'
           formDescription='Meet with our experts, ask questions, and explore how we can create your perfect smile.'

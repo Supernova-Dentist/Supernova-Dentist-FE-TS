@@ -1,11 +1,13 @@
-/* eslint-disable @typescript-eslint/promise-function-async */
 'use client';
-import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
 
+import { FlipWords } from '@/components/ui/flip-words';
+import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { AnimatePresence, motion, useMotionTemplate } from 'framer-motion';
 import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { FiArrowRight } from 'react-icons/fi';
 
+// ---------- ImagesSlider Component ----------
 export const ImagesSlider = ({
   images,
   children,
@@ -13,7 +15,6 @@ export const ImagesSlider = ({
   overlayClassName,
   className,
   autoplay = true,
-  direction = 'up',
 }: {
   images: string[];
   children: React.ReactNode;
@@ -21,39 +22,34 @@ export const ImagesSlider = ({
   overlayClassName?: string;
   className?: string;
   autoplay?: boolean;
-  direction?: 'up' | 'down';
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
+  // Load images
   useEffect(() => {
-    setLoadedImages(images); // No need to manually preload, Next.js handles this
+    setLoadedImages(images); // Next.js Image handles caching
   }, [images]);
 
-  // Autoplay logic
+  // Autoplay
   useEffect(() => {
-    if (loadedImages.length === 0) return;
-
+    if (loadedImages.length <= 1) return;
     let interval: NodeJS.Timeout;
     if (autoplay) {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % loadedImages.length);
       }, 5000);
     }
-
     return () => clearInterval(interval);
   }, [loadedImages, autoplay]);
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowRight') {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % loadedImages.length);
-      } else if (event.key === 'ArrowLeft') {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + loadedImages.length) % loadedImages.length);
-      }
+      if (loadedImages.length === 0) return;
+      if (event.key === 'ArrowRight') setCurrentIndex((prev) => (prev + 1) % loadedImages.length);
+      if (event.key === 'ArrowLeft') setCurrentIndex((prev) => (prev - 1 + loadedImages.length) % loadedImages.length);
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [loadedImages]);
@@ -66,11 +62,28 @@ export const ImagesSlider = ({
 
   return (
     <div className={`overflow-hidden h-full w-full relative flex items-center justify-center ${className}`}>
-      {loadedImages.length > 0 && <div className='relative z-30'>{children}</div>
-}
-      {overlay && <div className={`absolute inset-0 bg-black/50 z-20 ${overlayClassName}`} />}
+      {/* Text / buttons on top */}
+      {loadedImages.length > 0 && <div className='relative z-30'>{children}</div>}
 
-      {loadedImages.length > 0 && (
+      {/* Overlay only after first image */}
+      {overlay && loadedImages.length > 1 && (
+        <div className={`absolute inset-0 bg-black/50 z-20 ${overlayClassName}`} />
+      )}
+
+      {/* First image shown immediately */}
+      {loadedImages.length > 0 && currentIndex === 0 && (
+        <Image
+          src={loadedImages[0]}
+          alt='Slide 0'
+          fill
+          priority
+          sizes='100vw'
+          className='object-cover absolute inset-0 h-full w-full z-10'
+        />
+      )}
+
+      {/* Animate rest of slides */}
+      {loadedImages.length > 1 && (
         <AnimatePresence>
           <motion.div
             key={currentIndex}
@@ -84,7 +97,6 @@ export const ImagesSlider = ({
               src={loadedImages[currentIndex]}
               alt={`Slide ${currentIndex}`}
               fill
-              priority={currentIndex === 0} // Prioritize the first image
               sizes='100vw'
               className='object-cover'
             />
@@ -94,3 +106,4 @@ export const ImagesSlider = ({
     </div>
   );
 };
+
