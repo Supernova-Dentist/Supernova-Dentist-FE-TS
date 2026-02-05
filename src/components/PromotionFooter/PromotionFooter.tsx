@@ -40,7 +40,7 @@ export default function PromotionFooter() {
         <div className='flex items-center gap-2 flex-col-reverse sm:flex-row'>
           <span>&copy; 2025 Supernova Dental All Rights Reserved</span>
           <span className='hidden sm:block'>|</span>
-          <span>Website last updated: January 2026</span>
+          <span>Website last updated: February 2026</span>
         </div>
       </div>
     </div>
