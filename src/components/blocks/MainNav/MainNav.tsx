@@ -33,6 +33,7 @@ const MainNav = () => {
   const [showBanner, setShowBanner] = useState(false);
   const scrollPosition = useRef(0);
   const isMobile = width <= 915;
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Check banner visibility from localStorage
   // useEffect(() => {
@@ -45,21 +46,18 @@ const MainNav = () => {
   // Handle scroll-based navbar visibility
   useEffect(() => {
     if (isMobile) setNavbarVisible(true);
+
     scrollPosition.current = window.scrollY;
 
     const handleScroll = () => {
+      if (mobileMenuOpen) return; // ⛔ STOP scroll logic if menu open
+
       const currentScrollPosition = window.scrollY;
 
       if (currentScrollPosition < scrollPosition.current) {
-        // Scrolling up: show both
         setNavbarVisible(true);
-        const cookiebot = document.getElementById('CookiebotWidget'); // or 'CybotCookiebotDialog'
-        if (cookiebot) cookiebot.style.display = 'block';
       } else if (currentScrollPosition > 100) {
-        // Scrolling down: hide both
         setNavbarVisible(false);
-        const cookiebot = document.getElementById('CookiebotWidget');
-        if (cookiebot && isMobile) cookiebot.style.display = 'none';
       }
 
       scrollPosition.current = currentScrollPosition;
@@ -67,7 +65,7 @@ const MainNav = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMobile]);
+  }, [isMobile, mobileMenuOpen]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -92,7 +90,7 @@ const MainNav = () => {
       >
         {isMobile ? (
           <div className='bg-grey'>
-            <MobileNavigation />
+            <MobileNavigation active={mobileMenuOpen} setActive={setMobileMenuOpen} />
           </div>
         ) : (
           <DesktopNav />

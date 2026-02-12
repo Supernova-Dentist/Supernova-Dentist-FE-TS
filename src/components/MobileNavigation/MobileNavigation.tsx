@@ -1,43 +1,69 @@
-import { DentallyPortal } from '@/lib/constants';
+'use client';
+
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import React, { useState } from 'react';
-import Button from '../Button/Button';
+import React, { useEffect, useState } from 'react';
 import { CornerNav } from '../CornerNav/CornerNav';
 
-export default function MobileNavigation() {
-  const [active, setActive] = useState(false);
-  const [showContent, setShowContent] = useState(true); // State for controlling content visibility during the close animation
+interface MobileNavigationProps {
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-  // Handle closing animation delay
+export default function MobileNavigation({ active, setActive }: MobileNavigationProps) {
+  const [showContent, setShowContent] = useState(true);
+
+  /**
+   * Lock body scroll when menu is open
+   */
+  useEffect(() => {
+    if (active) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100vh';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.style.touchAction = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.style.touchAction = '';
+    };
+  }, [active]);
+
+  /**
+   * Handle delayed close to match animation timing
+   */
   const handleClose = () => {
-    setActive(false); // Trigger the closing animation
-    setShowContent(false); // Hide content immediately
+    setActive(false);
+    setShowContent(false);
+
     setTimeout(() => {
-      setShowContent(true); // Show content after animation (matching the duration of the animation)
-    }, 500); // Ensure this matches the duration of your closing animation (adjust as necessary)
+      setShowContent(true);
+    }, 500); // must match closing animation duration
   };
 
   return (
     <nav className='relative flex items-center px-4 py-8'>
-      {/* Logo centered */}
+      {/* Center Logo (hidden when menu open) */}
       {!active && showContent && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className='absolute left-1/2 transform -translate-x-1/2'
+          className='absolute left-1/2 -translate-x-1/2'
         >
           <Link href='/'>
-            <img src='/favicon.ico' alt='Logo' className='h-12' />
+            <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-12 w-auto' />
           </Link>
         </motion.div>
       )}
 
-      {/* CornerNav stays on the right */}
-     
+      {/* Corner Nav (hamburger + overlay) */}
       <CornerNav active={active} setActive={setActive} handleClose={handleClose} />
-     
     </nav>
   );
 }
