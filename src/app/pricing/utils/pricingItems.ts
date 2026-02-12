@@ -222,7 +222,7 @@ discomfort.`,
         isHeader: true,
         description: 'Invisalign:',
       },
-      { description: 'Includes Invisalign Vivera retainers (3 sets included)', price: 3999 },
+      { description: 'Includes Invisalign Vivera retainers', price: 3999 },
       { description: '*Can vary depending on complexity' },
       { isHeader: true, description: 'Retainers:' },
 
