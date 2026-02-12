@@ -1,11 +1,11 @@
 'use client';
 
+import { DentallyPortal } from '@/lib/constants';
 import { motion } from 'framer-motion';
 import { FaCalendarAlt, FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import { Fab } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 import { useWindowSize } from '../blocks/MainNav/MainNav';
-import { DentallyPortal } from '@/lib/constants';
 
 const ACTION_BAR_HEIGHT = 64;
 
@@ -36,7 +36,7 @@ export default function FloatingMenu() {
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             boxShadow: '0 -4px 16px rgba(0,0,0,0.15)',
-            zIndex: 998,
+            zIndex: 40,
           }}
         >
           <ActionButton
@@ -65,6 +65,7 @@ export default function FloatingMenu() {
         style={{
           bottom: isMobile ? ACTION_BAR_HEIGHT : 20,
           right: 16,
+          zIndex: 40,
         }}
         mainButtonStyles={{ backgroundColor: '#25D366' }}
         icon={<FaWhatsapp size={34} />}
