@@ -79,7 +79,7 @@ const LinksOverlay = () => {
           },
         }}
         exit={{ opacity: 0, y: -8 }}
-        className='flex justify-center w-full py-12 ' // Added mt-auto to push it to the bottom
+        className='flex justify-center w-full py-16 ' // Added mt-auto to push it to the bottom
       >
         <Link target='_blank' href={`${DentallyPortal}`}>
           <Button className='text-white'>Book Now</Button>

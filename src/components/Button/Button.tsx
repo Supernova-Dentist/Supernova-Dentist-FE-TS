@@ -25,7 +25,7 @@ export default function Button({
   return (
     <button
       className={cn(
-        'bg-gold rounded px-4 py-2 text-md hover:bg-lightGold transition-all duration-150 text-grey',
+        'bg-gold rounded px-6 py-4 text-md hover:bg-lightGold transition-all duration-150 text-grey',
         className
       )}
       onClick={onClick}
