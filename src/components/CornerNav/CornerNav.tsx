@@ -4,7 +4,7 @@ import { DentallyPortal } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si';
 import Button from '../Button/Button';
@@ -18,6 +18,27 @@ export const CornerNav = ({
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
   handleClose: () => void; // Passing handleClose to CornerNav
 }) => {
+  /**
+     * Lock body scroll when menu is open
+     */
+    useEffect(() => {
+      if (active) {
+        document.body.style.overflow = 'hidden';
+        document.body.style.height = '100vh';
+        document.body.style.touchAction = 'none';
+      } else {
+        document.body.style.overflow = '';
+        document.body.style.height = '';
+        document.body.style.touchAction = '';
+      }
+  
+      return () => {
+        document.body.style.overflow = '';
+        document.body.style.height = '';
+        document.body.style.touchAction = '';
+      };
+    }, [active]);
+
   return (
     <>
       <HamburgerButton active={active} setActive={setActive} handleClose={handleClose} />
