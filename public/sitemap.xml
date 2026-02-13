@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <!-- Home Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/</loc>
@@ -61,7 +62,6 @@
     <priority>0.8</priority>
   </url>
 
-
   <!-- Enquiry Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/enquiry</loc>
@@ -70,36 +70,25 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Practice Page -->
+  <!-- Practice Pages -->
   <url>
     <loc>https://www.supernovadental.co.uk/supernova-smile-stories</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Practice Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/practice</loc>
     <lastmod>2025-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://www.supernovadental.co.uk/our-journey</loc>
     <lastmod>2025-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Social Page -->
-  <!-- <url>
-    <loc>https://www.supernovadental.co.uk/social</loc>
-    <lastmod>2025-01-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url> -->
 
   <!-- Complaints Page -->
   <url>
@@ -118,180 +107,163 @@
   </url>
 
   <!-- Invisalign Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/cosmetic-dentistry/invisalign</loc>
-  <lastmod>2025-03-13</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.9</priority>
-</url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/cosmetic-dentistry/invisalign</loc>
+    <lastmod>2025-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-<!-- Dental Hygiene Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/general-dentistry/dental-hygiene</loc>
-  <lastmod>2025-03-13</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.9</priority>
-</url>
+  <!-- Dental Hygiene Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/general-dentistry/dental-hygiene</loc>
+    <lastmod>2025-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-<!-- Dental Therapist Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/general-dentistry/dental-therapist</loc>
-  <lastmod>2025-03-13</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
+  <!-- Dental Therapist Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/general-dentistry/dental-therapist</loc>
+    <lastmod>2025-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-<!-- Invisalign Open Day Page -->
-<!-- <url>
-  <loc>https://www.supernovadental.co.uk/invisalign-open-day</loc>
-  <lastmod>2025-03-18</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url> -->
+  <!-- Refer-a-Friend Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/refer-a-friend</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
-<!-- Refer-a-Friend Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/refer-a-friend</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
+  <!-- Team Pages -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/team</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-<!-- Team Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/team</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
+  <!-- Team Member Profiles -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/dr-scott-young</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/kayleigh-dowdle</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/dr-sara-d-banuri</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/dr-souad-maddi</loc>
+    <lastmod>2026-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/dr-jacqueline-amarin</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/adam-young</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/victoria-hands</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/maria-mihaela-morar</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/mia-coakley</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
-<!-- Team Member Profiles -->
-<url>
-  <loc>https://www.supernovadental.co.uk/team/dr-scott-young</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://www.supernovadental.co.uk/team/kayleigh-dowdle</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://www.supernovadental.co.uk/team/dr-sara-d-banuri</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-<url>
-  <loc>https://www.supernovadental.co.uk/team/dr-souad-maddi</loc>
-  <lastmod>2026-01-03</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://www.supernovadental.co.uk/team/dr-jacqueline-amarin</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://www.supernovadental.co.uk/team/adam-young</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
+  <!-- Dental Implants Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-<url>
-  <loc>https://www.supernovadental.co.uk/team/victoria-hands</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://www.supernovadental.co.uk/team/maria-mihaela-morar</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://www.supernovadental.co.uk/team/mia-coakley</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
+  <!-- Professional Referrals Landing Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/professional-referrals</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-<!-- Dental Implants Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants</loc>
-  <lastmod>2025-07-09</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.9</priority>
-</url>
+  <!-- Referral Pages -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/professional-referrals/invisalign-referral</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/professional-referrals/dental-implant-referral</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/professional-referrals/oral-surgery-referral</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/professional-referrals/cbct-opg-referral</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
-<!-- Professional Referrals Landing Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/professional-referrals</loc>
-  <lastmod>2025-07-09</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
+  <!-- Emergency Dentistry Pages -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/general-dentistry/emergency-dentistry</loc>
+    <lastmod>2025-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/general-dentistry/white-composite-fillings</loc>
+    <lastmod>2025-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-<!-- Invisalign Referral Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/professional-referrals/invisalign-referral</loc>
-  <lastmod>2025-07-09</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<!-- Implant Referral Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/professional-referrals/dental-implant-referral</loc>
-  <lastmod>2025-07-09</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<!-- Oral Surgery Referral Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/professional-referrals/oral-surgery-referral</loc>
-  <lastmod>2025-07-09</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<!-- CBCT & OPG Referral Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/professional-referrals/cbct-opg-referral</loc>
-  <lastmod>2025-07-09</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<!-- Emergency Dentistry Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/general-dentistry/emergency-dentistry</loc>
-  <lastmod>2025-07-11</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-<!-- Emergency Dentistry Page -->
-<url>
-  <loc>https://www.supernovadental.co.uk/general-dentistry/white-composite-fillings</loc>
-  <lastmod>2025-07-11</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers</loc>
-  <lastmod>2025-05-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
+  <!-- Careers Page -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/careers</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>
