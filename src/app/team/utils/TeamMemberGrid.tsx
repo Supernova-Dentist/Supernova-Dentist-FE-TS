@@ -8,68 +8,68 @@ const teamMembers = [
   {
     name: 'Dr. Scott Young',
     title: 'Principal Dentist/Owner',
-    image: '/assets/images/Headshots/scott_headshot.jpeg',
+    image: '/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp',
     slug: 'dr-scott-young',
   },
   {
     name: 'Dr. Sara D Banuri',
     title: 'Implantologist/Oral Surgeon',
-    image: '/assets/images/Headshots/sara.jpg',
+    image: '/assets/images/Headshots/dr-sara-banuri-implantologist-supernova-dental-bridgwater.webp',
     slug: 'dr-sara-d-banuri',
   },
   {
     name: 'Dr. Souad Maddi',
     title: 'General and Restorative Dentist',
-    image: '/assets/images/Headshots/dr-souad-maddi.jpeg',
+    image: '/assets/images/Headshots/dr-souad-maddi-dentist-supernova-dental-bridgwater.webp',
     slug: 'dr-souad-maddi',
   },
   {
     name: 'Dr. Jacqueline Amarin',
     title: 'General and Restorative Dentist',
-    image: '/assets/images/Headshots/jackie.jpeg',
+    image: '/assets/images/Headshots/dr-jacqueline-amarin-dentist-supernova-dental-bridgwater.webp',
     slug: 'dr-jacqueline-amarin',
   },
 
   {
     name: 'Kayleigh Dowdle',
     title: 'Dental Therapist',
-    image: '/assets/images/Headshots/kayleigh_headshot.jpeg',
+    image: '/assets/images/Headshots/kayleigh-dowdle-supernova-dental-bridgwater.webp',
     slug: 'kayleigh-dowdle',
   },
   {
     name: 'Adam Young',
     title: 'Operations Director',
-    image: '/assets/images/Headshots/adam.jpg',
+    image: '/assets/images/Headshots/adam-young-operations-director-supernova-dental-bridgwater.webp',
     slug: 'adam-young',
   },
   {
     name: 'Victoria Hands',
     title: 'Lead Dental Nurse',
-    image: '/assets/images/Headshots/tori.jpg',
+    image: '/assets/images/Headshots/victoria-hands-lead-dental-nurse-supernova-dental-bridgwater.webp',
     slug: 'victoria-hands',
   },
   {
     name: 'Maria-Mihaela Morar',
     title: 'Dental Nurse',
-    image: '/assets/images/Headshots/maria_headshot.jpg',
+    image: '/assets/images/Headshots/maria-mihaela-morar-dental-nurse-supernova-dental-bridgwater.webp',
     slug: 'maria-mihaela-morar',
   },
   {
     name: 'Mia Coakley',
     title: 'Lead Front of House',
-    image: '/assets/images/Headshots/Supernova-05.jpg',
+    image: '/assets/images/Headshots/mia-coakley-lead-front-house-supernova-dental-bridgwater.webp',
     slug: 'mia-coakley',
   },
   {
     name: 'Amy Skinner',
     title: 'Receptionist',
-    image: '/assets/images/Headshots/amy.jpg',
+    image: '/assets/images/Headshots/amy-skinner-front-of-house-supernova-dental-bridgwater.webp',
     slug: 'amy-skinner',
   },
   {
     name: 'Vanessa Speier',
     title: 'Trainee Dental Nurse',
-    image: '/assets/images/Headshots/vanessa.jpg',
+    image: '/assets/images/Headshots/vanessa-speier-trainee-dental-nurse-supernova-dental-bridgwater.webp',
     slug: 'vanessa-speier',
   },
 ];
@@ -89,15 +89,15 @@ export default function TeamMemberGrid() {
             key={member.name}
             className='group relative overflow-hidden rounded-lg bg-white shadow-lg transition-transform transform hover:scale-105'
           >
-            <div className='aspect-square overflow-hidden'>
+            <div className='overflow-hidden'>
               <Image
                 src={member.image}
-                alt={`${member.name} headshot`}
-                width={600}
-                height={800}
+                alt={`${member.name}, ${member.title} at Supernova Dental in Bridgwater`}
+                width={1800}
+                height={2700}
                 layout={'responsive'}
-                quality={100}
-                className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4'
+                quality={75}
+                className='object-cover h-auto w-auto rounded-lg p-4'
               />
             </div>
             <div className='p-6'>
