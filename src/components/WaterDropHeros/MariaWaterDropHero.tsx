@@ -1,5 +1,4 @@
 import { Reveal } from '@/utils/anim/Reveal';
-import { m } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import mariaImage from '../../../public/assets/images/Headshots/maria-mihaela-morar-dental-nurse-supernova-dental-bridgwater.webp';
