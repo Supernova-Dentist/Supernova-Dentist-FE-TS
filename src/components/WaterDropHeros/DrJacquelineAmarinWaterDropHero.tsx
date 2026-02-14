@@ -2,6 +2,7 @@ import { DentallyPortal } from '@/lib/constants';
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
 import Link from 'next/link';
+import jackieImage from '../../../public/assets/images/Headshots/dr-jacqueline-amarin-dentist-supernova-dental-bridgwater.webp';
 
 const DrJacquelineAmarinWaterDropHero = () => {
   return (
@@ -57,13 +58,13 @@ const DrJacquelineAmarinWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/jackie.jpeg'
-              alt='Dr. Jacqueline Amarin headshot'
-              width={600}
-              height={800}
-              layout={'responsive'}
-              quality={100}
-              className='object-contain h-auto w-auto max-w-[36rem] rounded-lg p-4'
+              src={jackieImage}
+              alt='Dr Jacqueline Amarin, General and Restorative Dentist at Supernova Dental in Bridgwater, Somerset'
+              width={1800}
+              height={2700}
+              quality={75}
+              placeholder='blur'
+              className='object-cover w-full h-full rounded-lg'
             />
           </Reveal>
         </div>
