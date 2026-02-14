@@ -2,6 +2,7 @@ import { DentallyPortal } from '@/lib/constants';
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
 import Link from 'next/link';
+import scottImage from '../../../public/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp';
 
 const ScottWaterDropHero = () => {
   return (
@@ -16,7 +17,8 @@ const ScottWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'> Principal Dentist/Owner</span> at Supernova Dental
+                I&apos;m the <span className='font-semibold text-lightGold'> Principal Dentist/Owner</span> at Supernova
+                Dental
               </h2>
               <h3 className='text-lightGold'>
                 BDS (Hons) PGCert Restorative and Aesthetic Dentistry (FGFP) PGDip Orthodontics (SDC) CGD
@@ -58,13 +60,13 @@ const ScottWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/scott_headshot.jpeg'
-              alt='Dr. Scott Young headshot'
-              width={600}
-              height={800}
-              layout={'responsive'}
-              quality={100}
-              className='object-contain h-auto w-auto max-w-[36rem] rounded-lg p-4'
+              src={scottImage}
+              alt='Dr. Scott Young, Principal Dentist and Owner at Supernova Dental in Bridgwater, Somerset'
+              width={1800}
+              height={2700}
+              quality={75}
+              placeholder='blur'
+              className='object-cover w-full h-full rounded-lg'
             />
           </Reveal>
         </div>
