@@ -1,8 +1,9 @@
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
 import Link from 'next/link';
+import adamImage from '../../../public/assets/images/Headshots/adam-young-operations-director-supernova-dental-bridgwater.webp';
 
-const ScottWaterDropHero = () => {
+const AdamWaterDropHero = () => {
   return (
     <section className='text-slate-100 overflow-hidden bg-lightGrey px-8 py-24 md:px-12 md:py-32'>
       <div className='relative mx-auto max-w-5xl flex flex-col md:flex-row items-center'>
@@ -50,13 +51,13 @@ const ScottWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/adam.jpg'
-              alt='Dr. Scott Young headshot'
-              width={600}
-              height={800}
-              layout={'responsive'}
-              quality={100}
-              className='object-contain h-auto w-auto max-w-[36rem] rounded-lg p-4'
+              src={adamImage}
+              alt='Adam Young, Operations Director at Supernova Dental in Bridgwater, Somerset'
+              width={1800}
+              height={2700}
+              quality={75}
+              placeholder='blur'
+              className='object-cover w-full h-full rounded-lg'
             />
           </Reveal>
         </div>
@@ -65,4 +66,4 @@ const ScottWaterDropHero = () => {
   );
 };
 
-export default ScottWaterDropHero;
+export default AdamWaterDropHero;
