@@ -61,7 +61,7 @@ const ScottWaterDropHero = () => {
           <Reveal>
             <Image
               src={scottImage}
-              alt='Dr. Scott Young, Principal Dentist and Owner at Supernova Dental in Bridgwater, Somerset'
+              alt='Dr Scott Young, Principal Dentist and Owner at Supernova Dental in Bridgwater, Somerset'
               width={1800}
               height={2700}
               quality={75}

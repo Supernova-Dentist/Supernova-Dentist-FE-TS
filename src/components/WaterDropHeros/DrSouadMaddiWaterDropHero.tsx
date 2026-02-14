@@ -2,6 +2,7 @@ import { DentallyPortal } from '@/lib/constants';
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
 import Link from 'next/link';
+import souadImage from '../../../public/assets/images/Headshots/dr-souad-maddi-dentist-supernova-dental-bridgwater.webp';
 
 const DrSouadMaddiWaterDropHero = () => {
   return (
@@ -20,6 +21,8 @@ const DrSouadMaddiWaterDropHero = () => {
                 Supernova Dental Practice in Bridgwater, with a strong focus on{' '}
                 <span className='font-semibold text-lightGold'>cosmetic dentistry</span>
               </h2>
+              <h3 className='text-lightGold'>DMD, PGDip (Prosth), MClinDent (Restorative), LDS RCS (Eng)</h3>
+              <h3 className='text-lightGold'>GDC Registration Number: 319944</h3>
             </>
           </Reveal>
           <Reveal>
@@ -62,13 +65,13 @@ const DrSouadMaddiWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/dr-souad-maddi.jpeg'
-              alt='Dr Souad Maddi headshot'
-              width={600}
-              height={800}
-              layout='responsive'
-              quality={100}
-              className='object-contain h-auto w-auto max-w-[36rem] rounded-lg p-4'
+              src={souadImage}
+              alt='Dr Souad Maddi, General and Restorative Dentist at Supernova Dental in Bridgwater, Somerset'
+              width={1800}
+              height={2700}
+              quality={75}
+              placeholder='blur'
+              className='object-cover w-full h-full rounded-lg'
             />
           </Reveal>
         </div>

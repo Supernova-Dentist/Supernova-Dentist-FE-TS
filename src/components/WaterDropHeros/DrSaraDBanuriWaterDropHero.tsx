@@ -6,15 +6,16 @@ import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import saraImage from '../../../public/assets/images/Headshots/dr-sara-banuri-implantologist-supernova-dental-bridgwater.webp';
 
 const DrSaraDBanuriWaterDropHero = () => {
   return (
     <section className='text-slate-100 overflow-hidden bg-lightGrey px-8 py-24 md:px-12 md:py-32 min-h-[100vh] flex items-center'>
       <div className='relative mx-auto max-w-5xl flex flex-col md:flex-row items-center'>
         <div className='relative z-10 md:flex-1 '>
-      <Suspense>
-        <Search />
-      </Suspense>
+          <Suspense>
+            <Search />
+          </Suspense>
           <Reveal>
             <h1 className='pointer-events-auto text-6xl font-black text-slate-100 md:text-8xl'>
               Hi, I&apos;m Sara<span className='text-lightGold'>.</span>
@@ -73,13 +74,13 @@ const DrSaraDBanuriWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/sara.jpg'
-              alt='Dr. Sara D Banuri headshot'
-              width={600}
-              height={800}
-              layout={'responsive'}
-              quality={100}
-              className='object-contain h-auto w-auto max-w-[36rem] rounded-lg p-4'
+              src={saraImage}
+              alt='Dr Sara D Banuri, Implantologist and Oral Surgeon at Supernova Dental in Bridgwater, Somerset'
+              width={1800}
+              height={2700}
+              quality={75}
+              placeholder='blur'
+              className='object-cover w-full h-full rounded-lg'
             />
           </Reveal>
         </div>
