@@ -18,7 +18,7 @@ import vanessaImage from '../../../../public/assets/images/Headshots/vanessa-spe
 import victoriaImage from '../../../../public/assets/images/Headshots/victoria-hands-lead-dental-nurse-supernova-dental-bridgwater.webp';
 
 const teamMembers = [
-  { name: 'Dr. Scott Young', title: 'Principal Dentist/Owner', image: scottImage, slug: 'dr-scott-young' },
+  { name: 'Dr. Scott Young', title: 'Principal Dentist/Owner', image: scottImage, slug: 'dr-scott-young' }, 
   { name: 'Dr. Sara D Banuri', title: 'Implantologist/Oral Surgeon', image: saraImage, slug: 'dr-sara-d-banuri' },
   { name: 'Dr. Souad Maddi', title: 'General and Restorative Dentist', image: souadImage, slug: 'dr-souad-maddi' },
   {
@@ -54,7 +54,7 @@ export default function TeamMemberGrid() {
             <div className='overflow-hidden rounded-lg'>
               <Image
                 src={member.image}
-                alt={`${member.name}, ${member.title} at Supernova Dental in Bridgwater`}
+                alt={`${member.name}, ${member.title} at Supernova Dental in Bridgwater, Somerset`}
                 width={1800}
                 height={2700}
                 quality={75}
