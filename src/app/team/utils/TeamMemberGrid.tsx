@@ -11,7 +11,7 @@ import jacquelineImage from '../../../../public/assets/images/Headshots/dr-jacqu
 import saraImage from '../../../../public/assets/images/Headshots/dr-sara-banuri-implantologist-supernova-dental-bridgwater.webp';
 import scottImage from '../../../../public/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp';
 import souadImage from '../../../../public/assets/images/Headshots/dr-souad-maddi-dentist-supernova-dental-bridgwater.webp';
-import kayleighImage from '../../../../public/assets/images/Headshots/kayleigh-dowdle-supernova-dental-bridgwater.webp';
+import kayleighImage from '../../../../public/assets/images/Headshots/kayleigh-dowdle-dental-therapist-supernova-dental-bridgwater.webp';
 import mariaImage from '../../../../public/assets/images/Headshots/maria-mihaela-morar-dental-nurse-supernova-dental-bridgwater.webp';
 import miaImage from '../../../../public/assets/images/Headshots/mia-coakley-lead-front-house-supernova-dental-bridgwater.webp';
 import vanessaImage from '../../../../public/assets/images/Headshots/vanessa-speier-trainee-dental-nurse-supernova-dental-bridgwater.webp';
