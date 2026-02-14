@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
+import practiceExteriorImage from '../../../public/assets/images/supernova-dental-practice-exterior-bridgwater.webp';
 import OverallGoogleRating from '../blocks/OverallGoogleRating/OverallGoogleRating';
 
 export default function AboutSection() {
@@ -55,13 +56,13 @@ export default function AboutSection() {
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
       >
         <Image
-          src='/assets/images/outerBuilding.jpg'
-          alt='About Us'
-          width={600}
-          height={800}
-          layout={'responsive'}
-          quality={100}
-          className='object-contain h-auto w-auto max-w-[40rem] rounded-lg p-4'
+          src={practiceExteriorImage}
+          alt='Supernova Dental practice building in Bridgwater, Somerset'
+          width={1824}
+          height={1216}
+          quality={75}
+          placeholder='blur'
+          className='object-cover w-full h-full rounded-lg max-w-[50rem]'
         />
       </motion.div>
     </section>
