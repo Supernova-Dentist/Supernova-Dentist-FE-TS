@@ -1,6 +1,8 @@
 import { Reveal } from '@/utils/anim/Reveal';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import mariaImage from '../../../public/assets/images/Headshots/maria-mihaela-morar-dental-nurse-supernova-dental-bridgwater.webp';
 
 const MariaWaterDropHero = () => {
   return (
@@ -49,13 +51,13 @@ const MariaWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/maria_headshot.jpg'
-              alt='Mia Coakley headshot'
-              width={600}
-              height={800}
-              layout={'responsive'}
-              quality={100}
-              className='object-contain h-auto w-auto max-w-[36rem] rounded-lg p-4'
+              src={mariaImage}
+              alt='Maria-Mihaela Morar, Dental Nurse at Supernova Dental in Bridgwater, Somerset'
+              width={1800}
+              height={2700}
+              quality={75}
+              placeholder='blur'
+              className='object-cover w-full h-full rounded-lg'
             />
           </Reveal>
         </div>
