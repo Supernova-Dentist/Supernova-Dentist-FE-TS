@@ -1,6 +1,7 @@
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
 import Link from 'next/link';
+import amyImage from '../../../public/assets/images/Headshots/amy-skinner-front-of-house-supernova-dental-bridgwater.webp';
 
 const AmyWaterDropHero = () => {
   return (
@@ -38,13 +39,13 @@ const AmyWaterDropHero = () => {
         <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
           <Reveal>
             <Image
-              src='/assets/images/Headshots/amy.jpg'
-              alt='Amy Skinner headshot'
-              width={600}
-              height={800}
-              layout={'responsive'}
-              quality={100}
-              className='object-contain h-auto w-auto max-w-[36rem] rounded-lg p-4'
+              src={amyImage}
+              alt='Amy Skinner, Receptionist at Supernova Dental in Bridgwater, Somerset'
+              width={1800}
+              height={2700}
+              quality={75}
+              placeholder='blur'
+              className='object-cover w-full h-full rounded-lg'
             />
           </Reveal>
         </div>
