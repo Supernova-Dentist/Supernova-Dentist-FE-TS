@@ -9,11 +9,6 @@ import TherapyAssess from '../../../public/assets/images/therapy_2.jpg';
 import { Timeline } from '../ui/timeline';
 
 export function DentalTherapyJourney({ id }: { id: string }) {
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
 
   const data = [
     {
@@ -30,7 +25,6 @@ export function DentalTherapyJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -49,7 +43,6 @@ export function DentalTherapyJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -68,7 +61,6 @@ export function DentalTherapyJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -77,7 +69,7 @@ export function DentalTherapyJourney({ id }: { id: string }) {
 
   return (
     <div id={id} className='w-full'>
-      <Timeline data={data} setImagesLoaded={setImagesLoaded} imagesLoaded={imagesLoaded} />
+      <Timeline data={data} />
     </div>
   );
 }
