@@ -21,16 +21,16 @@ export default function DentalImplantsContent() {
       <ServiceForm
         serviceName='Dental Implants Journey – Full-Arch (All-on-4) in Somerset'
         serviceChip='Dental Implant Consultation'
-        serviceDescription='Discover single-tooth implants and advanced full-arch solutions such as All-on-4 delivered by our experienced implantologist, Dr. Sara D Banuri, at Supernova Dental in Bridgwater, Somerset.'
+        serviceDescription='Discover single-tooth implants and advanced full-arch solutions such as All-on-4 delivered by our experienced implantologist at Supernova Dental in Bridgwater, Somerset.'
         formTitle='Sign up for your Dental Implant Consultation'
-        formDescription='Book a no-obligation consultation with Dr. Sara D Banuri, our expert implantologist, and explore single implants or full-arch options like All-on-4 for a permanent, natural-looking smile.'
+        formDescription='Book a no-obligation consultation with our expert implantologist, and explore single implants or full-arch options like All-on-4 for a permanent, natural-looking smile.'
         imgSrc='/assets/images/sara_cbct.jpg'
         formId='implants-enquiry-form'
         eventType='DentalImplantsLead'
       />
-      <div className='bg-cream'>
+      {/* <div className='bg-cream'>
         <SaraSection />
-      </div>
+      </div> */}
 
       <div className='from-cream to-white bg-gradient-to-b'>
         <HeroSection data={dentalImplantsHeroData} />
