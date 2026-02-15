@@ -57,7 +57,7 @@ export function VideoAnimationSection() {
                 loading='lazy'
             ></iframe>
           </div>
-          )}
+          
           {/* Only load video when in view */}
           {inView && (
           <video
