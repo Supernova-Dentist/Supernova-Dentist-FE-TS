@@ -37,7 +37,7 @@ export const InvisalignOpenDayContent = () => {
           serviceName='Invisalign'
           serviceChip='Invisalign® Open Day'
           serviceDescription='Exclusive Invisalign Open Day offer - save up to £1,500!'
-          formTitle='Sign Up for a Free Consultation'
+          formTitle='Register for a Free Consultation'
           formDescription='Meet with our experts, ask questions, and learn how Invisalign can transform your smile.'
         />
       </div>
@@ -259,7 +259,7 @@ const ExampleContent = () => (
     serviceName='Invisalign'
     serviceChip='Invisalign® Open Day'
     serviceDescription='Get a personalised Invisalign treatment plan and discover how clear aligners can transform your smile.'
-    formTitle='Sign up for your Free Invisalign Consultation'
-    formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
+    formTitle='Register for your Free Invisalign Consultation'
+    formDescription='Register now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
   />
 );

@@ -231,7 +231,7 @@ export default function OurJourneyForm({
                 </CardContent>
                 <CardFooter>
                   <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
-                    {isSubmitting ? <BarLoader /> : 'Sign Up'}
+                    {isSubmitting ? <BarLoader /> : 'Register'}
                   </Button>
                 </CardFooter>
               </form>

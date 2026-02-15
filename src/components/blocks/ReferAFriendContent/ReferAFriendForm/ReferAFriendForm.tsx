@@ -224,7 +224,7 @@ export default function ReferAFriendForm({
   const handleShareLink = async () => {
     if (computedReferralLink) {
       const shareData = {
-        title: 'Sign up to Supernova Dental with my referral link!',
+        title: 'Register to Supernova Dental with my referral link!',
         url: computedReferralLink,
         image: '/assets/images/supernova_dental_cover.png',
       };

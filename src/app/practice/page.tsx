@@ -15,7 +15,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Dental Membership Plans in Bridgwater, Somerset | Supernova Dental',
   description:
-    'Join Supernova Dental’s new practice in Bridgwater. Our dental membership plans for adults and children provide affordable, ongoing care including check-ups, hygiene visits, and emergency cover. Taking new patients—sign up today!',
+    'Join Supernova Dental’s new practice in Bridgwater. Our dental membership plans for adults and children provide affordable, ongoing care including check-ups, hygiene visits, and emergency cover. Taking new patients—register today!',
   keywords:
     'dental membership plans Bridgwater, dental membership Somerset, adult dental plan Bridgwater, children dental plan Bridgwater, affordable dental care Bridgwater, Supernova Dental membership, private dentist Bridgwater, routine dental checkups Bridgwater, dental hygiene plan Bridgwater, emergency dental cover Somerset, new dentist Bridgwater, taking new patients',
 };
@@ -79,7 +79,7 @@ const structuredData = {
       urlTemplate: 'https://www.supernovadental.co.uk/enquiry',
     },
     actionStatus: 'PotentialActionStatus',
-    name: 'Sign up for a Dental Membership Plan',
+    name: 'Register for a Dental Membership Plan',
   },
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',
@@ -98,8 +98,8 @@ export default function OurPractice() {
           serviceName='Practice Plan'
           serviceChip='Join Our Practice Plan'
           serviceDescription='Enjoy affordable, ongoing dental care with our Practice Plan, designed to keep your oral health in top condition.'
-          formTitle='Sign Up for Our Practice Plan'
-          formDescription='Join our Practice Plan from £5.99/month for children or £24.99/month for adults (16+). Enjoy routine check-ups, hygiene visits, emergency cover, and more. Sign up today for expert dental care and peace of mind.'
+          formTitle='Register for Our Practice Plan'
+          formDescription='Join our Practice Plan from £5.99/month for children or £24.99/month for adults (16+). Enjoy routine check-ups, hygiene visits, emergency cover, and more. Register today for expert dental care and peace of mind.'
           videoSrc='/assets/videos/sd_practice_plan.mp4'
           videoThumbnailSrc='/assets/images/practice_plan_thumbnail.png'
           formId='practice-enquiry-form'

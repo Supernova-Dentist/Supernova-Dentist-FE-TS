@@ -21,8 +21,8 @@ export default function DentalTherapistContent() {
         serviceName='Dental Therapist Treatment'
         serviceChip='Expert Dental Care'
         serviceDescription='Enhance your oral health with professional dental therapist treatments, including preventive and restorative care.'
-        formTitle='Sign Up For Dental Therapist Services'
-        formDescription='Sign up now for professional dental therapist care, ensuring optimal oral health and wellbeing.'
+        formTitle='Register For Dental Therapist Services'
+        formDescription='Register now for professional dental therapist care, ensuring optimal oral health and wellbeing.'
         formId='dental-therapist-enquiry-form'
         eventType='DentalTherapistLead'
       />

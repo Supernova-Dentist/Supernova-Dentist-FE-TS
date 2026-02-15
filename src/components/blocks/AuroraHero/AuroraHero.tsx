@@ -74,7 +74,7 @@ const AuroraHero = () => {
           }}
           className='group relative flex w-fit items-center gap-1.5 lg:mt-4 rounded-full text-md md:text-lg lg:text-xl bg-gray-950/10 px-4 py-1.5 text-gray-50 transition-colors hover:bg-gray-950/50'
         >
-          Sign Up Now
+          Register Now
           <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
         </motion.button>
       </motion.div>
