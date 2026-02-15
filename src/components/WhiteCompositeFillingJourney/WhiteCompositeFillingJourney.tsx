@@ -1,19 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import CompositePlacement from '../../../public/assets/images/curing_light.jpg';
 import ExamImage from '../../../public/assets/images/therapy_1.jpg';
 import CavityPrep from '../../../public/assets/images/therapy_2.jpg';
 import BiteCheck from '../../../public/assets/images/therapy_3.jpg';
-import { HygieneTimeline as FillingTimeline } from '../ServiceTimelines/HygieneTimeline';
+import { WhiteCompositFillingsTimeline } from '../ServiceTimelines/WhiteCompositeFillingsTimeline';
 
 export function WhiteCompositeFillingJourney({ id }: { id: string }) {
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
+  
 
   const data = [
     {
@@ -31,7 +27,6 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -52,7 +47,6 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
           {/* <Image
             src={CompositePlacement}
@@ -61,7 +55,7 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
+            
           /> */}
         </div>
       ),
@@ -81,7 +75,6 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -90,7 +83,7 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
 
   return (
     <div id={id} className='w-full'>
-      <FillingTimeline data={data} setImagesLoaded={setImagesLoaded} imagesLoaded={imagesLoaded} />
+      <WhiteCompositFillingsTimeline data={data} />
     </div>
   );
 }

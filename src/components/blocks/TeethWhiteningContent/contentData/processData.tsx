@@ -3,7 +3,7 @@
 import { TeethWhiteningTimeline } from '@/components/ServiceTimelines/TeethWhiteningTimeline';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 interface TeethWhiteningProcessProps {
@@ -11,11 +11,7 @@ interface TeethWhiteningProcessProps {
 }
 
 export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
+ 
 
   const timelineData = [
     {
@@ -34,7 +30,7 @@ export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4 rounded-xl'
-            onLoad={handleImageLoad}
+          
           />
         </div>
       ),
@@ -55,7 +51,7 @@ export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4 rounded-xl'
-            onLoad={handleImageLoad}
+          
           />
         </div>
       ),
@@ -76,7 +72,7 @@ export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4 rounded-xl'
-            onLoad={handleImageLoad}
+            
           />
         </div>
       ),
@@ -102,7 +98,7 @@ export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
           Your White Dental Beauty whitening treatment is simple and effective, completed over just a few weeks for
           lasting, natural results.
         </p>
-        <TeethWhiteningTimeline data={timelineData} setImagesLoaded={setImagesLoaded} imagesLoaded={imagesLoaded} />
+        <TeethWhiteningTimeline data={timelineData} />
       </motion.div>
     </section>
   );

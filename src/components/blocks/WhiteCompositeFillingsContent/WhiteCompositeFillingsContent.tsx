@@ -17,7 +17,7 @@ export default function WhiteCompositeFillingsContent() {
   return (
     <>
       <ServiceForm
-        serviceName='White Composite Fillings'
+        serviceName='White Composite Fillings Journey'
         serviceChip='Natural-Looking Tooth Restoration'
         serviceDescription='Restore damaged or decayed teeth with durable, tooth-coloured white composite fillings that blend seamlessly with your natural smile.'
         formTitle='Book Your White Composite Filling Appointment'

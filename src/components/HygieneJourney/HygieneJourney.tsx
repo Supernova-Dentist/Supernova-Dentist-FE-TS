@@ -1,18 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import Airflow from '../../../public/assets/images/airflow.jpeg';
-import HygieneAdvice from '../../../public/assets/images/Supernova-23.jpg';
 import PlaqueRemoval from '../../../public/assets/images/plaque_removal.jpeg';
+import HygieneAdvice from '../../../public/assets/images/Supernova-23.jpg';
 import { HygieneTimeline } from '../ServiceTimelines/HygieneTimeline';
 
 export function HygieneJourney({ id }: { id: string }) {
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
 
   const data = [
     {
@@ -20,8 +15,8 @@ export function HygieneJourney({ id }: { id: string }) {
       content: (
         <div className='px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            Your journey beings with professional mechanical plaque removal which helps prevent
-            cavities and gum disease, getting you one step closer to your Supernova Smile.
+            Your journey beings with professional mechanical plaque removal which helps prevent cavities and gum
+            disease, getting you one step closer to your Supernova Smile.
           </p>
           <Image
             src={PlaqueRemoval}
@@ -30,7 +25,6 @@ export function HygieneJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -50,7 +44,6 @@ export function HygieneJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -60,8 +53,8 @@ export function HygieneJourney({ id }: { id: string }) {
       content: (
         <div className='px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            Lastly receive personalised advice on maintaining your oral hygiene at home between appointments, including tips on
-            brushing, flossing, and proper care for your teeth and gums.
+            Lastly receive personalised advice on maintaining your oral hygiene at home between appointments, including
+            tips on brushing, flossing, and proper care for your teeth and gums.
           </p>
           <Image
             src={HygieneAdvice}
@@ -70,7 +63,6 @@ export function HygieneJourney({ id }: { id: string }) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -79,7 +71,7 @@ export function HygieneJourney({ id }: { id: string }) {
 
   return (
     <div id={id} className='w-full'>
-      <HygieneTimeline data={data} setImagesLoaded={setImagesLoaded} imagesLoaded={imagesLoaded} />
+      <HygieneTimeline data={data} />
     </div>
   );
 }

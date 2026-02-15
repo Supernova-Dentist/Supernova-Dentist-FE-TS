@@ -1,8 +1,7 @@
 'use client';
 
-import { Timeline } from '@/components/ui/timeline';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import { DentalImplantTimeline } from '../ServiceTimelines/DentalImplantTimeline';
 
 // Placeholder images — replace these with your actual imports when ready
@@ -11,11 +10,7 @@ const SurgeryImage = '/assets/images/surgery2.JPG';
 const RestorationImage = '/assets/images/implant_journey_3.jpeg';
 
 export function DentalImplantsJourney() {
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
+ 
 
   const data = [
     {
@@ -33,7 +28,7 @@ export function DentalImplantsJourney() {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
+            
             priority
           />
         </div>
@@ -54,7 +49,7 @@ export function DentalImplantsJourney() {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
+            
           />
         </div>
       ),
@@ -74,7 +69,7 @@ export function DentalImplantsJourney() {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
+           
           />
         </div>
       ),
@@ -83,7 +78,7 @@ export function DentalImplantsJourney() {
 
   return (
     <div id='journey' className='w-full'>
-      <DentalImplantTimeline data={data} setImagesLoaded={setImagesLoaded} imagesLoaded={imagesLoaded} />
+      <DentalImplantTimeline data={data} />
     </div>
   );
 }

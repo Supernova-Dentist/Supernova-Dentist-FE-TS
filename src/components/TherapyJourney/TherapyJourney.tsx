@@ -1,15 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import Airflow from '../../../public/assets/images/airflow.jpeg';
-import DentalTherapyCare from '../../../public/assets/images/therapy_3.jpg';
 import DentalTherapyBuild from '../../../public/assets/images/therapy_1.jpg';
 import TherapyAssess from '../../../public/assets/images/therapy_2.jpg';
+import DentalTherapyCare from '../../../public/assets/images/therapy_3.jpg';
 import { Timeline } from '../ui/timeline';
 
 export function DentalTherapyJourney({ id }: { id: string }) {
-
   const data = [
     {
       title: 'A – Assess',

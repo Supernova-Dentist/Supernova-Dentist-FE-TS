@@ -2,7 +2,7 @@
 
 import { Timeline } from '@/components/ui/timeline';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import { DentalImplantTimeline } from '../ServiceTimelines/DentalImplantTimeline';
 import { EmergencyDentistryTimeline } from '../ServiceTimelines/EmergencyDentistryTimeline';
 
@@ -12,11 +12,7 @@ const TreatmentImage = '/assets/images/emerg_3.jpg';
 const FollowUpImage = '/assets/images/emerg_4.jpg';
 
 export function EmergencyDentistryJourney() {
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
+  
 
   const data = [
     {
@@ -34,7 +30,6 @@ export function EmergencyDentistryJourney() {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
             priority
           />
         </div>
@@ -56,7 +51,6 @@ export function EmergencyDentistryJourney() {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -76,7 +70,6 @@ export function EmergencyDentistryJourney() {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -85,7 +78,7 @@ export function EmergencyDentistryJourney() {
 
   return (
     <div id='journey' className='w-full'>
-      <EmergencyDentistryTimeline data={data} setImagesLoaded={setImagesLoaded} imagesLoaded={imagesLoaded} />
+      <EmergencyDentistryTimeline data={data} />
     </div>
   );
 }

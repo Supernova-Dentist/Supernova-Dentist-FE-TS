@@ -3,7 +3,7 @@
 import { InvisalignTimeline } from '@/components/ServiceTimelines/InvisalignTimeline';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 interface InvisalignJourneyProps {
@@ -11,12 +11,6 @@ interface InvisalignJourneyProps {
 }
 
 export function InvisalignJourney({ id }: InvisalignJourneyProps) {
-  const [imagesLoaded, setImagesLoaded] = useState(0); // Track number of loaded images
-
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
-
   const timelineData = [
     {
       title: 'Initial Consultation',
@@ -33,7 +27,6 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -53,7 +46,6 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -73,7 +65,6 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -93,7 +84,6 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad}
           />
         </div>
       ),
@@ -119,7 +109,7 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
           Transforming your smile with Invisalign is a journey that involves several steps. Here&apos;s what you can
           expect along the way:
         </p>
-        <InvisalignTimeline data={timelineData} setImagesLoaded={setImagesLoaded} imagesLoaded={imagesLoaded} />
+        <InvisalignTimeline data={timelineData} />
       </motion.div>
     </section>
   );
