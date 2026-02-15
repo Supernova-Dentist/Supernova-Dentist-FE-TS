@@ -226,9 +226,9 @@ export default function Home() {
       <AboutSection />
       <TeamSection />
       {/* <Pricing /> */}
+      <ServicesSelection />
       <DentallyTutorial />
       <SmileTransformations />
-      <ServicesSelection />
       <GoogleReviews />
       <Journey />
       <VideoAnimationSection />
