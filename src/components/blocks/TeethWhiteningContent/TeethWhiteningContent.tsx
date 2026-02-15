@@ -22,6 +22,7 @@ export default function TeethWhiteningContent() {
         formTitle='Get Your Bespoke Teeth Whitening Treatment Plan'
         formDescription='Tell us your goals and let our expert cosmetic dental team design a safe, effective whitening plan tailored to you. Achieve a naturally brighter smile with Supernova Dental.'
         eventType='TeethWhiteningLead'
+        imgSrc='/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp'
         formId='teeth-whitening-enquiry-form'
       />
 

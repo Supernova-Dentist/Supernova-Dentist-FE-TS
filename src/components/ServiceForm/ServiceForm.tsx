@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -115,7 +116,6 @@ export default function ServiceForm({
       // Push event to dataLayer including source
       window.dataLayer.push({
         event: updatedEventType,
-        
       });
 
       // Trigger Google Ads conversion only for new patients
@@ -127,7 +127,7 @@ export default function ServiceForm({
 
       // Trigger Facebook Pixel event
       if (typeof window.fbq === 'function') {
-        window.fbq('trackCustom', updatedEventType, );
+        window.fbq('trackCustom', updatedEventType);
       }
 
       setShowSuccessModal(true);
@@ -195,7 +195,17 @@ export default function ServiceForm({
               </h2>
               <p className='text-muted-foreground md:text-2xl max-w-[32rem] mx-auto pb-4'>{serviceDescription}</p>
               {imgSrc && (
-                <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 hidden lg:block' />
+                <Image
+                  priority
+                  width={1200}
+                  height={1200}
+                  quality={75}
+                  placeholder='blur'
+                  src={imgSrc}
+                  blurDataURL={imgSrc}
+                  alt={`${serviceName} - Supernova Dental Bridgwater Somerset`}
+                  className='w-full max-w-md mx-auto mt-8 hidden lg:block'
+                />
               )}
               {/* Video for large screens - shown ABOVE the form */}
               {videoSrc && (
@@ -305,7 +315,19 @@ export default function ServiceForm({
                 </CardFooter>
               </form>
             </Card>
-            {imgSrc && <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 block lg:hidden' />}
+            {imgSrc && (
+              <Image
+                priority
+                width={1200}
+                height={1200}
+                quality={75}
+                placeholder='blur'
+                src={imgSrc}
+                blurDataURL={imgSrc}
+                alt={`${serviceName} - Supernova Dental Bridgwater Somerset`}
+                className='w-full max-w-md mx-auto my-8 block lg:hidden'
+              />
+            )}
             {/* Video for small/medium screens - shown BELOW the form */}
             {videoSrc && (
               <div className='block lg:hidden mt-8'>

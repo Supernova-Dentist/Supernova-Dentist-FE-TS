@@ -23,7 +23,7 @@ export default function InvisalignContent() {
         serviceDescription='Get a personalised Invisalign treatment plan in Bridgwater and discover how clear aligners can transform your smile.'
         formTitle='Sign up for your Free Invisalign Consultation'
         formDescription='Sign up now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
-        imgSrc='/assets/images/Invisalign_Group.jpg'
+        imgSrc='/assets/images/invisalign-supernova-dental-bridgwater-somerset.webp'
         eventType='InvisalignLead'
         formId='invisalign-enquiry-form'
       />

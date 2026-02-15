@@ -24,7 +24,7 @@ export default function DentalImplantsContent() {
         serviceDescription='Discover single-tooth implants and advanced full-arch solutions such as All-on-4 delivered by our experienced implantologist at Supernova Dental in Bridgwater, Somerset.'
         formTitle='Sign up for your Dental Implant Consultation'
         formDescription='Book a no-obligation consultation with our expert implantologist, and explore single implants or full-arch options like All-on-4 for a permanent, natural-looking smile.'
-        imgSrc='/assets/images/sara_cbct.jpg'
+        imgSrc='/assets/images/dental-implants-supernova-dental-bridgwater.webp'
         formId='implants-enquiry-form'
         eventType='DentalImplantsLead'
       />

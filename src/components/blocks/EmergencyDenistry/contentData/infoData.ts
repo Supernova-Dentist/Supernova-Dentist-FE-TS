@@ -13,7 +13,7 @@ export default {
     {
       id: 4,
       heading: 'Fast & Efficient',
-      text: 'We provide quick, efficient care to get you out of pain and back to your normal life.',
+      text: 'We provide quick phone triaging and efficient care to get you out of pain and back to your normal life.',
     },
   ],
 };
