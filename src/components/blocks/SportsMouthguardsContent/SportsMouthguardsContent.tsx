@@ -29,9 +29,6 @@ export default function SportsMouthguardsContent() {
         <HeroSection data={sportsGuardsHeroData} />
       </div>
 
-      <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
-        <BreadCrumb />
-      </div>
 
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />

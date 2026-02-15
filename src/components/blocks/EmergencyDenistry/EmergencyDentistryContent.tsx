@@ -29,9 +29,6 @@ export default function EmergencyDentistryContent() {
         {/* <EmergencyDentistryView id='emergencyView' /> */}
       </div>
 
-      <div className='mx-auto px-4 md:px-6 container pt-10 pb-6 md:py-12'>
-        <BreadCrumb />
-      </div>
 
       {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />

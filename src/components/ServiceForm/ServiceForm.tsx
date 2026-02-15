@@ -19,6 +19,7 @@ import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 import BarLoader from '../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
+import BreadCrumb from '../BreadCrumb/BreadCrumb';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -180,14 +181,15 @@ export default function ServiceForm({
       <section
         id='form'
         ref={ref}
-        className='w-full pt-28 bg-gradient-to-b from-white to-cream min-h-screen flex items-center justify-center'
+        className='w-full pt-28 px-4 bg-gradient-to-b from-white to-cream min-h-screen flex items-center justify-center'
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <div className='container max-w-[1250px] mx-auto px-4 md:px-8 lg:grid lg:grid-cols-2 gap-8'>
+          <BreadCrumb />
+          <div className='container max-w-[1250px] mx-auto pt-20 lg:grid lg:grid-cols-2 lg:space-x-12 items-center'>
             <div className='text-center lg:text-left space-y-6'>
               <div className='bg-grey px-4 py-2 text-md text-gray-50 rounded-lg inline-block'>{serviceChip}</div>
               <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl max-w-[32rem] mx-auto'>

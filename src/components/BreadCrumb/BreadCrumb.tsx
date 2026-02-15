@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Fragment } from 'react';
+import { Fragment, useMemo } from 'react';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,50 +13,92 @@ import {
   BreadcrumbSeparator,
 } from '../ui/breadcrumb';
 
-const BreadCrumb = () => {
-  const paths: string = usePathname();
-  const pathNames: string[] = paths.split('/').filter((path) => path !== '');
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-    >
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href='/'>Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          {pathNames.length > 0 && <BreadcrumbSeparator />}
+const SITE_URL = 'https://www.supernovadental.co.uk';
 
-          {pathNames.map((link, index) => {
-            const href: string = `/${pathNames.slice(0, index + 1).join('/')}`;
-            const linkName: string = link
-              .split('-')
-              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(' ');
-            const isLastPath: boolean = pathNames.length === index + 1;
-            return (
-              <Fragment key={index}>
-                <BreadcrumbItem>
-                  {!isLastPath ? (
-                    <BreadcrumbLink asChild>
-                      <Link href={href}>{linkName}</Link>
-                    </BreadcrumbLink>
-                  ) : (
-                    <BreadcrumbPage>{linkName}</BreadcrumbPage>
-                  )}
-                </BreadcrumbItem>
-                {pathNames.length !== index + 1 && <BreadcrumbSeparator />}
-              </Fragment>
-            );
-          })}
-        </BreadcrumbList>
-      </Breadcrumb>
-    </motion.div>
+const formatName = (segment: string) =>
+  segment
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+const BreadCrumb = () => {
+  const pathname = usePathname();
+  const pathNames = pathname.split('/').filter(Boolean);
+
+  const breadcrumbSchema = useMemo(() => {
+    const items = [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE_URL,
+      },
+      ...pathNames.map((segment, index) => ({
+        '@type': 'ListItem',
+        position: index + 2,
+        name: formatName(segment),
+        item: `${SITE_URL}/${pathNames.slice(0, index + 1).join('/')}`,
+      })),
+    ];
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items,
+    };
+  }, [pathNames]);
+
+  return (
+    <>
+      {/* Structured Data for Google */}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+
+      <motion.nav
+        aria-label='Breadcrumb'
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href='/'>Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+
+            {pathNames.length > 0 && <BreadcrumbSeparator />}
+
+            {pathNames.map((segment, index) => {
+              const href = `/${pathNames.slice(0, index + 1).join('/')}`;
+              const linkName = formatName(segment);
+              const isLast = index === pathNames.length - 1;
+
+              return (
+                <Fragment key={href}>
+                  <BreadcrumbItem>
+                    {!isLast ? (
+                      <BreadcrumbLink asChild>
+                        <Link href={href}>{linkName}</Link>
+                      </BreadcrumbLink>
+                    ) : (
+                      <BreadcrumbPage>{linkName}</BreadcrumbPage>
+                    )}
+                  </BreadcrumbItem>
+
+                  {!isLast && <BreadcrumbSeparator />}
+                </Fragment>
+              );
+            })}
+          </BreadcrumbList>
+        </Breadcrumb>
+      </motion.nav>
+    </>
   );
 };
 

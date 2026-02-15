@@ -166,6 +166,17 @@ export default function PromotionForm() {
                 Looking for a reliable <strong>Bridgwater dentist</strong>? Supernova Dental is accepting new patients,
                 offering expert care for routine check-ups, cosmetic dentistry, dental implants, Invisalign and more.
               </p>
+              <Image
+                priority
+                width={1824}
+                height={1216}
+                quality={75}
+                placeholder='blur'
+                src={'/assets/images/supernova-dental-bridgwater-reception-new-patients.webp'}
+                blurDataURL={'/assets/images/supernova-dental-bridgwater-reception-new-patients.webp'}
+                alt={`Supernova Dental - Taking on more patients in Bridgwater Somerset`}
+                className='w-full mx-auto my-8 hidden lg:block'
+              />
             </div>
             <Card className='mx-auto w-full max-w-lg bg-gray-50 shadow-2xl border border-black/10 border-solid p-8'>
               <form id='home-page-enquiry-form' onSubmit={handleSubmit(onSubmit)}>
@@ -260,6 +271,17 @@ export default function PromotionForm() {
                 </CardFooter>
               </form>
             </Card>
+            <Image
+              priority
+              width={1824}
+              height={1216}
+              quality={75}
+              placeholder='blur'
+              src={'/assets/images/supernova-dental-bridgwater-reception-new-patients.webp'}
+              blurDataURL={'/assets/images/supernova-dental-bridgwater-reception-new-patients.webp'}
+              alt={`Supernova Dental - Taking on more patients in Bridgwater Somerset`}
+              className='w-full mx-auto my-8 block lg:hidden'
+            />
           </div>
         </motion.div>
       </section>
