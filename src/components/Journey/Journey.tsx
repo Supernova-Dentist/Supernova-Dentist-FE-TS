@@ -2,18 +2,12 @@
 
 import { Timeline } from '@/components/ui/timeline';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import InvisalignImage from '../../../public/assets/images/invisalign_aligners.png';
 import WhiteTeeth from '../../../public/assets/images/teeth-whitening.jpeg';
 import Veneers from '../../../public/assets/images/veneers.jpeg';
 
 export function Journey() {
-  const [imagesLoaded, setImagesLoaded] = useState(0); // Track number of loaded images
-
-  // This function is called when an image loads
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
 
   const data = [
     {
@@ -30,7 +24,7 @@ export function Journey() {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad} // Pass handleImageLoad to onLoad
+      
           />
         </div>
       ),
@@ -50,7 +44,7 @@ export function Journey() {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad} // Pass handleImageLoad to onLoad
+          
           />
         </div>
       ),
@@ -70,7 +64,7 @@ export function Journey() {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            onLoad={handleImageLoad} // Pass handleImageLoad to onLoad
+       
           />
         </div>
       ),
