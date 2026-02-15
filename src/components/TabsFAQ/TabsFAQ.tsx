@@ -140,7 +140,7 @@ const QUESTIONS = {
     {
       question: 'What are your opening hours?',
       answer:
-        'Our opening hours are from 8:15 AM to 6:15 PM, Monday through Thursday and 9 AM to 1PM on Saturdays. We are closed on Sundays and major holidays.',
+        'Our opening hours are from 8:15 AM to 6:15 PM, Monday through Friday and 9 AM to 1PM on Saturdays. We are closed on Sundays and major holidays.',
     },
     {
       question: 'Do you accept new patients?',

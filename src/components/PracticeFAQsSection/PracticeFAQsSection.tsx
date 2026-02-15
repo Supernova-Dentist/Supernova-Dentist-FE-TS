@@ -23,7 +23,7 @@ export default function PracticeFAQsSection() {
     },
     {
       question: 'What are your opening hours?',
-      answer: 'We are open Monday to Thursday from 08:15 to 18:15, and on Saturdays from 09:00 to 13:00.',
+      answer: 'We are open Monday to Friday from 08:15 to 18:15, and on Saturdays from 09:00 to 13:00.',
     },
     {
       question: 'Where are you located?',
