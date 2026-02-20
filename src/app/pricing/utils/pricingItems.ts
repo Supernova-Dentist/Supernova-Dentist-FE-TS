@@ -234,19 +234,18 @@ discomfort.`,
     title: 'Implant Dentistry',
     products: [
       {
-        description: 'All-on-4® Full Arch Implants (Includes extractions)',
-        price: 17500,
-        priceDescription: 'per arch',
+        description: 'All-on-4/6® Full Arch Implants (Includes extractions)',
+        price: 20000,
       },
-      { description: 'Dental Implant', price: 1400 },
-      { description: 'Dental Implant Crown', price: 1350 },
+      { description: 'Dental Implant Placement', price: 1700 },
+      { description: 'Dental Implant Crown', price: 1400 },
     ],
   },
   {
     title: 'Referring Dentists',
     products: [
       { description: 'Cone-beam CT scan (without report)', price: 225 },
-      { description: 'Cone-beam CT scan (with report)', price: 270 },
+      { description: 'Cone-beam CT scan (with report)', price: 325 },
     ],
   },
 ];
