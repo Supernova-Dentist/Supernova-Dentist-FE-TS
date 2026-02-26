@@ -5,7 +5,7 @@ export default {
   descriptions: [
     'A dental therapist is a highly trained dental professional who provides preventive and restorative treatments, including fillings, gum disease management, and children’s dental care.',
   ],
-  imageSrc: '/assets/images/therapy_intro.jpg',
+  imageSrc: '/assets/images/therapy_intro.webp',
   useCaseTitle: 'Services Provided by a Dental Therapist',
 
   useCaseData: [
