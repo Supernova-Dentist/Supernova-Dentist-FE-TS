@@ -258,7 +258,7 @@ discomfort.`,
     title: 'Referring Dentists',
     products: [
       { description: 'CBCT Scan (3D Imaging only)', price: 225 },
-      { description: 'CBCT scan (with professional report included)', price: 300 },
+      { description: 'CBCT Scan (with professional report included)', price: 300 },
     ],
   },
 ];
