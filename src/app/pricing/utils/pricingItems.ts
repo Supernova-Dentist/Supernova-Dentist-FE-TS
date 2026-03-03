@@ -19,7 +19,8 @@ export const pricingItems = [
     products: [
       { description: 'Small Digital X-Ray', price: 12, priceDescription: 'each' },
       { description: 'Large Full Mouth X-Ray (OPG)', price: 50 },
-      { description: 'CBCT Scan (3D Imaging)', price: 225 },
+      { description: 'CBCT Scan (3D Imaging only)', price: 225 },
+      { description: 'CBCT scan (with professional report included)', price: 225 },
     ],
   },
   {
@@ -202,12 +203,12 @@ discomfort.`,
     title: 'Mouth Guards',
     products: [
       {
-        priceDescriptionBefore: 'From',
+        priceDescriptionBefore: 'from',
         description: 'Dual laminate (soft inside/hard outside) nightguard',
         price: 175,
       },
       {
-        priceDescriptionBefore: 'From',
+        priceDescriptionBefore: 'from',
         description: 'Sports guard (selection of colours and designs available)',
         price: 175,
       },
@@ -234,8 +235,20 @@ discomfort.`,
     title: 'Implant Dentistry',
     products: [
       {
-        description: 'All-on-4/6® Full Arch Implants (Includes extractions)',
+        description: 'Implant Consultation',
+        priceDescription: 'Included in new patient examination',
+      },
+      {
+        description: 'Implant Retained Dentures',
+        price: 10000,
+      },
+      {
+        description: 'All-on-4/6® Full Single Arch Implants (Includes extractions)',
         price: 20000,
+      },
+      {
+        description: 'All-on-4/6® Full Dual Arch Implants (Includes extractions)',
+        price: 37500,
       },
       { description: 'Dental Implant Placement', price: 1700 },
       { description: 'Dental Implant Crown', price: 1400 },
@@ -244,8 +257,8 @@ discomfort.`,
   {
     title: 'Referring Dentists',
     products: [
-      { description: 'Cone-beam CT scan (without report)', price: 225 },
-      { description: 'Cone-beam CT scan (with report)', price: 325 },
+      { description: 'CBCT Scan (3D Imaging only)', price: 225 },
+      { description: 'CBCT scan (with professional report included)', price: 300 },
     ],
   },
 ];
