@@ -1,0 +1,66 @@
+import { Reveal } from '@/utils/anim/Reveal';
+import Image from 'next/image';
+import Link from 'next/link';
+import teaganImage from '../../../public/assets/images/Headshots/teagan-ruby-treatment-coordinator-supernova-dental-bridgwater.webp';
+
+const TeaganWaterDropHero = () => {
+  return (
+    <section className='text-slate-100 overflow-hidden bg-lightGrey px-8 py-24 md:px-12 md:py-32'>
+      <div className='relative mx-auto max-w-5xl flex flex-col md:flex-row items-center'>
+        <div className='pointer-events-none relative z-10 md:flex-1 '>
+          <Reveal>
+            <h1 className='pointer-events-auto text-6xl font-black text-slate-100 md:text-8xl'>
+              Hi, I&apos;m Teagan<span className='text-lightGold'>.</span>
+            </h1>
+          </Reveal>
+          <Reveal>
+            <>
+              <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
+                I&apos;m the <span className='font-semibold text-lightGold'>Treatment Coordinator (TCO)</span> at
+                Supernova Dental
+              </h2>
+              <h3 className='text-lightGold'>GDC Registration Number: 303942</h3>
+            </>
+          </Reveal>
+          <Reveal>
+            <>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                 Alongside my role, I’m also a qualified dental nurse and have been part of the dental industry since 2019.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                I love supporting patients throughout their dental journey, from the very first consultation through to the final result. It’s really rewarding helping patients understand their treatment options, feel comfortable with their decisions, and watching their confidence grow along the way.
+              </p>
+              <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
+                Being part of each patient’s journey and seeing their transformation is what I enjoy most about my role.
+              </p>
+            </>
+          </Reveal>
+          <Reveal>
+            <div className='flex gap-4 mt-4 mx-auto justify-center w-full'>
+              <Link href={`/enquiry`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Get in touch
+                </button>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+        <div className='pointer-events-none relative z-10 mt-8 md:mt-0 md:ml-12 md:flex-1'>
+          <Reveal>
+            <Image
+              src={teaganImage}
+              alt='Teagan Ruby, Treatment Coordinator at Supernova Dental in Bridgwater, Somerset'
+              width={1800}
+              height={2700}
+              quality={75}
+              placeholder='blur'
+              className='object-cover w-full h-full rounded-lg'
+            />
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TeaganWaterDropHero;
