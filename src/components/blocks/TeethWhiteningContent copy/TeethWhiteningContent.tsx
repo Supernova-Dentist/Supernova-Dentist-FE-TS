@@ -3,26 +3,19 @@ import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import ComparisonSection from '@/components/ComparisonSection/ComparisonSection';
 import FaqSection from '@/components/FaqSection/FaqSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
-import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import InfoSection from '@/components/InfoSection/InfoSection';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
-import DentalImplantsIntroSection from '../DentalImplantsContent/DentalImplantsIntro/DentalImplantsIntro';
 import benefitsData from './contentData/benefitsData';
 import { faqItems } from './contentData/faqData';
 import teethWhiteningHeroData from './contentData/heroData';
 import infoData from './contentData/infoData';
 import { TeethWhiteningProcess } from './contentData/processData';
 import { tableData } from './contentData/tableData';
-import TeethWhiteningIntroSection from './TeethWhiteningIntro/TeethWhiteningIntro';
 
 export default function TeethWhiteningContent() {
   return (
     <>
-      <div className='container mx-auto py-16 md:py-24 md:px-8'>
-        <HighlightCard title='Your Teeth Whitening Journey Starts Here' logoSrc='/favicon.ico' />
-
-        <TeethWhiteningIntroSection />
-        {/* <ServiceForm
+      <ServiceForm
         serviceName='Teeth Whitening'
         serviceChip='Bespoke Whitening Treatment Plan'
         serviceDescription='Brighten your smile safely with professional teeth whitening in Bridgwater, Somerset.'
@@ -31,19 +24,18 @@ export default function TeethWhiteningContent() {
         eventType='TeethWhiteningLead'
         imgSrc='/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp'
         formId='teeth-whitening-enquiry-form'
-      /> */}
+      />
 
-        {/* <div className=''>
+      <div className=''>
         <HeroSection data={teethWhiteningHeroData} />
-      </div> */}
-
-        <InfoSection id='info' data={infoData} />
-        <BenefitSection id='benefits' data={benefitsData} />
-
-        <TeethWhiteningProcess id='process' />
-
-        <FaqSection id='faq' faqItems={faqItems} />
       </div>
+
+      <InfoSection id='info' data={infoData} />
+      <BenefitSection id='benefits' data={benefitsData} />
+
+      <TeethWhiteningProcess id='process' />
+
+      <FaqSection id='faq' faqItems={faqItems} />
     </>
   );
 }
