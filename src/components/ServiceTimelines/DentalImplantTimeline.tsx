@@ -34,7 +34,7 @@ export const DentalImplantTimeline = ({ data }: TimelineProps) => {
   return (
     <div
       id='dental-implant-timeline'
-      className='w-full bg-gradient-to-b from-cream to-white font-sans md:px-10'
+      className='w-full  font-sans md:px-10'
       ref={containerRef}
     >
       <motion.div

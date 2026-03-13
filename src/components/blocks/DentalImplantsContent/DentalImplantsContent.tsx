@@ -4,6 +4,7 @@ import ComparisonSection from '@/components/ComparisonSection/ComparisonSection'
 import { DentalImplantsJourney } from '@/components/DentalImplantsJourney/DentalImplantsJourney';
 import FaqSection from '@/components/FaqSection/FaqSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
+import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import InfoSection from '@/components/InfoSection/InfoSection';
 import InvisalignSmileView from '@/components/InvisalignSmileView/InvisalignSmileView';
 import SaraSection from '@/components/SaraSection/SaraSection';
@@ -14,11 +15,17 @@ import { faqItems } from './contentData/faqData';
 import dentalImplantsHeroData from './contentData/heroData';
 import infoData from './contentData/infoData';
 import { tableData } from './contentData/tableData';
+import DentalImplantsIntroSection from './DentalImplantsIntro/DentalImplantsIntro';
 
 export default function DentalImplantsContent() {
   return (
     <>
-      <ServiceForm
+      <div className='container mx-auto py-16 md:py-24 md:px-8'>
+        <HighlightCard title='Transform Your Smile with Dental Implants' logoSrc='/favicon.ico' />
+
+        <DentalImplantsIntroSection />
+
+        {/* <ServiceForm
         serviceName='Dental Implants Journey – Full-Arch (All-on-4) in Somerset'
         serviceChip='Dental Implant Consultation'
         serviceDescription='Discover single-tooth implants and advanced full-arch solutions such as All-on-4 delivered by our experienced implantologist at Supernova Dental in Bridgwater, Somerset.'
@@ -27,25 +34,26 @@ export default function DentalImplantsContent() {
         imgSrc='/assets/images/dental-implants-supernova-dental-bridgwater.webp'
         formId='implants-enquiry-form'
         eventType='DentalImplantsLead'
-      />
-      {/* <div className='bg-cream'>
+      /> */}
+        {/* <div className='bg-cream'>
         <SaraSection />
       </div> */}
 
-      <div className='from-cream to-white bg-gradient-to-b'>
+        {/* <div className=''>
         <HeroSection data={dentalImplantsHeroData} />
-      </div>
+      </div> */}
 
-      {/* <div className='sticky top-24 z-10'>
+        {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />
       </div> */}
-      <InfoSection id='info' data={infoData} />
-      <BenefitSection id='benefits' data={benefitsData} />
+        <InfoSection id='info' data={infoData} />
+        <BenefitSection id='benefits' data={benefitsData} />
 
-      <DentalImplantsJourney />
+        <DentalImplantsJourney />
 
-      <ComparisonSection id='comparison' data={tableData} />
-      <FaqSection id='faq' faqItems={faqItems} />
+        <ComparisonSection id='comparison' data={tableData} />
+        <FaqSection id='faq' faqItems={faqItems} />
+      </div>
     </>
   );
 }

@@ -5,6 +5,7 @@ import FaqSection from '@/components/FaqSection/FaqSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import InfoSection from '@/components/InfoSection/InfoSection';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
+import { DentalTherapyJourney } from '@/components/TherapyJourney/TherapyJourney';
 import { HygieneJourney } from '../../HygieneJourney/HygieneJourney';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import benefitsData from './contentData/benefitsData';
@@ -12,7 +13,6 @@ import { faqItems } from './contentData/faqData';
 import hygieneHeroData from './contentData/heroData';
 import infoData from './contentData/infoData';
 import { tableData } from './contentData/tableData';
-import { DentalTherapyJourney } from '@/components/TherapyJourney/TherapyJourney';
 
 export default function DentalTherapistContent() {
   return (
@@ -26,7 +26,7 @@ export default function DentalTherapistContent() {
         formId='dental-therapist-enquiry-form'
         eventType='DentalTherapistLead'
       />
-      <div className='from-cream to-white bg-gradient-to-b'>
+      <div className=''>
         <HeroSection data={hygieneHeroData} />
       </div>
 
