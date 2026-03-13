@@ -8,6 +8,7 @@ import React from 'react';
 // Placeholder images — replace these with your actual imports when ready
 const ConsultationImage = '/assets/images/invisalign.jpeg';
 const SurgeryImage = '/assets/images/implant_referral.jpg';
+const CompositeBondingImage = '/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp';
 const RestorationImage = '/assets/images/teeth_whitening.jpg';
 
 export function CosmeticDentistryJourney() {
@@ -55,6 +56,30 @@ export function CosmeticDentistryJourney() {
           <Image
             src={SurgeryImage}
             alt='Dental implant placement surgery'
+            width={100}
+            height={800}
+            layout='responsive'
+            className='max-w-[30rem] mx-auto py-4'
+          />
+        </div>
+      ),
+    },
+    {
+      title: 'Composite Bonding: Repair chips & improve your smile',
+      content: (
+        <div className='px-12 py-8'>
+          <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
+            Transform your smile with
+            <Link href='/cosmetic-dentistry/composite-bonding' className='text-gold underline ml-1'>
+              composite bonding
+            </Link>{' '}
+            a minimally invasive treatment that repairs chipped teeth, closes small gaps, and improves the shape of
+            your teeth for a natural, radiant look. Composite bonding is quick, often completed in a single visit, and
+            preserves your natural tooth structure.
+          </p>
+          <Image
+            src={CompositeBondingImage}
+            alt='Composite bonding cosmetic dental treatment'
             width={100}
             height={800}
             layout='responsive'

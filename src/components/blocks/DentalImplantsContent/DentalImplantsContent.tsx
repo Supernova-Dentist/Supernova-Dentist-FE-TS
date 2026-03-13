@@ -21,6 +21,9 @@ export default function DentalImplantsContent() {
   return (
     <>
       <div className='container mx-auto py-16 md:py-24 md:px-8'>
+         <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
+          <BreadCrumb />
+        </div>
         <HighlightCard title='Transform Your Smile with Dental Implants' logoSrc='/favicon.ico' />
 
         <DentalImplantsIntroSection />

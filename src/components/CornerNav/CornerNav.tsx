@@ -19,25 +19,25 @@ export const CornerNav = ({
   handleClose: () => void; // Passing handleClose to CornerNav
 }) => {
   /**
-     * Lock body scroll when menu is open
-     */
-    useEffect(() => {
-      if (active) {
-        document.body.style.overflow = 'hidden';
-        document.body.style.height = '100vh';
-        document.body.style.touchAction = 'none';
-      } else {
-        document.body.style.overflow = '';
-        document.body.style.height = '';
-        document.body.style.touchAction = '';
-      }
-  
-      return () => {
-        document.body.style.overflow = '';
-        document.body.style.height = '';
-        document.body.style.touchAction = '';
-      };
-    }, [active]);
+   * Lock body scroll when menu is open
+   */
+  useEffect(() => {
+    if (active) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100vh';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.style.touchAction = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.style.touchAction = '';
+    };
+  }, [active]);
 
   return (
     <>
@@ -328,6 +328,7 @@ const LINKS = [
       // { title: 'Invisalign Open Day', href: '/cosmetic-dentistry/invisalign-open-day' },
       { title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' },
       { title: 'Dental Implants', href: '/cosmetic-dentistry/dental-implants' },
+      { title: 'Composite Bonding', href: '/cosmetic-dentistry/composite-bonding' },
       { title: 'Teeth Whitening', href: '/cosmetic-dentistry/teeth-whitening' },
     ],
   },
