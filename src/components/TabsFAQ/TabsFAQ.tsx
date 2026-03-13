@@ -9,7 +9,7 @@ export const TabsFAQ = () => {
   const [selected, setSelected] = useState(TABS[0]);
 
   return (
-    <section className='flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-cream  px-4 py-4 min-h-screen'>
+    <section className='flex flex-col items-center justify-center overflow-hidden   px-4 py-4 min-h-screen'>
       <Heading />
       <Tabs selected={selected} setSelected={setSelected} />
       <Questions selected={selected} />

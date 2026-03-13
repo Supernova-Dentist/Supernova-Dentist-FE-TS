@@ -20,7 +20,7 @@ export default function FindUsSection() {
   });
 
   return (
-    <section className='flex flex-col bg-gradient-to-b from-cream to-white items-center justify-center' ref={ref}>
+    <section className='flex flex-col  items-center justify-center' ref={ref}>
       {/* Text Section */}
       <motion.div
         className='space-y-2 w-full lg:w-3/4 p-4 max-w-prose md:p-12 flex flex-col items-center text-center lg:text-left'

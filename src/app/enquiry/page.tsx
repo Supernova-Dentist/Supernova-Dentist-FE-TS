@@ -1,7 +1,7 @@
-import { type Metadata } from 'next';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-import { EnquiryFormContent } from './utils/enquiry-form-content';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
+import { type Metadata } from 'next';
+import { EnquiryFormContent } from './utils/enquiry-form-content';
 
 export const metadata: Metadata = {
   title: 'Contact Supernova Dental | Your Trusted Dental Practice in Bridgwater, Somerset',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function EnquiryForm() {
   return (
-    <div className='min-h-screen flex bg-gradient-to-b from-white to-cream justify-center align-middle'>
+    <div className='min-h-screen flex  justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
         {/* HighlightCard */}
         <HighlightCard

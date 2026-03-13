@@ -18,8 +18,8 @@ import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 import BarLoader from '../BarLoader/BarLoader';
-import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
+import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -178,11 +178,7 @@ export default function ServiceForm({
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section
-        id='form'
-        ref={ref}
-        className='w-full pt-28 px-4 bg-gradient-to-b from-white to-cream min-h-screen flex items-center justify-center'
-      >
+      <section id='form' ref={ref} className='w-full pt-28 px-4  min-h-screen flex items-center justify-center'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

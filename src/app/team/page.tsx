@@ -60,7 +60,7 @@ const structuredData = {
 
 export default function TeamPage() {
   return (
-    <div className='flex flex-col min-h-screen justify-center align-center bg-gradient-to-b from-white to-cream px-8'>
+    <div className='flex flex-col min-h-screen justify-center align-center  px-8'>
       {/* Structured Data */}
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 

@@ -15,7 +15,7 @@ export default function GoogleReviews() {
   return (
     <div
       id='reviews'
-      className='flex flex-col bg-cream px-4 py-12 bg-gradient-to-b from-white to-cream'
+      className='flex flex-col px-4 py-12 '
       ref={ref} // Attach the ref to the section
     >
       <div className='flex justify-center mb-4'>

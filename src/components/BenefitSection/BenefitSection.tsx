@@ -15,7 +15,7 @@ export default function BenefitSection({ data, id }: BenefitSection) {
   });
 
   return (
-    <section ref={ref} id={id} className='pt-6 pb-12 px-4 md:pb-20 lg:pb-28 bg-gradient-to-b from-white to-cream'>
+    <section ref={ref} id={id} className='pt-6 pb-12 px-4 md:pb-20 lg:pb-28 '>
       <motion.div
         initial={{ opacity: 0, y: 20 }} // Initial state for the animation
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in

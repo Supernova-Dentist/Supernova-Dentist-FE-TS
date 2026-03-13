@@ -17,7 +17,6 @@ import { tableData } from './contentData/tableData';
 export default function InvisalignContent() {
   return (
     <>
-    
       <ServiceForm
         serviceName='Invisalign Journey'
         serviceChip='Free Invisalign Consultation'
@@ -29,12 +28,10 @@ export default function InvisalignContent() {
         formId='invisalign-enquiry-form'
       />
 
-      <div className='from-cream to-white bg-gradient-to-b'>
+      <div className=''>
         <HeroSection data={invisalignHeroData} />
         <InvisalignSmileView id='smileView' />
       </div>
-
-      
 
       {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />

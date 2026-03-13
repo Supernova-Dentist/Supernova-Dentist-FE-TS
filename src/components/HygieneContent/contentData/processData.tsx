@@ -11,8 +11,6 @@ interface InvisalignJourneyProps {
 }
 
 export function InvisalignJourney({ id }: InvisalignJourneyProps) {
- 
-
   const timelineData = [
     {
       title: 'Initial Consultation',
@@ -29,7 +27,6 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            
           />
         </div>
       ),
@@ -49,7 +46,6 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-           
           />
         </div>
       ),
@@ -69,7 +65,6 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-            
           />
         </div>
       ),
@@ -89,7 +84,6 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4'
-           
           />
         </div>
       ),
@@ -102,7 +96,7 @@ export function InvisalignJourney({ id }: InvisalignJourneyProps) {
   });
 
   return (
-    <section ref={ref} className='w-full py-12 pt-24 bg-gradient-to-b from-cream to-white'>
+    <section ref={ref} className='w-full py-12 pt-24 '>
       <motion.div
         id={id}
         initial={{ opacity: 0, y: 20 }} // Initial state for the animation

@@ -43,7 +43,7 @@ export default function PracticeFAQsSection() {
   ];
 
   return (
-    <section className='bg-gradient-to-b from-white to-cream py-16 px-6 md:px-12' ref={ref}>
+    <section className=' py-16 px-6 md:px-12' ref={ref}>
       <motion.div
         className='max-w-4xl mx-auto text-center'
         initial='hidden'

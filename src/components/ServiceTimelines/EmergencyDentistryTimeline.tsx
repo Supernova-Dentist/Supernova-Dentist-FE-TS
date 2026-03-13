@@ -25,11 +25,7 @@ export const EmergencyDentistryTimeline = ({ data }: TimelineProps) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div
-      id='emergency-dentistry-timeline'
-      className='w-full bg-gradient-to-b from-cream to-white font-sans md:px-10'
-      ref={containerRef}
-    >
+    <div id='emergency-dentistry-timeline' className='w-full  font-sans md:px-10' ref={containerRef}>
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         {/* Header Section */}
         <div className='max-w-7xl mx-auto pt-6 px-4 md:px-8 lg:px-10'>

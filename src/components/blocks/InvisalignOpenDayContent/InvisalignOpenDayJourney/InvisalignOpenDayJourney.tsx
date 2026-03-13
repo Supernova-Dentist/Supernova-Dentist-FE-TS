@@ -4,36 +4,35 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import SteppedProgress from '../../../SteppedProgress/SteppedProgress';
 const stepContent = [
-    {
-      text: "Sign up.",
-      // No image for step 1
-    },
-    {
-      text: 'Choose a time that suits you and pay refundable deposit.',
-      image: '/assets/images/portal_tutorial_2.png', // Image for Step 2
-    },
-    {
-      text: 'On the Day meet Mia .',
-      image: '/assets/images/portal_tutorial_3.png', // Image for Step 3
-    },
-    {
-      text: 'Next meet Charlotte.',
-      image: '/assets/images/portal_tutorial_4.png', // Image for Step 4
-    },
-    {
-      text: 'Next Scott',
-      image: '/assets/images/portal_tutorial_5.png', // Image for Step 5
-    },
-    {
-      text: 'Finally Adam.',
-      image: '/assets/images/portal_tutorial_6.png', // Image for Step 6
-    }
-  ];
-  
+  {
+    text: 'Sign up.',
+    // No image for step 1
+  },
+  {
+    text: 'Choose a time that suits you and pay refundable deposit.',
+    image: '/assets/images/portal_tutorial_2.png', // Image for Step 2
+  },
+  {
+    text: 'On the Day meet Mia .',
+    image: '/assets/images/portal_tutorial_3.png', // Image for Step 3
+  },
+  {
+    text: 'Next meet Charlotte.',
+    image: '/assets/images/portal_tutorial_4.png', // Image for Step 4
+  },
+  {
+    text: 'Next Scott',
+    image: '/assets/images/portal_tutorial_5.png', // Image for Step 5
+  },
+  {
+    text: 'Finally Adam.',
+    image: '/assets/images/portal_tutorial_6.png', // Image for Step 6
+  },
+];
 
 export default function InvisalignOpenDayJourney() {
   return (
-    <section className='py-16 bg-gradient-to-b from-white to-cream'>
+    <section className='py-16 '>
       <div className='container mx-auto px-4 md:px-6 lg:px-8'>
         {/* Patient Portal section */}
         <div className='flex justify-center mb-4'>

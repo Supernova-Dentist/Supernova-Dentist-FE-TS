@@ -11,8 +11,6 @@ interface TeethWhiteningProcessProps {
 }
 
 export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
- 
-
   const timelineData = [
     {
       title: 'Initial Examination & Shade Discussion',
@@ -30,7 +28,6 @@ export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4 rounded-xl'
-          
           />
         </div>
       ),
@@ -51,7 +48,6 @@ export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4 rounded-xl'
-          
           />
         </div>
       ),
@@ -72,7 +68,6 @@ export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
             height={800}
             layout='responsive'
             className='max-w-[30rem] mx-auto py-4 rounded-xl'
-            
           />
         </div>
       ),
@@ -85,7 +80,7 @@ export function TeethWhiteningProcess({ id }: TeethWhiteningProcessProps) {
   });
 
   return (
-    <section ref={ref} className='w-full py-12 pt-24 bg-gradient-to-b from-cream to-white'>
+    <section ref={ref} className='w-full py-12 pt-24 '>
       <motion.div
         id={id}
         initial={{ opacity: 0, y: 20 }}

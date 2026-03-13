@@ -51,7 +51,7 @@ export const metadata = {
 export default function DentalFinance() {
   return (
     <>
-      <section className='text-left pt-20 px-4 md:pb-8 sm:px-10 bg-gradient-to-b from-white to-cream'>
+      <section className='text-left pt-20 px-4 md:pb-8 sm:px-10 '>
         <div className='flex flex-col items-center text-center'>
           <div className='flex items-center gap-3 my-6'>
             <Image src={fcaLogo} alt='FCA Logo' className='w-28 h-auto ' />

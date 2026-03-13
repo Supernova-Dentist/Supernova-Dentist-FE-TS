@@ -4,14 +4,14 @@ import FAQ from '@/components/FAQ/FAQ';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-export default function  FaqSection({ faqItems, id }: { faqItems: any; id: string }) {
+export default function FaqSection({ faqItems, id }: { faqItems: any; id: string }) {
   const { ref, inView } = useInView({
     threshold: 0.2, // Trigger when 20% of the component is in view
     triggerOnce: true, // Only play the animation once
   });
 
   return (
-    <section id={id} ref={ref} className='w-full text-gray-900 bg-gradient-to-b from-cream to-white pb-4 md:p-8'>
+    <section id={id} ref={ref} className='w-full text-gray-900  pb-4 md:p-8'>
       <div className='px-4 md:px-6 w-full'>
         <motion.div
           className='flex flex-col items-center space-y-6 text-center'

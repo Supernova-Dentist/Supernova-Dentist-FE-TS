@@ -7,7 +7,7 @@ import { stepContent } from './utils/stepContent';
 
 export default function DentallyTutorial() {
   return (
-    <section className='py-16 bg-gradient-to-b from-white to-cream'>
+    <section className='py-16 '>
       <div className='container mx-auto px-4 md:px-6 lg:px-8'>
         {/* Patient Portal section */}
         <div className='flex justify-center mb-4'>

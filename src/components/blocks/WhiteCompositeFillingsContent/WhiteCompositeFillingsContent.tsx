@@ -26,11 +26,9 @@ export default function WhiteCompositeFillingsContent() {
         formId='fillings-enquiry-form'
       />
 
-      <div className='from-cream to-white bg-gradient-to-b'>
+      <div className=''>
         <HeroSection data={fillingsHeroData} />
       </div>
-
-      
 
       {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />

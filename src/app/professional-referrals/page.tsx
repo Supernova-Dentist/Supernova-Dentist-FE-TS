@@ -1,7 +1,7 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
-import { type Metadata } from 'next';
 import { ReferralOutlineCards } from '@/components/OutlineCards/ReferralOutlineCards';
+import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Dental Referral Form | Supernova Dental, Bridgwater, Somerset',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ReferralForm() {
   return (
-    <div className='min-h-screen flex bg-gradient-to-b from-white to-cream justify-center align-middle'>
+    <div className='min-h-screen flex  justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
         <HighlightCard
           title='Professional Referrals'

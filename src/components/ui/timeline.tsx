@@ -32,7 +32,7 @@ export const Timeline = ({ data }: TimelineProps) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div id='journey' className='w-full bg-gradient-to-b from-cream to-white font-sans md:px-10' ref={containerRef}>
+    <div id='journey' className='w-full  font-sans md:px-10' ref={containerRef}>
       <motion.div
         ref={refInView}
         initial={{ opacity: 0, y: 20 }}

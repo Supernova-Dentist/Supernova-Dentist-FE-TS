@@ -25,11 +25,9 @@ export default function HygieneContent() {
         eventType='HygieneLead'
         formId='hygiene-enquiry-form'
       />
-      <div className='from-cream to-white bg-gradient-to-b'>
+      <div className=''>
         <HeroSection data={hygieneHeroData} />
       </div>
-
-      
 
       {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />

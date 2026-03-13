@@ -25,11 +25,7 @@ export const WhiteCompositFillingsTimeline = ({ data }: TimelineProps) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div
-      id='hygiene-timeline'
-      className='w-full bg-gradient-to-b from-cream to-white font-sans md:px-10'
-      ref={containerRef}
-    >
+    <div id='hygiene-timeline' className='w-full  font-sans md:px-10' ref={containerRef}>
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         {/* Header Section */}
         <div className='max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10'>
@@ -41,8 +37,8 @@ export const WhiteCompositFillingsTimeline = ({ data }: TimelineProps) => {
           </h2>
           <hr className='border-t-2 border-gold w-20 mx-auto mt-6 mb-8' />
           <p className='text-xl md:text-2xl lg:text-2xl text-center text-gray-800 max-w-[35rem] mx-auto'>
-            Improving your smile can be as easy as 1 2 3. Here&apos;s how we can help you achieve the Supernova smile you&apos;ve
-            always wanted 🌠:
+            Improving your smile can be as easy as 1 2 3. Here&apos;s how we can help you achieve the Supernova smile
+            you&apos;ve always wanted 🌠:
           </p>
         </div>
 

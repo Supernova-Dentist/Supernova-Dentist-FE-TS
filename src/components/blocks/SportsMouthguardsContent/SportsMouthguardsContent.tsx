@@ -25,10 +25,9 @@ export default function SportsMouthguardsContent() {
         eventType='SportsMouthguardsLead'
       />
 
-      <div className='from-cream to-white bg-gradient-to-b'>
+      <div className=''>
         <HeroSection data={sportsGuardsHeroData} />
       </div>
-
 
       <InfoSection id='info' data={infoData} />
       <BenefitSection id='benefits' data={benefitsData} />

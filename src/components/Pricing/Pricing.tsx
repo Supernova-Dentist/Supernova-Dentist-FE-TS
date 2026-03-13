@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import PricingCards from './PricingCards';
 import PricingTabs from './PricingTabs';
-import { useInView } from 'react-intersection-observer';
 
 export default function Pricing() {
   const [monthly, setMonthly] = useState(true);
@@ -16,11 +16,7 @@ export default function Pricing() {
   });
 
   return (
-    <section
-      id='offers'
-      ref={ref}
-      className='py-12 md:py-24 lg:py-32 mx-auto text-gray-900 bg-gradient-to-b from-white to-cream'
-    >
+    <section id='offers' ref={ref} className='py-12 md:py-24 lg:py-32 mx-auto text-gray-900 '>
       <motion.div
         className='flex justify-center flex-col items-center'
         initial={{ opacity: 0, y: 20 }}

@@ -23,10 +23,7 @@ export default function AboutSection() {
   });
 
   return (
-    <section
-      className='flex flex-col lg:flex-row-reverse bg-gradient-to-b from-cream to-white items-center justify-center'
-      ref={ref}
-    >
+    <section className='flex flex-col lg:flex-row-reverse  items-center justify-center' ref={ref}>
       {/* Text Section */}
       <motion.div
         className='w-full lg:w-1/2 p-4 max-w-prose md:p-12 flex flex-col items-center text-center lg:text-left'
@@ -39,8 +36,8 @@ export default function AboutSection() {
         <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>About Supernova Dental</h2>
         <p className='mt-4'>
           At Supernova Dental, we are a passionate team dedicated to providing the highest standard of dental care in
-          Bridgwater. Currently accepting new patients, our state-of-the-art practice blends advanced technology with
-          a personal touch to ensure a comfortable and exceptional experience for every patient.
+          Bridgwater. Currently accepting new patients, our state-of-the-art practice blends advanced technology with a
+          personal touch to ensure a comfortable and exceptional experience for every patient.
         </p>
         <Link href='/practice'>
           <Button className='mt-6 w-fit p-6'>Learn More!</Button>

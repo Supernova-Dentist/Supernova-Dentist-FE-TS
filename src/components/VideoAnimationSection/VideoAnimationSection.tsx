@@ -27,7 +27,7 @@ export function VideoAnimationSection() {
   });
 
   return (
-    <div className='min-h-[101vh] flex flex-col items-center justify-center py-12 bg-gradient-to-b from-white to-cream'>
+    <div className='min-h-[101vh] flex flex-col items-center justify-center py-12 '>
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
@@ -54,23 +54,23 @@ export function VideoAnimationSection() {
               src='https://lottie.host/embed/8e74a3ee-9028-4f2b-a61b-8c7c7d6747fd/tdbxNbutCj.json'
               className='w-full h-full'
               title='Replay animation'
-                loading='lazy'
+              loading='lazy'
             ></iframe>
           </div>
-          
+
           {/* Only load video when in view */}
           {inView && (
-          <video
-            ref={videoRef}
+            <video
+              ref={videoRef}
               src='assets/videos/invisalign-clear-braces-transformation-bridgwater.mp4'
               poster='assets/images/invisalign-clear-braces-transformation-bridgwater-poster.png'
               muted
-            autoPlay
+              autoPlay
               playsInline
-            onEnded={handleVideoEnd}
+              onEnded={handleVideoEnd}
               aria-label='Invisalign smile transformation at Supernova Dental'
               className='w-full max-w-[50rem] h-auto rounded-lg'
-          />
+            />
           )}
         </div>
 

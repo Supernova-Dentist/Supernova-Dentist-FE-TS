@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ImplantReferral() {
   return (
-    <div className='min-h-screen flex bg-gradient-to-b from-white to-cream justify-center align-middle'>
+    <div className='min-h-screen flex  justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
         <HighlightCard
           title='Dental Implant Referral'

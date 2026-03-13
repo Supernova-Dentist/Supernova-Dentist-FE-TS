@@ -18,7 +18,7 @@ export const metadata = {
 export default function DentalNurseJob() {
   return (
     <>
-      <section className='text-left pt-24 px-4 sm:px-10 bg-gradient-to-b from-white to-cream'>
+      <section className='text-left pt-24 px-4 sm:px-10 '>
         <div className='flex flex-col items-center text-center'>
           <Image src={logo} alt='Supernova Dental Logo' className='w-20 h-20 mb-4' />
           <div className='my-2'>
@@ -49,10 +49,9 @@ export default function DentalNurseJob() {
 
               <div className='flex-1'>
                 <p>
-                  Supernova Dental is a modern, growing dental practice based in{' '}
-                  <strong>Bridgwater</strong>, serving patients across <strong>Somerset</strong>.
-                  We’re known for providing high-quality patient care using advanced technology in a calm, welcoming
-                  environment.
+                  Supernova Dental is a modern, growing dental practice based in <strong>Bridgwater</strong>, serving
+                  patients across <strong>Somerset</strong>. We’re known for providing high-quality patient care using
+                  advanced technology in a calm, welcoming environment.
                 </p>
                 <p className='mt-2'>
                   Conveniently located between <strong>Taunton</strong> and <strong>Bridgwater</strong> just off the M5,

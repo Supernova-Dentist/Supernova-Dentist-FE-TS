@@ -1,9 +1,9 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
+import { type Metadata } from 'next';
+import MakeEnquirySection from './utils/MakeEnquirySection';
 import { PricingAccordion } from './utils/PricingAccordion';
 import { pricingItems } from './utils/pricingItems';
-import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
-import MakeEnquirySection from './utils/MakeEnquirySection';
-import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Dental Pricing & Affordable Care | Invisalign & Implants Bridgwater, Somerset',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function Pricing() {
   return (
-    <div className='min-h-screen flex bg-gradient-to-b from-white to-cream justify-center align-middle'>
+    <div className='min-h-screen flex  justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
         <HighlightCard
           title='Price Guide'

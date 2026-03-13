@@ -148,7 +148,7 @@ export default function PromotionForm() {
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='form' ref={ref} className='w-full py-16 md:py-32 lg:py-40 bg-gradient-to-b from-white to-cream'>
+      <section id='form' ref={ref} className='w-full py-16 md:py-32 lg:py-40 '>
         <motion.div
           initial={{ opacity: 0, y: 20 }} // Initial state for the animation
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
