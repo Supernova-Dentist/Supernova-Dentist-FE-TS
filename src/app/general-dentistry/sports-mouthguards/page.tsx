@@ -35,7 +35,7 @@ const structuredData = {
     areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
     availableLanguage: 'English',
   },
-  openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
+  openingHours: ['Mo-Fr 08:15-18:15', 'Sa 09:00-13:00'],
   serviceProvided: {
     '@type': 'MedicalProcedure',
     name: 'Custom Sports Mouthguard Fitting',

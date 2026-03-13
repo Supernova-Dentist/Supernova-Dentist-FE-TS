@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import EmergencyDentistryContent from '@/components/blocks/EmergencyDenistry/EmergencyDentistryContent';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Emergency Dentist in Bridgwater, Somerset | Supernova Dental',
@@ -42,7 +42,7 @@ const structuredData = {
       description: 'For emergency inquiries outside of regular hours, please reach us via WhatsApp.',
     },
   },
-  openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
+  openingHours: ['Mo-Fr 08:15-18:15', 'Sa 09:00-13:00'],
   serviceProvided: {
     '@type': 'MedicalProcedure',
     name: 'Emergency Dental Treatment',

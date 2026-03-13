@@ -33,7 +33,7 @@ const structuredData = {
     areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
     availableLanguage: 'English',
   },
-  openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
+  openingHours: ['Mo-Fr 08:15-18:15', 'Sa 09:00-13:00'],
   serviceProvided: {
     '@type': 'MedicalProcedure',
     name: 'Dental Implant Treatment - Including All-on-4 & Full Arch',

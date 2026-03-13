@@ -1,7 +1,7 @@
-import dynamic from 'next/dynamic';
-import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
-import FindUsInfoSection from './utils/FindUsInfoSection';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
+import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
+import dynamic from 'next/dynamic';
+import FindUsInfoSection from './utils/FindUsInfoSection';
 
 const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
@@ -49,7 +49,7 @@ const structuredData = {
     addressCountry: 'GB',
   },
   telephone: '+44 1278 228665',
-  openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
+  openingHours: ['Mo-Fr 08:15-18:15', 'Sa 09:00-13:00'],
   geo: {
     '@type': 'GeoCoordinates',
     latitude: 51.135,

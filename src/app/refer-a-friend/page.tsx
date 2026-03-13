@@ -33,7 +33,7 @@ const structuredData = {
     areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
     availableLanguage: 'English',
   },
-  openingHours: ['Mo-Th 08:15-18:15', 'Sa 09:00-13:00'],
+  openingHours: ['Mo-Fr 08:15-18:15', 'Sa 09:00-13:00'],
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',
     'https://www.instagram.com/supernova.dental/',
