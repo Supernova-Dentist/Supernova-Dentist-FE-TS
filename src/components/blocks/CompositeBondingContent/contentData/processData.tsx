@@ -22,7 +22,7 @@ export function CompositeBondingProcess({ id }: CompositeBondingProcessProps) {
             and symmetry of your smile.
           </p>
           <Image
-            src='/assets/images/invisalign_p_1.jpg'
+            src='/assets/images/composite-bonding-1.webp'
             alt='Composite bonding consultation and smile assessment'
             width={100}
             height={800}
@@ -42,7 +42,7 @@ export function CompositeBondingProcess({ id }: CompositeBondingProcessProps) {
             bonding a minimally invasive cosmetic treatment.
           </p>
           <Image
-            src='/assets/images/invisalign_p_2.jpg'
+            src='/assets/images/composite-bonding-2.webp'
             alt='Composite bonding smile design and preparation'
             width={100}
             height={800}
@@ -62,7 +62,7 @@ export function CompositeBondingProcess({ id }: CompositeBondingProcessProps) {
             natural-looking finish.
           </p>
           <Image
-            src='/assets/images/invisalign_p_1.jpg'
+            src='/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp'
             alt='Composite bonding treatment and final smile results'
             width={100}
             height={800}
