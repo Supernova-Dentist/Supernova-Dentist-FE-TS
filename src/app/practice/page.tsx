@@ -13,9 +13,9 @@ import { type Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Dental Membership Plans in Bridgwater, Somerset | Supernova Dental',
+  title: 'Dental Membership Plans in Bridgwater | Supernova Dental',
   description:
-    'Join Supernova Dental’s new practice in Bridgwater. Our dental membership plans for adults and children provide affordable, ongoing care including check-ups, hygiene visits, and emergency cover. Taking new patients—register today!',
+    'Join Supernova Dental in Bridgwater with dental membership plans for adults and children. Affordable care with check-ups, hygiene visits and emergency cover.',
   keywords:
     'dental membership plans Bridgwater, dental membership Somerset, adult dental plan Bridgwater, children dental plan Bridgwater, affordable dental care Bridgwater, Supernova Dental membership, private dentist Bridgwater, routine dental checkups Bridgwater, dental hygiene plan Bridgwater, emergency dental cover Somerset, new dentist Bridgwater, taking new patients',
 };

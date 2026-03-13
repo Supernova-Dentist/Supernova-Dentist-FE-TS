@@ -4,9 +4,9 @@ import type { Metadata } from 'next';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: 'Teeth Whitening Bridgwater, Somerset | Professional Whitening Treatments',
+  title: 'Professional Whitening Treatments at Supernova Dental',
   description:
-    'Brighten your smile with professional teeth whitening in Bridgwater, Somerset at Supernova Dental. Safe, effective, and long-lasting whitening solutions. We welcome patients from Taunton, Highbridge, Burnham-on-Sea, and nearby areas. Book your whitening consultation today!',
+    'Teeth whitening in Bridgwater, Somerset at Supernova Dental. Safe, effective treatment for a brighter smile. Book your professional whitening consultation today.',
   keywords:
     'teeth whitening Bridgwater, teeth whitening Somerset, professional whitening Bridgwater, cosmetic dentist Bridgwater, whiter teeth Somerset, stain removal Bridgwater, white dental beauty whitening Bridgwater, private dentist Somerset, teeth bleaching Bridgwater, whitening near Taunton, teeth whitening Taunton, teeth whitening Highbridge, teeth whitening Burnham-on-Sea',
 };

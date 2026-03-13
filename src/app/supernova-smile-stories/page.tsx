@@ -4,9 +4,9 @@ import type { Metadata } from 'next';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: 'Supernova Smile Stories | Transformations & Patient Journeys',
+  title: 'Patient transformations | Smile Stories | Supernova Dental',
   description:
-    'Discover real patient smile transformations at Supernova Dental. Read our Supernova Smile Stories and see how we create confident, healthy smiles in Bridgwater and Taunton.',
+    'Discover real patient smile transformations at Supernova Dental. Read how our Smile Stories create confident, healthy smiles in Bridgwater, Somerset.',
   keywords:
     'Supernova Smile Stories, smile transformations Bridgwater, smile transformations Taunton, patient journeys Bridgwater, patient journeys Taunton, cosmetic dentistry Bridgwater, cosmetic dentistry Taunton, teeth whitening, dental veneers, Invisalign stories, clear aligners stories, adult braces stories',
 };

@@ -6,9 +6,9 @@ import { type Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Cosmetic Dentistry | Supernova Dental in Bridgwater, Somerset & Surrounding Areas',
+  title: 'Cosmetic Dentistry | Bridgwater, Somerset | Supernova Dental',
   description:
-    'Enhance your smile with expert cosmetic dentistry at Supernova Dental. We provide Invisalign, dental implants, composite bonding, veneers, teeth whitening, and more. Welcoming patients from Bridgwater, Taunton, Highbridge, Burnham-on-Sea, and across Somerset.',
+    'Enhance your smile with cosmetic dentistry in Bridgwater. At Supernova Dental we offer Invisalign, dental implants, bonding, veneers and teeth whitening. ',
   keywords:
     'cosmetic dentist Bridgwater, cosmetic dentist Somerset, cosmetic dentist Taunton, Invisalign Bridgwater, dental implants Somerset, composite bonding Bridgwater, veneers Bridgwater, teeth whitening Somerset, smile makeover Somerset, Supernova Dental cosmetic treatments, private dentist Bridgwater, cosmetic dentist Highbridge, cosmetic dentist Burnham-on-Sea',
 };

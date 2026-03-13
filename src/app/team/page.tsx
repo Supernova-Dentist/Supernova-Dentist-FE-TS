@@ -4,9 +4,9 @@ import { type Metadata } from 'next';
 import TeamMemberGrid from './utils/TeamMemberGrid';
 
 export const metadata: Metadata = {
-  title: 'Meet Our Skilled Dental Team | Supernova Dental Bridgwater, Somerset',
+  title: 'Skilled Private Dental Team in Bridgwater | Supernova Dental',
   description:
-    'Meet the expert dental team at Supernova Dental in Bridgwater, Somerset. Our dentists, implantologist/oral surgeon, therapist provide personalised, compassionate care for all patients. Welcoming new patients from Bridgwater, Taunton, and beyond.',
+    'Meet the expert dental team at Supernova Dental in Bridgwater. Our dentists and specialists provide personalised, compassionate care. New patients welcome.',
   keywords: [
     'dental team Bridgwater',
     'qualified dentists Bridgwater',

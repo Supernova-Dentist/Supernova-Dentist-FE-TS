@@ -4,9 +4,9 @@ import { type Metadata } from 'next';
 import { CareerFormContent } from './utils/career-form-content';
 
 export const metadata: Metadata = {
-  title: 'Dental Jobs at Supernova Dental | Join Our Team in Bridgwater, Somerset',
+  title: 'Dental Jobs in Bridgwater, Somerset | Join Supernova Dental ',
   description:
-    'Explore dental jobs at Supernova Dental. We are looking for passionate professionals including dental nurses and treatment coordinators. Join our expert team in Bridgwater and help deliver outstanding dental care across Somerset.',
+    'Explore dental jobs at Supernova Dental in Bridgwater. Register interest to join our team delivering great care to patients across Somerset.',
   keywords:
     'dental jobs Bridgwater, dental nurse jobs Somerset, treatment coordinator jobs Bridgwater, dental careers Somerset, dentist jobs Bridgwater, Supernova Dental hiring, dental practice vacancies, join our dental team, dental jobs near Taunton, careers in dentistry Somerset',
 };

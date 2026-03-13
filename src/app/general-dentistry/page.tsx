@@ -4,9 +4,9 @@ import { GeneralDentistryOutlineCards } from '@/components/OutlineCards/GeneralD
 import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'General Dentistry | Supernova Dental in Bridgwater, Somerset',
+  title: 'General Dentistry in Bridgwater, Somerset | Supernova Dental',
   description:
-    'Explore our full range of general dentistry services at Supernova Dental in Bridgwater, Somerset, including emergency care, hygiene appointments, and routine checkups. Serving patients from Bridgwater, Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
+    'Looking for a dentist in Bridgwater? Supernova Dental provides general dentistry, including checkups, hygiene visits and emergency appointments.',
   keywords:
     'general dentistry Bridgwater, general dentistry Somerset, general dentistry Taunton, emergency dentist Bridgwater, emergency dentist Somerset, dental hygiene Bridgwater, dental hygiene Somerset, dentist checkup Bridgwater, oral health Bridgwater, routine dental care Somerset, family dentistry Bridgwater, family dentistry Somerset, Supernova Dental',
 };

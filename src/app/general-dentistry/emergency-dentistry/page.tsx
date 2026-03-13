@@ -3,9 +3,9 @@ import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import EmergencyDentistryContent from '@/components/blocks/EmergencyDenistry/EmergencyDentistryContent';
 
 export const metadata: Metadata = {
-  title: 'Emergency Dentist Bridgwater, Somerset | Same Day Dental Appointments',
+  title: 'Emergency Dentist in Bridgwater, Somerset | Supernova Dental',
   description:
-    'Need urgent help for tooth pain, infection, or a broken tooth? Supernova Dental in Bridgwater, Somerset offers same-day emergency dental appointments, tooth extractions, and fast relief. We also welcome patients from nearby Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
+    'Emergency dentist in Bridgwater. Supernova Dental offers same-day appointments for tooth pain, infection or broken teeth. Fast relief for urgent dental problems.',
   keywords:
     'emergency dentist Bridgwater, emergency dentist Somerset, tooth pain Bridgwater, tooth extraction Bridgwater, tooth infection Somerset, emergency dental care Bridgwater, urgent dentist Bridgwater, broken tooth Bridgwater, same day dental appointment Bridgwater, Saturday dental appointments Bridgwater, Supernova Dental emergency dentist, emergency dentist Taunton, emergency dentist Highbridge, emergency dentist Burnham-on-Sea',
 };

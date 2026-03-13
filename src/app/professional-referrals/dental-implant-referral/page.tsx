@@ -4,9 +4,9 @@ import { type Metadata } from 'next';
 import { ImplantReferralFormContent } from './utils/implant-form-content';
 
 export const metadata: Metadata = {
-  title: 'Dental Implant Referral | Supernova Dental, Bridgwater, Somerset',
+  title: 'Dental Implant Referral in Bridgwater | Supernova Dental',
   description:
-    'Refer your patients for expert dental implant treatment at Supernova Dental in Bridgwater. Trusted care, advanced implantology, and seamless referral process for restoring smiles.',
+    'Refer patients for dental implants at Supernova Dental in Bridgwater. Implant care, advanced techniques and a simple referral process for restoring smiles.',
   keywords:
     'dental implant referral Bridgwater, implant dentist Somerset, refer patient for dental implants, implantology referral Somerset, Supernova Dental implants, dental restoration referral, missing teeth Bridgwater, tooth replacement Somerset, implant referral dentist, implant treatment Bridgwater',
 };

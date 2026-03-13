@@ -4,9 +4,9 @@ import { type Metadata } from 'next';
 import { InvisalignReferralFormContent } from '../invisalign-referral/utils/invisalign-referral-form-content';
 
 export const metadata: Metadata = {
-  title: 'Invisalign Referral Form | Supernova Dental, Bridgwater, Somerset',
+  title: 'Invisalign Referral Form | Bridgwater | Supernova Dental',
   description:
-    'Refer your patients for Invisalign treatment at Supernova Dental in Bridgwater, Somerset. Professional, fast, and seamless referrals for outstanding orthodontic care.',
+    'Refer patients for Invisalign treatment at Supernova Dental in Bridgwater, Somerset. Fast, simple referrals for expert orthodontic care.',
   keywords:
     'Invisalign referral Bridgwater, Invisalign dentist Somerset, refer patient for Invisalign, Invisalign provider Bridgwater, orthodontic referral Somerset, clear aligners Bridgwater, Invisalign Supernova Dental, Invisalign treatment referral, dental referral for Invisalign, Somerset orthodontics, orthodontic patient referral',
 };

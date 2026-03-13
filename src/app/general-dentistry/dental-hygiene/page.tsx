@@ -3,9 +3,9 @@ import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Dental Hygiene & Teeth Cleaning in Bridgwater, Somerset | Supernova Dental',
+  title: 'Dental Hygiene & Teeth Cleaning | Private | Supernova Dental',
   description:
-    'Looking for professional dental hygiene and teeth cleaning in Bridgwater, Somerset? Keep your smile fresh and healthy with expert dental care at Supernova Dental. Serving patients from Bridgwater and surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.',
+    'Dental hygiene and teeth cleaning in Somerset at Supernova Dental. Keep your smile healthy with expert hygiene care. Serving Bridgwater and nearby areas.',
   keywords:
     'dental hygiene Bridgwater, dental hygiene Somerset, teeth cleaning Bridgwater, teeth cleaning Somerset, professional teeth cleaning Bridgwater, private dental hygiene Bridgwater, gum disease prevention Bridgwater, plaque removal Bridgwater, tartar removal Bridgwater, oral health Somerset, fresh breath treatment Bridgwater, scale and polish Bridgwater, healthy gums Bridgwater, dental hygienist Bridgwater, stain removal teeth Bridgwater, preventative dentistry Bridgwater, Supernova Dental hygiene',
 };

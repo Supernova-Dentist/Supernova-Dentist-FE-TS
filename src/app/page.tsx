@@ -18,9 +18,9 @@ import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoA
 import Head from 'next/head';
 
 export const metadata = {
-  title: 'Private Dentist Bridgwater, Somerset | Cosmetic & General Dentistry',
+  title: 'Private Dentist in Bridgwater, Somerset | Supernova Dental',
   description:
-    'Supernova Dental provides high-quality private dental care in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants, same-day appointments, and flexible payment plans. Accepting patients from Bridgwater, Taunton, and surrounding areas.',
+    'Private dentist in Bridgwater, Somerset. Supernova Dental offers cosmetic and general dentistry, dental implants and flexible payment options for new patients.',
   keywords:
     'private dentist Bridgwater, new dentist bridgwater, taking new patients, cosmetic dentist Bridgwater, general dentist Bridgwater, dental implants Somerset, same-day dental appointments Bridgwater, dental payment plans, emergency dentist Bridgwater, cosmetic dentistry Somerset, dental care near Taunton',
   openGraph: {

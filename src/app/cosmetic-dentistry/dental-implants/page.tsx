@@ -3,9 +3,9 @@ import DentalImplantsContent from '@/components/blocks/DentalImplantsContent/Den
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Dental Implants in Bridgwater, Somerset | All-on-4 & Full Arch Specialists',
+  title: 'Dental Implants | All-on-4 & Full Arch | Supernova Dental',
   description:
-    'Missing teeth? Supernova Dental in Bridgwater, Somerset offers expert dental implants, including All-on-4 and full arch solutions. Enjoy natural-looking, long-term teeth replacements—book your consultation today.',
+    'Replace missing teeth with dental implants at Supernova Dental in Bridgwater. We offer All-on-4 and full arch solutions with natural-looking results. Book today!',
   keywords:
     'dental implants Bridgwater Somerset, All-on-4 Bridgwater, full arch implants Somerset, implant dentist Bridgwater, tooth replacement Somerset, long-term teeth replacement Bridgwater, dental implants near Taunton, Supernova Dental implants, missing teeth solution Somerset, All-on-4 Taunton, best dental implants Bridgwater',
 };

@@ -8,9 +8,9 @@ const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMa
 });
 
 export const metadata = {
-  title: 'Find Supernova Dental | Dentist Bridgwater, Somerset',
+  title: 'Find a Private Dentist in Bridgwater | Supernova Dental',
   description:
-    'Plan your visit to Supernova Dental in Bridgwater, Somerset. View our address, contact details, opening hours, parking information, and locate us on the map. Taking new patients.',
+    'Plan your visit to Supernova Dental in Bridgwater. View our address, contact details, opening hours, parking info and find us on the map. New patients welcome.',
   keywords: [
     'dentist Bridgwater',
     'Supernova Dental',

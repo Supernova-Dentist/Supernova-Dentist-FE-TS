@@ -4,9 +4,9 @@ import { type Metadata } from 'next';
 import { EnquiryFormContent } from './utils/enquiry-form-content';
 
 export const metadata: Metadata = {
-  title: 'Contact Supernova Dental | Your Trusted Dental Practice in Bridgwater, Somerset',
+  title: 'Private Dentist in Bridgwater | Contact Us | Supernova Dental',
   description:
-    'Have questions or need more details about our dental services? Get in touch with Supernova Dental in Bridgwater, Somerset for professional advice, consultations, and appointments.',
+    'Contact Supernova Dental in Bridgwater, Somerset to book an appointment, arrange a consultation or get professional advice from our friendly dental team.',
   keywords:
     'contact Supernova Dental, dental enquiries Bridgwater, dentist contact Bridgwater, dental practice Bridgwater, dental consultation Somerset, get in touch with dentist, contact a dentist Bridgwater, dental services Somerset, dentist appointment Bridgwater, trusted dentist Bridgwater, Supernova Dental contact, dental assistance Bridgwater',
 };
