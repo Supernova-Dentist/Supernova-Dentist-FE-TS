@@ -1,7 +1,9 @@
+import { CosmeticDentistryJourney } from '@/components/blocks/CosmeticDentistryJourney/CosmeticDentistryJourney';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import { CosmeticDentistryOutlineCards } from '@/components/OutlineCards/CosmeticDentistryOutlineCards';
 import { type Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Cosmetic Dentistry | Supernova Dental in Bridgwater, Somerset & Surrounding Areas',
@@ -13,22 +15,55 @@ export const metadata: Metadata = {
 
 export default function CosmeticDentistryPage() {
   return (
-    <div className='min-h-screen flex bg-gradient-to-b from-white to-cream justify-center align-middle'>
-      <div className='container mx-auto py-24 px-8'>
+    <div className='min-h-screen flex  justify-center align-middle'>
+      <div className='container mx-auto py-16 md:py-24 md:px-8'>
+        <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
+          <BreadCrumb />
+        </div>
         <HighlightCard
-          title='Explore Cosmetic Dentistry'
-          description='We offer expert cosmetic dental treatments including Invisalign, dental implants, composite bonding, veneers, and teeth whitening for patients from Bridgwater, Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.'
+          title='Cosmetic Dentistry in Bridgwater for Expert Smile Makeovers'
+          description={
+            <>
+              <p>
+                Your smile is often the first thing people notice, and feeling confident about it can make a real
+                difference in everyday life.{' '}
+              </p>
+
+              <p>
+                At Supernova Dental in Bridgwater, we offer a range of cosmetic dentistry treatments designed to enhance
+                and transform your smile. From discreet teeth straightening with{' '}
+                <Link href='/cosmetic-dentistry/invisalign' className='underline text-gold hover:text-lightGold'>
+                  Invisalign
+                </Link>{' '}
+                to restoring missing teeth with natural-looking{' '}
+                <Link href='/cosmetic-dentistry/dental-implants' className='underline text-gold hover:text-lightGold'>
+                  dental implants
+                </Link>
+                , our team creates personalised treatment plans to suit your lifestyle and goals.{' '}
+              </p>
+
+              <p>
+                {' '}
+                We also offer professional{' '}
+                <Link href='/cosmetic-dentistry/teeth-whitening' className='underline text-gold hover:text-lightGold'>
+                  teeth whitening
+                </Link>{' '}
+                and other cosmetic treatments delivered by our experienced{' '}
+                <Link href='/team' className='underline text-gold hover:text-lightGold'>
+                  dental team
+                </Link>{' '}
+                to help you achieve a brighter, more confident smile.
+              </p>
+            </>
+          }
           logoSrc='/favicon.ico'
         />
 
         <div className='p-4 md:px-6 pb-10 flex flex-col justify-start mx-auto max-w-5xl md:max-w-6xl lg:max-w-7xl'>
-          <BreadCrumb />
-
-          <h2 className='text-md md:text-xl lg:text-2xl leading-tight text-center tracking-tight font-bold text-gold mt-4'>
-            Cosmetic Dentistry Services
+          <h2 className='text-xl md:text-2xl lg:text-3xl leading-tight text-center tracking-tight font-bold text-gold mt-4'>
+            Our cosmetic dental treatments
           </h2>
-
-          <CosmeticDentistryOutlineCards />
+          <CosmeticDentistryJourney />
         </div>
       </div>
     </div>
