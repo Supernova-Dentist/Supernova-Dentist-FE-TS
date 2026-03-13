@@ -1,5 +1,3 @@
-'use client';
-
 import SectionSpacing from '@/components/SectionSpacing/SectionSpacing';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import SubHeader from '@/components/SubHeader/SubHeader';
@@ -18,7 +16,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className='min-h-screen bg-gray-100'>
       {/* Page Header */}
-      <div className='bg-grey py-20 flex flex-col items-center justify-end'>
+      <div className='bg-grey py-24 flex flex-col items-center justify-end'>
         <Image src={logo} alt='logo' className='w-16 h-16 object-cover mt-2' />
         <SectionTitle title='Privacy Policy' className='text-2xl' />
       </div>
