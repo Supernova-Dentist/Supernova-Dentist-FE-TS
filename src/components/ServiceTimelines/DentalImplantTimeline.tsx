@@ -2,6 +2,7 @@
 
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 import React, { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -32,11 +33,7 @@ export const DentalImplantTimeline = ({ data }: TimelineProps) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div
-      id='dental-implant-timeline'
-      className='w-full  font-sans md:px-10'
-      ref={containerRef}
-    >
+    <div id='dental-implant-timeline' className='w-full  font-sans md:px-10' ref={containerRef}>
       <motion.div
         ref={refInView}
         initial={{ opacity: 0, y: 20 }}
@@ -102,12 +99,11 @@ export const DentalImplantTimeline = ({ data }: TimelineProps) => {
         </div>
 
         <div className='flex justify-center pb-6'>
-          <button
-            onClick={scrollToPromotionForm}
-            className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
-          >
-            Begin Your Journey!
-          </button>
+          <Link href={`/enquiry?ref=${encodeURIComponent('cosmetic-dentistry/dental-implants')}`}>
+            <button className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'>
+              Begin Your Journey!
+            </button>
+          </Link>
         </div>
       </motion.div>
     </div>

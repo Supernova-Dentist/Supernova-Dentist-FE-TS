@@ -2,6 +2,7 @@
 
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 import React, { useRef } from 'react';
 
 interface TimelineEntry {
@@ -68,12 +69,9 @@ export const TeethWhiteningTimeline = ({ data }: TimelineProps) => {
       </div>
 
       <div className='flex justify-center mb-6 py-6'>
-        <button
-          onClick={scrollToPromotionForm}
-          className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
-        >
-          Begin Your Journey!
-        </button>
+        <Link href={`/enquiry?ref=${encodeURIComponent('cosmetic-dentistry/teeth-whitening')}`}>
+          <button className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'>Begin Your Journey!</button>
+        </Link>
       </div>
     </div>
   );
