@@ -20,7 +20,7 @@ const EnquiryButton = ({ referringPage }: Props) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className='sticky bottom-5 mb-8 flex justify-center z-10'
+      className='sticky bottom-10 mb-8 flex justify-center z-10'
     >
       <div className='flex justify-center mx-auto'>
         <Link
