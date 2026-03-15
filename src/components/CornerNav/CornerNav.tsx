@@ -338,6 +338,7 @@ const LINKS = [
     subLinks: [
       // { title: 'Invisalign Open Day', href: '/invisalign-open-day' },
       { title: 'Explore General Dentistry', href: '/general-dentistry' },
+      { title: 'New Patient Examination', href: '/general-dentistry/new-patient-examination' },
       { title: 'Emergency Dentistry', href: '/general-dentistry/emergency-dentistry' },
       { title: 'White Composite Fillings', href: '/general-dentistry/white-composite-fillings' },
       { title: 'Dental Therapist', href: '/general-dentistry/dental-therapist' },

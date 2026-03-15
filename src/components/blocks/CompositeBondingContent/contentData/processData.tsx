@@ -17,7 +17,7 @@ export function CompositeBondingProcess({ id }: CompositeBondingProcessProps) {
       content: (
         <div className='px-12 py-8'>
           <p className='text-sm md:text-md lg:text-lg font-normal mb-8'>
-            Your composite bonding journey begins with a consultation where we assess your teeth and discuss the changes
+            Your composite bonding journey begins with an examination where we assess your teeth and discuss the changes
             you would like to make. This may include repairing chipped teeth, closing small gaps, or improving the shape
             and symmetry of your smile.
           </p>
@@ -37,9 +37,9 @@ export function CompositeBondingProcess({ id }: CompositeBondingProcessProps) {
       content: (
         <div className='px-12 py-8'>
           <p className='text-sm md:text-md lg:text-lg font-normal mb-8'>
-            Your dentist carefully plans the shape and appearance of your new smile. A tooth-coloured composite resin is
-            selected to match your natural teeth. In most cases, little to no drilling is required, making composite
-            bonding a minimally invasive cosmetic treatment.
+            We carefully plan the shape and appearance of your new smile. A tooth-coloured composite resin is selected
+            to match your natural teeth. In most cases, little to no drilling is required, making composite bonding a
+            minimally invasive cosmetic treatment.
           </p>
           <Image
             src='/assets/images/composite-bonding-2.webp'

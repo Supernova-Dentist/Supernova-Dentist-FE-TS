@@ -258,6 +258,13 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- New Patient Examination -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/general-dentistry/new-patient-examination</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <!-- Emergency Dentistry Pages -->
   <url>
     <loc>https://www.supernovadental.co.uk/general-dentistry/emergency-dentistry</loc>

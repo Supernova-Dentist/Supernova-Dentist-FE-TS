@@ -8,6 +8,7 @@ const urlToReadableMap: { [key: string]: string } = {
   'general-dentistry/dental-therapist': 'Dental Therapist',
   'general-dentistry/dental-hygiene': 'Dental Hygiene',
   'general-dentistry/sports-mouthguards': 'Sports Mouthguards',
+  'general-dentistry/new-patient-examination': 'New Patient Examination',
   'cosmetic-dentistry/composite-bonding': 'Composite Bonding',
   'cosmetic-dentistry/teeth-whitening': 'Teeth Whitening',
   'cosmetic-dentistry/dental-implants': 'Dental Implants',

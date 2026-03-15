@@ -40,6 +40,7 @@ export const practiceInfo = [
   { name: 'Home', link: '/' },
   { name: 'Practice', link: '/practice' },
   // { name: 'Invisalign Open Day', link: '/invisalign-open-day' },
+  { name: 'New Patient Examination', link: '/general-dentistry/new-patient-examination' },
   { name: 'Emergency Dentistry', link: '/general-dentistry/emergency-dentistry' },
   { name: 'Dental Implants', link: '/cosmetic-dentistry/dental-implants' },
   // { name: 'Invisalign Open Day', link: '/cosmetic-dentistry/invisalign-open-day' },
@@ -65,6 +66,10 @@ export const generalServices = [
   {
     name: 'Explore General Dentistry',
     link: '/general-dentistry',
+  },
+  {
+    name: 'New Patient Examination',
+    link: '/general-dentistry/new-patient-examination',
   },
   {
     name: 'Emergency Dentistry',
