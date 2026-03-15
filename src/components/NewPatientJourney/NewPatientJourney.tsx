@@ -33,9 +33,9 @@ export function NewPatientJourney({ id }: { id: string }) {
       content: (
         <div className='px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            During the examination, your dentist checks your teeth, gums, bite, and overall oral health. Digital scans
-            or X-rays may be used to detect hidden issues such as cavities, gum disease, or early signs of other dental
-            problems.
+            During the examination, your teeth, gums, bite, and overall oral health will be thoroughly assessed. Digital
+            scans or X-rays may be used to detect hidden issues such as cavities, gum disease, or early signs of other
+            dental problems.
           </p>
           <Image
             src={ExaminationImage}

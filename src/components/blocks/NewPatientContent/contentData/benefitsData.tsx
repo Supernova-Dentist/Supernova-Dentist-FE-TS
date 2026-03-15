@@ -11,7 +11,7 @@ export default {
       id: 1,
       icon: <GiStethoscope className='h-12 w-12 text-gold' />,
       header: 'Comprehensive Assessment',
-      text: 'Our dentists check your teeth, gums, bite, and overall oral health to identify any existing or potential issues early.',
+      text: 'Our clinicians check your teeth, gums, bite, and overall oral health to identify any existing or potential issues early.',
     },
     {
       id: 2,
