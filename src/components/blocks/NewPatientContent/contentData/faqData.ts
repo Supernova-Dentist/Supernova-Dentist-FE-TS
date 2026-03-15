@@ -2,17 +2,17 @@ export const faqItems: FAQItem[] = [
   {
     question: 'What happens during a new patient dental examination?',
     answer:
-      'During your first visit, the dentist will assess your teeth, gums, bite, and overall oral health. They may take digital scans or X-rays if needed and will discuss your dental history and any concerns. At the end, you’ll receive a personalised treatment plan tailored to your needs.',
+      'During your first visit, we will assess your teeth, gums, bite, and overall oral health. We may take digital scans or X-rays if needed and will discuss your dental history and any concerns. At the end, you’ll receive a personalised treatment plan tailored to your needs.',
   },
   {
     question: 'Why should I book a new patient examination?',
     answer:
-      'A new patient check-up helps establish a baseline for your oral health, detects any issues early, and allows your dentist to create a customised care plan. It’s the best way to prevent future problems and keep your smile healthy.',
+      'A new patient check-up helps establish a baseline for your oral health, detects any issues early, and allows us to create a customised care plan. It’s the best way to prevent future problems and keep your smile healthy.',
   },
   {
     question: 'Do I need X-rays during my first visit?',
     answer:
-      'X-rays may be recommended if the dentist needs to assess areas not visible during a visual exam, check for cavities, or monitor bone health. They are quick, safe and provide valuable information for your personalised treatment plan.',
+      'X-rays may be recommended if we needs to assess areas not visible during a visual exam, check for cavities, or monitor bone health. They are quick, safe and provide valuable information for your personalised treatment plan.',
   },
   {
     question: 'How long does a new patient dental examination take?',
@@ -22,7 +22,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Is a new patient examination suitable for children?',
     answer:
-      'Yes! Our new patient examinations are suitable for all ages. For children, the dentist will assess teeth development, bite, oral hygiene habits, and provide guidance for healthy dental care.',
+      'Yes! Our new patient examinations are suitable for all ages. For children, we will assess teeth development, bite, oral hygiene habits, and provide guidance for healthy dental care.',
   },
   {
     question: 'Do I need to bring anything to my first appointment?',
