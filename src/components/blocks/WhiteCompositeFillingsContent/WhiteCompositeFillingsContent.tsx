@@ -16,31 +16,33 @@ import { tableData } from './contentData/tableData';
 export default function WhiteCompositeFillingsContent() {
   return (
     <>
-      <ServiceForm
-        serviceName='White Composite Fillings Journey'
-        serviceChip='Natural-Looking Tooth Restoration'
-        serviceDescription='Restore damaged or decayed teeth with durable, tooth-coloured white composite fillings that blend seamlessly with your natural smile.'
-        formTitle='Book Your White Composite Filling Appointment'
-        formDescription='Schedule an appointment with our experienced clinicians for natural-looking, long-lasting composite fillings.'
-        eventType='FillingsLead'
-        formId='fillings-enquiry-form'
-      />
+      <div className='container mx-auto py-16 md:py-24 md:px-8'>
+        <ServiceForm
+          serviceName='White Composite Fillings Journey'
+          serviceChip='Natural-Looking Tooth Restoration'
+          serviceDescription='Restore damaged or decayed teeth with durable, tooth-coloured white composite fillings that blend seamlessly with your natural smile.'
+          formTitle='Book Your White Composite Filling Appointment'
+          formDescription='Schedule an appointment with our experienced clinicians for natural-looking, long-lasting composite fillings.'
+          eventType='FillingsLead'
+          formId='fillings-enquiry-form'
+        />
 
-      <div className=''>
-        <HeroSection data={fillingsHeroData} />
-      </div>
+        <div className=''>
+          <HeroSection data={fillingsHeroData} />
+        </div>
 
-      {/* <div className='sticky top-24 z-10'>
+        {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />
       </div> */}
 
-      <InfoSection id='info' data={infoData} />
-      <BenefitSection id='benefits' data={benefitsData} />
+        <InfoSection id='info' data={infoData} />
+        <BenefitSection id='benefits' data={benefitsData} />
 
-      <WhiteCompositeFillingJourney id='journey' />
+        <WhiteCompositeFillingJourney id='journey' />
 
-      <ComparisonSection id='comparison' data={tableData} />
-      <FaqSection id='faq' faqItems={faqItems} />
+        <ComparisonSection id='comparison' data={tableData} />
+        <FaqSection id='faq' faqItems={faqItems} />
+      </div>
     </>
   );
 }

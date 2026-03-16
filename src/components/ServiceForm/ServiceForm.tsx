@@ -178,17 +178,17 @@ export default function ServiceForm({
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='form' ref={ref} className='w-full pt-28 px-4  min-h-screen flex items-center justify-center'>
+      <section id='form' ref={ref} className='w-full px-4 min-h-[calc(100vh-96px)] flex justify-center pt-6'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
           <BreadCrumb />
-          <div className='container max-w-[1250px] mx-auto pt-20 lg:grid lg:grid-cols-2 lg:space-x-12 items-center'>
+          <div className='container max-w-[1250px] mx-auto pt-4 lg:pt-0 lg:grid lg:grid-cols-2 lg:space-x-12 items-center'>
             <div className='text-center lg:text-left space-y-6'>
               <div className='bg-grey px-4 py-2 text-md text-gray-50 rounded-lg inline-block'>{serviceChip}</div>
-              <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl max-w-[32rem] mx-auto'>
+              <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl md:text-5xl max-w-[32rem] mx-auto'>
                 Start Your {serviceName}
               </h2>
               <p className='text-muted-foreground md:text-2xl max-w-[32rem] mx-auto pb-4'>{serviceDescription}</p>
@@ -224,7 +224,7 @@ export default function ServiceForm({
             </div>
             <Card className='max-h-[52rem] m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 flex items-center justify-center'>
               <form id={formId} onSubmit={handleSubmit(onSubmit)}>
-                <CardHeader className='text-center mb-4'>
+                <CardHeader className='text-center mb-2'>
                   <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
                   <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>
                 </CardHeader>
@@ -288,23 +288,24 @@ export default function ServiceForm({
                         onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                       />
                       <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
-                        I don’t want to receive emails about Supernova Dental and related Supernova Dental updates and
-                        promotions. By not checking the box, I agree to be opted in by default.
+                        Check to opt out of Supernova Dental email updates and promotions.
                       </Label>
                     </div>
                     {errors.optOutEmails && (
                       <p className='text-red-500 leading-none text-sm'>{errors.optOutEmails?.message}</p>
                     )}
                   </div>
-                  <p>By signing up, you ackowledge and agree to our</p>
-                  <Button
-                    type='button'
-                    variant='link'
-                    className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition mb-4 sm:mb-0'
-                    onClick={handlePrivacyModalOpen}
-                  >
-                    Privacy Policy
-                  </Button>
+                  <span className='flex items-center gap-1'>
+                    <span className='text-sm'>By signing up, you agree to our</span>
+                    <Button
+                      type='button'
+                      variant='link'
+                      className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition'
+                      onClick={handlePrivacyModalOpen}
+                    >
+                      Privacy Policy
+                    </Button>
+                  </span>
                 </CardContent>
                 <CardFooter>
                   <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>

@@ -16,29 +16,31 @@ import { tableData } from './contentData/tableData';
 export default function HygieneContent() {
   return (
     <>
-      <ServiceForm
-        serviceName='Dental Hygiene Journey'
-        serviceChip='Guided Hygiene Journey'
-        serviceDescription='Maintain a healthy smile with professional teeth cleaning and gum disease prevention treatments.'
-        formTitle='Register For A Dental Hygiene Appointment'
-        formDescription='Register now for a professional hygiene appointment with our expert team, ensuring your teeth stay clean and your gums healthy.'
-        eventType='HygieneLead'
-        formId='hygiene-enquiry-form'
-      />
-      <div className=''>
-        <HeroSection data={hygieneHeroData} />
-      </div>
+      <div className='container mx-auto py-16 md:py-24 md:px-8'>
+        <ServiceForm
+          serviceName='Dental Hygiene Journey'
+          serviceChip='Guided Hygiene Journey'
+          serviceDescription='Maintain a healthy smile with professional teeth cleaning and gum disease prevention treatments.'
+          formTitle='Register For A Dental Hygiene Appointment'
+          formDescription='Register now for a professional hygiene appointment with our expert team, ensuring your teeth stay clean and your gums healthy.'
+          eventType='HygieneLead'
+          formId='hygiene-enquiry-form'
+        />
+        <div className=''>
+          <HeroSection data={hygieneHeroData} />
+        </div>
 
-      {/* <div className='sticky top-24 z-10'>
+        {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />
       </div> */}
-      <InfoSection id='info' data={infoData} />
-      <BenefitSection id='benefits' data={benefitsData} />
+        <InfoSection id='info' data={infoData} />
+        <BenefitSection id='benefits' data={benefitsData} />
 
-      <HygieneJourney id='journey' />
+        <HygieneJourney id='journey' />
 
-      <ComparisonSection id='comparison' data={tableData} />
-      <FaqSection id='faq' faqItems={faqItems} />
+        <ComparisonSection id='comparison' data={tableData} />
+        <FaqSection id='faq' faqItems={faqItems} />
+      </div>
     </>
   );
 }

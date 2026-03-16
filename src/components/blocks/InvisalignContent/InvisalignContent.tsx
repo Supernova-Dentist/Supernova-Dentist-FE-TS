@@ -17,32 +17,34 @@ import { tableData } from './contentData/tableData';
 export default function InvisalignContent() {
   return (
     <>
-      <ServiceForm
-        serviceName='Invisalign Journey'
-        serviceChip='Free Invisalign Consultation'
-        serviceDescription='Get a personalised Invisalign treatment plan in Bridgwater and discover how clear aligners can transform your smile.'
-        formTitle='Register for your Free Invisalign Consultation'
-        formDescription='Register now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
-        imgSrc='/assets/images/invisalign-supernova-dental-bridgwater-somerset.webp'
-        eventType='InvisalignLead'
-        formId='invisalign-enquiry-form'
-      />
+      <div className='container mx-auto py-16 md:py-24 md:px-8'>
+        <ServiceForm
+          serviceName='Invisalign Journey'
+          serviceChip='Free Invisalign Consultation'
+          serviceDescription='Get a personalised Invisalign treatment plan in Bridgwater and discover how clear aligners can transform your smile.'
+          formTitle='Register for your Free Invisalign Consultation'
+          formDescription='Register now for a no-obligation consultation with our expert team, and take the first step towards your perfect smile with Invisalign clear aligners.'
+          // imgSrc='/assets/images/invisalign-supernova-dental-bridgwater-somerset.webp'
+          eventType='InvisalignLead'
+          formId='invisalign-enquiry-form'
+        />
 
-      <div className=''>
-        <HeroSection data={invisalignHeroData} />
-        <InvisalignSmileView id='smileView' />
-      </div>
+        <div className=''>
+          <HeroSection data={invisalignHeroData} />
+          <InvisalignSmileView id='smileView' />
+        </div>
 
-      {/* <div className='sticky top-24 z-10'>
+        {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />
       </div> */}
-      <InfoSection id='info' data={infoData} />
-      <BenefitSection id='benefits' data={benefitsData} />
+        <InfoSection id='info' data={infoData} />
+        <BenefitSection id='benefits' data={benefitsData} />
 
-      <InvisalignJourney id='journey' />
+        <InvisalignJourney id='journey' />
 
-      <ComparisonSection id='comparison' data={tableData} />
-      <FaqSection id='faq' faqItems={faqItems} />
+        <ComparisonSection id='comparison' data={tableData} />
+        <FaqSection id='faq' faqItems={faqItems} />
+      </div>
     </>
   );
 }
