@@ -16,9 +16,20 @@ export default function CompositeBondingContent() {
   return (
     <>
       <div className='container mx-auto py-16 md:py-24 md:px-8'>
-        <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
+        {/* <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
           <BreadCrumb />
-        </div>
+        </div> */}
+
+        <ServiceForm
+          serviceName='Composite Bonding in Somerset – Transform Your Smile'
+          serviceChip='Composite Bonding'
+          serviceDescription='Enhance your smile with expertly placed composite bonding at Supernova Dental in Bridgwater, Somerset. Ideal for repairing chips, closing small gaps, and improving tooth shape and colour.'
+          formTitle='Register interest for Composite Bonding'
+          formDescription='Come see our cosmetic dental team so we can show you how composite bonding can quickly and conservatively transform your smile.'
+          // imgSrc='/assets/images/composite-bonding-supernova-dental-bridgwater.webp'
+          formId='composite-bonding-enquiry-form'
+          eventType='CompositeBondingLead'
+        />
         <HighlightCard title='Start Your Composite Bonding Journey Today' logoSrc='/favicon.ico' />
 
         <CompositeBondingIntroSection />

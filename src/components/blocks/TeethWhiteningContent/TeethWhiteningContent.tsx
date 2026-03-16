@@ -19,22 +19,20 @@ export default function TeethWhiteningContent() {
   return (
     <>
       <div className='container mx-auto py-16 md:py-24 md:px-8'>
-         <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
-          <BreadCrumb />
-        </div>
+        <ServiceForm
+          serviceName='Teeth Whitening'
+          serviceChip='Bespoke Whitening Treatment Plan'
+          serviceDescription='Brighten your smile safely with professional teeth whitening in Bridgwater, Somerset.'
+          formTitle='Get Your Bespoke Teeth Whitening Treatment Plan'
+          formDescription='Tell us your goals and let our expert cosmetic dental team design a safe, effective whitening plan tailored to you. Achieve a naturally brighter smile with Supernova Dental.'
+          eventType='TeethWhiteningLead'
+          // imgSrc='/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp'
+          formId='teeth-whitening-enquiry-form'
+        />
+        
         <HighlightCard title='Your Teeth Whitening Journey Starts Here' logoSrc='/favicon.ico' />
 
         <TeethWhiteningIntroSection />
-        {/* <ServiceForm
-        serviceName='Teeth Whitening'
-        serviceChip='Bespoke Whitening Treatment Plan'
-        serviceDescription='Brighten your smile safely with professional teeth whitening in Bridgwater, Somerset.'
-        formTitle='Get Your Bespoke Teeth Whitening Treatment Plan'
-        formDescription='Tell us your goals and let our expert cosmetic dental team design a safe, effective whitening plan tailored to you. Achieve a naturally brighter smile with Supernova Dental.'
-        eventType='TeethWhiteningLead'
-        imgSrc='/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp'
-        formId='teeth-whitening-enquiry-form'
-      /> */}
 
         {/* <div className=''>
         <HeroSection data={teethWhiteningHeroData} />

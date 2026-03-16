@@ -21,23 +21,23 @@ export default function DentalImplantsContent() {
   return (
     <>
       <div className='container mx-auto py-16 md:py-24 md:px-8'>
-         <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
+        <ServiceForm
+          serviceName='Dental Implants Journey – Full-Arch (All-on-4) in Somerset'
+          serviceChip='Dental Implant Consultation'
+          serviceDescription='Discover single-tooth implants and advanced full-arch solutions such as All-on-4 delivered by our experienced implantologist at Supernova Dental in Bridgwater, Somerset.'
+          formTitle='Register for your Dental Implant Consultation'
+          formDescription='Book a no-obligation consultation with our expert implantologist, and explore single implants or full-arch options like All-on-4 for a permanent, natural-looking smile.'
+          // imgSrc='/assets/images/dental-implants-supernova-dental-bridgwater.webp'
+          formId='implants-enquiry-form'
+          eventType='DentalImplantsLead'
+        />
+        {/* <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
           <BreadCrumb />
-        </div>
+        </div> */}
         <HighlightCard title='Transform Your Smile with Dental Implants' logoSrc='/favicon.ico' />
 
         <DentalImplantsIntroSection />
 
-        {/* <ServiceForm
-        serviceName='Dental Implants Journey – Full-Arch (All-on-4) in Somerset'
-        serviceChip='Dental Implant Consultation'
-        serviceDescription='Discover single-tooth implants and advanced full-arch solutions such as All-on-4 delivered by our experienced implantologist at Supernova Dental in Bridgwater, Somerset.'
-        formTitle='Register for your Dental Implant Consultation'
-        formDescription='Book a no-obligation consultation with our expert implantologist, and explore single implants or full-arch options like All-on-4 for a permanent, natural-looking smile.'
-        imgSrc='/assets/images/dental-implants-supernova-dental-bridgwater.webp'
-        formId='implants-enquiry-form'
-        eventType='DentalImplantsLead'
-      /> */}
         {/* <div className='bg-cream'>
         <SaraSection />
       </div> */}

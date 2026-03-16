@@ -19,9 +19,19 @@ export default function NewPatientContent() {
   return (
     <>
       <div className='container mx-auto py-16 md:py-24 md:px-8'>
-        <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
+        {/* <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
           <BreadCrumb />
-        </div>
+        </div> */}
+        <ServiceForm
+          serviceName='Patient Journey With A New Patient Dental Examination'
+          serviceChip='New Patient Examination'
+          serviceDescription='Join Supernova Dental in Bridgwater with a comprehensive new patient dental examination. Our team will assess your oral health, discuss any concerns, and create a personalised treatment plan if needed.'
+          formTitle='Register as a New Patient'
+          formDescription='Book your new patient examination and meet our friendly dental team. We will carry out a full assessment of your teeth and gums and help you plan the next steps for your oral health.'
+          // imgSrc='/assets/images/new-patient-examination-supernova-dental-bridgwater.webp'
+          formId='new-patient-examination-enquiry-form'
+          eventType='NewPatientExaminationLead'
+        />
         <HighlightCard title='Book Your New Patient Examination Today' logoSrc='/favicon.ico' />
 
         <NewPatientIntroSection />
