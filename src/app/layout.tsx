@@ -99,7 +99,7 @@ export const structuredData = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '76',
+    reviewCount: '124',
   },
 };
 

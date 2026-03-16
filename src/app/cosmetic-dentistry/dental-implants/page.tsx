@@ -45,7 +45,7 @@ const structuredData = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '76',
+    reviewCount: '124',
   },
   potentialAction: {
     '@type': 'ReserveAction',
@@ -56,7 +56,6 @@ const structuredData = {
     actionStatus: 'PotentialActionStatus',
     name: 'Book a Dental Implant Consultation',
   },
-  priceRange: 'From £1400 for a dental implant, £1350 for an implant crown',
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',
     'https://www.instagram.com/supernova.dental/',

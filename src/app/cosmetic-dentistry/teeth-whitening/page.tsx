@@ -61,7 +61,7 @@ const structuredData = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '76',
+    reviewCount: '124',
   },
   potentialAction: {
     '@type': 'ReserveAction',
@@ -88,7 +88,7 @@ export default function TeethWhitening() {
         <meta name='description' content={metadata.description ?? ''} />
         <meta
           name='keywords'
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : (metadata.keywords ?? '')}
+          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords ?? ''}
         />
         <link rel='canonical' href='https://www.supernovadental.co.uk/cosmetic-dentistry/teeth-whitening' />
       </Head>

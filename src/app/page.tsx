@@ -146,7 +146,7 @@ export default function Home() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5',
-      reviewCount: '76',
+      reviewCount: '124',
     },
     sameAs: [
       'https://www.facebook.com/profile.php?id=61567279201971',
@@ -162,22 +162,6 @@ export default function Home() {
           name: 'Invisalign Consultation (Free)',
           description: 'Free Invisalign consultation at Supernova Dental.',
           url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/invisalign',
-        },
-        {
-          '@type': 'Offer',
-          name: 'Dental Implant',
-          description: 'Single dental implant procedure starting from £1400.',
-          price: '1400',
-          priceCurrency: 'GBP',
-          url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants',
-        },
-        {
-          '@type': 'Offer',
-          name: 'Dental Implant Crown',
-          description: 'Single dental implant crown starting from £1350.',
-          price: '1350',
-          priceCurrency: 'GBP',
-          url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants',
         },
         {
           '@type': 'Offer',
