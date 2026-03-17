@@ -14,7 +14,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
   name: 'Supernova Dental - Emergency Dentist Bridgwater, Somerset',
-  url: 'https://www.supernovadental.co.uk/emergency-dentist',
+  url: 'https://www.supernovadental.co.uk/general-dentistry/emergency-dentist',
   description:
     'Supernova Dental provides urgent dental care in Bridgwater, Somerset, including same-day appointments for emergencies like tooth pain, tooth infection, broken teeth, and extractions. We also welcome patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas. Saturday appointments available.',
   keywords:
@@ -33,7 +33,7 @@ const structuredData = {
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
     areaServed: 'GB',
-    availableLanguage: 'English',
+    availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
     additionalType: 'https://schema.org/OutOfHoursContactPoint',
     outOfHoursContact: {
       '@type': 'ContactPoint',

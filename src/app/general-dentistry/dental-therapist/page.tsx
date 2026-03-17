@@ -14,7 +14,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
   name: 'Supernova Dental - Dental Therapist Services in Bridgwater, Somerset',
-  url: 'https://www.supernovadental.co.uk/dental-therapist',
+  url: 'https://www.supernovadental.co.uk/general-dentistry/dental-therapist',
   description:
     'Supernova Dental provides expert dental therapist services in Bridgwater, Somerset, including preventive and restorative treatments. We serve patients from surrounding areas such as Taunton, Highbridge, and Burnham-on-Sea.',
   image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
@@ -34,7 +34,7 @@ const structuredData = {
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
     areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
-    availableLanguage: 'English',
+    availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
   },
   openingHours: ['Mo-Fr 08:15-18:15', 'Sa 09:00-13:00'],
   serviceProvided: {

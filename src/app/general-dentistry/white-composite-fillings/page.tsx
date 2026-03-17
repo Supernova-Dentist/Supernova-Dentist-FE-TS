@@ -14,7 +14,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
   name: 'Supernova Dental - White Composite Fillings in Bridgwater, Somerset',
-  url: 'https://www.supernovadental.co.uk/white-composite-fillings',
+  url: 'https://www.supernovadental.co.uk/general-dentistry/white-composite-fillings',
   description:
     'Restore damaged or decayed teeth with natural-looking white composite fillings at Supernova Dental in Bridgwater, Somerset. Durable, tooth-coloured, and aesthetically pleasing. Serving patients from surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.',
   keywords:
@@ -33,7 +33,7 @@ const structuredData = {
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
     areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
-    availableLanguage: 'English',
+    availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
   },
   openingHours: ['Mo-Fr 08:15-18:15', 'Sa 09:00-13:00'],
   serviceProvided: {

@@ -48,7 +48,7 @@ const structuredData = {
     telephone: '+44 1278 228665',
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
-    availableLanguage: 'English',
+    availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
     areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
   },
   sameAs: [

@@ -42,7 +42,7 @@ const structuredData = {
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
     areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
-    availableLanguage: 'English',
+    availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
   },
   openingHoursSpecification: [
     {

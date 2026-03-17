@@ -14,7 +14,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
   name: 'Supernova Dental - Custom Sports Mouthguards',
-  url: 'https://www.supernovadental.co.uk/sports-mouthguards',
+  url: 'https://www.supernovadental.co.uk/general-dentistry/sports-mouthguards',
   description:
     'Supernova Dental provides custom sports mouthguards in Bridgwater, Somerset, using digital scans—no messy impressions. Our lab also produces mouthguards trusted by elite athletes, including heavyweight champion Tyson Fury. Serving patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
   keywords:
@@ -33,7 +33,7 @@ const structuredData = {
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
     areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
-    availableLanguage: 'English',
+    availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
   },
   openingHours: ['Mo-Fr 08:15-18:15', 'Sa 09:00-13:00'],
   serviceProvided: {

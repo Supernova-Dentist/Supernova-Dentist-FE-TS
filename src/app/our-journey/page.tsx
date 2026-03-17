@@ -31,7 +31,7 @@ const structuredData = {
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
     areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
-    availableLanguage: 'English',
+    availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
   },
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',
@@ -48,7 +48,7 @@ export default function OurJourneyPage() {
         <meta name='description' content={metadata.description ?? ''} />
         <meta
           name='keywords'
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords ?? ''}
+          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : (metadata.keywords ?? '')}
         />
         <link rel='canonical' href='https://www.supernovadental.co.uk/our-journey' />
       </Head>

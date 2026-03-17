@@ -34,7 +34,7 @@ const structuredData = {
     contactType: 'Customer Service',
     email: 'enquiries@supernovadental.co.uk',
     areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
-    availableLanguage: 'English',
+    availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
   },
   openingHoursSpecification: [
     {
@@ -88,7 +88,7 @@ export default function TeethWhitening() {
         <meta name='description' content={metadata.description ?? ''} />
         <meta
           name='keywords'
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords ?? ''}
+          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : (metadata.keywords ?? '')}
         />
         <link rel='canonical' href='https://www.supernovadental.co.uk/cosmetic-dentistry/teeth-whitening' />
       </Head>
