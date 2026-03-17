@@ -74,7 +74,7 @@ export const structuredData = {
       contactType: 'Customer Service',
       email: 'enquiries@supernovadental.co.uk',
       areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
-      availableLanguage: 'English',
+      availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
     },
   ],
   openingHoursSpecification: [
@@ -99,7 +99,7 @@ export const structuredData = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
-    reviewCount: '124',
+    reviewCount: '130',
   },
 };
 
