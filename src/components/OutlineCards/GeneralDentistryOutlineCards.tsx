@@ -9,6 +9,7 @@ import fillingImage from '../../../public/assets/images/filling_intro.jpg';
 import newPtImage from '../../../public/assets/images/new-patient-examination-2.webp';
 import hygieneImage from '../../../public/assets/images/plaque_removal.jpeg';
 import therapyImage from '../../../public/assets/images/therapy_intro.webp';
+import TreatmentImage from '../../../public/assets/images/root-canal-treatment.webp';
 import guardImage from '../../../public/assets/images/xs_guard.jpeg';
 
 export const GeneralDentistryOutlineCards = () => {
@@ -22,6 +23,7 @@ export const GeneralDentistryOutlineCards = () => {
           href='/general-dentistry/white-composite-fillings'
           bgUrl={fillingImage}
         />
+        <Card title='Root Canal Treatment' href='/general-dentistry/root-canal-treatment' bgUrl={TreatmentImage} />
         <Card title='Dental Therapist' href='/general-dentistry/dental-therapist' bgUrl={therapyImage} />
         <Card title='Dental Hygiene' href='/general-dentistry/dental-hygiene' bgUrl={hygieneImage} />
         <Card title='Sports Mouthguards' href='/general-dentistry/sports-mouthguards' bgUrl={guardImage} />
