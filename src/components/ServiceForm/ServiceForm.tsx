@@ -178,7 +178,11 @@ export default function ServiceForm({
   return (
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
-      <section id='form' ref={ref} className='w-full px-4 min-h-[calc(100vh-96px)] flex justify-center pt-6'>
+      <section
+        id='form'
+        ref={ref}
+        className='w-full px-4 min-h-[calc(100vh-96px)] flex justify-center pt-6 pb-6 items-center'
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

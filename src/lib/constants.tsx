@@ -47,6 +47,7 @@ export const practiceInfo = [
   { name: 'Invisalign', link: '/cosmetic-dentistry/invisalign' },
   { name: 'Composite Bonding', link: '/cosmetic-dentistry/composite-bonding' },
   { name: 'Teeth Whitening', link: '/cosmetic-dentistry/teeth-whitening' },
+  { name: 'Root Canal Treatment', link: '/general-dentistry/root-canal-treatment' },
   { name: 'White Composite Fillings', link: '/general-dentistry/white-composite-fillings' },
   { name: 'Dental Hygiene', link: '/general-dentistry/dental-hygiene' },
   { name: 'Dental Therapist', link: '/general-dentistry/dental-therapist' },
@@ -78,6 +79,10 @@ export const generalServices = [
   {
     name: 'White Composite Fillings',
     link: '/general-dentistry/white-composite-fillings',
+  },
+  {
+    name: 'Root Canal Treatment',
+    link: '/general-dentistry/root-canal-treatment',
   },
   {
     name: 'Dental Therapist',

@@ -15,6 +15,10 @@ export default function EnquiryForm() {
   return (
     <div className='min-h-screen flex  justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
+        {/* Breadcrumb */}
+        <div className='p-4 md:px-6 lg:pt-6 pb-10 flex justify-start mx-auto max-w-3xl'>
+          <BreadCrumb />
+        </div>
         {/* HighlightCard */}
         <HighlightCard
           title='Get in Touch with Our Team'
@@ -22,10 +26,6 @@ export default function EnquiryForm() {
           logoSrc='/favicon.ico'
         />
 
-        {/* Breadcrumb */}
-        <div className='p-4 md:px-6 pb-10 flex justify-start mx-auto max-w-3xl'>
-          <BreadCrumb />
-        </div>
 
         {/* Enquiry Form Content */}
         <EnquiryFormContent />

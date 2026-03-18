@@ -1,4 +1,5 @@
 import NewPatientContent from '@/components/blocks/NewPatientContent/NewPatientContent';
+import RootCanalContent from '@/components/blocks/RootCanalContent.tsx/RootCanalContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import type { Metadata } from 'next';
 
@@ -56,9 +57,9 @@ export default function NewPatientExamination() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      <NewPatientContent />
+      <RootCanalContent />
       {/* Sticky EnquiryButton */}
-      <EnquiryButton referringPage={'general-dentistry/new-patient-examination'} />
+      <EnquiryButton referringPage={'general-dentistry/root-canal-treatment'} />
     </div>
   );
 }

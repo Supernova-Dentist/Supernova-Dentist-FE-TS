@@ -6,6 +6,7 @@ import HeroSection from '@/components/HeroSection/HeroSection';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import InfoSection from '@/components/InfoSection/InfoSection';
 import { NewPatientJourney } from '@/components/NewPatientJourney/NewPatientJourney';
+import { RootCanalJourney } from '@/components/RootCanalJourney/RootCanalJourney';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import NewPatientIntroSection from './RootCanalIntro/RootCanalIntro';
@@ -35,12 +36,11 @@ export default function RootCanalContent() {
 
         <HighlightCard title='Register Interest For Root Canal Treatment' logoSrc='/favicon.ico' />
 
-        <RootCanalContent />
-
         <InfoSection id='info' data={infoData} />
         <BenefitSection id='benefits' data={benefitsData} />
 
-        <NewPatientJourney id='journey' />
+        {/* <NewPatientJourney id='journey' /> */}
+        <RootCanalJourney id='journey' />
 
         <FaqSection id='faq' faqItems={faqItems} />
       </div>
