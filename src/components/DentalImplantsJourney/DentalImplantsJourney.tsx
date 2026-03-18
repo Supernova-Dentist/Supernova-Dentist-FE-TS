@@ -16,7 +16,7 @@ export function DentalImplantsJourney() {
       content: (
         <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            Your journey starts with a thorough consultation, clinical exam, and 3D imaging (CBCT) to evaluate your
+            Your journey starts with a thorough consultation, clinical exam and 3D imaging (CBCT) to evaluate your
             suitability and create a personalised implant treatment plan.
           </p>
           <Image
