@@ -24,7 +24,7 @@ export function Journey() {
             sizes='(max-width: 768px) 100vw, 480px'
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -45,7 +45,7 @@ export function Journey() {
             sizes='(max-width: 768px) 100vw, 480px'
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -66,7 +66,7 @@ export function Journey() {
             sizes='(max-width: 768px) 100vw, 480px'
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
