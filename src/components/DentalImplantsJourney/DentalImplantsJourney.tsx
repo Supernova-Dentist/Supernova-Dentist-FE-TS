@@ -5,9 +5,13 @@ import React from 'react';
 import { DentalImplantTimeline } from '../ServiceTimelines/DentalImplantTimeline';
 
 // Static imports so we can use intrinsic width/height
-import ConsultationImage from '../../../public/assets/images/equipment.jpg';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import ConsultationImage from '../../../public/assets/images/equipment.JPG';
 import RestorationImage from '../../../public/assets/images/implant_journey_3.jpeg';
-import SurgeryImage from '../../../public/assets/images/surgery2.jpg';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import SurgeryImage from '../../../public/assets/images/surgery2.JPG';
 
 export function DentalImplantsJourney() {
   const data = [
