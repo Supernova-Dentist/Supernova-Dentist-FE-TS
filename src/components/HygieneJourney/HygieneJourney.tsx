@@ -8,22 +8,22 @@ import HygieneAdvice from '../../../public/assets/images/Supernova-23.jpg';
 import { HygieneTimeline } from '../ServiceTimelines/HygieneTimeline';
 
 export function HygieneJourney({ id }: { id: string }) {
-
   const data = [
     {
       title: '1 - PMPR',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            Your journey beings with professional mechanical plaque removal which helps prevent cavities and gum
+            Your journey begins with professional mechanical plaque removal which helps prevent cavities and gum
             disease, getting you one step closer to your Supernova Smile.
           </p>
           <Image
             src={PlaqueRemoval}
-            alt='Plaque Removal'
-            width={100}
-            height={800}
-            layout='responsive'
+            alt='Professional plaque removal treatment'
+            width={PlaqueRemoval.width}
+            height={PlaqueRemoval.height}
+            placeholder='blur'
+            quality={75}
             className='max-w-[30rem] mx-auto py-4'
           />
         </div>
@@ -32,17 +32,18 @@ export function HygieneJourney({ id }: { id: string }) {
     {
       title: '2 - Polishing/Airflow',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             In this step, polishing and airflow technology are used to remove bacteria, plaque, and surface stains. It
             also helps freshen breath and ensures a smooth, clean surface for your teeth.
           </p>
           <Image
             src={Airflow}
-            alt='Airflow'
-            width={100}
-            height={800}
-            layout='responsive'
+            alt='Airflow teeth polishing treatment'
+            width={Airflow.width}
+            height={Airflow.height}
+            placeholder='blur'
+            quality={75}
             className='max-w-[30rem] mx-auto py-4'
           />
         </div>
@@ -51,17 +52,18 @@ export function HygieneJourney({ id }: { id: string }) {
     {
       title: '3 - Oral Hygiene',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Lastly receive personalised advice on maintaining your oral hygiene at home between appointments, including
             tips on brushing, flossing, and proper care for your teeth and gums.
           </p>
           <Image
             src={HygieneAdvice}
-            alt='Hygiene Advice'
-            width={100}
-            height={800}
-            layout='responsive'
+            alt='Oral hygiene advice consultation'
+            width={HygieneAdvice.width}
+            height={HygieneAdvice.height}
+            placeholder='blur'
+            quality={75}
             className='max-w-[30rem] mx-auto py-4'
           />
         </div>

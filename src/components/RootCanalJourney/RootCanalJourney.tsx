@@ -5,7 +5,6 @@ import React from 'react';
 import ConsultationImage from '../../../public/assets/images/root-canal-consultation.webp';
 import RestorationImage from '../../../public/assets/images/root-canal-restoration.webp';
 import TreatmentImage from '../../../public/assets/images/root-canal-treatment.webp';
-import { NewPatientTimeline } from '../ServiceTimelines/NewPatientTimeline';
 import { RootCanalTimeline } from '../ServiceTimelines/RootCanalTimeline';
 
 export function RootCanalJourney({ id }: { id: string }) {
@@ -13,7 +12,7 @@ export function RootCanalJourney({ id }: { id: string }) {
     {
       title: '1 - Consultation & Diagnosis',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Your root canal journey begins with a consultation where the dentist examines your tooth, reviews your
             dental history, and identifies the source of pain or infection. This ensures a tailored treatment plan for
@@ -22,9 +21,10 @@ export function RootCanalJourney({ id }: { id: string }) {
           <Image
             src={ConsultationImage}
             alt='Root canal consultation'
-            width={100}
-            height={800}
-            layout='responsive'
+            width={ConsultationImage.width}
+            height={ConsultationImage.height}
+            placeholder='blur'
+            quality={75}
             className='max-w-[30rem] mx-auto py-4'
           />
         </div>
@@ -33,7 +33,7 @@ export function RootCanalJourney({ id }: { id: string }) {
     {
       title: '2 - Root Canal Treatment',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             During the procedure, the dentist removes infected pulp, cleans and disinfects the root canals, and shapes
             them for sealing. Modern anaesthesia ensures the treatment is comfortable and precise.
@@ -41,9 +41,10 @@ export function RootCanalJourney({ id }: { id: string }) {
           <Image
             src={TreatmentImage}
             alt='Root canal procedure'
-            width={100}
-            height={800}
-            layout='responsive'
+            width={TreatmentImage.width}
+            height={TreatmentImage.height}
+            placeholder='blur'
+            quality={75}
             className='max-w-[30rem] mx-auto py-4'
           />
         </div>
@@ -52,7 +53,7 @@ export function RootCanalJourney({ id }: { id: string }) {
     {
       title: '3 - Tooth Restoration & Aftercare',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             After cleaning the canals, the tooth is sealed and may be restored with a filling or crown. You’ll receive
             instructions for care, guidance on managing any sensitivity, and follow-up plans to ensure long-term oral
@@ -61,9 +62,10 @@ export function RootCanalJourney({ id }: { id: string }) {
           <Image
             src={RestorationImage}
             alt='Root canal tooth restoration'
-            width={100}
-            height={800}
-            layout='responsive'
+            width={RestorationImage.width}
+            height={RestorationImage.height}
+            placeholder='blur'
+            quality={75}
             className='max-w-[30rem] mx-auto py-4'
           />
         </div>

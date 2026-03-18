@@ -12,17 +12,18 @@ export function NewPatientJourney({ id }: { id: string }) {
     {
       title: '1 - Consultation & Medical History',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Your journey starts with a consultation where the dentist reviews your medical and dental history, discusses
             any concerns, and understands your oral health goals. This step ensures we provide safe, personalised care.
           </p>
           <Image
             src={ConsultationImage}
-            alt='New patient consultation'
-            width={100}
-            height={800}
-            layout='responsive'
+            alt='New patient dental consultation'
+            width={ConsultationImage.width}
+            height={ConsultationImage.height}
+            placeholder='blur'
+            quality={75}
             className='max-w-[30rem] mx-auto py-4'
           />
         </div>
@@ -31,7 +32,7 @@ export function NewPatientJourney({ id }: { id: string }) {
     {
       title: '2 - Comprehensive Oral Examination',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             During the examination, your teeth, gums, bite, and overall oral health will be thoroughly assessed. Digital
             scans or X-rays may be used to detect hidden issues such as cavities, gum disease, or early signs of other
@@ -39,10 +40,11 @@ export function NewPatientJourney({ id }: { id: string }) {
           </p>
           <Image
             src={ExaminationImage}
-            alt='Comprehensive dental examination'
-            width={100}
-            height={800}
-            layout='responsive'
+            alt='Comprehensive dental examination process'
+            width={ExaminationImage.width}
+            height={ExaminationImage.height}
+            placeholder='blur'
+            quality={75}
             className='max-w-[30rem] mx-auto py-4'
           />
         </div>
@@ -51,17 +53,18 @@ export function NewPatientJourney({ id }: { id: string }) {
     {
       title: '3 - Personalised Treatment Plan & Advice',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            After the examination, the clinician create a personalised treatment plan if required. You’ll also receive
+            After the examination, the clinician creates a personalised treatment plan if required. You’ll also receive
             advice on oral hygiene, preventive care, and next steps to keep your smile healthy for years to come.
           </p>
           <Image
             src={TreatmentPlanImage}
-            alt='Personalised dental treatment plan'
-            width={100}
-            height={800}
-            layout='responsive'
+            alt='Personalised dental treatment plan consultation'
+            width={TreatmentPlanImage.width}
+            height={TreatmentPlanImage.height}
+            placeholder='blur'
+            quality={75}
             className='max-w-[30rem] mx-auto py-4'
           />
         </div>

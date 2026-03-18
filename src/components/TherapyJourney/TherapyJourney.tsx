@@ -13,17 +13,18 @@ export function DentalTherapyJourney({ id }: { id: string }) {
     {
       title: 'A – Assess',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            your oral health and identify any issues, including gum disease or tooth decay.
+            Your oral health is assessed to identify any issues, including gum disease or tooth decay.
           </p>
           <Image
             src={TherapyAssess}
             alt='Dental Therapy Assess'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
+            width={TherapyAssess.width}
+            height={TherapyAssess.height}
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -31,17 +32,18 @@ export function DentalTherapyJourney({ id }: { id: string }) {
     {
       title: 'B – Build',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            a personalised treatment plan to address your specific dental needs.
+            A personalised treatment plan is built to address your specific dental needs.
           </p>
           <Image
             src={DentalTherapyBuild}
             alt='Dental Therapy Build'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
+            width={DentalTherapyBuild.width}
+            height={DentalTherapyBuild.height}
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -49,17 +51,18 @@ export function DentalTherapyJourney({ id }: { id: string }) {
     {
       title: 'C – Care',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
-            for your teeth and gums through preventive care, restorative treatments, and ongoing maintenance.
+            Ongoing care for your teeth and gums through preventive treatments, restorative procedures, and maintenance.
           </p>
           <Image
             src={DentalTherapyCare}
             alt='Dental Therapy Care'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
+            width={DentalTherapyCare.width}
+            height={DentalTherapyCare.height}
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),

@@ -4,19 +4,17 @@ import Image from 'next/image';
 import React from 'react';
 import { DentalImplantTimeline } from '../ServiceTimelines/DentalImplantTimeline';
 
-// Placeholder images — replace these with your actual imports when ready
-const ConsultationImage = '/assets/images/equipment.JPG';
-const SurgeryImage = '/assets/images/surgery2.JPG';
-const RestorationImage = '/assets/images/implant_journey_3.jpeg';
+// Static imports so we can use intrinsic width/height
+import ConsultationImage from '../../../public/assets/images/equipment.jpg';
+import RestorationImage from '../../../public/assets/images/implant_journey_3.jpeg';
+import SurgeryImage from '../../../public/assets/images/surgery2.jpg';
 
 export function DentalImplantsJourney() {
- 
-
   const data = [
     {
       title: '1 - Consultation & Treatment Planning',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Your journey starts with a thorough consultation, clinical exam, and 3D imaging (CBCT) to evaluate your
             suitability and create a personalised implant treatment plan.
@@ -24,11 +22,12 @@ export function DentalImplantsJourney() {
           <Image
             src={ConsultationImage}
             alt='Dental implant consultation with 3D imaging'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
-            
+            width={ConsultationImage.width}
+            height={ConsultationImage.height}
+            //
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
             priority
           />
         </div>
@@ -37,7 +36,7 @@ export function DentalImplantsJourney() {
     {
       title: '2 - Implant Placement Surgery',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             The dental implant is gently placed under local anaesthetic. Over the following months, the implant
             integrates with the bone to provide a stable foundation.
@@ -45,11 +44,12 @@ export function DentalImplantsJourney() {
           <Image
             src={SurgeryImage}
             alt='Dental implant placement surgery'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
-            
+            width={SurgeryImage.width}
+            height={SurgeryImage.height}
+            //
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -57,7 +57,7 @@ export function DentalImplantsJourney() {
     {
       title: '3 - Final Restoration',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Once healing is complete, an aesthetic custom-made crown, bridge, or denture is securely attached to the
             implant, restoring full function and a natural-looking Supernova smile.
@@ -65,11 +65,12 @@ export function DentalImplantsJourney() {
           <Image
             src={RestorationImage}
             alt='Final dental implant crown restoration'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
-           
+            width={RestorationImage.width}
+            height={RestorationImage.height}
+            //
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),

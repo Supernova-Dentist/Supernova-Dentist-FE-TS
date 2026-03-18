@@ -5,18 +5,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-// Placeholder images — replace these with your actual imports when ready
-const ConsultationImage = '/assets/images/invisalign.jpeg';
-const SurgeryImage = '/assets/images/implant_referral.jpg';
-const CompositeBondingImage = '/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp';
-const RestorationImage = '/assets/images/teeth_whitening.jpg';
+// Use actual imports if available; these placeholders are fine for now
+import CompositeBondingImage from '../../../../public/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp';
+import SurgeryImage from '../../../../public/assets/images/implant_referral.jpg';
+import ConsultationImage from '../../../../public/assets/images/invisalign.jpeg';
+import RestorationImage from '../../../../public/assets/images/teeth_whitening.jpg';
 
 export function CosmeticDentistryJourney() {
   const data = [
     {
       title: 'Invisalign: clear aligners for a straighter smile.',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Discover how our Invisalign clear aligners can discreetly improve the alignment of your teeth without
             traditional braces.
@@ -28,11 +28,12 @@ export function CosmeticDentistryJourney() {
           </p>
           <Image
             src={ConsultationImage}
-            alt='Dental implant consultation with 3D imaging'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
+            alt='Dental Invisalign consultation'
+            width={ConsultationImage.width}
+            height={ConsultationImage.height}
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
             priority
           />
         </div>
@@ -41,7 +42,7 @@ export function CosmeticDentistryJourney() {
     {
       title: 'Dental Implants for long lasting tooth replacement',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             If you are missing one or more teeth,
             <Link href='/cosmetic-dentistry/dental-implants' className='text-gold underline ml-1'>
@@ -56,10 +57,11 @@ export function CosmeticDentistryJourney() {
           <Image
             src={SurgeryImage}
             alt='Dental implant placement surgery'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
+            width={SurgeryImage.width}
+            height={SurgeryImage.height}
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -67,23 +69,24 @@ export function CosmeticDentistryJourney() {
     {
       title: 'Composite Bonding: Repair chips & improve your smile',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Transform your smile with
             <Link href='/cosmetic-dentistry/composite-bonding' className='text-gold underline ml-1'>
               composite bonding
             </Link>{' '}
-            a minimally invasive treatment that repairs chipped teeth, closes small gaps, and improves the shape of
-            your teeth for a natural, radiant look. Composite bonding is quick, often completed in a single visit, and
+            a minimally invasive treatment that repairs chipped teeth, closes small gaps, and improves the shape of your
+            teeth for a natural, radiant look. Composite bonding is quick, often completed in a single visit, and
             preserves your natural tooth structure.
           </p>
           <Image
             src={CompositeBondingImage}
             alt='Composite bonding cosmetic dental treatment'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
+            width={CompositeBondingImage.width}
+            height={CompositeBondingImage.height}
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -91,7 +94,7 @@ export function CosmeticDentistryJourney() {
     {
       title: 'Teeth Whitening',
       content: (
-        <div className='px-12 py-8'>
+        <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
             Enhance your smile with professional
             <Link href='/cosmetic-dentistry/teeth-whitening' className='text-gold underline ml-1'>
@@ -103,11 +106,12 @@ export function CosmeticDentistryJourney() {
           </p>
           <Image
             src={RestorationImage}
-            alt='Final dental implant crown restoration'
-            width={100}
-            height={800}
-            layout='responsive'
-            className='max-w-[30rem] mx-auto py-4'
+            alt='Teeth whitening cosmetic treatment'
+            width={RestorationImage.width}
+            height={RestorationImage.height}
+            placeholder='blur'
+            quality={75}
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
