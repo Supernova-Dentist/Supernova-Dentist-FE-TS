@@ -23,7 +23,7 @@ export function Journey() {
             height={InvisalignImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -43,7 +43,7 @@ export function Journey() {
             height={WhiteTeeth.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -63,7 +63,7 @@ export function Journey() {
             height={Veneers.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
