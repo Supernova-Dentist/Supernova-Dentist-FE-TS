@@ -22,21 +22,21 @@ import Results from './Results/Results';
 const pricing = [
   {
     plan: 'Invisalign',
-    price: { number: 1000, text: 'Up To' },
-    offerPrice: 1500,
-    features: ['FREE consultation', 'FREE hygiene', 'FREE whitening', 'FREE retainers (Vivera)', '£250 OFF treatment'],
+    price: { number: 1250, text: 'Up To' },
+    offerPrice: 1250,
+    features: ['FREE consultation', 'FREE whitening', 'FREE retainers (Vivera)', 'Up To £250 OFF treatment'],
   },
 ];
 
 export const InvisalignOpenDayContent = () => {
   return (
     <div className='bg-cream'>
-      <InvisalignOpenDayHero />
-      <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
+      {/* <InvisalignOpenDayHero /> */}
+      <div className='p-4 md:p-20 min-h-screen flex flex-col justify-center items-center'>
         <InvisalignOpenDayForm
           serviceName='Invisalign'
           serviceChip='Invisalign® Open Day'
-          serviceDescription='Exclusive Invisalign Open Day offer - save up to £1,500!'
+          serviceDescription='Exclusive Invisalign Open Day offer - save up to £1,250!'
           formTitle='Register for a Free Consultation'
           formDescription='Meet with our experts, ask questions, and learn how Invisalign can transform your smile.'
         />

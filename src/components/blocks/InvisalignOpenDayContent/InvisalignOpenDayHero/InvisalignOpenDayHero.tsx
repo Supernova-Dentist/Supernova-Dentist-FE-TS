@@ -28,8 +28,8 @@ export function InvisalignOpenDayHero() {
   const boxShadow = useMotionTemplate`0px 4px 24px #a4693d`;
 
   const words = [
-  'Friday 24th October',
-  'Saturday 25th October',
+  'Friday 24th April',
+  'Saturday 25th April',
   'Spaces Filling Fast',
   'Limited Spaces',
   'Complimentary Consultation',
