@@ -44,7 +44,7 @@ export const StickyBanner = ({
   return (
     <motion.div
       className={cn(
-        'sticky inset-x-0 top-0 z-40 flex h-20 md:h-24 w-full items-center justify-center bg-transparent px-4 py-1',
+        'sticky inset-x-0 top-0 z-40 flex h-20 md:h-28 w-full items-center justify-center bg-transparent px-4 py-1 cursor-pointer',
         className
       )}
       initial={{ y: -100, opacity: 0 }}

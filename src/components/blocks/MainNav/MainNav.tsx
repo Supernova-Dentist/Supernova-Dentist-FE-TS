@@ -36,12 +36,17 @@ const MainNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Check banner visibility from localStorage
-  // useEffect(() => {
-  //   const dismissed = localStorage.getItem('bannerDismissed');
-  //   if (dismissed !== 'true') {
-  //     setShowBanner(true);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const dismissed = localStorage.getItem('bannerDismissed');
+    if (dismissed !== 'true') {
+      setShowBanner(true);
+    }
+    // If we are on the invisalign open day page we don't want to show the banner
+    if (window.location.pathname === '/cosmetic-dentistry/invisalign-open-day') {
+      setShowBanner(false);
+    }
+  }, [
+  ]);
 
   // Handle scroll-based navbar visibility
   useEffect(() => {
@@ -76,11 +81,11 @@ const MainNav = () => {
   return (
     <>
       {/* ✅ Only render banner if not dismissed */}
-      {/* {showBanner && (
+      {showBanner && (
         <div className='fixed top-0 left-0 w-full z-[60]'>
           <OpenDayBanner onDismiss={() => setShowBanner(false)} />
         </div>
-      )} */}
+      )}
 
       {/* ✅ Navigation */}
       <header

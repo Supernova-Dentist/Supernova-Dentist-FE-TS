@@ -7,14 +7,15 @@ export function OpenDayBanner({ onDismiss }: { onDismiss?: () => void }) {
   return (
     <StickyBanner
       onDismiss={onDismiss}
-      className='bg-gold text-white cursor-pointer hover:brightness-105 transition-all'
+      className='bg-gold text-white cursor-pointer hover:brightness-105 transition-all hover:cursor-pointer'
     >
       <Link
         href='/cosmetic-dentistry/invisalign-open-day'
-        className='flex w-full items-center justify-center gap- text-center text-sm sm:text-base font-semibold tracking-wide'
+        onClick={onDismiss}
+        className='flex w-full items-center justify-center text-center text-sm sm:text-base font-semibold tracking-wide'
       >
         <span>
-          Invisalign Open Day – Save up to £1500! <br />
+          Invisalign Open Day <br /> Save up to £1,250! <br />
           <span className='underline underline-offset-2'>Tap to Book</span>
         </span>
       </Link>
