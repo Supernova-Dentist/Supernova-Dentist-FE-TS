@@ -5,22 +5,22 @@ import type { Metadata } from 'next';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: 'Invisalign Bridgwater & Taunton | Clear Aligners & Invisible Braces',
+  title: 'Invisalign Open Day – Friday 24th & Saturday 25th April | Bridgwater | Supernova Dental',
   description:
-    'Achieve a perfect smile with Invisalign in Bridgwater and Taunton at Supernova Dental. Start your journey to straight teeth with clear aligners. Book a free consultation today!',
+    'Join our Invisalign Open Day on Friday 24th and Saturday 25th April at Supernova Dental. Enjoy exclusive offers, free consultations, and start your journey to a straighter smile with clear aligners in Bridgwater and Taunton.',
   keywords:
-    'Invisalign Bridgwater, Invisalign Taunton, clear aligners Bridgwater, clear aligners Taunton, teeth straightening Bridgwater, teeth straightening Taunton, Invisalign treatment Bridgwater, invisible braces Bridgwater, invisible braces Taunton, Invisalign cost Bridgwater, Invisalign cost Taunton, best Invisalign dentist Bridgwater, adult braces Bridgwater, orthodontic treatment Bridgwater, private Invisalign dentist Bridgwater, cosmetic dentistry Bridgwater, Invisalign near Taunton',
+    'Invisalign open day Bridgwater, Invisalign open day Taunton, Invisalign event April, clear aligners Bridgwater, clear aligners Taunton, Invisalign offers UK, Invisalign consultation Bridgwater, Invisalign deals Taunton, teeth straightening Somerset, invisible braces Bridgwater, Invisalign dentist Bridgwater Taunton',
 };
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Supernova Dental - Invisalign Bridgwater & Taunton',
-  url: 'https://www.supernovadental.co.uk/invisalign',
+  name: 'Supernova Dental Invisalign Open Day - Bridgwater & Taunton',
+  url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/invisalign-open-day',
   description:
-    'Achieve a perfect smile with Invisalign in Bridgwater and Taunton at Supernova Dental. Start your journey to straight teeth with clear aligners. Book a free consultation today!',
+    'Join our Invisalign Open Day on Friday 24th and Saturday 25th April at Supernova Dental. Enjoy exclusive offers, free consultations, and begin your journey to straighter teeth with Invisalign clear aligners.',
   keywords:
-    'Invisalign Bridgwater, Invisalign Taunton, best Invisalign dentist Bridgwater, clear aligners Bridgwater, clear aligners Taunton, teeth straightening Bridgwater, Invisalign cost Bridgwater, Invisalign cost Taunton, Invisalign dentist near Taunton',
+    'Invisalign open day Bridgwater, Invisalign open day Taunton, Invisalign event April, clear aligners Bridgwater, clear aligners Taunton, Invisalign offers UK, Invisalign dentist Bridgwater Taunton',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
@@ -55,7 +55,7 @@ const structuredData = {
     '@type': 'MedicalProcedure',
     name: 'Invisalign Treatment',
     description:
-      'We offer Invisalign clear aligners for straightening teeth in Bridgwater and Taunton. Treatment includes a free consultation and digital smile preview.',
+      'We offer Invisalign clear aligners for straightening teeth in Bridgwater and Taunton. Treatment includes a consultation and digital smile preview.',
     procedureType: 'Non-invasive',
     areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
   },

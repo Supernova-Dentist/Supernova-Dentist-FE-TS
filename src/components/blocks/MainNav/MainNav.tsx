@@ -42,7 +42,7 @@ const MainNav = () => {
       setShowBanner(true);
     }
     // If we are on the invisalign open day page we don't want to show the banner
-    if (window.location.pathname === '/cosmetic-dentistry/invisalign-open-day') {
+    if (window.location.pathname === '/cosmetic-dentistry/invisalign-open-day' || window.location.pathname === '/general-dentistry/emergency-dentistry' || window.location.pathname === '/cosmetic-dentistry/dental-implants') {
       setShowBanner(false);
     }
   }, [
