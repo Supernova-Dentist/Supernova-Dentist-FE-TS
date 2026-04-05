@@ -13,14 +13,13 @@ import saraImage from '../../../../public/assets/images/Headshots/dr-sara-banuri
 import scottImage from '../../../../public/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp';
 import souadImage from '../../../../public/assets/images/Headshots/dr-souad-maddi-dentist-supernova-dental-bridgwater.webp';
 import kayleighImage from '../../../../public/assets/images/Headshots/kayleigh-dowdle-dental-therapist-supernova-dental-bridgwater.webp';
-import mariaImage from '../../../../public/assets/images/Headshots/maria-mihaela-morar-dental-nurse-supernova-dental-bridgwater.webp';
 import miaImage from '../../../../public/assets/images/Headshots/mia-coakley-lead-front-house-supernova-dental-bridgwater.webp';
+import teaganImage from '../../../../public/assets/images/Headshots/teagan-ruby-treatment-coordinator-supernova-dental-bridgwater.webp';
 import vanessaImage from '../../../../public/assets/images/Headshots/vanessa-speier-trainee-dental-nurse-supernova-dental-bridgwater.webp';
 import victoriaImage from '../../../../public/assets/images/Headshots/victoria-hands-lead-dental-nurse-supernova-dental-bridgwater.webp';
-import teaganImage from '../../../../public/assets/images/Headshots/teagan-ruby-treatment-coordinator-supernova-dental-bridgwater.webp';
 
 const teamMembers = [
-  { name: 'Dr. Scott Young', title: 'Principal Dentist/Owner', image: scottImage, slug: 'dr-scott-young' }, 
+  { name: 'Dr. Scott Young', title: 'Principal Dentist/Owner', image: scottImage, slug: 'dr-scott-young' },
   { name: 'Dr. Cameran Armaghani', title: 'Implantologist', image: cameranImage, slug: 'dr-cameran-armaghani' },
   { name: 'Dr. Sara D Banuri', title: 'Implantologist/Oral Surgeon', image: saraImage, slug: 'dr-sara-d-banuri' },
   { name: 'Dr. Souad Maddi', title: 'General and Restorative Dentist', image: souadImage, slug: 'dr-souad-maddi' },
@@ -34,7 +33,6 @@ const teamMembers = [
   { name: 'Teagan Ruby', title: 'Treatment Coordinator', image: teaganImage, slug: 'teagan-ruby' },
   { name: 'Adam Young', title: 'Operations Director', image: adamImage, slug: 'adam-young' },
   { name: 'Victoria Hands', title: 'Lead Dental Nurse', image: victoriaImage, slug: 'victoria-hands' },
-  { name: 'Maria-Mihaela Morar', title: 'Dental Nurse', image: mariaImage, slug: 'maria-mihaela-morar' },
   { name: 'Mia Coakley', title: 'Lead Front of House', image: miaImage, slug: 'mia-coakley' },
   { name: 'Amy Skinner', title: 'Receptionist', image: amyImage, slug: 'amy-skinner' },
   { name: 'Vanessa Speier', title: 'Trainee Dental Nurse', image: vanessaImage, slug: 'vanessa-speier' },
