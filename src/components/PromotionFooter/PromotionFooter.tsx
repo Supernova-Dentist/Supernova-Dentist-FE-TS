@@ -38,9 +38,9 @@ export default function PromotionFooter() {
       <div className='flex justify-between flex-col lg:flex-row items-center'>
         <span className='text-center lg:text-left'>This practice is fully private with no NHS services available.</span>
         <div className='flex items-center gap-2 flex-col-reverse sm:flex-row'>
-          <span>&copy; 2025 Supernova Dental All Rights Reserved</span>
+          <span>&copy; 2026 Supernova Dental All Rights Reserved</span>
           <span className='hidden sm:block'>|</span>
-          <span>Website last updated: March 2026</span>
+          <span>Website last updated: April 2026</span>
         </div>
       </div>
     </div>
