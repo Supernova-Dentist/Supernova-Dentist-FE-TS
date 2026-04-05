@@ -1,6 +1,12 @@
 import DrSaraDBanuriWaterDropHero from '@/components/WaterDropHeros/DrSaraDBanuriWaterDropHero';
 import { Reveal } from '@/utils/anim/Reveal';
 
+export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default async function Component() {
   return (
