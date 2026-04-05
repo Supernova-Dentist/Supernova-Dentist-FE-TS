@@ -4,7 +4,7 @@ import { motion, type MotionValue, useScroll, useTransform } from 'framer-motion
 import Image from 'next/image';
 import React, { useRef } from 'react';
 import { Wifi } from 'react-feather';
-import { FaChair, FaBookMedical, FaWheelchair, FaParking, FaClinicMedical } from 'react-icons/fa';
+import { FaBookMedical, FaChair, FaClinicMedical, FaParking, FaWheelchair } from 'react-icons/fa';
 import { FaPumpMedical } from 'react-icons/fa6';
 import { useInView } from 'react-intersection-observer';
 
@@ -66,13 +66,13 @@ const Carousel = () => {
       title: 'Comfortable Chairs',
       description: 'Our supportive chairs provide a balanced blend of comfort and stability during your treatments.',
       icon: <FaChair className='w-12 h-12 mb-4 text-gold' />,
-      imgSrc: '/assets/images/surgery2.JPG',
+      imgSrc: '/assets/images/sunlight_suite_supernova_dental_bridgwater.webp.JPG',
     },
     {
       title: 'Advanced Equipment',
       description: 'We use the latest dental technology to ensure accurate and efficient treatments.',
       icon: <FaClinicMedical className='w-12 h-12 mb-4 text-gold' />,
-      imgSrc: '/assets/images/equipment.JPG',
+      imgSrc: '/assets/images/cbct_supernova_dental_bridgwater.webp',
     },
     {
       title: 'Free WiFi',

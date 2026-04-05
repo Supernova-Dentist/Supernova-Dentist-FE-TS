@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-import cbctImage from '../../../../../public/assets/images/dental-implants-supernova-dental-bridgwater.webp';
+import camImage from '../../../../../public/assets/images/Headshots/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp';
 import OverallGoogleRating from '../../../blocks/OverallGoogleRating/OverallGoogleRating';
 import practiceExteriorImage from '../../../public/assets/images/supernova-dental-practice-exterior-bridgwater.webp';
 
@@ -60,7 +60,7 @@ export default function DentalImplantsIntroSection() {
         transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
       >
         <Image
-          src={cbctImage}
+          src={camImage}
           alt='Dental Implants in Bridgwater, Somerset'
           width={1824}
           height={1216}

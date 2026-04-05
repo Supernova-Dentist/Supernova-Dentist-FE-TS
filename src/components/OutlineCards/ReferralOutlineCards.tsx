@@ -22,7 +22,7 @@ export const ReferralOutlineCards = () => {
           href='/professional-referrals/oral-surgery-referral'
           bgUrl='/assets/images/oral_surgery_referral.jpg'
         />
-        <Card title='CBCT/OPG' href='/professional-referrals/cbct-opg-referral' bgUrl='/assets/images/equipment.JPG' />
+        <Card title='CBCT/OPG' href='/professional-referrals/cbct-opg-referral' bgUrl='/assets/images/cbct_supernova_dental_bridgwater.webp' />
       </div>
     </section>
   );

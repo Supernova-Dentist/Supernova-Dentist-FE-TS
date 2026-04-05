@@ -7,7 +7,6 @@ import HeroSection from '@/components/HeroSection/HeroSection';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import InfoSection from '@/components/InfoSection/InfoSection';
 import InvisalignSmileView from '@/components/InvisalignSmileView/InvisalignSmileView';
-import SaraSection from '@/components/SaraSection/SaraSection';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
 import benefitsData from './contentData/benefitsData';
@@ -27,7 +26,7 @@ export default function DentalImplantsContent() {
           serviceDescription='Discover single-tooth implants and advanced full-arch solutions such as All-on-4 delivered by our experienced implantologist at Supernova Dental in Bridgwater, Somerset.'
           formTitle='Register for your Dental Implant Consultation'
           formDescription='Book a no-obligation consultation with our expert implantologist, and explore single implants or full-arch options like All-on-4 for a permanent, natural-looking smile.'
-          // imgSrc='/assets/images/dental-implants-supernova-dental-bridgwater.webp'
+          // imgSrc='/assets/images/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp'
           formId='implants-enquiry-form'
           eventType='DentalImplantsLead'
         />
@@ -38,6 +37,7 @@ export default function DentalImplantsContent() {
 
         <DentalImplantsIntroSection />
 
+        {/* <CamSection /> */}
         {/* <div className='bg-cream'>
         <SaraSection />
       </div> */}

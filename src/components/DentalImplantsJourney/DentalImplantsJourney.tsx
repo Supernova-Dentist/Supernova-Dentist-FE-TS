@@ -7,11 +7,11 @@ import { DentalImplantTimeline } from '../ServiceTimelines/DentalImplantTimeline
 // Static imports so we can use intrinsic width/height
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-import ConsultationImage from '../../../public/assets/images/equipment.JPG';
-import RestorationImage from '../../../public/assets/images/implant_journey_3.jpeg';
+import ConsultationImage from '../../../public/assets/images/cbct_supernova_dental_bridgwater.webp';
+import RestorationImage from '../../../public/assets/images/Dr-Cameran-Armaghani-implant-case-study.webp';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-import SurgeryImage from '../../../public/assets/images/surgery2.JPG';
+import SurgeryImage from '../../../public/assets/images/sunlight_suite_supernova_dental_bridgwater.webp';
 
 export function DentalImplantsJourney() {
   const data = [
