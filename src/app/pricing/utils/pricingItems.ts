@@ -36,6 +36,11 @@ export const pricingItems = [
         price: 75,
         priceDescription: 'Plus treatment cost if required',
       },
+      {
+        description: 'Under 16 Emergency Appointment',
+        price: 55,
+        priceDescription: 'Plus treatment cost if required',
+      },
     ],
   },
   {
