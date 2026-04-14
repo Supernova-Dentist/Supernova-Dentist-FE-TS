@@ -66,7 +66,7 @@ const Carousel = () => {
       title: 'Comfortable Chairs',
       description: 'Our supportive chairs provide a balanced blend of comfort and stability during your treatments.',
       icon: <FaChair className='w-12 h-12 mb-4 text-gold' />,
-      imgSrc: '/assets/images/sunlight_suite_supernova_dental_bridgwater.webp.JPG',
+      imgSrc: '/assets/images/surgery2.jpg',
     },
     {
       title: 'Advanced Equipment',
