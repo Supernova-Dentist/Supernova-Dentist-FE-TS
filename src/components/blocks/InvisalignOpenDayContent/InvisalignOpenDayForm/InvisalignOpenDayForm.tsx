@@ -9,12 +9,14 @@ import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
+import imgSrc from '../../../../../public/assets/images/2026_april_invisalign_open_day.jpg';
 import { promotionSignupSchema, type PromotionFormData } from '../../../../../types/PromotionForm';
 import BarLoader from '../../../BarLoader/BarLoader';
 import PrivacyPolicyModal from '../../../PrivacyModal/PrivacyModal';
@@ -255,10 +257,16 @@ export default function InvisalignOpenDayForm({
               </Card>
             </div>
             <div className='hidden lg:flex items-center justify-center mx-auto gap-4 pt-4 pb-8'>
-              <img
-                src='/assets/images/2026_april_invisalign_open_day.jpg'
-                alt='Invisalign Open Day'
-                className=' w-11/12'
+              <Image
+                priority
+                width={imgSrc.width}
+                height={imgSrc.height}
+                quality={75}
+                placeholder='blur'
+                src={imgSrc}
+                blurDataURL={imgSrc.blurDataURL}
+                alt={`Invisalign Open Day - Supernova Dental Bridgwater Somerset`}
+                className='w-full max-w-md mx-auto mt-8 hidden lg:block'
               />
             </div>
             {/* <Card className=' max-h-[50rem] md:max-h-[40rem] mt-6 mx-auto lg:m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-6 flex items-center justify-center'>
@@ -338,10 +346,16 @@ export default function InvisalignOpenDayForm({
             </Card> */}
 
             <div className='flex flex-col lg:hidden py-2 lg:py-12 mt-4'>
-              <img
-                src='/assets/images/2026_april_invisalign_open_day.jpg'
-                alt='Invisalign Open Day'
-                className=' w-12/12 mx-auto pb-4'
+              <Image
+                priority
+                width={imgSrc.width}
+                height={imgSrc.height}
+                quality={75}
+                placeholder='blur'
+                src={imgSrc}
+                blurDataURL={imgSrc.blurDataURL}
+                alt={`Invisalign Open Day - Supernova Dental Bridgwater Somerset`}
+                className='w-full max-w-md mx-auto mt-8 block lg:hidden'
               />
               <img
                 src='/assets/images/supernova_dental_cover.png'
