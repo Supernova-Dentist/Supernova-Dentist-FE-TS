@@ -31,6 +31,7 @@ export default function FindUsInfoSection() {
           <h2 className='text-xl xl:text-2xl font-semibold mb-4 text-center text-gray'>Contact Us</h2>
           <div className='flex flex-col items-center space-y-2'>
             <p className='text-base sm:text-lg text-center text-lightGrey'>Phone: 01278 228665</p>
+            <p className='text-base sm:text-lg text-center text-lightGrey'>WhatsApp: 07863 338815</p>
             <p className='text-base sm:text-lg text-center text-lightGrey'>
               Email:{' '}
               <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>

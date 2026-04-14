@@ -60,6 +60,7 @@ export default function Footer() {
             <li className='text-gold text-lg uppercase'>Contact Us</li>
             <li>enquiries@supernovadental.co.uk</li>
             <li>Phone: 01278 228665</li>
+            <li>WhatsApp: 07863 338815</li>
             <li className='flex gap-2'>
               <a href='mailto:enquiries@supernovadental.co.uk' className='bg-gold py-1 px-2 rounded-sm text-white'>
                 Email Us
