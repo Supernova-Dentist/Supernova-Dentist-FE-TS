@@ -6,10 +6,10 @@ export const { INSTAGRAM_API_BASE_URL, META_API_CLIENT_ID, META_API_CLIENT_SECRE
 
 // Navigation
 export const cosmeticServices = [
-  {
-    name: 'Invisalign Open Day',
-    link: '/cosmetic-dentistry/invisalign-open-day',
-  },
+  // {
+  //   name: 'Invisalign Open Day',
+  //   link: '/cosmetic-dentistry/invisalign-open-day',
+  // },
   {
     name: 'Explore Cosmetic Dentistry',
     link: '/cosmetic-dentistry',
@@ -40,7 +40,7 @@ export const cosmeticServices = [
 export const practiceInfo = [
   { name: 'Home', link: '/' },
   { name: 'Practice', link: '/practice' },
-  { name: 'Invisalign Open Day', link: '/cosmetic-dentistry/invisalign-open-day' },
+  // { name: 'Invisalign Open Day', link: '/cosmetic-dentistry/invisalign-open-day' },
   { name: 'New Patient Examination', link: '/general-dentistry/new-patient-examination' },
   { name: 'Emergency Dentistry', link: '/general-dentistry/emergency-dentistry' },
   { name: 'Dental Implants', link: '/cosmetic-dentistry/dental-implants' },

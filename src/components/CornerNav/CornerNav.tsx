@@ -322,7 +322,7 @@ const LINKS = [
     title: 'Cosmetic Dentistry',
     href: '#',
     subLinks: [
-      { title: 'Invisalign Open Day', href: '/cosmetic-dentistry/invisalign-open-day' },
+      // { title: 'Invisalign Open Day', href: '/cosmetic-dentistry/invisalign-open-day' },
       { title: 'Explore Cosmetic Dentistry', href: '/cosmetic-dentistry' },
       // { title: 'Invisalign Flash Sale', href: '/cosmetic-dentistry/invisalign-flash-sale' },
       // { title: 'Invisalign Open Day', href: '/cosmetic-dentistry/invisalign-open-day' },
