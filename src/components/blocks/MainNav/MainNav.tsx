@@ -2,7 +2,7 @@
 
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
-//import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
+// import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
 import React, { useEffect, useRef, useState } from 'react';
 
 // Hook to get window size
@@ -30,7 +30,7 @@ const MainNav = () => {
   const { width } = useWindowSize();
   const [isMounted, setIsMounted] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(true);
-  //const [showBanner, setShowBanner] = useState(false);
+  // const [showBanner, setShowBanner] = useState(false);
   const scrollPosition = useRef(0);
   const isMobile = width <= 915;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
