@@ -81,11 +81,11 @@ const MainNav = () => {
   return (
     <>
       {/* ✅ Only render banner if not dismissed */}
-     /*{showBanner && (
+     {/* {showBanner && (
         <div className='fixed top-0 left-0 w-full z-[60]'>
           <OpenDayBanner onDismiss={() => setShowBanner(false)} />
         </div>
-      )}*/
+      )} */}
 
       {/* ✅ Navigation */}
       <header
