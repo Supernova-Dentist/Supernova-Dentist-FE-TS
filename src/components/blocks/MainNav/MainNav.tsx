@@ -2,7 +2,7 @@
 
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
-import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
+//import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
 import React, { useEffect, useRef, useState } from 'react';
 
 // Hook to get window size
