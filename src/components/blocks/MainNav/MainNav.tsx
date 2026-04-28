@@ -36,7 +36,7 @@ const MainNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Check banner visibility from localStorage
-     /*useEffect(() => {
+     /* useEffect(() => {
         const dismissed = localStorage.getItem('bannerDismissed');
         if (dismissed !== 'true') {
           setShowBanner(true);
@@ -46,7 +46,7 @@ const MainNav = () => {
           setShowBanner(false);
         }
       }, [
-      ]);*/
+      ]); */
 
   // Handle scroll-based navbar visibility
   useEffect(() => {
