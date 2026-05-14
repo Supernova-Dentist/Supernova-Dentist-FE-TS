@@ -39,7 +39,7 @@ const MainNav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const showConsultationLandingPage = pathname === '/smile-makeover-consultation';
+  const showConsultationLandingPage = pathname === '/smile-makeover-consultation' || pathname === '/book-appointment';
 
   // Check banner visibility from localStorage
   /* useEffect(() => {

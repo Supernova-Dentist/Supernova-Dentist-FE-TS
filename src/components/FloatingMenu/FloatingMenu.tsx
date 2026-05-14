@@ -16,7 +16,7 @@ export default function FloatingMenu() {
 
   const isMobile = width < 768;
 
-  const isConsultationPage = pathname === '/smile-makeover-consultation';
+  const isConsultationPage = pathname === '/smile-makeover-consultation' || pathname === '/book-appointment';
 
   const shouldShowMenu = !isConsultationPage;
 

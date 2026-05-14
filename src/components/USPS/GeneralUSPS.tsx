@@ -1,24 +1,26 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BadgeCheck, CreditCard, LucideSmile, Sparkles } from 'lucide-react';
+import { BadgeCheck, CreditCard, LucideSmile, Sparkles, Stethoscope, Users } from 'lucide-react';
+import { FaTeethOpen } from 'react-icons/fa';
+import { GiTooth } from 'react-icons/gi';
 
-export default function USPS() {
+export default function GeneralUSPS() {
   const usps = [
     {
-      title: 'Complete Smile Journey Under One Roof',
-      icon: Sparkles,
+      title: 'Friendly, Experienced Dental Team',
+      icon: Users,
     },
     {
       title: '5 Star Rated On Google',
       icon: BadgeCheck,
     },
     {
-      title: 'Advanced Digital Smile Design',
-      icon: LucideSmile,
+      title: 'Routine, Cosmetic & Emergency Appointments',
+      icon: GiTooth,
     },
     {
-      title: 'Flexible Finance Options',
+      title: 'Flexible Finance Options Available',
       icon: CreditCard,
     },
   ];
