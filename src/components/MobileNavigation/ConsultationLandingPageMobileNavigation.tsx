@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { CornerNav } from '../CornerNav/CornerNav';
+import { PhoneIcon } from '@heroicons/react/solid';
 
 interface ConsultationLandingPageMobileNavigationProps {
   active: boolean;
@@ -66,7 +67,7 @@ export default function ConsultationLandingPageMobileNavigation({
       )}
 <a href='tel:01278228665' className='ml-auto'>
       <p className='text-xl text-center text-white mr-6 font-semibold'>
-        <span className='text-gold'>📞 CALL</span>
+         <PhoneIcon className='inline text-gold h-6 mr-1' /><span className='text-gold'>CALL</span>
       </p>
         </a>
     </nav>

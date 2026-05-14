@@ -9,6 +9,9 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import Button from '../Button/Button';
 import FlyoutLink from './FlyoutLink/FlyoutLink';
+import { Phone, PhoneCall } from 'lucide-react';
+import { BiPhone } from 'react-icons/bi';
+import { PhoneIcon, PhoneIncomingIcon } from '@heroicons/react/solid';
 
 export default function ConsultationLandingPageDesktopNav() {
   const { ref, inView } = useInView({
@@ -46,7 +49,8 @@ export default function ConsultationLandingPageDesktopNav() {
             style={{ pointerEvents: 'auto' }} // keep links clickable
           >
             <p className='text-xl text-center text-white mr-6 xl:block hidden font-semibold'>
-              <span className='text-gold'>📞 CALL US:</span> 01278 228665
+              <PhoneIcon className='inline text-gold h-8' />
+              <span className='text-gold'> CALL US:</span> 01278 228665
             </p>
           </li>
 
@@ -58,9 +62,9 @@ export default function ConsultationLandingPageDesktopNav() {
                 enquiries@supernovadental.co.uk
               </a>
             </p> */}
-            <Link target='_blank' href={`${DentallyPortal}`}>
-              <Button className='text-white'>BOOK YOUR CONSULTATION</Button>
-            </Link>
+         
+              <Button onClick={scrollToPromotionForm} className='text-white'>BOOK YOUR CONSULTATION></Button>
+            
           </li>
         </ul>
       </nav>
