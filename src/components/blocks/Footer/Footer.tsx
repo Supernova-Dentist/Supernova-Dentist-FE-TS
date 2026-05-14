@@ -16,7 +16,10 @@ const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMa
 export default function Footer() {
   const pathname = usePathname();
 
-  const isConsultationPage = pathname === '/smile-makeover-consultation' || pathname === '/book-appointment';
+  const isConsultationPage =
+    pathname === '/smile-makeover-consultation' ||
+    pathname === '/book-appointment' ||
+    pathname === '/implant-consultation';
 
   return (
     <footer className='bg-grey'>
