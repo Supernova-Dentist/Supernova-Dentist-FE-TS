@@ -2,16 +2,16 @@
 
 import { DentallyPortal, navLinks } from '@/lib/constants';
 import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { PhoneIcon, PhoneIncomingIcon } from '@heroicons/react/solid';
 import { motion } from 'framer-motion';
+import { Phone, PhoneCall } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { BiPhone } from 'react-icons/bi';
 import { useInView } from 'react-intersection-observer';
 import Button from '../Button/Button';
 import FlyoutLink from './FlyoutLink/FlyoutLink';
-import { Phone, PhoneCall } from 'lucide-react';
-import { BiPhone } from 'react-icons/bi';
-import { PhoneIcon, PhoneIncomingIcon } from '@heroicons/react/solid';
 
 export default function ConsultationLandingPageDesktopNav() {
   const { ref, inView } = useInView({
@@ -62,9 +62,10 @@ export default function ConsultationLandingPageDesktopNav() {
                 enquiries@supernovadental.co.uk
               </a>
             </p> */}
-         
-              <Button onClick={scrollToPromotionForm} className='text-white'>BOOK YOUR CONSULTATION></Button>
-            
+
+            <Button onClick={scrollToPromotionForm} className='text-white'>
+              BOOK YOUR CONSULTATION
+            </Button>
           </li>
         </ul>
       </nav>
