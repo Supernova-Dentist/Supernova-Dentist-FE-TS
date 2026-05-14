@@ -6,7 +6,7 @@ export default function GoogleMap() {
       <iframe
         title='Supernova Dental Location - Bridgwater Dentist'
         width='100%'
-        height='350'
+        height='550'
         referrerPolicy='no-referrer-when-downgrade'
         src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=supernova+dental+marsh+lane+huntworth+bridgwater+TA6 6LQ`}
         allowFullScreen

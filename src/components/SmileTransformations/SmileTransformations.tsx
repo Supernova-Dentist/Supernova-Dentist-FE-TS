@@ -40,7 +40,12 @@ export default function SmileTransformations() {
       className='w-full pb-12 '
       ref={ref} // Attach the ref to the section
     >
-      <div className='container mx-auto'>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className='container mx-auto'
+      >
         <div className='flex justify-center mb-4'>
           <motion.div
             initial={{ opacity: 0, y: 20 }} // Start hidden and slightly lower
@@ -94,7 +99,7 @@ export default function SmileTransformations() {
             Transform now!
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

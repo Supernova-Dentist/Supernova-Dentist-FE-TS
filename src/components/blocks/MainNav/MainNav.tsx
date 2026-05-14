@@ -1,7 +1,10 @@
 'use client';
 
+import ConsultationLandingPageDesktopNav from '@/components/DesktopNav/ConsultationLandingPageDesktopNav';
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
+import ConsultationLandingPageMobileNavigation from '@/components/MobileNavigation/ConsultationLandingPageMobileNavigation';
 import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
+import { usePathname } from 'next/navigation';
 // import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -32,11 +35,14 @@ const MainNav = () => {
   const [navbarVisible, setNavbarVisible] = useState(true);
   // const [showBanner, setShowBanner] = useState(false);
   const scrollPosition = useRef(0);
-  const isMobile = width <= 915;
+  const isMobile = width <= 1024;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const showConsultationLandingPage = pathname === '/smile-makeover-consultation';
 
   // Check banner visibility from localStorage
-     /* useEffect(() => {
+  /* useEffect(() => {
         const dismissed = localStorage.getItem('bannerDismissed');
         if (dismissed !== 'true') {
           setShowBanner(true);
@@ -47,6 +53,10 @@ const MainNav = () => {
         }
       }, [
       ]); */
+
+  // useEffect(() => {
+  //   setShowConsultationLandingPage(window.location.pathname === '/book-your-consultation');
+  // }, [window.location.pathname]);
 
   // Handle scroll-based navbar visibility
   useEffect(() => {
@@ -81,7 +91,7 @@ const MainNav = () => {
   return (
     <>
       {/* ✅ Only render banner if not dismissed */}
-     {/* {showBanner && (
+      {/* {showBanner && (
         <div className='fixed top-0 left-0 w-full z-[60]'>
           <OpenDayBanner onDismiss={() => setShowBanner(false)} />
         </div>
@@ -93,7 +103,15 @@ const MainNav = () => {
           navbarVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        {isMobile ? (
+        {showConsultationLandingPage ? (
+          isMobile ? (
+            <div className='bg-grey'>
+              <ConsultationLandingPageMobileNavigation active={mobileMenuOpen} setActive={setMobileMenuOpen} />
+            </div>
+          ) : (
+            <ConsultationLandingPageDesktopNav />
+          )
+        ) : isMobile ? (
           <div className='bg-grey'>
             <MobileNavigation active={mobileMenuOpen} setActive={setMobileMenuOpen} />
           </div>

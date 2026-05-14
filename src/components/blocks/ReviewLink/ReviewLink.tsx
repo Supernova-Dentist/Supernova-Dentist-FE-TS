@@ -19,7 +19,7 @@ export default function ReviewLink() {
         onClick={handleButtonClick}
         className='bg-primary text-white px-6 py-4 rounded-lg bg-gold hover:bg-lightGold'
       >
-        Write a Review
+        Book a Consultation
       </button>
     </LinkPreview>
   );

@@ -68,9 +68,7 @@ export default function GoogleReviewsCarousel() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className='flex justify-center p-4 mt-4'>
-        <ReviewLink />
-      </div>
+      
 
       {isModalOpen && selectedReview != null && (
         <Modal isOpen={isModalOpen} onClose={() => toggleModal(null)}>

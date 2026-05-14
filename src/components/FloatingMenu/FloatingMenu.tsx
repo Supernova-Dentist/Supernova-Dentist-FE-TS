@@ -2,6 +2,7 @@
 
 import { DentallyPortal } from '@/lib/constants';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { FaCalendarAlt, FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import { Fab } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
@@ -11,15 +12,22 @@ const ACTION_BAR_HEIGHT = 64;
 
 export default function FloatingMenu() {
   const { width } = useWindowSize();
+  const pathname = usePathname();
+
   const isMobile = width < 768;
+
+  const isConsultationPage = pathname === '/smile-makeover-consultation';
+
+  const shouldShowMenu = !isConsultationPage;
 
   function handleWhatsAppClick() {
     window.open('https://wa.me/447863338815', '_blank');
   }
 
+  if (!shouldShowMenu) return null;
+
   return (
     <>
-      {/* Full-width Action Bar */}
       {isMobile && (
         <motion.div
           initial={{ y: ACTION_BAR_HEIGHT }}
@@ -45,12 +53,14 @@ export default function FloatingMenu() {
             label='Book Online'
             onClick={() => window.open(`${DentallyPortal}`, '_blank')}
           />
+
           <ActionButton
             index={1}
             icon={<FaMapMarkerAlt />}
             label='Find Us'
             onClick={() => window.open('https://maps.google.com/?q=Supernova+Dental+Bridgwater', '_blank')}
           />
+
           <ActionButton
             index={2}
             icon={<FaPhoneAlt />}
@@ -60,7 +70,6 @@ export default function FloatingMenu() {
         </motion.div>
       )}
 
-      {/* WhatsApp FAB */}
       <Fab
         style={{
           bottom: isMobile ? ACTION_BAR_HEIGHT : 20,
