@@ -124,15 +124,13 @@ export default function ConsultationPromotionForm() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className='container mx-auto max-w-[1200px] grid lg:grid-cols-2 gap-10 items-center px-4'>
+          <div className='container mx-auto max-w-[1200px] grid lg:grid-cols-2 gap-10 items-center px-2'>
             {/* FORM */}
-            <Card className='w-full max-w-lg mx-auto bg-white shadow-2xl border p-8'>
+            <Card className='w-full max-w-lg mx-auto bg-white shadow-2xl border p-4 md:p-8 rounded-2xl'>
               <CardHeader className='text-center p-0 mb-2'>
-                <CardTitle className='text-3xl font-bold'>Start Your Consultation</CardTitle>
+                <CardTitle className='text-3xl font-bold'> Begin Your Smile Transformation</CardTitle>
 
-                <p className='text-sm text-gray-600 mt-2'>
-                  New patients welcome - cosmetic, general & emergency dentistry
-                </p>
+                <p className='text-sm text-gray-600 mt-2'>Book a cosmetic consultation to explore your ideal smile</p>
               </CardHeader>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
@@ -199,11 +197,11 @@ export default function ConsultationPromotionForm() {
 
                   {/* TRUST MICROCOPY */}
                   <p className='text-xs text-gray-500 text-center'>
-                    No pressure, no obligation - we’ll simply guide you on the best next steps.
+                    No pressure, no obligation - we’ll simply guide you on the next steps.
                   </p>
 
                   {/* NEXT STEPS */}
-                  <div className='text-sm text-gray-600 space-y-1 pt-2'>
+                  <div className='text-sm text-gray-600 space-y-1'>
                     <p>✔ Reviewed within 24 hours</p>
                     <p>✔ Clear treatment options explained</p>
                     <p>✔ Appointment booked at your convenience</p>
