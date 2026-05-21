@@ -48,7 +48,7 @@ export const pricingItems = [
     products: [
       { description: 'Initial direct access hygiene assessment', price: 135 },
       { description: 'Routine hygiene maintenance appointment', price: 85 },
-      { description: 'Air polish (includes routine hygiene appointment)', price: 150 },
+      { description: 'Air polish (includes routine hygiene appointment)', price: 125 },
       {
         description: `Full root surface debridement`,
         price: 150,
