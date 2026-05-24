@@ -15,6 +15,7 @@ import souadImage from '../../../../public/assets/images/Headshots/dr-souad-madd
 import kayleighImage from '../../../../public/assets/images/Headshots/kayleigh-dowdle-dental-therapist-supernova-dental-bridgwater.webp';
 import miaImage from '../../../../public/assets/images/Headshots/mia-coakley-lead-front-house-supernova-dental-bridgwater.webp';
 import teaganImage from '../../../../public/assets/images/Headshots/teagan-ruby-treatment-coordinator-supernova-dental-bridgwater.webp';
+import tracyImage from '../../../../public/assets/images/Headshots/tracy-hawkins-dental-hygienist-supernova-dental-bridgwater.webp';
 import vanessaImage from '../../../../public/assets/images/Headshots/vanessa-speier-trainee-dental-nurse-supernova-dental-bridgwater.webp';
 import victoriaImage from '../../../../public/assets/images/Headshots/victoria-hands-lead-dental-nurse-supernova-dental-bridgwater.webp';
 
@@ -30,6 +31,7 @@ const teamMembers = [
     slug: 'dr-jacqueline-amarin',
   },
   { name: 'Kayleigh Dowdle', title: 'Dental Therapist', image: kayleighImage, slug: 'kayleigh-dowdle' },
+  { name: 'Tracy Hawkins', title: 'Dental Hygienist', image: tracyImage, slug: 'tracy-hawkins' },
   { name: 'Teagan Ruby', title: 'Treatment Coordinator', image: teaganImage, slug: 'teagan-ruby' },
   { name: 'Adam Young', title: 'Operations Director', image: adamImage, slug: 'adam-young' },
   { name: 'Victoria Hands', title: 'Lead Dental Nurse', image: victoriaImage, slug: 'victoria-hands' },
