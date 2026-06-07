@@ -27,7 +27,7 @@ export function DentalImplantsJourney() {
             //
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
             priority
           />
         </div>
@@ -49,7 +49,7 @@ export function DentalImplantsJourney() {
             //
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -70,7 +70,7 @@ export function DentalImplantsJourney() {
             //
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),

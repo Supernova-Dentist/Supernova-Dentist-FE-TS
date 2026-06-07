@@ -25,7 +25,7 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
             height={ExamImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -46,7 +46,7 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
             height={CavityPrep.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
           {/* Optional: Composite placement image */}
           {/* <Image
@@ -56,7 +56,7 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
             height={CompositePlacement.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           /> */}
         </div>
       ),
@@ -76,7 +76,7 @@ export function WhiteCompositeFillingJourney({ id }: { id: string }) {
             height={BiteCheck.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),

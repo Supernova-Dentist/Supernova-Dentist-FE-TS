@@ -24,7 +24,7 @@ export function NewPatientJourney({ id }: { id: string }) {
             height={ConsultationImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='md:max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -45,7 +45,7 @@ export function NewPatientJourney({ id }: { id: string }) {
             height={ExaminationImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='md:max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -65,7 +65,7 @@ export function NewPatientJourney({ id }: { id: string }) {
             height={TreatmentPlanImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='md:max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),

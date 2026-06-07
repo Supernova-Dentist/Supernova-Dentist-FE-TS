@@ -25,7 +25,7 @@ export function RootCanalJourney({ id }: { id: string }) {
             height={ConsultationImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='md:max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -45,7 +45,7 @@ export function RootCanalJourney({ id }: { id: string }) {
             height={TreatmentImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='md:max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -66,7 +66,7 @@ export function RootCanalJourney({ id }: { id: string }) {
             height={RestorationImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='md:max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),

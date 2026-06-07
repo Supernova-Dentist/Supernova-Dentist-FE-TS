@@ -24,7 +24,7 @@ export function DentalTherapyJourney({ id }: { id: string }) {
             height={TherapyAssess.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -43,7 +43,7 @@ export function DentalTherapyJourney({ id }: { id: string }) {
             height={DentalTherapyBuild.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -62,7 +62,7 @@ export function DentalTherapyJourney({ id }: { id: string }) {
             height={DentalTherapyCare.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),

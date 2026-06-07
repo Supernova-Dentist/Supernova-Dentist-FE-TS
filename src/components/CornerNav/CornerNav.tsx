@@ -342,6 +342,7 @@ const LINKS = [
       { title: 'Emergency Dentistry', href: '/general-dentistry/emergency-dentistry' },
       { title: 'White Composite Fillings', href: '/general-dentistry/white-composite-fillings' },
       { title: 'Root Canal Treatment', href: '/general-dentistry/root-canal-treatment' },
+      { title: 'Dentures', href: '/general-dentistry/dentures' },
       { title: 'Dental Therapist', href: '/general-dentistry/dental-therapist' },
       { title: 'Dental Hygiene', href: '/general-dentistry/dental-hygiene' },
       { title: 'Dental Finance', href: '/general-dentistry/dental-finance' },

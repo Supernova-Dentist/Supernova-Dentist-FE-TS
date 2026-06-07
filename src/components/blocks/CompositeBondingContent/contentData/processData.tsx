@@ -31,7 +31,7 @@ export function CompositeBondingProcess({ id }: CompositeBondingProcessProps) {
             height={InitialConsultation.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4 rounded-xl'
+            className='md:max-w-[30rem] w-full mx-auto py-4 rounded-xl'
           />
         </div>
       ),
@@ -52,7 +52,7 @@ export function CompositeBondingProcess({ id }: CompositeBondingProcessProps) {
             height={SmileDesign.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4 rounded-xl'
+            className='md:max-w-[30rem] w-full mx-auto py-4 rounded-xl'
           />
         </div>
       ),
@@ -73,7 +73,7 @@ export function CompositeBondingProcess({ id }: CompositeBondingProcessProps) {
             height={FinalResults.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4 rounded-xl'
+            className='md:max-w-[30rem] w-full mx-auto py-4 rounded-xl'
           />
         </div>
       ),

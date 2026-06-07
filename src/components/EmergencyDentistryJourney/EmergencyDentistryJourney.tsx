@@ -26,7 +26,7 @@ export function EmergencyDentistryJourney() {
             height={ConsultationImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
             priority
           />
         </div>
@@ -48,7 +48,7 @@ export function EmergencyDentistryJourney() {
             height={TreatmentImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),
@@ -68,7 +68,7 @@ export function EmergencyDentistryJourney() {
             height={FollowUpImage.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4'
+            className='md:max-w-[30rem] w-full mx-auto py-4'
           />
         </div>
       ),

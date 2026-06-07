@@ -24,7 +24,7 @@ export function HygieneJourney({ id }: { id: string }) {
             height={PlaqueRemoval.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='md:max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -44,7 +44,7 @@ export function HygieneJourney({ id }: { id: string }) {
             height={Airflow.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='md:max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),
@@ -64,7 +64,7 @@ export function HygieneJourney({ id }: { id: string }) {
             height={HygieneAdvice.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] mx-auto py-4'
+            className='md:max-w-[30rem] mx-auto py-4'
           />
         </div>
       ),

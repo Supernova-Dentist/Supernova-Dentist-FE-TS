@@ -266,6 +266,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- Dentures -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/general-dentistry/dentures</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <!-- New Patient Examination -->
   <url>
     <loc>https://www.supernovadental.co.uk/general-dentistry/new-patient-examination</loc>

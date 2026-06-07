@@ -25,7 +25,7 @@ export function TeethWhiteningProcess({ id }: { id: string }) {
             height={InitialExam.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4 rounded-xl'
+            className='md:max-w-[30rem] w-full mx-auto py-4 rounded-xl'
           />
         </div>
       ),
@@ -46,7 +46,7 @@ export function TeethWhiteningProcess({ id }: { id: string }) {
             height={CustomTrays.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4 rounded-xl'
+            className='md:max-w-[30rem] w-full mx-auto py-4 rounded-xl'
           />
         </div>
       ),
@@ -67,7 +67,7 @@ export function TeethWhiteningProcess({ id }: { id: string }) {
             height={Review.height}
             placeholder='blur'
             quality={75}
-            className='max-w-[30rem] w-full mx-auto py-4 rounded-xl'
+            className='md:max-w-[30rem] w-full mx-auto py-4 rounded-xl'
           />
         </div>
       ),
