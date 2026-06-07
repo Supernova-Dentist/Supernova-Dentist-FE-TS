@@ -48,7 +48,7 @@ export default function DenturesIntro() {
           secure and natural-looking.
         </p>
 
-        <Link href={`/enquiry?ref=${encodeURIComponent('restorative-dentistry/dentures')}`}>
+        <Link href={`/enquiry?ref=${encodeURIComponent('general-dentistry/dentures')}`}>
           <Button className='mt-6 w-fit p-6'>Book Your Consultation</Button>
         </Link>
       </motion.div>

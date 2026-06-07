@@ -15,6 +15,7 @@ const urlToReadableMap: { [key: string]: string } = {
   'general-dentistry/general-checkup': 'General Check-up',
   'general-dentistry/white-composite-fillings': 'White Composite Fillings',
   'general-dentistry/root-canal-treatment': 'Root Canal Treatment',
+  'general-dentistry/dentures': 'Dentures',
   'general-dentistry/emergency-dentistry': 'Emergency Dental Care',
   pricing: 'Pricing',
   'general-dentistry/dental-finance': 'Dental Finance',
