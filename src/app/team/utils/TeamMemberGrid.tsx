@@ -9,7 +9,7 @@ import adamImage from '../../../../public/assets/images/Headshots/adam-young-ope
 import amyImage from '../../../../public/assets/images/Headshots/amy-skinner-front-of-house-supernova-dental-bridgwater.webp';
 import cameranImage from '../../../../public/assets/images/Headshots/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp';
 import jacquelineImage from '../../../../public/assets/images/Headshots/dr-jacqueline-amarin-dentist-supernova-dental-bridgwater.webp';
-import saraImage from '../../../../public/assets/images/Headshots/dr-sara-banuri-implantologist-supernova-dental-bridgwater.webp';
+// import saraImage from '../../../../public/assets/images/Headshots/dr-sara-banuri-implantologist-supernova-dental-bridgwater.webp';
 import scottImage from '../../../../public/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp';
 import souadImage from '../../../../public/assets/images/Headshots/dr-souad-maddi-dentist-supernova-dental-bridgwater.webp';
 import kayleighImage from '../../../../public/assets/images/Headshots/kayleigh-dowdle-dental-therapist-supernova-dental-bridgwater.webp';
@@ -22,7 +22,7 @@ import victoriaImage from '../../../../public/assets/images/Headshots/victoria-h
 const teamMembers = [
   { name: 'Dr. Scott Young', title: 'Principal Dentist/Owner', image: scottImage, slug: 'dr-scott-young' },
   { name: 'Dr. Cameran Armaghani', title: 'Implantologist', image: cameranImage, slug: 'dr-cameran-armaghani' },
-  { name: 'Dr. Sara D Banuri', title: 'Implantologist/Oral Surgeon', image: saraImage, slug: 'dr-sara-d-banuri' },
+  // { name: 'Dr. Sara D Banuri', title: 'Implantologist/Oral Surgeon', image: saraImage, slug: 'dr-sara-d-banuri' },
   { name: 'Dr. Souad Maddi', title: 'General and Restorative Dentist', image: souadImage, slug: 'dr-souad-maddi' },
   {
     name: 'Dr. Jacqueline Amarin',
