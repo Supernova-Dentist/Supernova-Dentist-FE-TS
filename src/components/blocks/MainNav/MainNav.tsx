@@ -4,6 +4,7 @@ import ConsultationLandingPageDesktopNav from '@/components/DesktopNav/Consultat
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import ConsultationLandingPageMobileNavigation from '@/components/MobileNavigation/ConsultationLandingPageMobileNavigation';
 import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
+import { ImplantInvisalignBannerPopUp } from '@/components/StickyBanner/ImplantInvisalignBanner';
 import { usePathname } from 'next/navigation';
 // import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
 import React, { useEffect, useRef, useState } from 'react';
@@ -33,7 +34,7 @@ const MainNav = () => {
   const { width } = useWindowSize();
   const [isMounted, setIsMounted] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(true);
-  // const [showBanner, setShowBanner] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
   const scrollPosition = useRef(0);
   const isMobile = width <= 1024;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,6 +57,18 @@ const MainNav = () => {
         }
       }, [
       ]); */
+
+  useEffect(() => {
+    const dismissed = localStorage.getItem('implantinvisalignbannerDismissed');
+    if (dismissed !== 'true') {
+      setShowBanner(true);
+    }
+    // If we are on the invisalign open day page we don't want to show the banner
+    if (window.location.pathname === '/general-dentistry/emergency-dentistry') {
+      setShowBanner(false);
+    }
+    console.log('showBanner', showBanner);
+  }, []);
 
   // useEffect(() => {
   //   setShowConsultationLandingPage(window.location.pathname === '/book-your-consultation');
@@ -99,6 +112,11 @@ const MainNav = () => {
           <OpenDayBanner onDismiss={() => setShowBanner(false)} />
         </div>
       )} */}
+      {showBanner && (
+        <div className='fixed top-0 left-0 w-full z-[1000] h-20'>
+          <ImplantInvisalignBannerPopUp onDismiss={() => setShowBanner(false)} />
+        </div>
+      )}
 
       {/* ✅ Navigation */}
       <header
