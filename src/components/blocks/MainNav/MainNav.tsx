@@ -34,7 +34,7 @@ const MainNav = () => {
   const { width } = useWindowSize();
   const [isMounted, setIsMounted] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(true);
-  const [showBanner, setShowBanner] = useState(true);
+  const [showBanner, setShowBanner] = useState(false);
   const scrollPosition = useRef(0);
   const isMobile = width <= 1024;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -59,15 +59,16 @@ const MainNav = () => {
       ]); */
 
   useEffect(() => {
+    // Read dismissed flag from localStorage (if not present, show banner)
     const dismissed = localStorage.getItem('implantinvisalignbannerDismissed');
     if (dismissed !== 'true') {
       setShowBanner(true);
     }
-    // If we are on the invisalign open day page we don't want to show the banner
+
+    // If we are on the emergency dentistry page we don't want to show the banner
     if (window.location.pathname === '/general-dentistry/emergency-dentistry') {
       setShowBanner(false);
     }
-    console.log('showBanner', showBanner);
   }, []);
 
   // useEffect(() => {

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import logo from '../../../public/assets/images/logo.png';
 
 export const metadata: Metadata = {
-  robots: {
+robots: {
     index: false,
     follow: false,
   },
