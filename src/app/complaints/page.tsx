@@ -1,8 +1,16 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import SectionSpacing from '@/components/SectionSpacing/SectionSpacing';
 import SubHeader from '@/components/SubHeader/SubHeader';
+import { type Metadata } from 'next';
 import Image from 'next/image';
 import logo from '../../../public/assets/images/logo.png';
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function Complaints() {
   return (
@@ -143,7 +151,12 @@ export default function Complaints() {
             Telephone: 0854 222 4141 or 0207 887 3800
             <br />
             Website:{' '}
-            <a href='https://contactus.gdc-uk.org/Complaint/Process/13' target='_blank' rel='noopener noreferrer' className='text-gold underline'>
+            <a
+              href='https://contactus.gdc-uk.org/Complaint/Process/13'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-gold underline'
+            >
               https://contactus.gdc-uk.org/Complaint/Process/13
             </a>
           </p>
