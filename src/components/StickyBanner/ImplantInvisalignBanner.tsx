@@ -17,7 +17,7 @@ export function ImplantInvisalignBannerPopUp({ onDismiss }: { onDismiss?: () => 
         <span>
           Implant Consultations
           <br />
-          Monday 22nd June - Limited Availability Remaining
+          Monday 22nd June - Limited Availability
           <br />
           <span className='underline underline-offset-2'>Click Here To Register Interest</span>
         </span>
