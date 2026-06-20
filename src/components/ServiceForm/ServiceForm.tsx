@@ -141,8 +141,64 @@ export default function ServiceForm({
     }
   }
 
+  function goToPortal() {
+    if (redirectedRef.current) return;
+    redirectedRef.current = true;
+    window.location.href = DentallyPortal;
+  }
+
+  function handleRedirect() {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'redirect_to_patient_portal', {
+        send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+        event_callback: goToPortal,
+      });
+
+      setTimeout(goToPortal, 500);
+    } else {
+      goToPortal();
+    }
+  }
+
   function handleSuccessModalClose() {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
     setShowSuccessModal(false);
+    setShowRedirectBar(false);
+    reset();
+  }
+
+  function handleWaitForCallClick() {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
+    // Trigger Google Ads event
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'wait_for_call', {
+        send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+      });
+    }
+
+    setShowSuccessModal(false);
+    setShowRedirectBar(false);
+    reset();
+  }
+
+  function handlePatientPortalClick() {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
+
+    window.gtag('event', 'click_to_patient_portal_in_modal', {
+      send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+      event_callback: goToPortal,
+    });
+
+    setTimeout(goToPortal, 500);
+
+    setShowSuccessModal(false);
+    setShowRedirectBar(false);
     reset();
   }
 
