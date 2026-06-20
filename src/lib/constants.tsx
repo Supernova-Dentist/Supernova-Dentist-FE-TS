@@ -151,7 +151,7 @@ export const services = [
 // ];
 
 export const aboutUs = [
-  { name: 'Supernova Smile Stories', link: '/supernova-smile-stories' },
+  // { name: 'Supernova Smile Stories', link: '/supernova-smile-stories' },
   { name: 'Practice', link: '/practice' },
   // { name: 'Our Journey', link: '/our-journey' },
   { name: 'Team', link: '/team' },
