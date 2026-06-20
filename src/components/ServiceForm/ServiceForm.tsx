@@ -141,6 +141,14 @@ export default function ServiceForm({
     }
   }
 
+  useEffect(() => {
+    return () => {
+      if (redirectTimeoutRef.current) {
+        clearTimeout(redirectTimeoutRef.current);
+      }
+    };
+  }, []);
+
   function goToPortal() {
     if (redirectedRef.current) return;
     redirectedRef.current = true;
