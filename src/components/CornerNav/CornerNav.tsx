@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { SiFacebook, SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si';
+import { SiFacebook, SiInstagram, SiLinkedin, SiWhatsapp, SiYoutube } from 'react-icons/si';
 import Button from '../Button/Button';
 
 export const CornerNav = ({
@@ -394,6 +394,10 @@ export const SOCIAL_CTAS = [
   {
     Component: SiInstagram,
     href: 'https://www.instagram.com/supernova.dental',
+  },
+  {
+    Component: SiWhatsapp,
+    href: 'https://wa.me/447863338815',
   },
   // {
   //   Component: SiLinkedin,
