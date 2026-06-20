@@ -353,7 +353,7 @@ const LINKS = [
     title: 'about us',
     href: '#',
     subLinks: [
-      { title: 'Supernova Smile Stories', href: '/supernova-smile-stories' },
+      // { title: 'Supernova Smile Stories', href: '/supernova-smile-stories' },
       { title: 'Practice', href: '/practice' },
       // { title: 'Our Journey', href: '/our-journey' },
       { title: 'Team', href: '/team' },
