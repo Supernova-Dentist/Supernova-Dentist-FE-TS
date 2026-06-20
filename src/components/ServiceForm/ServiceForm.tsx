@@ -425,8 +425,14 @@ export default function ServiceForm({
       </section>
       {/* Success Modal */}
       {showSuccessModal && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative'>
+            <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative max-h-[90vh]'>
             <button
               onClick={handleSuccessModalClose}
               className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
@@ -434,22 +440,70 @@ export default function ServiceForm({
               <FaTimes />
             </button>
 
+              <img
+                src='/favicon.ico'
+                alt='Supernova Dental Logo - Bridgwater Dentist'
+                className='w-20 h-auto mx-auto mb-2'
+              />
+
             <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
             <div className='mb-6 flex flex-col gap-2'>
-              <p>You&apos;ve been successfully signed up. We&apos;ll send details to {values.email}.</p>
-              <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
+                <p>You&apos;ve been successfully signed up.</p>
+           
+                {showRedirectBar && (
+                  <>
+                    <p>Preparing your secure booking area…</p>
+                    <RedirectProgressBar />
+                  </>
+                )}
             </div>
-            {/* New text and button */}
-            <p className='mb-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
-            <div className='w-full flex justify-center mb-4'>
-              <Link target='_blank' href={`${DentallyPortal}`}>
-                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+              <div className='w-full flex justify-center mb-8 space-x-6'>
+                <button
+                  onClick={handlePatientPortalClick}
+                  className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'
+                >
                   Book Now!
                 </button>
-              </Link>
+                <button
+                  onClick={handleWaitForCallClick}
+                  className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'
+                >
+                  Wait For A Call
+                </button>
+              </div>
+
+              <div className='flex gap-4 justify-center mt-6'>
+                {SOCIAL_CTAS.map((l, idx) => (
+                  <motion.a
+                    key={idx}
+                    href={l.href}
+                    onClick={() => {
+                      if (redirectTimeoutRef.current) {
+                        clearTimeout(redirectTimeoutRef.current);
+
+                        setShowRedirectBar(false);
+                      }
+                    }}
+                    target='_blank'
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        delay: 0.5 + idx * 0.125,
+                        duration: 0.3,
+                        ease: 'easeInOut',
+                      },
+                    }}
+                    exit={{ opacity: 0, y: -8 }}
+                  >
+                    <l.Component className='text-3xl text-grey transition-colors' />
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Error Modal */}
