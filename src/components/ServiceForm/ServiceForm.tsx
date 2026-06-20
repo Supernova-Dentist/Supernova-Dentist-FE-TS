@@ -56,6 +56,9 @@ export default function ServiceForm({
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [showRedirectBar, setShowRedirectBar] = useState(false);
+  const redirectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const redirectedRef = useRef(false);
   const [error, setError] = useState<string | null>(null);
   const pathname = usePathname();
 
