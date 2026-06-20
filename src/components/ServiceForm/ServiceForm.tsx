@@ -135,6 +135,12 @@ export default function ServiceForm({
       }
 
       setShowSuccessModal(true);
+
+      setShowRedirectBar(true);
+
+      // 5 second delay before redirecting to patient portal =>
+
+      redirectTimeoutRef.current = setTimeout(handleRedirect, 5000);
     } catch (error) {
       setShowErrorModal(true);
       console.error('Form submission error:', error instanceof Error ? error.message : error);
