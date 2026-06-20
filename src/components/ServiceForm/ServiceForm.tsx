@@ -12,14 +12,16 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
 import BarLoader from '../BarLoader/BarLoader';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
+import { SOCIAL_CTAS } from '../CornerNav/CornerNav';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
+import RedirectProgressBar from '../RedirectProgressBar/RedirectProgressBar';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
