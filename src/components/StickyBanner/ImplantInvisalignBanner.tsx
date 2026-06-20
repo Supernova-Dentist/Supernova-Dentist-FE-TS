@@ -15,10 +15,11 @@ export function ImplantInvisalignBannerPopUp({ onDismiss }: { onDismiss?: () => 
         className='flex w-full items-center justify-center text-center text-sm sm:text-base font-semibold tracking-wide'
       >
         <span>
-          Implant Consultations
+          Dental Implant Open Day
           <br />
-          Monday 22nd June - Limited Availability
+          Sunday 12th July - Limited Availability
           <br />
+          Sign Up Now!
           <span className='underline underline-offset-2'>Click Here To Register Interest</span>
         </span>
       </Link>
