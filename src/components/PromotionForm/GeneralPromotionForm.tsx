@@ -9,7 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
@@ -19,6 +19,7 @@ import { SOCIAL_CTAS } from '../CornerNav/CornerNav';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import RedirectProgressBar from '../RedirectProgressBar/RedirectProgressBar';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -31,6 +32,9 @@ export default function GeneralPromotionForm() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showRedirectBar, setShowRedirectBar] = useState(false);
+  const redirectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const redirectedRef = useRef(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   const pathname = usePathname();
@@ -98,14 +102,84 @@ export default function GeneralPromotionForm() {
       }
 
       setShowSuccessModal(true);
+
+      setShowRedirectBar(true);
+
+      // 5 second delay before redirecting to patient portal =>
+
+      redirectTimeoutRef.current = setTimeout(handleRedirect, 5000);
     } catch (error) {
       setShowErrorModal(true);
       console.error('Form submission error:', error instanceof Error ? error.message : error);
     }
   }
 
+  useEffect(() => {
+    return () => {
+      if (redirectTimeoutRef.current) {
+        clearTimeout(redirectTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  function goToPortal() {
+    if (redirectedRef.current) return;
+    redirectedRef.current = true;
+    window.location.href = DentallyPortal;
+  }
+
+  function handleRedirect() {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'redirect_to_patient_portal', {
+        send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+        event_callback: goToPortal,
+      });
+
+      setTimeout(goToPortal, 500);
+    } else {
+      goToPortal();
+    }
+  }
+
   function handleSuccessModalClose() {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
     setShowSuccessModal(false);
+    setShowRedirectBar(false);
+    form.reset();
+  }
+
+  function handleWaitForCallClick() {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
+    // Trigger Google Ads event
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'wait_for_call', {
+        send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+      });
+    }
+
+    setShowSuccessModal(false);
+    setShowRedirectBar(false);
+    form.reset();
+  }
+
+  function handlePatientPortalClick() {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
+
+    window.gtag('event', 'click_to_patient_portal_in_modal', {
+      send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+      event_callback: goToPortal,
+    });
+
+    setTimeout(goToPortal, 500);
+
+    setShowSuccessModal(false);
+    setShowRedirectBar(false);
     form.reset();
   }
 
@@ -228,55 +302,85 @@ export default function GeneralPromotionForm() {
 
       {/* Success Modal */}
       {showSuccessModal && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative'>
-            {/* Close button (X) in the top-right corner of the modal */}
-            <button
-              onClick={handleSuccessModalClose}
-              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
-            >
-              <FaTimes />
-            </button>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
+            <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative max-h-[90vh]'>
+              <button
+                onClick={handleSuccessModalClose}
+                className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+              >
+                <FaTimes />
+              </button>
 
-            <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
-            <div className='mb-6 flex flex-col gap-2'>
-              <p>You&apos;ve been successfully signed up. We&apos;ll send details to {values.email}.</p>
-              <p>Please check your spam folder if you don&apos;t see it in your inbox.</p>
-            </div>
+              <img
+                src='/favicon.ico'
+                alt='Supernova Dental Logo - Bridgwater Dentist'
+                className='w-20 h-auto mx-auto mb-2'
+              />
 
-            {/* New text and button */}
-            <p className='mb-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
-            <div className='w-full flex justify-center mb-4'>
-              <Link target='_blank' href={`${DentallyPortal}`}>
-                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+              <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
+              <div className='mb-6 flex flex-col gap-2'>
+                <p>You&apos;ve been successfully signed up.</p>
+
+                {showRedirectBar && (
+                  <>
+                    <p>Preparing your secure booking area…</p>
+                    <RedirectProgressBar />
+                  </>
+                )}
+              </div>
+              <div className='w-full flex justify-center mb-8 space-x-6'>
+                <button
+                  onClick={handlePatientPortalClick}
+                  className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'
+                >
                   Book Now!
                 </button>
-              </Link>
-            </div>
-            <div className='flex gap-4 items-center justify-center mt-6 pt-4'>
-              {SOCIAL_CTAS.map((l, idx) => (
-                <motion.a
-                  key={idx}
-                  href={l.href}
-                  target='_blank'
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      delay: 1 + idx * 0.125,
-                      duration: 0.5,
-                      ease: 'easeInOut',
-                    },
-                  }}
-                  exit={{ opacity: 0, y: -8 }}
+                <button
+                  onClick={handleWaitForCallClick}
+                  className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'
                 >
-                  <l.Component className='text-3xl text-grey transition-colors' />
-                </motion.a>
-              ))}
+                  Wait For A Call
+                </button>
+              </div>
+
+              <div className='flex gap-4 justify-center mt-6'>
+                {SOCIAL_CTAS.map((l, idx) => (
+                  <motion.a
+                    key={idx}
+                    href={l.href}
+                    onClick={() => {
+                      if (redirectTimeoutRef.current) {
+                        clearTimeout(redirectTimeoutRef.current);
+
+                        setShowRedirectBar(false);
+                      }
+                    }}
+                    target='_blank'
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        delay: 0.5 + idx * 0.125,
+                        duration: 0.3,
+                        ease: 'easeInOut',
+                      },
+                    }}
+                    exit={{ opacity: 0, y: -8 }}
+                  >
+                    <l.Component className='text-3xl text-grey transition-colors' />
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Error Modal */}
