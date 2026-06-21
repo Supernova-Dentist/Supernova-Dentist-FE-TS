@@ -160,7 +160,7 @@ export default function ServiceForm({
   function goToPortal() {
     if (redirectedRef.current) return;
     redirectedRef.current = true;
-    window.location.href = DentallyPortal;
+    window.location.href = `${DentallyPortal}/book`;
   }
 
   function handleRedirect() {
@@ -433,14 +433,14 @@ export default function ServiceForm({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
+          <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
             <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative max-h-[90vh]'>
-            <button
-              onClick={handleSuccessModalClose}
-              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
-            >
-              <FaTimes />
-            </button>
+              <button
+                onClick={handleSuccessModalClose}
+                className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+              >
+                <FaTimes />
+              </button>
 
               <img
                 src='/favicon.ico'
@@ -448,17 +448,17 @@ export default function ServiceForm({
                 className='w-20 h-auto mx-auto mb-2'
               />
 
-            <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
-            <div className='mb-6 flex flex-col gap-2'>
+              <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
+              <div className='mb-6 flex flex-col gap-2'>
                 <p>You&apos;ve been successfully signed up.</p>
-           
+
                 {showRedirectBar && (
                   <>
                     <p>Preparing your secure booking area…</p>
                     <RedirectProgressBar />
                   </>
                 )}
-            </div>
+              </div>
               <div className='w-full flex justify-center mb-8 space-x-6'>
                 <button
                   onClick={handlePatientPortalClick}

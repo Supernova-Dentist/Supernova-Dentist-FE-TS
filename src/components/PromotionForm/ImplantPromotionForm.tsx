@@ -17,9 +17,9 @@ import { promotionSignupSchema, type PromotionFormData } from '../../../types/Pr
 import BarLoader from '../BarLoader/BarLoader';
 import { SOCIAL_CTAS } from '../CornerNav/CornerNav';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
+import RedirectProgressBar from '../RedirectProgressBar/RedirectProgressBar';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
-import RedirectProgressBar from '../RedirectProgressBar/RedirectProgressBar';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -125,7 +125,7 @@ export default function ImplantPromotionForm() {
   function goToPortal() {
     if (redirectedRef.current) return;
     redirectedRef.current = true;
-    window.location.href = DentallyPortal;
+    window.location.href = `${DentallyPortal}/book`;
   }
 
   function handleRedirect() {

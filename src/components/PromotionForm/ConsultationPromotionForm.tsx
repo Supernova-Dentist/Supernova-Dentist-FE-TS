@@ -125,7 +125,7 @@ export default function ConsultationPromotionForm() {
   function goToPortal() {
     if (redirectedRef.current) return;
     redirectedRef.current = true;
-    window.location.href = DentallyPortal;
+    window.location.href = `${DentallyPortal}/book`;
   }
 
   function handleRedirect() {
