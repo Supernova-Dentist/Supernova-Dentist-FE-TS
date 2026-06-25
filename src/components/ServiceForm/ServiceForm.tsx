@@ -101,17 +101,6 @@ export default function ServiceForm({
         throw new Error(errorMessage);
       }
 
-      // Dengro request (fire-and-forget)
-      try {
-        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataWithSource),
-        });
-      } catch (dengroError) {
-        console.warn('Dengro capture failed:', dengroError);
-      }
-
       console.log('Form submitted successfully');
 
       window.dataLayer = window.dataLayer ?? [];
