@@ -138,7 +138,7 @@ year`,
       {
         description: 'Composite bonding/Veneers',
         priceDescriptionBefore: 'from',
-        price: 350,
+        price: 375,
         priceDescription: 'per tooth',
       },
 
