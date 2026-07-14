@@ -100,7 +100,7 @@ export default function ServiceForm({
       };
 
       // Backend request
-      const backendRes = await fetch(`http://localhost:3001/promotion`, {
+      const backendRes = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/promotion`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dataWithTracking),
