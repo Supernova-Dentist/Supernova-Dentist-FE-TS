@@ -38,7 +38,7 @@ export default function PracticeFAQsSection() {
     {
       question: 'Do you offer same-day emergency appointments?',
       answer:
-        'Yes, we reserve 2 emergency slots Monday to Thursday and 1 slot on Saturdays for same-day urgent dental care.',
+        'Yes, we reserve at least 2 emergency slots Monday to Friday and 1 slot on Saturdays for same-day urgent dental care.',
     },
   ];
 
