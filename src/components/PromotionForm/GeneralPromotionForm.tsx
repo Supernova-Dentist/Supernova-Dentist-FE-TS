@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
+import { getTracking } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -52,15 +53,28 @@ export default function GeneralPromotionForm() {
       let cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
       if (cleanedSource === '') cleanedSource = 'book-appointment';
 
-      console.log('Submitting form with source:', cleanedSource);
-      console.log('data', data);
+      // console.log('Submitting form with source:', cleanedSource);
+      // console.log('data', data);
 
-      const dataWithSource = { ...data, source: cleanedSource };
+      const tracking = getTracking();
+
+      const dataWithTracking = {
+        ...data,
+        source: cleanedSource,
+        tracking: {
+          ...tracking,
+          conversionPage: {
+            pageUrl: window.location.href,
+            pagePath: window.location.pathname,
+            visitDate: new Date().toISOString(),
+          },
+        },
+      };
 
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dataWithSource),
+        body: JSON.stringify(dataWithTracking),
       });
 
       const responseData = await res.json();
