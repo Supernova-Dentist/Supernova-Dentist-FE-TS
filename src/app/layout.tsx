@@ -4,6 +4,7 @@ import Footer from '@/components/blocks/Footer/Footer';
 import MainNav from '@/components/blocks/MainNav/MainNav';
 import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
 import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
+import TrackingProvider from '@/components/TrackingProvider/TrackingProvider';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { IBM_Plex_Sans, Playfair_Display } from 'next/font/google';
@@ -200,10 +201,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`${playfair.variable} ${ibmPlex.variable}`}>
-        <MainNav />
-        {children}
-        <FloatingMenu />
-        <Footer />
+        <TrackingProvider>
+          <MainNav />
+          {children}
+          <FloatingMenu />
+          <Footer />
+        </TrackingProvider>
       </body>
     </html>
   );
