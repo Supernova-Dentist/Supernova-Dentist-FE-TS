@@ -58,18 +58,18 @@ const MainNav = () => {
       }, [
       ]); */
 
-  useEffect(() => {
-    // Read dismissed flag from localStorage (if not present, show banner)
-    const dismissed = localStorage.getItem('implantinvisalignbannerDismissed');
-    if (dismissed !== 'true') {
-      setShowBanner(true);
-    }
+  // useEffect(() => {
+  //   // Read dismissed flag from localStorage (if not present, show banner)
+  //   const dismissed = localStorage.getItem('implantinvisalignbannerDismissed');
+  //   if (dismissed !== 'true') {
+  //     setShowBanner(true);
+  //   }
 
-    // If we are on the emergency dentistry page we don't want to show the banner
-    if (window.location.pathname === '/general-dentistry/emergency-dentistry') {
-      setShowBanner(false);
-    }
-  }, []);
+  //   // If we are on the emergency dentistry page we don't want to show the banner
+  //   if (window.location.pathname === '/general-dentistry/emergency-dentistry') {
+  //     setShowBanner(false);
+  //   }
+  // }, []);
 
   // useEffect(() => {
   //   setShowConsultationLandingPage(window.location.pathname === '/book-your-consultation');
@@ -113,11 +113,11 @@ const MainNav = () => {
           <OpenDayBanner onDismiss={() => setShowBanner(false)} />
         </div>
       )} */}
-      {showBanner && (
+      {/* {showBanner && (
         <div className='fixed top-0 left-0 w-full z-[1000] h-20'>
           <ImplantInvisalignBannerPopUp onDismiss={() => setShowBanner(false)} />
         </div>
-      )}
+      )}*/}
 
       {/* ✅ Navigation */}
       <header
