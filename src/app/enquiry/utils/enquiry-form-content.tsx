@@ -2,32 +2,32 @@
 'use client';
 
 import BarLoader from '@/components/BarLoader/BarLoader';
+import PrivacyPolicyModal from '@/components/PrivacyModal/PrivacyModal';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { DentallyPortal } from '@/lib/constants';
+import { getTracking } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { z } from 'zod';
 import Search from './Search';
-import { usePathname } from 'next/navigation';
 
 // Define the max character limit
 const MAX_MESSAGE_LENGTH = 500;
 
 const formSchema = z.object({
-  firstName: z.string().min(2, {
+  fullname: z.string().min(2, {
     message: 'First Name must be at least 2 characters.',
-  }),
-  lastName: z.string().min(2, {
-    message: 'Last Name must be at least 2 characters.',
   }),
   email: z.string().email({
     message: 'Invalid email address.',
@@ -44,6 +44,7 @@ const formSchema = z.object({
 });
 
 export function EnquiryFormContent() {
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [successModalVisible, setSuccessModalVisible] = useState(false);
   const [errorModalVisible, setErrorModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -54,28 +55,52 @@ export function EnquiryFormContent() {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
+      fullname: '',
       email: '',
       phone: '',
       category: '',
       message: '',
+      optOutEmails: false,
     },
   });
+
+  function handlePrivacyModalOpen() {
+    setShowPrivacyModal(true);
+  }
+
+  function handlePrivacyModalClose() {
+    setShowPrivacyModal(false);
+  }
 
   const onSubmit = async (data: any) => {
     setLoading(true);
     try {
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
-      const dataWithSource = { ...data, source: cleanedSource };
+      // const dataWithSource = { ...data, source: cleanedSource };
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}`, {
+      const tracking = getTracking();
+
+      const dataWithTracking = {
+        ...data,
+        source: cleanedSource,
+        tracking: {
+          ...tracking,
+          conversionPage: {
+            pageUrl: window.location.href,
+            pagePath: window.location.pathname,
+            visitDate: new Date().toISOString(),
+          },
+        },
+      };
+
+      // const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}promotion`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(dataWithTracking),
       });
 
       if (!response.ok) {
@@ -93,15 +118,15 @@ export function EnquiryFormContent() {
       setSubmittedData(data);
       setSuccessModalVisible(true);
 
-      try {
-        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengroEnquiry`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataWithSource),
-        });
-      } catch (dengroError) {
-        console.warn('Dengro capture failed:', dengroError);
-      }
+      // try {
+      //   await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/`, {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify(dataWithSource),
+      //   });
+      // } catch (dengroError) {
+      //   console.warn('Dengro capture failed:', dengroError);
+      // }
 
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({ event: 'NewEnquiryForm' });
@@ -118,7 +143,7 @@ export function EnquiryFormContent() {
         window.fbq('trackCustom', 'NewEnquiryForm');
       }
 
-      form.reset({ firstName: '', lastName: '', email: '', phone: '', category: '', message: '' });
+      form.reset({ fullname: '', email: '', phone: '', category: '', message: '' });
     } catch (error) {
       console.error('There was a problem with the form submission:', error);
       setErrorModalVisible(true);
@@ -142,6 +167,8 @@ export function EnquiryFormContent() {
         <Search />
       </Suspense>
 
+      <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
+
       <motion.section
         className='px-4 pt-4 pb-24 md:pb-32'
         initial={{ opacity: 0 }}
@@ -160,21 +187,71 @@ export function EnquiryFormContent() {
                 <div className='grid gap-6'>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
-                      <Label htmlFor='firstName' className='text-lg font-medium'>
-                        First Name
+                      <Label htmlFor='fullname' className='text-lg font-medium'>
+                        Full Name
                       </Label>
                       <FormField
                         control={form.control}
-                        name='firstName'
+                        name='fullname'
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
                               <Input
-                                id='firstName'
-                                placeholder='First Name'
+                                id='fullname'
+                                placeholder='Full Name'
                                 maxLength={75}
                                 {...field}
-                                className='text-md lg:text-lg p-3'
+                                className='text-md lg:text-lg px-3 py-2 h-14'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className='space-y-3'>
+                      <Label htmlFor='email' className='text-lg font-medium'>
+                        Email
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='email'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='email'
+                                type='email'
+                                maxLength={75}
+                                placeholder='Enter your email'
+                                {...field}
+                                className='text-md lg:text-lg px-3 py-2 h-14'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </div>
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+                    <div className='space-y-3'>
+                      <Label htmlFor='phone' className='text-lg font-medium'>
+                        Phone
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='phone'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='phone'
+                                placeholder='Enter your phone number'
+                                maxLength={15}
+                                {...field}
+                                className='text-md lg:text-lg px-3 py-2 h-14'
                               />
                             </FormControl>
                             <FormMessage />
@@ -183,21 +260,60 @@ export function EnquiryFormContent() {
                       />
                     </div>
                     <div className='space-y-3'>
-                      <Label htmlFor='lastName' className='text-lg font-medium'>
-                        Last Name
+                      <Label htmlFor='category' className='text-lg font-medium'>
+                        Category of Enquiry
                       </Label>
                       <FormField
                         control={form.control}
-                        name='lastName'
+                        name='category'
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
-                              <Input
-                                id='lastName'
-                                placeholder='Last Name'
-                                maxLength={75}
-                                {...field}
-                                className='text-md lg:text-lg p-3'
+                              <Controller
+                                name='category'
+                                control={form.control}
+                                render={({ field }) => (
+                                  <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
+                                    <SelectTrigger className='h-14' id='category'>
+                                      <SelectValue placeholder='Select category' className='text-md lg:text-lg' />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectItem value='new-patient-registration' className='text-md lg:text-lg py-2'>
+                                        New Patient Registration
+                                      </SelectItem>
+                                      <SelectItem value='invisalign' className='text-md lg:text-lg py-2'>
+                                        Invisalign
+                                      </SelectItem>
+                                      <SelectItem value='cosmetic-dentistry' className='text-md lg:text-lg py-2'>
+                                        Cosmetic Dentistry
+                                      </SelectItem>
+                                      <SelectItem value='dental-implants' className='text-md lg:text-lg py-2'>
+                                        Dental Implants
+                                      </SelectItem>
+                                      <SelectItem value='general-enquiry' className='text-md lg:text-lg py-2'>
+                                        General Enquiry
+                                      </SelectItem>
+                                      <SelectItem value='emergency-care' className='text-md lg:text-lg py-2'>
+                                        Emergency Care
+                                      </SelectItem>
+                                      <SelectItem value='consultation-request' className='text-md lg:text-lg py-2'>
+                                        Consultation Request
+                                      </SelectItem>
+                                      <SelectItem value='dental-hygiene' className='text-md lg:text-lg py-2'>
+                                        Dental Hygiene and Advice
+                                      </SelectItem>
+                                      <SelectItem value='dental-finance' className='text-md lg:text-lg py-2'>
+                                        Dental Finance
+                                      </SelectItem>
+                                      <SelectItem value='feedback' className='text-md lg:text-lg py-2'>
+                                        Feedback
+                                      </SelectItem>
+                                      <SelectItem value='billing-insurance' className='text-md lg:text-lg py-2'>
+                                        Billing and Insurance
+                                      </SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                )}
                               />
                             </FormControl>
                             <FormMessage />
@@ -205,111 +321,6 @@ export function EnquiryFormContent() {
                         )}
                       />
                     </div>
-                   
-                      <div className='space-y-3'>
-                        <Label htmlFor='email' className='text-lg font-medium'>
-                          Email
-                        </Label>
-                        <FormField
-                          control={form.control}
-                          name='email'
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormControl>
-                                <Input
-                                  id='email'
-                                  type='email'
-                                  maxLength={75}
-                                  placeholder='Enter your email'
-                                  {...field}
-                                  className='text-md lg:text-lg p-3'
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      <div className='space-y-3'>
-                        <Label htmlFor='phone' className='text-lg font-medium'>
-                          Phone
-                        </Label>
-                        <FormField
-                          control={form.control}
-                          name='phone'
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormControl>
-                                <Input
-                                  id='phone'
-                                  placeholder='Enter your phone number'
-                                  maxLength={15}
-                                  {...field}
-                                  className='text-md lg:text-lg p-3'
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                 
-                  </div>
-                  <div className='space-y-3'>
-                    <Label htmlFor='category' className='text-lg font-medium'>
-                      Category of Enquiry
-                    </Label>
-                    <FormField
-                      control={form.control}
-                      name='category'
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Controller
-                              name='category'
-                              control={form.control}
-                              render={({ field }) => (
-                                <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
-                                  <SelectTrigger id='category'>
-                                    <SelectValue placeholder='Select category' className='text-md lg:text-lg' />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectItem value='new-patient-registration' className='text-md lg:text-lg'>
-                                      New Patient Registration
-                                    </SelectItem>
-                                    <SelectItem value='invisalign' className='text-md lg:text-lg'>
-                                      Invisalign
-                                    </SelectItem>
-                                    <SelectItem value='general-enquiry' className='text-md lg:text-lg'>
-                                      General Enquiry
-                                    </SelectItem>
-                                    <SelectItem value='emergency-care' className='text-md lg:text-lg'>
-                                      Emergency Care
-                                    </SelectItem>
-                                    <SelectItem value='consultation-request' className='text-md lg:text-lg'>
-                                      Consultation Request
-                                    </SelectItem>
-                                    <SelectItem value='dental-hygiene' className='text-md lg:text-lg'>
-                                      Dental Hygiene and Advice
-                                    </SelectItem>
-                                    <SelectItem value='dental-finance' className='text-md lg:text-lg'>
-                                      Dental Finance
-                                    </SelectItem>
-                                    <SelectItem value='feedback' className='text-md lg:text-lg'>
-                                      Feedback
-                                    </SelectItem>
-                                    <SelectItem value='billing-insurance' className='text-md lg:text-lg'>
-                                      Billing and Insurance
-                                    </SelectItem>
-                                  </SelectContent>
-                                </Select>
-                              )}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
                   </div>
                   <div className='space-y-3'>
                     <Label htmlFor='message' className='text-lg font-medium'>
@@ -343,9 +354,36 @@ export function EnquiryFormContent() {
                       {messageLength} / {MAX_MESSAGE_LENGTH} characters
                     </div>
                   </div>
+                  <div className='grid gap-1 mb-4'>
+                    <div className='flex items-center mt-2'>
+                      <Checkbox
+                        id='optOutEmails'
+                        // {...register('optOutEmails')}
+                        defaultChecked={false}
+                        // onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
+                      />
+                      <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                        Check to opt out of Supernova Dental email updates and promotions.
+                      </Label>
+                    </div>
+                    {/* {errors.optOutEmails && (
+                      <p className='text-red-500 leading-none text-sm'>{errors.optOutEmails?.message}</p>
+                    )} */}
+                    <span className='flex items-center gap-1'>
+                      <span className='text-sm'>By signing up, you agree to our</span>
+                      <Button
+                        type='button'
+                        variant='link'
+                        className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition'
+                        onClick={handlePrivacyModalOpen}
+                      >
+                        Privacy Policy
+                      </Button>
+                    </span>
+                  </div>
                   <Button
                     type='submit'
-                    className={`w-full mx-auto max-w-[15rem] text-lg py-3 ${
+                    className={`w-full mx-auto max-w-[15rem] text-lg py-6 ${
                       loading ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
                     disabled={loading}
@@ -370,7 +408,7 @@ export function EnquiryFormContent() {
             >
               <FaTimes />
             </button>
-            <h2 className='text-2xl font-semibold mb-4'>Thank you, {submittedData.firstName}, for your Enquiry!</h2>
+            <h2 className='text-2xl font-semibold mb-4'>Thank you, {submittedData.fullname}, for your Enquiry!</h2>
             <p className='mb-4'>
               One of the Supernova team will be back in touch via the following details regarding your enquiry:
             </p>
