@@ -117,7 +117,7 @@ const MainNav = () => {
         <div className='fixed top-0 left-0 w-full z-[1000] h-20'>
           <ImplantInvisalignBannerPopUp onDismiss={() => setShowBanner(false)} />
         </div>
-      )}*/}
+      )} */}
 
       {/* ✅ Navigation */}
       <header
