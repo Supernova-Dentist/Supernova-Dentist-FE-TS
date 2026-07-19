@@ -74,7 +74,7 @@ export function AssociateDentistBridgwaterFormContent() {
       const formData = new FormData();
       // Add referralType first
       formData.append('enquiryType', 'Dentist-Application');
-
+      formData.append('source', cleanedSource);
       // Then append the rest of the fields
       for (const key in data) {
         if (key !== 'referralType' && data[key]) {
@@ -86,11 +86,10 @@ export function AssociateDentistBridgwaterFormContent() {
       uploadedFiles.slice(0, 1).forEach((file: File) => {
         formData.append('attachments', file); // note the identical key
       });
-      const dataWithSource = { ...formData, source: cleanedSource };
 
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/careers`, {
         method: 'POST',
-        body: JSON.stringify(dataWithSource),
+        body: formData,
         headers: {
           'Content-Type': 'application/json',
         },
