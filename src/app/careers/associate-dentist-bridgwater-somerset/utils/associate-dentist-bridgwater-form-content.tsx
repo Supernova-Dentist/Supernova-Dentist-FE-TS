@@ -90,9 +90,6 @@ export function AssociateDentistBridgwaterFormContent() {
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/careers`, {
         method: 'POST',
         body: formData,
-        headers: {
-          'Content-Type': 'application/json',
-        },
       });
 
       if (!response.ok) throw new Error('Network response was not ok');
