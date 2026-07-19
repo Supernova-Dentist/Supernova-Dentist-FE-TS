@@ -72,7 +72,6 @@ export function AssociateDentistBridgwaterFormContent() {
 
     try {
       const formData = new FormData();
-      const dataWithSource = { ...data, source: cleanedSource };
       // Add referralType first
       formData.append('enquiryType', 'Dentist-Application');
 
@@ -87,6 +86,7 @@ export function AssociateDentistBridgwaterFormContent() {
       uploadedFiles.slice(0, 1).forEach((file: File) => {
         formData.append('attachments', file); // note the identical key
       });
+      const dataWithSource = { ...formData, source: cleanedSource };
 
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/careers`, {
         method: 'POST',
