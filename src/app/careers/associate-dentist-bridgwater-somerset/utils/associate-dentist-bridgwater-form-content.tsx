@@ -74,7 +74,7 @@ export function AssociateDentistBridgwaterFormContent() {
       const formData = new FormData();
       // Add referralType first
       formData.append('enquiryType', 'Dentist-Application');
-      formData.append('source', 'Dentist-Application');
+      formData.append('source', 'Dentist Application');
       // Then append the rest of the fields
       for (const key in data) {
         if (key !== 'referralType' && data[key]) {
