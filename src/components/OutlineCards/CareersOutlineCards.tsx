@@ -9,7 +9,7 @@ export const CareersOutlineCards = () => {
       <div className='mx-auto  items-center justify-center gap-8 grid grid-cols-1'>
         <Card
           title='Associate Dentist'
-          href='/careers/associate-dentist-bridgwater'
+          href='/careers/associate-dentist-bridgwater-somerset'
           bgUrl='/assets/images/invisalign_landscape_2.jpg'
         />
       </div>
