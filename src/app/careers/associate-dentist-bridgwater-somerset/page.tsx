@@ -37,10 +37,10 @@ export default function AssociateDentistJob() {
             <div className='flex flex-col gap-6 items-center'>
               <Image
                 src='/assets/images/sunlight_suite_supernova_dental_bridgwater.webp'
-                alt='Supernova Dental Practice in Bridgwater'
+                alt='Supernova Dental Practice in Bridgwater, Somerset'
                 width={600}
                 height={400}
-                className='rounded-2xl shadow-md object-cover w-full h-auto'
+                className='rounded-2xl shadow-md object-cover w-[40rem] mx-auto'
               />
 
               <p className='text-sm text-gray-500 text-center'>
