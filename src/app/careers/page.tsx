@@ -1,5 +1,6 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
+import { CareersOutlineCards } from '@/components/OutlineCards/CareersOutlineCards';
 import { type Metadata } from 'next';
 import { CareerFormContent } from './utils/career-form-content';
 
@@ -23,6 +24,7 @@ export default function CareersPage() {
 
         <div className='p-4 md:px-6 pb-10 flex flex-col justify-start mx-auto max-w-5xl md:max-w-6xl lg:max-w-7xl'>
           <BreadCrumb />
+          <CareersOutlineCards />
 
           {/* Renders outline-style cards for each job opening */}
 

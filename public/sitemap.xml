@@ -297,7 +297,13 @@
   <!-- Careers Page -->
   <url>
     <loc>https://www.supernovadental.co.uk/careers</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/careers/associate-dentist-bridgwater</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
