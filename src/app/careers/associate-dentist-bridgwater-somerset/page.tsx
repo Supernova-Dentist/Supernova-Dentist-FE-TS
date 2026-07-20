@@ -16,8 +16,60 @@ export const metadata = {
 };
 
 export default function AssociateDentistJob() {
+  const jobSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    title: 'Associate Dentist',
+    description:
+      'Supernova Dental is hiring an Associate Dentist to join our fully private dental practice in Bridgwater, Somerset. The role offers mentorship, advanced technology, Invisalign opportunities and career development.',
+    datePosted: '2026-07-20',
+    employmentType: ['FULL_TIME', 'PART_TIME'],
+    hiringOrganization: {
+      '@type': 'Organization',
+      name: 'Supernova Dental',
+      sameAs: 'https://www.supernovadental.co.uk',
+      logo: 'https://www.supernovadental.co.uk/assets/images/logo.png',
+    },
+    jobLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bridgwater',
+        addressRegion: 'Somerset',
+        addressCountry: 'GB',
+      },
+    },
+    applicantLocationRequirements: {
+      '@type': 'Country',
+      name: 'United Kingdom',
+    },
+    industry: 'Dentistry',
+    occupationalCategory: 'Dentist',
+    qualifications:
+      'Experience working within a private dental practice. Invisalign experience preferred. Strong clinical case portfolio.',
+    responsibilities:
+      'Provide general dentistry, Invisalign and cosmetic dentistry services while developing a private patient list.',
+    jobBenefits:
+      'Mentorship from the Principal Dentist, clinical support, modern technology, company events, referral programme and on-site parking.',
+    workHours: 'Full-time and part-time positions available',
+    workLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bridgwater',
+        addressRegion: 'Somerset',
+        addressCountry: 'GB',
+      },
+    },
+  };
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jobSchema),
+        }}
+      />
       <section className='text-left pt-24 px-4 sm:px-10'>
         <div className='flex flex-col items-center text-center'>
           <Image src={logo} alt='Supernova Dental Logo' className='w-20 h-20 mb-4' />
