@@ -4,6 +4,7 @@ import SubHeader from '@/components/SubHeader/SubHeader';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../../../../public/assets/images/logo.png';
+import SurgeryImage from '../../../../public/assets/images/sunlight_suite_supernova_dental_bridgwater.webp';
 import { AssociateDentistBridgwaterFormContent } from './utils/associate-dentist-bridgwater-form-content';
 
 export const metadata = {
@@ -36,10 +37,12 @@ export default function AssociateDentistJob() {
           <SectionSpacing className='flex flex-col gap-4'>
             <div className='flex flex-col gap-6 items-center'>
               <Image
-                src='/assets/images/sunlight_suite_supernova_dental_bridgwater.webp'
+                src={SurgeryImage}
                 alt='Supernova Dental Practice in Bridgwater, Somerset'
                 width={600}
                 height={400}
+                quality={75}
+                placeholder='blur'
                 className='rounded-2xl shadow-md object-cover w-[40rem] mx-auto'
               />
 
