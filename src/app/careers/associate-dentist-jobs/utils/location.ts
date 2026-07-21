@@ -16,7 +16,7 @@ export const dentistJobLocations = {
       'Looking for Associate Dentist jobs near Taunton? Join Supernova Dental, a modern fully private dental practice in Bridgwater, Somerset, with easy access from Taunton.',
     keywords:
       'associate dentist jobs Taunton, dentist jobs Taunton, private dentist jobs Taunton, dental careers Taunton',
-    commute: 'Supernova Dental is approximately 20 minutes from Taunton with convenient access via the M5.',
+    commute: 'Supernova Dental is approximately 15-20 minutes from Taunton with convenient access via the M5.',
   },
 
   yeovil: {

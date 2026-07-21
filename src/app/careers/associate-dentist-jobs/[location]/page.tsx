@@ -94,7 +94,7 @@ export default function AssociateDentistJob({ params }: { params: { location: st
 
           <BreadCrumb />
 
-          <h1 className='text-4xl font-semibold text-gold mb-2'>Associate Dentist Jobs Near {location.name}</h1>
+          <h1 className='text-4xl font-semibold text-gold mb-2 py-4'>Associate Dentist Jobs Near {location.name}</h1>
 
           <p className='text-lg text-gray-700'>Join our fully private dental practice in Bridgwater, Somerset</p>
 
