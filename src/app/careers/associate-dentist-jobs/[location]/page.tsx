@@ -4,8 +4,8 @@ import SubHeader from '@/components/SubHeader/SubHeader';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logo from '../../../../public/assets/images/logo.png';
-import SurgeryImage from '../../../../public/assets/images/sunlight_suite_supernova_dental_bridgwater.webp';
+import logo from '../../../../../public/assets/images/logo.png';
+import SurgeryImage from '../../../../../public/assets/images/sunlight_suite_supernova_dental_bridgwater.webp';
 
 import { AssociateDentistBridgwaterFormContent } from '../utils/associate-dentist-bridgwater-form-content';
 
