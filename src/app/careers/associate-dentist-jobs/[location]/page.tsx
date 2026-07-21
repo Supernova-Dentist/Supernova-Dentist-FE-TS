@@ -111,7 +111,7 @@ export default function AssociateDentistJob({ params }: { params: { location: st
               className='rounded-2xl shadow-md object-cover w-[40rem] mx-auto'
             />
 
-            <SubHeader>Associate Dentist Opportunities Near {location.name}</SubHeader>
+            <SubHeader className='py-4'>Associate Dentist Opportunities Near {location.name}</SubHeader>
 
             <p>
               Looking for Associate Dentist jobs near {location.name}? Supernova Dental is a modern fully private dental
