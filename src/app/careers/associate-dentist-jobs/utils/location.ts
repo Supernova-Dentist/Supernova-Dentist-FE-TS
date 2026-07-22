@@ -137,4 +137,88 @@ export const dentistJobLocations = {
     keywords: 'associate dentist jobs Bristol, dentist jobs Bristol, private dentist jobs Bristol',
     commute: 'Bridgwater is accessible from Bristol via the M5 corridor.',
   },
+
+  newport: {
+    name: 'Newport',
+    title: 'Associate Dentist Jobs Near Newport | Supernova Dental Bridgwater',
+    description:
+      'Explore Associate Dentist jobs near Newport with Supernova Dental. Join our fully private dental practice in Bridgwater with mentorship, Invisalign opportunities and advanced technology.',
+    keywords:
+      'associate dentist jobs Newport, dentist jobs Newport, private dentist jobs Newport, dental careers Wales',
+    commute: 'Supernova Dental is accessible from Newport via the M4 and M5 corridor.',
+  },
+
+  cardiff: {
+    name: 'Cardiff',
+    title: 'Associate Dentist Jobs Near Cardiff | Supernova Dental Bridgwater',
+    description:
+      'Find Associate Dentist opportunities near Cardiff at Supernova Dental in Bridgwater. Join our modern fully private dental practice with clinical support and career development.',
+    keywords:
+      'associate dentist jobs Cardiff, dentist jobs Cardiff, private dentist jobs Cardiff, dental careers Cardiff',
+    commute: 'Supernova Dental is accessible from Cardiff via the M4 and M5 motorway network.',
+  },
+
+  bath: {
+    name: 'Bath',
+    title: 'Associate Dentist Jobs Near Bath | Supernova Dental Bridgwater',
+    description:
+      'Discover Associate Dentist jobs near Bath with Supernova Dental. Join our fully private dental practice in Bridgwater offering mentorship, Invisalign opportunities and advanced technology.',
+    keywords: 'associate dentist jobs Bath, dentist jobs Bath, private dentist jobs Bath, dental careers Somerset',
+    commute: 'Supernova Dental is accessible from Bath via the A4, M5 and surrounding road networks.',
+  },
+
+  gloucester: {
+    name: 'Gloucester',
+    title: 'Associate Dentist Jobs Near Gloucester | Supernova Dental Bridgwater',
+    description:
+      'Apply for Associate Dentist jobs near Gloucester at Supernova Dental. Join our fully private dental practice in Bridgwater with modern facilities and professional development opportunities.',
+    keywords: 'associate dentist jobs Gloucester, dentist jobs Gloucester, private dentist jobs Gloucester',
+    commute: 'Supernova Dental is accessible from Gloucester via the M5 corridor.',
+  },
+
+  weymouth: {
+    name: 'Weymouth',
+    title: 'Associate Dentist Jobs Near Weymouth | Supernova Dental Bridgwater',
+    description:
+      'Explore Associate Dentist opportunities near Weymouth with Supernova Dental in Bridgwater. Join a modern fully private dental practice with mentorship and advanced technology.',
+    keywords: 'associate dentist jobs Weymouth, dentist jobs Weymouth, private dentist jobs Dorset',
+    commute: 'Supernova Dental is accessible from Weymouth through Dorset and Somerset road connections.',
+  },
+
+  swindon: {
+    name: 'Swindon',
+    title: 'Associate Dentist Jobs Near Swindon | Supernova Dental Bridgwater',
+    description:
+      'Find Associate Dentist jobs near Swindon at Supernova Dental. Join our fully private dental practice with clinical support, mentorship and development opportunities.',
+    keywords: 'associate dentist jobs Swindon, dentist jobs Swindon, private dentist jobs Swindon',
+    commute: 'Supernova Dental is accessible from Swindon via the M5 and wider South West road network.',
+  },
+
+  cheltenham: {
+    name: 'Cheltenham',
+    title: 'Associate Dentist Jobs Near Cheltenham | Supernova Dental Bridgwater',
+    description:
+      'Discover Associate Dentist jobs near Cheltenham with Supernova Dental. Join our fully private dental practice in Bridgwater with advanced technology and career development.',
+    keywords: 'associate dentist jobs Cheltenham, dentist jobs Cheltenham, private dentist jobs Cheltenham',
+    commute: 'Supernova Dental is accessible from Cheltenham via the M5 corridor.',
+  },
+
+  exeter: {
+    name: 'Exeter',
+    title: 'Associate Dentist Jobs Near Exeter | Supernova Dental Bridgwater',
+    description:
+      'Apply for Associate Dentist jobs near Exeter at Supernova Dental. Join our modern fully private dental practice with mentorship, Invisalign opportunities and advanced technology.',
+    keywords: 'associate dentist jobs Exeter, dentist jobs Exeter, private dentist jobs Exeter, dental careers Devon',
+    commute: 'Supernova Dental is accessible from Exeter via the M5 motorway.',
+  },
+
+  monmouthshire: {
+    name: 'Monmouthshire',
+    title: 'Associate Dentist Jobs Near Monmouthshire | Supernova Dental Bridgwater',
+    description:
+      'Explore Associate Dentist jobs near Monmouthshire with Supernova Dental. Join our fully private dental practice in Bridgwater with mentorship, modern technology and career development opportunities.',
+    keywords:
+      'associate dentist jobs Monmouthshire, dentist jobs Monmouthshire, private dentist jobs Wales, dental careers Monmouthshire',
+    commute: 'Supernova Dental is accessible from Monmouthshire via the M4, M5 and South West road network.',
+  },
 };
