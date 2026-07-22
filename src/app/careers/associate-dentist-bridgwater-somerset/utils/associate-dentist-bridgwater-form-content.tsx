@@ -67,14 +67,14 @@ export function AssociateDentistBridgwaterFormContent() {
     console.log('submitting');
     setLoading(true);
 
-    // const decodedSource = decodeURIComponent(pathname);
-    // const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
+    const decodedSource = decodeURIComponent(pathname);
+    const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
 
     try {
       const formData = new FormData();
       // Add referralType first
-      formData.append('enquiryType', 'Dentist-Application');
-      formData.append('source', 'Dentist Application');
+      formData.append('enquiryType', 'Dentist Application');
+      formData.append('source', cleanedSource);
       // Then append the rest of the fields
       for (const key in data) {
         if (key !== 'referralType' && data[key]) {
