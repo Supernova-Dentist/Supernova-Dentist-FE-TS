@@ -1,7 +1,7 @@
 import { Reveal } from '@/utils/anim/Reveal';
 import Image from 'next/image';
 import Link from 'next/link';
-import victoriaImage from '../../../public/assets/images/Headshots/victoria-hands-lead-dental-nurse-supernova-dental-bridgwater.webp';
+import victoriaImage from '../../../public/assets/images/Headshots/victoria-hands-practice-manager-supernova-dental-bridgwater.webp';
 
 const ToriWaterDropHero = () => {
   return (
@@ -16,7 +16,7 @@ const ToriWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m the <span className='font-semibold text-lightGold'>Lead Dental Nurse</span> at Supernova Dental
+                I&apos;m the <span className='font-semibold text-lightGold'>Practice Manager/Dental Nurse</span> at Supernova Dental
               </h2>
               <h3 className='text-lightGold'>GDC Registration Number: 308678</h3>
             </>
@@ -24,8 +24,8 @@ const ToriWaterDropHero = () => {
           <Reveal>
             <>
               <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-                I’m Tori, the Lead Dental Nurse here at Supernova Dental. I’ve been nursing for over five years and
-                qualified in 2023. I love seeing their confidence grow when they see their results. 
+                I’m Tori, the Practice Manager/Dental Nurse here at Supernova Dental. I’ve been nursing for over five years and
+                qualified in 2023. I love seeing their confidence grow when they see their results.
               </p>
               <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
                 I’m passionate about providing excellent care and supporting patients throughout their dental journey.
@@ -50,7 +50,7 @@ const ToriWaterDropHero = () => {
           <Reveal>
             <Image
               src={victoriaImage}
-              alt='Victoria Hands, Lead Dental Nurse at Supernova Dental in Bridgwater, Somerset'
+              alt='Victoria Hands, Practice Manager/Dental Nurse at Supernova Dental in Bridgwater, Somerset'
               width={1800}
               height={2700}
               quality={75}
