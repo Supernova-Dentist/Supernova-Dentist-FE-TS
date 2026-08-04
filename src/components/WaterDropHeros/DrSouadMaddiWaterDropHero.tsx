@@ -17,7 +17,7 @@ const DrSouadMaddiWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m a <span className='font-semibold text-lightGold'>General and Restorative Dentist here</span> at
+                I&apos;m a <span className='font-semibold text-lightGold'>Dentist with Special Interest in Restorative Dentistry</span> at
                 Supernova Dental Practice in Bridgwater, with a strong focus on{' '}
                 <span className='font-semibold text-lightGold'>cosmetic dentistry</span>
               </h2>

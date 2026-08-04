@@ -13,18 +13,23 @@ import jacquelineImage from '../../../../public/assets/images/Headshots/dr-jacqu
 import scottImage from '../../../../public/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp';
 import souadImage from '../../../../public/assets/images/Headshots/dr-souad-maddi-dentist-supernova-dental-bridgwater.webp';
 import kayleighImage from '../../../../public/assets/images/Headshots/kayleigh-dowdle-dental-therapist-supernova-dental-bridgwater.webp';
+import marianaImage from '../../../../public/assets/images/Headshots/mariana-barbu-lead-dental-nurse-supernova-dental-bridgwater.webp';
 import miaImage from '../../../../public/assets/images/Headshots/mia-coakley-lead-front-house-supernova-dental-bridgwater.webp';
 import teaganImage from '../../../../public/assets/images/Headshots/teagan-ruby-treatment-coordinator-supernova-dental-bridgwater.webp';
 import tracyImage from '../../../../public/assets/images/Headshots/tracy-hawkins-dental-hygienist-supernova-dental-bridgwater.webp';
 import vanessaImage from '../../../../public/assets/images/Headshots/vanessa-speier-trainee-dental-nurse-supernova-dental-bridgwater.webp';
 import victoriaImage from '../../../../public/assets/images/Headshots/victoria-hands-practice-manager-supernova-dental-bridgwater.webp';
-import marianaImage from '../../../../public/assets/images/Headshots/mariana-barbu-lead-dental-nurse-supernova-dental-bridgwater.webp'; 
 
 const teamMembers = [
   { name: 'Dr. Scott Young', title: 'Principal Dentist/Owner', image: scottImage, slug: 'dr-scott-young' },
   { name: 'Dr. Cameran Armaghani', title: 'Implantologist', image: cameranImage, slug: 'dr-cameran-armaghani' },
   // { name: 'Dr. Sara D Banuri', title: 'Implantologist/Oral Surgeon', image: saraImage, slug: 'dr-sara-d-banuri' },
-  { name: 'Dr. Souad Maddi', title: 'General and Restorative Dentist', image: souadImage, slug: 'dr-souad-maddi' },
+  {
+    name: 'Dr. Souad Maddi',
+    title: 'Dentist with Special Interest in Restorative Dentistry',
+    image: souadImage,
+    slug: 'dr-souad-maddi',
+  },
   {
     name: 'Dr. Jacqueline Amarin',
     title: 'General and Restorative Dentist',
