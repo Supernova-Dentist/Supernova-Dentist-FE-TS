@@ -41,6 +41,7 @@ const formSchema = z.object({
   message: z.string().min(5, {
     message: 'Message must be at least 5 characters.',
   }),
+  optOutEmails: z.boolean().default(false),
 });
 
 export function EnquiryFormContent() {
@@ -143,7 +144,14 @@ export function EnquiryFormContent() {
         window.fbq('trackCustom', 'NewEnquiryForm');
       }
 
-      form.reset({ fullname: '', email: '', phone: '', category: '', message: '' });
+      form.reset({
+        fullname: '',
+        email: '',
+        phone: '',
+        category: '',
+        message: '',
+        optOutEmails: false,
+      });
     } catch (error) {
       console.error('There was a problem with the form submission:', error);
       setErrorModalVisible(true);
@@ -355,31 +363,27 @@ export function EnquiryFormContent() {
                     </div>
                   </div>
                   <div className='grid gap-1 mb-4'>
-                    <div className='flex items-center mt-2'>
-                      <Checkbox
-                        id='optOutEmails'
-                        // {...register('optOutEmails')}
-                        defaultChecked={false}
-                        // onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
-                      />
-                      <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
-                        Check to opt out of Supernova Dental email updates and promotions.
-                      </Label>
-                    </div>
-                    {/* {errors.optOutEmails && (
-                      <p className='text-red-500 leading-none text-sm'>{errors.optOutEmails?.message}</p>
-                    )} */}
-                    <span className='flex items-center gap-1'>
-                      <span className='text-sm'>By signing up, you agree to our</span>
-                      <Button
-                        type='button'
-                        variant='link'
-                        className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition'
-                        onClick={handlePrivacyModalOpen}
-                      >
-                        Privacy Policy
-                      </Button>
-                    </span>
+                    <FormField
+                      control={form.control}
+                      name='optOutEmails'
+                      render={({ field }) => (
+                        <FormItem>
+                          <div className='flex items-center mt-2'>
+                            <FormControl>
+                              <Checkbox id='optOutEmails' checked={field.value} onCheckedChange={field.onChange} />
+                            </FormControl>
+
+                            <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                              Check to opt out of Supernova Dental email updates and promotions.
+                            </Label>
+                          </div>
+
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <span className='flex items-center gap-1'>...</span>
                   </div>
                   <Button
                     type='submit'
