@@ -186,6 +186,7 @@ export function NewEmergencyFormContent() {
 
       // Add referralType first
       formData.append('referralType', 'New-PT-Emergency');
+      formData.append('source', cleanedSource); // Add the source field
 
       // Then append the rest of the fields
       for (const key in data) {
