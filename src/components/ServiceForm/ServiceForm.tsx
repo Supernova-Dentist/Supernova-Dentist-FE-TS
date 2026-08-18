@@ -129,7 +129,7 @@ export default function ServiceForm({
 
       // Trigger Google Ads conversion only for new patients
       if (!responseData.alreadyExists && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+        window.gtag(updatedEventType, 'conversion', {
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
