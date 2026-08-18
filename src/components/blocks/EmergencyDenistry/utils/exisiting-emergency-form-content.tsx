@@ -202,15 +202,15 @@ export function ExisitingEmergencyFormContent() {
       setSubmittedData(data);
       setSuccessModalVisible(true);
 
-      try {
-        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengroEnquiry`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataWithSource),
-        });
-      } catch (dengroError) {
-        console.warn('Dengro capture failed:', dengroError);
-      }
+      // try {
+      //   await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengroEnquiry`, {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify(dataWithSource),
+      //   });
+      // } catch (dengroError) {
+      //   console.warn('Dengro capture failed:', dengroError);
+      // }
 
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({ event: 'EmergencyPatientLead' });

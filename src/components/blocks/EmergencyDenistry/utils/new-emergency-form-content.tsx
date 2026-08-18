@@ -178,17 +178,14 @@ export function NewEmergencyFormContent() {
     setLoading(true);
 
     try {
-
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
       const dataWithSource = { ...data, source: cleanedSource };
 
-      
       const formData = new FormData();
 
       // Add referralType first
       formData.append('referralType', 'New-PT-Emergency');
-      
 
       // Then append the rest of the fields
       for (const key in data) {
@@ -215,16 +212,15 @@ export function NewEmergencyFormContent() {
       setSubmittedData(data);
       setSuccessModalVisible(true);
 
-       try {
-        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengroEnquiry`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataWithSource),
-        });
-      } catch (dengroError) {
-        console.warn('Dengro capture failed:', dengroError);
-      }
-
+      //  try {
+      //   await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengroEnquiry`, {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify(dataWithSource),
+      //   });
+      // } catch (dengroError) {
+      //   console.warn('Dengro capture failed:', dengroError);
+      // }
 
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({ event: 'EmergencyPatientLead' });
@@ -297,7 +293,11 @@ export function NewEmergencyFormContent() {
             transition={{ duration: 0.6 }}
           >
             <Form {...form}>
-              <form id='emergency-enquiry-form' onSubmit={form.handleSubmit(handleSubmit, onError)} className='space-y-8'>
+              <form
+                id='emergency-enquiry-form'
+                onSubmit={form.handleSubmit(handleSubmit, onError)}
+                className='space-y-8'
+              >
                 <div className='grid gap-6'>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                     <div className='space-y-3'>
