@@ -188,6 +188,7 @@ export function NewEmergencyFormContent() {
 
       // Add referralType first
       formData.append('referralType', 'New-PT-Emergency');
+      
 
       // Then append the rest of the fields
       for (const key in data) {
@@ -215,7 +216,7 @@ export function NewEmergencyFormContent() {
       setSuccessModalVisible(true);
 
        try {
-        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
+        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengroEnquiry`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(dataWithSource),
