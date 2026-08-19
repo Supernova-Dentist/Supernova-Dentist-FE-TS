@@ -33,8 +33,8 @@ const formSchema = z.object({
   // Patient information
   firstName: z.string().min(2, { message: 'Please provide the patient’s first name.' }),
   lastName: z.string().min(2, { message: 'Please provide the patient’s last name.' }),
-  phoneNumber: z.string().min(10, { message: 'Phone number must be at least 10 characters.' }),
-
+  phone: z.string().min(10, { message: 'Phone number must be at least 10 characters.' }),
+  email: z.string().email({ message: 'Invalid email address.' }),
   // Referral details
   reasonAndJustification: z.string().min(5, { message: 'Please provide reason and justification.' }),
 
@@ -139,7 +139,8 @@ export function ExisitingEmergencyFormContent() {
     defaultValues: {
       firstName: '',
       lastName: '',
-      phoneNumber: '',
+      phone: '',
+      email: '',
       reasonAndJustification: '',
       painExplanation: '',
       swellingExplanation: '',
@@ -375,7 +376,7 @@ export function ExisitingEmergencyFormContent() {
                 className='space-y-8'
               >
                 <div className='grid gap-6'>
-                  <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     {/* First Name */}
                     <div className='space-y-3'>
                       <Label htmlFor='firstName' className='text-lg font-medium'>
@@ -425,21 +426,44 @@ export function ExisitingEmergencyFormContent() {
                         )}
                       />
                     </div>
-
-                    {/* Phone Number */}
+                  </div>
+                  <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
-                      <Label htmlFor='phoneNumber' className='text-lg font-medium'>
-                        Contact Number
+                      <Label htmlFor='email' className='text-lg font-medium'>
+                        Email
                       </Label>
                       <FormField
                         control={form.control}
-                        name='phoneNumber'
+                        name='email'
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
                               <Input
-                                id='phoneNumber'
-                                placeholder='Contact Number'
+                                id='email'
+                                placeholder='@'
+                                maxLength={50}
+                                {...field}
+                                className='text-md lg:text-lg p-3'
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className='space-y-3'>
+                      <Label htmlFor='phone' className='text-lg font-medium'>
+                        Home/Mobile Number
+                      </Label>
+                      <FormField
+                        control={form.control}
+                        name='phone'
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                id='phone'
+                                placeholder='Home/Mobile Number'
                                 maxLength={15}
                                 {...field}
                                 className='text-md lg:text-lg p-3'
