@@ -3,6 +3,8 @@
 'use client';
 
 import BarLoader from '@/components/BarLoader/BarLoader';
+import { SOCIAL_CTAS } from '@/components/CornerNav/CornerNav';
+import RedirectProgressBar from '@/components/RedirectProgressBar/RedirectProgressBar';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { FileUpload } from '@/components/ui/file-upload';
@@ -12,12 +14,13 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { DentallyPortal } from '@/lib/constants';
+import { getTracking } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { half } from '@tsparticles/engine';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { MdFileUpload } from 'react-icons/md';
@@ -119,11 +122,14 @@ export function ExisitingEmergencyFormContent() {
   const [successModalVisible, setSuccessModalVisible] = useState(false);
   const [errorModalVisible, setErrorModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showRedirectBar, setShowRedirectBar] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [submittedData, setSubmittedData] = useState<any>(null);
   const [explanationLength, setExplanationLength] = useState(0);
   const [painExplanationLength, setPainExplanationLength] = useState(0);
   const [swellingExplanationLength, setSwellingExplanationLength] = useState(0);
+  const redirectedRef = useRef(false);
+  const redirectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [medicationExplanationLength, setMedicationExplanationLength] = useState(0);
   const [previousDentalTreatmentExplanationLength, setPreviousDentalTreatmentExplanationLength] = useState(0);
   const pathname = usePathname();
@@ -170,63 +176,72 @@ export function ExisitingEmergencyFormContent() {
     try {
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
-      const dataWithSource = { ...data, source: cleanedSource };
+
+      const tracking = getTracking();
+
+      const trackingWithConversion = {
+        ...tracking,
+        conversionPage: {
+          pageUrl: window.location.href,
+          pagePath: window.location.pathname,
+          visitDate: new Date().toISOString(),
+        },
+      };
 
       const formData = new FormData();
 
-      // Add referralType first
+      // Add referralType and source
       formData.append('referralType', 'Exisiting-PT-Emergency');
-      formData.append('source', cleanedSource); // Add the source field
+      formData.append('source', cleanedSource);
 
-      // Then append the rest of the fields
+      // Add the rest of the form fields
       for (const key in data) {
         if (key !== 'referralType' && data[key]) {
           formData.append(key, data[key]);
         }
       }
 
-      // Append files under the same field name 'attachments'
-      uploadedFiles.slice(0, 3).forEach((file: File) => {
-        formData.append('attachments', file); // note the identical key
-      });
+      // Add tracking data
+      formData.append('tracking', JSON.stringify(trackingWithConversion));
 
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/referral`, {
         method: 'POST',
         body: formData,
       });
 
-      if (!response.ok) throw new Error('Network response was not ok');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
       const contentType = response.headers.get('content-type');
+
       const responseData = contentType?.includes('application/json') ? await response.json() : await response.text();
 
       setSubmittedData(data);
       setSuccessModalVisible(true);
 
-      // try {
-      //   await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengroEnquiry`, {
-      //     method: 'POST',
-      //     headers: { 'Content-Type': 'application/json' },
-      //     body: JSON.stringify(dataWithSource),
-      //   });
-      // } catch (dengroError) {
-      //   console.warn('Dengro capture failed:', dengroError);
-      // }
-
       window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({ event: 'EmergencyPatientLead' });
+      window.dataLayer.push({
+        event: 'EmergencyPatientLead',
+      });
 
-      // Trigger Google Ads conversion tracking
+      // Google Ads conversion
       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
-      // Trigger Facebook Pixel Lead event with lead_type param
+      // Facebook Pixel
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
         window.fbq('trackCustom', 'EmergencyPatientLead');
       }
+
+      setShowRedirectBar(true);
+
+      // 5 second delay before redirecting to patient portal =>
+
+      redirectTimeoutRef.current = setTimeout(handleRedirect, 5000);
 
       form.reset();
     } catch (error) {
@@ -242,6 +257,66 @@ export function ExisitingEmergencyFormContent() {
 
     setExplanationLength(explanation.length); // Update the message length
   };
+
+  useEffect(() => {
+    return () => {
+      if (redirectTimeoutRef.current) {
+        clearTimeout(redirectTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  function goToPortal() {
+    if (redirectedRef.current) return;
+    redirectedRef.current = true;
+    window.location.href = `${DentallyPortal}/book`;
+  }
+
+  function handleRedirect() {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'redirect_to_patient_portal', {
+        send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+        event_callback: goToPortal,
+      });
+
+      setTimeout(goToPortal, 500);
+    } else {
+      goToPortal();
+    }
+  }
+
+  function handleWaitForCallClick() {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
+    // Trigger Google Ads event
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'wait_for_call', {
+        send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+      });
+    }
+
+    setSuccessModalVisible(false);
+    setShowRedirectBar(false);
+    form.reset();
+  }
+
+  function handlePatientPortalClick() {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
+
+    window.gtag('event', 'click_to_patient_portal_in_modal', {
+      send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+      event_callback: goToPortal,
+    });
+
+    setTimeout(goToPortal, 500);
+
+    setSuccessModalVisible(false);
+    setShowRedirectBar(false);
+    form.reset();
+  }
 
   const handlePainExplanationChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const painExlanation = e.target.value;
@@ -780,32 +855,70 @@ export function ExisitingEmergencyFormContent() {
 
       {/* Success Modal */}
       {successModalVisible && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='relative bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4'>
+          <div className='relative w-full max-w-sm rounded-lg bg-white p-8 shadow-lg'>
             <button
               onClick={() => setSuccessModalVisible(false)}
-              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+              className='absolute right-2 top-2 text-2xl text-gray-600 hover:text-gray-900'
             >
               <FaTimes />
             </button>
-            <h2 className='text-2xl font-semibold mb-4'>
+
+            <h2 className='mb-4 text-2xl font-semibold'>
               Thank you, we have successfully received the emergency dentistry form for {submittedData.firstName}!
             </h2>
-            <p className='mb-4'>
-              One of the Supernova team will be back in touch via the following details regarding your referral:
-            </p>
 
-            <p className='mb-4'>
-              <strong>Phone:</strong> {submittedData.phoneNumber}
-            </p>
+            {showRedirectBar && (
+              <>
+                <p>Preparing your secure booking area…</p>
+                <RedirectProgressBar />
+              </>
+            )}
 
-            <p className='mb-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
-            <div className='w-full flex justify-center mb-4'>
-              <Link target='_blank' href={`${DentallyPortal}`}>
-                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                  Book Now!
-                </button>
-              </Link>
+            <div className='mt-6 flex w-full justify-center gap-4'>
+              <button
+                onClick={handlePatientPortalClick}
+                className='rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95'
+              >
+                Book Now!
+              </button>
+
+              <button
+                onClick={handleWaitForCallClick}
+                className='rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95'
+              >
+                Wait For A Call
+              </button>
+            </div>
+
+            <div className='mt-6 flex justify-center gap-4'>
+              {SOCIAL_CTAS.map((l, idx) => (
+                <motion.a
+                  key={idx}
+                  href={l.href}
+                  onClick={() => {
+                    if (redirectTimeoutRef.current) {
+                      clearTimeout(redirectTimeoutRef.current);
+                      setShowRedirectBar(false);
+                    }
+                  }}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 0.5 + idx * 0.125,
+                      duration: 0.3,
+                      ease: 'easeInOut',
+                    },
+                  }}
+                  exit={{ opacity: 0, y: -8 }}
+                >
+                  <l.Component className='text-3xl text-grey transition-colors' />
+                </motion.a>
+              ))}
             </div>
           </div>
         </div>
@@ -813,13 +926,46 @@ export function ExisitingEmergencyFormContent() {
 
       {/* Error Modal */}
       {errorModalVisible && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-2xl font-semibold mb-4'>Oops! Something went wrong.</h2>
-            <p className='mb-4'>There was an issue with your submission. Please try again later.</p>
-            <Button onClick={() => setErrorModalVisible(false)} className='w-full bg-red-600 text-white text-lg py-3'>
-              Close
-            </Button>
+        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
+          <div className='bg-white p-10 relative rounded-lg shadow-lg max-w-md w-full'>
+            <button
+              onClick={() => setErrorModalVisible(false)}
+              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+            >
+              <FaTimes />
+            </button>
+            <h2 className='text-3xl font-semibold mb-6'>Submission Failed</h2>
+            <p className='mb-6'>There was a problem with your submission. Please try again later.</p>
+            <p className='my-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
+            <div className='w-full flex justify-center mb-4'>
+              <Link target='_blank' href={`${DentallyPortal}`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Book Now!
+                </button>
+              </Link>
+            </div>
+            <div className='flex gap-4 justify-center mt-6'>
+              {SOCIAL_CTAS.map((l, idx) => (
+                <motion.a
+                  key={idx}
+                  href={l.href}
+                  target='_blank'
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 0.5 + idx * 0.125,
+                      duration: 0.3,
+                      ease: 'easeInOut',
+                    },
+                  }}
+                  exit={{ opacity: 0, y: -8 }}
+                >
+                  <l.Component className='text-3xl text-grey transition-colors' />
+                </motion.a>
+              ))}
+            </div>
           </div>
         </div>
       )}
