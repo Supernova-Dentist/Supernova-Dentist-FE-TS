@@ -179,34 +179,45 @@ export function ExisitingEmergencyFormContent() {
 
       const tracking = getTracking();
 
+      const conversionPage = {
+        pageUrl: window.location.href,
+        pagePath: window.location.pathname,
+        visitDate: new Date().toISOString(),
+      };
+
       const formData = new FormData();
 
-      // Add referralType and source
+      // Basic fields
       formData.append('referralType', 'Exisiting-PT-Emergency');
       formData.append('source', cleanedSource);
 
-      // Add the rest of the form fields
+      // Form fields
       for (const key in data) {
         if (key !== 'referralType' && data[key]) {
           formData.append(key, data[key]);
         }
       }
 
-      const dataWithTracking = {
-        ...formData,
-        tracking: {
-          ...tracking,
-          conversionPage: {
-            pageUrl: window.location.href,
-            pagePath: window.location.pathname,
-            visitDate: new Date().toISOString(),
-          },
-        },
-      };
+      // Tracking fields
+      for (const [key, value] of Object.entries(tracking ?? {})) {
+        if (value !== undefined && value !== null) {
+          formData.append(`tracking[${key}]`, String(value));
+        }
+      }
+
+      // Conversion page
+      formData.append('tracking[conversionPage][pageUrl]', conversionPage.pageUrl);
+      formData.append('tracking[conversionPage][pagePath]', conversionPage.pagePath);
+      formData.append('tracking[conversionPage][visitDate]', conversionPage.visitDate);
+
+      // Files
+      uploadedFiles.slice(0, 3).forEach((file: File) => {
+        formData.append('attachments', file);
+      });
 
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/referral`, {
         method: 'POST',
-        body: dataWithTracking,
+        body: formData,
       });
 
       if (!response.ok) {
