@@ -514,12 +514,45 @@ export default function ServiceForm({
       {/* Error Modal */}
       {showErrorModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full'>
+          <div className='bg-white p-10 relative rounded-lg shadow-lg max-w-md w-full'>
+            <button
+              onClick={() => setShowErrorModal(false)}
+              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+            >
+              <FaTimes />
+            </button>
             <h2 className='text-3xl font-semibold mb-6'>Submission Failed</h2>
             <p className='mb-6'>{error}</p>
-            <Button onClick={() => setShowErrorModal(false)} className='w-full text-xl py-3'>
-              Close
-            </Button>
+            <p className='mb-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
+            <div className='w-full flex justify-center mb-4'>
+              <Link target='_blank' href={`${DentallyPortal}`}>
+                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
+                  Book Now!
+                </button>
+              </Link>
+            </div>
+            <div className='flex gap-4 justify-center mt-6'>
+              {SOCIAL_CTAS.map((l, idx) => (
+                <motion.a
+                  key={idx}
+                  href={l.href}
+                  target='_blank'
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 0.5 + idx * 0.125,
+                      duration: 0.3,
+                      ease: 'easeInOut',
+                    },
+                  }}
+                  exit={{ opacity: 0, y: -8 }}
+                >
+                  <l.Component className='text-3xl text-grey transition-colors' />
+                </motion.a>
+              ))}
+            </div>
           </div>
         </div>
       )}
