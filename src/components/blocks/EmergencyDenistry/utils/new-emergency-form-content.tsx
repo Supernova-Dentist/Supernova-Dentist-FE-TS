@@ -211,7 +211,7 @@ export function NewEmergencyFormContent() {
       // Tracking fields
       for (const [key, value] of Object.entries(tracking ?? {})) {
         if (value !== undefined && value !== null) {
-          formData.append(`tracking[${key}]`, String(value));
+          formData.append(`tracking[${key}]`, typeof value === 'object' ? JSON.stringify(value) : String(value));
         }
       }
 
