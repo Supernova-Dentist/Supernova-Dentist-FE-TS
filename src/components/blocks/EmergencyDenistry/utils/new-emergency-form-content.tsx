@@ -313,6 +313,15 @@ export function NewEmergencyFormContent() {
     form.reset();
   }
 
+  function handleSuccessModalClose() {
+    if (redirectTimeoutRef.current) {
+      clearTimeout(redirectTimeoutRef.current);
+    }
+    setSuccessModalVisible(false);
+    setShowRedirectBar(false);
+    form.reset();
+  }
+
   function handlePatientPortalClick() {
     if (redirectTimeoutRef.current) {
       clearTimeout(redirectTimeoutRef.current);
@@ -1019,7 +1028,7 @@ export function NewEmergencyFormContent() {
         <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4'>
           <div className='relative w-full max-w-sm rounded-lg bg-white p-8 shadow-lg'>
             <button
-              onClick={() => setSuccessModalVisible(false)}
+              onClick={handleSuccessModalClose}
               className='absolute right-2 top-2 text-2xl text-gray-600 hover:text-gray-900'
             >
               <FaTimes />
