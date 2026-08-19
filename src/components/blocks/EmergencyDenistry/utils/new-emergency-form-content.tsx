@@ -189,15 +189,6 @@ export function NewEmergencyFormContent() {
 
       const tracking = getTracking();
 
-      const trackingWithConversion = {
-        ...tracking,
-        conversionPage: {
-          pageUrl: window.location.href,
-          pagePath: window.location.pathname,
-          visitDate: new Date().toISOString(),
-        },
-      };
-
       const formData = new FormData();
 
       // Basic fields
@@ -211,17 +202,26 @@ export function NewEmergencyFormContent() {
         }
       }
 
-      // Tracking
-      formData.append('tracking', JSON.stringify(trackingWithConversion));
-
       // Files
       uploadedFiles.slice(0, 3).forEach((file: File) => {
         formData.append('attachments', file);
       });
 
+      const dataWithTracking = {
+        ...formData,
+        tracking: {
+          ...tracking,
+          conversionPage: {
+            pageUrl: window.location.href,
+            pagePath: window.location.pathname,
+            visitDate: new Date().toISOString(),
+          },
+        },
+      };
+
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/referral`, {
         method: 'POST',
-        body: formData,
+        body: dataWithTracking,
       });
 
       if (!response.ok) {

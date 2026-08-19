@@ -179,15 +179,6 @@ export function ExisitingEmergencyFormContent() {
 
       const tracking = getTracking();
 
-      const trackingWithConversion = {
-        ...tracking,
-        conversionPage: {
-          pageUrl: window.location.href,
-          pagePath: window.location.pathname,
-          visitDate: new Date().toISOString(),
-        },
-      };
-
       const formData = new FormData();
 
       // Add referralType and source
@@ -201,12 +192,21 @@ export function ExisitingEmergencyFormContent() {
         }
       }
 
-      // Add tracking data
-      formData.append('tracking', JSON.stringify(trackingWithConversion));
+      const dataWithTracking = {
+        ...formData,
+        tracking: {
+          ...tracking,
+          conversionPage: {
+            pageUrl: window.location.href,
+            pagePath: window.location.pathname,
+            visitDate: new Date().toISOString(),
+          },
+        },
+      };
 
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/referral`, {
         method: 'POST',
-        body: formData,
+        body: dataWithTracking,
       });
 
       if (!response.ok) {
