@@ -210,11 +210,6 @@ export function ExisitingEmergencyFormContent() {
         formData.append('attachments', file);
       });
 
-      // Files
-      uploadedFiles.slice(0, 3).forEach((file: File) => {
-        formData.append('attachments', file);
-      });
-
       const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/referral`, {
         method: 'POST',
         body: formData,
