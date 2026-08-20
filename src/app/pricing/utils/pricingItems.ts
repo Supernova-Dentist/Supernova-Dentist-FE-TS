@@ -19,7 +19,7 @@ export const pricingItems = [
     products: [
       { description: 'Small Digital X-Ray', price: 12, priceDescription: 'each' },
       { description: 'Large Full Mouth X-Ray (OPG)', price: 50 },
-      { description: 'CBCT Scan (with professional report included)', price: 300 },
+      { description: 'CBCT Scan (with professional radiologist report included)', price: 300 },
     ],
   },
   {
@@ -267,6 +267,6 @@ discomfort.`,
   },
   {
     title: 'Referring Dentists',
-    products: [{ description: 'CBCT Scan (with professional report included)', price: 300 }],
+    products: [{ description: 'CBCT Scan (with professional radiologist report included)', price: 300 }],
   },
 ];
