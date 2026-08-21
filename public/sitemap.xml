@@ -205,6 +205,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.supernovadental.co.uk/team/mariana-barbu</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.supernovadental.co.uk/team/dr-cameran-armaghani</loc>
     <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -284,6 +290,13 @@
   <url>
     <loc>https://www.supernovadental.co.uk/general-dentistry/emergency-dentistry</loc>
     <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+   <!-- Dental Membership Plans Pages -->
+  <url>
+    <loc>https://www.supernovadental.co.uk/general-dentistry/dental-membership-plans</loc>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

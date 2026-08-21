@@ -340,6 +340,7 @@ const LINKS = [
       { title: 'Explore General Dentistry', href: '/general-dentistry' },
       { title: 'New Patient Examination', href: '/general-dentistry/new-patient-examination' },
       { title: 'Emergency Dentistry', href: '/general-dentistry/emergency-dentistry' },
+      { title: 'Dental Membership Plans', href: '/general-dentistry/dental-membership-plans' },
       { title: 'White Composite Fillings', href: '/general-dentistry/white-composite-fillings' },
       { title: 'Root Canal Treatment', href: '/general-dentistry/root-canal-treatment' },
       { title: 'Dentures', href: '/general-dentistry/dentures' },
