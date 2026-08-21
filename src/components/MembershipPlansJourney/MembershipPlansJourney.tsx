@@ -5,7 +5,7 @@ import React from 'react';
 import ConsultationImage from '../../../public/assets/images/new-patient-examination-1.webp';
 import ExaminationImage from '../../../public/assets/images/new-patient-examination-2.webp';
 import TreatmentPlanImage from '../../../public/assets/images/new-patient-examination-3.webp';
-import { NewPatientTimeline } from '../ServiceTimelines/NewPatientTimeline';
+import { MembershipPlansTimeline } from '../ServiceTimelines/MembershipPlansTimeline';
 
 export function MembershipPlansJourney({ id }: { id: string }) {
   const data = [
@@ -76,7 +76,7 @@ export function MembershipPlansJourney({ id }: { id: string }) {
 
   return (
     <div id={id} className='w-full'>
-      <NewPatientTimeline data={data} />
+      <MembershipPlansTimeline data={data} />
     </div>
   );
 }

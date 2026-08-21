@@ -29,7 +29,7 @@ export default function InvisalignContent() {
           formId='invisalign-enquiry-form'
         />
 
-        <div className=''>
+        <div>
           <HeroSection data={invisalignHeroData} />
           <InvisalignSmileView id='smileView' />
         </div>

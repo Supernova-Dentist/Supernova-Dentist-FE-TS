@@ -2,7 +2,7 @@ export default {
   title: 'What Are Dental Membership Plans?',
 
   descriptions: [
-    'Dental membership plans provide a simple and affordable way to budget for your routine dental care. At Supernova Dental in Bridgwater, our plans are available for adults and children and include regular dental examinations, preventative care and additional benefits depending on the plan you choose.',
+    'Our Dental membership plans provide a simple and affordable way to budget for your routine dental care. At Supernova Dental in Bridgwater, our plans are available for adults and children and include regular dental examinations, preventative care and additional benefits depending on the plan you choose.',
 
     'Our membership plans are designed to make maintaining your oral health easier, with regular appointments included for a predictable monthly fee. With options for both adults and children, you can choose a plan that helps you stay on top of your dental health while providing added peace of mind with emergency dental cover.',
   ],

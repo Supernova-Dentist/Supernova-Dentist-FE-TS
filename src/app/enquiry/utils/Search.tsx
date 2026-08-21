@@ -19,6 +19,7 @@ const urlToReadableMap: { [key: string]: string } = {
   'general-dentistry/emergency-dentistry': 'Emergency Dental Care',
   pricing: 'Pricing',
   'general-dentistry/dental-finance': 'Dental Finance',
+  'general-dentistry/dental-membership-plans': 'Dental Membership Plans',
   'emergency-dentistry': 'Emergency Dentistry',
 };
 

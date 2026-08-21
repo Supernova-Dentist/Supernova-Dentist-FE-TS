@@ -14,7 +14,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
   name: 'Supernova Dental - Dental Membership Plans Bridgwater',
-  url: 'https://www.supernovadental.co.uk/general-dentistry/membership-plans',
+  url: 'https://www.supernovadental.co.uk/general-dentistry/dental-membership-plans',
   image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
   description:
     'Supernova Dental in Bridgwater offers dental membership plans for adults and children. Enjoy routine check-ups, hygiene visits, emergency cover, and expert care. Our new practice is welcoming new patients today!',
@@ -84,7 +84,7 @@ export default function MembershipPlans() {
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <MembershipPlansContent />
       {/* Sticky EnquiryButton */}
-      <EnquiryButton referringPage={'general-dentistry/membership-plans'} />
+      <EnquiryButton referringPage={'general-dentistry/dental-membership-plans'} />
     </div>
   );
 }

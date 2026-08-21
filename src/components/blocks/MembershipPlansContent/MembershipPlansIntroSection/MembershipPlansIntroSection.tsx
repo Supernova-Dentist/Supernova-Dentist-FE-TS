@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
-import membershipPlansImage from '../../../../../public/assets/images/membership-plans-intro.webp';
+import membershipPlansImage from '../../../../../public/assets/images/supernova-dental-bridgwater-reception-new-patients.webp';
 import OverallGoogleRating from '../../OverallGoogleRating/OverallGoogleRating';
 
 export default function MembershipPlansIntroSection() {
@@ -21,7 +21,7 @@ export default function MembershipPlansIntroSection() {
 
   return (
     <section
-      className='flex flex-col lg:flex-row-reverse min-h-[65vh] my-auto items-center justify-center py-4'
+      className='flex flex-col lg:flex-row-reverse min-h-[65vh] my-auto items-center justify-center pb-4'
       ref={ref}
     >
       {/* Text Section */}
@@ -50,8 +50,8 @@ export default function MembershipPlansIntroSection() {
           make looking after your teeth straightforward and predictable.
         </p>
 
-        <Link href='/general-dentistry/membership-plans#membership-plans'>
-          <Button className='mt-6 w-fit p-6'>View Our Membership Plans</Button>
+        <Link href={`/enquiry?ref=${encodeURIComponent('general-dentistry/dental-membership-plans')}`}>
+          <Button className='mt-6 w-fit p-6'>Ask About Our Membership Plans</Button>
         </Link>
       </motion.div>
 

@@ -51,6 +51,7 @@ export const practiceInfo = [
   { name: 'Root Canal Treatment', link: '/general-dentistry/root-canal-treatment' },
   { name: 'Dentures', link: '/general-dentistry/dentures' },
   { name: 'White Composite Fillings', link: '/general-dentistry/white-composite-fillings' },
+  { name: 'Dental Membership Plans', link: '/general-dentistry/dental-membership-plans' },
   { name: 'Dental Hygiene', link: '/general-dentistry/dental-hygiene' },
   { name: 'Dental Therapist', link: '/general-dentistry/dental-therapist' },
   { name: 'Dental Finance', link: '/general-dentistry/dental-finance' },
@@ -77,6 +78,10 @@ export const generalServices = [
   {
     name: 'Emergency Dentistry',
     link: '/general-dentistry/emergency-dentistry',
+  },
+  {
+    name: 'Dental Membership Plans',
+    link: '/general-dentistry/dental-membership-plans',
   },
   {
     name: 'White Composite Fillings',

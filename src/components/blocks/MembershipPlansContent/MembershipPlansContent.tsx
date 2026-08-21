@@ -5,6 +5,7 @@ import FaqSection from '@/components/FaqSection/FaqSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
 import InfoSection from '@/components/InfoSection/InfoSection';
+import { MembershipPlansJourney } from '@/components/MembershipPlansJourney/MembershipPlansJourney';
 import { NewPatientJourney } from '@/components/NewPatientJourney/NewPatientJourney';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import { SlideTabsExample } from '../SlideTabs/SlideTabs';
@@ -14,6 +15,9 @@ import hygieneHeroData from './contentData/heroData';
 import infoData from './contentData/infoData';
 import { tableData } from './contentData/tableData';
 import MembershipPlansIntroSection from './MembershipPlansIntroSection/MembershipPlansIntroSection';
+
+const videoSrc = '/assets/videos/sd_practice_plan.mp4';
+const videoThumbnailSrc = '/assets/images/practice_plan_thumbnail.png';
 
 export default function MembershipPlansContent() {
   return (
@@ -29,26 +33,23 @@ export default function MembershipPlansContent() {
           serviceDescription='Enjoy affordable, ongoing dental care with our Practice Plan, designed to keep your oral health in top condition.'
           formTitle='Register for Our Practice Plan'
           formDescription='Join our Practice Plan from £5.99/month for children or £24.99/month for adults (16+). Enjoy routine check-ups, hygiene visits, emergency cover, and more. Register today for expert dental care and peace of mind.'
-          videoSrc='/assets/videos/sd_practice_plan.mp4'
-          videoThumbnailSrc='/assets/images/practice_plan_thumbnail.png'
           formId='practice-enquiry-form'
           eventType='PracticePlanLead'
         />
         <HighlightCard title='Join Our Dental Membership Plan Today' logoSrc='/favicon.ico' />
 
+        <div className='my-6 w-full max-w-96 aspect-[9/17] relative mx-auto'>
+          <video
+            className='absolute top-0 left-0 w-full h-full rounded-lg'
+            controls
+            preload='metadata'
+            poster={videoThumbnailSrc}
+          >
+            <source src={videoSrc} type='video/mp4' />
+            Sorry, your browser doesn&apos;t support the video tag.
+          </video>
+        </div>
         <MembershipPlansIntroSection />
-        {/* <ServiceForm
-        serviceName='Dental Hygiene Journey'
-        serviceChip='Guided Hygiene Journey'
-        serviceDescription='Maintain a healthy smile with professional teeth cleaning and gum disease prevention treatments.'
-        formTitle='Register For A Dental Hygiene Appointment'
-        formDescription='Register now for a professional hygiene appointment with our expert team, ensuring your teeth stay clean and your gums healthy.'
-        eventType='HygieneLead'
-        formId='hygiene-enquiry-form'
-      />
-      <div className=''>
-        <HeroSection data={hygieneHeroData} />
-      </div> */}
 
         {/* <div className='sticky top-24 z-10'>
         <SlideTabsExample />
@@ -56,7 +57,7 @@ export default function MembershipPlansContent() {
         <InfoSection id='info' data={infoData} />
         <BenefitSection id='benefits' data={benefitsData} />
 
-        <NewPatientJourney id='journey' />
+        <MembershipPlansJourney id='journey' />
 
         <FaqSection id='faq' faqItems={faqItems} />
       </div>

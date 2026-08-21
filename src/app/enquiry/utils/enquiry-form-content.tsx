@@ -304,6 +304,9 @@ export function EnquiryFormContent() {
                                       <SelectItem value='emergency-care' className='text-md lg:text-lg py-2'>
                                         Emergency Care
                                       </SelectItem>
+                                      <SelectItem value='membership-plans' className='text-md lg:text-lg py-2'>
+                                        Membership Plans
+                                      </SelectItem>
                                       <SelectItem value='consultation-request' className='text-md lg:text-lg py-2'>
                                         Consultation Request
                                       </SelectItem>
