@@ -1,4 +1,7 @@
+import ConsentFormsAccessGate from '@/components/ConsentFormsAccessGate/ConsentFormsAccessGate';
+import { CONSENT_FORMS_SESSION_COOKIE, isConsentFormsSessionValid } from '@/lib/consentFormsAuth';
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -19,7 +22,21 @@ const consentForms = [
   },
 ] as const;
 
-export default function ConsentFormsPage() {
+interface ConsentFormsPageProps {
+  searchParams?: {
+    next?: string | string[];
+  };
+}
+
+export default function ConsentFormsPage({ searchParams }: ConsentFormsPageProps) {
+  const sessionToken = cookies().get(CONSENT_FORMS_SESSION_COOKIE)?.value;
+  const requestedPath = typeof searchParams?.next === 'string' ? searchParams.next : '/consent-forms';
+  const redirectTo = requestedPath.startsWith('/') && !requestedPath.startsWith('//') ? requestedPath : '/consent-forms';
+
+  if (!isConsentFormsSessionValid(sessionToken)) {
+    return <ConsentFormsAccessGate redirectTo={redirectTo} />;
+  }
+
   return (
     <main className='min-h-[100dvh] bg-gradient-to-b from-cream/60 via-white to-white px-5 pb-24 pt-36 sm:px-8'>
       <div className='mx-auto max-w-5xl'>

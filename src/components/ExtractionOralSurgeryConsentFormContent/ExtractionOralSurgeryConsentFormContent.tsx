@@ -21,7 +21,8 @@ import {
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
-import { type FormEvent, useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { type FormEvent, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { z } from 'zod';
@@ -35,7 +36,7 @@ const CLINICIAN_GROUPS = [
       'Dr. Scott Young',
       'Dr. Cameran Armaghani',
       'Dr. Souad Maddi',
-      'Dr. Jacqueline Amarin',
+      'Dr. Ashley Saredi',
     ],
   },
   {
@@ -44,7 +45,7 @@ const CLINICIAN_GROUPS = [
   },
 ] as const;
 
-const CLINICIAN_PASSCODE = '2024';
+const PASSCODE_LENGTH = 4;
 const KEYPAD_DIGITS = ['1', '2', '3', '4', '5', '6', '7', '8', '9'] as const;
 
 function getLocalDateAndTime() {
@@ -163,7 +164,7 @@ const formSchema = z.object({
 });
 
 type FormValues = z.infer<typeof formSchema>;
-type FormMode = 'locked' | 'clinicianPrep' | 'patientSigning' | 'clinicianReauth' | 'clinicianFinal';
+type FormMode = 'clinicianPrep' | 'patientSigning' | 'clinicianReauth' | 'clinicianFinal';
 
 const PREPARATION_FIELDS: Array<keyof FormValues> = [
   'patientName',
@@ -237,13 +238,15 @@ const PATIENT_FIELDS: Array<keyof FormValues> = [
 // });
 
 export function ExtractionOralSurgeryConsentFormContent() {
+  const router = useRouter();
   const [successModalVisible, setSuccessModalVisible] = useState(false);
   const [errorModalVisible, setErrorModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submittedData, setSubmittedData] = useState<FormValues | null>(null);
-  const [formMode, setFormMode] = useState<FormMode>('locked');
+  const [formMode, setFormMode] = useState<FormMode>('clinicianPrep');
   const [passcodeEntry, setPasscodeEntry] = useState('');
   const [passcodeError, setPasscodeError] = useState('');
+  const [isVerifyingPasscode, setIsVerifyingPasscode] = useState(false);
   const patientSectionRef = useRef<HTMLElement | null>(null);
   const clinicianSectionRef = useRef<HTMLElement | null>(null);
 
@@ -334,12 +337,6 @@ export function ExtractionOralSurgeryConsentFormContent() {
 
   const { register, setValue } = form;
 
-  useEffect(() => {
-    setPasscodeEntry('');
-    setPasscodeError('');
-    setFormMode('locked');
-  }, []);
-
   const resetPasscodeEntry = () => {
     setPasscodeEntry('');
     setPasscodeError('');
@@ -351,36 +348,43 @@ export function ExtractionOralSurgeryConsentFormContent() {
 
   const unlockClinicianMode = () => {
     resetPasscodeEntry();
+    setFormMode('clinicianFinal');
+    scrollToSection(clinicianSectionRef.current);
+  };
 
-    if (formMode === 'locked') {
-      setFormMode('clinicianPrep');
-      return;
-    }
+  const verifyClinicianPasscode = async (passcode: string) => {
+    setIsVerifyingPasscode(true);
 
-    if (formMode === 'clinicianReauth') {
-      setFormMode('clinicianFinal');
-      scrollToSection(clinicianSectionRef.current);
+    try {
+      const response = await fetch('/api/consent-forms/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ passcode }),
+      });
+
+      if (!response.ok) {
+        setPasscodeEntry('');
+        setPasscodeError('Incorrect passcode. Please try again.');
+        return;
+      }
+
+      unlockClinicianMode();
+    } catch {
+      setPasscodeEntry('');
+      setPasscodeError('Unable to check the passcode. Please try again.');
+    } finally {
+      setIsVerifyingPasscode(false);
     }
   };
 
   const handleKeypadDigit = (digit: string) => {
-    if (passcodeEntry.length >= CLINICIAN_PASSCODE.length) return;
+    if (isVerifyingPasscode || passcodeEntry.length >= PASSCODE_LENGTH) return;
 
     const nextEntry = `${passcodeEntry}${digit}`;
+    setPasscodeEntry(nextEntry);
     setPasscodeError('');
 
-    if (nextEntry.length < CLINICIAN_PASSCODE.length) {
-      setPasscodeEntry(nextEntry);
-      return;
-    }
-
-    if (nextEntry === CLINICIAN_PASSCODE) {
-      unlockClinicianMode();
-      return;
-    }
-
-    setPasscodeEntry('');
-    setPasscodeError('Incorrect passcode. Please try again.');
+    if (nextEntry.length === PASSCODE_LENGTH) void verifyClinicianPasscode(nextEntry);
   };
 
   const handleBeginPatientMode = async () => {
@@ -518,8 +522,8 @@ export function ExtractionOralSurgeryConsentFormContent() {
     setSuccessModalVisible(false);
     setSubmittedData(null);
     resetPasscodeEntry();
-    setFormMode('locked');
     form.reset();
+    router.replace('/consent-forms');
   }
 
   const handleSubmit = async (data: FormValues) => {
@@ -545,755 +549,879 @@ export function ExtractionOralSurgeryConsentFormContent() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            {formMode !== 'locked' && (
-              <Form {...form}>
-                <form id='extraction-oral-surgery-consent-form' onSubmit={handleFormSubmit} className='space-y-8'>
-                  <div
-                    role='status'
-                    className={`rounded-2xl border p-5 ${
-                      formMode === 'patientSigning'
-                        ? 'border-blue-200 bg-blue-50'
-                        : formMode === 'clinicianFinal'
-                          ? 'border-green-200 bg-green-50'
-                          : 'border-primary/20 bg-primary/5'
-                    }`}
-                  >
-                    <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
-                      <div>
-                        <p className='text-xs font-semibold uppercase tracking-wider text-muted-foreground'>
-                          Form mode
-                        </p>
-                        <h1 className='mt-1 text-lg font-semibold'>
-                          {formMode === 'patientSigning'
-                            ? 'Patient consent and signature'
-                            : formMode === 'clinicianFinal'
-                              ? 'Clinician final review'
-                              : 'Clinician preparation'}
-                        </h1>
-                        <p className='mt-1 text-sm leading-6 text-muted-foreground'>
-                          {formMode === 'patientSigning'
-                            ? 'The clinical details are locked. Review the form, confirm consent and sign in the patient section.'
-                            : formMode === 'clinicianFinal'
-                              ? 'The signed patient record is locked. Complete the clinician declaration, then submit.'
-                              : 'Complete the treatment details before handing the device to the patient.'}
+            <Form {...form}>
+              <form id='extraction-oral-surgery-consent-form' onSubmit={handleFormSubmit} className='space-y-8'>
+                <div
+                  role='status'
+                  className={`rounded-2xl border p-5 ${
+                    formMode === 'patientSigning'
+                      ? 'border-blue-200 bg-blue-50'
+                      : formMode === 'clinicianFinal'
+                        ? 'border-green-200 bg-green-50'
+                        : 'border-primary/20 bg-primary/5'
+                  }`}
+                >
+                  <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
+                    <div>
+                      <p className='text-xs font-semibold uppercase tracking-wider text-muted-foreground'>Form mode</p>
+                      <h1 className='mt-1 text-lg font-semibold'>
+                        {formMode === 'patientSigning'
+                          ? 'Patient consent and signature'
+                          : formMode === 'clinicianFinal'
+                            ? 'Clinician final review'
+                            : 'Clinician preparation'}
+                      </h1>
+                      <p className='mt-1 text-sm leading-6 text-muted-foreground'>
+                        {formMode === 'patientSigning'
+                          ? 'The clinical details are locked. Review the form, confirm consent and sign in the patient section.'
+                          : formMode === 'clinicianFinal'
+                            ? 'The signed patient record is locked. Complete the clinician declaration, then submit.'
+                            : 'Complete the treatment details before handing the device to the patient.'}
+                      </p>
+                    </div>
+
+                    {formMode === 'clinicianFinal' && (
+                      <Button type='button' variant='outline' onClick={handleEditClinicalDetails}>
+                        Edit clinical details
+                      </Button>
+                    )}
+                  </div>
+                </div>
+
+                <div className='space-y-10'>
+                  <fieldset disabled={formMode !== 'clinicianPrep'} className='m-0 min-w-0 space-y-10 border-0 p-0'>
+                    {/* Patient & Procedure Details */}
+                    <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                      <div className='mb-6 border-b pb-5'>
+                        <h2 className='text-xl font-semibold tracking-tight'>Patient & Procedure Details</h2>
+                        <p className='mt-1 text-sm text-muted-foreground'>
+                          Please complete the following information before proceeding with the consent form.
                         </p>
                       </div>
 
-                      {formMode === 'clinicianFinal' && (
-                        <Button type='button' variant='outline' onClick={handleEditClinicalDetails}>
-                          Edit clinical details
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className='space-y-10'>
-                    <fieldset disabled={formMode !== 'clinicianPrep'} className='m-0 min-w-0 space-y-10 border-0 p-0'>
-                      {/* Patient & Procedure Details */}
-                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
-                        <div className='mb-6 border-b pb-5'>
-                          <h2 className='text-xl font-semibold tracking-tight'>Patient & Procedure Details</h2>
-                          <p className='mt-1 text-sm text-muted-foreground'>
-                            Please complete the following information before proceeding with the consent form.
-                          </p>
-                        </div>
-
-                        <div className='grid gap-6 md:grid-cols-2'>
-                          {/* Patient Name */}
-                          <div className='space-y-2 md:col-span-2'>
-                            <Label htmlFor='patientName' className='text-sm font-semibold'>
-                              Patient Name
-                            </Label>
-
-                            <FormField
-                              control={form.control}
-                              name='patientName'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormControl>
-                                    <Input
-                                      id='patientName'
-                                      maxLength={75}
-                                      placeholder='Enter patient name'
-                                      {...field}
-                                      className='h-12 text-base'
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-
-                          {/* Date of Birth */}
-                          <div className='space-y-2'>
-                            <Label htmlFor='dateOfBirth' className='text-sm font-semibold'>
-                              Date of Birth
-                            </Label>
-
-                            <FormField
-                              control={form.control}
-                              name='dateOfBirth'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormControl>
-                                    <Input id='dateOfBirth' type='date' {...field} className='h-12 text-base' />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-
-                          {/* Date of Procedure */}
-                          <div className='space-y-2'>
-                            <Label htmlFor='dateOfProcedure' className='text-sm font-semibold'>
-                              Date of Procedure
-                            </Label>
-
-                            <FormField
-                              control={form.control}
-                              name='dateOfProcedure'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormControl>
-                                    <Input id='dateOfProcedure' type='date' {...field} className='h-12 text-base' />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-
-                          {/* Clinician */}
-                          <div className='space-y-2 md:col-span-2'>
-                            <Label htmlFor='treatingClinician' className='text-sm font-semibold'>
-                              Treating Clinician / Oral Surgeon
-                            </Label>
-
-                            <FormField
-                              control={form.control}
-                              name='treatingClinician'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <Select
-                                    value={field.value}
-                                    onValueChange={(value) => {
-                                      field.onChange(value);
-                                      setValue('clinicianName', value);
-                                    }}
-                                  >
-                                    <FormControl>
-                                      <SelectTrigger id='treatingClinician' className='h-12 text-base'>
-                                        <SelectValue placeholder='Select treating clinician or oral surgeon' />
-                                      </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent>
-                                      {CLINICIAN_GROUPS.map((group) => (
-                                        <SelectGroup key={group.label}>
-                                          <SelectLabel>{group.label}</SelectLabel>
-                                          {group.clinicians.map((clinician) => (
-                                            <SelectItem key={clinician} value={clinician}>
-                                              {clinician}
-                                            </SelectItem>
-                                          ))}
-                                        </SelectGroup>
-                                      ))}
-                                    </SelectContent>
-                                  </Select>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                        </div>
-                      </section>
-
-                      {/* Proposed Treatment */}
-                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
-                        <div className='mb-6 border-b pb-5'>
-                          <h2 className='text-xl font-semibold tracking-tight'>Proposed Treatment</h2>
-                          <p className='mt-2 text-sm leading-6 text-muted-foreground'>
-                            I consent to the extraction or removal of the following tooth/teeth.
-                          </p>
-                        </div>
-
-                        <div className='space-y-6'>
-                          {/* Teeth */}
-                          <div className='space-y-2'>
-                            <Label htmlFor='teeth' className='text-sm font-semibold'>
-                              Tooth / Teeth
-                            </Label>
-
-                            <FormField
-                              control={form.control}
-                              name='teeth'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormControl>
-                                    <Input
-                                      id='teeth'
-                                      maxLength={50}
-                                      placeholder='e.g. 16, 26, 36'
-                                      {...field}
-                                      className='h-12 text-base'
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-
-                          {/* Procedure */}
-                          <div className='space-y-3'>
-                            <div>
-                              <h3 className='text-sm font-semibold'>Procedure</h3>
-                              <p className='mt-1 text-sm text-muted-foreground'>
-                                Please select the procedure(s) that apply.
-                              </p>
-                            </div>
-
-                            <div className='grid gap-3 sm:grid-cols-2'>
-                              {[
-                                {
-                                  id: 'simpleExtraction',
-                                  label: 'Simple Extraction',
-                                },
-                                {
-                                  id: 'surgicalExtraction',
-                                  label: 'Surgical Extraction',
-                                },
-                                {
-                                  id: 'retainedRoots',
-                                  label: 'Removal of retained root(s)',
-                                },
-                                {
-                                  id: 'wisdomToothRemoval',
-                                  label: 'Wisdom tooth removal',
-                                },
-                                {
-                                  id: 'otherProcedure',
-                                  label: 'Other',
-                                },
-                              ].map((option) => (
-                                <label
-                                  key={option.id}
-                                  htmlFor={option.id}
-                                  className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
-                                >
-                                  <Checkbox
-                                    id={option.id}
-                                    {...register(option.id as any)}
-                                    onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
-                                  />
-
-                                  <span className='text-sm font-medium'>{option.label}</span>
-                                </label>
-                              ))}
-                            </div>
-
-                            {form.watch('otherProcedure') && (
-                              <FormField
-                                control={form.control}
-                                name='otherProcedureDetails'
-                                render={({ field }) => (
-                                  <FormItem>
-                                    <FormLabel className='text-sm font-semibold'>Please specify</FormLabel>
-
-                                    <FormControl>
-                                      <Input placeholder='Please specify the procedure' {...field} className='h-12' />
-                                    </FormControl>
-
-                                    <FormMessage />
-                                  </FormItem>
-                                )}
-                              />
-                            )}
-                          </div>
-                        </div>
-
-                        <div className='mt-8 rounded-xl bg-muted/40 p-5'>
-                          <p className='text-sm leading-6 text-muted-foreground'>
-                            I confirm that the proposed treatment has been explained to me, including why the extraction
-                            or surgical procedure has been recommended.
-                          </p>
-                        </div>
-                      </section>
-
-                      {/* Risks and Possible Complications */}
-                      <section className='mt-8 space-y-5'>
-                        <div>
-                          <h3 className='text-sm font-semibold'>Risks and Possible Complications</h3>
-
-                          <p className='mt-1 text-sm leading-6 text-muted-foreground'>
-                            I understand that, as with any dental or surgical procedure, there are risks and possible
-                            complications. These have been discussed with me where relevant to my treatment and may
-                            include:
-                          </p>
-                        </div>
-
-                        <div className='grid gap-3 sm:grid-cols-2'>
-                          {[
-                            {
-                              id: 'riskPain',
-                              label: 'Pain, discomfort and tenderness following treatment',
-                            },
-                            {
-                              id: 'riskSwelling',
-                              label: 'Swelling and bruising',
-                            },
-                            {
-                              id: 'riskBleeding',
-                              label: 'Bleeding following the procedure',
-                            },
-                            {
-                              id: 'riskInfection',
-                              label: 'Infection',
-                            },
-                            {
-                              id: 'riskDelayedHealing',
-                              label: 'Delayed healing',
-                            },
-                            {
-                              id: 'riskDrySocket',
-                              label: 'Dry socket (alveolar osteitis)',
-                            },
-                            {
-                              id: 'riskTrismus',
-                              label: 'Difficulty opening the mouth (trismus)',
-                            },
-                            {
-                              id: 'riskAdjacentDamage',
-                              label: 'Damage to adjacent teeth, crowns, bridges, fillings or other dental work',
-                            },
-                            {
-                              id: 'riskFracture',
-                              label: 'Fracture of a tooth/root during removal, which may require further treatment',
-                            },
-                            {
-                              id: 'riskRetainedRoot',
-                              label:
-                                'A small piece of root being intentionally left in place where removal presents a greater risk',
-                            },
-                            {
-                              id: 'riskBoneTissueDamage',
-                              label: 'Damage to surrounding bone or soft tissues',
-                            },
-                            {
-                              id: 'riskSutures',
-                              label: 'Need for stitches/sutures',
-                            },
-                            {
-                              id: 'riskFurtherTreatment',
-                              label: 'Need for further treatment or referral if complications occur',
-                            },
-                          ].map((risk) => (
-                            <label
-                              key={risk.id}
-                              htmlFor={risk.id}
-                              className='flex cursor-pointer items-start gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
-                            >
-                              <Checkbox
-                                id={risk.id}
-                                {...register(risk.id as any)}
-                                onCheckedChange={(checked) => setValue(risk.id as any, checked === true)}
-                                className='mt-0.5'
-                              />
-
-                              <span className='text-sm leading-5 font-medium'>{risk.label}</span>
-                            </label>
-                          ))}
-                        </div>
-                      </section>
-
-                      <div className='space-y-10'>
-                        {/* Additional Risks for Lower Teeth */}
-                        <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
-                          <div className='mb-6 border-b pb-5'>
-                            <h2 className='text-xl font-semibold tracking-tight'>Additional Risks for Lower Teeth</h2>
-                          </div>
-
-                          <div className='space-y-5'>
-                            <p className='text-sm leading-6 text-muted-foreground'>
-                              Where relevant, I understand that lower tooth/wisdom tooth surgery may carry a risk of
-                              injury to nearby nerves, including the{' '}
-                              <span className='font-semibold text-foreground'>
-                                inferior alveolar nerve and/or lingual nerve
-                              </span>
-                              .
-                            </p>
-
-                            <p className='text-sm leading-6 text-muted-foreground'>
-                              This may result in altered sensation, numbness, tingling or other sensory changes
-                              affecting the lower lip, chin, teeth, gums and/or tongue. These changes may be temporary
-                              but, in some cases, can be prolonged or permanent.
-                            </p>
-
-                            <div className='space-y-3'>
-                              <p className='text-sm font-semibold'>
-                                Please confirm whether this risk has been discussed or is applicable:
-                              </p>
-
-                              <div className='grid gap-3 sm:grid-cols-2'>
-                                {[
-                                  {
-                                    id: 'lowerTeethRisksApplicable',
-                                    label: 'Discussed / Applicable',
-                                  },
-                                  {
-                                    id: 'lowerTeethRisksNotApplicable',
-                                    label: 'Not Applicable',
-                                  },
-                                ].map((option) => (
-                                  <label
-                                    key={option.id}
-                                    htmlFor={option.id}
-                                    className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
-                                  >
-                                    <Checkbox
-                                      id={option.id}
-                                      {...register(option.id as any)}
-                                      onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
-                                    />
-
-                                    <span className='text-sm font-medium'>{option.label}</span>
-                                  </label>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-
-                        {/* Additional Risks for Upper Teeth */}
-                        <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
-                          <div className='mb-6 border-b pb-5'>
-                            <h2 className='text-xl font-semibold tracking-tight'>Additional Risks for Upper Teeth</h2>
-                          </div>
-
-                          <div className='space-y-5'>
-                            <p className='text-sm leading-6 text-muted-foreground'>
-                              Where relevant, I understand that the roots of upper teeth may be close to the maxillary
-                              sinus. Extraction can occasionally result in an opening or communication between the mouth
-                              and sinus, which may require additional treatment or surgical repair.
-                            </p>
-
-                            <p className='text-sm leading-6 text-muted-foreground'>
-                              There is also a small risk of a tooth or root fragment being displaced into the sinus or
-                              surrounding tissues.
-                            </p>
-
-                            <div className='space-y-3'>
-                              <p className='text-sm font-semibold'>
-                                Please confirm whether this risk has been discussed or is applicable:
-                              </p>
-
-                              <div className='grid gap-3 sm:grid-cols-2'>
-                                {[
-                                  {
-                                    id: 'upperTeethRisksApplicable',
-                                    label: 'Discussed / Applicable',
-                                  },
-                                  {
-                                    id: 'upperTeethRisksNotApplicable',
-                                    label: 'Not Applicable',
-                                  },
-                                ].map((option) => (
-                                  <label
-                                    key={option.id}
-                                    htmlFor={option.id}
-                                    className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
-                                  >
-                                    <Checkbox
-                                      id={option.id}
-                                      {...register(option.id as any)}
-                                      onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
-                                    />
-
-                                    <span className='text-sm font-medium'>{option.label}</span>
-                                  </label>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-
-                        {/* Patient-Specific Risks */}
-                        <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
-                          <div className='mb-6 border-b pb-5'>
-                            <h2 className='text-xl font-semibold tracking-tight'>
-                              Patient-Specific / Additional Risks
-                            </h2>
-
-                            <p className='mt-2 text-sm leading-6 text-muted-foreground'>
-                              The clinician has discussed the following additional risks relevant to my individual
-                              treatment:
-                            </p>
-                          </div>
+                      <div className='grid gap-6 md:grid-cols-2'>
+                        {/* Patient Name */}
+                        <div className='space-y-2 md:col-span-2'>
+                          <Label htmlFor='patientName' className='text-sm font-semibold'>
+                            Patient Name
+                          </Label>
 
                           <FormField
                             control={form.control}
-                            name='additionalRisks'
+                            name='patientName'
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className='text-sm font-semibold'>Additional Risks</FormLabel>
-
                                 <FormControl>
-                                  <Textarea
-                                    placeholder='Please describe any additional risks discussed with the patient...'
+                                  <Input
+                                    id='patientName'
+                                    maxLength={75}
+                                    placeholder='Enter patient name'
                                     {...field}
-                                    className='min-h-[140px] resize-y text-base'
+                                    className='h-12 text-base'
                                   />
                                 </FormControl>
-
                                 <FormMessage />
                               </FormItem>
                             )}
                           />
-                        </section>
-
-                        {/* Alternatives */}
-                        <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
-                          <div className='mb-6 border-b pb-5'>
-                            <h2 className='text-xl font-semibold tracking-tight'>Alternatives to Extraction</h2>
-
-                            <p className='mt-2 text-sm leading-6 text-muted-foreground'>
-                              I understand that reasonable alternatives to extraction have been discussed with me where
-                              clinically appropriate. These may include:
-                            </p>
-                          </div>
-
-                          <div className='space-y-5'>
-                            <div className='grid gap-3 sm:grid-cols-2'>
-                              {[
-                                {
-                                  id: 'alternativeMonitoring',
-                                  label: 'No treatment / monitoring',
-                                },
-                                {
-                                  id: 'alternativeRestorative',
-                                  label: 'Restorative treatment',
-                                },
-                                {
-                                  id: 'alternativeRootCanal',
-                                  label: 'Root canal treatment',
-                                },
-                                {
-                                  id: 'alternativeReferral',
-                                  label: 'Referral for specialist opinion/treatment',
-                                },
-                                {
-                                  id: 'alternativeOther',
-                                  label: 'Other',
-                                },
-                              ].map((option) => (
-                                <label
-                                  key={option.id}
-                                  htmlFor={option.id}
-                                  className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
-                                >
-                                  <Checkbox
-                                    id={option.id}
-                                    {...register(option.id as any)}
-                                    onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
-                                  />
-
-                                  <span className='text-sm font-medium'>{option.label}</span>
-                                </label>
-                              ))}
-                            </div>
-
-                            {form.watch('alternativeOther') && (
-                              <FormField
-                                control={form.control}
-                                name='alternativeOtherDetails'
-                                render={({ field }) => (
-                                  <FormItem>
-                                    <FormLabel className='text-sm font-semibold'>Please specify</FormLabel>
-
-                                    <FormControl>
-                                      <Input placeholder='Please specify the alternative' {...field} className='h-12' />
-                                    </FormControl>
-
-                                    <FormMessage />
-                                  </FormItem>
-                                )}
-                              />
-                            )}
-
-                            <div className='rounded-xl bg-muted/40 p-5'>
-                              <p className='text-sm leading-6 text-muted-foreground'>
-                                I understand that the potential consequences of choosing not to proceed with the
-                                recommended treatment have also been explained to me.
-                              </p>
-                            </div>
-                          </div>
-                        </section>
-
-                        {/* Anaesthetic / Sedation */}
-                        <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
-                          <div className='mb-6 border-b pb-5'>
-                            <h2 className='text-xl font-semibold tracking-tight'>Anaesthetic / Sedation</h2>
-
-                            <p className='mt-2 text-sm text-muted-foreground'>
-                              Please select the planned anaesthesia or sedation.
-                            </p>
-                          </div>
-
-                          <div className='space-y-5'>
-                            <div className='grid gap-3 sm:grid-cols-2'>
-                              {[
-                                {
-                                  id: 'anaestheticLocal',
-                                  label: 'Local anaesthetic',
-                                },
-                                {
-                                  id: 'anaestheticSedation',
-                                  label: 'Sedation',
-                                },
-                                {
-                                  id: 'anaestheticGeneral',
-                                  label: 'General anaesthetic',
-                                },
-                                {
-                                  id: 'anaestheticOther',
-                                  label: 'Other',
-                                },
-                              ].map((option) => (
-                                <label
-                                  key={option.id}
-                                  htmlFor={option.id}
-                                  className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
-                                >
-                                  <Checkbox
-                                    id={option.id}
-                                    {...register(option.id as any)}
-                                    onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
-                                  />
-
-                                  <span className='text-sm font-medium'>{option.label}</span>
-                                </label>
-                              ))}
-                            </div>
-
-                            {form.watch('anaestheticOther') && (
-                              <FormField
-                                control={form.control}
-                                name='anaestheticOtherDetails'
-                                render={({ field }) => (
-                                  <FormItem>
-                                    <FormLabel className='text-sm font-semibold'>Please specify</FormLabel>
-
-                                    <FormControl>
-                                      <Input placeholder='Please specify' {...field} className='h-12' />
-                                    </FormControl>
-
-                                    <FormMessage />
-                                  </FormItem>
-                                )}
-                              />
-                            )}
-
-                            <div className='rounded-xl bg-muted/40 p-5'>
-                              <p className='text-sm leading-6 text-muted-foreground'>
-                                Any separate consent requirements relating to sedation or other forms of anaesthesia
-                                will be completed where applicable.
-                              </p>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-
-                      {formMode === 'clinicianPrep' && (
-                        <div className='rounded-2xl border border-primary/20 bg-primary/5 p-6 text-center'>
-                          <h2 className='text-lg font-semibold'>Ready to hand over?</h2>
-                          <p className='mx-auto mt-2 max-w-lg text-sm leading-6 text-muted-foreground'>
-                            Check the details, then hand the iPad to the patient.
-                          </p>
-                          <Button
-                            type='button'
-                            className='mt-5 min-h-12 px-8 text-base'
-                            onClick={handleBeginPatientMode}
-                          >
-                            Continue to patient
-                          </Button>
-                        </div>
-                      )}
-                    </fieldset>
-
-                    <fieldset disabled={formMode !== 'patientSigning'} className='m-0 min-w-0 space-y-10 border-0 p-0'>
-                      {/* Patient Consent */}
-                      <section
-                        ref={patientSectionRef}
-                        className='scroll-mt-28 rounded-2xl border bg-card p-6 shadow-sm sm:p-8'
-                      >
-                        <div className='mb-6 border-b pb-5'>
-                          <h2 className='text-xl font-semibold tracking-tight'>Patient Consent</h2>
-
-                          <p className='mt-2 text-sm text-muted-foreground'>I confirm that:</p>
                         </div>
 
-                        <div className='rounded-xl border bg-muted/20 p-5'>
-                          <ul className='space-y-4'>
-                            {[
-                              'The proposed procedure has been explained to me in a way that I understand.',
-                              'I have had the opportunity to discuss the benefits, material risks and reasonable alternatives to the proposed treatment.',
-                              'I have had the opportunity to ask questions and these have been answered to my satisfaction.',
-                              'I have informed the clinician of relevant medical conditions, medications, allergies and changes to my medical history.',
-                              'I understand that treatment outcomes cannot be guaranteed.',
-                              'I understand that unexpected findings during the procedure may require the treatment plan to be altered where clinically necessary and appropriate.',
-                              'I understand that I may withdraw my consent at any time before the procedure.',
-                              'I voluntarily consent to the extraction/oral surgical procedure described above.',
-                            ].map((statement, index) => (
-                              <li key={index} className='flex items-start gap-3 text-sm leading-6'>
-                                <span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground' />
-                                <span>{statement}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        {/* Date of Birth */}
+                        <div className='space-y-2'>
+                          <Label htmlFor='dateOfBirth' className='text-sm font-semibold'>
+                            Date of Birth
+                          </Label>
 
-                        <div className='mt-6'>
                           <FormField
                             control={form.control}
-                            name='patientConsent'
-                            render={({ field, fieldState }) => (
+                            name='dateOfBirth'
+                            render={({ field }) => (
                               <FormItem>
-                                <label
-                                  htmlFor='patientConsent'
-                                  className={`flex cursor-pointer items-start gap-3 rounded-xl border-2 p-4 transition-colors hover:bg-muted/50 ${
-                                    fieldState.invalid ? 'border-destructive bg-destructive/5' : 'border-border'
-                                  }`}
-                                >
-                                  <FormControl>
-                                    <Checkbox
-                                      id='patientConsent'
-                                      checked={field.value}
-                                      onCheckedChange={(checked) => field.onChange(checked === true)}
-                                      className='mt-1'
-                                    />
-                                  </FormControl>
-
-                                  <span className='text-sm font-semibold leading-6'>
-                                    I confirm that I have read and understood the above information and voluntarily
-                                    consent to the proposed treatment.
-                                  </span>
-                                </label>
-
-                                <FormMessage className='text-sm font-semibold' />
+                                <FormControl>
+                                  <Input id='dateOfBirth' type='date' {...field} className='h-12 text-base' />
+                                </FormControl>
+                                <FormMessage />
                               </FormItem>
                             )}
                           />
                         </div>
-                      </section>
 
-                      {/* Patient Signature */}
+                        {/* Date of Procedure */}
+                        <div className='space-y-2'>
+                          <Label htmlFor='dateOfProcedure' className='text-sm font-semibold'>
+                            Date of Procedure
+                          </Label>
+
+                          <FormField
+                            control={form.control}
+                            name='dateOfProcedure'
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormControl>
+                                  <Input id='dateOfProcedure' type='date' {...field} className='h-12 text-base' />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        {/* Clinician */}
+                        <div className='space-y-2 md:col-span-2'>
+                          <Label htmlFor='treatingClinician' className='text-sm font-semibold'>
+                            Treating Clinician / Oral Surgeon
+                          </Label>
+
+                          <FormField
+                            control={form.control}
+                            name='treatingClinician'
+                            render={({ field }) => (
+                              <FormItem>
+                                <Select
+                                  value={field.value}
+                                  onValueChange={(value) => {
+                                    field.onChange(value);
+                                    setValue('clinicianName', value);
+                                  }}
+                                >
+                                  <FormControl>
+                                    <SelectTrigger id='treatingClinician' className='h-12 text-base'>
+                                      <SelectValue placeholder='Select treating clinician or oral surgeon' />
+                                    </SelectTrigger>
+                                  </FormControl>
+                                  <SelectContent>
+                                    {CLINICIAN_GROUPS.map((group) => (
+                                      <SelectGroup key={group.label}>
+                                        <SelectLabel>{group.label}</SelectLabel>
+                                        {group.clinicians.map((clinician) => (
+                                          <SelectItem key={clinician} value={clinician}>
+                                            {clinician}
+                                          </SelectItem>
+                                        ))}
+                                      </SelectGroup>
+                                    ))}
+                                  </SelectContent>
+                                </Select>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
+                    </section>
+
+                    {/* Proposed Treatment */}
+                    <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                      <div className='mb-6 border-b pb-5'>
+                        <h2 className='text-xl font-semibold tracking-tight'>Proposed Treatment</h2>
+                        <p className='mt-2 text-sm leading-6 text-muted-foreground'>
+                          I consent to the extraction or removal of the following tooth/teeth.
+                        </p>
+                      </div>
+
+                      <div className='space-y-6'>
+                        {/* Teeth */}
+                        <div className='space-y-2'>
+                          <Label htmlFor='teeth' className='text-sm font-semibold'>
+                            Tooth / Teeth
+                          </Label>
+
+                          <FormField
+                            control={form.control}
+                            name='teeth'
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormControl>
+                                  <Input
+                                    id='teeth'
+                                    maxLength={50}
+                                    placeholder='e.g. 16, 26, 36'
+                                    {...field}
+                                    className='h-12 text-base'
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        {/* Procedure */}
+                        <div className='space-y-3'>
+                          <div>
+                            <h3 className='text-sm font-semibold'>Procedure</h3>
+                            <p className='mt-1 text-sm text-muted-foreground'>
+                              Please select the procedure(s) that apply.
+                            </p>
+                          </div>
+
+                          <div className='grid gap-3 sm:grid-cols-2'>
+                            {[
+                              {
+                                id: 'simpleExtraction',
+                                label: 'Simple Extraction',
+                              },
+                              {
+                                id: 'surgicalExtraction',
+                                label: 'Surgical Extraction',
+                              },
+                              {
+                                id: 'retainedRoots',
+                                label: 'Removal of retained root(s)',
+                              },
+                              {
+                                id: 'wisdomToothRemoval',
+                                label: 'Wisdom tooth removal',
+                              },
+                              {
+                                id: 'otherProcedure',
+                                label: 'Other',
+                              },
+                            ].map((option) => (
+                              <label
+                                key={option.id}
+                                htmlFor={option.id}
+                                className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
+                              >
+                                <Checkbox
+                                  id={option.id}
+                                  {...register(option.id as any)}
+                                  onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
+                                />
+
+                                <span className='text-sm font-medium'>{option.label}</span>
+                              </label>
+                            ))}
+                          </div>
+
+                          {form.watch('otherProcedure') && (
+                            <FormField
+                              control={form.control}
+                              name='otherProcedureDetails'
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className='text-sm font-semibold'>Please specify</FormLabel>
+
+                                  <FormControl>
+                                    <Input placeholder='Please specify the procedure' {...field} className='h-12' />
+                                  </FormControl>
+
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          )}
+                        </div>
+                      </div>
+
+                      <div className='mt-8 rounded-xl bg-muted/40 p-5'>
+                        <p className='text-sm leading-6 text-muted-foreground'>
+                          I confirm that the proposed treatment has been explained to me, including why the extraction
+                          or surgical procedure has been recommended.
+                        </p>
+                      </div>
+                    </section>
+
+                    {/* Risks and Possible Complications */}
+                    <section className='mt-8 space-y-5'>
+                      <div>
+                        <h3 className='text-sm font-semibold'>Risks and Possible Complications</h3>
+
+                        <p className='mt-1 text-sm leading-6 text-muted-foreground'>
+                          I understand that, as with any dental or surgical procedure, there are risks and possible
+                          complications. These have been discussed with me where relevant to my treatment and may
+                          include:
+                        </p>
+                      </div>
+
+                      <div className='grid gap-3 sm:grid-cols-2'>
+                        {[
+                          {
+                            id: 'riskPain',
+                            label: 'Pain, discomfort and tenderness following treatment',
+                          },
+                          {
+                            id: 'riskSwelling',
+                            label: 'Swelling and bruising',
+                          },
+                          {
+                            id: 'riskBleeding',
+                            label: 'Bleeding following the procedure',
+                          },
+                          {
+                            id: 'riskInfection',
+                            label: 'Infection',
+                          },
+                          {
+                            id: 'riskDelayedHealing',
+                            label: 'Delayed healing',
+                          },
+                          {
+                            id: 'riskDrySocket',
+                            label: 'Dry socket (alveolar osteitis)',
+                          },
+                          {
+                            id: 'riskTrismus',
+                            label: 'Difficulty opening the mouth (trismus)',
+                          },
+                          {
+                            id: 'riskAdjacentDamage',
+                            label: 'Damage to adjacent teeth, crowns, bridges, fillings or other dental work',
+                          },
+                          {
+                            id: 'riskFracture',
+                            label: 'Fracture of a tooth/root during removal, which may require further treatment',
+                          },
+                          {
+                            id: 'riskRetainedRoot',
+                            label:
+                              'A small piece of root being intentionally left in place where removal presents a greater risk',
+                          },
+                          {
+                            id: 'riskBoneTissueDamage',
+                            label: 'Damage to surrounding bone or soft tissues',
+                          },
+                          {
+                            id: 'riskSutures',
+                            label: 'Need for stitches/sutures',
+                          },
+                          {
+                            id: 'riskFurtherTreatment',
+                            label: 'Need for further treatment or referral if complications occur',
+                          },
+                        ].map((risk) => (
+                          <label
+                            key={risk.id}
+                            htmlFor={risk.id}
+                            className='flex cursor-pointer items-start gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
+                          >
+                            <Checkbox
+                              id={risk.id}
+                              {...register(risk.id as any)}
+                              onCheckedChange={(checked) => setValue(risk.id as any, checked === true)}
+                              className='mt-0.5'
+                            />
+
+                            <span className='text-sm leading-5 font-medium'>{risk.label}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </section>
+
+                    <div className='space-y-10'>
+                      {/* Additional Risks for Lower Teeth */}
                       <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
                         <div className='mb-6 border-b pb-5'>
-                          <h2 className='text-xl font-semibold tracking-tight'>Patient Signature</h2>
+                          <h2 className='text-xl font-semibold tracking-tight'>Additional Risks for Lower Teeth</h2>
+                        </div>
+
+                        <div className='space-y-5'>
+                          <p className='text-sm leading-6 text-muted-foreground'>
+                            Where relevant, I understand that lower tooth/wisdom tooth surgery may carry a risk of
+                            injury to nearby nerves, including the{' '}
+                            <span className='font-semibold text-foreground'>
+                              inferior alveolar nerve and/or lingual nerve
+                            </span>
+                            .
+                          </p>
+
+                          <p className='text-sm leading-6 text-muted-foreground'>
+                            This may result in altered sensation, numbness, tingling or other sensory changes affecting
+                            the lower lip, chin, teeth, gums and/or tongue. These changes may be temporary but, in some
+                            cases, can be prolonged or permanent.
+                          </p>
+
+                          <div className='space-y-3'>
+                            <p className='text-sm font-semibold'>
+                              Please confirm whether this risk has been discussed or is applicable:
+                            </p>
+
+                            <div className='grid gap-3 sm:grid-cols-2'>
+                              {[
+                                {
+                                  id: 'lowerTeethRisksApplicable',
+                                  label: 'Discussed / Applicable',
+                                },
+                                {
+                                  id: 'lowerTeethRisksNotApplicable',
+                                  label: 'Not Applicable',
+                                },
+                              ].map((option) => (
+                                <label
+                                  key={option.id}
+                                  htmlFor={option.id}
+                                  className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
+                                >
+                                  <Checkbox
+                                    id={option.id}
+                                    {...register(option.id as any)}
+                                    onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
+                                  />
+
+                                  <span className='text-sm font-medium'>{option.label}</span>
+                                </label>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      {/* Additional Risks for Upper Teeth */}
+                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                        <div className='mb-6 border-b pb-5'>
+                          <h2 className='text-xl font-semibold tracking-tight'>Additional Risks for Upper Teeth</h2>
+                        </div>
+
+                        <div className='space-y-5'>
+                          <p className='text-sm leading-6 text-muted-foreground'>
+                            Where relevant, I understand that the roots of upper teeth may be close to the maxillary
+                            sinus. Extraction can occasionally result in an opening or communication between the mouth
+                            and sinus, which may require additional treatment or surgical repair.
+                          </p>
+
+                          <p className='text-sm leading-6 text-muted-foreground'>
+                            There is also a small risk of a tooth or root fragment being displaced into the sinus or
+                            surrounding tissues.
+                          </p>
+
+                          <div className='space-y-3'>
+                            <p className='text-sm font-semibold'>
+                              Please confirm whether this risk has been discussed or is applicable:
+                            </p>
+
+                            <div className='grid gap-3 sm:grid-cols-2'>
+                              {[
+                                {
+                                  id: 'upperTeethRisksApplicable',
+                                  label: 'Discussed / Applicable',
+                                },
+                                {
+                                  id: 'upperTeethRisksNotApplicable',
+                                  label: 'Not Applicable',
+                                },
+                              ].map((option) => (
+                                <label
+                                  key={option.id}
+                                  htmlFor={option.id}
+                                  className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
+                                >
+                                  <Checkbox
+                                    id={option.id}
+                                    {...register(option.id as any)}
+                                    onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
+                                  />
+
+                                  <span className='text-sm font-medium'>{option.label}</span>
+                                </label>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      {/* Patient-Specific Risks */}
+                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                        <div className='mb-6 border-b pb-5'>
+                          <h2 className='text-xl font-semibold tracking-tight'>Patient-Specific / Additional Risks</h2>
+
+                          <p className='mt-2 text-sm leading-6 text-muted-foreground'>
+                            The clinician has discussed the following additional risks relevant to my individual
+                            treatment:
+                          </p>
+                        </div>
+
+                        <FormField
+                          control={form.control}
+                          name='additionalRisks'
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className='text-sm font-semibold'>Additional Risks</FormLabel>
+
+                              <FormControl>
+                                <Textarea
+                                  placeholder='Please describe any additional risks discussed with the patient...'
+                                  {...field}
+                                  className='min-h-[140px] resize-y text-base'
+                                />
+                              </FormControl>
+
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </section>
+
+                      {/* Alternatives */}
+                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                        <div className='mb-6 border-b pb-5'>
+                          <h2 className='text-xl font-semibold tracking-tight'>Alternatives to Extraction</h2>
+
+                          <p className='mt-2 text-sm leading-6 text-muted-foreground'>
+                            I understand that reasonable alternatives to extraction have been discussed with me where
+                            clinically appropriate. These may include:
+                          </p>
+                        </div>
+
+                        <div className='space-y-5'>
+                          <div className='grid gap-3 sm:grid-cols-2'>
+                            {[
+                              {
+                                id: 'alternativeMonitoring',
+                                label: 'No treatment / monitoring',
+                              },
+                              {
+                                id: 'alternativeRestorative',
+                                label: 'Restorative treatment',
+                              },
+                              {
+                                id: 'alternativeRootCanal',
+                                label: 'Root canal treatment',
+                              },
+                              {
+                                id: 'alternativeReferral',
+                                label: 'Referral for specialist opinion/treatment',
+                              },
+                              {
+                                id: 'alternativeOther',
+                                label: 'Other',
+                              },
+                            ].map((option) => (
+                              <label
+                                key={option.id}
+                                htmlFor={option.id}
+                                className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
+                              >
+                                <Checkbox
+                                  id={option.id}
+                                  {...register(option.id as any)}
+                                  onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
+                                />
+
+                                <span className='text-sm font-medium'>{option.label}</span>
+                              </label>
+                            ))}
+                          </div>
+
+                          {form.watch('alternativeOther') && (
+                            <FormField
+                              control={form.control}
+                              name='alternativeOtherDetails'
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className='text-sm font-semibold'>Please specify</FormLabel>
+
+                                  <FormControl>
+                                    <Input placeholder='Please specify the alternative' {...field} className='h-12' />
+                                  </FormControl>
+
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          )}
+
+                          <div className='rounded-xl bg-muted/40 p-5'>
+                            <p className='text-sm leading-6 text-muted-foreground'>
+                              I understand that the potential consequences of choosing not to proceed with the
+                              recommended treatment have also been explained to me.
+                            </p>
+                          </div>
+                        </div>
+                      </section>
+
+                      {/* Anaesthetic / Sedation */}
+                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                        <div className='mb-6 border-b pb-5'>
+                          <h2 className='text-xl font-semibold tracking-tight'>Anaesthetic / Sedation</h2>
 
                           <p className='mt-2 text-sm text-muted-foreground'>
-                            Please complete the following details to confirm your consent.
+                            Please select the planned anaesthesia or sedation.
+                          </p>
+                        </div>
+
+                        <div className='space-y-5'>
+                          <div className='grid gap-3 sm:grid-cols-2'>
+                            {[
+                              {
+                                id: 'anaestheticLocal',
+                                label: 'Local anaesthetic',
+                              },
+                              {
+                                id: 'anaestheticSedation',
+                                label: 'Sedation',
+                              },
+                              {
+                                id: 'anaestheticGeneral',
+                                label: 'General anaesthetic',
+                              },
+                              {
+                                id: 'anaestheticOther',
+                                label: 'Other',
+                              },
+                            ].map((option) => (
+                              <label
+                                key={option.id}
+                                htmlFor={option.id}
+                                className='flex cursor-pointer items-center gap-3 rounded-xl border bg-background p-4 transition-colors hover:bg-muted/50'
+                              >
+                                <Checkbox
+                                  id={option.id}
+                                  {...register(option.id as any)}
+                                  onCheckedChange={(checked) => setValue(option.id as any, checked === true)}
+                                />
+
+                                <span className='text-sm font-medium'>{option.label}</span>
+                              </label>
+                            ))}
+                          </div>
+
+                          {form.watch('anaestheticOther') && (
+                            <FormField
+                              control={form.control}
+                              name='anaestheticOtherDetails'
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className='text-sm font-semibold'>Please specify</FormLabel>
+
+                                  <FormControl>
+                                    <Input placeholder='Please specify' {...field} className='h-12' />
+                                  </FormControl>
+
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          )}
+
+                          <div className='rounded-xl bg-muted/40 p-5'>
+                            <p className='text-sm leading-6 text-muted-foreground'>
+                              Any separate consent requirements relating to sedation or other forms of anaesthesia will
+                              be completed where applicable.
+                            </p>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    {formMode === 'clinicianPrep' && (
+                      <div className='rounded-2xl border border-primary/20 bg-primary/5 p-6 text-center'>
+                        <h2 className='text-lg font-semibold'>Ready to hand over?</h2>
+                        <p className='mx-auto mt-2 max-w-lg text-sm leading-6 text-muted-foreground'>
+                          Check the details, then hand the iPad to the patient.
+                        </p>
+                        <Button type='button' className='mt-5 min-h-12 px-8 text-base' onClick={handleBeginPatientMode}>
+                          Continue to patient
+                        </Button>
+                      </div>
+                    )}
+                  </fieldset>
+
+                  <fieldset disabled={formMode !== 'patientSigning'} className='m-0 min-w-0 space-y-10 border-0 p-0'>
+                    {/* Patient Consent */}
+                    <section
+                      ref={patientSectionRef}
+                      className='scroll-mt-28 rounded-2xl border bg-card p-6 shadow-sm sm:p-8'
+                    >
+                      <div className='mb-6 border-b pb-5'>
+                        <h2 className='text-xl font-semibold tracking-tight'>Patient Consent</h2>
+
+                        <p className='mt-2 text-sm text-muted-foreground'>I confirm that:</p>
+                      </div>
+
+                      <div className='rounded-xl border bg-muted/20 p-5'>
+                        <ul className='space-y-4'>
+                          {[
+                            'The proposed procedure has been explained to me in a way that I understand.',
+                            'I have had the opportunity to discuss the benefits, material risks and reasonable alternatives to the proposed treatment.',
+                            'I have had the opportunity to ask questions and these have been answered to my satisfaction.',
+                            'I have informed the clinician of relevant medical conditions, medications, allergies and changes to my medical history.',
+                            'I understand that treatment outcomes cannot be guaranteed.',
+                            'I understand that unexpected findings during the procedure may require the treatment plan to be altered where clinically necessary and appropriate.',
+                            'I understand that I may withdraw my consent at any time before the procedure.',
+                            'I voluntarily consent to the extraction/oral surgical procedure described above.',
+                          ].map((statement, index) => (
+                            <li key={index} className='flex items-start gap-3 text-sm leading-6'>
+                              <span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground' />
+                              <span>{statement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className='mt-6'>
+                        <FormField
+                          control={form.control}
+                          name='patientConsent'
+                          render={({ field, fieldState }) => (
+                            <FormItem>
+                              <label
+                                htmlFor='patientConsent'
+                                className={`flex cursor-pointer items-start gap-3 rounded-xl border-2 p-4 transition-colors hover:bg-muted/50 ${
+                                  fieldState.invalid ? 'border-destructive bg-destructive/5' : 'border-border'
+                                }`}
+                              >
+                                <FormControl>
+                                  <Checkbox
+                                    id='patientConsent'
+                                    checked={field.value}
+                                    onCheckedChange={(checked) => field.onChange(checked === true)}
+                                    className='mt-1'
+                                  />
+                                </FormControl>
+
+                                <span className='text-sm font-semibold leading-6'>
+                                  I confirm that I have read and understood the above information and voluntarily
+                                  consent to the proposed treatment.
+                                </span>
+                              </label>
+
+                              <FormMessage className='text-sm font-semibold' />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </section>
+
+                    {/* Patient Signature */}
+                    <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                      <div className='mb-6 border-b pb-5'>
+                        <h2 className='text-xl font-semibold tracking-tight'>Patient Signature</h2>
+
+                        <p className='mt-2 text-sm text-muted-foreground'>
+                          Please complete the following details to confirm your consent.
+                        </p>
+                      </div>
+
+                      <div className='grid gap-6 md:grid-cols-2'>
+                        {/* Patient Name */}
+                        <FormField
+                          control={form.control}
+                          name='signaturePatientName'
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className='text-sm font-semibold'>Patient Name</FormLabel>
+
+                              <FormControl>
+                                <Input {...field} readOnly aria-readonly='true' className='h-12 bg-muted/40' />
+                              </FormControl>
+
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        {/* Date of Birth */}
+                        <FormField
+                          control={form.control}
+                          name='signatureDateOfBirth'
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className='text-sm font-semibold'>Date of Birth</FormLabel>
+
+                              <FormControl>
+                                <Input
+                                  type='date'
+                                  {...field}
+                                  readOnly
+                                  aria-readonly='true'
+                                  className='h-12 bg-muted/40'
+                                />
+                              </FormControl>
+
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        {/* Signature */}
+                        <FormField
+                          control={form.control}
+                          name='patientSignature'
+                          render={({ field, fieldState }) => (
+                            <SignatureField
+                              label='Patient Signature'
+                              value={field.value}
+                              onChange={(signature) => handlePatientSignatureChange(signature, field.onChange)}
+                              error={fieldState.error?.message}
+                              disabled={formMode !== 'patientSigning'}
+                            />
+                          )}
+                        />
+
+                        {/* Time */}
+                        <FormField
+                          control={form.control}
+                          name='consentTime'
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className='text-sm font-semibold'>Time</FormLabel>
+
+                              <FormControl>
+                                <Input
+                                  type='time'
+                                  {...field}
+                                  readOnly
+                                  aria-readonly='true'
+                                  className='h-12 bg-muted/40'
+                                />
+                              </FormControl>
+
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        {/* Date */}
+                        <FormField
+                          control={form.control}
+                          name='consentDate'
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className='text-sm font-semibold'>Date</FormLabel>
+
+                              <FormControl>
+                                <Input
+                                  type='date'
+                                  {...field}
+                                  readOnly
+                                  aria-readonly='true'
+                                  className='h-12 bg-muted/40'
+                                />
+                              </FormControl>
+
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </section>
+
+                    <div className='rounded-2xl border border-blue-200 bg-blue-50 p-6 text-center'>
+                      <h2 className='text-lg font-semibold'>Finished signing?</h2>
+                      <p className='mx-auto mt-2 max-w-lg text-sm leading-6 text-muted-foreground'>
+                        Tap below and return the device to the clinician. The four-digit passcode will be required to
+                        continue.
+                      </p>
+                      <Button type='button' className='mt-5' onClick={handleFinishPatientSigning}>
+                        Finish patient signing
+                      </Button>
+                    </div>
+                  </fieldset>
+
+                  <fieldset disabled={formMode !== 'clinicianFinal'} className='m-0 min-w-0 border-0 p-0'>
+                    <div className='space-y-10'>
+                      {/* Clinician Declaration */}
+                      <section
+                        ref={clinicianSectionRef}
+                        className='scroll-mt-28 rounded-2xl border bg-card p-6 shadow-sm sm:p-8'
+                      >
+                        <div className='mb-6 border-b pb-5'>
+                          <h2 className='text-xl font-semibold tracking-tight'>Clinician Declaration</h2>
+
+                          <p className='mt-2 text-sm leading-6 text-muted-foreground'>
+                            I confirm that I have discussed the proposed procedure with the patient, including its
+                            purpose, expected benefits, material risks, reasonable alternatives and the consequences of
+                            declining treatment. The patient has been given an opportunity to ask questions.
                           </p>
                         </div>
 
@@ -1301,13 +1429,18 @@ export function ExtractionOralSurgeryConsentFormContent() {
                           {/* Patient Name */}
                           <FormField
                             control={form.control}
-                            name='signaturePatientName'
+                            name='clinicianDeclarationPatientName'
                             render={({ field }) => (
                               <FormItem>
                                 <FormLabel className='text-sm font-semibold'>Patient Name</FormLabel>
 
                                 <FormControl>
-                                  <Input {...field} readOnly aria-readonly='true' className='h-12 bg-muted/40' />
+                                  <Input
+                                    {...field}
+                                    readOnly
+                                    aria-readonly='true'
+                                    className='h-12 bg-muted/40 text-base'
+                                  />
                                 </FormControl>
 
                                 <FormMessage />
@@ -1315,13 +1448,61 @@ export function ExtractionOralSurgeryConsentFormContent() {
                             )}
                           />
 
-                          {/* Date of Birth */}
+                          {/* Clinician Name */}
                           <FormField
                             control={form.control}
-                            name='signatureDateOfBirth'
+                            name='clinicianName'
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className='text-sm font-semibold'>Date of Birth</FormLabel>
+                                <FormLabel className='text-sm font-semibold'>Clinician Name</FormLabel>
+
+                                <Select value={field.value} onValueChange={field.onChange}>
+                                  <FormControl>
+                                    <SelectTrigger className='h-12 text-base'>
+                                      <SelectValue placeholder='Select clinician' />
+                                    </SelectTrigger>
+                                  </FormControl>
+                                  <SelectContent>
+                                    {CLINICIAN_GROUPS.map((group) => (
+                                      <SelectGroup key={group.label}>
+                                        <SelectLabel>{group.label}</SelectLabel>
+                                        {group.clinicians.map((clinician) => (
+                                          <SelectItem key={clinician} value={clinician}>
+                                            {clinician}
+                                          </SelectItem>
+                                        ))}
+                                      </SelectGroup>
+                                    ))}
+                                  </SelectContent>
+                                </Select>
+
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          {/* Signature */}
+                          <FormField
+                            control={form.control}
+                            name='clinicianSignature'
+                            render={({ field, fieldState }) => (
+                              <SignatureField
+                                label='Clinician Signature'
+                                value={field.value}
+                                onChange={(signature) => handleClinicianSignatureChange(signature, field.onChange)}
+                                error={fieldState.error?.message}
+                                disabled={formMode !== 'clinicianFinal'}
+                              />
+                            )}
+                          />
+
+                          {/* Date */}
+                          <FormField
+                            control={form.control}
+                            name='clinicianDeclarationDate'
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className='text-sm font-semibold'>Date</FormLabel>
 
                                 <FormControl>
                                   <Input
@@ -1329,7 +1510,118 @@ export function ExtractionOralSurgeryConsentFormContent() {
                                     {...field}
                                     readOnly
                                     aria-readonly='true'
-                                    className='h-12 bg-muted/40'
+                                    className='h-12 bg-muted/40 text-base'
+                                  />
+                                </FormControl>
+
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          {/* Time */}
+                          <FormField
+                            control={form.control}
+                            name='clinicianDeclarationTime'
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className='text-sm font-semibold'>Time</FormLabel>
+
+                                <FormControl>
+                                  <Input
+                                    type='time'
+                                    {...field}
+                                    readOnly
+                                    aria-readonly='true'
+                                    className='h-12 bg-muted/40 text-base'
+                                  />
+                                </FormControl>
+
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        <div className='mt-6 rounded-xl border bg-muted/20 p-5'>
+                          <label
+                            htmlFor='clinicianDeclarationConfirmed'
+                            className='flex cursor-pointer items-start gap-3'
+                          >
+                            <Checkbox
+                              id='clinicianDeclarationConfirmed'
+                              {...register('clinicianDeclarationConfirmed')}
+                              onCheckedChange={(checked) => setValue('clinicianDeclarationConfirmed', checked === true)}
+                              className='mt-1'
+                            />
+
+                            <span className='text-sm font-medium leading-6'>
+                              I confirm that I have discussed the proposed procedure, its risks, benefits and
+                              alternatives with the patient and have given them an opportunity to ask questions.
+                            </span>
+                          </label>
+                          {form.formState.errors.clinicianDeclarationConfirmed?.message !== undefined && (
+                            <p role='alert' className='mt-2 text-sm font-medium text-destructive'>
+                              {form.formState.errors.clinicianDeclarationConfirmed.message}
+                            </p>
+                          )}
+                        </div>
+                      </section>
+
+                      {/* Interpreter / Witness */}
+                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                        <div className='mb-6 border-b pb-5'>
+                          <div className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
+                            <h2 className='text-xl font-semibold tracking-tight'>Interpreter / Witness</h2>
+
+                            <span className='w-fit rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground'>
+                              If applicable
+                            </span>
+                          </div>
+
+                          <p className='mt-2 text-sm leading-6 text-muted-foreground'>
+                            Complete this section where an interpreter or witness has been involved in the consent
+                            process.
+                          </p>
+                        </div>
+
+                        <div className='grid gap-6 md:grid-cols-2'>
+                          {/* Name */}
+                          <FormField
+                            control={form.control}
+                            name='interpreterWitnessName'
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className='text-sm font-semibold'>Name</FormLabel>
+
+                                <FormControl>
+                                  <Input
+                                    placeholder='Enter full name'
+                                    maxLength={100}
+                                    {...field}
+                                    className='h-12 text-base'
+                                  />
+                                </FormControl>
+
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          {/* Role / Relationship */}
+                          <FormField
+                            control={form.control}
+                            name='interpreterWitnessRole'
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className='text-sm font-semibold'>Role / Relationship</FormLabel>
+
+                                <FormControl>
+                                  <Input
+                                    placeholder='e.g. Interpreter, parent, carer or witness'
+                                    maxLength={100}
+                                    {...field}
+                                    className='h-12 text-base'
                                   />
                                 </FormControl>
 
@@ -1341,45 +1633,22 @@ export function ExtractionOralSurgeryConsentFormContent() {
                           {/* Signature */}
                           <FormField
                             control={form.control}
-                            name='patientSignature'
+                            name='interpreterWitnessSignature'
                             render={({ field, fieldState }) => (
                               <SignatureField
-                                label='Patient Signature'
+                                label='Signature'
                                 value={field.value}
-                                onChange={(signature) => handlePatientSignatureChange(signature, field.onChange)}
+                                onChange={(signature) => handleWitnessSignatureChange(signature, field.onChange)}
                                 error={fieldState.error?.message}
-                                disabled={formMode !== 'patientSigning'}
+                                disabled={formMode !== 'clinicianFinal'}
                               />
-                            )}
-                          />
-
-                          {/* Time */}
-                          <FormField
-                            control={form.control}
-                            name='consentTime'
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className='text-sm font-semibold'>Time</FormLabel>
-
-                                <FormControl>
-                                  <Input
-                                    type='time'
-                                    {...field}
-                                    readOnly
-                                    aria-readonly='true'
-                                    className='h-12 bg-muted/40'
-                                  />
-                                </FormControl>
-
-                                <FormMessage />
-                              </FormItem>
                             )}
                           />
 
                           {/* Date */}
                           <FormField
                             control={form.control}
-                            name='consentDate'
+                            name='interpreterWitnessDate'
                             render={({ field }) => (
                               <FormItem>
                                 <FormLabel className='text-sm font-semibold'>Date</FormLabel>
@@ -1390,7 +1659,30 @@ export function ExtractionOralSurgeryConsentFormContent() {
                                     {...field}
                                     readOnly
                                     aria-readonly='true'
-                                    className='h-12 bg-muted/40'
+                                    className='h-12 bg-muted/40 text-base'
+                                  />
+                                </FormControl>
+
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          {/* Time */}
+                          <FormField
+                            control={form.control}
+                            name='interpreterWitnessTime'
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className='text-sm font-semibold'>Time</FormLabel>
+
+                                <FormControl>
+                                  <Input
+                                    type='time'
+                                    {...field}
+                                    readOnly
+                                    aria-readonly='true'
+                                    className='h-12 bg-muted/40 text-base'
                                   />
                                 </FormControl>
 
@@ -1400,329 +1692,29 @@ export function ExtractionOralSurgeryConsentFormContent() {
                           />
                         </div>
                       </section>
-
-                      <div className='rounded-2xl border border-blue-200 bg-blue-50 p-6 text-center'>
-                        <h2 className='text-lg font-semibold'>Finished signing?</h2>
-                        <p className='mx-auto mt-2 max-w-lg text-sm leading-6 text-muted-foreground'>
-                          Tap below and return the device to the clinician. The four-digit passcode will be required to
-                          continue.
-                        </p>
-                        <Button type='button' className='mt-5' onClick={handleFinishPatientSigning}>
-                          Finish patient signing
-                        </Button>
-                      </div>
-                    </fieldset>
-
-                    <fieldset disabled={formMode !== 'clinicianFinal'} className='m-0 min-w-0 border-0 p-0'>
-                      <div className='space-y-10'>
-                        {/* Clinician Declaration */}
-                        <section
-                          ref={clinicianSectionRef}
-                          className='scroll-mt-28 rounded-2xl border bg-card p-6 shadow-sm sm:p-8'
-                        >
-                          <div className='mb-6 border-b pb-5'>
-                            <h2 className='text-xl font-semibold tracking-tight'>Clinician Declaration</h2>
-
-                            <p className='mt-2 text-sm leading-6 text-muted-foreground'>
-                              I confirm that I have discussed the proposed procedure with the patient, including its
-                              purpose, expected benefits, material risks, reasonable alternatives and the consequences
-                              of declining treatment. The patient has been given an opportunity to ask questions.
-                            </p>
-                          </div>
-
-                          <div className='grid gap-6 md:grid-cols-2'>
-                            {/* Patient Name */}
-                            <FormField
-                              control={form.control}
-                              name='clinicianDeclarationPatientName'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className='text-sm font-semibold'>Patient Name</FormLabel>
-
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      readOnly
-                                      aria-readonly='true'
-                                      className='h-12 bg-muted/40 text-base'
-                                    />
-                                  </FormControl>
-
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-
-                            {/* Clinician Name */}
-                            <FormField
-                              control={form.control}
-                              name='clinicianName'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className='text-sm font-semibold'>Clinician Name</FormLabel>
-
-                                  <Select value={field.value} onValueChange={field.onChange}>
-                                    <FormControl>
-                                      <SelectTrigger className='h-12 text-base'>
-                                        <SelectValue placeholder='Select clinician' />
-                                      </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent>
-                                      {CLINICIAN_GROUPS.map((group) => (
-                                        <SelectGroup key={group.label}>
-                                          <SelectLabel>{group.label}</SelectLabel>
-                                          {group.clinicians.map((clinician) => (
-                                            <SelectItem key={clinician} value={clinician}>
-                                              {clinician}
-                                            </SelectItem>
-                                          ))}
-                                        </SelectGroup>
-                                      ))}
-                                    </SelectContent>
-                                  </Select>
-
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-
-                            {/* Signature */}
-                            <FormField
-                              control={form.control}
-                              name='clinicianSignature'
-                              render={({ field, fieldState }) => (
-                                <SignatureField
-                                  label='Clinician Signature'
-                                  value={field.value}
-                                  onChange={(signature) => handleClinicianSignatureChange(signature, field.onChange)}
-                                  error={fieldState.error?.message}
-                                  disabled={formMode !== 'clinicianFinal'}
-                                />
-                              )}
-                            />
-
-                            {/* Date */}
-                            <FormField
-                              control={form.control}
-                              name='clinicianDeclarationDate'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className='text-sm font-semibold'>Date</FormLabel>
-
-                                  <FormControl>
-                                    <Input
-                                      type='date'
-                                      {...field}
-                                      readOnly
-                                      aria-readonly='true'
-                                      className='h-12 bg-muted/40 text-base'
-                                    />
-                                  </FormControl>
-
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-
-                            {/* Time */}
-                            <FormField
-                              control={form.control}
-                              name='clinicianDeclarationTime'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className='text-sm font-semibold'>Time</FormLabel>
-
-                                  <FormControl>
-                                    <Input
-                                      type='time'
-                                      {...field}
-                                      readOnly
-                                      aria-readonly='true'
-                                      className='h-12 bg-muted/40 text-base'
-                                    />
-                                  </FormControl>
-
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-
-                          <div className='mt-6 rounded-xl border bg-muted/20 p-5'>
-                            <label
-                              htmlFor='clinicianDeclarationConfirmed'
-                              className='flex cursor-pointer items-start gap-3'
-                            >
-                              <Checkbox
-                                id='clinicianDeclarationConfirmed'
-                                {...register('clinicianDeclarationConfirmed')}
-                                onCheckedChange={(checked) =>
-                                  setValue('clinicianDeclarationConfirmed', checked === true)
-                                }
-                                className='mt-1'
-                              />
-
-                              <span className='text-sm font-medium leading-6'>
-                                I confirm that I have discussed the proposed procedure, its risks, benefits and
-                                alternatives with the patient and have given them an opportunity to ask questions.
-                              </span>
-                            </label>
-                            {form.formState.errors.clinicianDeclarationConfirmed?.message !== undefined && (
-                              <p role='alert' className='mt-2 text-sm font-medium text-destructive'>
-                                {form.formState.errors.clinicianDeclarationConfirmed.message}
-                              </p>
-                            )}
-                          </div>
-                        </section>
-
-                        {/* Interpreter / Witness */}
-                        <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
-                          <div className='mb-6 border-b pb-5'>
-                            <div className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
-                              <h2 className='text-xl font-semibold tracking-tight'>Interpreter / Witness</h2>
-
-                              <span className='w-fit rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground'>
-                                If applicable
-                              </span>
-                            </div>
-
-                            <p className='mt-2 text-sm leading-6 text-muted-foreground'>
-                              Complete this section where an interpreter or witness has been involved in the consent
-                              process.
-                            </p>
-                          </div>
-
-                          <div className='grid gap-6 md:grid-cols-2'>
-                            {/* Name */}
-                            <FormField
-                              control={form.control}
-                              name='interpreterWitnessName'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className='text-sm font-semibold'>Name</FormLabel>
-
-                                  <FormControl>
-                                    <Input
-                                      placeholder='Enter full name'
-                                      maxLength={100}
-                                      {...field}
-                                      className='h-12 text-base'
-                                    />
-                                  </FormControl>
-
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-
-                            {/* Role / Relationship */}
-                            <FormField
-                              control={form.control}
-                              name='interpreterWitnessRole'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className='text-sm font-semibold'>Role / Relationship</FormLabel>
-
-                                  <FormControl>
-                                    <Input
-                                      placeholder='e.g. Interpreter, parent, carer or witness'
-                                      maxLength={100}
-                                      {...field}
-                                      className='h-12 text-base'
-                                    />
-                                  </FormControl>
-
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-
-                            {/* Signature */}
-                            <FormField
-                              control={form.control}
-                              name='interpreterWitnessSignature'
-                              render={({ field, fieldState }) => (
-                                <SignatureField
-                                  label='Signature'
-                                  value={field.value}
-                                  onChange={(signature) => handleWitnessSignatureChange(signature, field.onChange)}
-                                  error={fieldState.error?.message}
-                                  disabled={formMode !== 'clinicianFinal'}
-                                />
-                              )}
-                            />
-
-                            {/* Date */}
-                            <FormField
-                              control={form.control}
-                              name='interpreterWitnessDate'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className='text-sm font-semibold'>Date</FormLabel>
-
-                                  <FormControl>
-                                    <Input
-                                      type='date'
-                                      {...field}
-                                      readOnly
-                                      aria-readonly='true'
-                                      className='h-12 bg-muted/40 text-base'
-                                    />
-                                  </FormControl>
-
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-
-                            {/* Time */}
-                            <FormField
-                              control={form.control}
-                              name='interpreterWitnessTime'
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className='text-sm font-semibold'>Time</FormLabel>
-
-                                  <FormControl>
-                                    <Input
-                                      type='time'
-                                      {...field}
-                                      readOnly
-                                      aria-readonly='true'
-                                      className='h-12 bg-muted/40 text-base'
-                                    />
-                                  </FormControl>
-
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                        </section>
-                        {formMode === 'clinicianFinal' && (
-                          <div className='flex justify-center'>
-                            <Button
-                              type='submit'
-                              className={`w-full max-w-[15rem] py-3 text-lg ${
-                                loading ? 'cursor-not-allowed opacity-50' : ''
-                              }`}
-                              disabled={loading}
-                            >
-                              {loading ? <BarLoader /> : <span className='text-md lg:text-lg'>Sign & Submit Form</span>}
-                            </Button>
-                          </div>
-                        )}
-                      </div>
-                    </fieldset>
-                  </div>
-                </form>
-              </Form>
-            )}
+                      {formMode === 'clinicianFinal' && (
+                        <div className='flex justify-center'>
+                          <Button
+                            type='submit'
+                            className={`w-full max-w-[15rem] py-3 text-lg ${
+                              loading ? 'cursor-not-allowed opacity-50' : ''
+                            }`}
+                            disabled={loading}
+                          >
+                            {loading ? <BarLoader /> : <span className='text-md lg:text-lg'>Sign & Submit Form</span>}
+                          </Button>
+                        </div>
+                      )}
+                    </div>
+                  </fieldset>
+                </div>
+              </form>
+            </Form>
           </motion.div>
         </div>
       </motion.section>
 
-      {(formMode === 'locked' || formMode === 'clinicianReauth') && (
+      {formMode === 'clinicianReauth' && (
         <div
           className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm'
           role='dialog'
@@ -1745,12 +1737,10 @@ export function ExtractionOralSurgeryConsentFormContent() {
                 </svg>
               </div>
               <h2 id='clinicianUnlockTitle' className='mt-6 text-2xl font-semibold tracking-tight'>
-                {formMode === 'locked' ? 'Enter passcode' : 'Return to clinician'}
+                Return to clinician
               </h2>
               <p className='mt-3 text-sm leading-6 text-muted-foreground'>
-                {formMode === 'locked'
-                  ? 'Enter the clinician passcode to open this consent form.'
-                  : 'Enter the clinician passcode to continue to final review and submission.'}
+                Enter the clinician passcode to continue to final review and submission.
               </p>
             </div>
 
@@ -1779,7 +1769,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                 role='alert'
                 className='mt-2 min-h-5 text-center text-sm font-medium text-destructive'
               >
-                {passcodeError}
+                {isVerifyingPasscode ? 'Checking passcode…' : passcodeError}
               </p>
 
               <div className='mt-4 grid grid-cols-3 gap-3' aria-label='Numeric keypad'>
@@ -1788,6 +1778,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                     key={digit}
                     type='button'
                     onClick={() => handleKeypadDigit(digit)}
+                    disabled={isVerifyingPasscode}
                     className='h-16 rounded-2xl border bg-white text-2xl font-medium shadow-sm transition-colors hover:bg-muted active:scale-95 active:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
                     aria-label={digit}
                   >
@@ -1798,6 +1789,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                 <button
                   type='button'
                   onClick={() => handleKeypadDigit('0')}
+                  disabled={isVerifyingPasscode}
                   className='h-16 rounded-2xl border bg-white text-2xl font-medium shadow-sm transition-colors hover:bg-muted active:scale-95 active:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
                   aria-label='0'
                 >
@@ -1809,7 +1801,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                     setPasscodeEntry((entry) => entry.slice(0, -1));
                     setPasscodeError('');
                   }}
-                  disabled={passcodeEntry.length === 0}
+                  disabled={isVerifyingPasscode || passcodeEntry.length === 0}
                   className='flex h-16 items-center justify-center rounded-2xl text-muted-foreground transition-colors hover:bg-muted active:scale-95 disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2'
                   aria-label='Delete last digit'
                 >
@@ -1836,6 +1828,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                   type='button'
                   variant='ghost'
                   className='mt-4 min-h-12 w-full text-base'
+                  disabled={isVerifyingPasscode}
                   onClick={() => {
                     resetPasscodeEntry();
                     setFormMode('patientSigning');

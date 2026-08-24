@@ -1,5 +1,8 @@
 import { ExtractionOralSurgeryConsentFormContent } from '@/components/ExtractionOralSurgeryConsentFormContent/ExtractionOralSurgeryConsentFormContent';
+import { CONSENT_FORMS_SESSION_COOKIE, isConsentFormsSessionValid } from '@/lib/consentFormsAuth';
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Dental Extraction / Oral Surgery Consent | Supernova Dental Practice',
@@ -10,6 +13,12 @@ export const metadata: Metadata = {
 };
 
 export default function ExtractionOralSurgeryConsentFormPage() {
+  const sessionToken = cookies().get(CONSENT_FORMS_SESSION_COOKIE)?.value;
+
+  if (!isConsentFormsSessionValid(sessionToken)) {
+    redirect('/consent-forms?next=/consent-forms/extraction-oral-surgery');
+  }
+
   return (
     <div className='flex flex-col py-40 min-h-[100dvh]'>
       <h1 className='text-3xl font-bold text-center mt-8'>SUPERNOVA DENTAL PRACTICE</h1>
