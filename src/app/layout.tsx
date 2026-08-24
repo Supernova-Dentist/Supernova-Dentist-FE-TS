@@ -1,18 +1,10 @@
-import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
-import CrispChat from '@/components/blocks/CrispChat/CrispChat';
-import Footer from '@/components/blocks/Footer/Footer';
-import MainNav from '@/components/blocks/MainNav/MainNav';
-import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
-import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton';
+import RouteAwareSiteShell from '@/components/RouteAwareSiteShell/RouteAwareSiteShell';
 import TrackingProvider from '@/components/TrackingProvider/TrackingProvider';
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import { IBM_Plex_Sans, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import './reset.css';
-
-const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), { ssr: false });
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -202,10 +194,7 @@ export default function RootLayout({
       </head>
       <body className={`${playfair.variable} ${ibmPlex.variable}`}>
         <TrackingProvider>
-          <MainNav />
-          {children}
-          <FloatingMenu />
-          <Footer />
+          <RouteAwareSiteShell>{children}</RouteAwareSiteShell>
         </TrackingProvider>
       </body>
     </html>

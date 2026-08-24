@@ -53,24 +53,39 @@ export default function ConsentFormsAccessGate({ redirectTo }: ConsentFormsAcces
   };
 
   return (
-    <main className='flex min-h-[100dvh] items-center justify-center bg-gradient-to-b from-cream/60 via-white to-white px-5 py-32'>
-      <section className='w-full max-w-md rounded-3xl border bg-white p-7 shadow-xl sm:p-9' aria-labelledby='access-title'>
+    <main className='flex min-h-[100dvh] items-center justify-center bg-gradient-to-b from-cream/60 via-white to-white px-5 pt-10 pb-20'>
+      <section
+        className='w-full max-w-md rounded-3xl border bg-white p-7 shadow-xl sm:p-9'
+        aria-labelledby='access-title'
+      >
         <div className='text-center'>
           <div className='mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gold/10 text-gold'>
-            <svg aria-hidden='true' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' className='h-8 w-8'>
+            <svg
+              aria-hidden='true'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              strokeWidth='2'
+              className='h-8 w-8'
+            >
               <rect width='14' height='11' x='5' y='10' rx='2' />
               <path strokeLinecap='round' d='M8 10V7a4 4 0 0 1 8 0v3' />
             </svg>
           </div>
-          <p className='mt-6 text-xs font-bold uppercase tracking-[0.2em] text-gold'>Supernova Dental Practice</p>
+          <p className='mt-2 text-xs font-bold uppercase tracking-[0.2em] text-gold'>Supernova Dental Practice</p>
           <h1 id='access-title' className='mt-2 text-2xl font-bold tracking-tight'>
             Consent forms
           </h1>
-          <p className='mt-2 text-sm leading-6 text-muted-foreground'>Enter the four-digit staff passcode to continue.</p>
+          <p className='mt-2 text-sm leading-6 text-muted-foreground'>
+            Enter the four-digit staff passcode to continue.
+          </p>
         </div>
 
-        <div className='mx-auto mt-6 max-w-xs'>
-          <div className='flex h-8 items-center justify-center gap-4' aria-label={`${passcodeEntry.length} of 4 digits entered`}>
+        <div className='mx-auto mt-2 max-w-xs'>
+          <div
+            className='flex h-8 items-center justify-center gap-4'
+            aria-label={`${passcodeEntry.length} of 4 digits entered`}
+          >
             {[0, 1, 2, 3].map((index) => (
               <span
                 key={index}
@@ -89,7 +104,7 @@ export default function ConsentFormsAccessGate({ redirectTo }: ConsentFormsAcces
             {isChecking ? 'Checking passcode…' : passcodeError}
           </p>
 
-          <div className='mt-4 grid grid-cols-3 gap-3' aria-label='Numeric keypad'>
+          <div className='mt-2 grid grid-cols-3 gap-3' aria-label='Numeric keypad'>
             {KEYPAD_DIGITS.map((digit) => (
               <button
                 key={digit}
@@ -122,8 +137,19 @@ export default function ConsentFormsAccessGate({ redirectTo }: ConsentFormsAcces
               className='flex h-16 items-center justify-center rounded-2xl text-muted-foreground transition-colors hover:bg-muted active:scale-95 disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2'
               aria-label='Delete last digit'
             >
-              <svg aria-hidden='true' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' className='h-7 w-7'>
-                <path strokeLinecap='round' strokeLinejoin='round' d='M21 6H8l-5 6 5 6h13a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Z' />
+              <svg
+                aria-hidden='true'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                className='h-7 w-7'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M21 6H8l-5 6 5 6h13a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Z'
+                />
                 <path strokeLinecap='round' d='m10 10 4 4m0-4-4 4' />
               </svg>
             </button>

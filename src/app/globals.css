@@ -55,6 +55,10 @@
     }
   }
 
+  body.consent-forms-route #CookiebotWidget {
+    display: none !important;
+  }
+
   body {
     background: white;
     font-family: var(--font-body);

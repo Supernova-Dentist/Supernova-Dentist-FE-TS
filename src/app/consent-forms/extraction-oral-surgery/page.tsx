@@ -20,7 +20,7 @@ export default function ExtractionOralSurgeryConsentFormPage() {
   }
 
   return (
-    <div className='flex flex-col py-40 min-h-[100dvh]'>
+    <div className='flex min-h-[100dvh] flex-col py-10'>
       <h1 className='text-3xl font-bold text-center mt-8'>SUPERNOVA DENTAL PRACTICE</h1>
       <h2 className='text-2xl font-semibold text-center mt-4'>CONSENT FOR DENTAL EXTRACTION / ORAL SURGERY</h2>
 

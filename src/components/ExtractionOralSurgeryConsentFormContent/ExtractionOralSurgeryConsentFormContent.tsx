@@ -542,7 +542,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
   return (
     <>
       <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-        <div className='container mx-auto md:px-6 pt-40'>
+        <div className='container mx-auto pt-6 md:px-6'>
           <motion.div
             className='mx-auto max-w-2xl space-y-6 bg-white p-8 md:p-12 rounded-lg shadow-lg'
             initial={{ y: -50, opacity: 0 }}
@@ -553,7 +553,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
               <form id='extraction-oral-surgery-consent-form' onSubmit={handleFormSubmit} className='space-y-8'>
                 <div
                   role='status'
-                  className={`rounded-2xl border p-5 ${
+                  className={`rounded-2xl border p-2 ${
                     formMode === 'patientSigning'
                       ? 'border-blue-200 bg-blue-50'
                       : formMode === 'clinicianFinal'
@@ -814,7 +814,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                         </div>
                       </div>
 
-                      <div className='mt-8 rounded-xl bg-muted/40 p-5'>
+                      <div className='mt-8 rounded-xl bg-muted/40 p-2'>
                         <p className='text-sm leading-6 text-muted-foreground'>
                           I confirm that the proposed treatment has been explained to me, including why the extraction
                           or surgical procedure has been recommended.
@@ -1120,7 +1120,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                             />
                           )}
 
-                          <div className='rounded-xl bg-muted/40 p-5'>
+                          <div className='rounded-xl bg-muted/40 p-2'>
                             <p className='text-sm leading-6 text-muted-foreground'>
                               I understand that the potential consequences of choosing not to proceed with the
                               recommended treatment have also been explained to me.
@@ -1193,7 +1193,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                             />
                           )}
 
-                          <div className='rounded-xl bg-muted/40 p-5'>
+                          <div className='rounded-xl bg-muted/40 p-2'>
                             <p className='text-sm leading-6 text-muted-foreground'>
                               Any separate consent requirements relating to sedation or other forms of anaesthesia will
                               be completed where applicable.
@@ -1228,7 +1228,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                         <p className='mt-2 text-sm text-muted-foreground'>I confirm that:</p>
                       </div>
 
-                      <div className='rounded-xl border bg-muted/20 p-5'>
+                      <div className='rounded-xl border bg-muted/20 p-2'>
                         <ul className='space-y-4'>
                           {[
                             'The proposed procedure has been explained to me in a way that I understand.',
@@ -1543,7 +1543,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                           />
                         </div>
 
-                        <div className='mt-6 rounded-xl border bg-muted/20 p-5'>
+                        <div className='mt-6 rounded-xl border bg-muted/20 p-2'>
                           <label
                             htmlFor='clinicianDeclarationConfirmed'
                             className='flex cursor-pointer items-start gap-3'
