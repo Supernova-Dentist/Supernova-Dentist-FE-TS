@@ -14,7 +14,7 @@ const consentForms = [
     title: 'Dental Extraction / Oral Surgery',
     description:
       'Prepare the treatment details, review the risks and alternatives with the patient, and collect all required signatures.',
-    href: '/extraction-oral-surgery-consent-form',
+    href: '/consent-forms/extraction-oral-surgery',
     status: 'Available',
   },
 ] as const;

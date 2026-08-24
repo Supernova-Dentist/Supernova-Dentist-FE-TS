@@ -2,5 +2,5 @@
 module.exports = {
   siteUrl: 'https://www.supernovadental.co.uk',
   generateRobotsTxt: true, // Optional: Generates a robots.txt file automatically
-  exclude: ['/consent-forms', '/extraction-oral-surgery-consent-form'],
+  exclude: ['/consent-forms', '/consent-forms/extraction-oral-surgery'],
 };
