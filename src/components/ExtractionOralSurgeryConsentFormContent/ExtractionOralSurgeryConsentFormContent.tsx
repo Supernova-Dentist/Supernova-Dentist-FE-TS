@@ -591,7 +591,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                 <div className='space-y-10'>
                   <fieldset disabled={formMode !== 'clinicianPrep'} className='m-0 min-w-0 space-y-10 border-0 p-0'>
                     {/* Patient & Procedure Details */}
-                    <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                    <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                       <div className='mb-6 border-b pb-5'>
                         <h2 className='text-xl font-semibold tracking-tight'>Patient & Procedure Details</h2>
                         <p className='mt-1 text-sm text-muted-foreground'>
@@ -711,7 +711,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                     </section>
 
                     {/* Proposed Treatment */}
-                    <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                    <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                       <div className='mb-6 border-b pb-5'>
                         <h2 className='text-xl font-semibold tracking-tight'>Proposed Treatment</h2>
                         <p className='mt-2 text-sm leading-6 text-muted-foreground'>
@@ -755,7 +755,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                             </p>
                           </div>
 
-                          <div className='grid gap-3 sm:grid-cols-2'>
+                          <div className='grid space-y-2 sm:grid-cols-2'>
                             {[
                               {
                                 id: 'simpleExtraction',
@@ -910,7 +910,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
 
                     <div className='space-y-10'>
                       {/* Additional Risks for Lower Teeth */}
-                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                      <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                         <div className='mb-6 border-b pb-5'>
                           <h2 className='text-xl font-semibold tracking-tight'>Additional Risks for Lower Teeth</h2>
                         </div>
@@ -967,7 +967,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                       </section>
 
                       {/* Additional Risks for Upper Teeth */}
-                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                      <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                         <div className='mb-6 border-b pb-5'>
                           <h2 className='text-xl font-semibold tracking-tight'>Additional Risks for Upper Teeth</h2>
                         </div>
@@ -1020,7 +1020,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                       </section>
 
                       {/* Patient-Specific Risks */}
-                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                      <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                         <div className='mb-6 border-b pb-5'>
                           <h2 className='text-xl font-semibold tracking-tight'>Patient-Specific / Additional Risks</h2>
 
@@ -1052,7 +1052,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                       </section>
 
                       {/* Alternatives */}
-                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                      <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                         <div className='mb-6 border-b pb-5'>
                           <h2 className='text-xl font-semibold tracking-tight'>Alternatives to Extraction</h2>
 
@@ -1130,7 +1130,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                       </section>
 
                       {/* Anaesthetic / Sedation */}
-                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                      <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                         <div className='mb-6 border-b pb-5'>
                           <h2 className='text-xl font-semibold tracking-tight'>Anaesthetic / Sedation</h2>
 
@@ -1218,10 +1218,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
 
                   <fieldset disabled={formMode !== 'patientSigning'} className='m-0 min-w-0 space-y-10 border-0 p-0'>
                     {/* Patient Consent */}
-                    <section
-                      ref={patientSectionRef}
-                      className='scroll-mt-28 rounded-2xl border bg-card p-6 shadow-sm sm:p-8'
-                    >
+                    <section ref={patientSectionRef} className='scroll-mt-28 rounded-2xl border bg-card p-2 shadow-sm '>
                       <div className='mb-6 border-b pb-5'>
                         <h2 className='text-xl font-semibold tracking-tight'>Patient Consent</h2>
 
@@ -1283,7 +1280,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                     </section>
 
                     {/* Patient Signature */}
-                    <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                    <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                       <div className='mb-6 border-b pb-5'>
                         <h2 className='text-xl font-semibold tracking-tight'>Patient Signature</h2>
 
@@ -1413,7 +1410,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                       {/* Clinician Declaration */}
                       <section
                         ref={clinicianSectionRef}
-                        className='scroll-mt-28 rounded-2xl border bg-card p-6 shadow-sm sm:p-8'
+                        className='scroll-mt-28 rounded-2xl border bg-card p-2 shadow-sm '
                       >
                         <div className='mb-6 border-b pb-5'>
                           <h2 className='text-xl font-semibold tracking-tight'>Clinician Declaration</h2>
@@ -1569,7 +1566,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                       </section>
 
                       {/* Interpreter / Witness */}
-                      <section className='rounded-2xl border bg-card p-6 shadow-sm sm:p-8'>
+                      <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                         <div className='mb-6 border-b pb-5'>
                           <div className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
                             <h2 className='text-xl font-semibold tracking-tight'>Interpreter / Witness</h2>

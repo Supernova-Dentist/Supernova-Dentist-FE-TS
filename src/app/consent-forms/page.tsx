@@ -38,7 +38,7 @@ export default function ConsentFormsPage({ searchParams }: ConsentFormsPageProps
   }
 
   return (
-    <main className='min-h-[100dvh] bg-gradient-to-b from-cream/60 via-white to-white px-5 py-16 sm:px-8 sm:py-20'>
+    <main className='min-h-[100dvh] bg-gradient-to-b from-cream/60 via-white to-white px-5 py-8 sm:px-8 sm:py-20'>
       <div className='mx-auto max-w-5xl'>
         <header className='mx-auto max-w-2xl text-center'>
           <div className='mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gold/10 text-gold'>
