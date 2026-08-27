@@ -8,8 +8,6 @@ import { useRouter } from 'next/navigation';
 import adamImage from '../../../../public/assets/images/Headshots/adam-young-operations-director-supernova-dental-bridgwater.webp';
 import amyImage from '../../../../public/assets/images/Headshots/amy-skinner-front-of-house-supernova-dental-bridgwater.webp';
 import cameranImage from '../../../../public/assets/images/Headshots/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp';
-import jacquelineImage from '../../../../public/assets/images/Headshots/dr-jacqueline-amarin-dentist-supernova-dental-bridgwater.webp';
-// import saraImage from '../../../../public/assets/images/Headshots/dr-sara-banuri-implantologist-supernova-dental-bridgwater.webp';
 import scottImage from '../../../../public/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp';
 import souadImage from '../../../../public/assets/images/Headshots/dr-souad-maddi-dentist-supernova-dental-bridgwater.webp';
 import kayleighImage from '../../../../public/assets/images/Headshots/kayleigh-dowdle-dental-therapist-supernova-dental-bridgwater.webp';
@@ -29,12 +27,6 @@ const teamMembers = [
     title: 'Dentist with Special Interest in Restorative Dentistry',
     image: souadImage,
     slug: 'dr-souad-maddi',
-  },
-  {
-    name: 'Dr. Jacqueline Amarin',
-    title: 'General and Restorative Dentist',
-    image: jacquelineImage,
-    slug: 'dr-jacqueline-amarin',
   },
   { name: 'Kayleigh Dowdle', title: 'Dental Therapist', image: kayleighImage, slug: 'kayleigh-dowdle' },
   { name: 'Tracy Hawkins', title: 'Dental Hygienist', image: tracyImage, slug: 'tracy-hawkins' },

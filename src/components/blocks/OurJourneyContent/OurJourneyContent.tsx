@@ -257,37 +257,7 @@ export const OurJourneyContent = () => {
               />
             </motion.div>
           </motion.div>
-          <motion.div
-            className='relative w-full mx-auto max-w-7xl p-4 md:p-12 flex flex-col lg:flex-row-reverse items-center gap-8 justify-center'
-            initial='hidden'
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-          >
-            {/* Text + Button */}
-            <div className='w-full lg:w-1/2 flex flex-col text-center lg:text-left'>
-              <h2 className='text-gold text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>Expanding</h2>
-              <p className='mt-4 text-white text-lg md:text-xl '>
-                Supernova Dental is growing to meet patient needs, recently welcoming Dr Sara Banuri (implantologist)
-                and Dr Jacqueline Amarin (general and restorative dentist). Their expertise expands our appointment
-                availability and treatment range, ensuring advanced care under one roof.
-              </p>
-            </div>
-
-            {/* Image */}
-            <motion.div
-              className='w-full lg:w-1/2 flex justify-center'
-              initial='hidden'
-              transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
-            >
-              <Image
-                src='/assets/images/sara_jackie.jpg'
-                alt='About Us'
-                width={600}
-                height={800}
-                quality={100}
-                className='object-contain h-auto w-full max-w-[40rem] rounded-lg'
-              />
-            </motion.div>
-          </motion.div>
+        
           <motion.div
             className='relative w-full mx-auto max-w-7xl p-4 md:p-12 flex flex-col lg:flex-row items-center gap-8 justify-center'
             initial='hidden'
