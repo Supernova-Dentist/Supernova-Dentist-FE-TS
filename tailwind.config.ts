@@ -28,6 +28,15 @@ const config = {
         grey: 'var(--grey)',
         cream: 'var(--cream)',
         lightGrey: 'var(--light-grey)',
+        obsidian: 'var(--obsidian)',
+        'deep-navy': 'var(--deep-navy)',
+        ivory: 'var(--ivory)',
+        porcelain: 'var(--porcelain)',
+        champagne: 'var(--champagne)',
+        bronze: 'var(--bronze)',
+        'bronze-ink': 'var(--bronze-ink)',
+        taupe: 'var(--taupe)',
+        stone: 'var(--stone)',
       },
       backgroundImage: {
         'team-cta':
