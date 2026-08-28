@@ -178,14 +178,14 @@ export function EnquiryFormContent() {
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
 
       <motion.section
-        className='px-4 pt-4 pb-24 md:pb-32'
+        className='min-w-0 px-0 pt-0 pb-8 md:pb-12'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         <div className='container mx-auto md:px-6'>
           <motion.div
-            className='mx-auto max-w-2xl space-y-6 bg-white p-8 md:p-12 rounded-lg shadow-lg'
+            className='mx-auto max-w-3xl space-y-6 rounded-[1.5rem] border border-[#ded8cc] bg-white p-6 shadow-[0_20px_60px_rgba(23,25,35,0.08)] sm:p-8 md:p-10'
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
@@ -195,7 +195,7 @@ export function EnquiryFormContent() {
                 <div className='grid gap-6'>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
-                      <Label htmlFor='fullname' className='text-lg font-medium'>
+                      <Label htmlFor='fullname' className='text-base font-semibold text-[#171923]'>
                         Full Name
                       </Label>
                       <FormField
@@ -209,7 +209,7 @@ export function EnquiryFormContent() {
                                 placeholder='Full Name'
                                 maxLength={75}
                                 {...field}
-                                className='text-md lg:text-lg px-3 py-2 h-14'
+                                className='h-12 border-[#cfc8bb] bg-[#fdfcf9] px-3 text-base text-[#171923] placeholder:text-[#8b877f] focus-visible:ring-[#b9975b]'
                               />
                             </FormControl>
                             <FormMessage />
@@ -219,7 +219,7 @@ export function EnquiryFormContent() {
                     </div>
 
                     <div className='space-y-3'>
-                      <Label htmlFor='email' className='text-lg font-medium'>
+                      <Label htmlFor='email' className='text-base font-semibold text-[#171923]'>
                         Email
                       </Label>
                       <FormField
@@ -234,7 +234,7 @@ export function EnquiryFormContent() {
                                 maxLength={75}
                                 placeholder='Enter your email'
                                 {...field}
-                                className='text-md lg:text-lg px-3 py-2 h-14'
+                                className='h-12 border-[#cfc8bb] bg-[#fdfcf9] px-3 text-base text-[#171923] placeholder:text-[#8b877f] focus-visible:ring-[#b9975b]'
                               />
                             </FormControl>
                             <FormMessage />
@@ -245,7 +245,7 @@ export function EnquiryFormContent() {
                   </div>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
-                      <Label htmlFor='phone' className='text-lg font-medium'>
+                      <Label htmlFor='phone' className='text-base font-semibold text-[#171923]'>
                         Phone
                       </Label>
                       <FormField
@@ -259,7 +259,7 @@ export function EnquiryFormContent() {
                                 placeholder='Enter your phone number'
                                 maxLength={15}
                                 {...field}
-                                className='text-md lg:text-lg px-3 py-2 h-14'
+                                className='h-12 border-[#cfc8bb] bg-[#fdfcf9] px-3 text-base text-[#171923] placeholder:text-[#8b877f] focus-visible:ring-[#b9975b]'
                               />
                             </FormControl>
                             <FormMessage />
@@ -268,7 +268,7 @@ export function EnquiryFormContent() {
                       />
                     </div>
                     <div className='space-y-3'>
-                      <Label htmlFor='category' className='text-lg font-medium'>
+                      <Label htmlFor='category' className='text-base font-semibold text-[#171923]'>
                         Category of Enquiry
                       </Label>
                       <FormField
@@ -282,7 +282,7 @@ export function EnquiryFormContent() {
                                 control={form.control}
                                 render={({ field }) => (
                                   <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
-                                    <SelectTrigger className='h-14' id='category'>
+                                    <SelectTrigger className='h-12 border-[#cfc8bb] bg-[#fdfcf9] text-base text-[#171923] focus:ring-[#b9975b]' id='category'>
                                       <SelectValue placeholder='Select category' className='text-md lg:text-lg' />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -334,7 +334,7 @@ export function EnquiryFormContent() {
                     </div>
                   </div>
                   <div className='space-y-3'>
-                    <Label htmlFor='message' className='text-lg font-medium'>
+                    <Label htmlFor='message' className='text-base font-semibold text-[#171923]'>
                       Message
                     </Label>
                     <FormField
@@ -353,7 +353,7 @@ export function EnquiryFormContent() {
                                 field.onChange(e);
                                 handleMessageChange(e);
                               }}
-                              className='text-md lg:text-lg p-3'
+                              className='min-h-32 border-[#cfc8bb] bg-[#fdfcf9] p-3 text-base text-[#171923] placeholder:text-[#8b877f] focus-visible:ring-[#b9975b]'
                             />
                           </FormControl>
                           <FormMessage />
@@ -361,7 +361,7 @@ export function EnquiryFormContent() {
                       )}
                     />
                     {/* Character count */}
-                    <div className='text-sm text-gray-500'>
+                    <div className='text-right text-xs text-[#68645f]'>
                       {messageLength} / {MAX_MESSAGE_LENGTH} characters
                     </div>
                   </div>
@@ -376,7 +376,7 @@ export function EnquiryFormContent() {
                               <Checkbox id='optOutEmails' checked={field.value} onCheckedChange={field.onChange} />
                             </FormControl>
 
-                            <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                            <Label htmlFor='optOutEmails' className='ml-3 text-sm leading-6 text-[#68645f]'>
                               Check to opt out of Supernova Dental email updates and promotions.
                             </Label>
                           </div>
@@ -390,7 +390,7 @@ export function EnquiryFormContent() {
                   </div>
                   <Button
                     type='submit'
-                    className={`w-full mx-auto max-w-[15rem] text-lg py-6 ${
+                    className={`mx-auto min-h-12 w-full max-w-[18rem] rounded-full bg-[#b9975b] px-6 py-3 text-base font-semibold text-[#171923] shadow-sm transition-colors hover:bg-[#d6b978] focus-visible:ring-2 focus-visible:ring-[#98783e] ${
                       loading ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
                     disabled={loading}
@@ -406,16 +406,18 @@ export function EnquiryFormContent() {
 
       {/* Success Modal */}
       {successModalVisible && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative'>
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4' role='presentation'>
+          <div className='relative w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl' role='dialog' aria-modal='true' aria-labelledby='enquiry-success-title'>
             {/* Close button (X) in the top-right corner of the modal */}
             <button
               onClick={() => setSuccessModalVisible(false)}
-              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+              type='button'
+              aria-label='Close enquiry confirmation'
+              className='absolute right-3 top-3 rounded-full p-2 text-xl text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b9975b]'
             >
               <FaTimes />
             </button>
-            <h2 className='text-2xl font-semibold mb-4'>Thank you, {submittedData.fullname}, for your Enquiry!</h2>
+            <h2 id='enquiry-success-title' className='mb-4 text-2xl font-semibold'>Thank you, {submittedData.fullname}, for your Enquiry!</h2>
             <p className='mb-4'>
               One of the Supernova team will be back in touch via the following details regarding your enquiry:
             </p>
@@ -441,9 +443,9 @@ export function EnquiryFormContent() {
 
       {/* Error Modal */}
       {errorModalVisible && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-2xl font-semibold mb-4'>Oops! Something went wrong.</h2>
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4' role='presentation'>
+          <div className='w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl' role='dialog' aria-modal='true' aria-labelledby='enquiry-error-title'>
+            <h2 id='enquiry-error-title' className='mb-4 text-2xl font-semibold'>Oops! Something went wrong.</h2>
             <p className='mb-4'>There was an issue with your submission. Please try again later.</p>
             <Button onClick={() => setErrorModalVisible(false)} className='w-full bg-red-600 text-white text-lg py-3'>
               Close

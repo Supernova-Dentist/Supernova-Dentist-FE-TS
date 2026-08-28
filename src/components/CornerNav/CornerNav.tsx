@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { SiFacebook, SiInstagram, SiLinkedin, SiWhatsapp, SiYoutube } from 'react-icons/si';
+import { SiFacebook, SiInstagram, SiWhatsapp } from 'react-icons/si';
 import Button from '../Button/Button';
 
 export const CornerNav = ({
@@ -55,7 +55,7 @@ const LinksOverlay = () => {
         animate={{
           opacity: 1,
           y: 0,
-          transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+          transition: { duration: 0.2, ease: 'easeOut' },
         }}
         exit={{ opacity: 0, y: -12 }}
         className='flex flex-col items-center sm:flex-row gap-1 sm:gap-4 justify-center pt-20 pb-10'
@@ -73,9 +73,9 @@ const LinksOverlay = () => {
           opacity: 1,
           y: 0,
           transition: {
-            delay: 1.5, // Adjust the delay as needed
-            duration: 0.5,
-            ease: 'easeInOut',
+            delay: 0.04,
+            duration: 0.2,
+            ease: 'easeOut',
           },
         }}
         exit={{ opacity: 0, y: -8 }}
@@ -106,7 +106,7 @@ const LinksContainer = () => {
             subLinks={l.subLinks}
             isActive={activeLink === idx}
             onClick={() => {
-              if (l.subLinks && l.subLinks.length > 0) {
+              if (l.subLinks !== undefined && l.subLinks.length > 0) {
                 // Toggle active state for the clicked link with subLinks
                 setActiveLink(activeLink === idx ? null : idx);
               } else {
@@ -140,7 +140,7 @@ const NavLink = ({
 }) => {
   // Determine the number of columns based on the number of subLinks
   const isReferral = typeof children === 'string' && children.toLowerCase() === 'referral';
-  const columnsClass = isReferral ? 'grid-cols-1' : subLinks && 'grid-cols-2';
+  const columnsClass = isReferral ? 'grid-cols-1' : subLinks !== undefined ? 'grid-cols-2' : '';
   return (
     <div>
       <motion.a
@@ -149,9 +149,9 @@ const NavLink = ({
           opacity: 1,
           y: 0,
           transition: {
-            delay: 0.75 + idx * 0.125,
-            duration: 0.5,
-            ease: 'easeInOut',
+            delay: Math.min(idx * 0.02, 0.08),
+            duration: 0.18,
+            ease: 'easeOut',
           },
         }}
         exit={{ opacity: 0, y: -8 }}
@@ -159,13 +159,13 @@ const NavLink = ({
         className='flex items-center justify-between text-lg font-semibold text-cream md:text-3xl cursor-pointer capitalize'
       >
         {children}
-        {subLinks && subLinks.length > 0 && (
+        {subLinks !== undefined && subLinks.length > 0 && (
           <motion.div
             className='flex items-center'
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
-              transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+              transition: { duration: 0.18, ease: 'easeOut' },
             }}
             exit={{ opacity: 0 }}
           >
@@ -175,14 +175,14 @@ const NavLink = ({
       </motion.a>
 
       {/* Only show sublinks when this link is active */}
-      {isActive && subLinks && (
+      {isActive && subLinks !== undefined && (
         <AnimatePresence>
           <motion.div
             className={`mt-4 grid gap-4 ${columnsClass}`}
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
-              transition: { duration: 0.5, ease: 'easeInOut' },
+              transition: { duration: 0.18, ease: 'easeOut' },
             }}
             exit={{ opacity: 0 }}
           >
@@ -195,9 +195,9 @@ const NavLink = ({
                   opacity: 1,
                   x: 0,
                   transition: {
-                    delay: subIndex * 0.1,
-                    duration: 0.5,
-                    ease: 'easeInOut',
+                    delay: Math.min(subIndex * 0.015, 0.06),
+                    duration: 0.18,
+                    ease: 'easeOut',
                   },
                 }}
                 exit={{ opacity: 0, x: -10 }}
@@ -220,7 +220,7 @@ const Logo = () => {
       animate={{
         opacity: 1,
         y: 0,
-        transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+        transition: { duration: 0.2, ease: 'easeOut' },
       }}
       exit={{ opacity: 0, y: -12 }}
       className=''
@@ -293,9 +293,9 @@ const FooterCTAs = () => {
             opacity: 1,
             y: 0,
             transition: {
-              delay: 1 + idx * 0.125,
-              duration: 0.5,
-              ease: 'easeInOut',
+              delay: Math.min(idx * 0.02, 0.06),
+              duration: 0.18,
+              ease: 'easeOut',
             },
           }}
           exit={{ opacity: 0, y: -8 }}
@@ -414,7 +414,7 @@ const UNDERLAY_VARIANTS = {
   open: {
     width: '100%',
     height: '100%',
-    transition: { type: 'spring', mass: 3, stiffness: 400, damping: 50 },
+    transition: { duration: 0.22, ease: 'easeOut' },
     background: 'var(--grey)',
   },
   closed: {
@@ -423,15 +423,14 @@ const UNDERLAY_VARIANTS = {
     background: 'transparent',
     transition: {
       background: {
-        delay: 0.5,
-        duration: 1,
-        ease: 'easeInOut',
+        duration: 0.18,
+        ease: 'easeOut',
       },
       width: {
-        duration: 0.5,
+        duration: 0.2,
       },
       height: {
-        duration: 0.5,
+        duration: 0.2,
       },
     },
   },

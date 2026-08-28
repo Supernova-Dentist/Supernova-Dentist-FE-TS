@@ -11,18 +11,29 @@ export const Question = ({
   isOpen,
   onToggle,
   index,
+  questionId,
+  answerId,
 }: {
   title: string;
   children: React.ReactNode;
   isOpen: boolean;
   onToggle: (index: number) => void;
   index: number;
+  questionId: string;
+  answerId: string;
 }) => {
   const [ref, { height }] = useMeasure();
 
   return (
-    <motion.div animate={isOpen ? 'open' : 'closed'} className='border-b-[1px] border-b-slate-300'>
-      <button onClick={() => onToggle(index)} className='flex w-full items-center justify-between gap-4 py-2'>
+    <motion.div animate={isOpen ? 'open' : 'closed'} className='border-b border-stone'>
+      <button
+        id={questionId}
+        type='button'
+        aria-expanded={isOpen}
+        aria-controls={answerId}
+        onClick={() => onToggle(index)}
+        className='flex min-h-11 w-full items-center justify-between gap-4 rounded-sm py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2'
+      >
         <motion.span
           variants={{
             open: {
@@ -32,7 +43,7 @@ export const Question = ({
               color: 'rgba(3, 6, 23, 1)',
             },
           }}
-          className='bg-gold bg-clip-text text-left text-lg font-medium'
+          className='bg-champagne bg-clip-text text-left text-lg font-medium'
         >
           {title}
         </motion.span>
@@ -57,7 +68,11 @@ export const Question = ({
           height: isOpen ? height : '0px',
           marginBottom: isOpen ? '24px' : '0px',
         }}
-        className='overflow-hidden text-slate-800'
+        id={answerId}
+        role='region'
+        aria-labelledby={questionId}
+        aria-hidden={!isOpen}
+        className='overflow-hidden text-taupe'
       >
         <div className='text-left' ref={ref}>
           {children}
@@ -84,10 +99,12 @@ const FAQ = ({ faqItems }: { faqItems: Array<{ question: string; answer: string 
             isOpen={openIndex === index} // Only open if index matches
             onToggle={handleToggle}
             index={index}
+            questionId={`faq-question-${index}`}
+            answerId={`faq-answer-${index}`}
           >
             {item.answer}
           </Question>
-          {index < faqItems.length - 1 && <hr className='my-6 border-b-[1px] border-b-gray-200' />}
+          {index < faqItems.length - 1 && <hr className='my-3 border-b border-stone/70' />}
         </div>
       ))}
     </div>

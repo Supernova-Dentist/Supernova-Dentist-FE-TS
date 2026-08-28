@@ -1,9 +1,6 @@
-import { AboutPractice } from '@/components/AboutPractice/AboutPractice';
 import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
-import { DisappearingFeatures } from '@/components/DisappearingScrollFeatures/DisappearingScrollFeatures';
+import PracticeExperience from '@/components/PracticeExperience/PracticeExperience';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
-import { StickyCards } from '@/components/StickyCards/StickyCards';
-import { FeaturesSectionDemo } from '@/components/ui/bento-grid';
 import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -93,10 +90,12 @@ const structuredData = {
 
 export default function OurPractice() {
   return (
-    <div className='flex flex-col'>
+    <>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
-      <div className='mt-4'>
+      <PracticeExperience />
+
+      <div className='scroll-mt-24'>
         <ServiceForm
           serviceName='Practice Tour'
           serviceChip='Book a Complimentary Practice Tour'
@@ -105,21 +104,11 @@ export default function OurPractice() {
           formDescription='Come and see Supernova Dental for yourself. Our complimentary practice tours give you the opportunity to explore our modern facilities, see our technology and meet the team in a relaxed environment before becoming a patient.'
           formId='practice-tour-form'
           eventType='PracticeTourLead'
+          headingLevel='h2'
         />
       </div>
 
-      <section>
-        <div className='container mx-auto px-4 md:px-6 lg:px-8'>
-          <FeaturesSectionDemo />
-          <AboutPractice />
-        </div>
-      </section>
-
-      <DisappearingFeatures />
-
       <DentallyTutorial />
-
-      <StickyCards />
-    </div>
+    </>
   );
 }

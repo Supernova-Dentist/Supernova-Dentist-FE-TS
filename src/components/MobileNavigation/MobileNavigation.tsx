@@ -43,21 +43,21 @@ export default function MobileNavigation({ active, setActive }: MobileNavigation
 
     setTimeout(() => {
       setShowContent(true);
-    }, 500); // must match closing animation duration
+    }, 200);
   };
 
   return (
-    <nav className='relative flex items-center px-4 py-8'>
+    <nav className='relative flex min-h-20 items-center border-b border-white/10 px-4 py-4'>
       {/* Center Logo (hidden when menu open) */}
       {!active && showContent && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2 }}
           className='absolute left-1/2 -translate-x-1/2'
         >
           <Link href='/'>
-            <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-12 w-auto' />
+            <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-10 w-auto' />
           </Link>
         </motion.div>
       )}

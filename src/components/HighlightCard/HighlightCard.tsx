@@ -21,15 +21,15 @@ export function HighlightCard({
 }: HighlightCardProps) {
   return (
     <motion.div
-      className={cn('p-2 md:p-8 mb-6 md:mb-2', className)}
-      initial={{ opacity: 0, y: 40 }}
+      className={cn('service-highlight mb-6 p-2 md:mb-2 md:p-8', className)}
+      initial={{ opacity: 0.92, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.22, ease: 'easeOut' }}
     >
       <motion.div
         className={cn(
-          'max-w-5xl mx-auto p-6 md:p-10 rounded-xl md:rounded-2xl shadow-lg border border-gold',
+          'mx-auto max-w-5xl rounded-[1.5rem] border border-champagne/35 p-6 shadow-[0_20px_60px_rgba(11,18,24,0.12)] md:p-10',
           `bg-gradient-to-r ${gradient.from} ${gradient.to}`
         )}
       >
@@ -45,18 +45,18 @@ export function HighlightCard({
           </motion.div>
         )}
 
-        <motion.h1
-          className='text-2xl md:text-4xl text-center tracking-tight font-bold text-gold max-w-[34rem] mx-auto mb-2 md:mb-4'
+        <motion.h2
+          className='mx-auto mb-2 max-w-[38rem] text-balance text-center text-3xl leading-tight text-champagne md:mb-4 md:text-5xl'
           initial={{ y: -10, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
         >
           {title}
-        </motion.h1>
+        </motion.h2>
         {description && (
           <motion.div
-            className='text-white lg:text-lg mt-4 text-center font-medium max-w-none md:max-w-[34rem] mx-auto space-y-4 [&>p]:block [&>p]:mx-auto'
+            className='mx-auto mt-4 max-w-none space-y-4 text-pretty text-center leading-7 text-ivory/80 md:max-w-[38rem] lg:text-lg [&>p]:mx-auto [&>p]:block'
             initial={{ y: 10, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}

@@ -2,12 +2,11 @@
 
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
 import PromotionFooter from '@/components/PromotionFooter/PromotionFooter';
-import { cosmeticServices, generalServices, locationInfo, practiceInfo, socialIcons } from '@/lib/constants';
+import { locationInfo, practiceInfo, socialIcons } from '@/lib/constants';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import FooterLink from '../FooterLink/FooterLink';
-import ReviewLink from '../ReviewLink/ReviewLink';
 
 const GoogleMap = dynamic(async () => await import('@/components/blocks/GoogleMap/GoogleMap'), {
   ssr: false,
@@ -58,6 +57,8 @@ export default function Footer() {
                       key={index}
                       href={social.url}
                       target='_blank'
+                      rel='noopener noreferrer'
+                      aria-label={`Visit Supernova Dental on ${social.name}`}
                       className='bg-gold p-1 rounded-sm flex justify-center items-center'
                     >
                       <div className='bg-gold p-1 rounded-sm flex justify-center items-center'>{social.icon}</div>

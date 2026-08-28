@@ -12,7 +12,7 @@ import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 // Rename ServiceBox to a named component
 function ServiceBox({ title, subTitle, benefitText, stats, statsTitle }: ServiceBox) {
   return (
-    <div className='relative max-w-3xl rounded-lg bg-white p-8 shadow-2xl md:p-12'>
+    <div className='service-overview-card relative max-w-3xl rounded-[1.5rem] border border-stone bg-porcelain p-8 shadow-[0_20px_60px_rgba(11,18,24,0.1)] md:p-12'>
       <ServiceHeader title={title} subTitle={subTitle} className='mb-4' />
       <ServiceDescription className='mt-6 mb-8' description={benefitText} />
       {stats && stats.length > 0 && <ServiceStatsContainer stats={stats} statsTitle={statsTitle} />}
@@ -35,12 +35,12 @@ export default function EmergencyHeroSection({ data }: HeroSection) {
   }
 
   return (
-    <section ref={ref} className='flex items-center justify-center w-full mx-auto'>
+    <section ref={ref} className='service-overview mx-auto flex w-full items-center justify-center px-4 py-10 md:py-16'>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5 }}
-        className='mx-auto px-6 text-center '
+        initial={{ opacity: 0.94, y: 12 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0.94, y: 12 }}
+        transition={{ duration: 0.22, ease: 'easeOut' }}
+        className='mx-auto px-2 text-center sm:px-6'
       >
         <ServiceBox
           title={data.header.title}

@@ -42,6 +42,7 @@ interface ServiceFormProps {
   videoThumbnailSrc?: string;
   eventType?: string;
   formId?: string;
+  headingLevel?: 'h1' | 'h2';
 }
 
 export default function ServiceForm({
@@ -55,6 +56,7 @@ export default function ServiceForm({
   videoThumbnailSrc,
   eventType = 'PatientLead',
   formId = '',
+  headingLevel = 'h1',
 }: ServiceFormProps) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -259,21 +261,32 @@ export default function ServiceForm({
       <section
         id='form'
         ref={ref}
-        className='w-full px-4 min-h-[calc(100vh-96px)] flex justify-center pt-6 pb-6 items-center'
+        className='service-form-hero relative isolate flex min-h-[calc(100vh-96px)] w-full items-center justify-center overflow-hidden bg-obsidian px-4 py-8 text-ivory sm:px-6 lg:py-14'
       >
+        <div aria-hidden='true' className='luxury-hero-glow absolute inset-0 -z-10' />
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          className='w-full max-w-7xl'
+          initial={false}
+          animate={inView ? { opacity: 1 } : { opacity: 1 }}
         >
-          <BreadCrumb />
-          <div className='container max-w-[1250px] mx-auto pt-4 lg:pt-0 lg:grid lg:grid-cols-2 lg:space-x-12 items-center'>
-            <div className='text-center lg:text-left space-y-6'>
-              <div className='bg-grey px-4 py-2 text-md text-gray-50 rounded-lg inline-block'>{serviceChip}</div>
-              <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl md:text-5xl max-w-[32rem] mx-auto'>
-                Start Your {serviceName}
-              </h2>
-              <p className='text-muted-foreground md:text-2xl max-w-[32rem] mx-auto pb-4'>{serviceDescription}</p>
+          <BreadCrumb tone='dark' />
+          <div className='container mx-auto grid max-w-[1250px] items-center gap-10 pt-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(24rem,0.78fr)] lg:gap-14 lg:pt-10'>
+            <div className='space-y-6 text-center lg:text-left'>
+              <div className='inline-block border-b border-champagne/60 pb-2 text-xs font-semibold uppercase tracking-[0.22em] text-champagne sm:text-sm'>
+                {serviceChip}
+              </div>
+              {headingLevel === 'h1' ? (
+                <h1 className='mx-auto max-w-[35rem] text-balance text-4xl leading-[1.04] sm:text-5xl md:text-6xl lg:mx-0'>
+                  Start Your {serviceName}
+                </h1>
+              ) : (
+                <h2 className='mx-auto max-w-[35rem] text-balance text-4xl leading-[1.04] sm:text-5xl md:text-6xl lg:mx-0'>
+                  Start Your {serviceName}
+                </h2>
+              )}
+              <p className='mx-auto max-w-[34rem] pb-4 text-pretty text-lg leading-8 text-ivory/75 md:text-xl lg:mx-0'>
+                {serviceDescription}
+              </p>
               {imgSrc && (
                 <Image
                   priority
@@ -284,7 +297,7 @@ export default function ServiceForm({
                   src={imgSrc}
                   blurDataURL={imgSrc}
                   alt={`${serviceName} - Supernova Dental Bridgwater Somerset`}
-                  className='w-full max-w-md mx-auto mt-8 hidden lg:block'
+                  className='mx-auto mt-8 hidden w-full max-w-md rounded-[1.5rem] border border-white/10 object-cover shadow-2xl lg:mx-0 lg:block'
                 />
               )}
               {/* Video for large screens - shown ABOVE the form */}
@@ -292,7 +305,7 @@ export default function ServiceForm({
                 <div className='hidden lg:block mb-8'>
                   <div className='w-full max-w-56 aspect-[9/17] relative mx-auto'>
                     <video
-                      className='absolute top-0 left-0 w-full h-full rounded-lg'
+                      className='absolute left-0 top-0 h-full w-full rounded-[1.25rem] border border-white/10 object-cover'
                       controls
                       preload='metadata'
                       poster={videoThumbnailSrc}
@@ -304,21 +317,21 @@ export default function ServiceForm({
                 </div>
               )}
             </div>
-            <Card className='max-h-[52rem] m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-4 flex items-center justify-center'>
+            <Card className='service-form-card m-auto flex max-h-[52rem] w-full max-w-lg items-center justify-center rounded-[1.5rem] border border-champagne/25 bg-porcelain p-2 text-obsidian shadow-[0_24px_70px_rgba(0,0,0,0.28)] md:p-4'>
               <form id={formId} onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-2'>
-                  <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
-                  <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>
+                  <CardTitle className='text-2xl md:text-3xl'>{formTitle}</CardTitle>
+                  <CardDescription className='text-md text-taupe md:text-lg'>{formDescription}</CardDescription>
                 </CardHeader>
                 <CardContent className='p-2 md:p-4 md:pt-0'>
                   <div className='grid gap-1'>
-                    <Label htmlFor='fullname' className='text-md text-gray-800'>
+                    <Label htmlFor='fullname' className='text-md text-obsidian'>
                       Full Name
                     </Label>
                     <Input
                       id='fullname'
                       placeholder='John Smith'
-                      className='py-1 text-lg px-3'
+                      className='min-h-11 border-stone bg-white px-3 py-1 text-lg focus-visible:ring-champagne'
                       {...register('fullname')}
                     />
                     <div className='h-5'>
@@ -328,14 +341,14 @@ export default function ServiceForm({
                     </div>
                   </div>
                   <div className='grid gap-1'>
-                    <Label htmlFor='email' className='text-md text-gray-800'>
+                    <Label htmlFor='email' className='text-md text-obsidian'>
                       Email Address
                     </Label>
                     <Input
                       id='email'
                       type='email'
                       placeholder='john@example.com'
-                      className='py-1 text-lg px-3'
+                      className='min-h-11 border-stone bg-white px-3 py-1 text-lg focus-visible:ring-champagne'
                       {...register('email')}
                     />
                     <div className='h-5'>
@@ -345,14 +358,14 @@ export default function ServiceForm({
                     </div>
                   </div>
                   <div className='grid gap-1'>
-                    <Label htmlFor='phone' className='text-md text-gray-800'>
+                    <Label htmlFor='phone' className='text-md text-obsidian'>
                       Contact Number
                     </Label>
                     <Input
                       id='phone'
                       type='tel'
                       placeholder='(+44) 1234567890'
-                      className='py-1 text-lg px-3'
+                      className='min-h-11 border-stone bg-white px-3 py-1 text-lg focus-visible:ring-champagne'
                       {...register('phone')}
                     />
                     <div className='h-5'>
@@ -369,7 +382,7 @@ export default function ServiceForm({
                         defaultChecked={false}
                         onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                       />
-                      <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
+                      <Label htmlFor='optOutEmails' className='ml-3 text-sm text-taupe'>
                         Check to opt out of Supernova Dental email updates and promotions.
                       </Label>
                     </div>
@@ -382,7 +395,7 @@ export default function ServiceForm({
                     <Button
                       type='button'
                       variant='link'
-                      className='px-0 text-md text-blue-500 underline hover:text-blue-400 transition'
+                      className='px-0 text-md text-bronze-ink underline transition hover:text-bronze focus-visible:ring-champagne'
                       onClick={handlePrivacyModalOpen}
                     >
                       Privacy Policy
@@ -390,7 +403,10 @@ export default function ServiceForm({
                   </span>
                 </CardContent>
                 <CardFooter>
-                  <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
+                  <Button
+                    type='submit'
+                    className='min-h-11 w-full bg-champagne py-3 text-lg text-obsidian hover:bg-lightGold focus-visible:ring-champagne'
+                  >
                     {isSubmitting ? <BarLoader /> : 'Register'}
                   </Button>
                 </CardFooter>
@@ -406,7 +422,7 @@ export default function ServiceForm({
                 src={imgSrc}
                 blurDataURL={imgSrc}
                 alt={`${serviceName} - Supernova Dental Bridgwater Somerset`}
-                className='w-full max-w-md mx-auto my-8 block lg:hidden'
+                className='mx-auto my-8 block w-full max-w-md rounded-[1.5rem] border border-white/10 object-cover shadow-2xl lg:hidden'
               />
             )}
             {/* Video for small/medium screens - shown BELOW the form */}
@@ -414,7 +430,7 @@ export default function ServiceForm({
               <div className='block lg:hidden mt-8'>
                 <div className='w-full max-w-56 aspect-[9/17] relative mx-auto'>
                   <video
-                    className='absolute top-0 left-0 w-full h-full rounded-lg'
+                    className='absolute left-0 top-0 h-full w-full rounded-[1.25rem] border border-white/10 object-cover'
                     controls
                     preload='metadata'
                     poster={videoThumbnailSrc}
@@ -440,6 +456,7 @@ export default function ServiceForm({
             <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative max-h-[90vh]'>
               <button
                 onClick={handleSuccessModalClose}
+                aria-label='Close success message'
                 className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
               >
                 <FaTimes />
@@ -517,6 +534,7 @@ export default function ServiceForm({
           <div className='bg-white p-10 relative rounded-lg shadow-lg max-w-md w-full'>
             <button
               onClick={() => setShowErrorModal(false)}
+              aria-label='Close error message'
               className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
             >
               <FaTimes />

@@ -1,3 +1,4 @@
+import MotionPreferences from '@/components/MotionPreferences/MotionPreferences';
 import RouteAwareSiteShell from '@/components/RouteAwareSiteShell/RouteAwareSiteShell';
 import TrackingProvider from '@/components/TrackingProvider/TrackingProvider';
 import type { Metadata } from 'next';
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const structuredData = {
+const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
   name: 'Supernova Dental',
@@ -193,9 +194,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${playfair.variable} ${ibmPlex.variable}`}>
-        <TrackingProvider>
-          <RouteAwareSiteShell>{children}</RouteAwareSiteShell>
-        </TrackingProvider>
+        <MotionPreferences>
+          <TrackingProvider>
+            <RouteAwareSiteShell>{children}</RouteAwareSiteShell>
+          </TrackingProvider>
+        </MotionPreferences>
       </body>
     </html>
   );
