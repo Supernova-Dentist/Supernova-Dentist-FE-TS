@@ -1,15 +1,13 @@
-import { AdamOutlineCards } from '@/components/OutlineCards/AdamOutlineCards';
-import AdamWaterDropHero from '@/components/WaterDropHeros/AdamWaterDropHero';
-import { Reveal } from '@/utils/anim/Reveal';
-import Head from 'next/head';
+import ProfilePage from '@/components/TeamExperience/ProfilePage';
+import { getTeamMetadata } from '@/data/team';
 
-export const metadata = {
+export const metadata = getTeamMetadata('adam-young', {
   title: 'Adam | Operations Director | Supernova Dental Bridgwater, Somerset',
   description:
     'Meet Adam, the Operations Director at Supernova Dental in Bridgwater, Somerset. Adam manages the patient journey, dental software, website, and practice operations to ensure a seamless experience.',
   keywords:
     'Adam Supernova Dental, operations director Bridgwater, dental practice operations, dental software manager, dental website developer, dental IT specialist, dental marketing, patient journey manager, Supernova Dental team, Bridgwater dental practice, dental practice website',
-};
+});
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -46,37 +44,11 @@ const structuredData = {
   ],
 };
 
-export default async function Component() {
+export default function AdamYoungPage() {
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name='description' content={metadata.description} />
-        <meta name='keywords' content={metadata.keywords} />
-        <link rel='canonical' href='https://www.supernovadental.co.uk/team/adam' />
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      </Head>
-
-      <div className='flex flex-col min-h-[100vh]'>
-        <AdamWaterDropHero />
-        <section className='w-full py-12 md:py-24 lg:py-32 bg-grey'>
-          <div className='container mx-auto flex flex-col items-center justify-center gap-8 px-4 md:px-6 text-center'>
-            <div className='flex flex-col items-center justify-center space-y-4'>
-              <Reveal>
-                <>
-                  <h2 className='text-3xl font-bold tracking-tight md:text-4xl text-gold pt-4'>
-                    Got a question? We can help!
-                  </h2>
-                  <hr className='bg-gold h-1 w-16 mx-auto mt-4' />
-                </>
-              </Reveal>
-              <Reveal>
-                <AdamOutlineCards />
-              </Reveal>
-            </div>
-          </div>
-        </section>
-      </div>
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <ProfilePage slug='adam-young' />
     </>
   );
 }
