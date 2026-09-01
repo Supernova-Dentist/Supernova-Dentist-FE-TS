@@ -39,7 +39,7 @@ export default function DentalImplantsContent() {
 
         {/* <CamSection /> */}
         {/* <div className='bg-cream'>
-        <SaraSection />
+        
       </div> */}
 
         {/* <div className=''>

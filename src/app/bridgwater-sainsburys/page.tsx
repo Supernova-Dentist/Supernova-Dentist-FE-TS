@@ -215,14 +215,6 @@ export default function Home() {
           'I am extremely nervous of the dentist, the care and treatment I received from Kayleigh was excellent, fully understood how I felt, talked through every step. Had further treatment with Scott again treatment and care excellent. Thank you both.',
         reviewRating: { '@type': 'Rating', ratingValue: '5' },
       },
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'Verified Patient' },
-        datePublished: '2025-09-13', // 3 weeks ago
-        reviewBody:
-          'After reading the reviews I thought I’d give Supernova Dental a go. So glad I did, Sara and team were all brilliant. Thank you all for making me feel at ease.',
-        reviewRating: { '@type': 'Rating', ratingValue: '5' },
-      },
     ],
 
     hasOfferCatalog: {

@@ -83,12 +83,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://www.supernovadental.co.uk/our-journey</loc>
-    <lastmod>2025-03-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <!-- Privacy Policy Page -->
   <url>
@@ -177,12 +171,6 @@
   <url>
     <loc>https://www.supernovadental.co.uk/team/dr-souad-maddi</loc>
     <lastmod>2026-01-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.supernovadental.co.uk/team/dr-jacqueline-amarin</loc>
-    <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
