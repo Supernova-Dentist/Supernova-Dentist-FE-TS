@@ -1,3 +1,4 @@
+import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
 import { DentallyPortal } from '@/lib/constants';
 import { practiceLocation } from '@/lib/practiceLocation';
 import Link from 'next/link';
@@ -41,6 +42,16 @@ export default function FindUsInfoSection() {
                 >
                   Make an enquiry
                 </Link>
+              </div>
+            </div>
+
+            <div className='mt-8 border-t border-stone pt-7'>
+              <h3 className='text-2xl'>Plan your route</h3>
+              <p className='mt-4 leading-7 text-taupe'>
+                Enter your postcode to open directions to Supernova Dental in Google Maps.
+              </p>
+              <div className='mt-5 max-w-md'>
+                <GetDirectionsForm />
               </div>
             </div>
           </div>

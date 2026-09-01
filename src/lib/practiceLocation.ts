@@ -111,7 +111,8 @@ export const practiceLocation = {
     longitude: -2.99336,
     latitude: 51.10969,
   },
-  directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=51.10969%2C-2.99336',
+  directionsUrl:
+    'https://www.google.com/maps/search/?api=1&query=Supernova%20Dental%2C%20Supernova%20Building%2C%20Marsh%20Lane%2C%20Huntworth%20Gate%2C%20Bridgwater%20TA6%206LQ',
   openingHours: [
     { day: 'Monday–Friday', hours: '08:15–18:15' },
     { day: 'Saturday', hours: '09:00–13:00' },
