@@ -47,7 +47,7 @@ export default function MobileNavigation({ active, setActive }: MobileNavigation
   };
 
   return (
-    <nav className='relative flex min-h-20 items-center border-b border-white/10 px-4 py-4'>
+    <div className='relative flex min-h-20 items-center border-b border-white/10 px-4 py-4'>
       {/* Center Logo (hidden when menu open) */}
       {!active && showContent && (
         <motion.div
@@ -56,7 +56,7 @@ export default function MobileNavigation({ active, setActive }: MobileNavigation
           transition={{ duration: 0.2 }}
           className='absolute left-1/2 -translate-x-1/2'
         >
-          <Link href='/'>
+          <Link href='/' className='inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'>
             <img src='/favicon.ico' alt='Supernova Dental Logo' className='h-10 w-auto' />
           </Link>
         </motion.div>
@@ -64,6 +64,6 @@ export default function MobileNavigation({ active, setActive }: MobileNavigation
 
       {/* Corner Nav (hamburger + overlay) */}
       <CornerNav active={active} setActive={setActive} handleClose={handleClose} />
-    </nav>
+    </div>
   );
 }

@@ -4,7 +4,6 @@ import { DentallyPortal, navLinks } from '@/lib/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Button from '../Button/Button';
 import FlyoutLink from './FlyoutLink/FlyoutLink';
 
 export default function DesktopNav() {
@@ -47,8 +46,13 @@ export default function DesktopNav() {
           >
             01278 228665
           </a>
-          <Link target='_blank' href={DentallyPortal}>
-            <Button className={isTeamRoute ? 'px-5 py-3 text-grey' : 'text-grey'}>Book Now</Button>
+          <Link
+            target='_blank'
+            rel='noopener noreferrer'
+            href={DentallyPortal}
+            className={`inline-flex min-h-11 items-center justify-center rounded bg-gold text-sm font-semibold text-grey transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark ${isTeamRoute ? 'px-5 py-3' : 'px-6 py-4'}`}
+          >
+            Book Now
           </Link>
         </li>
       </ul>

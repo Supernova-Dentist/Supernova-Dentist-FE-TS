@@ -48,7 +48,7 @@ function TeamHero() {
 
 function TeamCard({ member, priority }: { member: TeamMember; priority: boolean }) {
   return (
-    <article className='team-card group relative overflow-hidden rounded-[1.5rem] border border-obsidian/10 bg-porcelain shadow-[0_18px_50px_rgba(11,18,24,0.07)] transition-[border-color,box-shadow,transform] duration-200 hover:border-champagne/80 hover:shadow-[0_22px_60px_rgba(11,18,24,0.12)] focus-within:border-champagne focus-within:ring-2 focus-within:ring-champagne focus-within:ring-offset-4'>
+    <article className='team-card group relative overflow-hidden rounded-[1.5rem] border border-obsidian/10 bg-porcelain shadow-[0_18px_50px_rgba(11,18,24,0.07)] transition-[border-color,box-shadow,transform] duration-200 hover:border-champagne/80 hover:shadow-[0_22px_60px_rgba(11,18,24,0.12)] focus-within:border-gold-text-light focus-within:ring-2 focus-within:ring-focus-light focus-within:ring-offset-4'>
       <Link
         href={`/team/${member.slug}`}
         className='block rounded-[1.5rem] focus-visible:outline-none'
@@ -107,11 +107,10 @@ function TeamGrid() {
             return (
               <SectionReveal key={group}>
                 <section aria-labelledby={sectionId}>
-                  <div className='mb-8 flex items-end justify-between gap-6 border-b border-obsidian/15 pb-4'>
+                  <div className='mb-8 border-b border-obsidian/15 pb-4'>
                     <h3 id={sectionId} className='text-3xl font-normal text-obsidian sm:text-4xl'>
                       {group}
                     </h3>
-                    <span className='text-sm tabular-nums text-taupe'>{String(members.length).padStart(2, '0')}</span>
                   </div>
                   <div className='grid gap-7 sm:grid-cols-2 lg:grid-cols-3'>
                     {members.map((member) => {
@@ -156,7 +155,7 @@ function TeamClosingCta() {
         </div>
         <a
           href='tel:+441278228665'
-          className='mt-10 inline-flex min-h-11 items-center gap-2 rounded-md text-sm text-ivory/70 transition-colors duration-200 hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne'
+          className='mt-10 inline-flex min-h-11 items-center gap-2 rounded-md text-sm text-ivory/70 transition-colors duration-200 hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'
         >
           <FiPhone aria-hidden='true' /> 01278 228665
         </a>

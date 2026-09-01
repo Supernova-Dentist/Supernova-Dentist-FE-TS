@@ -119,7 +119,7 @@ function ExpertiseSection({ member }: { member: TeamMember }) {
               <Link
                 key={item.href}
                 href={item.href}
-                className='group grid min-h-24 grid-cols-[auto_1fr_auto] items-center gap-5 py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-4'
+                className='group grid min-h-24 grid-cols-[auto_1fr_auto] items-center gap-5 py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light focus-visible:ring-offset-4'
               >
                 <span className='text-sm tabular-nums text-bronze-ink'>{String(index + 1).padStart(2, '0')}</span>
                 <span className='text-2xl text-obsidian sm:text-3xl'>{item.title}</span>

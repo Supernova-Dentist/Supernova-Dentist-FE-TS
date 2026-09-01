@@ -17,6 +17,11 @@
     --champagne: #c6a15b;
     --bronze: #a97745;
     --bronze-ink: #7d522c;
+    --gold-text-light: #7d522c;
+    --gold-text-dark: #d5b977;
+    --focus-light: #7d522c;
+    --focus-dark: #d5b977;
+    --control-border: #8b8275;
     --taupe: #71665d;
     --stone: #e8dfd3;
     --font-playfair: 'Playfair Display', serif;
@@ -135,6 +140,147 @@
   }
 }
 
+/* Consultation journeys: retain their existing form contracts while bringing the presentation into the rebrand. */
+.campaign-experience {
+  background: var(--porcelain);
+  color: var(--obsidian);
+}
+
+.campaign-promotion-form > div > .container {
+  width: 100%;
+  max-width: 75rem;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.campaign-promotion-form .shadow-2xl {
+  border-color: var(--stone);
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(11, 18, 24, 0.12);
+}
+
+.campaign-promotion-form h3 {
+  color: var(--obsidian);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.campaign-promotion-form label {
+  color: var(--obsidian);
+  font-weight: 600;
+}
+
+.campaign-promotion-form input,
+.campaign-promotion-form button[role='combobox'] {
+  min-height: 48px;
+  border-color: var(--control-border);
+  background: var(--porcelain);
+  color: var(--obsidian);
+}
+
+.campaign-promotion-form button[type='submit'] {
+  min-height: 48px;
+  border-radius: 9999px;
+  background: var(--champagne);
+  color: var(--obsidian);
+  font-weight: 600;
+}
+
+.campaign-promotion-form button[type='submit']:hover {
+  background: var(--lightGold);
+}
+
+.campaign-promotion-form button[type='button'][class*='text-blue'] {
+  min-height: 44px;
+  color: var(--bronze-ink);
+}
+
+.campaign-promotion-form :where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--focus-light);
+  outline-offset: 3px;
+}
+
+.campaign-promotion-form img {
+  min-height: 32rem;
+  object-fit: cover;
+}
+
+.campaign-trust-strip > div {
+  width: 100%;
+  padding-top: 0;
+}
+
+.campaign-trust-strip > div > div {
+  border-color: var(--stone);
+}
+
+.campaign-trust-strip h3 {
+  color: var(--obsidian);
+  font-family: var(--font-body);
+}
+
+.campaign-trust-strip svg {
+  color: var(--lightGold);
+}
+
+.campaign-support > section {
+  width: 100%;
+  max-width: 80rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.campaign-support h2,
+.campaign-reviews h2 {
+  color: var(--obsidian);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.campaign-support .text-gold,
+.campaign-reviews .text-gold {
+  color: var(--bronze-ink);
+}
+
+.campaign-support button,
+.campaign-reviews button {
+  min-height: 48px;
+  border-radius: 9999px;
+  background: var(--obsidian);
+  color: var(--ivory);
+}
+
+.campaign-support button:hover,
+.campaign-reviews button:hover {
+  background: var(--deep-navy);
+}
+
+.campaign-support :where(a, button):focus-visible,
+.campaign-reviews :where(a, button):focus-visible {
+  outline: 2px solid var(--focus-light);
+  outline-offset: 3px;
+}
+
+.campaign-reviews > #reviews {
+  width: 100%;
+  max-width: 80rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+@media (max-width: 1023px) {
+  .campaign-promotion-form img {
+    min-height: 20rem;
+  }
+}
+
 /* Service pages share a warm editorial surface without changing their data or form behaviour. */
 .service-experience {
   min-width: 0;
@@ -180,8 +326,13 @@
 }
 
 .service-experience :where(a, button, input, textarea, select):focus-visible {
-  outline: 2px solid var(--champagne);
+  outline: 2px solid var(--focus-light);
   outline-offset: 3px;
+}
+
+.service-experience :where(.bg-obsidian, .bg-deep-navy, .bg-grey, .bg-black, .bg-slate-950)
+  :where(a, button, input, textarea, select):focus-visible {
+  outline-color: var(--focus-dark);
 }
 
 .service-experience :where(input:not([type='checkbox']):not([type='radio']), textarea, select) {
@@ -249,7 +400,7 @@
 }
 
 .supernova-map-popup .mapboxgl-popup-close-button:focus-visible {
-  outline: 2px solid var(--champagne);
+  outline: 2px solid var(--focus-light);
   outline-offset: -4px;
 }
 
@@ -294,7 +445,7 @@
 
 .supernova-map-popup-actions a:focus-visible {
   border-radius: 2px;
-  outline: 2px solid var(--champagne);
+  outline: 2px solid var(--focus-light);
   outline-offset: 3px;
 }
 

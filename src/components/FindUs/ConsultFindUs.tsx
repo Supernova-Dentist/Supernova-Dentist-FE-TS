@@ -21,14 +21,14 @@ export default function ConsultFindUs() {
       <div className='w-full max-w-7xl px-6 sm:px-8 lg:px-12'>
         <section ref={ref} className='mb-12'>
           {/* Heading */}
-          <motion.h1
+          <motion.h2
             className='text-4xl sm:text-5xl font-bold my-8 text-center text-grey'
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
           >
             Visit Our Practice
-          </motion.h1>
+          </motion.h2>
 
           {/* Subheading */}
           <motion.p

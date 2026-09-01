@@ -59,7 +59,7 @@ export default function Footer() {
                       target='_blank'
                       rel='noopener noreferrer'
                       aria-label={`Visit Supernova Dental on ${social.name}`}
-                      className='bg-gold p-1 rounded-sm flex justify-center items-center'
+                      className='flex min-h-11 min-w-11 items-center justify-center rounded-sm bg-gold p-1 text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'
                     >
                       <div className='bg-gold p-1 rounded-sm flex justify-center items-center'>{social.icon}</div>
                     </Link>
@@ -74,10 +74,10 @@ export default function Footer() {
                 <li>Phone: 01278 228665</li>
                 <li>WhatsApp: 07863 338815</li>
                 <li className='flex gap-2'>
-                  <a href='mailto:enquiries@supernovadental.co.uk' className='bg-gold py-1 px-2 rounded-sm text-white'>
+                  <a href='mailto:enquiries@supernovadental.co.uk' className='inline-flex min-h-11 items-center rounded-sm bg-gold px-3 py-2 font-semibold text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'>
                     Email Us
                   </a>
-                  <a href='tel:+441278228665' className='bg-gold py-1 px-2 rounded-sm text-white'>
+                  <a href='tel:+441278228665' className='inline-flex min-h-11 items-center rounded-sm bg-gold px-3 py-2 font-semibold text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'>
                     Call Us
                   </a>
                 </li>
