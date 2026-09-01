@@ -71,8 +71,18 @@ const nextConfig = {
       },
       {
         source: '/carees/dental-nurse',
-        destination: '/dental-nurse',
-        permanent: false,
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/careers/dental-nurse',
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/careers/associate-dentist-jobs/:location',
+        destination: '/careers/associate-dentist-bridgwater-somerset',
+        permanent: true,
       },
     ];
   },

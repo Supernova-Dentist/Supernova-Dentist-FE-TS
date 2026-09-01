@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Dental Careers & Jobs in Bridgwater, Somerset | Supernova Dental',
   description:
     'Discover dental careers and job opportunities at Supernova Dental in Bridgwater, Somerset. Join our modern private dental practice and become part of a supportive clinical team.',
+  alternates: { canonical: '/careers' },
   keywords:
     'dental jobs Bridgwater, dentist jobs Somerset, associate dentist jobs Bridgwater, dental nurse jobs Somerset, treatment coordinator jobs Bridgwater, dental careers Somerset, Supernova Dental jobs, dental practice vacancies',
 };

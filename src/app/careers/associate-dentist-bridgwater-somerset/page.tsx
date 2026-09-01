@@ -11,6 +11,7 @@ export const metadata = {
   title: 'Associate Dentist Jobs in Bridgwater, Somerset | Supernova Dental Careers',
   description:
     'Apply for an Associate Dentist position at Supernova Dental in Bridgwater, Somerset. Join our modern fully private practice with mentorship, advanced technology, Invisalign opportunities and excellent career development.',
+  alternates: { canonical: '/careers/associate-dentist-bridgwater-somerset' },
   keywords:
     'associate dentist jobs Bridgwater, associate dentist jobs Somerset, general dentist jobs Bridgwater, general dentist jobs Somerset, private dentist jobs Somerset, Invisalign dentist jobs, cosmetic dentist jobs, dentist careers Somerset, Supernova Dental careers',
 };

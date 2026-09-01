@@ -33,12 +33,14 @@ import ImplantUSPS from '@/components/USPS/ImplantUSPS';
 import SainsburysUSPS from '@/components/USPS/SainsburysUSPS';
 import USPS from '@/components/USPS/USPS';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
-import Head from 'next/head';
 
 export const metadata = {
   title: "Dentist Near Sainsbury's Bridgwater | Supernova Dental",
   description:
     "Looking for a dentist near Sainsbury's in Bridgwater? Supernova Dental is just minutes away at Huntworth Gate, welcoming new private patients for cosmetic, general and emergency dentistry.",
+  alternates: {
+    canonical: '/bridgwater-sainsburys',
+  },
   keywords:
     "dentist near Sainsbury's Bridgwater, dentist Bridgwater Sainsbury's, private dentist Bridgwater, dentist near Huntworth Gate, emergency dentist Bridgwater, Invisalign Bridgwater, cosmetic dentist Bridgwater, dental implants Bridgwater, new dentist Bridgwater, dentist near Bridgwater retail park",
   openGraph: {
@@ -155,11 +157,6 @@ export default function Home() {
       },
     ],
 
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '169',
-    },
 
     review: [
       {
@@ -241,7 +238,7 @@ export default function Home() {
         {
           '@type': 'Offer',
           name: 'Dental Implants',
-          url: 'https://www.supernovadental.co.uk/dental-implants',
+          url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants',
         },
         {
           '@type': 'Offer',
@@ -273,23 +270,12 @@ export default function Home() {
 
   return (
     <main>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name='description' content={metadata.description} />
-        <meta name='keywords' content={metadata.keywords} />
-        <meta property='og:title' content={metadata.openGraph.title} />
-        <meta property='og:description' content={metadata.openGraph.description} />
-        <meta property='og:url' content={metadata.openGraph.url} />
-        <meta property='og:type' content={metadata.openGraph.type} />
-        <meta property='og:image' content={metadata.openGraph.images[0].url} />
-        <link rel='canonical' href='https://www.supernovadental.co.uk' />
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
-      </Head>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({ ...structuredData, review: undefined }),
+        }}
+      />
       <div className='hidden lg:block'>
         <SainsburysUSPS />
       </div>

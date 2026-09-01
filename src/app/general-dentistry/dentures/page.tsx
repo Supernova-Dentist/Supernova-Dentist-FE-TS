@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Dentures in Bridgwater | Supernova Dental',
   description:
     'High-quality dentures at Supernova Dental in Bridgwater, Somerset. Restore your smile with comfortable full and partial dentures tailored to your needs. Book your consultation today.',
+  alternates: {
+    canonical: '/general-dentistry/dentures',
+  },
   keywords:
     'dentures Bridgwater, dentures Somerset, full dentures Bridgwater, partial dentures Somerset, false teeth Bridgwater, denture clinic Somerset, replacement teeth Bridgwater, private dentist dentures Somerset, Supernova Dental dentures',
 };

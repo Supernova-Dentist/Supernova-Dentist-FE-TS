@@ -47,7 +47,7 @@ export default function Search() {
           e.preventDefault();
           router.push(`/${referringPage}`);
         }}
-        className='inline-flex min-h-11 items-center gap-2 rounded-full border border-[#ded8cc] bg-white px-4 text-sm font-semibold text-[#171923] transition-colors hover:border-[#b9975b] hover:bg-[#f7f5f0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b9975b]'
+        className='inline-flex min-h-11 items-center gap-2 rounded-full border border-control-border bg-white px-4 text-sm font-semibold text-obsidian transition-colors hover:border-gold-text-light hover:bg-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'
       >
         <ArrowLeftIcon className='h-5 w-5' />
         Back to {referringPageDisplay}

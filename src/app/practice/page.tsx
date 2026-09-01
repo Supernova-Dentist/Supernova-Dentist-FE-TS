@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Our Dental Practice in Bridgwater | Supernova Dental',
   description:
     'Discover Supernova Dental in Bridgwater, a modern private dental practice with advanced facilities, technology and a welcoming patient experience. Book a complimentary practice tour.',
+  alternates: {
+    canonical: '/practice',
+  },
   keywords:
     'dentist Bridgwater, dental practice Bridgwater, private dentist Bridgwater, dental practice Somerset, modern dental practice Bridgwater, new dental practice Bridgwater, dentist near Bridgwater, dental clinic Bridgwater, dental facilities Bridgwater, private dental care Bridgwater, complimentary practice tour, dental practice tour Bridgwater, Supernova Dental',
 };

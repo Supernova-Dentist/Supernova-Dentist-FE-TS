@@ -12,6 +12,9 @@ export const metadata = {
   title: 'Flexible Dental Finance Plans | Bridgwater | Supernova Dental',
   description:
     'Dental finance in Bridgwater, Somerset at Supernova Dental. Spread the cost with 0% finance for up to 12 months and affordable monthly payments for treatment.',
+  alternates: {
+    canonical: '/general-dentistry/dental-finance',
+  },
   keywords: [
     'Dental finance Bridgwater',
     'Flexible dental finance Somerset',

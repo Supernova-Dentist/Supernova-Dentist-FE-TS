@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'White Composite Fillings in Bridgwater | Supernova Dental',
   description:
     'White composite fillings in Bridgwater, Somerset. Supernova Dental provides durable, natural-looking tooth-coloured fillings to restore and protect your smile.',
+  alternates: {
+    canonical: '/general-dentistry/white-composite-fillings',
+  },
   keywords:
     'white fillings Bridgwater, white fillings Somerset, composite fillings Bridgwater, composite fillings Somerset, tooth-coloured fillings Bridgwater, cavity treatment Bridgwater, dental fillings Bridgwater, dental fillings Somerset, Supernova Dental, dental care Taunton, dental care Highbridge, dental care Burnham-on-Sea',
 };

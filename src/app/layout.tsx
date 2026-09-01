@@ -23,13 +23,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.supernovadental.co.uk'),
   title: 'Supernova Dental | Private Dentist in Bridgwater, Somerset',
   description:
-    'Supernova Dental is a trusted private dental practice in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants, and same-day appointments. Accepting patients from Bridgwater, Taunton, and surrounding areas.',
-  keywords:
-    'private dentist Bridgwater, cosmetic dentist Somerset, general dentistry Bridgwater, dental implants Somerset, same-day dental appointments, emergency dentist Bridgwater, best dentist in Bridgwater',
+    'Supernova Dental is a private dental practice in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants and same-day emergency appointments for new and existing patients.',
   openGraph: {
     title: 'Supernova Dental | Private Dentist in Bridgwater, Somerset',
     description:
-      'Supernova Dental offers expert cosmetic and general dental care in Bridgwater, Somerset. Accepting patients from Bridgwater, Taunton, and surrounding areas.',
+      'Supernova Dental offers cosmetic and general dental care in Bridgwater, including dental implants and same-day emergency appointments.',
     url: 'https://www.supernovadental.co.uk/',
     type: 'website',
     locale: 'en_GB',
@@ -53,7 +51,7 @@ const structuredData = {
   logo: 'https://www.supernovadental.co.uk/assets/images/logo.png',
   image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
   description:
-    'Supernova Dental is a trusted private dental practice in Bridgwater, Somerset, offering cosmetic and general dentistry, dental implants, same-day appointments, and flexible payment plans.',
+    'Supernova Dental is a private dental practice in Bridgwater, Somerset, offering cosmetic and general dentistry, dental implants, same-day emergency appointments and payment plans.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
@@ -90,11 +88,6 @@ const structuredData = {
     'https://www.instagram.com/supernova.dental/',
     'https://g.co/kgs/qqvPcF1',
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '169',
-  },
 };
 
 export default function RootLayout({
@@ -138,9 +131,6 @@ export default function RootLayout({
         </Script>
 
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
-
-        {/* Crazy Egg */}
-        <Script src='//script.crazyegg.com/pages/scripts/0131/3081.js' strategy='afterInteractive' async />
 
         {/* Meta Pixel with Cookiebot Compliance */}
         {/* <Script id='meta-pixel' strategy='afterInteractive'>

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Dental Referral Form | Bridgwater Dentist | Supernova Dental',
   description:
     'Refer patients to Supernova Dental in Bridgwater for expert implants, oral surgery, CBCT/OPG imaging and Invisalign with a fast, simple referral process.',
+  alternates: { canonical: '/professional-referrals' },
   keywords:
     'dental referral Bridgwater, patient referral Somerset, dental referral form, refer patient to dentist, implant referral Somerset, oral surgery referral, CBCT referral Bridgwater, OPG referral Somerset, Invisalign referral, Supernova Dental referrals, dental specialist referral',
 };

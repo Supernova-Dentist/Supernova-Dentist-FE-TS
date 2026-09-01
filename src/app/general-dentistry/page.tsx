@@ -5,6 +5,17 @@ export const metadata: Metadata = {
   title: 'General Dentistry in Bridgwater, Somerset | Supernova Dental',
   description:
     'Looking for a dentist in Bridgwater? Supernova Dental provides general dentistry, including checkups, hygiene visits and emergency appointments.',
+  alternates: {
+    canonical: '/general-dentistry',
+  },
+  openGraph: {
+    title: 'General Dentistry in Bridgwater | Supernova Dental',
+    description:
+      'Explore general dental care at Supernova Dental in Bridgwater, including checkups, hygiene appointments and urgent dental support.',
+    url: '/general-dentistry',
+    siteName: 'Supernova Dental',
+    type: 'website',
+  },
   keywords:
     'general dentistry Bridgwater, general dentistry Somerset, general dentistry Taunton, emergency dentist Bridgwater, emergency dentist Somerset, dental hygiene Bridgwater, dental hygiene Somerset, dentist checkup Bridgwater, oral health Bridgwater, routine dental care Somerset, family dentistry Bridgwater, family dentistry Somerset, Supernova Dental',
 };

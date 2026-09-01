@@ -5,9 +5,9 @@ import Image from 'next/image';
 import logo from '../../../src/app/favicon.ico';
 
 export const metadata = {
-  title: 'Dental practice in Somerset | Privacy Policy | Supernova Dental ',
-  description:
-    'A trusted private dentist in Bridgwater, Somerset, Supernova Dental offers cosmetic and general dentistry, dental implants and same-day appointments.',
+  title: 'Privacy Policy | Supernova Dental',
+  description: 'Read how Supernova Dental handles personal information and privacy when you use our website and services.',
+  alternates: { canonical: '/privacy-policy' },
   keywords:
     'Supernova Dental privacy policy, data protection, personal information, GDPR compliance, dental practice privacy, patient data security, how we use your data, dental website privacy, privacy rights, contact for privacy concerns',
 };

@@ -120,27 +120,27 @@ export const services = [
   // },
   {
     name: 'Emergency Dentistry',
-    link: '/emergency-dentistry',
+    link: '/general-dentistry/emergency-dentistry',
   },
   {
     name: 'Dental Implants',
-    link: '/dental-implants',
+    link: '/cosmetic-dentistry/dental-implants',
   },
   {
     name: 'Invisalign',
-    link: '/invisalign',
+    link: '/cosmetic-dentistry/invisalign',
   },
   {
     name: 'Dental Therapist',
-    link: '/dental-therapist',
+    link: '/general-dentistry/dental-therapist',
   },
   {
     name: 'Dental Hygiene',
-    link: '/dental-hygiene',
+    link: '/general-dentistry/dental-hygiene',
   },
   {
     name: 'Dental Finance',
-    link: '/dental-finance',
+    link: '/general-dentistry/dental-finance',
   },
 ];
 

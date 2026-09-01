@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Oral Surgery Referral in Bridgwater | Supernova Dental',
   description:
     'Refer patients for oral surgery at Supernova Dental in Bridgwater. Expert care for extractions and minor surgery with fast appointments and clear updates.',
+  alternates: { canonical: '/professional-referrals/oral-surgery-referral' },
   keywords:
     'oral surgery referral Bridgwater, dental extraction referral Somerset, minor oral surgery, wisdom tooth removal, Supernova Dental oral surgery, dental referral Somerset, oral surgeon Bridgwater, professional dental referral, dentist referral oral surgery',
 };

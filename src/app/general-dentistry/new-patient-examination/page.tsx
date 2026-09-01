@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'New Patient Dental Examination | Supernova Dental, Bridgwater',
   description:
     'Book your new patient dental examination at Supernova Dental in Bridgwater, Somerset. Our expert team provides thorough check-ups for adults and children to ensure a healthy smile.',
+  alternates: {
+    canonical: '/general-dentistry/new-patient-examination',
+  },
   keywords:
     'new patient dentist Bridgwater, new patient dental exam Somerset, dental check-up Bridgwater, first dental appointment Bridgwater, register as new patient Somerset, family dentist Bridgwater, private dentist Somerset, dental examination Bridgwater, oral health check Bridgwater, Supernova Dental new patient',
 };

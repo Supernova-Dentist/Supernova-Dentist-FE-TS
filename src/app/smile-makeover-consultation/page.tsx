@@ -1,40 +1,26 @@
-import AboutSection from '@/components/AboutSection/AboutSection';
 import ConsultAboutSection from '@/components/AboutSection/ConsultAboutSection';
-import { AccessibilityWidget } from '@/components/blocks/AccessibilityWidget/AccessibilityWidget';
 import GoogleReviews from '@/components/blocks/GoogleReviews/GoogleReviews';
-import Welcome from '@/components/blocks/Welcome/Welcome';
-import ComingSoonSection from '@/components/ComingSoon/ComingSoon';
 import ComseticCTABridgeSection from '@/components/CosmeticCTABridgeSection/CosmeticCTABridgeSection';
-import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 import ConsultFindUs from '@/components/FindUs/ConsultFindUs';
-import FindUsSection from '@/components/FindUsSection/FindUsSection';
-import JoinUsSection from '@/components/JoinUsSection/JoinUsSection';
-import { Journey } from '@/components/Journey/Journey';
-import PracticeFAQsSection from '@/components/PracticeFAQsSection/PracticeFAQsSection';
-import Pricing from '@/components/Pricing/Pricing';
-import PromotionFAQ from '@/components/PromotionFAQ/PromotionFAQ';
+import ConsultationTrustStrip from '@/components/ConsultationTrustStrip/ConsultationTrustStrip';
+import { consultationTrustContent } from '@/components/ConsultationTrustStrip/consultationTrustContent';
 import ConsultationPromotionForm from '@/components/PromotionForm/ConsultationPromotionForm';
-import PromotionForm from '@/components/PromotionForm/PromotionForm';
-import ServicesSelection from '@/components/ServicesSelection/ServicesSelection';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { ConsultationSparklesPreview } from '@/components/SparklesPreview/ConsultationSparklesPreview';
-import { SparklesPreview } from '@/components/SparklesPreview/SparklesPreview';
-import TeamSection from '@/components/TeamSection/TeamSection';
-import USPS from '@/components/USPS/USPS';
-import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
-import Head from 'next/head';
 
 export const metadata = {
   title: 'Private Dentist in Bridgwater, Somerset | Supernova Dental',
   description:
     'Private dentist in Bridgwater, Somerset. Supernova Dental offers cosmetic and general dentistry, dental implants and flexible payment options for new patients.',
+  alternates: { canonical: '/smile-makeover-consultation' },
+  robots: { index: false, follow: true },
   keywords:
-    'private dentist Bridgwater, new dentist bridgwater, taking new patients, cosmetic dentist Bridgwater, general dentist Bridgwater, dental implants Somerset, same-day dental appointments Bridgwater, dental payment plans, emergency dentist Bridgwater, cosmetic dentistry Somerset, dental care near Taunton',
+    'private dentist Bridgwater, new dentist Bridgwater, taking new patients, cosmetic dentist Bridgwater, general dentist Bridgwater, dental implants Somerset, same-day emergency dentist Bridgwater, dental payment plans, cosmetic dentistry Somerset, dental care near Taunton',
   openGraph: {
     title: 'Private Dentist Bridgwater, Somerset | Cosmetic & General Dentistry',
     description:
-      'Looking for a trusted dentist in Bridgwater, Somerset? Supernova Dental offers cosmetic and general dentistry, dental implants, and same-day appointments. Accepting new patients from Bridgwater, Taunton, and surrounding areas.',
-    url: 'https://www.supernovadental.co.uk',
+      'Supernova Dental offers cosmetic and general dentistry, dental implants and same-day emergency appointments in Bridgwater, Somerset.',
+    url: 'https://www.supernovadental.co.uk/smile-makeover-consultation',
     type: 'website',
     images: [
       {
@@ -54,7 +40,7 @@ export default function Home() {
     name: 'Supernova Dental',
     url: 'https://www.supernovadental.co.uk',
     description:
-      'Supernova Dental is a trusted private dental practice in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants, Invisalign consultations, same-day appointments, and flexible payment plans.',
+      'Supernova Dental is a private dental practice in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants, Invisalign consultations, same-day emergency appointments and payment plans.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
@@ -150,11 +136,6 @@ export default function Home() {
         reviewRating: { '@type': 'Rating', ratingValue: '5' },
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '169',
-    },
     sameAs: [
       'https://www.facebook.com/profile.php?id=61567279201971',
       'https://www.instagram.com/supernova.dental/',
@@ -193,39 +174,33 @@ export default function Home() {
   };
 
   return (
-    <main>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name='description' content={metadata.description} />
-        <meta name='keywords' content={metadata.keywords} />
-        <meta property='og:title' content={metadata.openGraph.title} />
-        <meta property='og:description' content={metadata.openGraph.description} />
-        <meta property='og:url' content={metadata.openGraph.url} />
-        <meta property='og:type' content={metadata.openGraph.type} />
-        <meta property='og:image' content={metadata.openGraph.images[0].url} />
-        <link rel='canonical' href='https://www.supernovadental.co.uk' />
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
-      </Head>
-      <div className='hidden lg:block'>
-        <USPS />
-      </div>
+    <main className='campaign-experience min-w-0 overflow-x-clip bg-porcelain text-obsidian'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({ ...structuredData, review: undefined }),
+        }}
+      />
       <ConsultationSparklesPreview />
-      <ConsultationPromotionForm />
-      <div className='block lg:hidden'>
-        <USPS />
+      <section id='consultation-form' className='scroll-mt-24 bg-porcelain px-5 py-16 sm:px-8 lg:px-12 lg:py-24' aria-label='Cosmetic consultation enquiry'>
+        <ConsultationPromotionForm />
+      </section>
+      <div className='campaign-trust-strip bg-ivory px-5 py-4 sm:px-8 lg:px-12'>
+        <ConsultationTrustStrip content={consultationTrustContent.cosmetic} />
       </div>
-      <ConsultAboutSection />
+      <div className='campaign-support bg-porcelain'>
+        <ConsultAboutSection />
+      </div>
 
       {/* <Pricing /> */}
 
-      <SmileTransformations />
-      <ComseticCTABridgeSection />
-      <GoogleReviews />
+      <div className='campaign-support bg-ivory'>
+        <SmileTransformations />
+        <ComseticCTABridgeSection />
+      </div>
+      <div className='campaign-reviews bg-porcelain'>
+        <GoogleReviews />
+      </div>
       <ConsultFindUs />
       {/* <Journey /> */}
       {/* <VideoAnimationSection /> */}

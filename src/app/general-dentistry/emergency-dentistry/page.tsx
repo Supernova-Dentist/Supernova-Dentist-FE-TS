@@ -6,6 +6,17 @@ export const metadata: Metadata = {
   title: 'Emergency Dentist in Bridgwater, Somerset | Supernova Dental',
   description:
     'Emergency dentist in Bridgwater. Supernova Dental offers same-day appointments for tooth pain, infection or broken teeth. Fast relief for urgent dental problems.',
+  alternates: {
+    canonical: '/general-dentistry/emergency-dentistry',
+  },
+  openGraph: {
+    title: 'Emergency Dentist in Bridgwater | Supernova Dental',
+    description:
+      'Contact Supernova Dental in Bridgwater for urgent dental problems, including tooth pain, infection and broken teeth.',
+    url: '/general-dentistry/emergency-dentistry',
+    siteName: 'Supernova Dental',
+    type: 'website',
+  },
   keywords:
     'emergency dentist Bridgwater, emergency dentist Somerset, tooth pain Bridgwater, tooth extraction Bridgwater, tooth infection Somerset, emergency dental care Bridgwater, urgent dentist Bridgwater, broken tooth Bridgwater, same day dental appointment Bridgwater, Saturday dental appointments Bridgwater, Supernova Dental emergency dentist, emergency dentist Taunton, emergency dentist Highbridge, emergency dentist Burnham-on-Sea',
 };
@@ -14,7 +25,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
   name: 'Supernova Dental - Emergency Dentist Bridgwater, Somerset',
-  url: 'https://www.supernovadental.co.uk/general-dentistry/emergency-dentist',
+  url: 'https://www.supernovadental.co.uk/general-dentistry/emergency-dentistry',
   description:
     'Supernova Dental provides urgent dental care in Bridgwater, Somerset, including same-day appointments for emergencies like tooth pain, tooth infection, broken teeth, and extractions. We also welcome patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas. Saturday appointments available.',
   keywords:
@@ -60,7 +71,7 @@ const structuredData = {
 
 export default function EmergencyDentistry() {
   return (
-    <div className='flex flex-col min-h-[100dvh]'>
+    <main className='flex min-h-[100dvh] flex-col'>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{
@@ -68,6 +79,6 @@ export default function EmergencyDentistry() {
         }}
       />
       <EmergencyDentistryContent />
-    </div>
+    </main>
   );
 }

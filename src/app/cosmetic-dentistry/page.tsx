@@ -6,6 +6,17 @@ export const metadata: Metadata = {
   title: 'Cosmetic Dentistry | Bridgwater, Somerset | Supernova Dental',
   description:
     'Enhance your smile with cosmetic dentistry in Bridgwater. At Supernova Dental we offer Invisalign, dental implants, bonding, veneers and teeth whitening. ',
+  alternates: {
+    canonical: '/cosmetic-dentistry',
+  },
+  openGraph: {
+    title: 'Cosmetic Dentistry in Bridgwater | Supernova Dental',
+    description:
+      'Explore cosmetic dental treatment options at Supernova Dental in Bridgwater, including Invisalign, dental implants, bonding and teeth whitening.',
+    url: '/cosmetic-dentistry',
+    siteName: 'Supernova Dental',
+    type: 'website',
+  },
   keywords:
     'cosmetic dentist Bridgwater, cosmetic dentist Somerset, cosmetic dentist Taunton, Invisalign Bridgwater, dental implants Somerset, composite bonding Bridgwater, veneers Bridgwater, teeth whitening Somerset, smile makeover Somerset, Supernova Dental cosmetic treatments, private dentist Bridgwater, cosmetic dentist Highbridge, cosmetic dentist Burnham-on-Sea',
 };

@@ -135,7 +135,7 @@ export const teamMembers: TeamMember[] = [
     ],
     bookHref: DentallyPortal,
     expertiseHeading: 'How Scott Can Transform Your Smile',
-    expertise: [{ title: 'Invisalign', href: '/invisalign' }],
+    expertise: [{ title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' }],
     video: {
       heading: 'Hear from Scott',
       description: 'Get to know Dr. Scott Young, his journey, and his passion for aesthetics and dentistry.',
@@ -222,8 +222,8 @@ export const teamMembers: TeamMember[] = [
       'https://supernova.portal.dental/book/availability?appointment_type_id=-ER6OsMA7wsw&site_id=e7219c5b-2213-4cd0-a33a-dd826b631e68&practitioner_id=215357',
     expertiseHeading: 'How Kayleigh Can Brighten Your Smile',
     expertise: [
-      { title: 'Dental Therapist', href: '/dental-therapist' },
-      { title: 'Dental Hygiene', href: '/dental-hygiene' },
+      { title: 'Dental Therapist', href: '/general-dentistry/dental-therapist' },
+      { title: 'Dental Hygiene', href: '/general-dentistry/dental-hygiene' },
     ],
     testimonials: kayleighTestimonials,
     testimonialIntro:
@@ -246,7 +246,7 @@ export const teamMembers: TeamMember[] = [
     ],
     bookHref: 'https://supernova.portal.dental/book/',
     expertiseHeading: 'How Tracy Can Help Keep Your Smile Healthy',
-    expertise: [{ title: 'Dental Hygiene', href: '/dental-hygiene' }],
+    expertise: [{ title: 'Dental Hygiene', href: '/general-dentistry/dental-hygiene' }],
   },
   {
     slug: 'victoria-hands',

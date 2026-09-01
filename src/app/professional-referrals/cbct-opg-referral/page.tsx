@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'CBCT & OPG Referral | Bridgwater | Supernova Dental ',
   description:
     'Refer patients to Supernova Dental in Bridgwater for CBCT and OPG dental imaging. Fast turnaround, accurate reports and simple digital referrals for dentists.',
+  alternates: { canonical: '/professional-referrals/cbct-opg-referral' },
   keywords:
     'CBCT referral Bridgwater, OPG referral Somerset, dental imaging referral, 3D dental scan Bridgwater, dental CT scan Somerset, professional dental referral, Supernova Dental CBCT, CBCT OPG Bridgwater, dental radiography referral, dentist imaging Somerset',
 };

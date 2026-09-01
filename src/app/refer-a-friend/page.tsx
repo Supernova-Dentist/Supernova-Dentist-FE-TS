@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     'Refer a friend to Supernova Dental in Bridgwater, and both receive £10 credit after their new patient exam. Earn £50 if they start Invisalign within 2 months.',
   keywords:
     'Refer a friend Bridgwater, dental referral Bridgwater, Supernova Dental referral, Invisalign referral, dental credit offer Bridgwater, new patient exam referral, dental referral bonus, teeth straightening referral',
+  alternates: { canonical: '/refer-a-friend' },
 };
 
 const structuredData = {

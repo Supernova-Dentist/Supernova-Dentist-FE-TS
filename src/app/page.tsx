@@ -119,7 +119,7 @@ export default function Home() {
             <h2 id='services-heading' className='mt-4 text-balance text-4xl font-normal tracking-[-0.03em] sm:text-5xl'>Everyday care. Brighter possibilities.</h2>
             <p className='mt-5 max-w-2xl text-lg leading-8 text-taupe'>From routine appointments to conversations about changing your smile, begin with the care that fits where you are today.</p>
           </div>
-          <Link href='/pricing' className='group inline-flex min-h-11 items-center gap-2 self-start rounded-sm text-sm font-semibold text-bronze-ink underline decoration-champagne/50 underline-offset-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne md:self-auto'>
+          <Link href='/pricing' className='group inline-flex min-h-11 items-center gap-2 self-start rounded-sm text-sm font-semibold text-bronze-ink underline decoration-champagne/50 underline-offset-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light md:self-auto'>
             View treatment pricing <FiArrowRight className='transition-transform group-hover:translate-x-0.5' aria-hidden='true' />
           </Link>
         </div>
@@ -129,7 +129,7 @@ export default function Home() {
             <Link
               key={service.href}
               href={service.href}
-              className={`group relative isolate min-h-[25rem] overflow-hidden rounded-[1.5rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-4 ${index === 0 || index === 3 ? 'lg:min-h-[32rem]' : ''}`}
+              className={`group relative isolate min-h-[25rem] overflow-hidden rounded-[1.5rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light focus-visible:ring-offset-4 ${index === 0 || index === 3 ? 'lg:min-h-[32rem]' : ''}`}
             >
               <Image src={service.image} alt={service.alt} fill sizes='(max-width: 768px) 100vw, 50vw' className='object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]' />
               <div className='absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent' aria-hidden='true' />
@@ -149,7 +149,7 @@ export default function Home() {
 
         <div className='mt-6 grid overflow-hidden rounded-[1.25rem] border border-stone bg-white sm:grid-cols-2 lg:grid-cols-4'>
           {moreServices.map((service) => (
-            <Link key={service.href} href={service.href} className='group flex min-h-24 items-center justify-between gap-4 border-b border-stone px-5 py-5 transition-colors hover:bg-ivory focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-champagne sm:odd:border-r lg:border-b-0 lg:border-r lg:last:border-r-0'>
+            <Link key={service.href} href={service.href} className='group flex min-h-24 items-center justify-between gap-4 border-b border-stone px-5 py-5 transition-colors hover:bg-ivory focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus-light sm:odd:border-r lg:border-b-0 lg:border-r lg:last:border-r-0'>
               <span className='font-semibold'>{service.title}</span>
               <FiArrowRight className='shrink-0 text-bronze transition-transform group-hover:translate-x-0.5' aria-hidden='true' />
             </Link>
@@ -174,7 +174,7 @@ export default function Home() {
                 <li key={item} className='flex gap-3'><span className='mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-champagne/20 text-bronze-ink'><FiCheck aria-hidden='true' /></span>{item}</li>
               ))}
             </ul>
-            <Link href='/practice' className='group mt-9 inline-flex min-h-12 items-center gap-2 rounded-full bg-obsidian px-6 text-sm font-semibold text-ivory transition-colors hover:bg-deep-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2'>
+            <Link href='/practice' className='group mt-9 inline-flex min-h-12 items-center gap-2 rounded-full bg-obsidian px-6 text-sm font-semibold text-ivory transition-colors hover:bg-deep-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light focus-visible:ring-offset-2'>
               Discover our practice <FiArrowRight className='transition-transform group-hover:translate-x-0.5' aria-hidden='true' />
             </Link>
           </div>
@@ -207,14 +207,14 @@ export default function Home() {
             <p className='text-xs font-semibold uppercase tracking-[0.22em] text-bronze-ink'>Patient experiences</p>
             <h2 id='reviews-heading' className='mt-4 text-balance text-4xl font-normal tracking-[-0.03em] sm:text-5xl'>Kind words from our patients.</h2>
             <p className='mt-5 leading-7 text-taupe'>Read feedback shared by patients on Google.</p>
-            <a href='https://g.co/kgs/qqvPcF1' target='_blank' rel='noopener noreferrer' className='group mt-7 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-semibold text-bronze-ink underline decoration-champagne/50 underline-offset-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne'>
+            <a href='https://g.co/kgs/qqvPcF1' target='_blank' rel='noopener noreferrer' className='group mt-7 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-semibold text-bronze-ink underline decoration-champagne/50 underline-offset-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'>
               View our Google profile <FiArrowRight className='transition-transform group-hover:translate-x-0.5' aria-hidden='true' />
             </a>
           </div>
           <div className='grid gap-5 md:grid-cols-3'>
             {featuredReviews.map((review) => (
               <figure key={review.id} className='flex min-h-72 flex-col rounded-[1.25rem] border border-stone bg-white p-6 shadow-[0_16px_45px_rgba(11,18,24,0.05)]'>
-                <div className='text-sm tracking-[0.18em] text-champagne' aria-label={`${review.rating} out of 5 stars`}>{'★'.repeat(review.rating)}</div>
+                <div className='text-sm tracking-[0.18em] text-gold-text-light' aria-label={`${review.rating} out of 5 stars`}>{'★'.repeat(review.rating)}</div>
                 <blockquote className='mt-6 flex-1 text-pretty leading-7 text-taupe'>“{review.review}”</blockquote>
                 <figcaption className='mt-7 border-t border-stone pt-4 text-sm font-semibold text-obsidian'>{review.name}<span className='block pt-1 text-xs font-normal text-taupe'>Google review</span></figcaption>
               </figure>
@@ -231,8 +231,8 @@ export default function Home() {
             <p className='mt-5 text-lg leading-8 text-taupe'>Just off Junction 24 of the M5, with 10 clearly signposted reserved patient parking spaces directly opposite the building.</p>
             <address className='mt-8 not-italic text-sm leading-7 text-taupe'>{practiceLocation.addressLines.map((line) => <span key={line} className='block'>{line}</span>)}</address>
             <div className='mt-7 flex flex-wrap gap-3'>
-              <Link href='/find-us' className='inline-flex min-h-12 items-center gap-2 rounded-full bg-obsidian px-6 text-sm font-semibold text-ivory transition-colors hover:bg-deep-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2'><FiMapPin aria-hidden='true' />Plan your visit</Link>
-              <a href={practiceLocation.directionsUrl} target='_blank' rel='noopener noreferrer' className='inline-flex min-h-12 items-center rounded-full border border-stone bg-white px-6 text-sm font-semibold text-obsidian transition-colors hover:border-champagne focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne'>Get directions</a>
+              <Link href='/find-us' className='inline-flex min-h-12 items-center gap-2 rounded-full bg-obsidian px-6 text-sm font-semibold text-ivory transition-colors hover:bg-deep-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light focus-visible:ring-offset-2'><FiMapPin aria-hidden='true' />Plan your visit</Link>
+              <a href={practiceLocation.directionsUrl} target='_blank' rel='noopener noreferrer' className='inline-flex min-h-12 items-center rounded-full border border-control-border bg-white px-6 text-sm font-semibold text-obsidian transition-colors hover:border-gold-text-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'>Get directions</a>
             </div>
             <div className='mt-8 border-t border-stone pt-6 text-sm text-taupe'>
               <div className='flex gap-3'><FiClock className='mt-1 shrink-0 text-bronze-ink' aria-hidden='true' /><div>{practiceLocation.openingHours.map((hours) => <p key={hours.day}>{hours.day}: {hours.hours}</p>)}</div></div>

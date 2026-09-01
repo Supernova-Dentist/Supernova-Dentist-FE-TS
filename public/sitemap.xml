@@ -222,6 +222,18 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/amy-skinner</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.supernovadental.co.uk/team/vanessa-speier</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- Dental Implants Page -->
   <url>
@@ -322,181 +334,11 @@
   </url>
   
 
-  <!-- Associate Dentist Location Pages -->
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/somerset</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/bridgwater</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/taunton</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/yeovil</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/wells</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/minehead</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/street</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/glastonbury</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/highbridge</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/burnham-on-sea</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/chard</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/wellington</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/watchet</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/weston-super-mare</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/bristol</loc>
-  <lastmod>2026-07-21</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/newport</loc>
-  <lastmod>2026-07-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/cardiff</loc>
-  <lastmod>2026-07-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/bath</loc>
-  <lastmod>2026-07-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/gloucester</loc>
-  <lastmod>2026-07-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/weymouth</loc>
-  <lastmod>2026-07-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/swindon</loc>
-  <lastmod>2026-07-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/cheltenham</loc>
-  <lastmod>2026-07-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/exeter</loc>
-  <lastmod>2026-07-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://www.supernovadental.co.uk/careers/associate-dentist-jobs/monmouthshire</loc>
-  <lastmod>2026-07-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.7</priority>
-</url>
-
 <url>
   <loc>https://www.supernovadental.co.uk/bridgwater-sainsburys</loc>
-  <lastmod>2026-07-22</lastmod>
+  <lastmod>2026-09-01</lastmod>
   <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
+  <priority>0.7</priority>
 </url>
 
 </urlset>

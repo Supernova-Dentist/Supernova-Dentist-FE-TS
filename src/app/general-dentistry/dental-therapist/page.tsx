@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Dental Therapist Services in Bridgwater | Supernova Dental',
   description:
     'Dental therapist services in Bridgwater at Supernova Dental. Preventive and restorative care from our experienced team. Serving Bridgwater and nearby areas',
+  alternates: {
+    canonical: '/general-dentistry/dental-therapist',
+  },
   keywords:
     'dental therapist Bridgwater, dental therapist Somerset, preventive dental care Bridgwater, restorative dental care Bridgwater, children’s dental care Bridgwater, plaque removal Bridgwater, tooth fillings Bridgwater, gum care Bridgwater, Supernova Dental therapist, dental care Taunton, dental care Highbridge, dental care Burnham-on-Sea',
 };
