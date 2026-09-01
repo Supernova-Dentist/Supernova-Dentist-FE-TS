@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -93,37 +92,38 @@ const serviceLinksByTitle: Record<string, Array<{ label: string; href: string; e
 
 export const PricingAccordion: React.FC<PricingAccordionProps> = ({ pricingItems }) => {
   return (
-    <motion.div
-      className='max-w-6xl mx-auto'
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.5 }}
-    >
-      <Accordion type='single' collapsible className='space-y-6 max-w-3xl mx-auto'>
+    <div className='mx-auto max-w-4xl'>
+      <p className='mb-6 text-sm leading-6 text-taupe'>
+        The first category is open to get you started. You can open more than one category when comparing treatments.
+      </p>
+      <Accordion type='multiple' defaultValue={['0']} className='space-y-4'>
         {pricingItems.map((pricingItem, index) => {
           const serviceLinks = serviceLinksByTitle[pricingItem.title] ?? [];
 
           return (
-            <AccordionItem value={index.toString()} key={index} className='overflow-hidden rounded-xl shadow-lg w-auto'>
-            <AccordionTrigger className='flex justify-between items-center py-6 px-8 bg-cream hover:bg-gray-50 cursor-pointer rounded-t-xl text-lg md:text-xl lg:text-2xl font-semibold'>
-              <span>{pricingItem.title}</span>
+            <AccordionItem
+              value={index.toString()}
+              key={pricingItem.title}
+              className='overflow-hidden rounded-[1.25rem] border border-control-border bg-white shadow-[0_12px_35px_rgba(11,18,24,0.05)]'
+            >
+            <AccordionTrigger className='min-h-16 bg-white px-5 py-5 text-lg font-semibold text-obsidian no-underline hover:bg-ivory hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus-light sm:px-7 sm:text-xl'>
+              <span className='pr-4'>{pricingItem.title}</span>
             </AccordionTrigger>
-            <AccordionContent className='py-6 px-8 bg-white'>
+            <AccordionContent className='border-0 border-t border-stone bg-white px-5 py-3 text-obsidian sm:px-7'>
               {serviceLinks.length > 0 && (
                 <div className='mb-5 flex flex-wrap gap-x-6 gap-y-2 border-b border-stone pb-5'>
                   {serviceLinks.map((serviceLink) => (
                     <React.Fragment key={serviceLink.href}>
                       <Link
                         href={serviceLink.href}
-                        className='inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-obsidian underline decoration-champagne/60 underline-offset-4 transition-colors hover:text-bronze-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2'
+                        className='inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-obsidian underline decoration-champagne/60 underline-offset-4 transition-colors hover:text-gold-text-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light focus-visible:ring-offset-2'
                       >
                         View {serviceLink.label}
                         <FiArrowRight aria-hidden='true' className='size-4' />
                       </Link>
                       <Link
                         href={`/enquiry?ref=${encodeURIComponent(serviceLink.enquiryRef)}`}
-                        className='inline-flex min-h-11 items-center text-sm font-semibold text-bronze-ink underline decoration-champagne/60 underline-offset-4 transition-colors hover:text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2'
+                        className='inline-flex min-h-11 items-center text-sm font-semibold text-gold-text-light underline decoration-champagne/60 underline-offset-4 transition-colors hover:text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light focus-visible:ring-offset-2'
                       >
                         Enquire about {serviceLink.label}
                       </Link>
@@ -131,34 +131,36 @@ export const PricingAccordion: React.FC<PricingAccordionProps> = ({ pricingItems
                   ))}
                 </div>
               )}
+              <div className='divide-y divide-stone'>
               {pricingItem.products.map((product, idx) => (
-                <div key={idx} className='flex justify-between py-3'>
+                <div key={idx} className='grid grid-cols-[minmax(0,1fr)_minmax(5.5rem,auto)] items-start gap-5 py-4'>
                   <span
-                    className={`max-w-[65%] ${
-                      product.isHeader === true ? 'text-md md:text-xl font-bold py-2' : 'text-md md:text-lg'
+                    className={`${
+                      product.isHeader === true ? 'text-base font-semibold text-obsidian sm:text-lg' : 'text-sm leading-6 text-taupe sm:text-base'
                     } `}
                   >
                     {product.description}
                   </span>
-                  <div className='flex flex-col items-center w-[27.5%]'>
+                  <div className='flex flex-col items-end text-right text-sm text-obsidian sm:text-base'>
                     {Boolean(product.priceDescriptionBefore) && (
-                      <span className='text-md md:text-lg'>{product.priceDescriptionBefore}</span>
+                      <span>{product.priceDescriptionBefore}</span>
                     )}
                     {Boolean(product.price) && (
-                      <span className='text-md md:text-lg font-semibold'>£{product.price}</span>
+                      <span className='font-semibold'>£{product.price}</span>
                     )}
                     {Boolean(product.priceDescription) && (
-                      <span className='text-md md:text-lg'>{product.priceDescription}</span>
+                      <span>{product.priceDescription}</span>
                     )}
                   </div>
                 </div>
               ))}
+              </div>
             </AccordionContent>
             </AccordionItem>
           );
         })}
       </Accordion>
-    </motion.div>
+    </div>
   );
 };
 

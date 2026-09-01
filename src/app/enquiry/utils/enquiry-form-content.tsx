@@ -5,6 +5,7 @@ import BarLoader from '@/components/BarLoader/BarLoader';
 import PrivacyPolicyModal from '@/components/PrivacyModal/PrivacyModal';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -18,7 +19,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { FaTimes } from 'react-icons/fa';
 import { z } from 'zod';
 import Search from './Search';
 
@@ -178,14 +178,14 @@ export function EnquiryFormContent() {
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
 
       <motion.section
-        className='min-w-0 px-0 pt-0 pb-8 md:pb-12'
+        className='min-w-0 px-0 pb-8 pt-0 md:pb-12'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className='container mx-auto md:px-6'>
+        <div className='mx-auto'>
           <motion.div
-            className='mx-auto max-w-3xl space-y-6 rounded-[1.5rem] border border-[#ded8cc] bg-white p-6 shadow-[0_20px_60px_rgba(23,25,35,0.08)] sm:p-8 md:p-10'
+            className='mx-auto max-w-3xl space-y-6 rounded-[1.5rem] border border-control-border bg-white p-6 text-obsidian shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-8 md:p-10'
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
@@ -209,7 +209,7 @@ export function EnquiryFormContent() {
                                 placeholder='Full Name'
                                 maxLength={75}
                                 {...field}
-                                className='h-12 border-[#cfc8bb] bg-[#fdfcf9] px-3 text-base text-[#171923] placeholder:text-[#8b877f] focus-visible:ring-[#b9975b]'
+                                className='h-12 border-control-border bg-porcelain px-3 text-base text-obsidian placeholder:text-taupe focus-visible:ring-focus-light'
                               />
                             </FormControl>
                             <FormMessage />
@@ -234,7 +234,7 @@ export function EnquiryFormContent() {
                                 maxLength={75}
                                 placeholder='Enter your email'
                                 {...field}
-                                className='h-12 border-[#cfc8bb] bg-[#fdfcf9] px-3 text-base text-[#171923] placeholder:text-[#8b877f] focus-visible:ring-[#b9975b]'
+                                className='h-12 border-control-border bg-porcelain px-3 text-base text-obsidian placeholder:text-taupe focus-visible:ring-focus-light'
                               />
                             </FormControl>
                             <FormMessage />
@@ -259,7 +259,7 @@ export function EnquiryFormContent() {
                                 placeholder='Enter your phone number'
                                 maxLength={15}
                                 {...field}
-                                className='h-12 border-[#cfc8bb] bg-[#fdfcf9] px-3 text-base text-[#171923] placeholder:text-[#8b877f] focus-visible:ring-[#b9975b]'
+                                className='h-12 border-control-border bg-porcelain px-3 text-base text-obsidian placeholder:text-taupe focus-visible:ring-focus-light'
                               />
                             </FormControl>
                             <FormMessage />
@@ -282,7 +282,7 @@ export function EnquiryFormContent() {
                                 control={form.control}
                                 render={({ field }) => (
                                   <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
-                                    <SelectTrigger className='h-12 border-[#cfc8bb] bg-[#fdfcf9] text-base text-[#171923] focus:ring-[#b9975b]' id='category'>
+                                    <SelectTrigger className='h-12 border-control-border bg-porcelain text-base text-obsidian focus:ring-focus-light' id='category'>
                                       <SelectValue placeholder='Select category' className='text-md lg:text-lg' />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -353,7 +353,7 @@ export function EnquiryFormContent() {
                                 field.onChange(e);
                                 handleMessageChange(e);
                               }}
-                              className='min-h-32 border-[#cfc8bb] bg-[#fdfcf9] p-3 text-base text-[#171923] placeholder:text-[#8b877f] focus-visible:ring-[#b9975b]'
+                              className='min-h-32 border-control-border bg-porcelain p-3 text-base text-obsidian placeholder:text-taupe focus-visible:ring-focus-light'
                             />
                           </FormControl>
                           <FormMessage />
@@ -390,7 +390,7 @@ export function EnquiryFormContent() {
                   </div>
                   <Button
                     type='submit'
-                    className={`mx-auto min-h-12 w-full max-w-[18rem] rounded-full bg-[#b9975b] px-6 py-3 text-base font-semibold text-[#171923] shadow-sm transition-colors hover:bg-[#d6b978] focus-visible:ring-2 focus-visible:ring-[#98783e] ${
+                    className={`mx-auto min-h-12 w-full max-w-[18rem] rounded-full bg-champagne px-6 py-3 text-base font-semibold text-obsidian shadow-sm transition-colors hover:bg-lightGold focus-visible:ring-2 focus-visible:ring-focus-light ${
                       loading ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
                     disabled={loading}
@@ -404,55 +404,46 @@ export function EnquiryFormContent() {
         </div>
       </motion.section>
 
-      {/* Success Modal */}
-      {successModalVisible && (
-        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4' role='presentation'>
-          <div className='relative w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl' role='dialog' aria-modal='true' aria-labelledby='enquiry-success-title'>
-            {/* Close button (X) in the top-right corner of the modal */}
-            <button
-              onClick={() => setSuccessModalVisible(false)}
-              type='button'
-              aria-label='Close enquiry confirmation'
-              className='absolute right-3 top-3 rounded-full p-2 text-xl text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b9975b]'
-            >
-              <FaTimes />
-            </button>
-            <h2 id='enquiry-success-title' className='mb-4 text-2xl font-semibold'>Thank you, {submittedData.fullname}, for your Enquiry!</h2>
-            <p className='mb-4'>
+      <Dialog open={successModalVisible} onOpenChange={setSuccessModalVisible}>
+        <DialogContent className='max-w-md rounded-2xl border-control-border bg-white p-8 text-obsidian shadow-2xl'>
+          <DialogTitle className='pr-8 text-2xl font-semibold leading-tight'>
+            Thank you, {submittedData?.fullname}, for your enquiry!
+          </DialogTitle>
+          <DialogDescription asChild>
+            <div className='text-base text-taupe'>
+              <p className='mb-4'>
               One of the Supernova team will be back in touch via the following details regarding your enquiry:
-            </p>
-            <p className='mb-4'>
-              <strong>Email:</strong> {submittedData.email}
-            </p>
-            <p className='mb-4'>
-              <strong>Phone:</strong> {submittedData.phone}
-            </p>
+              </p>
+              <p className='mb-4'><strong className='text-obsidian'>Email:</strong> {submittedData?.email}</p>
+              <p className='mb-4'><strong className='text-obsidian'>Phone:</strong> {submittedData?.phone}</p>
 
-            {/* New text and button */}
-            <p className='mb-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
-            <div className='w-full flex justify-center mb-4'>
-              <Link target='_blank' href={`${DentallyPortal}`}>
-                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                  Book Now!
-                </button>
-              </Link>
+              <p className='mb-2'>Prefer to book yourself in? Use our patient portal below:</p>
+              <div className='mb-2 flex w-full justify-center'>
+                <Link
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href={DentallyPortal}
+                  className='pointer-events-auto mt-4 inline-flex min-h-12 items-center justify-center rounded-full bg-obsidian px-6 py-3 font-medium text-ivory transition-colors hover:bg-deep-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light focus-visible:ring-offset-2'
+                >
+                  Book now
+                </Link>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </DialogDescription>
+        </DialogContent>
+      </Dialog>
 
-      {/* Error Modal */}
-      {errorModalVisible && (
-        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4' role='presentation'>
-          <div className='w-full max-w-sm rounded-2xl bg-white p-8 shadow-2xl' role='dialog' aria-modal='true' aria-labelledby='enquiry-error-title'>
-            <h2 id='enquiry-error-title' className='mb-4 text-2xl font-semibold'>Oops! Something went wrong.</h2>
-            <p className='mb-4'>There was an issue with your submission. Please try again later.</p>
-            <Button onClick={() => setErrorModalVisible(false)} className='w-full bg-red-600 text-white text-lg py-3'>
-              Close
-            </Button>
-          </div>
-        </div>
-      )}
+      <Dialog open={errorModalVisible} onOpenChange={setErrorModalVisible}>
+        <DialogContent className='max-w-sm rounded-2xl border-control-border bg-white p-8 text-obsidian shadow-2xl'>
+          <DialogTitle className='pr-8 text-2xl font-semibold leading-tight'>Oops! Something went wrong.</DialogTitle>
+          <DialogDescription className='text-base leading-7 text-taupe'>
+            There was an issue with your submission. Please try again later.
+          </DialogDescription>
+          <Button onClick={() => setErrorModalVisible(false)} className='mt-2 min-h-11 w-full bg-red-700 py-3 text-base text-white hover:bg-red-800'>
+            Close
+          </Button>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

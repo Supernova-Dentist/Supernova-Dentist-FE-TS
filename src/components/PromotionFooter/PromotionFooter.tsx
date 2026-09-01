@@ -7,19 +7,28 @@ export default function PromotionFooter() {
   return (
     <div className='w-full p-6 sm:px-10 mt-2 py-2 bg-grey text-cream text-sm'>
       {/* Privacy and Complaints Links */}
-      <div className='flex justify-center gap-2 mb-4'>
-        <Link href='/privacy-policy' className='underline text-gold cursor-pointer'>
+      <div className='flex flex-wrap items-center justify-center gap-x-2 mb-4'>
+        <Link
+          href='/privacy-policy'
+          className='inline-flex min-h-11 items-center rounded-sm px-1 underline text-gold cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-grey'
+        >
           Privacy Policy
         </Link>
-        <span>|</span>
-        <Link href='/complaints' className='underline text-gold cursor-pointer'>
+        <span aria-hidden='true'>|</span>
+        <Link
+          href='/complaints'
+          className='inline-flex min-h-11 items-center rounded-sm px-1 underline text-gold cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-grey'
+        >
           Complaints Procedure
         </Link>
       </div>
 
       {/* Invisalign Badge and Footer Info */}
       <div className='flex flex-col items-center gap-4 mb-6'>
-        <Link href='/cosmetic-dentistry/invisalign' className='flex flex-col items-center text-center'>
+        <Link
+          href='/cosmetic-dentistry/invisalign'
+          className='flex flex-col items-center rounded-sm text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-grey'
+        >
           <Image
             src='/assets/images/Invisalign-Provider-Logo.png'
             alt='Supernova Dental is a Certified Invisalign Provider in Bridgwater, Somerset'
