@@ -153,7 +153,7 @@ export const OurJourneyContent = () => {
               <h2 className='text-gold text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>Promotions</h2>
               <p className='mt-4 text-white text-lg md:text-xl '>
                 Over the Easter holidays, we ran a family-friendly offer where parents booking a new patient examination
-                received up to three free children’s check-ups — a great way to encourage healthy smiles for all ages.
+                received up to three free children’s check-ups - a great way to encourage healthy smiles for all ages.
               </p>
               {/* <p className='mt-4 text-white text-lg md:text-xl '>
                 With every adult new patient examination booked during this period, we provided up to three children’s
@@ -236,8 +236,8 @@ export const OurJourneyContent = () => {
             <div className='w-full lg:w-1/2 flex flex-col text-center lg:text-left'>
               <h2 className='text-gold text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mt-8'>Reviews</h2>
               <p className='mt-4 text-white text-lg md:text-xl '>
-                We’re proud to have received over 75 Google reviews, each reflecting the care, comfort, and service we aim to
-                deliver. The feedback that inspires us to keep improving the patient journey.
+                We’re proud to have received over 75 Google reviews, each reflecting the care, comfort, and service we
+                aim to deliver. The feedback that inspires us to keep improving the patient journey.
               </p>
             </div>
 

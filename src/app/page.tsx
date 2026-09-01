@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowRight, FiCheck, FiClock, FiMapPin, FiMessageCircle, FiPhone } from 'react-icons/fi';
 import cosmeticDentistryImage from '../../public/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp';
-import dentalImplantsImage from '../../public/assets/images/dental-implants-supernova-dental-bridgwater.webp';
+import dentalImplantsImage from '../../public/assets/images/cbct_supernova_dental_bridgwater.webp';
 import generalDentistryImage from '../../public/assets/images/general-dentistry-supernova-dental-bridgwater.webp';
 import invisalignImage from '../../public/assets/images/invisalign-supernova-dental-bridgwater-somerset.webp';
 import practiceExteriorImage from '../../public/assets/images/supernova-dental-practice-exterior-bridgwater.webp';
@@ -70,7 +70,7 @@ const featuredServices = [
 
 const moreServices = [
   { title: 'Dental hygiene', href: '/general-dentistry/dental-hygiene' },
-  { title: 'Emergency dental care', href: '/general-dentistry/emergency-dentistry' },
+  { title: 'New patient examination', href: '/general-dentistry/new-patient-examination' },
   { title: 'Membership plans', href: '/general-dentistry/dental-membership-plans' },
   { title: 'Dental finance', href: '/general-dentistry/dental-finance' },
 ];
@@ -83,7 +83,7 @@ const reassuranceItems = [
 
 const patientSteps = [
   { number: '01', title: 'Choose your next step', description: 'Explore a service, make an enquiry or book an appointment online.' },
-  { number: '02', title: 'Meet the team', description: 'Tell us what you need and discuss any questions or concerns.' },
+  { number: '02', title: 'Meet the team', description: 'Our team will assess your oral health and discuss any questions or concerns.' },
   { number: '03', title: 'Understand your options', description: 'Receive clear information about suitable next steps.' },
   { number: '04', title: 'Continue with confidence', description: 'Move forward with the care or treatment that is right for you.' },
 ];

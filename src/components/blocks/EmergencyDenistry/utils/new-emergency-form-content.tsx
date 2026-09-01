@@ -113,7 +113,7 @@ const formSchema = z.object({
 // )
 // // Validate stent: exactly one must be selected
 // .refine((data) => data.stentToBeWornYes !== data.stentToBeWornNo, {
-//   message: 'Please select either "Yes" or "No" for whether a stent will be worn—not both.',
+//   message: 'Please select either "Yes" or "No" for whether a stent will be worn-not both.',
 //   path: ['stentToBeWornYes', 'stentToBeWornNo'],
 // })
 // // Validate report: exactly one must be selected

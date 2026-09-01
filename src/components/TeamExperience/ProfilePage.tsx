@@ -138,7 +138,7 @@ function ProfileVideo({ member }: { member: TeamMember }) {
 
   return (
     <section aria-labelledby='profile-video' className='bg-deep-navy px-5 py-20 text-ivory sm:px-8 sm:py-24 lg:px-12'>
-      <SectionReveal className='mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.7fr_1fr] lg:gap-20'>
+      <SectionReveal className='mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-24'>
         <div>
           <EditorialDivider light />
           <p className='mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-champagne'>In conversation</p>
@@ -147,9 +147,9 @@ function ProfileVideo({ member }: { member: TeamMember }) {
           </h2>
           <p className='mt-5 max-w-xl text-base leading-8 text-ivory/70'>{member.video.description}</p>
         </div>
-        <div className='mx-auto w-full max-w-2xl overflow-hidden rounded-[1.5rem] border border-champagne/25 bg-obsidian shadow-[0_25px_70px_rgba(0,0,0,0.28)]'>
+        <div className='mx-auto w-full max-w-[22rem] overflow-hidden rounded-[1.5rem] border border-champagne/25 bg-obsidian shadow-[0_25px_70px_rgba(0,0,0,0.28)]'>
           <video
-            className='aspect-video w-full object-cover'
+            className='aspect-[9/16] w-full object-cover'
             controls
             preload='metadata'
             playsInline

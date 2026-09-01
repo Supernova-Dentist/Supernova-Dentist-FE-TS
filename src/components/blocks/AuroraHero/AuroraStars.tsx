@@ -1,38 +1,36 @@
-'use client';
-
-import { Stars } from '@react-three/drei';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
-import type { Group } from 'three';
-
-function StarField() {
-  const group = useRef<Group>(null);
-
-  useFrame(({ pointer }, delta) => {
-    if (group.current == null) return;
-
-    const easing = Math.min(delta * 0.7, 0.04);
-    group.current.rotation.x += (pointer.y * 0.035 - group.current.rotation.x) * easing;
-    group.current.rotation.y += (pointer.x * 0.05 - group.current.rotation.y) * easing;
-  });
-
-  return (
-    <group ref={group}>
-      <Stars radius={70} depth={38} count={1100} factor={2.4} saturation={0.15} fade speed={0.25} />
-    </group>
-  );
-}
-
 export default function AuroraStars() {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 1], fov: 65 }}
-      dpr={[1, 1.25]}
-      frameloop='always'
-      gl={{ alpha: true, antialias: false, powerPreference: 'low-power' }}
-      fallback={<div className='absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(198,161,91,0.08),transparent_28rem)]' />}
+    <svg
+      aria-hidden='true'
+      className='h-full w-full'
+      focusable='false'
+      preserveAspectRatio='xMidYMid slice'
+      viewBox='0 0 1440 960'
     >
-      <StarField />
-    </Canvas>
+      <g fill='currentColor' className='text-ivory'>
+        <circle cx='158' cy='198' r='.8' opacity='.22' />
+        <circle cx='388' cy='126' r='1' opacity='.28' />
+        <circle cx='856' cy='114' r='1.2' opacity='.4' />
+        <circle cx='904' cy='308' r='.8' opacity='.26' />
+        <circle cx='966' cy='166' r='1.5' opacity='.48' />
+        <circle cx='1028' cy='374' r='1' opacity='.36' />
+        <circle cx='1094' cy='92' r='.8' opacity='.3' />
+        <circle cx='1158' cy='258' r='1.4' opacity='.5' />
+        <circle cx='1224' cy='478' r='.9' opacity='.3' />
+        <circle cx='1282' cy='142' r='1.2' opacity='.42' />
+        <circle cx='1342' cy='344' r='1.6' opacity='.54' />
+        <circle cx='1384' cy='590' r='.8' opacity='.26' />
+        <circle cx='1114' cy='746' r='1' opacity='.32' />
+        <circle cx='1298' cy='816' r='1.3' opacity='.38' />
+      </g>
+      <g fill='currentColor' className='text-champagne'>
+        <circle cx='972' cy='248' r='1.1' opacity='.5' />
+        <circle cx='1068' cy='152' r='1.6' opacity='.66' />
+        <circle cx='1132' cy='432' r='1' opacity='.48' />
+        <circle cx='1216' cy='206' r='1.4' opacity='.62' />
+        <circle cx='1308' cy='516' r='1.1' opacity='.5' />
+        <circle cx='1372' cy='286' r='1.3' opacity='.58' />
+      </g>
+    </svg>
   );
 }

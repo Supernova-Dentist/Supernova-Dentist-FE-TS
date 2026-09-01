@@ -1,6 +1,6 @@
-import type { StaticImageData } from 'next/image';
-import type { Metadata } from 'next';
 import { DentallyPortal } from '@/lib/constants';
+import type { Metadata } from 'next';
+import type { StaticImageData } from 'next/image';
 
 import adamImage from '../../public/assets/images/Headshots/adam-young-operations-director-supernova-dental-bridgwater.webp';
 import amyImage from '../../public/assets/images/Headshots/amy-skinner-front-of-house-supernova-dental-bridgwater.webp';
@@ -21,7 +21,7 @@ export type TeamGroup =
   | 'Therapists & Hygienists'
   | 'Nursing Team'
   | 'Patient Experience'
-  | 'Management / Support Team';
+  | 'Practice Leadership & Operations';
 
 export interface TeamTestimonial {
   description: string;
@@ -131,11 +131,11 @@ export const teamMembers: TeamMember[] = [
     biography: [
       'My passion for high-quality dentistry has led me to learn from some of the top specialists in the UK and worldwide, going on multiple postgraduate courses to hone my skills and ultimately founding Supernova Dental.',
       'I take immense pride in knowing that our patients feel truly looked after and cared for.',
-      'The huge confidence boosts people gain after just a few appointments are a joy to behold—whether that is nervous patients feeling fully at ease or the smile transformations from cosmetic procedures',
+      'The huge confidence boosts people gain after just a few appointments are a joy to behold-whether that is nervous patients feeling fully at ease or the smile transformations from cosmetic procedures',
     ],
     bookHref: DentallyPortal,
     expertiseHeading: 'How Scott Can Transform Your Smile',
-    expertise: [{ title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' }],
+    expertise: [{ title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' }, { title: 'Composite Bonding', href: '/cosmetic-dentistry/composite-bonding' }, { title: 'Teeth Whitening', href: '/cosmetic-dentistry/teeth-whitening' },],
     video: {
       heading: 'Hear from Scott',
       description: 'Get to know Dr. Scott Young, his journey, and his passion for aesthetics and dentistry.',
@@ -182,23 +182,6 @@ export const teamMembers: TeamMember[] = [
       'I offer a range of cosmetic and restorative dental treatments, including smile design and minimally invasive cosmetic dentistry, using modern techniques and personalised treatment planning to achieve long-lasting results.',
       "If you're looking for a cosmetic dentist in Bridgwater, you're very welcome to come see me at Supernova Dental Practice, where I aim to make every patient feel comfortable, understood, and supported.",
       "I also speak English, Arabic, French, and Spanish, and I'm happy to provide dental care in the language you feel most comfortable with.",
-    ],
-    bookHref: DentallyPortal,
-  },
-  {
-    slug: 'dr-jacqueline-amarin',
-    name: 'Dr. Jacqueline Amarin',
-    firstName: 'Jacqueline',
-    role: 'General and Restorative Dentist',
-    group: 'Dentists',
-    image: jacquelineImage,
-    alt: 'Dr Jacqueline Amarin, General and Restorative Dentist at Supernova Dental in Bridgwater, Somerset',
-    qualifications: 'DDS, NBDE, MClinDent',
-    gdc: '323496',
-    biography: [
-      'I’m a General and Restorative Dentist at Supernova Dental.',
-      'My approach starts with the foundation, I make sure your teeth and oral health are strong, stable, and protected. That’s where my Master’s in Restorative Dentistry comes in.',
-      'Once the health is in place, I focus on what I am most passionate about: aesthetic dentistry. With today’s advanced tools and techniques, we can enhance the appearance of your smile in a natural, subtle way. I want to help you feel like yourself again.',
     ],
     bookHref: DentallyPortal,
   },
@@ -253,7 +236,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Victoria Hands',
     firstName: 'Tori',
     role: 'Practice Manager/Dental Nurse',
-    group: 'Management / Support Team',
+    group: 'Practice Leadership & Operations',
     image: victoriaImage,
     alt: 'Victoria Hands, Practice Manager/Dental Nurse at Supernova Dental in Bridgwater, Somerset',
     gdc: '308678',
@@ -310,7 +293,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Adam Young',
     firstName: 'Adam',
     role: 'Operations Director',
-    group: 'Management / Support Team',
+    group: 'Practice Leadership & Operations',
     image: adamImage,
     alt: 'Adam Young, Operations Director at Supernova Dental in Bridgwater, Somerset',
     biography: [
@@ -351,7 +334,7 @@ export const teamGroups: TeamGroup[] = [
   'Therapists & Hygienists',
   'Nursing Team',
   'Patient Experience',
-  'Management / Support Team',
+  'Practice Leadership & Operations',
 ];
 
 export const getTeamMember = (slug: string) => {
@@ -369,8 +352,7 @@ export const getTeamMetadata = (
   const member = getTeamMember(slug);
   const title = overrides.title ?? `${member.name} | ${member.role} | Supernova Dental`;
   const description =
-    overrides.description ??
-    `Meet ${member.name}, ${member.role} at Supernova Dental in Bridgwater, Somerset.`;
+    overrides.description ?? `Meet ${member.name}, ${member.role} at Supernova Dental in Bridgwater, Somerset.`;
 
   return {
     title,

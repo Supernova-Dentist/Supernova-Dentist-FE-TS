@@ -1,6 +1,6 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-import { DentallyPortal } from '@/lib/constants';
 import { teamGroups, teamMembers, type TeamMember } from '@/data/team';
+import { DentallyPortal } from '@/lib/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowRight, FiPhone } from 'react-icons/fi';
@@ -23,8 +23,8 @@ function TeamHero() {
             Meet the people behind your smile
           </h1>
           <p className='mt-8 max-w-2xl text-pretty text-base leading-8 text-ivory/75 sm:text-lg'>
-            Advanced dentistry, thoughtful personal care and a genuinely warm welcome—especially for patients who
-            feel nervous about visiting the dentist.
+            Advanced dentistry, thoughtful personal care and a genuinely warm welcome-especially for patients who feel
+            nervous about visiting the dentist.
           </p>
         </div>
 
@@ -39,7 +39,9 @@ function TeamHero() {
               className='h-full w-full object-contain'
             />
           </div>
-          <p className='max-w-[12rem] text-sm leading-6 text-ivory/65 lg:mt-5'>Private dental care in Bridgwater, Somerset.</p>
+          <p className='max-w-[12rem] text-sm leading-6 text-ivory/65 lg:mt-5'>
+            Private dental care in Bridgwater, Somerset.
+          </p>
         </div>
       </div>
     </section>
@@ -65,7 +67,10 @@ function TeamCard({ member, priority }: { member: TeamMember; priority: boolean 
             priority={priority}
             className='object-cover transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none md:group-hover:scale-[1.018]'
           />
-          <div aria-hidden='true' className='absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-obsidian/20 to-transparent' />
+          <div
+            aria-hidden='true'
+            className='absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-obsidian/20 to-transparent'
+          />
         </div>
         <div className='min-h-44 px-6 pb-6 pt-5'>
           <p className='text-xs font-semibold uppercase tracking-[0.2em] text-bronze-ink'>{member.group}</p>
@@ -75,7 +80,10 @@ function TeamCard({ member, priority }: { member: TeamMember; priority: boolean 
           <p className='mt-2 min-h-12 text-sm leading-6 text-taupe'>{member.role}</p>
           <span className='mt-5 inline-flex items-center gap-2 text-sm font-semibold text-obsidian underline decoration-champagne/60 underline-offset-4'>
             Meet {member.firstName}
-            <FiArrowRight aria-hidden='true' className='size-4 transition-transform duration-200 group-hover:translate-x-1' />
+            <FiArrowRight
+              aria-hidden='true'
+              className='size-4 transition-transform duration-200 group-hover:translate-x-1'
+            />
           </span>
         </div>
       </Link>
@@ -90,8 +98,13 @@ function TeamGrid() {
     <section aria-labelledby='team-grid-heading' className='bg-ivory px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28'>
       <div className='mx-auto max-w-7xl'>
         <div className='max-w-2xl'>
-          <p className='text-xs font-semibold uppercase tracking-[0.22em] text-bronze-ink'>Expertise with a human touch</p>
-          <h2 id='team-grid-heading' className='mt-4 text-balance text-4xl leading-tight tracking-[-0.02em] text-obsidian sm:text-5xl'>
+          <p className='text-xs font-semibold uppercase tracking-[0.22em] text-bronze-ink'>
+            Expertise with a human touch
+          </p>
+          <h2
+            id='team-grid-heading'
+            className='mt-4 text-balance text-4xl leading-tight tracking-[-0.02em] text-obsidian sm:text-5xl'
+          >
             A team built around your comfort
           </h2>
           <p className='mt-5 text-base leading-8 text-taupe'>

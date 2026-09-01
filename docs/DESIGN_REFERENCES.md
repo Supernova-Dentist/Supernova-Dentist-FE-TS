@@ -1,6 +1,6 @@
 # Supernova Dental design references
 
-Read this file for visual/UI redesigns, component composition, interaction quality, animation decisions, and responsive design reviews. These are quality references only—not templates to copy.
+Read this file for visual/UI redesigns, component composition, interaction quality, animation decisions, and responsive design reviews. These are quality references only-not templates to copy.
 
 ## References
 
@@ -33,6 +33,6 @@ Prefer:
 - Obsidian/midnight navy, deep blue-black, warm ivory, soft porcelain, restrained champagne gold, warm bronze, and muted taupe/stone.
 - Editorial serif headings paired with a clear modern sans-serif.
 - Natural photography, generous whitespace, fine rules, thoughtful composition, and calm confidence.
-- Premium detail through typography, spacing, material restraint, and hierarchy—not excessive effects.
+- Premium detail through typography, spacing, material restraint, and hierarchy-not excessive effects.
 
 For service pages, treatment pages, and team pages, adapt the visual language to the content. Do not reuse a staff-card layout for treatments merely because the colours match.

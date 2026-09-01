@@ -25,7 +25,7 @@ export default {
     {
       id: 4,
       heading: 'Comfort and Functionality',
-      text: 'Enjoy stable, secure tooth replacements that allow you to chew, speak, and smile naturally—whether replacing one tooth, multiple teeth, or a full arch with All-on-4.',
+      text: 'Enjoy stable, secure tooth replacements that allow you to chew, speak, and smile naturally-whether replacing one tooth, multiple teeth, or a full arch with All-on-4.',
     },
   ],
 };

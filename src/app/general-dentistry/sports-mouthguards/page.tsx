@@ -19,7 +19,7 @@ const structuredData = {
   name: 'Supernova Dental - Custom Sports Mouthguards',
   url: 'https://www.supernovadental.co.uk/general-dentistry/sports-mouthguards',
   description:
-    'Supernova Dental provides custom sports mouthguards in Bridgwater, Somerset, using digital scans—no messy impressions. Our lab also produces mouthguards trusted by elite athletes, including heavyweight champion Tyson Fury. Serving patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
+    'Supernova Dental provides custom sports mouthguards in Bridgwater, Somerset, using digital scans-no messy impressions. Our lab also produces mouthguards trusted by elite athletes, including heavyweight champion Tyson Fury. Serving patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
   keywords:
     'sports mouthguards Bridgwater, custom sports guards Somerset, digital mouthguard scan, rugby mouthguard Somerset, boxing mouthguard UK, custom sports mouthguards Taunton, sports guard Highbridge, sports mouthguard Burnham-on-Sea',
   address: {

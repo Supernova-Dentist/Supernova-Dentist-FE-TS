@@ -5,20 +5,20 @@
 import BarLoader from '@/components/BarLoader/BarLoader';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { FileUpload } from '@/components/ui/file-upload';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { half } from '@tsparticles/engine';
 import { motion } from 'framer-motion';
 import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { MdFileUpload } from 'react-icons/md';
 import { z } from 'zod';
 import Search from '../../utils/Search';
-import { MdFileUpload } from 'react-icons/md';
-import { FileUpload } from '@/components/ui/file-upload';
-import { half } from '@tsparticles/engine';
 
 // Define the max character limit
 const MAX_MESSAGE_LENGTH = 500;
@@ -128,7 +128,7 @@ const formSchema = z.object({
 // )
 // // Validate stent: exactly one must be selected
 // .refine((data) => data.stentToBeWornYes !== data.stentToBeWornNo, {
-//   message: 'Please select either "Yes" or "No" for whether a stent will be worn—not both.',
+//   message: 'Please select either "Yes" or "No" for whether a stent will be worn-not both.',
 //   path: ['stentToBeWornYes', 'stentToBeWornNo'],
 // })
 // // Validate report: exactly one must be selected
@@ -258,7 +258,6 @@ export function CBCTOPGReferralFormContent() {
   };
 
   const handleMedicialHistoryChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-
     const medicialHistory = e.target.value;
     setMedicialHistoryLength(medicialHistory.length); // Update the message length
   };
@@ -1231,11 +1230,11 @@ export function CBCTOPGReferralFormContent() {
                     </div>
 
                     <div className='space-y-3'>
-                    <p className='mt-3'>
-                      Unless otherwise specified the image data will be supplied in DICOM format. The Acteon Imaging
-                      Software (compatible with Windows) will be included in the file. Files will be password protected
-                      and sent to the e-mail provided via WeTransfer.
-                    </p>
+                      <p className='mt-3'>
+                        Unless otherwise specified the image data will be supplied in DICOM format. The Acteon Imaging
+                        Software (compatible with Windows) will be included in the file. Files will be password
+                        protected and sent to the e-mail provided via WeTransfer.
+                      </p>
                       <p>
                         This confidential form provides us with the information we require to receive a patient
                         referral. The information contained within this form should be true and accurate to the best of

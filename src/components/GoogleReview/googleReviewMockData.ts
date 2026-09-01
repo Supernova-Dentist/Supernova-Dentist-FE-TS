@@ -104,7 +104,7 @@ From the moment I explored their website, I felt reassured. The information and 
 
 When I arrived, I felt so welcome, and every member of staff treated me with kindness and respect. It might sound small, but the lack of an overpowering clinical smell made a huge difference too!
 
-Dr Scott was nothing short of incredible. He explained everything clearly throughout, provided me with a detailed treatment plan, and most importantly—took the time to ask what mattered to me. He genuinely cared about the areas of my smile that made me self-conscious, which meant the absolute world.
+Dr Scott was nothing short of incredible. He explained everything clearly throughout, provided me with a detailed treatment plan, and most importantly-took the time to ask what mattered to me. He genuinely cared about the areas of my smile that made me self-conscious, which meant the absolute world.
 
 I never thought I’d say this, but I am actually excited to go back! Supernova Dental has completely changed the way I feel about visiting the dentist, and I cannot recommend them highly enough.`,
     url: 'https://g.co/kgs/wy8cq8c',

@@ -49,7 +49,7 @@ const groups: ServiceCategoryGroup[] = [
       {
         name: 'Dental membership plans',
         href: '/general-dentistry/dental-membership-plans',
-        image: '/assets/images/practice_plan_thumbnail.png',
+        image: '/assets/images/new-patient-examination-3.webp',
         imageAlt: 'Supernova Dental membership plans in Bridgwater',
         description: 'A straightforward way to plan for regular examinations and hygiene care.',
       },

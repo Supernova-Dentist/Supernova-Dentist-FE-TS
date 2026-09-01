@@ -1,252 +1,181 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import React, { type ReactNode, useRef } from 'react';
-import ReferAFriendCard from './ReferAFriendCard/ReferAFriendCard';
+import Link from 'next/link';
+import { FiArrowRight, FiCheck, FiGift, FiShare2, FiUsers } from 'react-icons/fi';
 import ReferAFriendForm from './ReferAFriendForm/ReferAFriendForm';
-import { ReferAFriendHero } from './ReferAFriendHero/ReferAFriendHero';
-import { ReferAFriendSlideTabs } from './ReferAFriendSlideTabs/ReferAFriendSlideTabs';
-import Results from './Results/Results';
 
-const dentalCreditData = [
+const steps = [
   {
-    plan: 'Invisalign Open Days',
-    price: { number: 1500, text: 'Up To' },
-    offerPrice: 1500,
-    features: [
-      'FREE Consultation',
-      'FREE Whitening',
-      'FREE Retainers',
-      'FREE Hygiene Appointment',
-      'PLUS £250 OFF Invisalign treatment',
-    ],
-    postText: 'IN SAVINGS ON OUR UPCOMING OPEN DAYS',
+    icon: FiShare2,
+    title: 'Share your referral',
+    description: 'Use the form to share your details or create a link for a friend who is considering Invisalign.',
   },
-];
-
-const dentalRewardCreditData = [
   {
-    plan: 'Referral Reward',
-    price: { number: 50, text: 'GET' },
-    offerPrice: 50,
-    features: [
-      'Referrer: £50 Voucher',
-      'Referee: £50 Off Invisalign',
-      'Voucher can be used on: General Dentistry, Cosmetic Dentistry, Restorative Dentistry, Implants, Invisalign',
-    ],
-    postText: 'PER REFERRAL',
+    icon: FiUsers,
+    title: 'Your friend registers',
+    description:
+      'They can send their details to the team and begin a conversation about Invisalign at Supernova Dental.',
+  },
+  {
+    icon: FiGift,
+    title: 'Both receive a reward',
+    description: 'You receive a £50 voucher and your friend receives £50 off their Invisalign treatment.',
   },
 ];
 
 export const ReferAFriendContent = () => {
   return (
-    <div className='bg-cream'>
-      <ReferAFriendHero />
+    <main className='mt-20 bg-porcelain text-obsidian'>
+      <section className='relative isolate overflow-hidden bg-obsidian text-ivory'>
+        <div aria-hidden='true' className='luxury-hero-glow absolute inset-0 -z-10' />
+        <div className='mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-6 sm:px-6 md:pb-24 md:pt-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.75fr)] lg:items-center lg:gap-20 lg:px-8'>
+          <div>
+            <p className='mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-champagne sm:text-sm'>
+              Invisalign referral scheme
+            </p>
+            <div aria-hidden='true' className='mb-7 flex items-center gap-3'>
+              <span className='h-px w-12 bg-champagne' />
+              <span className='size-1.5 rotate-45 bg-champagne' />
+            </div>
+            <h1 className='max-w-3xl text-balance text-5xl leading-[1.02] sm:text-6xl lg:text-7xl'>
+              Share a smile. Give a friend a reason to start Invisalign.
+            </h1>
+            <p className='mt-7 max-w-2xl text-pretty text-lg leading-8 text-ivory/80 sm:text-xl'>
+              If you are a Supernova Dental patient, refer a friend who is considering Invisalign. You will receive a
+              £50 voucher, and they will receive £50 off their Invisalign treatment.
+            </p>
+            <div className='mt-9 flex flex-col gap-3 sm:flex-row'>
+              <Link
+                href='#refer-a-friend-form'
+                className='inline-flex min-h-11 items-center justify-center rounded-full border border-champagne bg-champagne px-6 py-3 text-sm font-semibold text-obsidian shadow-[0_12px_30px_rgba(198,161,91,0.18)] transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
+              >
+                Refer a friend <FiArrowRight aria-hidden='true' className='ml-2 size-4' />
+              </Link>
+              <Link
+                href='/cosmetic-dentistry/invisalign'
+                className='inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-ivory transition-colors hover:border-champagne/70 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
+              >
+                Explore Invisalign
+              </Link>
+            </div>
+            <p className='mt-7 max-w-xl text-sm leading-6 text-ivory/60'>
+              This referral scheme is specifically for Invisalign. The practice team will confirm eligibility and next
+              steps with you and your friend.
+            </p>
+          </div>
+          <div className='relative aspect-[6/5] overflow-hidden rounded-[1.75rem] border border-champagne/30 bg-deep-navy shadow-[0_30px_80px_rgba(0,0,0,0.3)]'>
+            <Image
+              src='/assets/images/scott_jackie_invisalign.jpeg'
+              alt='Supernova Dental team member with an Invisalign patient'
+              fill
+              priority
+              sizes='(max-width: 1024px) 100vw, 45vw'
+              className='object-cover'
+            />
+            <div
+              aria-hidden='true'
+              className='absolute inset-0 bg-gradient-to-t from-obsidian/50 via-transparent to-transparent'
+            />
+          </div>
+        </div>
+      </section>
 
-      <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
-        <ReferAFriendForm
-          serviceName='Supernova Dental'
-          serviceChip='Refer A Friend'
-          serviceDescription='Refer a friend and earn a £50 voucher! Your friend also gets £50 off their Invisalign treatment. Referrer must be a registered patient.'
-          imgSrc='/assets/images/scott_jackie_invisalign.jpeg'
-          formTitle='Refer A Friend Today'
-          formDescription='Fill in the details to refer someone. You will receive a £50 voucher, and your friend will get £50 off their Invisalign treatment.'
-        />
-      </div>
-
-      {/* <section id='credit'>
-        <ReferAFriendSlideTabs />
-        <TextParallaxContent
-          portraitImgUrl='/assets/images/invisalign_1.jpg'
-          landscapeImgUrl='/assets/images/invisalign_1.jpeg'
-          logoSrc='/assets/images/logo.png'
-          subheading='Huge Savings For Your Friend'
-          heading="Don't miss out."
-        >
-          <div className='flex items-center justify-center pt-8 pb-16'>
-            {dentalCreditData.map((planData, index) => (
-              <ReferAFriendCard
-                key={index}
-                plan={planData.plan}
-                price={planData.price}
-                offerPrice={planData.offerPrice}
-                features={planData.features}
-                postText={planData.postText}
-                monthly={false}
-                isMiddle
-              />
+      <section aria-labelledby='referral-steps-heading' className='bg-ivory px-4 py-20 sm:px-6 md:py-28 lg:px-8'>
+        <div className='mx-auto max-w-7xl'>
+          <div className='mb-12 grid gap-6 md:grid-cols-[minmax(0,0.7fr)_minmax(18rem,1fr)] md:items-end md:gap-20'>
+            <div>
+              <p className='mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-bronze-ink'>How it works</p>
+              <h2 id='referral-steps-heading' className='text-balance text-4xl leading-tight sm:text-5xl'>
+                A simple referral, centred on the right next step.
+              </h2>
+            </div>
+            <p className='text-pretty text-lg leading-8 text-taupe'>
+              Refer someone who is genuinely interested in Invisalign, and we will help them understand whether a
+              consultation is the appropriate next step.
+            </p>
+          </div>
+          <div className='grid gap-x-8 gap-y-0 border-y border-stone md:grid-cols-3'>
+            {steps.map(({ icon: Icon, title, description }, index) => (
+              <article
+                key={title}
+                className='border-b border-stone py-8 last:border-b-0 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0 md:last:pr-0'
+              >
+                <span className='mb-6 flex size-11 items-center justify-center rounded-full border border-champagne/60 text-bronze-ink'>
+                  <Icon aria-hidden='true' className='size-5' />
+                </span>
+                <p className='text-xs font-semibold uppercase tracking-[0.2em] text-bronze-ink'>Step {index + 1}</p>
+                <h3 className='mt-3 text-2xl leading-tight'>{title}</h3>
+                <p className='mt-3 leading-7 text-taupe'>{description}</p>
+              </article>
             ))}
           </div>
-        </TextParallaxContent>
-      </section> */}
+        </div>
+      </section>
 
-      <section id='leaderboard'>
-        <ReferAFriendSlideTabs />
-        <TextParallaxContent
-          portraitImgUrl='/assets/images/invisalign_p_1.jpg'
-          landscapeImgUrl='/assets/images/invisalign_2.jpg'
-          logoSrc='/assets/images/logo.png'
-          subheading='Referral Reward'
-          heading='Earn £50 for every friend you refer!'
-        >
-          <div className='flex items-center justify-center pt-8 pb-16'>
-            {dentalRewardCreditData.map((planData, index) => (
-              <ReferAFriendCard
-                key={index}
-                plan={planData.plan}
-                price={planData.price}
-                offerPrice={planData.offerPrice}
-                features={planData.features}
-                postText={planData.postText}
-                monthly={false}
-                isMiddle
-              />
-            ))}
+      <section aria-labelledby='referral-reward-heading' className='bg-porcelain px-4 py-20 sm:px-6 md:py-28 lg:px-8'>
+        <div className='mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.7fr)] lg:items-center lg:gap-20'>
+          <div>
+            <p className='mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-bronze-ink'>
+              The referral reward
+            </p>
+            <h2 id='referral-reward-heading' className='text-balance text-4xl leading-tight sm:text-5xl'>
+              A thank you for sharing Supernova Dental.
+            </h2>
+            <ul className='mt-8 space-y-4 text-lg leading-7 text-taupe'>
+              <li className='flex gap-3'>
+                <FiCheck aria-hidden='true' className='mt-1 size-5 shrink-0 text-bronze-ink' />
+                <span>£50 voucher for the referring Supernova Dental patient.</span>
+              </li>
+              <li className='flex gap-3'>
+                <FiCheck aria-hidden='true' className='mt-1 size-5 shrink-0 text-bronze-ink' />
+                <span>£50 off Invisalign treatment for the friend being referred.</span>
+              </li>
+              <li className='flex gap-3'>
+                <FiCheck aria-hidden='true' className='mt-1 size-5 shrink-0 text-bronze-ink' />
+                <span>One clear route for an Invisalign enquiry, rather than a general dental referral.</span>
+              </li>
+            </ul>
           </div>
-        </TextParallaxContent>
+          <aside className='rounded-[1.5rem] border border-champagne/30 bg-deep-navy p-8 text-ivory shadow-[0_20px_60px_rgba(0,0,0,0.16)] sm:p-10'>
+            <p className='text-xs font-semibold uppercase tracking-[0.22em] text-champagne'>Before you refer</p>
+            <p className='mt-5 text-3xl leading-tight'>Your friend should be interested in Invisalign.</p>
+            <p className='mt-5 leading-7 text-ivory/70'>
+              We will contact them to discuss their enquiry and confirm the referral details. Invisalign suitability is
+              assessed individually at consultation.
+            </p>
+            <Link
+              href='/cosmetic-dentistry/invisalign'
+              className='mt-8 inline-flex min-h-11 items-center text-sm font-semibold text-champagne underline decoration-champagne/60 underline-offset-4 transition-colors hover:text-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne'
+            >
+              Read about Invisalign <FiArrowRight aria-hidden='true' className='ml-2 size-4' />
+            </Link>
+          </aside>
+        </div>
       </section>
 
-      <section id='journey'>
-        <ReferAFriendSlideTabs />
-        <TextParallaxContent
-          portraitImgUrl='/assets/images/invisalign_p_2.jpg'
-          landscapeImgUrl='/assets/images/invisalign_landscape_2.jpg'
-          logoSrc='/assets/images/logo.png'
-          subheading='Modern'
-          heading='See the Supernova Dental journey.'
-        >
-          <div className='relative w-full max-w-[600px] mx-auto aspect-[9/16]'>
-            <video className='w-full h-full' controls preload='metadata' style={{ border: 'none', overflow: 'hidden' }}>
-              <source src='/assets/videos/why_supernova.mp4' type='video/mp4' />
-              Your browser does not support the video tag.
-            </video>
+      <section
+        id='refer-a-friend-form'
+        aria-labelledby='refer-a-friend-form-heading'
+        className='scroll-mt-24 bg-ivory px-4 py-20 sm:px-6 md:py-28 lg:px-8'
+      >
+        <div className='mx-auto max-w-7xl'>
+          <div className='mb-10 max-w-2xl'>
+            <p className='mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-bronze-ink'>Refer a friend</p>
+            <h2 id='refer-a-friend-form-heading' className='text-balance text-4xl leading-tight sm:text-5xl'>
+              Start an Invisalign referral.
+            </h2>
           </div>
-        </TextParallaxContent>
+          <ReferAFriendForm
+            serviceName='Invisalign referral'
+            serviceChip='Invisalign referral scheme'
+            serviceDescription='Share the details of a friend who is considering Invisalign, or create a referral link for them to use.'
+            imgSrc='/assets/images/Invisalign_Smile_View.jpg'
+            formTitle='Refer a friend for Invisalign'
+            formDescription='Enter your friend’s details and the team will contact them about their Invisalign enquiry.'
+          />
+        </div>
       </section>
-
-      <section id='results'>
-        <ReferAFriendSlideTabs />
-        <TextParallaxContent
-          portraitImgUrl='/assets/images/invisalign_4.jpg'
-          landscapeImgUrl='/assets/images/invisalign_4.jpg'
-          logoSrc='/assets/images/logo.png'
-          subheading='Results'
-          heading='See the Invisalign difference.'
-        >
-          <Results />
-        </TextParallaxContent>
-      </section>
-    </div>
-  );
-};
-
-const IMG_PADDING = 12;
-
-const TextParallaxContent = ({
-  portraitImgUrl,
-  landscapeImgUrl,
-  subheading,
-  heading,
-  children,
-  logoSrc,
-}: {
-  portraitImgUrl: string;
-  landscapeImgUrl: string;
-  subheading: string;
-  heading: string;
-  children: ReactNode;
-  logoSrc?: string;
-}) => {
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  return (
-    <div
-      style={{
-        paddingLeft: IMG_PADDING,
-        paddingRight: IMG_PADDING,
-      }}
-    >
-      <div className='relative h-[250vh]'>
-        <StickyImage portraitImgUrl={portraitImgUrl} landscapeImgUrl={landscapeImgUrl} />
-        <OverlayCopy heading={heading} subheading={subheading} logoSrc={logoSrc} scrollToRef={contentRef} />
-        <div ref={contentRef}>{children}</div>
-      </div>
-    </div>
-  );
-};
-
-const StickyImage = ({ portraitImgUrl, landscapeImgUrl }: { portraitImgUrl: string; landscapeImgUrl: string }) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ['end end', 'end start'],
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-
-  return (
-    <motion.div
-      ref={targetRef}
-      style={{ scale, willChange: 'transform' }}
-      className='sticky z-0 overflow-hidden rounded-3xl h-[calc(100vh-3rem)] top-12'
-    >
-      <div className='absolute inset-0 sm:hidden w-full h-full'>
-        <Image
-          src={portraitImgUrl}
-          alt='Invisalign Portrait'
-          fill
-          className='object-cover'
-          priority
-          sizes='(max-width: 640px) 100vw'
-        />
-      </div>
-
-      <div className='absolute inset-0 hidden sm:block w-full h-full'>
-        <Image
-          src={landscapeImgUrl}
-          alt='Invisalign Landscape'
-          fill
-          className='object-cover'
-          priority
-          sizes='(min-width: 640px) 100vw'
-        />
-      </div>
-
-      <motion.div className='absolute inset-0 bg-neutral-950/70' style={{ opacity }} />
-    </motion.div>
-  );
-};
-
-const OverlayCopy = ({
-  subheading,
-  heading,
-  logoSrc,
-  scrollToRef,
-}: {
-  subheading: string;
-  heading: string;
-  logoSrc?: string;
-  scrollToRef: React.RefObject<HTMLDivElement>;
-}) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
-  const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
-
-  return (
-    <motion.div
-      style={{ y, opacity }}
-      ref={targetRef}
-      className='absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white z-40'
-    >
-      <p className='mb-2 text-center text-xl md:mb-4 md:text-3xl'>{subheading}</p>
-      <p className='text-center text-4xl font-bold md:text-7xl max-w-[56rem]'>{heading}</p>
-    </motion.div>
+    </main>
   );
 };

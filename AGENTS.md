@@ -8,7 +8,7 @@ Build and maintain a fast, accessible, clinically trustworthy website that helps
 
 - Start with `git status` and inspect only files relevant to the request. Prefer `rg`/`rg --files`; exclude `.next`, generated output, caches, dependencies, and unrelated routes.
 - Do not read large documents or scan the whole repository by default.
-- For work that can affect public search performance—page copy, routes, metadata, canonicals, structured data, headings, internal links, images/alt text, sitemap/robots, redirects, crawlability, indexation, or material Core Web Vitals—read `docs/SEO.md` before editing.
+- For work that can affect public search performance-page copy, routes, metadata, canonicals, structured data, headings, internal links, images/alt text, sitemap/robots, redirects, crawlability, indexation, or material Core Web Vitals-read `docs/SEO.md` before editing.
 - For visual/UI redesigns, read `docs/DESIGN_REFERENCES.md` before making design decisions. Do not load it for backend, tooling, SEO-only, or unrelated maintenance work.
 - Skip `docs/SEO.md` for isolated internal refactors, tests, tooling, or styling changes with no SEO, semantic, accessibility, or performance impact.
 - Reuse established components and dependencies. Make the smallest coherent change and avoid unrelated cleanup.

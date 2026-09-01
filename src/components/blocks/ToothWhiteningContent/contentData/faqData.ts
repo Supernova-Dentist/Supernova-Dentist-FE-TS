@@ -7,7 +7,7 @@ export const faqItems = [
   {
     question: 'How does in-office whitening compare to at-home whitening?',
     answer:
-      'In-office whitening is a professional treatment that uses stronger bleaching agents and advanced technology for quicker, more noticeable results—typically achieved in just one visit. At-home whitening involves custom-fitted trays and a lower concentration of bleaching agents, which may require a few weeks to achieve the desired results. Both methods are effective, but in-office whitening is ideal for faster, more dramatic results.',
+      'In-office whitening is a professional treatment that uses stronger bleaching agents and advanced technology for quicker, more noticeable results-typically achieved in just one visit. At-home whitening involves custom-fitted trays and a lower concentration of bleaching agents, which may require a few weeks to achieve the desired results. Both methods are effective, but in-office whitening is ideal for faster, more dramatic results.',
   },
   {
     question: 'What are the benefits of professional whitening over whitening toothpaste?',
