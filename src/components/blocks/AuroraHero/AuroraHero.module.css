@@ -111,7 +111,6 @@
 
 .nebula,
 .goldDust,
-.brightStars,
 .shootingStar {
   transform-box: fill-box;
   transform-origin: center;
@@ -131,10 +130,6 @@
 
 .horizonDust {
   opacity: 0.82;
-}
-
-.brightStars {
-  opacity: 0.78;
 }
 
 .shootingStar {

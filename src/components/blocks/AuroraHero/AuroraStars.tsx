@@ -52,11 +52,6 @@ const horizonDust = Array.from({ length: 78 }, () => ({
   opacity: 0.11 + horizonDustRandom() * 0.24,
 }));
 
-const brightStars = [
-  { x: 1248, y: 188, size: 7, opacity: 0.72 },
-  { x: 1168, y: 612, size: 4.5, opacity: 0.48 },
-];
-
 export default function AuroraStars() {
   return (
     <svg
@@ -151,22 +146,6 @@ export default function AuroraStars() {
             opacity={star.opacity}
             r={star.radius}
           />
-        ))}
-      </g>
-
-      <g className={styles.brightStars}>
-        {brightStars.map((star, index) => (
-          <g key={index} opacity={star.opacity} transform={`translate(${star.x} ${star.y})`}>
-            <circle fill='#fffaf0' filter='url(#aurora-glint-blur)' opacity='.32' r={star.size * 0.9} />
-            <path
-              d={`M ${-star.size} 0 H ${star.size} M 0 ${-star.size} V ${star.size}`}
-              fill='none'
-              stroke='#fff7e7'
-              strokeLinecap='round'
-              strokeWidth='.65'
-            />
-            <circle fill='#fffdf7' r='.9' />
-          </g>
         ))}
       </g>
 
