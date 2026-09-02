@@ -8,6 +8,7 @@
 
 # testing
 /coverage
+/.aurora-visual-qa/
 
 # next.js
 /.next/

@@ -1,112 +1,174 @@
-import { DentallyPortal } from '@/lib/constants';
-import { practiceLocation } from '@/lib/practiceLocation';
-import Image from 'next/image';
-import AuroraStars from './AuroraStars';
 import Link from 'next/link';
-import { FiArrowRight, FiMapPin } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
+import { DentallyPortal } from '@/lib/constants';
+import AuroraStars from './AuroraStars';
+import styles from './AuroraHero.module.css';
+
+function AuroraHorizon() {
+  return (
+    <div className={styles.horizonScene} aria-hidden='true'>
+      <div className={styles.horizonFrame}>
+        <div className={styles.horizon}>
+          <svg focusable='false' preserveAspectRatio='none' viewBox='0 0 1200 220'>
+            <defs>
+              <linearGradient id='aurora-horizon-line' x1='0' x2='1'>
+                <stop offset='0' stopColor='#c6a15b' stopOpacity='0' />
+                <stop offset='.17' stopColor='#b98d4d' stopOpacity='.14' />
+                <stop offset='.38' stopColor='#d5b977' stopOpacity='.46' />
+                <stop offset='.475' stopColor='#f4dca5' stopOpacity='.88' />
+                <stop offset='.5' stopColor='#fff7e7' stopOpacity='1' />
+                <stop offset='.525' stopColor='#f4dca5' stopOpacity='.88' />
+                <stop offset='.62' stopColor='#d5b977' stopOpacity='.46' />
+                <stop offset='.83' stopColor='#b98d4d' stopOpacity='.14' />
+                <stop offset='1' stopColor='#c6a15b' stopOpacity='0' />
+              </linearGradient>
+              <linearGradient id='aurora-horizon-core-line' x1='0' x2='1'>
+                <stop offset='.3' stopColor='#d5b977' stopOpacity='0' />
+                <stop offset='.43' stopColor='#f4dca5' stopOpacity='.48' />
+                <stop offset='.485' stopColor='#fff7e7' stopOpacity='.96' />
+                <stop offset='.5' stopColor='#fffdf7' stopOpacity='1' />
+                <stop offset='.515' stopColor='#fff7e7' stopOpacity='.96' />
+                <stop offset='.57' stopColor='#f4dca5' stopOpacity='.48' />
+                <stop offset='.7' stopColor='#d5b977' stopOpacity='0' />
+              </linearGradient>
+              <radialGradient id='aurora-horizon-bloom'>
+                <stop offset='0' stopColor='#fff7e7' stopOpacity='1' />
+                <stop offset='.12' stopColor='#f8dfa6' stopOpacity='.86' />
+                <stop offset='.38' stopColor='#d39b52' stopOpacity='.34' />
+                <stop offset='.7' stopColor='#9d6534' stopOpacity='.08' />
+                <stop offset='1' stopColor='#c6a15b' stopOpacity='0' />
+              </radialGradient>
+              <radialGradient id='aurora-horizon-reflection' cx='.5' cy='.12' r='.82'>
+                <stop offset='0' stopColor='#f4dca5' stopOpacity='.22' />
+                <stop offset='.38' stopColor='#c38a48' stopOpacity='.07' />
+                <stop offset='1' stopColor='#c38a48' stopOpacity='0' />
+              </radialGradient>
+              <linearGradient id='aurora-horizon-rays' x1='.5' x2='.5' y1='1' y2='0'>
+                <stop offset='0' stopColor='#fff7e7' stopOpacity='.34' />
+                <stop offset='.18' stopColor='#f4dca5' stopOpacity='.22' />
+                <stop offset='.58' stopColor='#d5b977' stopOpacity='.07' />
+                <stop offset='1' stopColor='#c6a15b' stopOpacity='0' />
+              </linearGradient>
+              <filter id='aurora-horizon-glow' x='-20%' y='-120%' width='140%' height='340%'>
+                <feGaussianBlur stdDeviation='5.5' />
+              </filter>
+              <filter id='aurora-horizon-bloom-blur' x='-40%' y='-120%' width='180%' height='340%'>
+                <feGaussianBlur stdDeviation='15' />
+              </filter>
+              <filter id='aurora-horizon-rays-blur' x='-30%' y='-20%' width='160%' height='150%'>
+                <feGaussianBlur stdDeviation='14' />
+              </filter>
+            </defs>
+
+            <path
+              d='M 600 126 L 350 -18 L 850 -18 Z'
+              fill='url(#aurora-horizon-rays)'
+              filter='url(#aurora-horizon-rays-blur)'
+              opacity='.24'
+            />
+            <path
+              d='M 600 126 L 515 -18 L 685 -18 Z'
+              fill='url(#aurora-horizon-rays)'
+              filter='url(#aurora-horizon-rays-blur)'
+              opacity='.58'
+            />
+            <ellipse
+              cx='600'
+              cy='126'
+              fill='url(#aurora-horizon-bloom)'
+              filter='url(#aurora-horizon-bloom-blur)'
+              opacity='1'
+              rx='270'
+              ry='55'
+            />
+            <ellipse
+              cx='600'
+              cy='144'
+              fill='url(#aurora-horizon-reflection)'
+              filter='url(#aurora-horizon-glow)'
+              opacity='.72'
+              rx='235'
+              ry='43'
+            />
+            <path
+              d='M -80 214 Q 600 38 1280 214'
+              fill='none'
+              filter='url(#aurora-horizon-glow)'
+              opacity='.62'
+              stroke='url(#aurora-horizon-line)'
+              strokeWidth='8'
+            />
+            <path
+              d='M -80 214 Q 600 38 1280 214'
+              fill='none'
+              stroke='url(#aurora-horizon-line)'
+              strokeWidth='1.25'
+            />
+            <path
+              d='M -80 214 Q 600 38 1280 214'
+              fill='none'
+              stroke='url(#aurora-horizon-core-line)'
+              strokeWidth='2.4'
+            />
+            <circle cx='600' cy='126' fill='#f4dca5' filter='url(#aurora-horizon-glow)' opacity='.7' r='10' />
+            <circle cx='600' cy='126' fill='#fffdf7' opacity='1' r='2.25' />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function AuroraHero() {
   return (
-    <section
-      aria-labelledby='home-hero-title'
-      className='relative isolate flex min-h-[calc(100svh)] items-center overflow-hidden bg-obsidian text-ivory'
-    >
-      <div
-        className='absolute inset-0 bg-[radial-gradient(ellipse_at_84%_16%,rgba(198,161,91,0.13)_0%,rgba(198,161,91,0.045)_30%,rgba(198,161,91,0)_58%),radial-gradient(ellipse_at_6%_96%,rgba(140,89,55,0.11)_0%,rgba(140,89,55,0.035)_32%,rgba(140,89,55,0)_60%),linear-gradient(135deg,#070b10_8%,#0b1218_52%,#111b24_100%)]'
-        aria-hidden='true'
-      />
-      <div
-        className='pointer-events-none absolute -right-[18rem] -top-[16rem] h-[44rem] w-[44rem] rounded-full border border-champagne/[0.08] bg-champagne/[0.015] shadow-[0_0_160px_rgba(198,161,91,0.08)]'
-        aria-hidden='true'
-      />
-      <div
-        className='pointer-events-none absolute inset-0 z-[1] opacity-[0.035] mix-blend-soft-light'
-        aria-hidden='true'
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E\")",
-          backgroundSize: '180px 180px',
-        }}
-      />
-      <div className='pointer-events-none absolute inset-0 z-[2] opacity-70' aria-hidden='true'>
+    <section aria-labelledby='home-hero-title' className={styles.hero}>
+      <div className={styles.backdrop} aria-hidden='true' />
+      <div className={styles.noise} aria-hidden='true' />
+      <div className={styles.stars} aria-hidden='true'>
         <AuroraStars />
       </div>
 
-      <div className='relative z-10 mx-auto grid w-full max-w-7xl gap-14 px-6 pb-20 pt-32 sm:px-8 sm:pb-24 sm:pt-36 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)] lg:items-end lg:px-12 lg:pb-28 lg:pt-40'>
-        <div className='max-w-4xl'>
-          <div className='mb-7 flex items-center gap-3'>
-            <Image
-              src='/assets/images/logo.png'
-              alt=''
-              width={56}
-              height={56}
-              priority
-              className='h-12 w-12 rounded-full bg-white object-contain p-1 sm:h-14 sm:w-14'
-            />
-            <p className='text-lg font-semibold leading-tight text-ivory sm:text-xl'>
-              Supernova Dental
-              <span className='mt-1 block text-xs font-semibold uppercase tracking-[0.22em] text-gold-text-dark'>
-                Bridgwater
-              </span>
-            </p>
-          </div>
-          <p className='hidden' aria-hidden='true'>
-            <span className='h-px w-10 bg-champagne/70' aria-hidden='true' />
-            Supernova Dental <span aria-hidden='true'>·</span> Bridgwater
+      <div className={styles.inner}>
+        <div className={styles.introduction}>
+          <p className={styles.eyebrow}>
+            <span>Supernova Dental</span>
+            <span>Bridgwater</span>
           </p>
-          <h1
-            id='home-hero-title'
-            className='max-w-4xl text-balance text-5xl font-normal leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl xl:text-[5.5rem]'
-          >
-            Modern dentistry,
-            <span className='block bg-gradient-to-r from-ivory via-[#f3dfb2] to-champagne bg-clip-text text-transparent'>
-              thoughtfully delivered.
+
+          <h1 id='home-hero-title' className={styles.title}>
+            <span className={styles.titleLine}>
+              Modern <span className={styles.mobileBreak}>dentistry,</span>
+            </span>
+            <span className={styles.titleLine}>
+              <span className={styles.goldWord}>thoughtfully</span>{' '}
+              <span className={`${styles.mobileBreak} ${styles.ivoryWord}`}>delivered.</span>
             </span>
           </h1>
-          <p className='mt-7 max-w-2xl text-pretty text-lg leading-8 text-ivory/70 sm:text-xl'>
+
+          <p className={styles.summary}>
             Personal general, cosmetic and implant dentistry from a welcoming team, in a calm modern practice designed
             around you.
           </p>
-
-          <div className='mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap'>
-            <Link
-              href={DentallyPortal}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-champagne px-6 text-sm font-semibold text-obsidian transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ivory focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
-            >
-              Book an appointment
-              <FiArrowRight className='transition-transform group-hover:translate-x-0.5' aria-hidden='true' />
-            </Link>
-            <Link
-              href='/enquiry'
-              className='inline-flex min-h-12 items-center justify-center rounded-full border border-ivory/30 bg-ivory/[0.04] px-6 text-sm font-semibold text-ivory transition-colors hover:border-gold-text-dark hover:text-gold-text-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'
-            >
-              Make an enquiry
-            </Link>
-          </div>
         </div>
 
-        <div className='justify-self-stretch border-l border-ivory/15 pl-6 lg:max-w-sm lg:justify-self-end lg:pl-8'>
-          <p className='text-sm uppercase tracking-[0.18em] text-ivory/60'>Your brightest smile starts here</p>
-          <p className='mt-4 text-pretty text-xl leading-8 text-ivory/85'>
-            A private dental practice for Bridgwater, Taunton, Burnham-on-Sea, Highbridge and surrounding Somerset
-            areas.
-          </p>
+        <AuroraHorizon />
+
+        <div className={styles.actionArea}>
           <Link
-            href='/find-us'
-            className='mt-6 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-semibold text-gold-text-dark underline decoration-champagne/40 underline-offset-8 transition-colors hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'
+            href={DentallyPortal}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={styles.primaryAction}
           >
-            <FiMapPin aria-hidden='true' />
-            {practiceLocation.addressLines[3]} · Just off Junction 24
+            <span>Book an appointment</span>
+            <FiArrowRight aria-hidden='true' />
+          </Link>
+
+          <Link href='/enquiry' className={styles.secondaryAction}>
+            Make an enquiry
           </Link>
         </div>
       </div>
-
-      <div
-        className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-champagne/40 to-transparent'
-        aria-hidden='true'
-      />
     </section>
   );
 }

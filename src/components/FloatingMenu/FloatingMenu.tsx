@@ -2,11 +2,25 @@
 
 import { DentallyPortal } from '@/lib/constants';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const consultationRoutes = new Set(['/smile-makeover-consultation', '/book-appointment', '/implant-consultation']);
+const SHOW_AFTER_SCROLL = 96;
 
 export default function FloatingMenu() {
   const pathname = usePathname();
+  const [isQuickActionsVisible, setIsQuickActionsVisible] = useState(false);
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      const shouldShow = window.scrollY > SHOW_AFTER_SCROLL;
+      setIsQuickActionsVisible((current) => (current === shouldShow ? current : shouldShow));
+    };
+
+    updateVisibility();
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    return () => window.removeEventListener('scroll', updateVisibility);
+  }, []);
 
   if (consultationRoutes.has(pathname)) return null;
 
@@ -14,11 +28,14 @@ export default function FloatingMenu() {
     <>
       <nav
         aria-label='Quick contact actions'
-        className='fixed inset-x-0 bottom-0 z-40 grid h-16 grid-cols-3 bg-gold pb-[env(safe-area-inset-bottom)] text-white shadow-[0_-4px_16px_rgba(0,0,0,0.15)] md:hidden'
+        aria-hidden={!isQuickActionsVisible}
+        className={`fixed inset-x-0 bottom-0 z-40 grid h-16 grid-cols-3 bg-gold pb-[env(safe-area-inset-bottom)] text-white shadow-[0_-4px_16px_rgba(0,0,0,0.15)] transition-[transform,opacity,visibility] duration-300 ease-out motion-reduce:transition-none md:hidden ${
+          isQuickActionsVisible ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible translate-y-full opacity-0'
+        }`}
       >
-        <QuickAction href={DentallyPortal} label='Book online' external icon={<CalendarIcon />} />
-        <QuickAction href='https://maps.google.com/?q=Supernova+Dental+Bridgwater' label='Find us' external icon={<PinIcon />} />
-        <QuickAction href='tel:01278228665' label='Call reception' icon={<PhoneIcon />} />
+        <QuickAction href={DentallyPortal} label='Book online' external icon={<CalendarIcon />} tabIndex={isQuickActionsVisible ? undefined : -1} />
+        <QuickAction href='https://maps.google.com/?q=Supernova+Dental+Bridgwater' label='Find us' external icon={<PinIcon />} tabIndex={isQuickActionsVisible ? undefined : -1} />
+        <QuickAction href='tel:01278228665' label='Call reception' icon={<PhoneIcon />} tabIndex={isQuickActionsVisible ? undefined : -1} />
       </nav>
 
       <a
@@ -26,7 +43,11 @@ export default function FloatingMenu() {
         target='_blank'
         rel='noreferrer'
         aria-label='Chat with Supernova Dental on WhatsApp'
-        className='fixed bottom-20 right-4 z-40 grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366] md:bottom-5'
+        aria-hidden={!isQuickActionsVisible}
+        tabIndex={isQuickActionsVisible ? undefined : -1}
+        className={`fixed bottom-20 right-4 z-40 grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition-[opacity,transform,visibility] duration-300 ease-out motion-reduce:transition-none hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366] md:bottom-5 ${
+          isQuickActionsVisible ? 'visible translate-y-0 opacity-100' : 'pointer-events-none invisible translate-y-4 opacity-0'
+        }`}
       >
         <WhatsAppIcon />
       </a>
@@ -34,12 +55,13 @@ export default function FloatingMenu() {
   );
 }
 
-function QuickAction({ href, label, icon, external = false }: { href: string; label: string; icon: React.ReactNode; external?: boolean }) {
+function QuickAction({ href, label, icon, external = false, tabIndex }: { href: string; label: string; icon: React.ReactNode; external?: boolean; tabIndex?: number }) {
   return (
     <a
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noreferrer' : undefined}
+      tabIndex={tabIndex}
       className='flex flex-col items-center justify-center gap-1 border-r border-black/60 px-2 text-center text-[15px] font-medium last:border-r-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white'
     >
       <span aria-hidden='true' className='size-5'>{icon}</span>

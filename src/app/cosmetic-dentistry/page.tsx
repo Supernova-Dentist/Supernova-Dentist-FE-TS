@@ -36,7 +36,7 @@ const groups: ServiceCategoryGroup[] = [
       {
         name: 'Dental implants',
         href: '/cosmetic-dentistry/dental-implants',
-        image: '/assets/images/dental-implants-supernova-dental-bridgwater.webp',
+        image: '/assets/images/cbct_supernova_dental_bridgwater.webp',
         imageAlt: 'Dental implant treatment at Supernova Dental in Bridgwater',
         description: 'Natural-looking options for replacing one or more missing teeth.',
       },
