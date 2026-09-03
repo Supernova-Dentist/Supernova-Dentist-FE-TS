@@ -1,8 +1,9 @@
 'use client';
+
+import { ScrollToPromotionFormMotionButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormMotionButton';
 import { motion, useMotionTemplate } from 'framer-motion';
 import React from 'react';
 import { ImagesSlider } from '../../../ui/images-slider';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { FiArrowRight } from 'react-icons/fi';
 import { FlipWords } from '@/components/ui/flip-words';
 
@@ -61,8 +62,7 @@ export function InvisalignOpenDayHero() {
             <motion.h1 className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
               Supernova Dental <br /> Invisalign Open Day <br /> <br /> <FlipWords words={words} /> 
             </motion.h1>
-            <motion.button
-              onClick={scrollToPromotionForm}
+            <ScrollToPromotionFormMotionButton
               style={{
                 border,
                 boxShadow,
@@ -77,7 +77,7 @@ export function InvisalignOpenDayHero() {
             >
               Sign Up Now
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
-            </motion.button>
+            </ScrollToPromotionFormMotionButton>
           </motion.div>
         </ImagesSlider>
       </div>
@@ -100,8 +100,7 @@ export function InvisalignOpenDayHero() {
             <motion.p className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4'>
               Supernova Dental <br /> Invisalign Open Day <br /> <br /><FlipWords words={words} />
             </motion.p>
-            <motion.button
-              onClick={scrollToPromotionForm}
+            <ScrollToPromotionFormMotionButton
               style={{
                 border,
                 boxShadow,
@@ -116,7 +115,7 @@ export function InvisalignOpenDayHero() {
             >
               Sign Up Now
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
-            </motion.button>
+            </ScrollToPromotionFormMotionButton>
           </motion.div>
         </ImagesSlider>
       </div>

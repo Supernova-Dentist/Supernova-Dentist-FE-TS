@@ -5,7 +5,6 @@ import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import React, { type ReactNode, useRef } from 'react';

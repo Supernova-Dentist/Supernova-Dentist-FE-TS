@@ -210,13 +210,13 @@ export default function Home() {
       </section>
 
       <section className='bg-ivory py-20 lg:py-28' aria-labelledby='practice-heading'>
-        <div className='mx-auto grid max-w-7xl gap-12 px-6 sm:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.95fr)] lg:items-center lg:gap-20 lg:px-12'>
-          <div className='relative min-h-[28rem] overflow-hidden rounded-[1.5rem] sm:min-h-[38rem]'>
+        <div className='mx-auto grid max-w-7xl gap-12 px-6 sm:px-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)] lg:items-center lg:gap-16 lg:px-12'>
+          <div className='relative min-h-[24rem] overflow-hidden rounded-[1.5rem] sm:min-h-[32rem] lg:min-h-[34rem]'>
             <Image
               src={receptionImage}
               alt='The reception area at Supernova Dental in Bridgwater'
               fill
-              sizes='(max-width: 1024px) 100vw, 55vw'
+              sizes='(max-width: 1024px) 100vw, 65vw'
               className='object-cover'
             />
             <div

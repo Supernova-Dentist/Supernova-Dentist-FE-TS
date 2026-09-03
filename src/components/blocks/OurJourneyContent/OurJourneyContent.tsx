@@ -6,7 +6,6 @@ import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { Button } from '@/components/ui/button';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';

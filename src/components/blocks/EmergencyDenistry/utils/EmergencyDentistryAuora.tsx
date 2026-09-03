@@ -1,8 +1,7 @@
-'use client';
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
 
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { EditorialDivider } from '@/components/TeamExperience/LuxuryPrimitives';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { FiArrowRight, FiMessageCircle, FiPhone } from 'react-icons/fi';
 
 const emergencyReasons = [
@@ -51,14 +50,14 @@ const AuroraHero = () => {
                 <FiMessageCircle aria-hidden='true' />
                 WhatsApp
               </a>
-              <button
+              <ScrollToPromotionFormButton
                 type='button'
-                onClick={scrollToPromotionForm}
+
                 className={`${actionClassName} border-white/25 text-ivory hover:border-champagne/70 hover:bg-white/[0.06]`}
               >
                 Book online
                 <FiArrowRight aria-hidden='true' />
-              </button>
+              </ScrollToPromotionFormButton>
             </div>
           </div>
 

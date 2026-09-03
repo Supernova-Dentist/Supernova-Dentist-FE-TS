@@ -1,5 +1,7 @@
 'use client';
 
+import { ScrollToPromotionFormMotionButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormMotionButton';
+
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -7,7 +9,6 @@ import ServiceActions from '@/components/ServiceActions/ServiceActions';
 import ServiceDescription from '@/components/ServiceDescription/ServiceDescription';
 import ServiceHeader from '@/components/ServiceHeader/ServiceHeader';
 import ServiceStatsContainer from '@/components/ServiceStatsContainer/ServiceStatsContainer';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 
 // Rename ServiceBox to a named component
 function ServiceBox({ title, subTitle, benefitText, stats, statsTitle }: ServiceBox) {
@@ -17,7 +18,7 @@ function ServiceBox({ title, subTitle, benefitText, stats, statsTitle }: Service
       <ServiceDescription className='mt-6 mb-8' description={benefitText} />
       {stats && stats.length > 0 && <ServiceStatsContainer stats={stats} statsTitle={statsTitle} />}
       <div className={`lg:mt-6 mt-10 flex flex-col gap-4 sm:flex-row ${'justify-center'}`}>
-        <motion.button className='bg-gold text-cream px-8 py-4 rounded-lg text-lg font-semibold' onClick={scrollToPromotionForm}>📝 Book Online </motion.button>
+        <ScrollToPromotionFormMotionButton className='bg-gold text-cream px-8 py-4 rounded-lg text-lg font-semibold'>📝 Book Online </ScrollToPromotionFormMotionButton>
       </div>
     </div>
   );

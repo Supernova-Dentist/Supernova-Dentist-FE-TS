@@ -1,6 +1,7 @@
 'use client';
 
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
+
 import { motion } from 'framer-motion';
 import React, { useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -69,12 +70,11 @@ export function InvisalignOpenDayVideoSection() {
           />
         </div>
         <div className='mt-2 pt-8 pb-12 lg:pb-24 flex justify-center'>
-          <button
-            onClick={scrollToPromotionForm}
+          <ScrollToPromotionFormButton
             className='bg-gold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
           >
             Take the first step!
-          </button>
+          </ScrollToPromotionFormButton>
         </div>
       </motion.div>
     </div>

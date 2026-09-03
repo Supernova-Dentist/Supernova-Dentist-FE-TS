@@ -37,7 +37,7 @@ export default function PromotionFooter() {
             className='h-auto w-auto'
           />
           <p className='mt-2 text-sm text-cream max-w-xs'>
-            We’re a <span className='text-gold font-semibold'>Certified Invisalign Provider</span> – Trusted dentist in
+            We’re a <span className='text-gold font-semibold'>Certified Invisalign Provider</span> - Trusted dentist in
             Bridgwater, Somerset.
           </p>
         </Link>

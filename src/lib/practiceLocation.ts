@@ -114,8 +114,8 @@ export const practiceLocation = {
   directionsUrl:
     'https://www.google.com/maps/search/?api=1&query=Supernova%20Dental%2C%20Supernova%20Building%2C%20Marsh%20Lane%2C%20Huntworth%20Gate%2C%20Bridgwater%20TA6%206LQ',
   openingHours: [
-    { day: 'Monday–Friday', hours: '08:15–18:15' },
-    { day: 'Saturday', hours: '09:00–13:00' },
+    { day: 'Monday-Friday', hours: '08:15-18:15' },
+    { day: 'Saturday', hours: '09:00-13:00' },
     { day: 'Sunday', hours: 'Closed' },
   ],
   parking: '10 clearly signposted reserved patient parking spaces are available directly opposite the building.',

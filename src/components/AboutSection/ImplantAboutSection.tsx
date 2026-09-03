@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { ScrollToPromotionFormUiButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormUiButton';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
@@ -51,9 +51,9 @@ export default function ImplantAboutSection() {
           </p>
 
           <div className='mt-6 flex flex-col items-center gap-4 text-center'>
-            <Button onClick={scrollToPromotionForm} className='w-fit bg-gold p-6 text-white hover:bg-lightGold'>
+            <ScrollToPromotionFormUiButton className='w-fit bg-gold p-6 text-white hover:bg-lightGold'>
               Check Implant Availability
-            </Button>
+            </ScrollToPromotionFormUiButton>
 
             <p className='text-sm text-gray-500'>
               Implant consultation request | No obligation | Dental implant treatment in Bridgwater

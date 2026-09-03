@@ -65,9 +65,9 @@ export default function Footer() {
                   WhatsApp {practiceLocation.whatsapp}
                 </a>
                 <p className='pt-2 leading-6 text-gray-300'>
-                  Monday–Friday: 08:15–18:15
+                  Monday-Friday: 08:15-18:15
                   <br />
-                  Saturday: 09:00–13:00
+                  Saturday: 09:00-13:00
                   <br />
                   Sunday: Closed
                 </p>

@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { ScrollToPromotionFormUiButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormUiButton';
+
 import { Input } from '@/components/ui/input';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { StarIcon, UserCircleIcon } from '@heroicons/react/solid';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -47,9 +47,9 @@ export default function ComingSoonSection() {
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
               transition={{ duration: 0.5 }} // Duration of the animation
             >
-              <Button onClick={scrollToPromotionForm} className='mt-4 mb-4 w-fit mx-auto'>
+              <ScrollToPromotionFormUiButton className='mt-4 mb-4 w-fit mx-auto'>
                 Stay updated!
-              </Button>
+              </ScrollToPromotionFormUiButton>
               <p className='text-sm text-gray-500 '>
                 Stay updated on our progress and be the first to know when we launch!
               </p>

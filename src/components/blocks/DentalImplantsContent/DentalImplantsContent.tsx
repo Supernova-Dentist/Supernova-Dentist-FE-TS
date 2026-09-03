@@ -21,7 +21,7 @@ export default function DentalImplantsContent() {
     <>
       <div className='container mx-auto py-16 md:py-24 md:px-8'>
         <ServiceForm
-          serviceName='Dental Implants Journey – Full-Arch (All-on-4/6) in Somerset'
+          serviceName='Dental Implants Journey - Full-Arch (All-on-4/6) in Somerset'
           serviceChip='Dental Implant Consultation'
           serviceDescription='Discover single-tooth implants and advanced full-arch solutions such as All-on-4/6 delivered by our experienced implantologist at Supernova Dental in Bridgwater, Somerset.'
           formTitle='Register for your Dental Implant Consultation'

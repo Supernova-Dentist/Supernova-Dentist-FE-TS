@@ -1,9 +1,9 @@
+
+import { ScrollToPromotionFormLegacyButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormLegacyButton';
 import { cn } from '@/lib/utils';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import { IoCheckmarkCircle } from 'react-icons/io5';
-import Button from '../Button/Button';
 
 type PricingCardProps = {
   plan: string;
@@ -63,8 +63,7 @@ export default function PricingCard({ plan, price, offerPrice, features, isMiddl
       </div>
       <div className='mt-auto'>
         {/* Added a div to contain the button */}
-        <Button
-          onClick={scrollToPromotionForm}
+        <ScrollToPromotionFormLegacyButton
           className={cn('w-full text-gray-50 rounded-sm mt-6 px-4 py-2', isMiddle ? 'bg-gold' : 'bg-gray-900')}
           text='Claim offer'
         />

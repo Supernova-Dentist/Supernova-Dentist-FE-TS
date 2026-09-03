@@ -1,7 +1,8 @@
 'use client';
 
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
+
 import GetDirectionsForm from '@/components/GetDirectionsForm/GetDirectionsForm';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useInView } from 'react-intersection-observer';
@@ -81,12 +82,12 @@ export default function ConsultFindUs() {
               <h2 className='text-xl xl:text-2xl font-semibold mb-4 text-center text-gray'>Opening Hours</h2>
 
               <ul className='space-y-2 text-center'>
-                <li>Monday: 08:15–18:15</li>
-                <li>Tuesday: 08:15–18:15</li>
-                <li>Wednesday: 08:15–18:15</li>
-                <li>Thursday: 08:15–18:15</li>
-                <li>Friday: 08:15–18:15</li>
-                <li>Saturday: 09:00–13:00</li>
+                <li>Monday: 08:15-18:15</li>
+                <li>Tuesday: 08:15-18:15</li>
+                <li>Wednesday: 08:15-18:15</li>
+                <li>Thursday: 08:15-18:15</li>
+                <li>Friday: 08:15-18:15</li>
+                <li>Saturday: 09:00-13:00</li>
                 <li>Sunday: Closed</li>
               </ul>
             </motion.div>
@@ -115,12 +116,11 @@ export default function ConsultFindUs() {
                 </div>
 
                 <div className='mt-6 flex justify-center'>
-                  <button
-                    onClick={scrollToPromotionForm}
+                  <ScrollToPromotionFormButton
                     className='bg-gold text-white px-6 py-3 rounded-xl text-sm font-medium hover:opacity-90 transition'
                   >
                     Book a Consultation
-                  </button>
+                  </ScrollToPromotionFormButton>
                 </div>
               </div>
             </motion.div>

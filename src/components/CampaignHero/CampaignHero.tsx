@@ -1,6 +1,5 @@
-'use client';
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
 
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowDown, FiMapPin } from 'react-icons/fi';
@@ -57,14 +56,14 @@ export default function CampaignHero({ eyebrow, title, highlightedTitle, descrip
           <p className='mt-7 max-w-2xl text-pretty text-lg leading-8 text-ivory/72 sm:text-xl'>{description}</p>
 
           <div className='mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap'>
-            <button
+            <ScrollToPromotionFormButton
               type='button'
-              onClick={scrollToPromotionForm}
+
               className='inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-champagne px-6 text-sm font-semibold text-obsidian transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
             >
               Start your enquiry
               <FiArrowDown aria-hidden='true' />
-            </button>
+            </ScrollToPromotionFormButton>
             <Link
               href='/find-us'
               className='inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-ivory/30 bg-ivory/[0.04] px-6 text-sm font-semibold text-ivory transition-colors hover:border-gold-text-dark hover:text-gold-text-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'

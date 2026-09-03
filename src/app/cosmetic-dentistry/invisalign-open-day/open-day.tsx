@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: 'Invisalign Open Day – Friday 24th & Saturday 25th April | Bridgwater | Supernova Dental',
+  title: 'Invisalign Open Day - Friday 24th & Saturday 25th April | Bridgwater | Supernova Dental',
   description:
     'Join our Invisalign Open Day on Friday 24th and Saturday 25th April at Supernova Dental. Enjoy exclusive offers, free consultations, and start your journey to a straighter smile with clear aligners in Bridgwater and Taunton.',
   keywords:

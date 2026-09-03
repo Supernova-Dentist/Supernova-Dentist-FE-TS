@@ -1,3 +1,5 @@
+
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
 import { practiceLocation } from '@/lib/practiceLocation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -48,13 +50,12 @@ export default function PracticeExperience() {
               visit feel clear, welcoming and considered.
             </p>
             <div className='mt-9 flex flex-col gap-3 sm:flex-row'>
-              <Link
-                href='#practice-tour-form'
+              <ScrollToPromotionFormButton
                 className='inline-flex min-h-11 items-center justify-center rounded-full border border-champagne bg-champagne px-6 py-3 text-sm font-semibold text-obsidian shadow-[0_12px_30px_rgba(198,161,91,0.18)] transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
               >
                 Book a complimentary practice tour
                 <FiArrowRight aria-hidden='true' className='ml-2 size-4' />
-              </Link>
+              </ScrollToPromotionFormButton>
               <Link
                 href='/find-us'
                 className='inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-ivory transition-colors hover:border-champagne/70 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
@@ -229,9 +230,9 @@ export default function PracticeExperience() {
               </a>
             </p>
             <p className='mt-4'>
-              Monday–Friday: 08:15–18:15
+              Monday-Friday: 08:15-18:15
               <br />
-              Saturday: 09:00–13:00
+              Saturday: 09:00-13:00
               <br />
               Sunday: Closed
             </p>
