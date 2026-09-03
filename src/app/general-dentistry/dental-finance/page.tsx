@@ -76,8 +76,8 @@ export default function DentalFinance() {
           <SectionSpacing className='service-finance-section flex flex-col gap-4'>
             <p>
               At Supernova Dental we understand that investing in your oral health can sometimes feel overwhelming, both
-              emotionally and financially. That’s why we’re proud to offer <strong>flexible financing</strong>
-              through our partner, Tabeo – making your dental care more accessible and manageable. Serving patients from
+              emotionally and financially. That’s why we’re proud to offer <strong>flexible financing </strong>
+              through our partner, Tabeo - making your dental care more accessible and manageable. Serving patients from
               Bridgwater and surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.
             </p>
             <p>
@@ -93,7 +93,7 @@ export default function DentalFinance() {
               <li>No upfront payments required</li>
               <li>Apply online in just 2 minutes</li>
               <li>
-                Soft credit checks for finance applications only – verification only, no impact on your credit score
+                Soft credit checks for finance applications only - verification only, no impact on your credit score
               </li>
               <li>No hidden fees or early repayment penalties</li>
             </ul>
@@ -111,7 +111,7 @@ export default function DentalFinance() {
               </li>
               <li>
                 <strong>Apply for finance:</strong> We’ll send you a link via email to complete a short online
-                application – we can also help you apply in-practice if you prefer.
+                application - we can also help you apply in-practice if you prefer.
               </li>
               <li>
                 <strong>Get instant approval:</strong> 9 out of 10 decisions are made instantly. If you’re approved,
@@ -135,7 +135,7 @@ export default function DentalFinance() {
             <SubHeader>Repayment and Flexibility</SubHeader>
             <p>
               Payments are taken monthly, and you can adjust your payment day at any time through your Tabeo account.
-              Want to pay off early? No problem – there are <strong>no penalties</strong>.
+              Want to pay off early? No problem - there are <strong>no penalties</strong>.
             </p>
           </SectionSpacing>
 

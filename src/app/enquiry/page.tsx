@@ -22,7 +22,7 @@ const contactLinks = [
 
 export default function EnquiryForm() {
   return (
-    <main className='min-w-0 overflow-x-clip bg-porcelain text-obsidian'>
+    <main className='mt-12 min-w-0 overflow-x-clip bg-porcelain text-obsidian'>
       <section className='relative overflow-hidden bg-obsidian text-ivory'>
         <div className='absolute inset-0 luxury-hero-glow' aria-hidden='true' />
         <div className='relative mx-auto max-w-7xl px-6 pb-16 pt-8 sm:px-8 lg:px-12 lg:pb-24'>
