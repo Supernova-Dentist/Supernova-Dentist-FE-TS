@@ -11,44 +11,49 @@ function TeamHero() {
   return (
     <section className='relative overflow-hidden bg-obsidian px-5 pb-20 pt-32 text-ivory sm:px-8 sm:pb-24 sm:pt-36 lg:px-12 lg:pb-28'>
       <div aria-hidden='true' className='luxury-hero-glow absolute inset-0' />
-      <div className='relative mx-auto grid max-w-7xl items-end gap-12 lg:grid-cols-[minmax(0,1fr)_280px]'>
-        <div className='max-w-4xl'>
-          <div className='mb-8 flex items-center gap-4'>
-            <span className='h-px w-10 bg-champagne' />
-            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-champagne sm:text-sm'>
-              The people behind your care
+      <div className='relative mx-auto max-w-7xl'>
+        <div className='team-breadcrumb mb-8'>
+          <BreadCrumb tone='dark' />
+        </div>
+        <div className='grid items-end gap-12 lg:grid-cols-[minmax(0,1fr)_280px]'>
+          <div className='max-w-4xl'>
+            <div className='mb-8 flex items-center gap-4'>
+              <span className='h-px w-10 bg-champagne' />
+              <p className='text-xs font-semibold uppercase tracking-[0.24em] text-champagne sm:text-sm'>
+                The people behind your care
+              </p>
+            </div>
+            <h1 className='max-w-4xl text-balance text-5xl font-normal leading-[0.98] tracking-[-0.03em] sm:text-6xl lg:text-8xl'>
+              Meet the people behind your smile
+            </h1>
+            <p className='mt-8 max-w-2xl text-pretty text-base leading-8 text-ivory/75 sm:text-lg'>
+              Advanced dentistry, thoughtful personal care and a genuinely warm welcome-especially for patients who
+              feel nervous about visiting the dentist.
             </p>
           </div>
-          <h1 className='max-w-4xl text-balance text-5xl font-normal leading-[0.98] tracking-[-0.03em] sm:text-6xl lg:text-8xl'>
-            Meet the people behind your smile
-          </h1>
-          <p className='mt-8 max-w-2xl text-pretty text-base leading-8 text-ivory/75 sm:text-lg'>
-            Advanced dentistry, thoughtful personal care and a genuinely warm welcome-especially for patients who feel
-            nervous about visiting the dentist.
-          </p>
-        </div>
 
-        <div className='flex items-center gap-5 border-t border-white/15 pt-6 lg:block lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0'>
-          <div className='flex size-20 shrink-0 items-center justify-center rounded-[1.25rem] bg-porcelain p-3 shadow-[0_20px_45px_rgba(0,0,0,0.18)] lg:size-28'>
-            <Image
-              src='/assets/images/logo.png'
-              alt='Supernova Dental logo'
-              width={180}
-              height={180}
-              priority
-              className='h-full w-full object-contain'
-            />
+          <div className='flex items-center gap-5 border-t border-white/15 pt-6 lg:block lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0'>
+            <div className='flex size-20 shrink-0 items-center justify-center rounded-[1.25rem] bg-porcelain p-3 shadow-[0_20px_45px_rgba(0,0,0,0.18)] lg:size-28'>
+              <Image
+                src='/assets/images/logo.png'
+                alt='Supernova Dental logo'
+                width={180}
+                height={180}
+                priority
+                className='h-full w-full object-contain'
+              />
+            </div>
+            <p className='max-w-[12rem] text-sm leading-6 text-ivory/65 lg:mt-5'>
+              Private dental care in Bridgwater, Somerset.
+            </p>
           </div>
-          <p className='max-w-[12rem] text-sm leading-6 text-ivory/65 lg:mt-5'>
-            Private dental care in Bridgwater, Somerset.
-          </p>
         </div>
       </div>
     </section>
   );
 }
 
-function TeamCard({ member, priority }: { member: TeamMember; priority: boolean }) {
+function TeamCard({ member }: { member: TeamMember }) {
   return (
     <article className='team-card group relative overflow-hidden rounded-[1.5rem] border border-obsidian/10 bg-porcelain shadow-[0_18px_50px_rgba(11,18,24,0.07)] transition-[border-color,box-shadow,transform] duration-200 hover:border-champagne/80 hover:shadow-[0_22px_60px_rgba(11,18,24,0.12)] focus-within:border-gold-text-light focus-within:ring-2 focus-within:ring-focus-light focus-within:ring-offset-4'>
       <Link
@@ -64,7 +69,6 @@ function TeamCard({ member, priority }: { member: TeamMember; priority: boolean 
             sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
             quality={82}
             placeholder='blur'
-            priority={priority}
             className='object-cover transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none md:group-hover:scale-[1.018]'
           />
           <div
@@ -92,8 +96,6 @@ function TeamCard({ member, priority }: { member: TeamMember; priority: boolean 
 }
 
 function TeamGrid() {
-  let cardIndex = 0;
-
   return (
     <section aria-labelledby='team-grid-heading' className='bg-ivory px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28'>
       <div className='mx-auto max-w-7xl'>
@@ -126,11 +128,7 @@ function TeamGrid() {
                     </h3>
                   </div>
                   <div className='grid gap-7 sm:grid-cols-2 lg:grid-cols-3'>
-                    {members.map((member) => {
-                      const priority = cardIndex < 3;
-                      cardIndex += 1;
-                      return <TeamCard key={member.slug} member={member} priority={priority} />;
-                    })}
+                    {members.map((member) => <TeamCard key={member.slug} member={member} />)}
                   </div>
                 </section>
               </SectionReveal>
@@ -181,11 +179,6 @@ export default function TeamListing() {
   return (
     <main className='bg-ivory text-obsidian'>
       <TeamHero />
-      <div className='team-breadcrumb bg-ivory px-5 pt-8 sm:px-8 lg:px-12'>
-        <div className='mx-auto max-w-7xl'>
-          <BreadCrumb tone='light' />
-        </div>
-      </div>
       <TeamGrid />
       <TeamClosingCta />
     </main>

@@ -19,7 +19,7 @@ const LANDMARK_SOURCE_ID = 'supernova-landmarks';
 const ROUTE_SOURCE_ID = 'supernova-junction-route';
 const ROUTE_BASE_LAYER_ID = 'supernova-junction-route-base';
 const ROUTE_PROGRESS_LAYER_ID = 'supernova-junction-route-progress';
-const WALKTHROUGH_DURATION = 15000;
+const WALKTHROUGH_DURATION = 10000;
 const APPROACH_PHASE = 0.08;
 
 const routeLine = lineString(
@@ -102,7 +102,6 @@ export default function MapboxMap() {
   const animationFrameRef = useRef<number | null>(null);
   const animationStartRef = useRef(0);
   const elapsedRef = useRef(0);
-  const smoothedCenterRef = useRef<MapCoordinate | null>(null);
   const walkthroughStateRef = useRef<WalkthroughState>('idle');
   const reducedMotionRef = useRef(false);
 
@@ -111,6 +110,7 @@ export default function MapboxMap() {
   );
   const [walkthroughState, setWalkthroughState] = useState<WalkthroughState>('idle');
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [shouldInitialiseMap, setShouldInitialiseMap] = useState(false);
 
   const updateWalkthroughState = useCallback((nextState: WalkthroughState) => {
     walkthroughStateRef.current = nextState;
@@ -183,16 +183,9 @@ export default function MapboxMap() {
       } else {
         const routeProgress = Math.min((timelineProgress - APPROACH_PHASE) / (1 - APPROACH_PHASE), 1);
         const [targetLongitude, targetLatitude] = along(routeLine, routeDistance * routeProgress).geometry.coordinates;
-        const previousCenter = smoothedCenterRef.current ?? ([targetLongitude, targetLatitude] as MapCoordinate);
-        const nextCenter: MapCoordinate = [
-          lerp(previousCenter[0], targetLongitude, 0.16),
-          lerp(previousCenter[1], targetLatitude, 0.16),
-        ];
-
-        smoothedCenterRef.current = nextCenter;
         updateRouteProgress(routeProgress);
         map.jumpTo({
-          center: toLngLat(nextCenter),
+          center: [targetLongitude, targetLatitude],
           zoom: lerp(14.65, practiceLocation.map.closeView.zoom, routeProgress),
           pitch: lerp(22, practiceLocation.map.closeView.pitch, routeProgress),
           bearing: 0,
@@ -222,7 +215,6 @@ export default function MapboxMap() {
 
       if (restart || walkthroughStateRef.current === 'idle' || walkthroughStateRef.current === 'complete') {
         elapsedRef.current = 0;
-        smoothedCenterRef.current = null;
         updateRouteProgress(0);
         mapRef.current?.jumpTo({
           center: toLngLat(practiceLocation.map.wideView.center),
@@ -250,7 +242,6 @@ export default function MapboxMap() {
     cancelAnimation();
     elapsedRef.current = 0;
     animationStartRef.current = 0;
-    smoothedCenterRef.current = null;
     updateRouteProgress(0);
     popupRef.current?.remove();
     mapRef.current?.easeTo({
@@ -275,6 +266,32 @@ export default function MapboxMap() {
   }, [pauseWalkthrough]);
 
   useEffect(() => {
+    if (mapState === 'fallback' || shouldInitialiseMap) return;
+
+    const container = mapContainerRef.current;
+
+    if (container === null || !('IntersectionObserver' in window)) {
+      setShouldInitialiseMap(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry === undefined || !entry.isIntersecting) return;
+
+        setShouldInitialiseMap(true);
+        observer.disconnect();
+      },
+      { rootMargin: '400px 0px' }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [mapState, shouldInitialiseMap]);
+
+  useEffect(() => {
+    if (!shouldInitialiseMap) return;
+
     const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
     if (!hasUsableMapboxToken(token) || mapContainerRef.current === null) {
@@ -519,7 +536,7 @@ export default function MapboxMap() {
             }
           });
 
-          markerRef.current = new mapboxgl.Marker({ element: markerElement, anchor: 'bottom' })
+          markerRef.current = new mapboxgl.Marker({ element: markerElement, anchor: 'bottom', offset: [0, -10] })
             .setLngLat(toLngLat(practiceCoordinates))
             .setPopup(popup)
             .addTo(map);
@@ -566,7 +583,7 @@ export default function MapboxMap() {
       popupRef.current = null;
       mapRef.current = null;
     };
-  }, []);
+  }, [shouldInitialiseMap]);
 
   if (mapState === 'fallback') return <MapFallbackCard />;
 
@@ -610,9 +627,10 @@ export default function MapboxMap() {
 
         {walkthroughState === 'complete' && (
           <div
-            className='pointer-events-none absolute bottom-4 left-1/2 z-[3] w-[calc(100%-2rem)] max-w-sm -translate-x-1/2 rounded-2xl border border-champagne/40 bg-obsidian/95 px-5 py-4 text-center shadow-xl backdrop-blur-sm'
+            className='pointer-events-none absolute bottom-12 left-1/2 z-[3] w-[calc(100%-2rem)] max-w-sm -translate-x-1/2 rounded-2xl border border-champagne/40 bg-obsidian/95 px-5 py-4 text-center shadow-xl backdrop-blur-sm'
             role='status'
             aria-live='polite'
+            aria-atomic='true'
           >
             <p className='text-xs font-semibold uppercase tracking-[0.18em] text-champagne'>You&apos;ve arrived</p>
             <p className='mt-1 font-semibold text-ivory'>You&apos;ve arrived at Supernova Dental</p>

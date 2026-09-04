@@ -39,7 +39,7 @@ export default function Footer() {
     pathname === '/implant-consultation';
 
   return (
-    <footer className='bg-grey'>
+    <footer className={`bg-grey ${isConsultationPage ? '' : 'pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0'}`}>
       {isConsultationPage ? (
         <PromotionFooter />
       ) : (

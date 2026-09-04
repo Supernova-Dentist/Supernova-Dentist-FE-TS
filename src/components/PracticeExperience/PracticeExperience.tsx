@@ -1,4 +1,4 @@
-
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
 import { practiceLocation } from '@/lib/practiceLocation';
 import Image from 'next/image';
@@ -33,54 +33,57 @@ export default function PracticeExperience() {
     <main className='bg-porcelain text-obsidian mt-20'>
       <section className='relative isolate overflow-hidden bg-obsidian text-ivory'>
         <div aria-hidden='true' className='luxury-hero-glow absolute inset-0 -z-10' />
-        <div className='mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-6 sm:px-6 md:pb-24 md:pt-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.75fr)] lg:items-center lg:gap-20 lg:px-8'>
-          <div>
-            <p className='mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-champagne sm:text-sm'>
-              The Supernova experience
-            </p>
-            <div aria-hidden='true' className='mb-7 flex items-center gap-3'>
-              <span className='h-px w-12 bg-champagne' />
-              <span className='size-1.5 rotate-45 bg-champagne' />
+        <div className='mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6 md:pb-24 md:pt-10 lg:px-8'>
+          <BreadCrumb tone='dark' />
+          <div className='grid gap-12 pt-14 md:pt-20 lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.75fr)] lg:items-center lg:gap-20'>
+            <div>
+              <p className='mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-champagne sm:text-sm'>
+                The Supernova experience
+              </p>
+              <div aria-hidden='true' className='mb-7 flex items-center gap-3'>
+                <span className='h-px w-12 bg-champagne' />
+                <span className='size-1.5 rotate-45 bg-champagne' />
+              </div>
+              <h1 className='max-w-3xl text-balance text-5xl leading-[1.02] sm:text-6xl lg:text-7xl'>
+                A calmer way to visit the dentist.
+              </h1>
+              <p className='mt-7 max-w-2xl text-pretty text-lg leading-8 text-ivory/80 sm:text-xl'>
+                Supernova Dental is a modern private dental practice in Bridgwater, created to make every part of your
+                visit feel clear, welcoming and considered.
+              </p>
+              <div className='mt-9 flex flex-col gap-3 sm:flex-row'>
+                <ScrollToPromotionFormButton
+                  className='inline-flex min-h-11 items-center justify-center rounded-full border border-champagne bg-champagne px-6 py-3 text-sm font-semibold text-obsidian shadow-[0_12px_30px_rgba(198,161,91,0.18)] transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
+                >
+                  Book a complimentary practice tour
+                  <FiArrowRight aria-hidden='true' className='ml-2 size-4' />
+                </ScrollToPromotionFormButton>
+                <Link
+                  href='/find-us'
+                  className='inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-ivory transition-colors hover:border-champagne/70 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
+                >
+                  Find the practice
+                </Link>
+              </div>
+              <p className='mt-7 flex items-start gap-2 text-sm text-ivory/60'>
+                <FiMapPin aria-hidden='true' className='mt-0.5 size-4 shrink-0 text-champagne' />
+                Supernova Building, Marsh Lane, Huntworth Gate, Bridgwater, Somerset TA6 6LQ
+              </p>
             </div>
-            <h1 className='max-w-3xl text-balance text-5xl leading-[1.02] sm:text-6xl lg:text-7xl'>
-              A calmer way to visit the dentist.
-            </h1>
-            <p className='mt-7 max-w-2xl text-pretty text-lg leading-8 text-ivory/80 sm:text-xl'>
-              Supernova Dental is a modern private dental practice in Bridgwater, created to make every part of your
-              visit feel clear, welcoming and considered.
-            </p>
-            <div className='mt-9 flex flex-col gap-3 sm:flex-row'>
-              <ScrollToPromotionFormButton
-                className='inline-flex min-h-11 items-center justify-center rounded-full border border-champagne bg-champagne px-6 py-3 text-sm font-semibold text-obsidian shadow-[0_12px_30px_rgba(198,161,91,0.18)] transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
-              >
-                Book a complimentary practice tour
-                <FiArrowRight aria-hidden='true' className='ml-2 size-4' />
-              </ScrollToPromotionFormButton>
-              <Link
-                href='/find-us'
-                className='inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-ivory transition-colors hover:border-champagne/70 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
-              >
-                Find the practice
-              </Link>
+            <div className='relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-champagne/30 bg-deep-navy shadow-[0_30px_80px_rgba(0,0,0,0.3)]'>
+              <Image
+                src='/assets/images/outerBuildingPreview.jpg'
+                alt='Exterior of Supernova Dental in Bridgwater'
+                fill
+                priority
+                sizes='(max-width: 1024px) 100vw, 45vw'
+                className='object-cover'
+              />
+              <div
+                aria-hidden='true'
+                className='absolute inset-0 bg-gradient-to-t from-obsidian/45 via-transparent to-transparent'
+              />
             </div>
-            <p className='mt-7 flex items-start gap-2 text-sm text-ivory/60'>
-              <FiMapPin aria-hidden='true' className='mt-0.5 size-4 shrink-0 text-champagne' />
-              Supernova Building, Marsh Lane, Huntworth Gate, Bridgwater, Somerset TA6 6LQ
-            </p>
-          </div>
-          <div className='relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-champagne/30 bg-deep-navy shadow-[0_30px_80px_rgba(0,0,0,0.3)]'>
-            <Image
-              src='/assets/images/outerBuildingPreview.jpg'
-              alt='Exterior of Supernova Dental in Bridgwater'
-              fill
-              priority
-              sizes='(max-width: 1024px) 100vw, 45vw'
-              className='object-cover'
-            />
-            <div
-              aria-hidden='true'
-              className='absolute inset-0 bg-gradient-to-t from-obsidian/45 via-transparent to-transparent'
-            />
           </div>
         </div>
       </section>

@@ -120,7 +120,7 @@ export default function RootLayout({
         </Script>
 
         {/* Google Tag Manager */}
-        <Script id='gtm-script' strategy='beforeInteractive'>
+        <Script id='gtm-script' strategy='afterInteractive'>
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -161,7 +161,7 @@ export default function RootLayout({
         </Script> */}
 
         {/* Meta Pixel */}
-        <Script id='meta-pixel' strategy='afterInteractive'>
+        {/* <Script id='meta-pixel' strategy='afterInteractive'>
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -175,12 +175,12 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
+        */}
 
         {/* Structured data */}
-        <Script
-          id='structured-data'
+        <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replaceAll('<', '\\u003c') }}
         />
       </head>
       <body className={`${playfair.variable} ${ibmPlex.variable}`}>

@@ -56,6 +56,7 @@ export function ReferAFriendVideoSection() {
               src='https://lottie.host/embed/8e74a3ee-9028-4f2b-a61b-8c7c7d6747fd/tdbxNbutCj.json'
               className='w-full h-full'
               title='Replay animation'
+              loading='lazy'
             ></iframe>
           </div>
 
