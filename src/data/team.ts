@@ -18,9 +18,9 @@ import victoriaImage from '../../public/assets/images/Headshots/victoria-hands-p
 export type TeamGroup =
   | 'Dentists'
   | 'Therapists & Hygienists'
+  | 'Practice Leadership & Operations'
   | 'Nursing Team'
-  | 'Patient Experience'
-  | 'Practice Leadership & Operations';
+  | 'Patient Experience';
 
 export interface TeamTestimonial {
   description: string;
@@ -331,9 +331,9 @@ export const teamMembers: TeamMember[] = [
 export const teamGroups: TeamGroup[] = [
   'Dentists',
   'Therapists & Hygienists',
+  'Practice Leadership & Operations',
   'Nursing Team',
   'Patient Experience',
-  'Practice Leadership & Operations',
 ];
 
 export const getTeamMember = (slug: string) => {
