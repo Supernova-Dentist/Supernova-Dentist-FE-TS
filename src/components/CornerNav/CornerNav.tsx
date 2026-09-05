@@ -377,6 +377,7 @@ const LINKS = [
       { title: 'Find us', href: '/find-us' },
       // { title: 'Social', href: '/social' },
       { title: 'Pricing', href: '/pricing' },
+      { title: 'Cancellations', href: '/cancellations' },
       {
         title: 'Enquiry',
         href: '/enquiry',

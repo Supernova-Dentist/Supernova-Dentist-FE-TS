@@ -57,6 +57,7 @@ export const practiceInfo = [
   { name: 'Dental Finance', link: '/general-dentistry/dental-finance' },
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
+  { name: 'Cancellations', link: '/cancellations' },
   { name: 'Enquiry', link: '/enquiry' },
   { name: 'Careers', link: '/careers' },
   { name: 'Professional Referrals', link: '/professional-referrals' },
@@ -165,6 +166,7 @@ export const aboutUs = [
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
   { name: 'Careers', link: '/careers' },
+  { name: 'Cancellations', link: '/cancellations' },
 ];
 
 export const referrals = [
