@@ -82,12 +82,12 @@ export default function FindUs() {
             >
               <h2 className='text-xl xl:text-2xl font-semibold mb-4 text-center text-gray'>Opening Hours</h2>
               <ul className='space-y-2 text-center'>
-                <li>Monday: 08:15–18:15</li>
-                <li>Tuesday: 08:15–18:15</li>
-                <li>Wednesday: 08:15–18:15</li>
-                <li>Thursday: 08:15–18:15</li>
-                <li>Friday: 08:15–18:15</li>
-                <li>Saturday: 09:00–13:00</li>
+                <li>Monday: 08:15-18:15</li>
+                <li>Tuesday: 08:15-18:15</li>
+                <li>Wednesday: 08:15-18:15</li>
+                <li>Thursday: 08:15-18:15</li>
+                <li>Friday: 08:15-18:15</li>
+                <li>Saturday: 09:00-13:00</li>
                 <li>Sunday: Closed</li>
               </ul>
             </motion.div>

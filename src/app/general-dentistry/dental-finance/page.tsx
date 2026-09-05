@@ -12,6 +12,9 @@ export const metadata = {
   title: 'Flexible Dental Finance Plans | Bridgwater | Supernova Dental',
   description:
     'Dental finance in Bridgwater, Somerset at Supernova Dental. Spread the cost with 0% finance for up to 12 months and affordable monthly payments for treatment.',
+  alternates: {
+    canonical: '/general-dentistry/dental-finance',
+  },
   keywords: [
     'Dental finance Bridgwater',
     'Flexible dental finance Somerset',
@@ -51,26 +54,30 @@ export const metadata = {
 export default function DentalFinance() {
   return (
     <>
-      <section className='text-left pt-20 px-4 md:pb-8 sm:px-10 '>
-        <div className='flex flex-col items-center text-center'>
+      <main className='bg-porcelain px-4 pb-12 pt-6 text-left sm:px-6 md:pb-20 lg:px-8'>
+        <section className='mx-auto flex max-w-7xl flex-col items-center rounded-[1.5rem] bg-obsidian px-5 pb-14 pt-6 text-center text-ivory shadow-[0_24px_70px_rgba(11,18,24,0.16)] sm:px-8 md:pb-20'>
+          <div className='w-full text-left'>
+            <BreadCrumb tone='dark' />
+          </div>
           <div className='flex items-center gap-3 my-6'>
             <Image src={fcaLogo} alt='FCA Logo' className='w-28 h-auto ' />
-            <p className='text-md font-semibold text-gray-700'>FCA Number: 1034407</p>
+            <p className='text-md font-semibold text-ivory/75'>FCA Number: 1034407</p>
           </div>
-          <Image src={logo} alt='logo' className='w-20 h-20' />
-          <div className='my-2'>
-            <BreadCrumb />
-          </div>
-          <h2 className='text-gold text-2xl'>Invest in your smile with confidence</h2>
-          <h1 className='text-4xl font-semibold'>Flexible Dental Finance Options</h1>
-        </div>
+          <Image src={logo} alt='Supernova Dental' className='h-20 w-20' />
+          <p className='mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-champagne sm:text-sm'>
+            Invest in your smile with confidence
+          </p>
+          <h1 className='mt-5 max-w-3xl text-balance text-4xl leading-tight sm:text-5xl md:text-6xl'>
+            Flexible Dental Finance Options
+          </h1>
+        </section>
 
-        <div className='max-w-[1000px] mx-auto mt-8 flex flex-col gap-8 pb-12'>
-          <SectionSpacing className='flex flex-col gap-4'>
+        <div className='finance-content mx-auto mt-12 flex max-w-[1000px] flex-col gap-8 pb-12 leading-8 text-taupe md:mt-16'>
+          <SectionSpacing className='service-finance-section flex flex-col gap-4'>
             <p>
               At Supernova Dental we understand that investing in your oral health can sometimes feel overwhelming, both
-              emotionally and financially. That’s why we’re proud to offer <strong>flexible financing</strong>
-              through our partner, Tabeo – making your dental care more accessible and manageable. Serving patients from
+              emotionally and financially. That’s why we’re proud to offer <strong>flexible financing </strong>
+              through our partner, Tabeo - making your dental care more accessible and manageable. Serving patients from
               Bridgwater and surrounding areas including Taunton, Highbridge, and Burnham-on-Sea.
             </p>
             <p>
@@ -79,24 +86,24 @@ export default function DentalFinance() {
             </p>
           </SectionSpacing>
 
-          <SectionSpacing className='flex flex-col gap-4'>
+          <SectionSpacing className='service-finance-section flex flex-col gap-4'>
             <SubHeader>Why Choose Our Dental Finance?</SubHeader>
             <ul className='list-disc list-inside'>
               <li>Flexible finance from 0% interest over 12 months to longer-term options up to 60 months</li>
               <li>No upfront payments required</li>
               <li>Apply online in just 2 minutes</li>
               <li>
-                Soft credit checks for finance applications only – verification only, no impact on your credit score
+                Soft credit checks for finance applications only - verification only, no impact on your credit score
               </li>
               <li>No hidden fees or early repayment penalties</li>
             </ul>
-            <p className='mt-2 text-sm text-gray-700'>
+            <p className='mt-2 text-sm text-taupe'>
               *Please note: For plans up to 12 months, the minimum treatment value is £250. For finance over 12 months,
               a minimum of £500 applies.
             </p>
           </SectionSpacing>
 
-          <SectionSpacing className='flex flex-col gap-4'>
+          <SectionSpacing className='service-finance-section flex flex-col gap-4'>
             <SubHeader>How It Works</SubHeader>
             <ol className='list-decimal list-inside space-y-2'>
               <li>
@@ -104,7 +111,7 @@ export default function DentalFinance() {
               </li>
               <li>
                 <strong>Apply for finance:</strong> We’ll send you a link via email to complete a short online
-                application – we can also help you apply in-practice if you prefer.
+                application - we can also help you apply in-practice if you prefer.
               </li>
               <li>
                 <strong>Get instant approval:</strong> 9 out of 10 decisions are made instantly. If you’re approved,
@@ -116,7 +123,7 @@ export default function DentalFinance() {
             </ol>
           </SectionSpacing>
 
-          <SectionSpacing className='flex flex-col gap-4'>
+          <SectionSpacing className='service-finance-section flex flex-col gap-4'>
             <SubHeader>Who Can Apply?</SubHeader>
             <p>
               Anyone aged 18 or over with a regular income can apply. You don’t need perfect credit, and your
@@ -124,15 +131,15 @@ export default function DentalFinance() {
             </p>
           </SectionSpacing>
 
-          <SectionSpacing className='flex flex-col gap-4'>
+          <SectionSpacing className='service-finance-section flex flex-col gap-4'>
             <SubHeader>Repayment and Flexibility</SubHeader>
             <p>
               Payments are taken monthly, and you can adjust your payment day at any time through your Tabeo account.
-              Want to pay off early? No problem – there are <strong>no penalties</strong>.
+              Want to pay off early? No problem - there are <strong>no penalties</strong>.
             </p>
           </SectionSpacing>
 
-          <SectionSpacing className='flex flex-col gap-4'>
+          <SectionSpacing className='service-finance-section flex flex-col gap-4'>
             <SubHeader>Ready to Get Started?</SubHeader>
             <p>
               Speak to our team today to explore payment options. We’ll help you every step of the way to make sure your
@@ -140,7 +147,7 @@ export default function DentalFinance() {
             </p>
           </SectionSpacing>
         </div>
-      </section>
+      </main>
       <div className='pb-6 md:pb-12'>
         <FaqSection id='faq' faqItems={faqItems} />
       </div>

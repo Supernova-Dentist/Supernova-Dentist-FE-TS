@@ -1,7 +1,7 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import { SupernovaSmileStoriesContent } from '@/components/blocks/SupernovaSmileStoriesContent/SupernovaSmileStoriesContent';
+import { extendPracticeStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
-import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'Patient transformations | Smile Stories | Supernova Dental',
@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     'Discover real patient smile transformations at Supernova Dental. Read how our Smile Stories create confident, healthy smiles in Bridgwater, Somerset.',
   keywords:
     'Supernova Smile Stories, smile transformations Bridgwater, smile transformations Taunton, patient journeys Bridgwater, patient journeys Taunton, cosmetic dentistry Bridgwater, cosmetic dentistry Taunton, teeth whitening, dental veneers, Invisalign stories, clear aligners stories, adult braces stories',
+  alternates: { canonical: '/supernova-smile-stories' },
 };
 
 const structuredData = {
@@ -50,14 +51,6 @@ const structuredData = {
       closes: '13:00',
     },
   ],
-  serviceProvided: {
-    '@type': 'MedicalProcedure',
-    name: 'Cosmetic Dentistry & Smile Transformations',
-    description:
-      'We provide cosmetic dentistry treatments, teeth whitening, veneers, Invisalign, and other procedures to help patients achieve their perfect smiles.',
-    procedureType: 'Non-invasive',
-    areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
-  },
   sameAs: [
     'https://www.facebook.com/profile.php?id=61567279201971',
     'https://www.instagram.com/supernova.dental/',
@@ -67,21 +60,9 @@ const structuredData = {
 
 export default function SupernovaSmileStories() {
   return (
-    <>
-      <Head>
-        <title>{String(metadata.title)}</title>
-        <meta name='description' content={metadata.description ?? ''} />
-        <meta
-          name='keywords'
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : (metadata.keywords ?? '')}
-        />
-        <link rel='canonical' href='https://www.supernovadental.co.uk/supernova-smile-stories' />
-      </Head>
-
-      <div className='flex flex-col min-h-[100dvh]'>
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    <div className='flex flex-col min-h-[100dvh]'>
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(extendPracticeStructuredData(structuredData)) }} />
         <SupernovaSmileStoriesContent />
-      </div>
-    </>
+    </div>
   );
 }

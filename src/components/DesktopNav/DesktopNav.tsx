@@ -1,72 +1,61 @@
 'use client';
 
 import { DentallyPortal, navLinks } from '@/lib/constants';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-import { useInView } from 'react-intersection-observer';
-import Button from '../Button/Button';
+import { usePathname } from 'next/navigation';
 import FlyoutLink from './FlyoutLink/FlyoutLink';
 
 export default function DesktopNav() {
-  const { ref, inView } = useInView({
-    threshold: 0.7, // Trigger when 10% of the component is in view
-    triggerOnce: true, // Only play the animation once
-  });
+  const pathname = usePathname();
+  const isTeamRoute = pathname === '/team' || pathname.startsWith('/team/');
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: -20 }} // Initial state for the animation
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-      transition={{ duration: 1.5 }} // Duration of the animation
+    <nav
+      className={`relative border-b border-white/10 bg-grey px-5 transition-[padding] duration-200 ${
+        isTeamRoute ? 'py-3' : 'py-5'
+      }`}
     >
-      <nav className='bg-grey p-6 relative'>
-        <ul className='flex items-center justify-between'>
-          {/* Left: Logo */}
-          <li>
-            <FlyoutLink href='/' flyoutItems={[]}>
-              Supernova Dental{' '}
-              <Image
-                width={120}
-                height={120}
-                priority
-                src='/favicon.ico'
-                alt='Supernova Dental Logo - Bridgwater Dentist'
-                className='ml-2 h-10 w-auto inline'
-              />
+      <ul className='flex items-center justify-between'>
+        <li>
+          <FlyoutLink href='/' flyoutItems={[]}>
+            Supernova Dental{' '}
+            <Image
+              width={120}
+              height={120}
+              priority
+              src='/favicon.ico'
+              alt='Supernova Dental Logo - Bridgwater Dentist'
+              className={`ml-2 inline w-auto ${isTeamRoute ? 'h-8' : 'h-10'}`}
+            />
+          </FlyoutLink>
+        </li>
+
+        <li className='absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-8'>
+          {navLinks.map(({ name, flyout, url }) => (
+            <FlyoutLink key={name} href={url ?? '#'} flyoutItems={flyout}>
+              {name}
             </FlyoutLink>
-          </li>
+          ))}
+        </li>
 
-          {/* Center: flyout links - absolutely positioned */}
-          <li
-            className='flex gap-8 items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
-            style={{ pointerEvents: 'auto' }} // keep links clickable
+        <li className='flex items-center gap-5'>
+          <a
+            href='tel:+441278228665'
+            className='hidden min-h-11 items-center rounded-md text-base text-white transition-colors duration-200 hover:text-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold xl:flex'
           >
-            {navLinks.map(({ name, flyout, url }) => (
-              <FlyoutLink key={name} href={url ?? '#'} flyoutItems={flyout}>
-                {name}
-              </FlyoutLink>
-            ))}
-          </li>
-
-          {/* Right: Contact + Button */}
-          <li className='flex gap-6 items-center'>
-            <p className='text-base sm:text-lg text-center text-white mr-6 xl:block hidden'>📞 01278 228665</p>
-            {/* <p className='text-base sm:text-lg text-center text-white'>
-              Email:{' '}
-              <a href='mailto:enquiries@supernovadental.co.uk' className='underline'>
-                enquiries@supernovadental.co.uk
-              </a>
-            </p> */}
-            <Link target='_blank' href={`${DentallyPortal}`}>
-              <Button className='text-white'>Book Now</Button>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </motion.div>
+            01278 228665
+          </a>
+          <Link
+            target='_blank'
+            rel='noopener noreferrer'
+            href={DentallyPortal}
+            className={`inline-flex min-h-11 items-center justify-center rounded bg-gold text-sm font-semibold text-grey transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark ${isTeamRoute ? 'px-5 py-3' : 'px-6 py-4'}`}
+          >
+            Book Now
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 }

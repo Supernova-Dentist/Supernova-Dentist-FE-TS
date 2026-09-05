@@ -1,7 +1,6 @@
 'use client';
 
 import { FlipWords } from '@/components/ui/flip-words';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { AnimatePresence, motion, useMotionTemplate } from 'framer-motion';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';

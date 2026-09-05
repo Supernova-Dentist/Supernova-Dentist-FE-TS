@@ -1,28 +1,21 @@
-'use client';
-
-import { motion } from 'framer-motion'; // Import motion from framer-motion
 import Link from 'next/link';
 
 const MakeEnquirySection = () => {
   return (
-    <motion.div
-      className='text-center mt-16 py-12 md:py-18 lg:py-24'
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <h2 className='text-2xl md:text-3xl text-gold font-semibold mb-6'>Have Questions or Need More Information?</h2>
-      <p className='text-lg mb-12'>
+    <div className='mx-auto mt-16 max-w-4xl rounded-[1.5rem] bg-ivory px-6 py-10 text-center sm:px-10 lg:py-14'>
+      <p className='text-xs font-semibold uppercase tracking-[0.2em] text-gold-text-light'>Need some guidance?</p>
+      <h2 className='mb-5 mt-3 text-3xl font-normal text-obsidian md:text-4xl'>Have questions about treatment prices?</h2>
+      <p className='mx-auto mb-8 max-w-2xl leading-7 text-taupe'>
         If you have any questions or need more details about our pricing plans, feel free to reach out to us. We&apos;re
         here to help!
       </p>
       <Link
         href={`/enquiry?ref=${encodeURIComponent('pricing')}`}
-        className='bg-gold rounded-full px-6 py-3 text-md hover:bg-lightGold transition-all duration-150 text-gray-50'
+        className='inline-flex min-h-12 items-center justify-center rounded-full bg-obsidian px-6 py-3 text-sm font-semibold text-ivory transition-colors hover:bg-deep-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light focus-visible:ring-offset-2'
       >
         Make an Enquiry
       </Link>
-    </motion.div>
+    </div>
   );
 };
 

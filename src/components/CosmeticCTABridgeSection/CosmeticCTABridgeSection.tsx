@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import Image from 'next/image';
 import smileZone from '../../../public/assets/images/smile_view_zone.webp';
 import { CosmeticFloatingPhone } from '../FloatingPhone/CosmeticFloatingPhone';

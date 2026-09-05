@@ -37,7 +37,7 @@ export const faqItems = [
   {
     question: 'How long do single dental implants last?',
     answer:
-      'A single implant can last 15 years or longer—often for life—when cared for properly with routine check-ups and good oral hygiene habits.',
+      'A single implant can last 15 years or longer-often for life-when cared for properly with routine check-ups and good oral hygiene habits.',
   },
   {
     question: 'Is the implant procedure painful?',

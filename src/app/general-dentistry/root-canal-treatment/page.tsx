@@ -1,11 +1,15 @@
 import RootCanalContent from '@/components/blocks/RootCanalContent.tsx/RootCanalContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Root Canal Treatment in Bridgwater | Supernova Dental',
   description:
     'Expert root canal treatment at Supernova Dental in Bridgwater, Somerset. Save infected teeth with gentle, effective endodontic care. Book your consultation today.',
+  alternates: {
+    canonical: '/general-dentistry/root-canal-treatment',
+  },
   keywords:
     'root canal Bridgwater, root canal treatment Somerset, endodontist Bridgwater, tooth infection treatment Bridgwater, emergency root canal Somerset, save tooth root canal, private dentist Bridgwater, pain free root canal Somerset, Supernova Dental root canal',
 };
@@ -55,7 +59,7 @@ const structuredData = {
 export default function RootCanalTreatment() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <RootCanalContent />
       {/* Sticky EnquiryButton */}
       <EnquiryButton referringPage={'general-dentistry/root-canal-treatment'} />

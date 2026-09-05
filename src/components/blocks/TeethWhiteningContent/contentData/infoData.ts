@@ -1,7 +1,7 @@
 export default {
   title: 'What is Teeth Whitening?',
   descriptions: [
-    'Teeth whitening is a safe and effective cosmetic treatment designed to lift stains and lighten the natural colour of your teeth without damaging the enamel. At Supernova Dental, we use the White Dental Beauty whitening system — a trusted, professional-grade formula that delivers long-lasting, natural-looking brightness for your smile.',
+    'Teeth whitening is a safe and effective cosmetic treatment designed to lift stains and lighten the natural colour of your teeth without damaging the enamel. At Supernova Dental, we use the White Dental Beauty whitening system - a trusted, professional-grade formula that delivers long-lasting, natural-looking brightness for your smile.',
   ],
 
   advantagesTitle: 'Benefits of Teeth Whitening',

@@ -17,15 +17,41 @@ type PrivacyPolicyModalProps = {
 
 export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
   useDisableBodyScroll(isOpen);
 
   useEffect(() => {
+    if (!isOpen) return;
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
+      if (event.key === 'Tab' && modalRef.current !== null) {
+        const focusable = Array.from(
+          modalRef.current.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        );
+        const first = focusable[0];
+        const last = focusable.at(-1);
+        if (first === undefined || last === undefined) return;
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     };
     document.addEventListener('keydown', handleEsc);
-    return () => document.removeEventListener('keydown', handleEsc);
-  }, [onClose]);
+    return () => {
+      document.removeEventListener('keydown', handleEsc);
+      previouslyFocusedRef.current?.focus();
+    };
+  }, [isOpen, onClose]);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -58,9 +84,13 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className='relative w-full max-w-3xl h-[80vh] bg-white rounded-lg shadow-lg overflow-hidden'
             ref={modalRef}
+            role='dialog'
+            aria-modal='true'
+            aria-labelledby='privacy-policy-dialog-title'
           >
             {/* Close Button */}
             <button
+              ref={closeButtonRef}
               className='absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-4xl'
               onClick={onClose}
               aria-label='Close'
@@ -71,7 +101,9 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
             {/* Modal Header */}
             <div className='flex flex-col items-center justify-end bg-grey py-4'>
               <Image src={logo} alt='Supernova Dental logo - Your trusted Bridgwater Dentist' className='w-16 h-16 object-cover mt-2' />
-              <SectionTitle title='Privacy Policy' className='text-2xl' />
+              <div id='privacy-policy-dialog-title'>
+                <SectionTitle title='Privacy Policy' className='text-2xl' />
+              </div>
             </div>
 
             {/* Scrollable Content */}

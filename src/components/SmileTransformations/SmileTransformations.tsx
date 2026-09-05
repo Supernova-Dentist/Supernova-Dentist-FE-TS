@@ -1,6 +1,7 @@
 'use client';
 
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
@@ -92,12 +93,11 @@ export default function SmileTransformations() {
           ))}
         </div>
         <div className='flex justify-center mt-8'>
-          <button
-            onClick={scrollToPromotionForm}
+          <ScrollToPromotionFormButton
             className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
           >
             Transform now!
-          </button>
+          </ScrollToPromotionFormButton>
         </div>
       </motion.div>
     </section>

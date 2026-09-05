@@ -14,17 +14,17 @@ export default function ComparisonSection({ data, id }: ComparisonSection) {
   });
 
   return (
-    <section ref={ref} id={id} className='p-12 px-4 md:pb-20 lg:pb-28 '>
+    <section ref={ref} id={id} className='service-comparison bg-ivory px-4 py-14 md:py-20 lg:py-28'>
       <motion.div
-        initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0.94, y: 12 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0.94, y: 12 }}
+        transition={{ duration: 0.22, ease: 'easeOut' }}
         className='container mx-auto'
       >
         <SectionTitle title={title} className='mb-4' />
-        <hr className='border-t-2 border-gold w-20 mx-auto mt-4 mb-8' />
-        <p className='mb-10 text-lg px-4 md:px-6 max-w-[720px] mx-auto text-center'>{description}</p>
-        <div className='overflow-x-auto max-w-[52rem] mx-auto'>
+        <hr className='mx-auto mb-8 mt-5 w-16 border-t border-champagne' />
+        <p className='mx-auto mb-10 max-w-[720px] px-4 text-pretty text-center text-lg leading-8 text-taupe md:px-6'>{description}</p>
+        <div className='mx-auto max-w-[52rem] overflow-x-auto rounded-[1.25rem] bg-porcelain shadow-[0_16px_45px_rgba(11,18,24,0.08)]'>
           <ComparisonTable data={content} />
         </div>
       </motion.div>

@@ -12,7 +12,7 @@ export default function ServiceActions({ shouldCentre = false }) {
       <Link
         target='_blank'
         href={`${DentallyPortal}`}
-        className='inline-flex h-10 items-center justify-center rounded-md bg-gold px-6 text-sm font-medium text-white shadow transition-colors hover:bg-cream hover:text-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
+        className='inline-flex min-h-11 items-center justify-center rounded-full border border-champagne bg-champagne px-6 text-sm font-semibold text-obsidian shadow transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
         prefetch={false}
       >
         Book Now

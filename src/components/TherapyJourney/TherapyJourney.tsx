@@ -11,7 +11,7 @@ import { Timeline } from '../ui/timeline';
 export function DentalTherapyJourney({ id }: { id: string }) {
   const data = [
     {
-      title: 'A – Assess',
+      title: 'A - Assess',
       content: (
         <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
@@ -30,7 +30,7 @@ export function DentalTherapyJourney({ id }: { id: string }) {
       ),
     },
     {
-      title: 'B – Build',
+      title: 'B - Build',
       content: (
         <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>
@@ -49,7 +49,7 @@ export function DentalTherapyJourney({ id }: { id: string }) {
       ),
     },
     {
-      title: 'C – Care',
+      title: 'C - Care',
       content: (
         <div className='lg:px-12 py-8'>
           <p className='mb-8 font-bold text-md md:text-lg lg:text-xl md:text-left text-center text-gray-800'>

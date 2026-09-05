@@ -113,7 +113,7 @@ export const SkeletonTwo = () => {
           overflow: 'hidden',
         }}
         controls
-        preload='metadata'
+        preload='none'
         poster='/assets/images/video_thumbnail.png' // Optional: use an image as a placeholder before the video loads
       >
         <source src={videoSrc} type='video/mp4' />

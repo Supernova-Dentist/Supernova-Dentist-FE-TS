@@ -21,7 +21,7 @@ export default function CompositeBondingContent() {
         </div> */}
 
         <ServiceForm
-          serviceName='Composite Bonding in Somerset – Transform Your Smile'
+          serviceName='Composite Bonding in Somerset - Transform Your Smile'
           serviceChip='Composite Bonding'
           serviceDescription='Enhance your smile with expertly placed composite bonding at Supernova Dental in Bridgwater, Somerset. Ideal for repairing chips, closing small gaps, and improving tooth shape and colour.'
           formTitle='Register interest for Composite Bonding'

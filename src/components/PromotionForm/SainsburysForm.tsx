@@ -1,11 +1,12 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking } from '@/lib/tracking';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -56,19 +57,10 @@ export default function ImplantPromotionForm() {
       // console.log('Submitting form with source:', cleanedSource);
       // console.log('data', data);
 
-      const tracking = getTracking();
-
       const dataWithTracking = {
         ...data,
         source: cleanedSource,
-        tracking: {
-          ...tracking,
-          conversionPage: {
-            pageUrl: window.location.href,
-            pagePath: window.location.pathname,
-            visitDate: new Date().toISOString(),
-          },
-        },
+        tracking: buildSubmissionTracking({ form: 'sainsburys-consultation', service: cleanedSource }),
       };
 
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
@@ -101,16 +93,14 @@ export default function ImplantPromotionForm() {
       const eventName = responseData.alreadyExists ? 'ExistingImplantLead' : 'NewImplantLead';
 
       // Push event to dataLayer
-      window.dataLayer.push({ event: eventName });
+      pushAnalyticsEvent({ event: eventName });
 
       // Push event to Facebook Pixel
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', eventName);
-      }
+      trackMetaEvent(eventName);
 
       // Google Ads conversion only for new patients
-      if (!responseData.alreadyExists && typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (!responseData.alreadyExists) {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
@@ -216,7 +206,7 @@ export default function ImplantPromotionForm() {
             {/* FORM */}
             <Card className='w-full max-w-lg mx-auto bg-white shadow-2xl border p-4 md:p-8 rounded-2xl'>
               <CardHeader className='text-center p-0 mb-2'>
-                <CardTitle className='text-3xl font-bold'>Book Your Dental Consultation</CardTitle>
+                <h2 className='text-3xl font-bold leading-none tracking-tight'>Book Your Dental Consultation</h2>
 
                 <p className='text-sm text-gray-600 mt-2'>Discover the right treatment options for your smile</p>
               </CardHeader>
@@ -278,8 +268,24 @@ export default function ImplantPromotionForm() {
                     </div>
                   </div>
 
+                  <div className='flex items-center mt-2'>
+                    <Checkbox
+                      id='sainsburys-opt-out-emails'
+                      checked={form.watch('optOutEmails')}
+                      onCheckedChange={(checked) => form.setValue('optOutEmails', checked === true)}
+                    />
+                    <Label htmlFor='sainsburys-opt-out-emails' className='ml-3 text-sm text-gray-500'>
+                      I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
+                    </Label>
+                  </div>
+
                   {/* CTA */}
-                  <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
+                  <Button
+                    type='submit'
+                    disabled={form.formState.isSubmitting}
+                    aria-busy={form.formState.isSubmitting}
+                    className='w-full bg-gold hover:bg-lightGold text-lg py-3'
+                  >
                     {form.formState.isSubmitting ? <BarLoader /> : 'Book Your Consultation'}
                   </Button>
 
@@ -297,8 +303,7 @@ export default function ImplantPromotionForm() {
                   </div>
 
                   <p className='mt-3 text-xs text-gray-400 leading-relaxed'>
-                    By submitting, you agree to be contacted by Supernova Dental about your enquiry, treatment options
-                    and relevant updates. You can opt out at any time.
+                    By submitting, you agree to be contacted by Supernova Dental about this enquiry.
                   </p>
                 </form>
               </Form>

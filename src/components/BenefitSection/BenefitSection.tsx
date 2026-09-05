@@ -15,17 +15,17 @@ export default function BenefitSection({ data, id }: BenefitSection) {
   });
 
   return (
-    <section ref={ref} id={id} className='pt-6 pb-12 px-4 md:pb-20 lg:pb-28 '>
+    <section ref={ref} id={id} className='service-benefits bg-ivory px-4 py-14 md:py-20 lg:py-28'>
       <motion.div
-        initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-        transition={{ duration: 0.5 }} // Duration of the animation
+        initial={{ opacity: 0.94, y: 12 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0.94, y: 12 }}
+        transition={{ duration: 0.22, ease: 'easeOut' }}
         className='container mx-auto px-4 md:px-6'
       >
         <SectionTitle title={title} />
-        <hr className='border-t-2 border-gold w-20 mx-auto mt-4 mb-8' />
+        <hr className='mx-auto mb-8 mt-5 w-16 border-t border-champagne' />
         <div className='flex justify-center'>
-          <p className='mt-4 mb-6 text-lg max-w-[720px] text-center'>{description}</p>
+          <p className='mb-6 mt-4 max-w-[720px] text-pretty text-center text-lg leading-8 text-taupe'>{description}</p>
         </div>
         <div className='mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
           {content.map(({ id, icon, header, text }) => (

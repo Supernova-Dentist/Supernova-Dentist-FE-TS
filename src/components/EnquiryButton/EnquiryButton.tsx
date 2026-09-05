@@ -20,12 +20,12 @@ const EnquiryButton = ({ referringPage }: Props) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className='sticky bottom-20 md:bottom-5 mb-8 flex justify-center z-10'
+      className='service-floating-enquiry sticky bottom-20 z-10 mb-8 flex justify-center md:bottom-5'
     >
       <div className='flex justify-center mx-auto'>
         <Link
           href={`/enquiry?ref=${encodeURIComponent(referringPage)}`}
-          className='bg-gold text-white py-3 px-6 rounded-full shadow-lg transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-xl'
+          className='inline-flex min-h-11 items-center rounded-full border border-champagne bg-champagne px-7 py-3 font-semibold text-obsidian shadow-[0_12px_30px_rgba(11,18,24,0.18)] transition-[background-color,box-shadow,transform] duration-200 hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 active:scale-[0.98]'
         >
           Enquiry
         </Link>

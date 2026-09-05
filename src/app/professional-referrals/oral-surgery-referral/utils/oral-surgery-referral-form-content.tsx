@@ -5,18 +5,19 @@
 import BarLoader from '@/components/BarLoader/BarLoader';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { FileUpload } from '@/components/ui/file-upload';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { buildSubmissionTracking } from '@/lib/tracking';
 import { motion } from 'framer-motion';
 import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Search from '../../utils/Search';
-import { FileUpload } from '@/components/ui/file-upload';
 
 // Define the max character limit
 const MAX_MESSAGE_LENGTH = 500;
@@ -101,7 +102,7 @@ const formSchema = z.object({
 // )
 // // Validate stent: exactly one must be selected
 // .refine((data) => data.stentToBeWornYes !== data.stentToBeWornNo, {
-//   message: 'Please select either "Yes" or "No" for whether a stent will be worn—not both.',
+//   message: 'Please select either "Yes" or "No" for whether a stent will be worn-not both.',
 //   path: ['stentToBeWornYes', 'stentToBeWornNo'],
 // })
 // // Validate report: exactly one must be selected
@@ -160,6 +161,7 @@ export function OralSurgeryReferralFormContent() {
 
       // Add referralType first
       formData.append('referralType', 'Oral Surgery');
+      formData.append('tracking', JSON.stringify(buildSubmissionTracking({ form: 'professional-referral', service: 'Oral Surgery' })));
 
       // Then append the rest of the fields
       for (const key in data) {
@@ -201,7 +203,6 @@ export function OralSurgeryReferralFormContent() {
   };
 
   const handleMedicialHistoryChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-
     const medicialHistory = e.target.value;
     setMedicialHistoryLength(medicialHistory.length); // Update the message length
   };

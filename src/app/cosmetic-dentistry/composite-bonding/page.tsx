@@ -1,12 +1,15 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import CompositeBondingContent from '@/components/blocks/CompositeBondingContent/CompositeBondingContent';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
-import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'Composite Bonding at Supernova Dental',
   description:
     'Composite bonding in Bridgwater, Somerset at Supernova Dental. Repair chipped teeth, close gaps, and improve your smile with natural-looking results. Book your consultation today.',
+  alternates: {
+    canonical: '/cosmetic-dentistry/composite-bonding',
+  },
   keywords:
     'composite bonding Bridgwater, cosmetic bonding Somerset, smile makeover Bridgwater, repair chipped teeth Bridgwater, close gaps teeth Somerset, natural-looking smile Bridgwater, dental bonding Bridgwater, cosmetic dentist Bridgwater, composite bonding Taunton, cosmetic dentistry Somerset',
 };
@@ -58,11 +61,6 @@ const structuredData = {
     procedureType: 'Minimally invasive',
     areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '169',
-  },
   potentialAction: {
     '@type': 'ReserveAction',
     target: {
@@ -81,23 +79,11 @@ const structuredData = {
 
 export default function CompositeBonding() {
   return (
-    <>
-      <Head>
-        <title>{String(metadata.title)}</title>
-        <meta name='description' content={metadata.description ?? ''} />
-        <meta
-          name='keywords'
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : (metadata.keywords ?? '')}
-        />
-        <link rel='canonical' href='https://www.supernovadental.co.uk/cosmetic-dentistry/composite-bonding' />
-      </Head>
-
-      <div className='flex flex-col min-h-[100dvh]'>
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    <div className='flex flex-col min-h-[100dvh]'>
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
         <CompositeBondingContent />
         {/* Sticky EnquiryButton */}
         <EnquiryButton referringPage={'cosmetic-dentistry/composite-bonding'} />
-      </div>
-    </>
+    </div>
   );
 }

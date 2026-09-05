@@ -1,4 +1,5 @@
 import AboutSection from '@/components/AboutSection/AboutSection';
+import { extendPracticeStructuredData } from '@/lib/site';
 import ConsultAboutSection from '@/components/AboutSection/ConsultAboutSection';
 import GeneralAboutSection from '@/components/AboutSection/GeneralAboutSection';
 import SainsburysAboutSection from '@/components/AboutSection/SainsburysAboutSection';
@@ -33,12 +34,14 @@ import ImplantUSPS from '@/components/USPS/ImplantUSPS';
 import SainsburysUSPS from '@/components/USPS/SainsburysUSPS';
 import USPS from '@/components/USPS/USPS';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
-import Head from 'next/head';
 
 export const metadata = {
   title: "Dentist Near Sainsbury's Bridgwater | Supernova Dental",
   description:
     "Looking for a dentist near Sainsbury's in Bridgwater? Supernova Dental is just minutes away at Huntworth Gate, welcoming new private patients for cosmetic, general and emergency dentistry.",
+  alternates: {
+    canonical: '/bridgwater-sainsburys',
+  },
   keywords:
     "dentist near Sainsbury's Bridgwater, dentist Bridgwater Sainsbury's, private dentist Bridgwater, dentist near Huntworth Gate, emergency dentist Bridgwater, Invisalign Bridgwater, cosmetic dentist Bridgwater, dental implants Bridgwater, new dentist Bridgwater, dentist near Bridgwater retail park",
   openGraph: {
@@ -51,9 +54,9 @@ export const metadata = {
     siteName: 'Supernova Dental',
     images: [
       {
-        url: '/assets/images/outerBuildingPreview.jpg',
+        url: '/assets/images/supernova-dental-social.jpg',
         width: 1200,
-        height: 900,
+        height: 675,
         alt: "Supernova Dental near Sainsbury's Bridgwater",
       },
     ],
@@ -155,11 +158,6 @@ export default function Home() {
       },
     ],
 
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '169',
-    },
 
     review: [
       {
@@ -218,14 +216,6 @@ export default function Home() {
           'I am extremely nervous of the dentist, the care and treatment I received from Kayleigh was excellent, fully understood how I felt, talked through every step. Had further treatment with Scott again treatment and care excellent. Thank you both.',
         reviewRating: { '@type': 'Rating', ratingValue: '5' },
       },
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'Verified Patient' },
-        datePublished: '2025-09-13', // 3 weeks ago
-        reviewBody:
-          'After reading the reviews I thought I’d give Supernova Dental a go. So glad I did, Sara and team were all brilliant. Thank you all for making me feel at ease.',
-        reviewRating: { '@type': 'Rating', ratingValue: '5' },
-      },
     ],
 
     hasOfferCatalog: {
@@ -241,7 +231,7 @@ export default function Home() {
         {
           '@type': 'Offer',
           name: 'Dental Implants',
-          url: 'https://www.supernovadental.co.uk/dental-implants',
+          url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants',
         },
         {
           '@type': 'Offer',
@@ -273,23 +263,12 @@ export default function Home() {
 
   return (
     <main>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name='description' content={metadata.description} />
-        <meta name='keywords' content={metadata.keywords} />
-        <meta property='og:title' content={metadata.openGraph.title} />
-        <meta property='og:description' content={metadata.openGraph.description} />
-        <meta property='og:url' content={metadata.openGraph.url} />
-        <meta property='og:type' content={metadata.openGraph.type} />
-        <meta property='og:image' content={metadata.openGraph.images[0].url} />
-        <link rel='canonical' href='https://www.supernovadental.co.uk' />
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
-      </Head>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(extendPracticeStructuredData({ ...structuredData, review: undefined })),
+        }}
+      />
       <div className='hidden lg:block'>
         <SainsburysUSPS />
       </div>

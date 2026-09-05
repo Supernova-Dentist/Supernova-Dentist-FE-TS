@@ -1,12 +1,15 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import TeethWhiteningContent from '@/components/blocks/TeethWhiteningContent/TeethWhiteningContent';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
-import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'Professional Whitening Treatments at Supernova Dental',
   description:
     'Teeth whitening in Bridgwater, Somerset at Supernova Dental. Safe, effective treatment for a brighter smile. Book your professional whitening consultation today.',
+  alternates: {
+    canonical: '/cosmetic-dentistry/teeth-whitening',
+  },
   keywords:
     'teeth whitening Bridgwater, teeth whitening Somerset, professional whitening Bridgwater, cosmetic dentist Bridgwater, whiter teeth Somerset, stain removal Bridgwater, white dental beauty whitening Bridgwater, private dentist Somerset, teeth bleaching Bridgwater, whitening near Taunton, teeth whitening Taunton, teeth whitening Highbridge, teeth whitening Burnham-on-Sea',
 };
@@ -58,11 +61,6 @@ const structuredData = {
     procedureType: 'Non-invasive',
     areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '169',
-  },
   potentialAction: {
     '@type': 'ReserveAction',
     target: {
@@ -82,23 +80,11 @@ const structuredData = {
 
 export default function TeethWhitening() {
   return (
-    <>
-      <Head>
-        <title>{String(metadata.title)}</title>
-        <meta name='description' content={metadata.description ?? ''} />
-        <meta
-          name='keywords'
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : (metadata.keywords ?? '')}
-        />
-        <link rel='canonical' href='https://www.supernovadental.co.uk/cosmetic-dentistry/teeth-whitening' />
-      </Head>
-
-      <div className='flex flex-col min-h-[100dvh]'>
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    <div className='flex flex-col min-h-[100dvh]'>
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
         <TeethWhiteningContent />
         {/* Sticky EnquiryButton */}
         <EnquiryButton referringPage={'cosmetic-dentistry/teeth-whitening'} />
-      </div>
-    </>
+    </div>
   );
 }

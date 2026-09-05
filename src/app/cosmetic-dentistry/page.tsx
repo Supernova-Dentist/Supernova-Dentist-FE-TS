@@ -1,7 +1,4 @@
-import { CosmeticDentistryJourney } from '@/components/blocks/CosmeticDentistryJourney/CosmeticDentistryJourney';
-import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
-import { CosmeticDentistryOutlineCards } from '@/components/OutlineCards/CosmeticDentistryOutlineCards';
+import ServiceCategoryPage, { type ServiceCategoryGroup } from '@/components/ServiceExperience/ServiceCategoryPage';
 import { type Metadata } from 'next';
 import Link from 'next/link';
 
@@ -9,63 +6,100 @@ export const metadata: Metadata = {
   title: 'Cosmetic Dentistry | Bridgwater, Somerset | Supernova Dental',
   description:
     'Enhance your smile with cosmetic dentistry in Bridgwater. At Supernova Dental we offer Invisalign, dental implants, bonding, veneers and teeth whitening. ',
+  alternates: {
+    canonical: '/cosmetic-dentistry',
+  },
+  openGraph: {
+    title: 'Cosmetic Dentistry in Bridgwater | Supernova Dental',
+    description:
+      'Explore cosmetic dental treatment options at Supernova Dental in Bridgwater, including Invisalign, dental implants, bonding and teeth whitening.',
+    url: '/cosmetic-dentistry',
+    siteName: 'Supernova Dental',
+    type: 'website',
+  },
   keywords:
     'cosmetic dentist Bridgwater, cosmetic dentist Somerset, cosmetic dentist Taunton, Invisalign Bridgwater, dental implants Somerset, composite bonding Bridgwater, veneers Bridgwater, teeth whitening Somerset, smile makeover Somerset, Supernova Dental cosmetic treatments, private dentist Bridgwater, cosmetic dentist Highbridge, cosmetic dentist Burnham-on-Sea',
 };
 
+const groups: ServiceCategoryGroup[] = [
+  {
+    title: 'Our cosmetic dental treatments',
+    description: 'Personalised options for alignment, tooth replacement, shape and brightness.',
+    services: [
+      {
+        name: 'Invisalign',
+        href: '/cosmetic-dentistry/invisalign',
+        image: '/assets/images/invisalign.jpeg',
+        imageAlt: 'Invisalign clear aligners at Supernova Dental in Bridgwater',
+        description: 'Discreet clear aligners planned around your smile and day-to-day life.',
+      },
+      {
+        name: 'Dental implants',
+        href: '/cosmetic-dentistry/dental-implants',
+        image: '/assets/images/cbct_supernova_dental_bridgwater.webp',
+        imageAlt: 'Dental implant treatment at Supernova Dental in Bridgwater',
+        description: 'Natural-looking options for replacing one or more missing teeth.',
+      },
+      {
+        name: 'Composite bonding',
+        href: '/cosmetic-dentistry/composite-bonding',
+        image: '/assets/images/cosmetic-dentistry-supernova-dental-bridgwater.webp',
+        imageAlt: 'Composite bonding cosmetic dental treatment in Bridgwater',
+        description: 'A minimally invasive way to refine chips, small gaps and tooth shape.',
+      },
+      {
+        name: 'Teeth whitening',
+        href: '/cosmetic-dentistry/teeth-whitening',
+        image: '/assets/images/teeth_whitening.jpg',
+        imageAlt: 'Professional teeth whitening treatment in Bridgwater',
+        description: 'Dentist-supervised whitening tailored to your goals.',
+      },
+    ],
+  },
+];
+
 export default function CosmeticDentistryPage() {
   return (
-    <div className='min-h-screen flex  justify-center align-middle'>
-      <div className='container mx-auto py-16 md:py-24 md:px-8'>
-        <div className='px-4 md:px-6 lg:px-8 my-2 md:py-4'>
-          <BreadCrumb />
-        </div>
-        <HighlightCard
-          title='Cosmetic Dentistry in Bridgwater for Expert Smile Makeovers'
-          description={
-            <>
-              <p>
-                Your smile is often the first thing people notice, and feeling confident about it can make a real
-                difference in everyday life.{' '}
-              </p>
-
-              <p>
-                At Supernova Dental in Bridgwater, we offer a range of cosmetic dentistry treatments designed to enhance
-                and transform your smile. From discreet teeth straightening with{' '}
-                <Link href='/cosmetic-dentistry/invisalign' className='underline text-gold hover:text-lightGold'>
-                  Invisalign
-                </Link>{' '}
-                to restoring missing teeth with natural-looking{' '}
-                <Link href='/cosmetic-dentistry/dental-implants' className='underline text-gold hover:text-lightGold'>
-                  dental implants
-                </Link>
-                , our team creates personalised treatment plans to suit your lifestyle and goals.{' '}
-              </p>
-
-              <p>
-                {' '}
-                We also offer professional{' '}
-                <Link href='/cosmetic-dentistry/teeth-whitening' className='underline text-gold hover:text-lightGold'>
-                  teeth whitening
-                </Link>{' '}
-                and other cosmetic treatments delivered by our experienced{' '}
-                <Link href='/team' className='underline text-gold hover:text-lightGold'>
-                  dental team
-                </Link>{' '}
-                to help you achieve a brighter, more confident smile.
-              </p>
-            </>
-          }
-          logoSrc='/favicon.ico'
-        />
-
-        <div className='p-4 md:px-6 pb-10 flex flex-col justify-start mx-auto max-w-5xl md:max-w-6xl lg:max-w-7xl'>
-          <h2 className='text-xl md:text-2xl lg:text-3xl leading-tight text-center tracking-tight font-bold text-gold mt-4'>
-            Our cosmetic dental treatments
-          </h2>
-          <CosmeticDentistryJourney />
-        </div>
-      </div>
-    </div>
+    <ServiceCategoryPage
+      eyebrow='Cosmetic dentistry in Bridgwater'
+      title='Expert care for a smile that feels like you.'
+      intro={
+        <>
+          <p>
+            Your smile is often the first thing people notice, and feeling confident about it can make a real difference
+            in everyday life.
+          </p>
+          <p>
+            At Supernova Dental in Bridgwater, we offer personalised cosmetic dentistry including{' '}
+            <Link
+              href='/cosmetic-dentistry/invisalign'
+              className='underline decoration-champagne/70 underline-offset-4 hover:text-champagne'
+            >
+              Invisalign
+            </Link>
+            ,{' '}
+            <Link
+              href='/cosmetic-dentistry/dental-implants'
+              className='underline decoration-champagne/70 underline-offset-4 hover:text-champagne'
+            >
+              dental implants
+            </Link>{' '}
+            and professional{' '}
+            <Link
+              href='/cosmetic-dentistry/teeth-whitening'
+              className='underline decoration-champagne/70 underline-offset-4 hover:text-champagne'
+            >
+              teeth whitening
+            </Link>
+            , delivered by our experienced{' '}
+            <Link href='/team' className='underline decoration-champagne/70 underline-offset-4 hover:text-champagne'>
+              dental team
+            </Link>
+            .
+          </p>
+        </>
+      }
+      groups={groups}
+    />
   );
 }

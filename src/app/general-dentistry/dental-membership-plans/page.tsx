@@ -1,11 +1,15 @@
 import MembershipPlansContent from '@/components/blocks/MembershipPlansContent/MembershipPlansContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Dental Membership Plans in Bridgwater | Supernova Dental',
   description:
     'Join Supernova Dental in Bridgwater with dental membership plans for adults and children. Affordable care with check-ups, hygiene visits and emergency cover.',
+  alternates: {
+    canonical: '/general-dentistry/dental-membership-plans',
+  },
   keywords:
     'dental membership plans Bridgwater, dental membership Somerset, adult dental plan Bridgwater, children dental plan Bridgwater, affordable dental care Bridgwater, Supernova Dental membership, private dentist Bridgwater, routine dental checkups Bridgwater, dental hygiene plan Bridgwater, emergency dental cover Somerset, new dentist Bridgwater, taking new patients',
 };
@@ -81,7 +85,7 @@ const structuredData = {
 export default function MembershipPlans() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <MembershipPlansContent />
       {/* Sticky EnquiryButton */}
       <EnquiryButton referringPage={'general-dentistry/dental-membership-plans'} />

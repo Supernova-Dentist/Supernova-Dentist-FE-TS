@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Fragment, useMemo } from 'react';
@@ -21,9 +21,11 @@ const formatName = (segment: string) =>
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-const BreadCrumb = () => {
+const BreadCrumb = ({ tone = 'light' }: { tone?: 'light' | 'dark' }) => {
   const pathname = usePathname();
   const pathNames = pathname.split('/').filter(Boolean);
+  const reduceMotion = useReducedMotion();
+  const isDark = tone === 'dark';
 
   const breadcrumbSchema = useMemo(() => {
     const items = [
@@ -58,17 +60,25 @@ const BreadCrumb = () => {
         }}
       />
 
-      <motion.nav
-        aria-label='Breadcrumb'
-        initial={{ opacity: 0, y: -20 }}
+      <motion.div
+        initial={reduceMotion === true ? false : { opacity: 0.92, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
       >
         <Breadcrumb>
-          <BreadcrumbList>
+          <BreadcrumbList className={isDark ? 'text-ivory/60' : 'text-taupe'}>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href='/'>Home</Link>
+                <Link
+                  href='/'
+                  className={
+                    isDark
+                      ? 'inline-flex min-h-11 items-center rounded-sm hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne'
+                      : 'inline-flex min-h-11 items-center rounded-sm hover:text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne'
+                  }
+                >
+                  Home
+                </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
 
@@ -84,10 +94,19 @@ const BreadCrumb = () => {
                   <BreadcrumbItem>
                     {!isLast ? (
                       <BreadcrumbLink asChild>
-                        <Link href={href}>{linkName}</Link>
+                        <Link
+                          href={href}
+                          className={
+                            isDark
+                              ? 'inline-flex min-h-11 items-center rounded-sm hover:text-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne'
+                              : 'inline-flex min-h-11 items-center rounded-sm hover:text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne'
+                          }
+                        >
+                          {linkName}
+                        </Link>
                       </BreadcrumbLink>
                     ) : (
-                      <BreadcrumbPage>{linkName}</BreadcrumbPage>
+                      <BreadcrumbPage className={isDark ? 'text-ivory' : 'text-obsidian'}>{linkName}</BreadcrumbPage>
                     )}
                   </BreadcrumbItem>
 
@@ -97,7 +116,7 @@ const BreadCrumb = () => {
             })}
           </BreadcrumbList>
         </Breadcrumb>
-      </motion.nav>
+      </motion.div>
     </>
   );
 };

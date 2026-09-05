@@ -48,9 +48,9 @@ export default function SainsburysUSPS() {
                   <Icon size={22} strokeWidth={1.75} />
                 </div>
 
-                <h3 className='text-md font-medium tracking-tight text-gray-900 leading-snug'>
+                <p className='text-md font-medium tracking-tight text-gray-900 leading-snug'>
                   {usp.title}
-                </h3>
+                </p>
               </div>
             );
           })}

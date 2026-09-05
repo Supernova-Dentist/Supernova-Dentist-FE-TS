@@ -1,11 +1,15 @@
 import SportsMouthguardsContent from '@/components/blocks/SportsMouthguardsContent/SportsMouthguardsContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Sports Mouthguards | Bridgwater, Somerset | Supernova Dental',
   description:
     'Sports mouthguards in Bridgwater, Somerset at Supernova Dental. Custom-fit with digital scans and lab-made protection trusted by top athletes. Book today.',
+  alternates: {
+    canonical: '/general-dentistry/sports-mouthguards',
+  },
   keywords:
     'sports mouthguards Bridgwater, custom sports guards Somerset, mouthguards for rugby Bridgwater, boxing mouthguard Somerset, digital dental scan Bridgwater, Tyson Fury mouthguard lab, dental sports guard, Supernova Dental sports guards, custom sports mouthguards Taunton, sports guard Highbridge, sports mouthguard Burnham-on-Sea',
 };
@@ -16,7 +20,7 @@ const structuredData = {
   name: 'Supernova Dental - Custom Sports Mouthguards',
   url: 'https://www.supernovadental.co.uk/general-dentistry/sports-mouthguards',
   description:
-    'Supernova Dental provides custom sports mouthguards in Bridgwater, Somerset, using digital scans—no messy impressions. Our lab also produces mouthguards trusted by elite athletes, including heavyweight champion Tyson Fury. Serving patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
+    'Supernova Dental provides custom sports mouthguards in Bridgwater, Somerset, using digital scans-no messy impressions. Our lab also produces mouthguards trusted by elite athletes, including heavyweight champion Tyson Fury. Serving patients from Taunton, Highbridge, Burnham-on-Sea, and surrounding areas.',
   keywords:
     'sports mouthguards Bridgwater, custom sports guards Somerset, digital mouthguard scan, rugby mouthguard Somerset, boxing mouthguard UK, custom sports mouthguards Taunton, sports guard Highbridge, sports mouthguard Burnham-on-Sea',
   address: {
@@ -54,7 +58,7 @@ const structuredData = {
 export default function SportsMouthguards() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <SportsMouthguardsContent />
       <EnquiryButton referringPage={'general-dentistry/sports-mouthguards'} />
     </div>

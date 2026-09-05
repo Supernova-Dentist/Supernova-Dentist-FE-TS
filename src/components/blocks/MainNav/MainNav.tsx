@@ -4,7 +4,6 @@ import ConsultationLandingPageDesktopNav from '@/components/DesktopNav/Consultat
 import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import ConsultationLandingPageMobileNavigation from '@/components/MobileNavigation/ConsultationLandingPageMobileNavigation';
 import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
-import { ImplantInvisalignBannerPopUp } from '@/components/StickyBanner/ImplantInvisalignBanner';
 import { usePathname } from 'next/navigation';
 // import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
 import React, { useEffect, useRef, useState } from 'react';
@@ -34,8 +33,8 @@ const MainNav = () => {
   const { width } = useWindowSize();
   const [isMounted, setIsMounted] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(true);
-  const [showBanner, setShowBanner] = useState(false);
   const scrollPosition = useRef(0);
+  const scrollFrame = useRef<number | null>(null);
   const isMobile = width <= 1024;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -82,21 +81,28 @@ const MainNav = () => {
     scrollPosition.current = window.scrollY;
 
     const handleScroll = () => {
-      if (mobileMenuOpen) return; // ⛔ STOP scroll logic if menu open
+      if (mobileMenuOpen || scrollFrame.current !== null) return; // ⛔ STOP scroll logic if menu open
 
-      const currentScrollPosition = window.scrollY;
+      scrollFrame.current = window.requestAnimationFrame(() => {
+        const currentScrollPosition = window.scrollY;
 
-      if (currentScrollPosition < scrollPosition.current) {
-        setNavbarVisible(true);
-      } else if (currentScrollPosition > 100) {
-        setNavbarVisible(false);
-      }
+        if (currentScrollPosition < scrollPosition.current) {
+          setNavbarVisible(true);
+        } else if (currentScrollPosition > 100) {
+          setNavbarVisible(false);
+        }
 
-      scrollPosition.current = currentScrollPosition;
+        scrollPosition.current = currentScrollPosition;
+        scrollFrame.current = null;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollFrame.current !== null) window.cancelAnimationFrame(scrollFrame.current);
+      scrollFrame.current = null;
+    };
   }, [isMobile, mobileMenuOpen]);
 
   useEffect(() => {

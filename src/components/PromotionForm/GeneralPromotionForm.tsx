@@ -1,17 +1,19 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking } from '@/lib/tracking';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
+import useDisableBodyScroll from '@/hooks/useDisableBodyScroll';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import { promotionSignupSchema, type PromotionFormData } from '../../../types/PromotionForm';
@@ -19,8 +21,7 @@ import BarLoader from '../BarLoader/BarLoader';
 import { SOCIAL_CTAS } from '../CornerNav/CornerNav';
 import PrivacyPolicyModal from '../PrivacyModal/PrivacyModal';
 import RedirectProgressBar from '../RedirectProgressBar/RedirectProgressBar';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { Form } from '../ui/form';
 
 const defaultValues: PromotionFormData = {
   fullname: '',
@@ -37,6 +38,7 @@ export default function GeneralPromotionForm() {
   const redirectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const redirectedRef = useRef(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  useDisableBodyScroll(showSuccessModal || showErrorModal);
 
   const pathname = usePathname();
 
@@ -56,19 +58,10 @@ export default function GeneralPromotionForm() {
       // console.log('Submitting form with source:', cleanedSource);
       // console.log('data', data);
 
-      const tracking = getTracking();
-
       const dataWithTracking = {
         ...data,
         source: cleanedSource,
-        tracking: {
-          ...tracking,
-          conversionPage: {
-            pageUrl: window.location.href,
-            pagePath: window.location.pathname,
-            visitDate: new Date().toISOString(),
-          },
-        },
+        tracking: buildSubmissionTracking({ form: 'general-consultation', service: cleanedSource }),
       };
 
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
@@ -77,10 +70,13 @@ export default function GeneralPromotionForm() {
         body: JSON.stringify(dataWithTracking),
       });
 
-      const responseData = await res.json();
+      const responseData = (await res.json()) as { alreadyExists?: unknown; message?: unknown };
 
       if (!res.ok) {
-        const errorMessage = String(responseData.message) || 'There was a problem with your submission.';
+        const responseMessage = responseData.message;
+        const errorMessage = typeof responseMessage === 'string' && responseMessage.trim() !== ''
+          ? responseMessage
+          : 'There was a problem with your submission.';
         setError(errorMessage);
         throw new Error(errorMessage);
       }
@@ -98,19 +94,18 @@ export default function GeneralPromotionForm() {
 
       window.dataLayer = window.dataLayer ?? [];
 
-      const eventName = responseData.alreadyExists ? 'ExistingDentalLead' : 'NewDentalLead';
+      const alreadyExists = responseData.alreadyExists === true;
+      const eventName = alreadyExists ? 'ExistingDentalLead' : 'NewDentalLead';
 
       // Push event to dataLayer
-      window.dataLayer.push({ event: eventName });
+      pushAnalyticsEvent({ event: eventName });
 
       // Push event to Facebook Pixel
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', eventName);
-      }
+      trackMetaEvent(eventName);
 
       // Google Ads conversion only for new patients
-      if (!responseData.alreadyExists && typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (!alreadyExists) {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
@@ -185,12 +180,15 @@ export default function GeneralPromotionForm() {
       clearTimeout(redirectTimeoutRef.current);
     }
 
-    window.gtag('event', 'click_to_patient_portal_in_modal', {
-      send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
-      event_callback: goToPortal,
-    });
-
-    setTimeout(goToPortal, 500);
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'click_to_patient_portal_in_modal', {
+        send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
+        event_callback: goToPortal,
+      });
+      setTimeout(goToPortal, 500);
+    } else {
+      goToPortal();
+    }
 
     setShowSuccessModal(false);
     setShowRedirectBar(false);
@@ -206,7 +204,7 @@ export default function GeneralPromotionForm() {
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} />
 
-      <section ref={ref} className='w-full'>
+      <section ref={ref} className='campaign-promotion-form w-full'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -216,12 +214,12 @@ export default function GeneralPromotionForm() {
             {/* FORM */}
             <Card className='w-full max-w-lg mx-auto bg-white shadow-2xl border p-4 md:p-8 rounded-2xl'>
               <CardHeader className='text-center p-0 mb-2'>
-                <CardTitle className='text-3xl font-bold'> Book Your Dental Appointment</CardTitle>
+                <CardTitle id='general-enquiry-title' className='text-3xl font-bold'>Start Your Appointment Enquiry</CardTitle>
 
-                <p className='text-sm text-gray-600 mt-2'>Start your patient journey with us today</p>
+                <p className='text-sm text-gray-600 mt-2'>Tell the practice team what you need and how to contact you</p>
               </CardHeader>
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+                <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6' noValidate aria-labelledby='general-enquiry-title'>
                   {/* INTENT SELECTOR */}
 
                   {/* INPUTS */}
@@ -234,11 +232,13 @@ export default function GeneralPromotionForm() {
                         id='fullname'
                         placeholder='John Smith'
                         className='py-1 text-lg px-3'
+                        aria-invalid={form.formState.errors.fullname ? 'true' : 'false'}
+                        aria-describedby={form.formState.errors.fullname ? 'fullname-error' : undefined}
                         {...form.register('fullname')}
                       />
                       <div>
                         {form.formState.errors.fullname && !showPrivacyModal && (
-                          <p className='text-red-500 leading-none text-sm'>{form.formState.errors.fullname?.message}</p>
+                          <p id='fullname-error' role='alert' className='text-red-700 leading-none text-sm'>{form.formState.errors.fullname?.message}</p>
                         )}
                       </div>
                     </div>
@@ -251,11 +251,13 @@ export default function GeneralPromotionForm() {
                         type='email'
                         placeholder='john@example.com'
                         className='text-lg px-3'
+                        aria-invalid={form.formState.errors.email ? 'true' : 'false'}
+                        aria-describedby={form.formState.errors.email ? 'email-error' : undefined}
                         {...form.register('email')}
                       />
                       <div>
                         {form.formState.errors.email && !showPrivacyModal && (
-                          <p className='text-red-500 leading-none text-sm'>{form.formState.errors.email?.message}</p>
+                          <p id='email-error' role='alert' className='text-red-700 leading-none text-sm'>{form.formState.errors.email?.message}</p>
                         )}
                       </div>
                     </div>
@@ -268,19 +270,32 @@ export default function GeneralPromotionForm() {
                         type='tel'
                         placeholder='(+44) 1234567890'
                         className='py-1 text-lg px-3'
+                        aria-invalid={form.formState.errors.phone ? 'true' : 'false'}
+                        aria-describedby={form.formState.errors.phone ? 'phone-error' : undefined}
                         {...form.register('phone')}
                       />
                       <div>
                         {form.formState.errors.phone && !showPrivacyModal && (
-                          <p className='text-red-500 leading-none text-sm'>{form.formState.errors.phone?.message}</p>
+                          <p id='phone-error' role='alert' className='text-red-700 leading-none text-sm'>{form.formState.errors.phone?.message}</p>
                         )}
                       </div>
                     </div>
                   </div>
 
+                  <div className='flex items-center mt-2'>
+                    <Checkbox
+                      id='general-opt-out-emails'
+                      checked={form.watch('optOutEmails')}
+                      onCheckedChange={(checked) => form.setValue('optOutEmails', checked === true)}
+                    />
+                    <Label htmlFor='general-opt-out-emails' className='ml-3 text-sm text-gray-500'>
+                      I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
+                    </Label>
+                  </div>
+
                   {/* CTA */}
-                  <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
-                    {form.formState.isSubmitting ? <BarLoader /> : 'Book My Appointment'}
+                  <Button type='submit' disabled={form.formState.isSubmitting} aria-busy={form.formState.isSubmitting} className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
+                    {form.formState.isSubmitting ? <BarLoader /> : 'Send Appointment Enquiry'}
                   </Button>
 
                   {/* TRUST MICROCOPY */}
@@ -290,13 +305,12 @@ export default function GeneralPromotionForm() {
 
                   {/* NEXT STEPS */}
                   <div className='text-sm text-gray-600 space-y-1'>
-                    <p>✔ Reviewed within 24 hours</p>
-                    <p>✔ Treatment options explained clearly</p>
-                    <p>✔ Appointment booked at your convenience</p>
+                    <p>Enquiry sent to the Supernova Dental practice team</p>
+                    <p>The team will contact you about an appropriate next step</p>
+                    <p>After submitting, you can use the patient portal or wait for a call</p>
                   </div>
                   <p className='mt-3 text-xs text-gray-400 leading-relaxed'>
-                    By submitting, you agree to be contacted by Supernova Dental about treatment options and relevant
-                    updates. You can opt out at any time.
+                    By submitting, you agree to be contacted by Supernova Dental about this enquiry.
                   </p>
                 </form>
               </Form>
@@ -306,6 +320,8 @@ export default function GeneralPromotionForm() {
             <div className='hidden lg:block relative w-full h-full rounded-2xl overflow-hidden'>
               <img
                 src='/assets/images/outerBuildingSupernova.webp'
+                width={1824}
+                height={1216}
                 className='w-full h-full object-cover'
                 alt='Dental practice exterior'
               />
@@ -322,11 +338,13 @@ export default function GeneralPromotionForm() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-            <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative max-h-[90vh]'>
+          <div className='fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-black/60 p-4'>
+            <div role='dialog' aria-modal='true' aria-labelledby='promotion-success-title' tabIndex={-1} autoFocus className='relative max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-lg bg-white p-6 shadow-lg outline-none sm:p-10'>
               <button
+                type='button'
                 onClick={handleSuccessModalClose}
-                className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+                aria-label='Close confirmation'
+                className='absolute right-2 top-2 grid min-h-11 min-w-11 place-items-center rounded-sm text-2xl text-gray-600 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'
               >
                 <FaTimes />
               </button>
@@ -337,7 +355,7 @@ export default function GeneralPromotionForm() {
                 className='w-20 h-auto mx-auto mb-2'
               />
 
-              <h2 className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
+              <h2 id='promotion-success-title' className='text-3xl font-semibold mb-6'>Thank you, {values.fullname}, for signing up!</h2>
               <div className='mb-6 flex flex-col gap-2'>
                 <p>You&apos;ve been successfully signed up.</p>
 
@@ -350,12 +368,14 @@ export default function GeneralPromotionForm() {
               </div>
               <div className='w-full flex justify-center mb-8 space-x-6'>
                 <button
+                  type='button'
                   onClick={handlePatientPortalClick}
                   className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'
                 >
                   Book Now!
                 </button>
                 <button
+                  type='button'
                   onClick={handleWaitForCallClick}
                   className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'
                 >
@@ -368,6 +388,7 @@ export default function GeneralPromotionForm() {
                   <motion.a
                     key={idx}
                     href={l.href}
+                    aria-label={l.label}
                     onClick={() => {
                       if (redirectTimeoutRef.current) {
                         clearTimeout(redirectTimeoutRef.current);
@@ -399,29 +420,28 @@ export default function GeneralPromotionForm() {
 
       {/* Error Modal */}
       {showErrorModal && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-          <div className='bg-white p-10 relative rounded-lg shadow-lg max-w-md w-full'>
+        <div className='fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-black/60 p-4'>
+          <div role='alertdialog' aria-modal='true' aria-labelledby='promotion-error-title' tabIndex={-1} autoFocus className='relative max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto rounded-lg bg-white p-6 shadow-lg outline-none sm:p-10'>
             <button
+              type='button'
               onClick={() => setShowErrorModal(false)}
-              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
+              aria-label='Close error message'
+              className='absolute right-2 top-2 grid min-h-11 min-w-11 place-items-center rounded-sm text-2xl text-gray-600 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'
             >
               <FaTimes />
             </button>
-            <h2 className='text-3xl font-semibold mb-6'>Submission Failed</h2>
-            <p className='mb-6'>There was a problem with your submission. Please try again later.</p>
+            <h2 id='promotion-error-title' className='text-3xl font-semibold mb-6'>Submission Failed</h2>
+            <p className='mb-6'>{error ?? 'There was a problem with your submission. Please try again later.'}</p>
             <p className='my-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
             <div className='w-full flex justify-center mb-4'>
-              <Link target='_blank' href={`${DentallyPortal}`}>
-                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                  Book Now!
-                </button>
-              </Link>
+              <Link target='_blank' rel='noopener noreferrer' href={`${DentallyPortal}`} className='pointer-events-auto mt-4 inline-flex min-h-12 items-center rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light md:mt-6'>Book Now!</Link>
             </div>
             <div className='flex gap-4 justify-center mt-6'>
               {SOCIAL_CTAS.map((l, idx) => (
                 <motion.a
                   key={idx}
                   href={l.href}
+                  aria-label={l.label}
                   target='_blank'
                   initial={{ opacity: 0, y: -8 }}
                   animate={{

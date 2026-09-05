@@ -15,12 +15,12 @@ export default function HeroSection({ data }: HeroSection) {
   }
 
   return (
-    <section ref={ref} className='flex items-center justify-center w-full mx-auto'>
+    <section ref={ref} className='service-overview mx-auto flex w-full items-center justify-center px-4 py-10 md:py-16'>
       <motion.div
-        initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-        transition={{ duration: 0.5 }} // Duration of the animation
-        className='mx-auto px-6 text-center '
+        initial={{ opacity: 0.94, y: 12 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0.94, y: 12 }}
+        transition={{ duration: 0.22, ease: 'easeOut' }}
+        className='mx-auto px-2 text-center sm:px-6'
       >
         <ServiceBox
           title={data.header.title}

@@ -31,7 +31,7 @@ export default function AboutSection() {
         <h2 className='text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl mb-4 mt-6 lg:mt-0'>Meet the Team</h2>
         <p className='text-base md:text-lg'>
           Get to know the passionate professionals behind Supernova Dental. Our friendly Bridgwater-based team is here
-          to support you on your journey to a healthier, more confident Supernova smile – from your first visit to your
+          to support you on your journey to a healthier, more confident Supernova smile - from your first visit to your
           final results.
         </p>
         <Link href='/team'>

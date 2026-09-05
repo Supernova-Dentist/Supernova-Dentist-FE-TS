@@ -1,47 +1,36 @@
-'use client';
-
-import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
 
-export const ReferralOutlineCards = () => {
-  return (
-    <section className='overflow-hidden max-w-5xl md:max-w-6xl lg:max-w-7xl px-8 py-10'>
-      <div className='mx-auto  items-center justify-center gap-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4'>
-        <Card
-          title='Invisalign'
-          href='/professional-referrals/invisalign-referral'
-          bgUrl='/assets/images/invisalign.jpeg'
-        />
-        <Card
-          title='Dental Implant'
-          href='/professional-referrals/dental-implant-referral'
-          bgUrl='/assets/images/implant_referral.jpg'
-        />
-        <Card
-          title='Oral Surgery'
-          href='/professional-referrals/oral-surgery-referral'
-          bgUrl='/assets/images/oral_surgery_referral.jpg'
-        />
-        <Card title='CBCT/OPG' href='/professional-referrals/cbct-opg-referral' bgUrl='/assets/images/cbct_supernova_dental_bridgwater.webp' />
-      </div>
-    </section>
-  );
-};
+const referralServices = [
+  { title: 'Invisalign', href: '/professional-referrals/invisalign-referral', image: '/assets/images/invisalign.jpeg' },
+  { title: 'Dental implants', href: '/professional-referrals/dental-implant-referral', image: '/assets/images/implant_referral.jpg' },
+  { title: 'Oral surgery', href: '/professional-referrals/oral-surgery-referral', image: '/assets/images/oral_surgery_referral.jpg' },
+  { title: 'CBCT / OPG imaging', href: '/professional-referrals/cbct-opg-referral', image: '/assets/images/cbct_supernova_dental_bridgwater.webp' },
+];
 
-const Card = ({ bgUrl, title, href }: { bgUrl: string; title: string; href: string }) => {
-  return (
-    <a
-      href={href}
-      style={{
-        backgroundImage: `url(${bgUrl})`,
-        backgroundPosition: 'center',
-      }}
-      className='bg-cover bg-no-repeat outline-card flex aspect-[4/4] w-full flex-col justify-end overflow-hidden rounded-lg bg-neutral-400  shadow-xl shadow-neutral-900/30'
-    >
-      <div className='pointer-events-none flex items-center justify-between bg-gradient-to-t from-black to-black/0 p-6 pt-8 text-xl font-medium text-white md:text-2xl'>
-        <h3>{title}</h3>
-        <FiArrowRight />
-      </div>
-    </a>
-  );
-};
+export const ReferralOutlineCards = () => (
+  <div className='grid gap-5 sm:grid-cols-2 xl:grid-cols-4'>
+    {referralServices.map((service) => (
+      <Link
+        key={service.href}
+        href={service.href}
+        className='group overflow-hidden rounded-[1.25rem] border border-stone bg-white transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'
+      >
+        <div className='relative aspect-[4/3] overflow-hidden bg-stone'>
+          <Image
+            src={service.image}
+            alt=''
+            fill
+            sizes='(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw'
+            className='object-cover transition-transform duration-500 group-hover:scale-105'
+          />
+        </div>
+        <div className='flex min-h-24 items-center justify-between gap-4 p-5'>
+          <h3 className='text-2xl leading-tight'>{service.title}</h3>
+          <FiArrowRight aria-hidden='true' className='size-5 shrink-0 text-bronze-ink transition-transform group-hover:translate-x-1' />
+        </div>
+      </Link>
+    ))}
+  </div>
+);

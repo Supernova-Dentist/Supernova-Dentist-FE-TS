@@ -1,11 +1,12 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignContent';
 import { InvisalignOpenDayContent } from '@/components/blocks/InvisalignOpenDayContent/InvisalignOpenDayContent';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: 'Invisalign Open Day – Friday 24th & Saturday 25th April | Bridgwater | Supernova Dental',
+  title: 'Invisalign Open Day - Friday 24th & Saturday 25th April | Bridgwater | Supernova Dental',
   description:
     'Join our Invisalign Open Day on Friday 24th and Saturday 25th April at Supernova Dental. Enjoy exclusive offers, free consultations, and start your journey to a straighter smile with clear aligners in Bridgwater and Taunton.',
   keywords:
@@ -80,7 +81,7 @@ export default function InvisalignFlashSale() {
       </Head>
 
       <div className='flex flex-col min-h-[100dvh]'>
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
         <InvisalignOpenDayContent />
         {/* Sticky EnquiryButton */}
       </div>

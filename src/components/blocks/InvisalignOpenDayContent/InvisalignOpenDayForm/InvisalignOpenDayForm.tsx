@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -68,7 +69,11 @@ export default function InvisalignOpenDayForm({
     try {
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
-      const dataWithSource = { ...data, source: cleanedSource };
+      const dataWithSource = {
+        ...data,
+        source: cleanedSource,
+        tracking: buildSubmissionTracking({ form: 'invisalign-open-day', service: serviceName }),
+      };
 
       // Backend request
       const backendRes = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
@@ -86,39 +91,24 @@ export default function InvisalignOpenDayForm({
         throw new Error(errorMessage);
       }
 
-      // Dengro request (fire-and-forget)
-      try {
-        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataWithSource),
-        });
-      } catch (dengroError) {
-        console.warn('Dengro capture failed:', dengroError);
-      }
-
-      console.log('Form submitted successfully');
-
       window.dataLayer = window.dataLayer ?? [];
       // Determine event name using template literal
       const updatedEventType = `${responseData.alreadyExists === true ? 'Existing' : 'New'}${'InvisalignOpenDayLead'}`;
 
       // Push event to dataLayer including source
-      window.dataLayer.push({
+      pushAnalyticsEvent({
         event: updatedEventType,
       });
 
       // Trigger Google Ads conversion only for new patients
-      if (!responseData.alreadyExists && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (!responseData.alreadyExists) {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
       // Trigger Facebook Pixel event
-      if (typeof window.fbq === 'function') {
-        window.fbq('trackCustom', updatedEventType);
-      }
+      trackMetaEvent(updatedEventType);
 
       setShowSuccessModal(true);
     } catch (error) {
@@ -181,7 +171,7 @@ export default function InvisalignOpenDayForm({
               </h2>
               <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
               <Card className=' max-h-[50rem] md:max-h-[40rem] mt-6 mx-auto lg:m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-6 flex items-center justify-center'>
-                <form id={'invisalign-open-day-form'} onSubmit={handleSubmit(onSubmit)}>
+                <form id='invisalign-open-day-form-mobile' onSubmit={handleSubmit(onSubmit)}>
                   <CardHeader className='text-center mb-4'>
                     <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
                     <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>
@@ -228,12 +218,12 @@ export default function InvisalignOpenDayForm({
                     <div className='grid gap-1 mb-4'>
                       <div className='flex items-center mt-2'>
                         <Checkbox
-                          id='optOutEmails'
+                          id='open-day-opt-out-mobile'
                           {...register('optOutEmails')}
                           onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                         />
-                        <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground'>
-                          I don’t want to receive emails.
+                        <Label htmlFor='open-day-opt-out-mobile' className='ml-3 text-sm text-muted-foreground'>
+                          I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
                         </Label>
                       </div>
                       {errors.optOutEmails && <p className='text-red-500 text-sm'>{errors.optOutEmails?.message}</p>}
@@ -270,7 +260,7 @@ export default function InvisalignOpenDayForm({
               />
             </div>
             {/* <Card className=' max-h-[50rem] md:max-h-[40rem] mt-6 mx-auto lg:m-auto w-full max-w-lg bg-gray-50 shadow-2xl p-2 md:p-6 flex items-center justify-center'>
-              <form id={'invisalign-open-day-form'} onSubmit={handleSubmit(onSubmit)}>
+              <form id='invisalign-open-day-form-desktop' onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-4'>
                   <CardTitle className='text-xl md:text-2xl'>{formTitle}</CardTitle>
                   <CardDescription className='text-md md:text-lg text-gray-500'>{formDescription}</CardDescription>
@@ -317,12 +307,12 @@ export default function InvisalignOpenDayForm({
                   <div className='grid gap-1 mb-4'>
                     <div className='flex items-center mt-2'>
                       <Checkbox
-                        id='optOutEmails'
+                        id='open-day-opt-out-desktop'
                         {...register('optOutEmails')}
                         onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                       />
-                      <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground'>
-                        I don’t want to receive emails.
+                      <Label htmlFor='open-day-opt-out-desktop' className='ml-3 text-sm text-muted-foreground'>
+                        I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
                       </Label>
                     </div>
                     {errors.optOutEmails && <p className='text-red-500 text-sm'>{errors.optOutEmails?.message}</p>}

@@ -1,7 +1,5 @@
-import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
-import { HighlightCard } from '@/components/HighlightCard/HighlightCard';
+import TeamListing from '@/components/TeamExperience/TeamListing';
 import { type Metadata } from 'next';
-import TeamMemberGrid from './utils/TeamMemberGrid';
 
 export const metadata: Metadata = {
   title: 'Skilled Private Dental Team in Bridgwater | Supernova Dental',
@@ -25,6 +23,27 @@ export const metadata: Metadata = {
     'dentist team Somerset',
     'family dentist Bridgwater',
   ].join(', '),
+  alternates: { canonical: '/team' },
+  openGraph: {
+    title: 'Skilled Private Dental Team in Bridgwater | Supernova Dental',
+    description:
+      'Meet the expert dental team at Supernova Dental in Bridgwater. Our dentists and specialists provide personalised, compassionate care. New patients welcome.',
+    url: '/team',
+    type: 'website',
+    images: [
+      {
+        url: '/assets/images/staff_1.jpg',
+        alt: 'The Supernova Dental team in Bridgwater, Somerset',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Skilled Private Dental Team in Bridgwater | Supernova Dental',
+    description:
+      'Meet the expert dental team at Supernova Dental in Bridgwater. Our dentists and specialists provide personalised, compassionate care.',
+    images: ['/assets/images/staff_1.jpg'],
+  },
 };
 
 const structuredData = {
@@ -60,25 +79,10 @@ const structuredData = {
 
 export default function TeamPage() {
   return (
-    <div className='flex flex-col min-h-screen justify-center align-center  px-8'>
+    <>
       {/* Structured Data */}
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-
-      {/* Highlight Card */}
-      <HighlightCard
-        logoSrc='/assets/images/logo.png'
-        title='Meet Our Dedicated Dental Team'
-        description='Discover the friendly, highly skilled professionals behind Supernova Dental. Providing expert care for all patients, we are now welcoming new patients from Bridgwater, Taunton, and surrounding areas.'
-        className='mx-auto mt-16'
-      />
-
-      {/* Breadcrumb */}
-      <div className='mx-auto px-4 md:px-6 container pt-8 pb-4'>
-        <BreadCrumb />
-      </div>
-
-      {/* Team Members Grid */}
-      <TeamMemberGrid />
-    </div>
+      <TeamListing />
+    </>
   );
 }

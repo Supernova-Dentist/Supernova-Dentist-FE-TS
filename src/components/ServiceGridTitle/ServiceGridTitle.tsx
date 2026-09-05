@@ -1,3 +1,3 @@
 export default function ServiceGridTitle({ title }: { title: string }) {
-  return <h3 className='mt-6 mb-2 text-lightGrey font-bold text-xl md:text-2xl text-center'>{title}</h3>;
+  return <h3 className='mb-2 mt-6 text-center text-2xl leading-tight text-obsidian md:text-3xl'>{title}</h3>;
 }

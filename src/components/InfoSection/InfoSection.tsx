@@ -29,15 +29,15 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
   });
 
   return (
-    <section ref={ref} id={id} className='py-8 px-4 md:py-18 lg:pb-28 max-w-[56rem] mx-auto'>
+    <section ref={ref} id={id} className='service-info mx-auto max-w-[64rem] px-4 py-12 md:py-20 lg:pb-28'>
       <motion.div
-        initial={{ opacity: 0, y: 20 }} // Initial state for the animation
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} // Animate in
-        transition={{ duration: 0.5 }} // Duration of the animation
+        initial={{ opacity: 0.94, y: 12 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0.94, y: 12 }}
+        transition={{ duration: 0.22, ease: 'easeOut' }}
         className='container mx-auto px-4 md:px-6'
       >
         <SectionTitle title={title} />
-        <hr className='border-t-2 border-gold w-20 mx-auto mt-4 mb-8' />
+        <hr className='mx-auto mb-8 mt-5 w-16 border-t border-champagne' />
 
         {/* Video and Description */}
         <div className='flex flex-col gap-8'>
@@ -51,7 +51,7 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
                 width={100}
                 height={800}
                 layout='responsive'
-                className='max-w-[30rem] mx-auto py-8 mt-4'
+                className='mx-auto mt-8 max-w-[34rem] rounded-[1.25rem] object-cover shadow-[0_18px_45px_rgba(11,18,24,0.12)]'
                 src={imageSrc}
               />
             )}
@@ -80,9 +80,9 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
                   <ServiceDescription description={treatmentCasesDescription} className='max-w-[30rem] mx-auto' />
                   <div className='relative w-full max-w-[360px] mx-auto aspect-[9/16]'>
                     <video
-                      className='w-full h-full object-fit rounded-lg mt-8'
+                      className='mt-8 h-full w-full rounded-[1.25rem] border border-stone object-cover'
                       controls
-                      preload='metadata'
+                      preload='none'
                       src={treatmentCasesVideoSrc}
                     />
                   </div>

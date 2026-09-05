@@ -11,18 +11,22 @@ const EmergencyToggleSection = ({
   return (
     <div className='flex items-center justify-center gap-4 py-6'>
       <button
+        type='button'
+        aria-pressed={!isExistingPatient}
         onClick={() => setIsExistingPatient(false)}
-        className={`flex items-center gap-2 px-4 py-2 rounded-full ${
-          !isExistingPatient ? 'bg-gold text-white' : 'bg-gray-200'
+        className={`flex min-h-11 items-center gap-2 rounded-full border px-5 py-2 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 ${
+          !isExistingPatient ? 'border-champagne bg-champagne text-obsidian' : 'border-stone bg-porcelain text-obsidian'
         }`}
       >
         <BsPersonPlusFill />
         New Patient
       </button>
       <button
+        type='button'
+        aria-pressed={isExistingPatient}
         onClick={() => setIsExistingPatient(true)}
-        className={`flex items-center gap-2 px-4 py-2 rounded-full ${
-          isExistingPatient ? 'bg-gold text-white' : 'bg-gray-200'
+        className={`flex min-h-11 items-center gap-2 rounded-full border px-5 py-2 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 ${
+          isExistingPatient ? 'border-champagne bg-champagne text-obsidian' : 'border-stone bg-porcelain text-obsidian'
         }`}
       >
         <BsPersonCheckFill />

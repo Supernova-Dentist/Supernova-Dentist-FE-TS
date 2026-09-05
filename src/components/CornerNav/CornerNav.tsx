@@ -6,8 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { SiFacebook, SiInstagram, SiLinkedin, SiWhatsapp, SiYoutube } from 'react-icons/si';
-import Button from '../Button/Button';
+import { SiFacebook, SiInstagram, SiWhatsapp } from 'react-icons/si';
 
 export const CornerNav = ({
   active,
@@ -49,13 +48,13 @@ export const CornerNav = ({
 
 const LinksOverlay = () => {
   return (
-    <div className='relative mx-auto top-4 z-51 h-[calc(100vh)] w-[calc(100vw)] overflow-y-scroll'>
+    <nav id='mobile-navigation-panel' aria-label='Mobile site navigation' className='relative mx-auto top-4 z-51 h-[calc(100vh)] w-[calc(100vw)] overflow-y-scroll'>
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{
           opacity: 1,
           y: 0,
-          transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+          transition: { duration: 0.2, ease: 'easeOut' },
         }}
         exit={{ opacity: 0, y: -12 }}
         className='flex flex-col items-center sm:flex-row gap-1 sm:gap-4 justify-center pt-20 pb-10'
@@ -73,21 +72,26 @@ const LinksOverlay = () => {
           opacity: 1,
           y: 0,
           transition: {
-            delay: 1.5, // Adjust the delay as needed
-            duration: 0.5,
-            ease: 'easeInOut',
+            delay: 0.04,
+            duration: 0.2,
+            ease: 'easeOut',
           },
         }}
         exit={{ opacity: 0, y: -8 }}
         className='flex justify-center w-full py-16 ' // Added mt-auto to push it to the bottom
       >
-        <Link target='_blank' href={`${DentallyPortal}`}>
-          <Button className='text-white'>Book Now</Button>
+        <Link
+          target='_blank'
+          rel='noopener noreferrer'
+          href={DentallyPortal}
+          className='inline-flex min-h-12 items-center justify-center rounded bg-gold px-6 py-3 text-base font-semibold text-grey transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'
+        >
+          Book Now
         </Link>
       </motion.div>
 
       <FooterCTAs />
-    </div>
+    </nav>
   );
 };
 
@@ -106,7 +110,7 @@ const LinksContainer = () => {
             subLinks={l.subLinks}
             isActive={activeLink === idx}
             onClick={() => {
-              if (l.subLinks && l.subLinks.length > 0) {
+              if (l.subLinks !== undefined && l.subLinks.length > 0) {
                 // Toggle active state for the clicked link with subLinks
                 setActiveLink(activeLink === idx ? null : idx);
               } else {
@@ -140,49 +144,54 @@ const NavLink = ({
 }) => {
   // Determine the number of columns based on the number of subLinks
   const isReferral = typeof children === 'string' && children.toLowerCase() === 'referral';
-  const columnsClass = isReferral ? 'grid-cols-1' : subLinks && 'grid-cols-2';
+  const hasSubLinks = subLinks !== undefined && subLinks.length > 0;
+  const columnsClass = isReferral ? 'grid-cols-1' : hasSubLinks ? 'grid-cols-2' : '';
   return (
     <div>
-      <motion.a
-        initial={{ opacity: 0, y: -8 }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: 0.75 + idx * 0.125,
-            duration: 0.5,
-            ease: 'easeInOut',
-          },
-        }}
-        exit={{ opacity: 0, y: -8 }}
-        onClick={onClick} // Attach the click handler
-        className='flex items-center justify-between text-lg font-semibold text-cream md:text-3xl cursor-pointer capitalize'
-      >
-        {children}
-        {subLinks && subLinks.length > 0 && (
+      {hasSubLinks ? (
+        <motion.button
+          type='button'
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0, transition: { delay: Math.min(idx * 0.02, 0.08), duration: 0.18, ease: 'easeOut' } }}
+          exit={{ opacity: 0, y: -8 }}
+          onClick={onClick}
+          aria-expanded={isActive}
+          className='flex min-h-12 w-full items-center justify-between rounded-sm text-left text-lg font-semibold capitalize text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark md:text-3xl'
+        >
+          {children}
           <motion.div
             className='flex items-center'
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
-              transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+              transition: { duration: 0.18, ease: 'easeOut' },
             }}
             exit={{ opacity: 0 }}
           >
             {isActive ? <FiChevronUp className='text-xl' /> : <FiChevronDown className='text-xl' />}
           </motion.div>
-        )}
-      </motion.a>
+        </motion.button>
+      ) : (
+        <motion.a
+          href={href}
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0, transition: { delay: Math.min(idx * 0.02, 0.08), duration: 0.18, ease: 'easeOut' } }}
+          exit={{ opacity: 0, y: -8 }}
+          className='flex min-h-12 items-center rounded-sm text-lg font-semibold capitalize text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark md:text-3xl'
+        >
+          {children}
+        </motion.a>
+      )}
 
       {/* Only show sublinks when this link is active */}
-      {isActive && subLinks && (
+      {isActive && subLinks !== undefined && (
         <AnimatePresence>
           <motion.div
             className={`mt-4 grid gap-4 ${columnsClass}`}
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
-              transition: { duration: 0.5, ease: 'easeInOut' },
+              transition: { duration: 0.18, ease: 'easeOut' },
             }}
             exit={{ opacity: 0 }}
           >
@@ -195,13 +204,13 @@ const NavLink = ({
                   opacity: 1,
                   x: 0,
                   transition: {
-                    delay: subIndex * 0.1,
-                    duration: 0.5,
-                    ease: 'easeInOut',
+                    delay: Math.min(subIndex * 0.015, 0.06),
+                    duration: 0.18,
+                    ease: 'easeOut',
                   },
                 }}
                 exit={{ opacity: 0, x: -10 }}
-                className={`text-md font-medium text-white ${isActive ? 'highlight' : ''}`}
+                className={`inline-flex min-h-11 items-center rounded-sm text-base font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark ${isActive ? 'highlight' : ''}`}
               >
                 {subLink.title}
               </motion.a>
@@ -220,10 +229,12 @@ const Logo = () => {
       animate={{
         opacity: 1,
         y: 0,
-        transition: { delay: 0.5, duration: 0.5, ease: 'easeInOut' },
+        transition: { duration: 0.2, ease: 'easeOut' },
       }}
       exit={{ opacity: 0, y: -12 }}
-      className=''
+      href='/'
+      aria-label='Supernova Dental home'
+      className='rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'
     >
       <img src='/favicon.ico' alt='Supernova Dental Logo - Bridgwater Dentist' className='w-20 h-auto inline' />
     </motion.a>
@@ -255,8 +266,10 @@ const HamburgerButton = ({
           setActive((pv) => !pv);
           if (active) handleClose(); // Close the menu when clicked
         }}
-        aria-label='Menu Button'
-        className={`bg-grey group fixed right-2 top-2 z-[60] h-[50px] w-[50px] transition-all ${
+        aria-label={active ? 'Close menu' : 'Open menu'}
+        aria-expanded={active}
+        aria-controls='mobile-navigation-panel'
+        className={`bg-grey group fixed right-2 top-2 z-[60] h-[50px] w-[50px] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark ${
           active ? 'rounded-bl-xl rounded-tr-xl' : 'rounded-xl'
         }`}
       >
@@ -288,17 +301,20 @@ const FooterCTAs = () => {
           key={idx}
           href={l.href}
           target='_blank'
+          rel='noopener noreferrer'
+          aria-label={l.label}
           initial={{ opacity: 0, y: -8 }}
           animate={{
             opacity: 1,
             y: 0,
             transition: {
-              delay: 1 + idx * 0.125,
-              duration: 0.5,
-              ease: 'easeInOut',
+              delay: Math.min(idx * 0.02, 0.06),
+              duration: 0.18,
+              ease: 'easeOut',
             },
           }}
           exit={{ opacity: 0, y: -8 }}
+          className='inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark'
         >
           <l.Component className='text-3xl text-white transition-colors' />
         </motion.a>
@@ -361,6 +377,7 @@ const LINKS = [
       { title: 'Find us', href: '/find-us' },
       // { title: 'Social', href: '/social' },
       { title: 'Pricing', href: '/pricing' },
+      { title: 'Cancellations', href: '/cancellations' },
       {
         title: 'Enquiry',
         href: '/enquiry',
@@ -391,14 +408,17 @@ export const SOCIAL_CTAS = [
   {
     Component: SiFacebook,
     href: 'https://www.facebook.com/profile.php?id=61567279201971',
+    label: 'Visit Supernova Dental on Facebook',
   },
   {
     Component: SiInstagram,
     href: 'https://www.instagram.com/supernova.dental',
+    label: 'Visit Supernova Dental on Instagram',
   },
   {
     Component: SiWhatsapp,
     href: 'https://wa.me/447863338815',
+    label: 'Contact Supernova Dental on WhatsApp',
   },
   // {
   //   Component: SiLinkedin,
@@ -414,7 +434,7 @@ const UNDERLAY_VARIANTS = {
   open: {
     width: '100%',
     height: '100%',
-    transition: { type: 'spring', mass: 3, stiffness: 400, damping: 50 },
+    transition: { duration: 0.22, ease: 'easeOut' },
     background: 'var(--grey)',
   },
   closed: {
@@ -423,15 +443,14 @@ const UNDERLAY_VARIANTS = {
     background: 'transparent',
     transition: {
       background: {
-        delay: 0.5,
-        duration: 1,
-        ease: 'easeInOut',
+        duration: 0.18,
+        ease: 'easeOut',
       },
       width: {
-        duration: 0.5,
+        duration: 0.2,
       },
       height: {
-        duration: 0.5,
+        duration: 0.2,
       },
     },
   },

@@ -1,4 +1,6 @@
 'use client';
+
+import { practiceLocation } from '@/lib/practiceLocation';
 import { useState } from 'react';
 
 const GetDirectionsForm = () => {
@@ -6,23 +8,38 @@ const GetDirectionsForm = () => {
 
   const handleGetDirections = () => {
     const formattedPostcode = encodeURIComponent(postcode);
-    const directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${formattedPostcode}&destination=Marsh+Lane,+Huntworth,+Bridgwater,+Alliance+Building,+TA6+6LQ`;
+    const destination = encodeURIComponent(`${practiceLocation.name}, ${practiceLocation.address}`);
+    const directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${formattedPostcode}&destination=${destination}`;
     window.open(directionsUrl, '_blank');
   };
 
   return (
-    <div className='flex flex-row items-center gap-2'>
-      <input
-        type='text'
-        value={postcode}
-        onChange={(e) => setPostcode(e.target.value)}
-        placeholder='Enter your postcode'
-        className='px-4 py-1 border border-gray-300 rounded-sm w-full outline-none text-gray-800 hover:border-gray-400 focus:border-gray-400'
-      />
-      <button onClick={handleGetDirections} className='bg-gold text-white px-4 py-1 rounded-sm h-full'>
-        Go
+    <form
+      className='flex flex-col gap-3 sm:flex-row sm:items-end'
+      onSubmit={(event) => {
+        event.preventDefault();
+        handleGetDirections();
+      }}
+    >
+      <label className='flex-1 text-sm font-semibold text-obsidian' htmlFor='directions-postcode'>
+        Your postcode
+        <input
+          id='directions-postcode'
+          type='text'
+          value={postcode}
+          onChange={(e) => setPostcode(e.target.value)}
+          placeholder='Enter your postcode'
+          autoComplete='postal-code'
+          className='mt-2 min-h-11 w-full rounded-sm border border-control-border bg-white px-4 py-2 text-obsidian outline-none placeholder:text-taupe focus:border-champagne focus-visible:ring-2 focus-visible:ring-focus-light'
+        />
+      </label>
+      <button
+        type='submit'
+        className='inline-flex min-h-11 items-center justify-center rounded-full border border-champagne bg-champagne px-5 py-3 text-sm font-semibold text-obsidian transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'
+      >
+        Get directions
       </button>
-    </div>
+    </form>
   );
 };
 
