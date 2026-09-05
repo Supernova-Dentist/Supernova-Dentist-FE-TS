@@ -560,12 +560,6 @@
   }
 } */
 
-@media (min-width: 40rem) and (max-width: 63.999rem) and (orientation: portrait) and (min-height: 48rem) {
-  .horizonScene {
-    margin-top: auto;
-  }
-}
-
 @media (min-width: 64rem) and (max-height: 50rem) {
   .hero,
   .inner {
