@@ -1,8 +1,9 @@
 import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowDown, FiMapPin } from 'react-icons/fi';
+import AuroraStars from '../blocks/AuroraHero/AuroraStars';
+import auroraStyles from '../blocks/AuroraHero/AuroraHero.module.css';
 
 type CampaignHeroProps = {
   eyebrow: string;
@@ -14,42 +15,29 @@ type CampaignHeroProps = {
 
 export default function CampaignHero({ eyebrow, title, highlightedTitle, description, details }: CampaignHeroProps) {
   return (
-    <section aria-labelledby='campaign-hero-title' className='relative isolate overflow-hidden bg-obsidian text-ivory'>
-      <div className='absolute inset-0 luxury-hero-glow' aria-hidden='true' />
-      <div
-        className='absolute -right-52 -top-44 h-[34rem] w-[34rem] rounded-full border border-champagne/15 bg-champagne/[0.025] shadow-[0_0_130px_rgba(198,161,91,0.1)]'
-        aria-hidden='true'
-      />
+    <section
+      aria-labelledby='campaign-hero-title'
+      className='relative isolate min-w-0 overflow-hidden bg-obsidian text-ivory'
+    >
+      <div className={auroraStyles.backdrop} aria-hidden='true' />
+      <div className={auroraStyles.noise} aria-hidden='true' />
+      <div className={auroraStyles.stars} aria-hidden='true'>
+        <AuroraStars />
+      </div>
 
-      <div className='relative mx-auto grid min-h-[36rem] max-w-7xl gap-12 px-6 pb-20 pt-32 sm:px-8 sm:pb-24 sm:pt-36 lg:grid-cols-[minmax(0,1.25fr)_minmax(18rem,0.75fr)] lg:items-end lg:px-12 lg:pb-28 lg:pt-40'>
-        <div className='max-w-4xl'>
-          <div className='mb-7 flex items-center gap-3'>
-            <Image
-              src='/assets/images/logo.png'
-              alt=''
-              width={52}
-              height={52}
-              priority
-              className='h-12 w-12 rounded-full bg-white object-contain p-1'
-            />
-            <p className='text-lg font-semibold leading-tight text-ivory'>
-              Supernova Dental
-              <span className='mt-1 block text-xs font-semibold uppercase tracking-[0.22em] text-gold-text-dark'>
-                Bridgwater
-              </span>
-            </p>
-          </div>
-          <p className='hidden' aria-hidden='true'>
-            <span className='h-px w-10 bg-champagne/70' aria-hidden='true' />
-            Supernova Dental <span aria-hidden='true'>·</span> Bridgwater
+      <div className='relative z-[3] mx-auto grid min-h-[36rem] max-w-7xl gap-12 px-6 pb-20 pt-32 sm:px-8 sm:pb-24 sm:pt-36 lg:grid-cols-[minmax(0,1.25fr)_minmax(18rem,0.75fr)] lg:items-end lg:px-12 lg:pb-28 lg:pt-40'>
+        <div className='min-w-0 max-w-4xl'>
+          <p className='mb-7 flex flex-col gap-1 text-sm font-semibold uppercase tracking-[0.18em] text-ivory'>
+            <span>Supernova Dental</span>
+            <span className='text-gold-text-dark'>Bridgwater</span>
           </p>
           <p className='mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-ivory/60'>{eyebrow}</p>
           <h1
             id='campaign-hero-title'
-            className='max-w-4xl text-balance text-5xl font-normal leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl xl:text-[5rem]'
+            className='max-w-4xl text-balance text-[clamp(2.65rem,11vw,4.5rem)] font-normal leading-[1.04] tracking-[-0.04em] sm:text-[clamp(3.75rem,8vw,4.75rem)] sm:leading-[1.02] xl:text-[5rem]'
           >
-            {title}
-            <span className='block bg-gradient-to-r from-ivory via-[#f3dfb2] to-champagne bg-clip-text text-transparent'>
+            <span className='block'>{title}</span>
+            <span className='mt-[0.08em] block bg-gradient-to-r from-ivory via-[#f3dfb2] to-champagne bg-clip-text pb-[0.08em] text-transparent'>
               {highlightedTitle}
             </span>
           </h1>
@@ -58,7 +46,6 @@ export default function CampaignHero({ eyebrow, title, highlightedTitle, descrip
           <div className='mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap'>
             <ScrollToPromotionFormButton
               type='button'
-
               className='inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-champagne px-6 text-sm font-semibold text-obsidian transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
             >
               Start your enquiry
