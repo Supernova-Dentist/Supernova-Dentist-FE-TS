@@ -1,7 +1,8 @@
 'use client';
 
+import { ScrollToPromotionFormMotionButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormMotionButton';
+
 import { FlipWords } from '@/components/ui/flip-words';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useMotionTemplate } from 'framer-motion';
 import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
@@ -51,11 +52,10 @@ export function SmileStoryHero() {
             transition={{ duration: 0.6 }}
             className='z-40 flex flex-col justify-center items-center'
           >
-            <motion.h1 className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 mb-4'>
+            <motion.p className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 mb-4'>
               Supernova Smile Stories <br /> <br /> <FlipWords words={words} /> 
-            </motion.h1>
-            <motion.button
-              onClick={scrollToPromotionForm}
+            </motion.p>
+            <ScrollToPromotionFormMotionButton
               style={{ border, boxShadow }}
               whileHover={{ scale: 1.015 }}
               whileTap={{ scale: 0.985 }}
@@ -63,7 +63,7 @@ export function SmileStoryHero() {
             >
               Start Your Story
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
-            </motion.button>
+            </ScrollToPromotionFormMotionButton>
           </motion.div>
         </ImagesSlider>
       </div>
@@ -81,8 +81,7 @@ export function SmileStoryHero() {
               Supernova Dental <br /> Smile Stories <br /> <br />
               <FlipWords words={words} />
             </motion.p>
-            <motion.button
-              onClick={scrollToPromotionForm}
+            <ScrollToPromotionFormMotionButton
               style={{ border, boxShadow }}
               whileHover={{ scale: 1.015 }}
               whileTap={{ scale: 0.985 }}
@@ -90,7 +89,7 @@ export function SmileStoryHero() {
             >
               Start Your Story
               <FiArrowRight className='transition-transform rotate-90 lg:rotate-0 lg:group-hover:rotate-90 group-active:-rotate-12' />
-            </motion.button>
+            </ScrollToPromotionFormMotionButton>
           </motion.div>
         </ImagesSlider>
       </div>

@@ -37,7 +37,7 @@ const ScottWaterDropHero = () => {
                 I take immense pride in knowing that our patients feel truly looked after and cared for.
               </p>
               <p className='pointer-events-auto max-w-xl text-sm text-cream md:text-base mt-4'>
-                The huge confidence boosts people gain after just a few appointments are a joy to behold—whether that is
+                The huge confidence boosts people gain after just a few appointments are a joy to behold-whether that is
                 nervous patients feeling fully at ease or the smile transformations from cosmetic procedures
               </p>
             </>

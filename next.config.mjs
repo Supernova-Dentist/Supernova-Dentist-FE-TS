@@ -17,6 +17,20 @@ const nextConfig = {
     ],
   },
 
+  async headers() {
+    return [
+      {
+        source: '/assets/videos/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=604800, stale-while-revalidate=2592000',
+          },
+        ],
+      },
+    ];
+  },
+
   async redirects() {
     return [
       {
@@ -71,8 +85,28 @@ const nextConfig = {
       },
       {
         source: '/carees/dental-nurse',
-        destination: '/dental-nurse',
-        permanent: false,
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/careers/dental-nurse',
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/careers/associate-dentist-jobs/:location',
+        destination: '/careers/associate-dentist-bridgwater-somerset',
+        permanent: true,
+      },
+      {
+        source: '/our-journey',
+        destination: '/practice',
+        permanent: true,
+      },
+      {
+        source: '/team/dr-jacqueline-amarin',
+        destination: '/team',
+        permanent: true,
       },
     ];
   },

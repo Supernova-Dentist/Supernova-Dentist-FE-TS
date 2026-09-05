@@ -1,6 +1,5 @@
 'use client';
 
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import React, { useRef } from 'react';

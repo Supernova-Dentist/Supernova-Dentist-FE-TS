@@ -11,7 +11,7 @@ export default function ComparisonTable({ data }: ComparisonTable) {
   const { tableHeadData, tableBodyData } = data;
 
   return (
-    <div className='max-h-96 overflow-y-auto border border-gray-300 rounded-lg'>
+    <div className='max-h-96 overflow-y-auto rounded-[1.25rem] border border-stone'>
       <Table>
         <TableHead>
           <TableRow>

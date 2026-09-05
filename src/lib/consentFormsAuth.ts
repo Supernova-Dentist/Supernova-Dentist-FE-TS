@@ -7,7 +7,10 @@ const DEFAULT_DEVELOPMENT_PASSCODE = '2024';
 const DEFAULT_DEVELOPMENT_SECRET = 'supernova-consent-forms-development-secret';
 
 function getSessionSecret() {
-  return process.env.CONSENT_FORMS_SESSION_SECRET ?? DEFAULT_DEVELOPMENT_SECRET;
+  const secret = process.env.CONSENT_FORMS_SESSION_SECRET;
+  if (secret !== undefined && secret.length >= 32) return secret;
+  if (process.env.NODE_ENV !== 'production') return DEFAULT_DEVELOPMENT_SECRET;
+  throw new Error('CONSENT_FORMS_SESSION_SECRET must be configured in production.');
 }
 
 function sign(value: string) {
@@ -22,7 +25,17 @@ function safelyCompare(left: string, right: string) {
 }
 
 export function isConsentFormsPasscodeValid(passcode: string) {
-  const expectedPasscode = process.env.CONSENT_FORMS_PASSCODE ?? DEFAULT_DEVELOPMENT_PASSCODE;
+  const configuredPasscode = process.env.CONSENT_FORMS_PASSCODE;
+  const expectedPasscode =
+    configuredPasscode !== undefined && configuredPasscode.length >= 6
+      ? configuredPasscode
+      : process.env.NODE_ENV !== 'production'
+        ? DEFAULT_DEVELOPMENT_PASSCODE
+        : undefined;
+
+  if (expectedPasscode === undefined) {
+    throw new Error('CONSENT_FORMS_PASSCODE must be configured in production.');
+  }
 
   return safelyCompare(passcode, expectedPasscode);
 }

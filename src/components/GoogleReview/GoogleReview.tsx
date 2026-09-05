@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { IoStar } from 'react-icons/io5';
+import { truncateText } from '@/utils/format/truncateString';
 
 export default function GoogleReview({
   name,
@@ -14,15 +15,11 @@ export default function GoogleReview({
 }: GoogleReviewProps) {
   const reviewStars = Array(rating).fill(0);
 
-  const handleViewOnGoogleClick = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    window.open(url, '_blank');
-  };
+  const reviewExcerpt = truncateText(review, 220);
 
   return (
-    <div className='min-w-[180px] flex flex-col justify-between h-full'>
-      <div className='p-5 bg-white h-[235px] shadow-md cursor-pointer rounded-sm transform transition-transform duration-300 ease-in-out hover:-translate-y-2 flex flex-col'>
-        <div className='flex flex-col  my-auto'>
+    <article className='flex h-full min-w-0 flex-col rounded-xl border border-stone bg-white p-5 shadow-[0_12px_35px_rgba(11,18,24,0.08)]'>
+        <div className='flex flex-col'>
           <div className='flex justify-between gap-2'>
             <span className='text-sm leading-none'>{name}</span>
             <Image
@@ -30,7 +27,7 @@ export default function GoogleReview({
               width={48}
               height={48}
               className='w-[20px] h-[20px]'
-              alt='google trust'
+              alt='Google review'
             />
           </div>
           {/* <span className='text-gray-500 text-xs leading-none'>{date}</span> */}
@@ -40,32 +37,31 @@ export default function GoogleReview({
             ))}
           </div>
         </div>
-        <div className='flex items-center'>
-          <p className='text-[15px] max-h-[70px] overflow-hidden'>{review}</p>
+        <div className='mt-3 flex flex-1 items-start'>
+          <p className='break-words text-[15px] leading-6 text-taupe'>{reviewExcerpt}</p>
         </div>
 
-        <div className='flex flex-col mt-4'>
-          <div className='flex flex-row w-full justify-center space-x-6 items-baseline'>
+        <footer className='mt-5 border-t border-stone pt-3'>
+          <div className='flex flex-wrap items-center justify-center gap-x-4 gap-y-2'>
             <button
-              onClick={() => onClickReview && onClickReview({ name, date, review, rating, url, previewUrl })}
-              className='text-sm text-gray-500 bg-transparent border-none leading-none cursor-pointer hover:underline hover:text-gray-800'
+              onClick={() => onClickReview?.({ name, date, review, rating, url, previewUrl })}
+              className='inline-flex min-h-11 items-center rounded-sm bg-transparent px-2 text-sm text-taupe underline underline-offset-4 hover:text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'
+              aria-label={`Read ${name}'s full review`}
             >
-              Read more
+              Read full review
             </button>
 
-            <button
-              onClick={handleViewOnGoogleClick}
-              className='text-sm text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
+            <a
+              href={url}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex min-h-11 items-center rounded-sm px-2 text-sm text-taupe underline underline-offset-4 hover:text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'
             >
               View on Google
-            </button>
+            </a>
           </div>
-          <div className='mt-4 text-xs text-center text-gray-500'>
-            <p>Trusted Dentist in Bridgwater, Somerset</p>
-            <p>Supernova Dental</p>
-          </div>
-        </div>
-      </div>
-    </div>
+          <p className='mt-2 text-center text-xs text-taupe'>Patient review shown with a link to Google</p>
+        </footer>
+    </article>
   );
 }

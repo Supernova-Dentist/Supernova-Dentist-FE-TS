@@ -1,7 +1,8 @@
 'use client';
 
+import { ScrollToPromotionFormLegacyButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormLegacyButton';
+
 import { DentallyPortal, navLinks } from '@/lib/constants';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { PhoneIcon, PhoneIncomingIcon } from '@heroicons/react/solid';
 import { motion } from 'framer-motion';
 import { Phone, PhoneCall } from 'lucide-react';
@@ -10,7 +11,6 @@ import Link from 'next/link';
 import React from 'react';
 import { BiPhone } from 'react-icons/bi';
 import { useInView } from 'react-intersection-observer';
-import Button from '../Button/Button';
 import FlyoutLink from './FlyoutLink/FlyoutLink';
 
 export default function ConsultationLandingPageDesktopNav() {
@@ -63,9 +63,9 @@ export default function ConsultationLandingPageDesktopNav() {
               </a>
             </p> */}
 
-            <Button onClick={scrollToPromotionForm} className='text-white'>
+            <ScrollToPromotionFormLegacyButton className='text-white'>
               BOOK YOUR CONSULTATION
-            </Button>
+            </ScrollToPromotionFormLegacyButton>
           </li>
         </ul>
       </nav>

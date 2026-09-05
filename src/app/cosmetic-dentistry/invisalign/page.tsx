@@ -1,12 +1,13 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignContent';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
-import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'Invisalign | Clear Aligners & Invisible Braces | Supernova Dental',
   description:
     'Invisalign in Bridgwater, Somerset. Straighten your teeth with clear aligners at Supernova Dental. Book your free Invisalign consultation today.',
+  alternates: { canonical: '/cosmetic-dentistry/invisalign' },
   keywords:
     'Invisalign Bridgwater, Invisalign Somerset, clear aligners Bridgwater, invisible braces Bridgwater, Invisalign cost Bridgwater, teeth straightening Bridgwater, adult braces Somerset, orthodontic treatment Bridgwater, private Invisalign dentist Bridgwater, Invisalign near Taunton, Invisalign Taunton, invisible braces Taunton, clear aligners Taunton',
 };
@@ -59,11 +60,6 @@ const structuredData = {
     procedureType: 'Non-invasive',
     areaServed: ['Bridgwater, UK', 'Somerset, UK', 'Taunton, UK', 'Highbridge, UK', 'Burnham-on-Sea, UK'],
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '169',
-  },
   potentialAction: {
     '@type': 'ReserveAction',
     target: {
@@ -83,23 +79,11 @@ const structuredData = {
 
 export default function Invisalign() {
   return (
-    <>
-      <Head>
-        <title>{String(metadata.title)}</title>
-        <meta name='description' content={metadata.description ?? ''} />
-        <meta
-          name='keywords'
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : (metadata.keywords ?? '')}
-        />
-        <link rel='canonical' href='https://www.supernovadental.co.uk/invisalign' />
-      </Head>
-
-      <div className='flex flex-col min-h-[100dvh]'>
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    <main className='flex min-h-[100dvh] flex-col'>
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
         <InvisalignContent />
         {/* Sticky EnquiryButton */}
         <EnquiryButton referringPage={'cosmetic-dentistry/invisalign'} />
-      </div>
-    </>
+    </main>
   );
 }

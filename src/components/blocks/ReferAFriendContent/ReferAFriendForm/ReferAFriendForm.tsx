@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import PatientToggleSection from '@/components/ui/toggle';
 import { DentallyPortal } from '@/lib/constants';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -80,7 +81,11 @@ export default function ReferAFriendForm({
       }
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
-      const dataWithSource = { ...data, source: cleanedSource };
+      const dataWithSource = {
+        ...data,
+        source: cleanedSource,
+        tracking: buildSubmissionTracking({ form: 'refer-a-friend', service: 'Refer a friend' }),
+      };
 
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/refer-a-friend`, {
         method: 'POST',
@@ -97,40 +102,25 @@ export default function ReferAFriendForm({
         throw new Error(errorMessage);
       }
 
-      // Dengro request (fire-and-forget)
-      try {
-        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataWithSource),
-        });
-      } catch (dengroError) {
-        console.warn('Dengro capture failed:', dengroError);
-      }
-
-      console.log('Form submitted successfully');
-
       window.dataLayer = window.dataLayer ?? [];
 
       // Determine event name using template literal
       const updatedEventType = `${responseData.alreadyExists === true ? 'Existing' : 'New'}ReferAFriendSubmission`;
 
       // Push event to dataLayer including source
-      window.dataLayer.push({
+      pushAnalyticsEvent({
         event: updatedEventType,
       });
 
       // Trigger Google Ads conversion only for new patients
-      if (!responseData.alreadyExists && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (!responseData.alreadyExists) {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
       // Trigger Facebook Pixel event
-      if (typeof window.fbq === 'function') {
-        window.fbq('trackCustom', updatedEventType);
-      }
+      trackMetaEvent(updatedEventType);
 
       setShowSuccessModal(true);
     } catch (error) {
@@ -160,8 +150,8 @@ export default function ReferAFriendForm({
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash;
-      if (hash === '#form') {
-        const formElement = document.querySelector(hash);
+      if (hash === '#form' || hash === '#refer-a-friend-form') {
+        const formElement = document.querySelector('#refer-a-friend-form');
         if (formElement) {
           const formPosition = formElement.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({ top: formPosition, behavior: 'smooth' });
@@ -177,7 +167,7 @@ export default function ReferAFriendForm({
       const params = new URLSearchParams({
         referrerName,
       });
-      return `${window.location.origin}/refer-a-friend?${params.toString()}#form`;
+      return `${window.location.origin}/refer-a-friend?${params.toString()}#refer-a-friend-form`;
     }
     return null;
   }, [referrerName, pathname]);
@@ -207,7 +197,7 @@ export default function ReferAFriendForm({
   useEffect(() => {
     if (shouldShowReferralLink) {
       const encodedName = encodeURIComponent(referrerName || '');
-      setReferralLink(`${window.location.origin}/refer-a-friend?referrerName=${encodedName.toString()}#form`);
+      setReferralLink(`${window.location.origin}/refer-a-friend?referrerName=${encodedName.toString()}#refer-a-friend-form`);
     } else {
       setReferralLink('');
     }
@@ -240,39 +230,37 @@ export default function ReferAFriendForm({
     <>
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
 
-      <section id='form' ref={ref} className='w-full py-12 min-h-screen flex items-center justify-center'>
+      <section ref={ref} className='w-full'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <div className='container max-w-[1250px] mx-auto px-4 flex flex-col gap-8'>
-            <div className='flex flex-col lg:flex-row lg:items-start gap-8'>
+          <div className='mx-auto flex max-w-7xl flex-col gap-8'>
+            <div className='grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(22rem,1fr)] lg:items-start lg:gap-16'>
               {/* Description */}
-              <div className='lg:w-1/2 space-y-6'>
-                <div className='bg-grey px-4 py-2 text-md text-gray-50 rounded-lg inline-block'>{serviceChip}</div>
-                <h2 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
-                  Begin Your {serviceName} Journey
-                </h2>
-                <p className='text-muted-foreground md:text-2xl'>{serviceDescription}</p>
+              <div className='space-y-6'>
+                <div className='inline-block rounded-full bg-obsidian px-4 py-2 text-sm font-semibold text-ivory'>{serviceChip}</div>
+                <h3 className='text-balance text-3xl leading-tight sm:text-4xl'>{formTitle}</h3>
+                <p className='max-w-xl text-lg leading-8 text-taupe'>{serviceDescription}</p>
                 {imgSrc && (
-                  <img src={imgSrc} alt={serviceName} className='w-full max-w-md mx-auto mt-8 hidden lg:block' />
+                  <img src={imgSrc} alt={serviceName} className='mt-8 hidden w-full max-w-md rounded-[1.25rem] lg:block' />
                 )}
               </div>
 
               {/* Form */}
-              <Card className='lg:w-1/2 w-full bg-gray-50 shadow-2xl p-2 md:p-6'>
+              <Card className='w-full rounded-[1.5rem] border-control-border bg-white p-2 shadow-[0_20px_60px_rgba(0,0,0,0.12)] md:p-6'>
                 <PatientToggleSection
                   isExistingPatient={isExistingPatient}
                   setIsExistingPatient={setIsExistingPatient}
                 />
 
-                <form id={'refer-a-friend-form'} onSubmit={handleSubmit(onSubmit)}>
+                <form id='refer-a-friend-submission-form' onSubmit={handleSubmit(onSubmit)}>
                   <CardHeader className='text-center mb-4'>
-                    <CardTitle className='text-xl md:text-2xl'>
+                    <CardTitle className='text-2xl md:text-3xl'>
                       {isExistingPatient ? 'Refer a Friend' : 'Register as a New Patient'}
                     </CardTitle>
-                    <CardDescription className='text-md md:text-lg text-gray-500'>
+                    <CardDescription className='text-base leading-7 text-taupe md:text-lg'>
                       {isExistingPatient
                         ? formDescription
                         : 'Join our dental practice today. Fill in your details and we’ll be in touch soon.'}
@@ -365,7 +353,7 @@ export default function ReferAFriendForm({
                           onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                         />
                         <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground'>
-                          I don’t want to receive emails.
+                          I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
                         </Label>
                       </div>
                       {errors.optOutEmails && <p className='text-red-500 text-sm'>{errors.optOutEmails?.message}</p>}

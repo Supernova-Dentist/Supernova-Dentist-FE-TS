@@ -7,7 +7,7 @@ export const TracyOutlineCards = () => {
   return (
     <section className='overflow-hidden md:max-w-5xl px-8 pb-12 pt-16'>
       <div className='mx-auto flex flex-col items-center justify-center gap-8 lg:flex-row'>
-        <Card title='Dental Hygiene' href='/dental-hygiene' bgUrl='/assets/images/airflow.jpeg' />
+        <Card title='Dental Hygiene' href='/general-dentistry/dental-hygiene' bgUrl='/assets/images/airflow.jpeg' />
       </div>
     </section>
   );

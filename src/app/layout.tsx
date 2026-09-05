@@ -1,5 +1,8 @@
+import MotionPreferences from '@/components/MotionPreferences/MotionPreferences';
 import RouteAwareSiteShell from '@/components/RouteAwareSiteShell/RouteAwareSiteShell';
 import TrackingProvider from '@/components/TrackingProvider/TrackingProvider';
+import CookieConsentBridge from '@/components/CookieConsentBridge/CookieConsentBridge';
+import { practiceStructuredData, SITE_URL } from '@/lib/site';
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
@@ -19,80 +22,41 @@ const ibmPlex = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.supernovadental.co.uk'),
+  metadataBase: new URL(SITE_URL),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+      'max-snippet': -1,
+    },
+  },
   title: 'Supernova Dental | Private Dentist in Bridgwater, Somerset',
   description:
-    'Supernova Dental is a trusted private dental practice in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants, and same-day appointments. Accepting patients from Bridgwater, Taunton, and surrounding areas.',
-  keywords:
-    'private dentist Bridgwater, cosmetic dentist Somerset, general dentistry Bridgwater, dental implants Somerset, same-day dental appointments, emergency dentist Bridgwater, best dentist in Bridgwater',
+    'Supernova Dental is a private dental practice in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants and same-day emergency appointments for new and existing patients.',
   openGraph: {
     title: 'Supernova Dental | Private Dentist in Bridgwater, Somerset',
     description:
-      'Supernova Dental offers expert cosmetic and general dental care in Bridgwater, Somerset. Accepting patients from Bridgwater, Taunton, and surrounding areas.',
+      'Supernova Dental offers cosmetic and general dental care in Bridgwater, including dental implants and same-day emergency appointments.',
     url: 'https://www.supernovadental.co.uk/',
     type: 'website',
     locale: 'en_GB',
     siteName: 'Supernova Dental',
     images: [
       {
-        url: '/assets/images/outerBuildingPreview.jpg',
+        url: '/assets/images/supernova-dental-social.jpg',
         width: 1200,
-        height: 900,
-        alt: 'Supernova Dental - Premium Dental Care',
+        height: 675,
+        alt: 'Supernova Dental practice in Bridgwater',
       },
     ],
   },
-};
-
-export const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Dentist',
-  name: 'Supernova Dental',
-  url: 'https://www.supernovadental.co.uk',
-  logo: 'https://www.supernovadental.co.uk/assets/images/logo.png',
-  image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
-  description:
-    'Supernova Dental is a trusted private dental practice in Bridgwater, Somerset, offering cosmetic and general dentistry, dental implants, same-day appointments, and flexible payment plans.',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
-    addressLocality: 'Bridgwater',
-    postalCode: 'TA6 6LQ',
-    addressCountry: 'GB',
-  },
-  contactPoint: [
-    {
-      '@type': 'ContactPoint',
-      telephone: '+44 1278 228665',
-      contactType: 'Customer Service',
-      email: 'enquiries@supernovadental.co.uk',
-      areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
-      availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
-    },
-  ],
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:15',
-      closes: '18:15',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Saturday',
-      opens: '09:00',
-      closes: '13:00',
-    },
-  ],
-  sameAs: [
-    'https://www.facebook.com/profile.php?id=61567279201971',
-    'https://www.instagram.com/supernova.dental/',
-    'https://g.co/kgs/qqvPcF1',
-  ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '169',
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/assets/images/supernova-dental-social.jpg'],
   },
 };
 
@@ -105,41 +69,45 @@ export default function RootLayout({
     <html lang='en'>
       <head>
         {/* Cookiebot */}
-        {/* <Script
+        <Script
           id='Cookiebot'
           src='https://consent.cookiebot.com/uc.js'
           data-cbid='aced3b94-7f1a-4ccd-a22f-90b2c1d4bf6b'
           data-blockingmode='auto'
           type='text/javascript'
-        /> */}
+        />
 
         {/* Google Analytics */}
         {/* <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z' /> */}
         <Script id='google-analytics'>
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            function gtag(){
+              if (arguments[0] === 'event') {
+                var eventParams = arguments[2] || {};
+                var isAdvertisingEvent = typeof eventParams.send_to === 'string' && eventParams.send_to.indexOf('AW-') === 0;
+                var requiredConsent = isAdvertisingEvent ? 'sn_marketing_consent' : 'sn_analytics_consent';
+                if (sessionStorage.getItem('sn_consent_ready') !== 'true' || localStorage.getItem(requiredConsent) !== 'granted') {
+                  if (typeof eventParams.event_callback === 'function') eventParams.event_callback();
+                  return;
+                }
+              }
+              dataLayer.push(arguments);
+            }
+            gtag('consent', 'default', {
+              analytics_storage: 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 500
+            });
             gtag('js', new Date());
             gtag('config', 'G-8M5WQJ7R5Z');
             gtag('config', 'AW-16737398524');
           `}
         </Script>
 
-        {/* Google Tag Manager */}
-        <Script id='gtm-script' strategy='beforeInteractive'>
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-5Q5NWLHG');
-          `}
-        </Script>
-
         <meta name='google-site-verification' content='6AoMb9jPZjKrBtnIYhIpHOb96jJ_QaDRMAIqUffMCMw' />
-
-        {/* Crazy Egg */}
-        <Script src='//script.crazyegg.com/pages/scripts/0131/3081.js' strategy='afterInteractive' async />
 
         {/* Meta Pixel with Cookiebot Compliance */}
         {/* <Script id='meta-pixel' strategy='afterInteractive'>
@@ -170,7 +138,7 @@ export default function RootLayout({
         </Script> */}
 
         {/* Meta Pixel */}
-        <Script id='meta-pixel' strategy='afterInteractive'>
+        {/* <Script id='meta-pixel' strategy='afterInteractive'>
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -184,18 +152,21 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
+        */}
 
         {/* Structured data */}
-        <Script
-          id='structured-data'
+        <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(practiceStructuredData).replaceAll('<', '\\u003c') }}
         />
       </head>
       <body className={`${playfair.variable} ${ibmPlex.variable}`}>
-        <TrackingProvider>
-          <RouteAwareSiteShell>{children}</RouteAwareSiteShell>
-        </TrackingProvider>
+        <CookieConsentBridge />
+        <MotionPreferences>
+          <TrackingProvider>
+            <RouteAwareSiteShell>{children}</RouteAwareSiteShell>
+          </TrackingProvider>
+        </MotionPreferences>
       </body>
     </html>
   );

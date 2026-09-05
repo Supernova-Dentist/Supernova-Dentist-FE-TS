@@ -1,11 +1,15 @@
 import DenturesContent from '@/components/blocks/DenturesContent.tsx/DenturesContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Dentures in Bridgwater | Supernova Dental',
   description:
     'High-quality dentures at Supernova Dental in Bridgwater, Somerset. Restore your smile with comfortable full and partial dentures tailored to your needs. Book your consultation today.',
+  alternates: {
+    canonical: '/general-dentistry/dentures',
+  },
   keywords:
     'dentures Bridgwater, dentures Somerset, full dentures Bridgwater, partial dentures Somerset, false teeth Bridgwater, denture clinic Somerset, replacement teeth Bridgwater, private dentist dentures Somerset, Supernova Dental dentures',
 };
@@ -54,7 +58,7 @@ const structuredData = {
 export default function Dentures() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <DenturesContent />
       {/* Sticky EnquiryButton */}
       <EnquiryButton referringPage={'general-dentistry/dentures'} />

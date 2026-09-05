@@ -5,7 +5,6 @@ import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import React, { type ReactNode, useRef } from 'react';
@@ -37,6 +36,7 @@ const pricing = [
 export const SupernovaSmileStoriesContent = () => {
   return (
     <div className='bg-cream'>
+      <h1 className='sr-only'>Supernova Smile Stories</h1>
       <SmileStoryHero />
       <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
         <SmileStoryForm
@@ -63,7 +63,7 @@ export const SupernovaSmileStoriesContent = () => {
               <video
                 className='w-full h-full object-fit rounded-lg lg:mt-8'
                 controls
-                preload='metadata'
+                preload='none'
                 src='/assets/videos/why_supernova.mp4'
                 poster='/assets/images/video_thumbnail.png'
               />
@@ -85,7 +85,7 @@ export const SupernovaSmileStoriesContent = () => {
             <video
               className='w-full h-full object-fit rounded-lg lg:mt-8'
               controls
-              preload='metadata'
+              preload='none'
               src='/assets/videos/Supernova_Smile_Story.mp4'
               poster='/assets/images/Supernova_Smile_Story_Poster.png'
             />

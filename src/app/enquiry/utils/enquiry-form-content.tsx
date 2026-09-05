@@ -5,20 +5,20 @@ import BarLoader from '@/components/BarLoader/BarLoader';
 import PrivacyPolicyModal from '@/components/PrivacyModal/PrivacyModal';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking } from '@/lib/tracking';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { FaTimes } from 'react-icons/fa';
 import { z } from 'zod';
 import Search from './Search';
 
@@ -80,19 +80,10 @@ export function EnquiryFormContent() {
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
       // const dataWithSource = { ...data, source: cleanedSource };
 
-      const tracking = getTracking();
-
       const dataWithTracking = {
         ...data,
         source: cleanedSource,
-        tracking: {
-          ...tracking,
-          conversionPage: {
-            pageUrl: window.location.href,
-            pagePath: window.location.pathname,
-            visitDate: new Date().toISOString(),
-          },
-        },
+        tracking: buildSubmissionTracking({ form: 'contact-enquiry', service: cleanedSource }),
       };
 
       // const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}promotion`, {
@@ -130,19 +121,17 @@ export function EnquiryFormContent() {
       // }
 
       window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({ event: 'NewEnquiryForm' });
+      pushAnalyticsEvent({ event: 'NewEnquiryForm' });
 
       // Trigger Google Ads conversion tracking
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (typeof window !== 'undefined') {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
       // Trigger Facebook Pixel Lead event with lead_type param
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', 'NewEnquiryForm');
-      }
+      trackMetaEvent('NewEnquiryForm');
 
       form.reset({
         fullname: '',
@@ -178,14 +167,14 @@ export function EnquiryFormContent() {
       <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={handlePrivacyModalClose} />
 
       <motion.section
-        className='px-4 pt-4 pb-24 md:pb-32'
+        className='min-w-0 px-0 pb-8 pt-0 md:pb-12'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className='container mx-auto md:px-6'>
+        <div className='mx-auto'>
           <motion.div
-            className='mx-auto max-w-2xl space-y-6 bg-white p-8 md:p-12 rounded-lg shadow-lg'
+            className='mx-auto max-w-3xl space-y-6 rounded-[1.5rem] border border-control-border bg-white p-6 text-obsidian shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-8 md:p-10'
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
@@ -195,7 +184,7 @@ export function EnquiryFormContent() {
                 <div className='grid gap-6'>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
-                      <Label htmlFor='fullname' className='text-lg font-medium'>
+                      <Label htmlFor='fullname' className='text-base font-semibold text-[#171923]'>
                         Full Name
                       </Label>
                       <FormField
@@ -209,7 +198,7 @@ export function EnquiryFormContent() {
                                 placeholder='Full Name'
                                 maxLength={75}
                                 {...field}
-                                className='text-md lg:text-lg px-3 py-2 h-14'
+                                className='h-12 border-control-border bg-porcelain px-3 text-base text-obsidian placeholder:text-taupe focus-visible:ring-focus-light'
                               />
                             </FormControl>
                             <FormMessage />
@@ -219,7 +208,7 @@ export function EnquiryFormContent() {
                     </div>
 
                     <div className='space-y-3'>
-                      <Label htmlFor='email' className='text-lg font-medium'>
+                      <Label htmlFor='email' className='text-base font-semibold text-[#171923]'>
                         Email
                       </Label>
                       <FormField
@@ -234,7 +223,7 @@ export function EnquiryFormContent() {
                                 maxLength={75}
                                 placeholder='Enter your email'
                                 {...field}
-                                className='text-md lg:text-lg px-3 py-2 h-14'
+                                className='h-12 border-control-border bg-porcelain px-3 text-base text-obsidian placeholder:text-taupe focus-visible:ring-focus-light'
                               />
                             </FormControl>
                             <FormMessage />
@@ -245,7 +234,7 @@ export function EnquiryFormContent() {
                   </div>
                   <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                     <div className='space-y-3'>
-                      <Label htmlFor='phone' className='text-lg font-medium'>
+                      <Label htmlFor='phone' className='text-base font-semibold text-[#171923]'>
                         Phone
                       </Label>
                       <FormField
@@ -259,7 +248,7 @@ export function EnquiryFormContent() {
                                 placeholder='Enter your phone number'
                                 maxLength={15}
                                 {...field}
-                                className='text-md lg:text-lg px-3 py-2 h-14'
+                                className='h-12 border-control-border bg-porcelain px-3 text-base text-obsidian placeholder:text-taupe focus-visible:ring-focus-light'
                               />
                             </FormControl>
                             <FormMessage />
@@ -268,7 +257,7 @@ export function EnquiryFormContent() {
                       />
                     </div>
                     <div className='space-y-3'>
-                      <Label htmlFor='category' className='text-lg font-medium'>
+                      <Label htmlFor='category' className='text-base font-semibold text-[#171923]'>
                         Category of Enquiry
                       </Label>
                       <FormField
@@ -282,7 +271,7 @@ export function EnquiryFormContent() {
                                 control={form.control}
                                 render={({ field }) => (
                                   <Select onValueChange={field.onChange} value={field.value || ''} defaultValue=''>
-                                    <SelectTrigger className='h-14' id='category'>
+                                    <SelectTrigger className='h-12 border-control-border bg-porcelain text-base text-obsidian focus:ring-focus-light' id='category'>
                                       <SelectValue placeholder='Select category' className='text-md lg:text-lg' />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -334,7 +323,7 @@ export function EnquiryFormContent() {
                     </div>
                   </div>
                   <div className='space-y-3'>
-                    <Label htmlFor='message' className='text-lg font-medium'>
+                    <Label htmlFor='message' className='text-base font-semibold text-[#171923]'>
                       Message
                     </Label>
                     <FormField
@@ -353,7 +342,7 @@ export function EnquiryFormContent() {
                                 field.onChange(e);
                                 handleMessageChange(e);
                               }}
-                              className='text-md lg:text-lg p-3'
+                              className='min-h-32 border-control-border bg-porcelain p-3 text-base text-obsidian placeholder:text-taupe focus-visible:ring-focus-light'
                             />
                           </FormControl>
                           <FormMessage />
@@ -361,7 +350,7 @@ export function EnquiryFormContent() {
                       )}
                     />
                     {/* Character count */}
-                    <div className='text-sm text-gray-500'>
+                    <div className='text-right text-xs text-[#68645f]'>
                       {messageLength} / {MAX_MESSAGE_LENGTH} characters
                     </div>
                   </div>
@@ -376,8 +365,8 @@ export function EnquiryFormContent() {
                               <Checkbox id='optOutEmails' checked={field.value} onCheckedChange={field.onChange} />
                             </FormControl>
 
-                            <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
-                              Check to opt out of Supernova Dental email updates and promotions.
+                            <Label htmlFor='optOutEmails' className='ml-3 text-sm leading-6 text-[#68645f]'>
+                              I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
                             </Label>
                           </div>
 
@@ -390,7 +379,7 @@ export function EnquiryFormContent() {
                   </div>
                   <Button
                     type='submit'
-                    className={`w-full mx-auto max-w-[15rem] text-lg py-6 ${
+                    className={`mx-auto min-h-12 w-full max-w-[18rem] rounded-full bg-champagne px-6 py-3 text-base font-semibold text-obsidian shadow-sm transition-colors hover:bg-lightGold focus-visible:ring-2 focus-visible:ring-focus-light ${
                       loading ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
                     disabled={loading}
@@ -404,53 +393,46 @@ export function EnquiryFormContent() {
         </div>
       </motion.section>
 
-      {/* Success Modal */}
-      {successModalVisible && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
-          <div className='bg-white p-10 rounded-lg shadow-lg max-w-md w-full relative'>
-            {/* Close button (X) in the top-right corner of the modal */}
-            <button
-              onClick={() => setSuccessModalVisible(false)}
-              className='absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-900'
-            >
-              <FaTimes />
-            </button>
-            <h2 className='text-2xl font-semibold mb-4'>Thank you, {submittedData.fullname}, for your Enquiry!</h2>
-            <p className='mb-4'>
+      <Dialog open={successModalVisible} onOpenChange={setSuccessModalVisible}>
+        <DialogContent className='max-w-md rounded-2xl border-control-border bg-white p-8 text-obsidian shadow-2xl'>
+          <DialogTitle className='pr-8 text-2xl font-semibold leading-tight'>
+            Thank you, {submittedData?.fullname}, for your enquiry!
+          </DialogTitle>
+          <DialogDescription asChild>
+            <div className='text-base text-taupe'>
+              <p className='mb-4'>
               One of the Supernova team will be back in touch via the following details regarding your enquiry:
-            </p>
-            <p className='mb-4'>
-              <strong>Email:</strong> {submittedData.email}
-            </p>
-            <p className='mb-4'>
-              <strong>Phone:</strong> {submittedData.phone}
-            </p>
+              </p>
+              <p className='mb-4'><strong className='text-obsidian'>Email:</strong> {submittedData?.email}</p>
+              <p className='mb-4'><strong className='text-obsidian'>Phone:</strong> {submittedData?.phone}</p>
 
-            {/* New text and button */}
-            <p className='mb-2'>Prefer to book yourself in? Use our patient portal by pressing the button below:</p>
-            <div className='w-full flex justify-center mb-4'>
-              <Link target='_blank' href={`${DentallyPortal}`}>
-                <button className='pointer-events-auto mt-4 rounded bg-gold px-6 py-4 font-medium text-slate-100 transition-all active:scale-95 md:mt-6'>
-                  Book Now!
-                </button>
-              </Link>
+              <p className='mb-2'>Prefer to book yourself in? Use our patient portal below:</p>
+              <div className='mb-2 flex w-full justify-center'>
+                <Link
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href={DentallyPortal}
+                  className='pointer-events-auto mt-4 inline-flex min-h-12 items-center justify-center rounded-full bg-obsidian px-6 py-3 font-medium text-ivory transition-colors hover:bg-deep-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light focus-visible:ring-offset-2'
+                >
+                  Book now
+                </Link>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </DialogDescription>
+        </DialogContent>
+      </Dialog>
 
-      {/* Error Modal */}
-      {errorModalVisible && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
-          <div className='bg-white p-8 rounded-lg shadow-lg max-w-sm w-full'>
-            <h2 className='text-2xl font-semibold mb-4'>Oops! Something went wrong.</h2>
-            <p className='mb-4'>There was an issue with your submission. Please try again later.</p>
-            <Button onClick={() => setErrorModalVisible(false)} className='w-full bg-red-600 text-white text-lg py-3'>
-              Close
-            </Button>
-          </div>
-        </div>
-      )}
+      <Dialog open={errorModalVisible} onOpenChange={setErrorModalVisible}>
+        <DialogContent className='max-w-sm rounded-2xl border-control-border bg-white p-8 text-obsidian shadow-2xl'>
+          <DialogTitle className='pr-8 text-2xl font-semibold leading-tight'>Oops! Something went wrong.</DialogTitle>
+          <DialogDescription className='text-base leading-7 text-taupe'>
+            There was an issue with your submission. Please try again later.
+          </DialogDescription>
+          <Button onClick={() => setErrorModalVisible(false)} className='mt-2 min-h-11 w-full bg-red-700 py-3 text-base text-white hover:bg-red-800'>
+            Close
+          </Button>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

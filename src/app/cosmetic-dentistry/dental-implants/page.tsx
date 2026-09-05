@@ -1,11 +1,15 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import DentalImplantsContent from '@/components/blocks/DentalImplantsContent/DentalImplantsContent';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Dental Implants | All-on-4 & Full Arch | Supernova Dental',
   description:
     'Replace missing teeth with dental implants at Supernova Dental in Bridgwater. We offer All-on-4 and full arch solutions with natural-looking results. Book today!',
+  alternates: {
+    canonical: '/cosmetic-dentistry/dental-implants',
+  },
   keywords:
     'dental implants Bridgwater Somerset, All-on-4 Bridgwater, full arch implants Somerset, implant dentist Bridgwater, tooth replacement Somerset, long-term teeth replacement Bridgwater, dental implants near Taunton, Supernova Dental implants, missing teeth solution Somerset, All-on-4 Taunton, best dental implants Bridgwater',
 };
@@ -13,11 +17,11 @@ export const metadata: Metadata = {
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Dental Implants in Bridgwater, Somerset | All-on-4 & Full Arch Specialists',
+  name: 'Supernova Dental',
   url: 'https://www.supernovadental.co.uk/cosmetic-dentistry/dental-implants',
   image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
   description:
-    'Missing teeth? Supernova Dental in Bridgwater, Somerset provides high-quality dental implants, including All-on-4 and full arch solutions. Book your consultation today for long-term teeth replacements.',
+    'Supernova Dental in Bridgwater, Somerset provides dental implant consultations and treatment for patients with missing teeth.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
@@ -36,16 +40,9 @@ const structuredData = {
   openingHours: ['Mo-Fr 08:15-18:15', 'Sa 09:00-13:00'],
   serviceProvided: {
     '@type': 'MedicalProcedure',
-    name: 'Dental Implant Treatment - Including All-on-4 & Full Arch',
-    description:
-      'High-quality dental implant treatment in Bridgwater, Somerset, including All-on-4 and full arch solutions, consultation, 3D scanning, implant placement, and restoration.',
-    procedureType: 'Surgical',
+    name: 'Dental Implant Treatment',
+    description: 'Dental implant consultations and treatment at Supernova Dental in Bridgwater, Somerset.',
     areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '169',
   },
   potentialAction: {
     '@type': 'ReserveAction',
@@ -66,7 +63,7 @@ const structuredData = {
 export default function DentalImplants() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <DentalImplantsContent />
       <EnquiryButton referringPage={'cosmetic-dentistry/dental-implants'} />
     </div>

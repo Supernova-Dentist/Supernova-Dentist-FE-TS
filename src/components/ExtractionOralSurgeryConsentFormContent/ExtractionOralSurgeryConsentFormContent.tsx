@@ -228,7 +228,7 @@ const PATIENT_FIELDS: Array<keyof FormValues> = [
 // )
 // // Validate stent: exactly one must be selected
 // .refine((data) => data.stentToBeWornYes !== data.stentToBeWornNo, {
-//   message: 'Please select either "Yes" or "No" for whether a stent will be worn—not both.',
+//   message: 'Please select either "Yes" or "No" for whether a stent will be worn-not both.',
 //   path: ['stentToBeWornYes', 'stentToBeWornNo'],
 // })
 // // Validate report: exactly one must be selected
@@ -487,7 +487,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
         }
       });
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/consent`, {
+      const response = await fetch('/api/consent-forms/submit', {
         method: 'POST',
         body: formData,
       });

@@ -5,12 +5,9 @@ import googleReviewMockData from '@/components/GoogleReview/googleReviewMockData
 import Modal from '@/components/Modal/Modal';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { LinkPreview } from '@/components/ui/link-preview';
-import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { IoStar } from 'react-icons/io5';
-import ReviewLink from '../ReviewLink/ReviewLink';
 
 export default function GoogleReviewsCarousel() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,19 +22,14 @@ export default function GoogleReviewsCarousel() {
     toggleModal(review);
   };
 
-  const handleViewOnGoogleClick = (e: { preventDefault: () => void }, url: string) => {
-    e.preventDefault();
-    window.open(url, '_blank');
-  };
-
   return (
-    <div className='max-w-[2000px] w-full overflow-hidden mx-auto md:px-24 px-12'>
+    <div className='mx-auto w-full max-w-[2000px] px-10 sm:px-12 md:px-24'>
       <Carousel
         opts={{ align: 'start', loop: true }}
-        plugins={[Autoplay({ delay: 8000 })]}
-        className='w-full cursor-grab'
+        className='w-full'
+        aria-label='Patient reviews'
       >
-        <CarouselContent className='mx-auto'>
+        <CarouselContent className='mx-auto items-stretch'>
           {googleReviewMockData
             .filter((review) => review !== undefined)
             .map(({ id, name, review, rating, date, url, previewUrl }) => (
@@ -45,11 +37,10 @@ export default function GoogleReviewsCarousel() {
               // Will need to increase the basis when we get more reviews.
               <CarouselItem
                 key={id}
-                className='w-full mt-4 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/4'
-                onClick={() => onClickReview && onClickReview({ name, date, review, rating, url, previewUrl })}
+                className='mt-4 flex w-full sm:basis-1/2 lg:basis-1/3 2xl:basis-1/4'
               >
-                <Card className='shadow-none bg-transparent'>
-                  <CardContent className='p-0 py-4'>
+                <Card className='flex w-full border-0 bg-transparent shadow-none'>
+                  <CardContent className='flex w-full p-0 py-4'>
                     <GoogleReview
                       name={name}
                       review={review}
@@ -92,12 +83,14 @@ export default function GoogleReviewsCarousel() {
             <p>{selectedReview.review}</p>
           </div>
           <div className='flex justify-center mt-2'>
-            <button
-              onClick={(e) => handleViewOnGoogleClick(e, selectedReview.url)}
-              className='text-sm text-gray-500 leading-none cursor-pointer hover:underline hover:text-gray-800'
+            <a
+              href={selectedReview.url}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex min-h-11 items-center rounded-sm px-2 text-sm text-taupe underline underline-offset-4 hover:text-obsidian focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'
             >
               View on Google
-            </button>
+            </a>
           </div>
         </Modal>
       )}

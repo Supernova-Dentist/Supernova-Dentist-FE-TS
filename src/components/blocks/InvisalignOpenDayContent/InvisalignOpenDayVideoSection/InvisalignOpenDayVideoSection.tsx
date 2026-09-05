@@ -1,6 +1,7 @@
 'use client';
 
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
+
 import { motion } from 'framer-motion';
 import React, { useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -55,6 +56,7 @@ export function InvisalignOpenDayVideoSection() {
               src='https://lottie.host/embed/8e74a3ee-9028-4f2b-a61b-8c7c7d6747fd/tdbxNbutCj.json'
               className='w-full h-full'
               title='Replay animation'
+              loading='lazy'
             ></iframe>
           </div>
 
@@ -69,12 +71,11 @@ export function InvisalignOpenDayVideoSection() {
           />
         </div>
         <div className='mt-2 pt-8 pb-12 lg:pb-24 flex justify-center'>
-          <button
-            onClick={scrollToPromotionForm}
+          <ScrollToPromotionFormButton
             className='bg-gold text-cream px-8 py-4 rounded-lg text-lg font-semibold'
           >
             Take the first step!
-          </button>
+          </ScrollToPromotionFormButton>
         </div>
       </motion.div>
     </div>

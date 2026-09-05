@@ -2,7 +2,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'What is teeth whitening?',
     answer:
-      'Teeth whitening is a safe and effective way to lighten the natural colour of your teeth without removing any of the tooth surface. At Supernova Dental, we use White Dental Beauty — a professional whitening system designed to gently and effectively brighten your smile at home under the supervision of your dentist.',
+      'Teeth whitening is a safe and effective way to lighten the natural colour of your teeth without removing any of the tooth surface. At Supernova Dental, we use White Dental Beauty - a professional whitening system designed to gently and effectively brighten your smile at home under the supervision of your dentist.',
   },
   {
     question: 'How does the treatment work?',

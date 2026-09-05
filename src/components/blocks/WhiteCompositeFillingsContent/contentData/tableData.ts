@@ -23,7 +23,7 @@ const tableBodyData = [
   },
   {
     feature: 'Longevity of Tooth Health',
-    data: ['Excellent when maintained', 'Good', 'Poor—risk of infection or tooth loss'],
+    data: ['Excellent when maintained', 'Good', 'Poor-risk of infection or tooth loss'],
   },
 ];
 

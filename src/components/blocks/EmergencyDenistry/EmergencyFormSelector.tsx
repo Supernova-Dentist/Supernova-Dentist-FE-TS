@@ -9,13 +9,13 @@ function EmergencyFormSelector() {
   const [isExistingPatient, setIsExistingPatient] = useState(false);
 
   return (
-    <div id='form' className='py-12 bg-cream'>
-      <p className='text-md md:text-xl lg:text-2xl leading-tight text-center tracking-tight font-bold text-gold mt-4 mb-2'>
+    <section id='form' className='bg-ivory px-4 py-14 md:py-20'>
+      <h2 className='mx-auto mb-2 mt-4 max-w-3xl text-balance text-center text-3xl leading-tight text-obsidian md:text-4xl'>
         Please fill in the Emergency Dentistry Triage Form below:
-      </p>
+      </h2>
       <EmergencyToggleSection isExistingPatient={isExistingPatient} setIsExistingPatient={setIsExistingPatient} />
       {!isExistingPatient ? <NewEmergencyFormContent /> : <ExisitingEmergencyFormContent />}
-    </div>
+    </section>
   );
 }
 

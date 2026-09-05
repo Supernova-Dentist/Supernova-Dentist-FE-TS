@@ -11,7 +11,7 @@ export default {
       id: 1,
       icon: <IoHappy className='h-12 w-12 text-gold' />,
       header: 'Everyday Confidence',
-      text: 'A brighter smile can help you feel more comfortable and self-assured in your daily life — whether at work, socialising, or simply smiling for photos.',
+      text: 'A brighter smile can help you feel more comfortable and self-assured in your daily life - whether at work, socialising, or simply smiling for photos.',
     },
     {
       id: 2,

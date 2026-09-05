@@ -57,6 +57,7 @@ export const practiceInfo = [
   { name: 'Dental Finance', link: '/general-dentistry/dental-finance' },
   { name: 'Find Us', link: '/find-us' },
   { name: 'Pricing', link: '/pricing' },
+  { name: 'Cancellations', link: '/cancellations' },
   { name: 'Enquiry', link: '/enquiry' },
   { name: 'Careers', link: '/careers' },
   { name: 'Professional Referrals', link: '/professional-referrals' },
@@ -120,27 +121,27 @@ export const services = [
   // },
   {
     name: 'Emergency Dentistry',
-    link: '/emergency-dentistry',
+    link: '/general-dentistry/emergency-dentistry',
   },
   {
     name: 'Dental Implants',
-    link: '/dental-implants',
+    link: '/cosmetic-dentistry/dental-implants',
   },
   {
     name: 'Invisalign',
-    link: '/invisalign',
+    link: '/cosmetic-dentistry/invisalign',
   },
   {
     name: 'Dental Therapist',
-    link: '/dental-therapist',
+    link: '/general-dentistry/dental-therapist',
   },
   {
     name: 'Dental Hygiene',
-    link: '/dental-hygiene',
+    link: '/general-dentistry/dental-hygiene',
   },
   {
     name: 'Dental Finance',
-    link: '/dental-finance',
+    link: '/general-dentistry/dental-finance',
   },
 ];
 
@@ -165,6 +166,7 @@ export const aboutUs = [
   { name: 'Pricing', link: '/pricing' },
   { name: 'Enquiry', link: '/enquiry' },
   { name: 'Careers', link: '/careers' },
+  { name: 'Cancellations', link: '/cancellations' },
 ];
 
 export const referrals = [

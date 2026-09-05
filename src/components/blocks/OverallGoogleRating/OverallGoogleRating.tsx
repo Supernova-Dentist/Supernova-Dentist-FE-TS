@@ -19,7 +19,7 @@ export default function OverallGoogleRating() {
           ))}
       </span>
       <span className='text-center text-sm'>
-        Based on <span className='font-semibold text-sm'>over 175 reviews</span>
+        Based on <span className='font-semibold text-sm'>180+ Google reviews</span>
       </span>
       <Image src='/assets/svgs/GoogleLogo.svg' width={110} height={35} alt='Google logo' />
     </motion.div>

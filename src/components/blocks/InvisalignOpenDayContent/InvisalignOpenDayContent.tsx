@@ -5,7 +5,6 @@ import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
 import { VideoAnimationSection } from '@/components/VideoAnimationSection/VideoAnimationSection';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import React, { type ReactNode, useRef } from 'react';
@@ -79,7 +78,7 @@ export const InvisalignOpenDayContent = () => {
             <video
               className='w-full h-full object-fit rounded-lg lg:mt-8'
               controls
-              preload='metadata'
+              preload='none'
               src='/assets/videos/invisalign_treatment_cases.mp4'
               poster='/assets/images/treatment_cases.png'
             />
@@ -102,6 +101,7 @@ export const InvisalignOpenDayContent = () => {
               style={{ border: 'none', overflow: 'hidden' }}
               scrolling='no'
               frameBorder='0'
+              loading='lazy'
               allowFullScreen={true}
               allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
             ></iframe>

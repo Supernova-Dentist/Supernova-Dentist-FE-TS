@@ -41,13 +41,13 @@ export default function Search() {
   }, [searchParams]);
 
   return referringPage.length > 0 ? (
-    <div className='flex items-center mb-8'>
+    <div className='mb-8 flex items-center'>
       <Button
         onClick={(e) => {
           e.preventDefault();
           router.push(`/${referringPage}`);
         }}
-        className='inline-flex items-center gap-2 text-cream text-lg hover:text-white hover:bg-gold transition'
+        className='inline-flex min-h-11 items-center gap-2 rounded-full border border-control-border bg-white px-4 text-sm font-semibold text-obsidian transition-colors hover:border-gold-text-light hover:bg-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-light'
       >
         <ArrowLeftIcon className='h-5 w-5' />
         Back to {referringPageDisplay}

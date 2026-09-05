@@ -1,6 +1,7 @@
 'use client';
+
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
 import { DentallyPortal } from '@/lib/constants';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -69,12 +70,11 @@ const Screen = () => {
       </div>
 
       {/* CTA button */}
-      <button
-        onClick={scrollToPromotionForm}
+      <ScrollToPromotionFormButton
         className='absolute bottom-3 left-5 right-5 rounded-xl bg-gold py-3 text-sm font-semibold text-white shadow-lg hover:bg-lightGold transition'
       >
         Preview My Smile
-      </button>
+      </ScrollToPromotionFormButton>
     </div>
   );
 };

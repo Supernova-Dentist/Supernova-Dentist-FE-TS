@@ -52,16 +52,18 @@ export default function ServiceVideo({ videoSrc }: ServiceVideoProps) {
               src='https://lottie.host/embed/8e74a3ee-9028-4f2b-a61b-8c7c7d6747fd/tdbxNbutCj.json'
               className='w-full h-full'
               title='Replay animation'
+              loading='lazy'
             ></iframe>
           </div>
 
           {/* Video player */}
           <video
             ref={videoRef}
-            src={videoSrc}
+            src={inView ? videoSrc : undefined}
             autoPlay
             muted
             playsInline
+            preload='none'
             onEnded={handleVideoEnd}
             className='w-full max-w-[55rem] h-auto'
           />

@@ -176,7 +176,7 @@ const QUESTIONS = {
     {
       question: 'What is your cancellation policy?',
       answer:
-        'We ask that you provide at least 48 hours notice if you need to cancel or reschedule your appointment. This allows us to offer the time slot to another patient, if we are not able to fill your slot if you cancel within 48 hours of your appointment you will lose your deposit.',
+        'Please give at least two working days’ notice to cancel or rearrange your appointment. For short-notice cancellations and missed appointments, the fee is £200 per hour of booked appointment time or the cost of the appointment, whichever is lower.',
     },
     {
       question: 'How often should I visit the dentist?',

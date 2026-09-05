@@ -1,6 +1,7 @@
 'use client';
 
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
+
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 
@@ -85,12 +86,11 @@ export const EmergencyDentistryTimeline = ({ data }: TimelineProps) => {
 
         {/* CTA Button */}
         <div className='flex justify-center pb-6'>
-          <button
-            onClick={scrollToPromotionForm}
+          <ScrollToPromotionFormButton
             className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
           >
             Get Emergency Care!
-          </button>
+          </ScrollToPromotionFormButton>
         </div>
       </motion.div>
     </div>

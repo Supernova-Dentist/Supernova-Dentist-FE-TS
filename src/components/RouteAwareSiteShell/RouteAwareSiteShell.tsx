@@ -22,16 +22,16 @@ export default function RouteAwareSiteShell({ children }: RouteAwareSiteShellPro
     return () => document.body.classList.remove('consent-forms-route');
   }, [isConsentFormsRoute]);
 
+  if (isConsentFormsRoute) {
+    return <div className='min-h-[100dvh]'>{children}</div>;
+  }
+
   return (
-    <>
-      {!isConsentFormsRoute && <MainNav />}
-      {children}
-      {!isConsentFormsRoute && (
-        <>
-          <FloatingMenu />
-          <Footer />
-        </>
-      )}
-    </>
+    <div className='flex min-h-[100dvh] flex-col'>
+      <MainNav />
+      <div className='flex-1'>{children}</div>
+      <FloatingMenu />
+      <Footer />
+    </div>
   );
 }

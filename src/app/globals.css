@@ -5,11 +5,25 @@
 
 @layer base {
   :root {
-    --gold: #a4693d;
-    --lightGold: #d3a27c;
-    --grey: #121c26;
-    --light-grey: #404244;
-    --cream: #f6efe9;
+    --gold: #c6a15b;
+    --lightGold: #d5b977;
+    --grey: #0b1218;
+    --light-grey: #111b24;
+    --cream: #f7f2e9;
+    --obsidian: #0b1218;
+    --deep-navy: #111b24;
+    --ivory: #f7f2e9;
+    --porcelain: #fcfaf6;
+    --champagne: #c6a15b;
+    --bronze: #a97745;
+    --bronze-ink: #7d522c;
+    --gold-text-light: #7d522c;
+    --gold-text-dark: #d5b977;
+    --focus-light: #7d522c;
+    --focus-dark: #d5b977;
+    --control-border: #8b8275;
+    --taupe: #71665d;
+    --stone: #e8dfd3;
     --font-playfair: 'Playfair Display', serif;
     --font-body: 'IBM Plex Sans', sans-serif;
   }
@@ -60,8 +74,9 @@
   }
 
   body {
-    background: white;
+    background: var(--porcelain);
     font-family: var(--font-body);
+    color: var(--obsidian);
   }
 
   h1,
@@ -85,5 +100,433 @@
 
   table tbody tr:last-child td:last-child {
     border-bottom-right-radius: 0.375rem;
+  }
+}
+
+@layer utilities {
+  .luxury-hero-glow {
+    background:
+      radial-gradient(circle at 82% 26%, rgba(198, 161, 91, 0.13), transparent 24rem),
+      radial-gradient(circle at 8% 88%, rgba(169, 119, 69, 0.08), transparent 28rem);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .team-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .team-card:hover {
+    transform: none;
+  }
+}
+
+/* Consultation journeys: retain their existing form contracts while bringing the presentation into the rebrand. */
+.campaign-experience {
+  background: var(--porcelain);
+  color: var(--obsidian);
+}
+
+.campaign-promotion-form > div > .container {
+  width: 100%;
+  max-width: 75rem;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.campaign-promotion-form .shadow-2xl {
+  border-color: var(--stone);
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(11, 18, 24, 0.12);
+}
+
+.campaign-promotion-form h3 {
+  color: var(--obsidian);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.campaign-promotion-form label {
+  color: var(--obsidian);
+  font-weight: 600;
+}
+
+.campaign-promotion-form input,
+.campaign-promotion-form button[role='combobox'] {
+  min-height: 48px;
+  border-color: var(--control-border);
+  background: var(--porcelain);
+  color: var(--obsidian);
+}
+
+.campaign-promotion-form button[type='submit'] {
+  min-height: 48px;
+  border-radius: 9999px;
+  background: var(--champagne);
+  color: var(--obsidian);
+  font-weight: 600;
+}
+
+.campaign-promotion-form button[type='submit']:hover {
+  background: var(--lightGold);
+}
+
+.campaign-promotion-form button[type='button'][class*='text-blue'] {
+  min-height: 44px;
+  color: var(--bronze-ink);
+}
+
+.campaign-promotion-form :where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--focus-light);
+  outline-offset: 3px;
+}
+
+.campaign-promotion-form img {
+  min-height: 32rem;
+  object-fit: cover;
+}
+
+.campaign-trust-strip > div {
+  width: 100%;
+  padding-top: 0;
+}
+
+.campaign-trust-strip > div > div {
+  border-color: var(--stone);
+}
+
+.campaign-trust-strip h3 {
+  color: var(--obsidian);
+  font-family: var(--font-body);
+}
+
+.campaign-trust-strip svg {
+  color: var(--lightGold);
+}
+
+.campaign-support > section {
+  width: 100%;
+  max-width: 80rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.campaign-support h2,
+.campaign-reviews h2 {
+  color: var(--obsidian);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.campaign-support .text-gold,
+.campaign-reviews .text-gold {
+  color: var(--bronze-ink);
+}
+
+.campaign-support button,
+.campaign-reviews button {
+  min-height: 48px;
+  border-radius: 9999px;
+  background: var(--obsidian);
+  color: var(--ivory);
+}
+
+.campaign-support button:hover,
+.campaign-reviews button:hover {
+  background: var(--deep-navy);
+}
+
+.campaign-support :where(a, button):focus-visible,
+.campaign-reviews :where(a, button):focus-visible {
+  outline: 2px solid var(--focus-light);
+  outline-offset: 3px;
+}
+
+.campaign-reviews > #reviews {
+  width: 100%;
+  max-width: 80rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+@media (max-width: 1023px) {
+  .campaign-promotion-form img {
+    min-height: 20rem;
+  }
+}
+
+/* Service pages share a warm editorial surface without changing their data or form behaviour. */
+.service-experience {
+  min-width: 0;
+  overflow-x: clip;
+  background: var(--porcelain);
+  color: var(--obsidian);
+}
+
+.service-experience section[id] {
+  scroll-margin-top: 7rem;
+}
+
+.service-experience .text-lightGrey,
+.service-experience .text-gray-500,
+.service-experience .text-gray-700,
+.service-experience .text-gray-800 {
+  color: var(--taupe);
+}
+
+.service-experience .bg-cream {
+  background-color: var(--ivory);
+}
+
+.service-experience .service-finance-section {
+  margin-bottom: 0;
+  border-left: 1px solid rgba(198, 161, 91, 0.6);
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  color: var(--taupe);
+}
+
+.service-experience .service-finance-section h2 {
+  color: var(--obsidian);
+  font-weight: 500;
+}
+
+.service-experience table tbody tr {
+  border-bottom: 1px solid var(--stone);
+  background: var(--porcelain);
+}
+
+.service-experience table tbody tr:last-child {
+  border-bottom: 0;
+}
+
+.service-experience :where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--focus-light);
+  outline-offset: 3px;
+}
+
+.service-experience :where(.bg-obsidian, .bg-deep-navy, .bg-grey, .bg-black, .bg-slate-950)
+  :where(a, button, input, textarea, select):focus-visible {
+  outline-color: var(--focus-dark);
+}
+
+.service-experience :where(input:not([type='checkbox']):not([type='radio']), textarea, select) {
+  min-height: 44px;
+}
+
+@media (max-width: 640px) {
+  .service-experience .service-finance-section {
+    padding-left: 1rem;
+  }
+}
+
+/* Find Us map: brand Mapbox's DOM without changing its required attribution. */
+.supernova-map-marker {
+  position: relative;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 2px solid var(--ivory);
+  border-radius: 9999px;
+  background: var(--obsidian);
+  box-shadow: 0 12px 28px rgba(11, 18, 24, 0.38);
+  cursor: pointer;
+}
+
+.supernova-map-marker::after {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid var(--ivory);
+  border-bottom: 2px solid var(--ivory);
+  background: var(--obsidian);
+  content: '';
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.supernova-map-marker > img {
+  position: relative;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.supernova-map-marker:hover {
+  background: var(--deep-navy);
+}
+
+.supernova-map-marker:hover::after {
+  background: var(--deep-navy);
+}
+
+.supernova-map-marker:focus-visible {
+  outline: 3px solid var(--ivory);
+  outline-offset: 3px;
+}
+
+.supernova-map-popup .mapboxgl-popup-content {
+  border: 1px solid rgba(198, 161, 91, 0.45);
+  border-radius: 1rem;
+  background: var(--porcelain);
+  box-shadow: 0 18px 44px rgba(11, 18, 24, 0.28);
+  color: var(--obsidian);
+  padding: 1.25rem;
+}
+
+.supernova-map-popup .mapboxgl-popup-tip {
+  border-top-color: var(--porcelain);
+  border-bottom-color: var(--porcelain);
+}
+
+.supernova-map-popup .mapboxgl-popup-close-button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 9999px;
+  color: var(--obsidian);
+  font-size: 1.25rem;
+}
+
+.supernova-map-popup .mapboxgl-popup-close-button:focus-visible {
+  outline: 2px solid var(--focus-light);
+  outline-offset: -4px;
+}
+
+.supernova-map-popup-body {
+  padding-right: 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.supernova-map-popup-title {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-family: var(--font-playfair);
+  font-size: 1.15rem;
+}
+
+.supernova-map-popup-body address {
+  margin-bottom: 0.65rem;
+  color: var(--taupe);
+  font-style: normal;
+}
+
+.supernova-map-popup-body p + p {
+  margin-top: 0.2rem;
+}
+
+.supernova-map-popup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin-top: 0.9rem;
+}
+
+.supernova-map-popup-actions a {
+  color: var(--bronze-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(198, 161, 91, 0.7);
+  text-underline-offset: 3px;
+}
+
+.supernova-map-popup-actions a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--focus-light);
+  outline-offset: 3px;
+}
+
+.supernova-map-control-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(247, 242, 233, 0.22);
+  border-radius: 9999px;
+  padding: 0.6rem 0.95rem;
+  color: var(--ivory);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.supernova-map-control-button:hover {
+  border-color: var(--champagne);
+  color: var(--champagne);
+}
+
+.supernova-map-control-button-primary {
+  border-color: var(--champagne);
+  background: var(--champagne);
+  color: var(--obsidian);
+}
+
+.supernova-map-control-button-primary:hover {
+  background: var(--lightGold);
+  color: var(--obsidian);
+}
+
+.supernova-map-control-button:focus-visible {
+  outline: 2px solid var(--champagne);
+  outline-offset: 3px;
+}
+
+.mapboxgl-ctrl-group {
+  overflow: hidden;
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  background: rgba(11, 18, 24, 0.94) !important;
+}
+
+.mapboxgl-ctrl-group button .mapboxgl-ctrl-icon {
+  filter: invert(1);
+}
+
+.mapboxgl-ctrl-attrib.mapboxgl-compact {
+  background-color: rgba(247, 242, 233, 0.9);
+  color: var(--obsidian);
+}
+
+@media (max-width: 480px) {
+  .supernova-map-popup .mapboxgl-popup-content {
+    max-width: calc(100vw - 2rem);
+    padding: 1rem;
+  }
+
+  .supernova-map-control-button {
+    flex: 1 1 calc(50% - 0.5rem);
   }
 }

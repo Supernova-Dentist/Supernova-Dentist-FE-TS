@@ -1,11 +1,15 @@
 import HygieneContent from '@/components/blocks/HygieneContent/HygieneContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Dental Hygiene & Teeth Cleaning | Private | Supernova Dental',
   description:
     'Dental hygiene and teeth cleaning in Somerset at Supernova Dental. Keep your smile healthy with expert hygiene care. Serving Bridgwater and nearby areas.',
+  alternates: {
+    canonical: '/general-dentistry/dental-hygiene',
+  },
   keywords:
     'dental hygiene Bridgwater, dental hygiene Somerset, teeth cleaning Bridgwater, teeth cleaning Somerset, professional teeth cleaning Bridgwater, private dental hygiene Bridgwater, gum disease prevention Bridgwater, plaque removal Bridgwater, tartar removal Bridgwater, oral health Somerset, fresh breath treatment Bridgwater, scale and polish Bridgwater, healthy gums Bridgwater, dental hygienist Bridgwater, stain removal teeth Bridgwater, preventative dentistry Bridgwater, Supernova Dental hygiene',
 };
@@ -54,11 +58,11 @@ const structuredData = {
 
 export default function DentalHygiene() {
   return (
-    <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    <main className='flex min-h-[100dvh] flex-col'>
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <HygieneContent />
       {/* Sticky EnquiryButton */}
       <EnquiryButton referringPage={'general-dentistry/dental-hygiene'} />
-    </div>
+    </main>
   );
 }

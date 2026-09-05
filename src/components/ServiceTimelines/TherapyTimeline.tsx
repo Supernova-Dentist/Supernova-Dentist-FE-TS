@@ -1,5 +1,6 @@
 'use client';
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -121,12 +122,11 @@ export const HygieneTimeline = ({ data, setImagesLoaded, imagesLoaded }: Timelin
         </div>
       </motion.div>
       <div className='flex justify-center pb-6'>
-        <button
-          onClick={scrollToPromotionForm}
+        <ScrollToPromotionFormButton
           className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'
         >
           Begin Your Journey!
-        </button>
+        </ScrollToPromotionFormButton>
       </div>
     </div>
   );

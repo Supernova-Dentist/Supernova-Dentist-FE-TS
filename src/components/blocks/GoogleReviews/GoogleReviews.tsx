@@ -1,6 +1,7 @@
 'use client';
 
-import { scrollToPromotionForm } from '@/utils/scrollToPromotionForm';
+import { ScrollToPromotionFormButton } from '@/components/ScrollToPromotionFormButton/ScrollToPromotionFormButton';
+
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -75,12 +76,11 @@ export default function GoogleReviews() {
         transition={{ duration: 0.5 }}
         className='flex justify-center mt-10'
       >
-        <button
-          onClick={scrollToPromotionForm}
+        <ScrollToPromotionFormButton
           className='bg-primary text-white px-6 py-4 rounded-lg bg-gold hover:bg-lightGold'
         >
           Book a Consultation
-        </button>
+        </ScrollToPromotionFormButton>
       </motion.div>
     </div>
   );

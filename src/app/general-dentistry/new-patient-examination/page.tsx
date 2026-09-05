@@ -1,11 +1,15 @@
 import NewPatientContent from '@/components/blocks/NewPatientContent/NewPatientContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'New Patient Dental Examination | Supernova Dental, Bridgwater',
   description:
     'Book your new patient dental examination at Supernova Dental in Bridgwater, Somerset. Our expert team provides thorough check-ups for adults and children to ensure a healthy smile.',
+  alternates: {
+    canonical: '/general-dentistry/new-patient-examination',
+  },
   keywords:
     'new patient dentist Bridgwater, new patient dental exam Somerset, dental check-up Bridgwater, first dental appointment Bridgwater, register as new patient Somerset, family dentist Bridgwater, private dentist Somerset, dental examination Bridgwater, oral health check Bridgwater, Supernova Dental new patient',
 };
@@ -55,7 +59,7 @@ const structuredData = {
 export default function NewPatientExamination() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <NewPatientContent />
       {/* Sticky EnquiryButton */}
       <EnquiryButton referringPage={'general-dentistry/new-patient-examination'} />
