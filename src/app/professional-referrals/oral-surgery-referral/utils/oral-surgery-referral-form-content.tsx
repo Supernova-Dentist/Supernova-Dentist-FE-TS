@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { buildSubmissionTracking } from '@/lib/tracking';
 import { motion } from 'framer-motion';
 import { Suspense, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -160,6 +161,7 @@ export function OralSurgeryReferralFormContent() {
 
       // Add referralType first
       formData.append('referralType', 'Oral Surgery');
+      formData.append('tracking', JSON.stringify(buildSubmissionTracking({ form: 'professional-referral', service: 'Oral Surgery' })));
 
       // Then append the rest of the fields
       for (const key in data) {

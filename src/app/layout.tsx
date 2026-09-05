@@ -2,6 +2,7 @@ import MotionPreferences from '@/components/MotionPreferences/MotionPreferences'
 import RouteAwareSiteShell from '@/components/RouteAwareSiteShell/RouteAwareSiteShell';
 import TrackingProvider from '@/components/TrackingProvider/TrackingProvider';
 import CookieConsentBridge from '@/components/CookieConsentBridge/CookieConsentBridge';
+import { practiceStructuredData, SITE_URL } from '@/lib/site';
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
@@ -21,7 +22,18 @@ const ibmPlex = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.supernovadental.co.uk'),
+  metadataBase: new URL(SITE_URL),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+      'max-snippet': -1,
+    },
+  },
   title: 'Supernova Dental | Private Dentist in Bridgwater, Somerset',
   description:
     'Supernova Dental is a private dental practice in Bridgwater, Somerset. We offer cosmetic and general dentistry, dental implants and same-day emergency appointments for new and existing patients.',
@@ -35,60 +47,17 @@ export const metadata: Metadata = {
     siteName: 'Supernova Dental',
     images: [
       {
-        url: '/assets/images/outerBuildingPreview.jpg',
+        url: '/assets/images/supernova-dental-social.jpg',
         width: 1200,
-        height: 900,
-        alt: 'Supernova Dental - Premium Dental Care',
+        height: 675,
+        alt: 'Supernova Dental practice in Bridgwater',
       },
     ],
   },
-};
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Dentist',
-  name: 'Supernova Dental',
-  url: 'https://www.supernovadental.co.uk',
-  logo: 'https://www.supernovadental.co.uk/assets/images/logo.png',
-  image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
-  description:
-    'Supernova Dental is a private dental practice in Bridgwater, Somerset, offering cosmetic and general dentistry, dental implants, same-day emergency appointments and payment plans.',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
-    addressLocality: 'Bridgwater',
-    postalCode: 'TA6 6LQ',
-    addressCountry: 'GB',
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/assets/images/supernova-dental-social.jpg'],
   },
-  contactPoint: [
-    {
-      '@type': 'ContactPoint',
-      telephone: '+44 1278 228665',
-      contactType: 'Customer Service',
-      email: 'enquiries@supernovadental.co.uk',
-      areaServed: ['Bridgwater, UK', 'Taunton, UK', 'Somerset, UK'],
-      availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
-    },
-  ],
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:15',
-      closes: '18:15',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Saturday',
-      opens: '09:00',
-      closes: '13:00',
-    },
-  ],
-  sameAs: [
-    'https://www.facebook.com/profile.php?id=61567279201971',
-    'https://www.instagram.com/supernova.dental/',
-    'https://g.co/kgs/qqvPcF1',
-  ],
 };
 
 export default function RootLayout({
@@ -114,7 +83,15 @@ export default function RootLayout({
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){
-              if (arguments[0] === 'event' && localStorage.getItem('sn_analytics_consent') !== 'granted') return;
+              if (arguments[0] === 'event') {
+                var eventParams = arguments[2] || {};
+                var isAdvertisingEvent = typeof eventParams.send_to === 'string' && eventParams.send_to.indexOf('AW-') === 0;
+                var requiredConsent = isAdvertisingEvent ? 'sn_marketing_consent' : 'sn_analytics_consent';
+                if (sessionStorage.getItem('sn_consent_ready') !== 'true' || localStorage.getItem(requiredConsent) !== 'granted') {
+                  if (typeof eventParams.event_callback === 'function') eventParams.event_callback();
+                  return;
+                }
+              }
               dataLayer.push(arguments);
             }
             gtag('consent', 'default', {
@@ -180,7 +157,7 @@ export default function RootLayout({
         {/* Structured data */}
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replaceAll('<', '\\u003c') }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(practiceStructuredData).replaceAll('<', '\\u003c') }}
         />
       </head>
       <body className={`${playfair.variable} ${ibmPlex.variable}`}>

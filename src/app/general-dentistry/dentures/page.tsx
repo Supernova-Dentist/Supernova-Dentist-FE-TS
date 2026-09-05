@@ -1,5 +1,6 @@
 import DenturesContent from '@/components/blocks/DenturesContent.tsx/DenturesContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ const structuredData = {
 export default function Dentures() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <DenturesContent />
       {/* Sticky EnquiryButton */}
       <EnquiryButton referringPage={'general-dentistry/dentures'} />

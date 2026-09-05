@@ -1,5 +1,6 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignContent';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -79,7 +80,7 @@ const structuredData = {
 export default function Invisalign() {
   return (
     <main className='flex min-h-[100dvh] flex-col'>
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
         <InvisalignContent />
         {/* Sticky EnquiryButton */}
         <EnquiryButton referringPage={'cosmetic-dentistry/invisalign'} />

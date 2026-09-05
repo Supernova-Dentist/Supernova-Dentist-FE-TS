@@ -1,5 +1,6 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import { SupernovaSmileStoriesContent } from '@/components/blocks/SupernovaSmileStoriesContent/SupernovaSmileStoriesContent';
+import { extendPracticeStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -60,7 +61,7 @@ const structuredData = {
 export default function SupernovaSmileStories() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(extendPracticeStructuredData(structuredData)) }} />
         <SupernovaSmileStoriesContent />
     </div>
   );

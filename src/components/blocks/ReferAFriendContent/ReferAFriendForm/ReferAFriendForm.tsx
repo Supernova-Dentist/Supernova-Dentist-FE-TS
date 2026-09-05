@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import PatientToggleSection from '@/components/ui/toggle';
 import { DentallyPortal } from '@/lib/constants';
-import { pushAnalyticsEvent } from '@/lib/tracking';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -81,7 +81,11 @@ export default function ReferAFriendForm({
       }
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
-      const dataWithSource = { ...data, source: cleanedSource };
+      const dataWithSource = {
+        ...data,
+        source: cleanedSource,
+        tracking: buildSubmissionTracking({ form: 'refer-a-friend', service: 'Refer a friend' }),
+      };
 
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/refer-a-friend`, {
         method: 'POST',
@@ -98,19 +102,6 @@ export default function ReferAFriendForm({
         throw new Error(errorMessage);
       }
 
-      // Dengro request (fire-and-forget)
-      try {
-        await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/dengro`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataWithSource),
-        });
-      } catch (dengroError) {
-        console.warn('Dengro capture failed:', dengroError);
-      }
-
-      console.log('Form submitted successfully');
-
       window.dataLayer = window.dataLayer ?? [];
 
       // Determine event name using template literal
@@ -122,16 +113,14 @@ export default function ReferAFriendForm({
       });
 
       // Trigger Google Ads conversion only for new patients
-      if (!responseData.alreadyExists && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (!responseData.alreadyExists) {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
       // Trigger Facebook Pixel event
-      if (typeof window.fbq === 'function') {
-        window.fbq('trackCustom', updatedEventType);
-      }
+      trackMetaEvent(updatedEventType);
 
       setShowSuccessModal(true);
     } catch (error) {
@@ -364,7 +353,7 @@ export default function ReferAFriendForm({
                           onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                         />
                         <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground'>
-                          I don’t want to receive emails.
+                          I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
                         </Label>
                       </div>
                       {errors.optOutEmails && <p className='text-red-500 text-sm'>{errors.optOutEmails?.message}</p>}

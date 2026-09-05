@@ -1,12 +1,13 @@
 'use client';
 
-import { ANALYTICS_CONSENT_KEY } from '@/lib/tracking';
+import { ANALYTICS_CONSENT_KEY, CONSENT_READY_KEY, MARKETING_CONSENT_KEY, clearTracking } from '@/lib/tracking';
 import { useEffect } from 'react';
 
 type CookiebotWindow = Window & {
   Cookiebot?: { consent?: { statistics?: boolean; marketing?: boolean } };
   gtag?: (...args: unknown[]) => void;
   dataLayer?: unknown[];
+  fbq?: (...args: unknown[]) => void;
 };
 
 const GTM_SCRIPT_ID = 'consented-gtm-script';
@@ -30,17 +31,23 @@ export default function CookieConsentBridge() {
       if (consent === undefined) return;
 
       const analyticsGranted = consent.statistics === true;
-      const attributionGranted = analyticsGranted && consent.marketing === true;
-      localStorage.setItem(ANALYTICS_CONSENT_KEY, attributionGranted ? 'granted' : 'denied');
-      window.dispatchEvent(new Event('sn-consent-change'));
+      const marketingGranted = consent.marketing === true;
+      localStorage.setItem(ANALYTICS_CONSENT_KEY, analyticsGranted ? 'granted' : 'denied');
+      localStorage.setItem(MARKETING_CONSENT_KEY, marketingGranted ? 'granted' : 'denied');
+      sessionStorage.setItem(CONSENT_READY_KEY, 'true');
+      if (!analyticsGranted) clearTracking();
+      window.dispatchEvent(new CustomEvent('sn-consent-change', {
+        detail: { analytics: analyticsGranted, marketing: marketingGranted },
+      }));
 
       (window as CookiebotWindow).gtag?.('consent', 'update', {
         analytics_storage: analyticsGranted ? 'granted' : 'denied',
-        ad_storage: consent.marketing ? 'granted' : 'denied',
-        ad_user_data: consent.marketing ? 'granted' : 'denied',
-        ad_personalization: consent.marketing ? 'granted' : 'denied',
+        ad_storage: marketingGranted ? 'granted' : 'denied',
+        ad_user_data: marketingGranted ? 'granted' : 'denied',
+        ad_personalization: marketingGranted ? 'granted' : 'denied',
       });
-      if (analyticsGranted) loadGoogleTagManager();
+      (window as CookiebotWindow).fbq?.('consent', marketingGranted ? 'grant' : 'revoke');
+      if (analyticsGranted || marketingGranted) loadGoogleTagManager();
     };
 
     window.addEventListener('CookiebotOnConsentReady', syncConsent);

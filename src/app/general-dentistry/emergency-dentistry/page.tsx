@@ -1,5 +1,6 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import EmergencyDentistryContent from '@/components/blocks/EmergencyDenistry/EmergencyDentistryContent';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -75,7 +76,7 @@ export default function EmergencyDentistry() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
+          __html: JSON.stringify(createServiceStructuredData(structuredData)),
         }}
       />
       <EmergencyDentistryContent />

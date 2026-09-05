@@ -24,11 +24,13 @@ export const FileUpload = ({ files, onChange }: { files: File[]; onChange?: (fil
     accept: {
       'image/jpeg': ['.jpeg', '.jpg'],
       'application/pdf': ['.pdf'],
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
     },
     maxFiles: 1,
+    maxSize: 10 * 1024 * 1024,
     onDrop: handleFileChange,
     onDropRejected: (rejected) => {
-      setErrorMessage('Only JPG and PDF files are allowed. Max 1 file.');
+      setErrorMessage('Only JPG, PDF and DOCX files up to 10 MB are allowed. Max 1 file.');
       console.warn('Rejected files:', rejected);
     },
     noClick: true,
@@ -49,7 +51,7 @@ export const FileUpload = ({ files, onChange }: { files: File[]; onChange?: (fil
           }}
           role='button'
           tabIndex={0}
-          aria-label='Upload a JPG or PDF CV'
+          aria-label='Upload a JPG, PDF or DOCX CV'
           whileHover={{ scale: 1.02 }}
           className={`
             p-8 border-2 border-dashed rounded-lg cursor-pointer text-center transition
@@ -71,7 +73,7 @@ export const FileUpload = ({ files, onChange }: { files: File[]; onChange?: (fil
             Drag & drop files here or <span className='underline'>click to upload</span>
           </p>
           <p className='text-xs text-gray-400 dark:text-gray-500 mt-1'>
-            Accepted: .jpg, .jpeg, .pdf &middot; Max 1 file
+            Accepted: .jpg, .jpeg, .pdf, .docx &middot; 10 MB &middot; Max 1 file
           </p>
         </motion.div>
       </div>

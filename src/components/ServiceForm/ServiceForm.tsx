@@ -2,12 +2,12 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -88,19 +88,10 @@ export default function ServiceForm({
     try {
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
-      const tracking = getTracking();
-
       const dataWithTracking = {
         ...data,
         source: cleanedSource,
-        tracking: {
-          ...tracking,
-          conversionPage: {
-            pageUrl: window.location.href,
-            pagePath: window.location.pathname,
-            visitDate: new Date().toISOString(),
-          },
-        },
+        tracking: buildSubmissionTracking({ form: 'service-enquiry', service: serviceName }),
       };
 
       // Backend request
@@ -132,16 +123,14 @@ export default function ServiceForm({
       });
 
       // Trigger Google Ads conversion only for new patients
-      if (!responseData.alreadyExists && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (!responseData.alreadyExists) {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
       // Trigger Facebook Pixel event
-      if (typeof window.fbq === 'function') {
-        window.fbq('trackCustom', updatedEventType);
-      }
+      trackMetaEvent(updatedEventType);
 
       setShowSuccessModal(true);
 
@@ -309,7 +298,7 @@ export default function ServiceForm({
                     <video
                       className='absolute left-0 top-0 h-full w-full rounded-[1.25rem] border border-white/10 object-cover'
                       controls
-                      preload='metadata'
+                      preload='none'
                       poster={videoThumbnailSrc}
                     >
                       <source src={videoSrc} type='video/mp4' />
@@ -322,7 +311,7 @@ export default function ServiceForm({
             <Card className='service-form-card m-auto flex max-h-[52rem] w-full max-w-lg items-center justify-center rounded-[1.5rem] border border-champagne/25 bg-porcelain p-2 text-obsidian shadow-[0_24px_70px_rgba(0,0,0,0.28)] md:p-4'>
               <form id={formId} onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-2'>
-                  <CardTitle className='text-2xl md:text-3xl'>{formTitle}</CardTitle>
+                  <h2 className='text-2xl font-semibold leading-none tracking-tight md:text-3xl'>{formTitle}</h2>
                   <CardDescription className='text-md text-taupe md:text-lg'>{formDescription}</CardDescription>
                 </CardHeader>
                 <CardContent className='p-2 md:p-4 md:pt-0'>
@@ -385,7 +374,7 @@ export default function ServiceForm({
                         onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                       />
                       <Label htmlFor='optOutEmails' className='ml-3 text-sm text-taupe'>
-                        Check to opt out of Supernova Dental email updates and promotions.
+                        I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
                       </Label>
                     </div>
                     {errors.optOutEmails && (
@@ -436,7 +425,7 @@ export default function ServiceForm({
                   <video
                     className='absolute left-0 top-0 h-full w-full rounded-[1.25rem] border border-white/10 object-cover'
                     controls
-                    preload='metadata'
+                    preload='none'
                     poster={videoThumbnailSrc}
                   >
                     <source src={videoSrc} type='video/mp4' />

@@ -151,7 +151,7 @@ function ProfileVideo({ member }: { member: TeamMember }) {
           <video
             className='aspect-[9/16] w-full object-cover'
             controls
-            preload='metadata'
+            preload='none'
             playsInline
             poster={member.video.poster}
           >

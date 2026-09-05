@@ -1,6 +1,7 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import MapFallbackCard from '@/components/blocks/MapboxMap/MapFallbackCard';
 import { practiceLocation } from '@/lib/practiceLocation';
+import { extendPracticeStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -156,7 +157,7 @@ export default function FindUs() {
       </section>
 
       <FindUsInfoSection />
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(extendPracticeStructuredData(structuredData)) }} />
     </main>
   );
 }

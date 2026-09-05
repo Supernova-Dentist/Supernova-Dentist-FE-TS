@@ -1,4 +1,5 @@
 import AboutSection from '@/components/AboutSection/AboutSection';
+import { extendPracticeStructuredData } from '@/lib/site';
 import ConsultAboutSection from '@/components/AboutSection/ConsultAboutSection';
 import GeneralAboutSection from '@/components/AboutSection/GeneralAboutSection';
 import SainsburysAboutSection from '@/components/AboutSection/SainsburysAboutSection';
@@ -53,9 +54,9 @@ export const metadata = {
     siteName: 'Supernova Dental',
     images: [
       {
-        url: '/assets/images/outerBuildingPreview.jpg',
+        url: '/assets/images/supernova-dental-social.jpg',
         width: 1200,
-        height: 900,
+        height: 675,
         alt: "Supernova Dental near Sainsbury's Bridgwater",
       },
     ],
@@ -265,7 +266,7 @@ export default function Home() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({ ...structuredData, review: undefined }),
+          __html: JSON.stringify(extendPracticeStructuredData({ ...structuredData, review: undefined })),
         }}
       />
       <div className='hidden lg:block'>

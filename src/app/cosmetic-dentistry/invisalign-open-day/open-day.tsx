@@ -1,6 +1,7 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import InvisalignContent from '@/components/blocks/InvisalignContent/InvisalignContent';
 import { InvisalignOpenDayContent } from '@/components/blocks/InvisalignOpenDayContent/InvisalignOpenDayContent';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 import Head from 'next/head';
 
@@ -80,7 +81,7 @@ export default function InvisalignFlashSale() {
       </Head>
 
       <div className='flex flex-col min-h-[100dvh]'>
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
         <InvisalignOpenDayContent />
         {/* Sticky EnquiryButton */}
       </div>

@@ -1,5 +1,6 @@
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
 import CompositeBondingContent from '@/components/blocks/CompositeBondingContent/CompositeBondingContent';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -79,7 +80,7 @@ const structuredData = {
 export default function CompositeBonding() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
         <CompositeBondingContent />
         {/* Sticky EnquiryButton */}
         <EnquiryButton referringPage={'cosmetic-dentistry/composite-bonding'} />

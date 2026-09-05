@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { buildSubmissionTracking } from '@/lib/tracking';
 import { half } from '@tsparticles/engine';
 import { motion } from 'framer-motion';
 import { Suspense, useState } from 'react';
@@ -217,6 +218,7 @@ export function CBCTOPGReferralFormContent() {
 
       // Add referralType first
       formData.append('referralType', 'CBCT-OPG');
+      formData.append('tracking', JSON.stringify(buildSubmissionTracking({ form: 'professional-referral', service: 'CBCT and OPG' })));
 
       // Then append the rest of the fields
       for (const key in data) {

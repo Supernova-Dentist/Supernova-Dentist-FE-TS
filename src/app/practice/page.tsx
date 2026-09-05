@@ -1,6 +1,7 @@
 import DentallyTutorial from '@/components/DentallyTutorial/DentallyTutorial';
 import PracticeExperience from '@/components/PracticeExperience/PracticeExperience';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
+import { PRACTICE_ID, SITE_URL } from '@/lib/site';
 import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -17,41 +18,7 @@ export const metadata: Metadata = {
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
-  name: 'Supernova Dental',
-  url: 'https://www.supernovadental.co.uk/practice',
-  image: 'https://www.supernovadental.co.uk/assets/images/outerBuilding.jpg',
-  description:
-    'Supernova Dental is a modern private dental practice in Bridgwater, Somerset, offering advanced dental facilities, technology and a welcoming environment for patients. Complimentary practice tours are available for patients who would like to visit the practice before their appointment.',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Supernova Building, Marsh Lane, Huntworth Gate',
-    addressLocality: 'Bridgwater',
-    addressRegion: 'Somerset',
-    postalCode: 'TA6 6LQ',
-    addressCountry: 'GB',
-  },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+44 1278 228665',
-    contactType: 'Customer Service',
-    email: 'enquiries@supernovadental.co.uk',
-    areaServed: ['Bridgwater, UK', 'Somerset, UK'],
-    availableLanguage: ['English', 'Polish', 'Spanish', 'French', 'Romanian', 'Arabic'],
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:15',
-      closes: '18:15',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Saturday',
-      opens: '09:00',
-      closes: '13:00',
-    },
-  ],
+  '@id': PRACTICE_ID,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Dental Services at Supernova Dental',
@@ -79,16 +46,11 @@ const structuredData = {
     '@type': 'ReserveAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://www.supernovadental.co.uk/enquiry',
+      urlTemplate: `${SITE_URL}/enquiry`,
     },
     actionStatus: 'PotentialActionStatus',
     name: 'Book a Complimentary Practice Tour',
   },
-  sameAs: [
-    'https://www.facebook.com/profile.php?id=61567279201971',
-    'https://www.instagram.com/supernova.dental/',
-    'https://g.co/kgs/qqvPcF1',
-  ],
 };
 
 export default function OurPractice() {

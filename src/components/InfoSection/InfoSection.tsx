@@ -82,7 +82,7 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
                     <video
                       className='mt-8 h-full w-full rounded-[1.25rem] border border-stone object-cover'
                       controls
-                      preload='metadata'
+                      preload='none'
                       src={treatmentCasesVideoSrc}
                     />
                   </div>

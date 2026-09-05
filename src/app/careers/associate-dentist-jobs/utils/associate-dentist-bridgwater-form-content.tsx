@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { buildSubmissionTracking } from '@/lib/tracking';
 import { half } from '@tsparticles/engine';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
@@ -74,6 +75,7 @@ export function AssociateDentistBridgwaterFormContent() {
       const formData = new FormData();
       // Add referralType first
       formData.append('enquiryType', 'Dentist Application');
+      formData.append('tracking', JSON.stringify(buildSubmissionTracking({ form: 'careers', service: 'Associate dentist' })));
       formData.append('source', cleanedSource);
       // Then append the rest of the fields
       for (const key in data) {

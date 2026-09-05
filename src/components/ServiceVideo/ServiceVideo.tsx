@@ -59,10 +59,11 @@ export default function ServiceVideo({ videoSrc }: ServiceVideoProps) {
           {/* Video player */}
           <video
             ref={videoRef}
-            src={videoSrc}
+            src={inView ? videoSrc : undefined}
             autoPlay
             muted
             playsInline
+            preload='none'
             onEnded={handleVideoEnd}
             className='w-full max-w-[55rem] h-auto'
           />

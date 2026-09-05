@@ -78,7 +78,7 @@ export const InvisalignOpenDayContent = () => {
             <video
               className='w-full h-full object-fit rounded-lg lg:mt-8'
               controls
-              preload='metadata'
+              preload='none'
               src='/assets/videos/invisalign_treatment_cases.mp4'
               poster='/assets/images/treatment_cases.png'
             />

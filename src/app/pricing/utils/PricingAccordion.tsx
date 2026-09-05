@@ -106,7 +106,7 @@ export const PricingAccordion: React.FC<PricingAccordionProps> = ({ pricingItems
               key={pricingItem.title}
               className='overflow-hidden rounded-[1.25rem] border border-control-border bg-white shadow-[0_12px_35px_rgba(11,18,24,0.05)]'
             >
-            <AccordionTrigger className='min-h-16 bg-white px-5 py-5 text-lg font-semibold text-obsidian no-underline hover:bg-ivory hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus-light sm:px-7 sm:text-xl'>
+            <AccordionTrigger headingLevel={2} className='min-h-16 bg-white px-5 py-5 text-lg font-semibold text-obsidian no-underline hover:bg-ivory hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus-light sm:px-7 sm:text-xl'>
               <span className='pr-4'>{pricingItem.title}</span>
             </AccordionTrigger>
             <AccordionContent className='border-0 border-t border-stone bg-white px-5 py-3 text-obsidian sm:px-7'>

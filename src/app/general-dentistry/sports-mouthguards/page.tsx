@@ -1,5 +1,6 @@
 import SportsMouthguardsContent from '@/components/blocks/SportsMouthguardsContent/SportsMouthguardsContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ const structuredData = {
 export default function SportsMouthguards() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <SportsMouthguardsContent />
       <EnquiryButton referringPage={'general-dentistry/sports-mouthguards'} />
     </div>

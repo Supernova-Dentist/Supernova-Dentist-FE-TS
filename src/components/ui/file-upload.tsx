@@ -26,12 +26,14 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
   const { getRootProps, isDragActive, getInputProps } = useDropzone({
     accept: {
       'image/jpeg': ['.jpeg', '.jpg'],
+      'image/png': ['.png'],
       'application/pdf': ['.pdf'],
     },
     maxFiles: 3,
+    maxSize: 10 * 1024 * 1024,
     onDrop: handleFileChange,
     onDropRejected: (rejected) => {
-      setErrorMessage('Only JPG and PDF files are allowed. Max 3 files.');
+      setErrorMessage('Only JPG, PNG and PDF files up to 10 MB are allowed. Max 3 files.');
       console.warn('Rejected files:', rejected);
     },
     noClick: true,
@@ -52,7 +54,7 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
           }}
           role='button'
           tabIndex={0}
-          aria-label='Upload JPG or PDF files'
+          aria-label='Upload JPG, PNG or PDF files'
           whileHover={{ scale: 1.02 }}
           className={`
             p-8 border-2 border-dashed rounded-lg cursor-pointer text-center transition
@@ -74,7 +76,7 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
             Drag & drop files here or <span className='underline'>click to upload</span>
           </p>
           <p className='text-xs text-gray-400 dark:text-gray-500 mt-1'>
-            Accepted: .jpg, .jpeg, .pdf &middot; Max 3 files
+            Accepted: .jpg, .jpeg, .png, .pdf &middot; 10 MB each &middot; Max 3 files
           </p>
         </motion.div>
       </div>

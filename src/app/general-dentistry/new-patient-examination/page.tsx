@@ -1,5 +1,6 @@
 import NewPatientContent from '@/components/blocks/NewPatientContent/NewPatientContent';
 import EnquiryButton from '@/components/EnquiryButton/EnquiryButton';
+import { createServiceStructuredData } from '@/lib/site';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -58,7 +59,7 @@ const structuredData = {
 export default function NewPatientExamination() {
   return (
     <div className='flex flex-col min-h-[100dvh]'>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(createServiceStructuredData(structuredData)) }} />
       <NewPatientContent />
       {/* Sticky EnquiryButton */}
       <EnquiryButton referringPage={'general-dentistry/new-patient-examination'} />

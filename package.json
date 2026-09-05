@@ -1,6 +1,6 @@
 {
   "name": "supernova-dental",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -43,8 +43,7 @@
     "mapbox-gl": "^3.29.0",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.23.3",
-    "next": "14.1.0",
-    "next-sitemap": "^4.2.3",
+    "next": "^14.2.35",
     "qss": "^3.0.0",
     "react": "^18",
     "react-countup": "^6.5.3",
@@ -60,7 +59,7 @@
     "react-tiny-fab": "^4.0.4",
     "react-use-measure": "^2.1.1",
     "sass": "^1.77.8",
-    "sharp": "^0.34.2",
+    "sharp": "^0.35.4",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.168.0",

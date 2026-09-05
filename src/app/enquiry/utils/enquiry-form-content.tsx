@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -80,19 +80,10 @@ export function EnquiryFormContent() {
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
       // const dataWithSource = { ...data, source: cleanedSource };
 
-      const tracking = getTracking();
-
       const dataWithTracking = {
         ...data,
         source: cleanedSource,
-        tracking: {
-          ...tracking,
-          conversionPage: {
-            pageUrl: window.location.href,
-            pagePath: window.location.pathname,
-            visitDate: new Date().toISOString(),
-          },
-        },
+        tracking: buildSubmissionTracking({ form: 'contact-enquiry', service: cleanedSource }),
       };
 
       // const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}promotion`, {
@@ -133,16 +124,14 @@ export function EnquiryFormContent() {
       pushAnalyticsEvent({ event: 'NewEnquiryForm' });
 
       // Trigger Google Ads conversion tracking
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (typeof window !== 'undefined') {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
       // Trigger Facebook Pixel Lead event with lead_type param
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', 'NewEnquiryForm');
-      }
+      trackMetaEvent('NewEnquiryForm');
 
       form.reset({
         fullname: '',
@@ -377,7 +366,7 @@ export function EnquiryFormContent() {
                             </FormControl>
 
                             <Label htmlFor='optOutEmails' className='ml-3 text-sm leading-6 text-[#68645f]'>
-                              Check to opt out of Supernova Dental email updates and promotions.
+                              I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
                             </Label>
                           </div>
 

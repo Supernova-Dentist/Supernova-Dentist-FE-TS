@@ -5,6 +5,7 @@ import ConsultationTrustStrip from '@/components/ConsultationTrustStrip/Consulta
 import { consultationTrustContent } from '@/components/ConsultationTrustStrip/consultationTrustContent';
 import GeneralPromotionForm from '@/components/PromotionForm/GeneralPromotionForm';
 import { GeneralSparklesPreview } from '@/components/SparklesPreview/GeneralSparklesPreview';
+import { extendPracticeStructuredData } from '@/lib/site';
 
 export const metadata = {
   title: 'Private Dentist in Bridgwater, Somerset | Supernova Dental',
@@ -22,9 +23,9 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/assets/images/outerBuildingPreview.jpg',
+        url: '/assets/images/supernova-dental-social.jpg',
         width: 1200,
-        height: 900,
+        height: 675,
         alt: 'Supernova Dental - Premium Dental Care',
       },
     ],
@@ -168,7 +169,7 @@ export default function Home() {
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({ ...structuredData, review: undefined }),
+          __html: JSON.stringify(extendPracticeStructuredData({ ...structuredData, review: undefined })),
         }}
       />
       <GeneralSparklesPreview />

@@ -14,7 +14,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { half } from '@tsparticles/engine';
 import { motion } from 'framer-motion';
@@ -178,16 +178,10 @@ export function ExisitingEmergencyFormContent() {
       const decodedSource = decodeURIComponent(pathname);
       const cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
 
-      const tracking = getTracking();
-
-      const trackingWithConversion = {
-        ...tracking,
-        conversionPage: {
-          pageUrl: window.location.href,
-          pagePath: window.location.pathname,
-          visitDate: new Date().toISOString(),
-        },
-      };
+      const trackingWithConversion = buildSubmissionTracking({
+        form: 'existing-patient-emergency',
+        service: 'Emergency dentistry',
+      });
 
       const formData = new FormData();
 
@@ -232,16 +226,14 @@ export function ExisitingEmergencyFormContent() {
       });
 
       // Google Ads conversion
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (typeof window !== 'undefined') {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
 
       // Facebook Pixel
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', 'EmergencyPatientLead');
-      }
+      trackMetaEvent('EmergencyPatientLead');
 
       setShowRedirectBar(true);
 

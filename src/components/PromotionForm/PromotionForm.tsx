@@ -6,7 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
+import { buildSubmissionTracking, pushAnalyticsEvent, trackGoogleAdsConversion, trackMetaEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -60,19 +60,10 @@ export default function PromotionForm() {
       let cleanedSource = decodedSource.startsWith('/') ? decodedSource.slice(1) : decodedSource;
       if (cleanedSource === '') cleanedSource = 'Homepage';
 
-      const tracking = getTracking();
-
       const dataWithTracking = {
         ...data,
         source: cleanedSource,
-        tracking: {
-          ...tracking,
-          conversionPage: {
-            pageUrl: window.location.href,
-            pagePath: window.location.pathname,
-            visitDate: new Date().toISOString(),
-          },
-        },
+        tracking: buildSubmissionTracking({ form: 'promotion', service: cleanedSource }),
       };
 
       const res = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/promotion`, {
@@ -108,13 +99,11 @@ export default function PromotionForm() {
       pushAnalyticsEvent({ event: eventName });
 
       // Push event to Facebook Pixel
-      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-        window.fbq('trackCustom', eventName);
-      }
+      trackMetaEvent(eventName);
 
       // Google Ads conversion only for new patients
-      if (!responseData.alreadyExists && typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
+      if (!responseData.alreadyExists) {
+        trackGoogleAdsConversion({
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
@@ -333,8 +322,7 @@ export default function PromotionForm() {
                         onCheckedChange={(checked: boolean) => setValue('optOutEmails', checked)}
                       />
                       <Label htmlFor='optOutEmails' className='ml-3 text-sm text-muted-foreground text-gray-500'>
-                        I don’t want to receive emails about Supernova Dental and related Supernova Dental updates and
-                        promotions. By not checking the box, I agree to be opted in by default.
+                        I do not want to receive occasional emails about relevant dental treatments, services and offers from Supernova Dental.
                       </Label>
                     </div>
                     {errors.optOutEmails && (
