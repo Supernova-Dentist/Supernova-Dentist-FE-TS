@@ -29,6 +29,17 @@ export interface AttributionData {
 }
 
 const STORAGE_KEY = 'sn_tracking';
+export const ANALYTICS_CONSENT_KEY = 'sn_analytics_consent';
+
+export function hasAnalyticsConsent() {
+  return typeof window !== 'undefined' && localStorage.getItem(ANALYTICS_CONSENT_KEY) === 'granted';
+}
+
+export function pushAnalyticsEvent(event: Record<string, unknown>) {
+  if (!hasAnalyticsConsent()) return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(event);
+}
 
 function buildTrackingData(): TrackingData {
   const params = new URLSearchParams(window.location.search);
@@ -59,7 +70,7 @@ function buildTrackingData(): TrackingData {
 }
 
 export function saveTracking() {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined' || !hasAnalyticsConsent()) return;
 
   const current = buildTrackingData();
 

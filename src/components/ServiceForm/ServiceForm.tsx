@@ -7,7 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking } from '@/lib/tracking';
+import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -127,13 +127,13 @@ export default function ServiceForm({
       const updatedEventType = `${responseData.alreadyExists === true ? 'Existing' : 'New'}${eventType}`;
 
       // Push event to dataLayer including source
-      window.dataLayer.push({
+      pushAnalyticsEvent({
         event: updatedEventType,
       });
 
       // Trigger Google Ads conversion only for new patients
       if (!responseData.alreadyExists && typeof window.gtag === 'function') {
-        window.gtag(updatedEventType, 'conversion', {
+        window.gtag('event', 'conversion', {
           send_to: 'AW-16737398524/x3ILCLDm7eYZEPzdga0-',
         });
       }
@@ -407,6 +407,8 @@ export default function ServiceForm({
                 <CardFooter>
                   <Button
                     type='submit'
+                    disabled={isSubmitting}
+                    aria-busy={isSubmitting}
                     className='min-h-11 w-full bg-champagne py-3 text-lg text-obsidian hover:bg-lightGold focus-visible:ring-champagne'
                   >
                     {isSubmitting ? <BarLoader /> : 'Register'}

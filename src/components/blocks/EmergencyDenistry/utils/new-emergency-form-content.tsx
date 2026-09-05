@@ -14,7 +14,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking } from '@/lib/tracking';
+import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { half } from '@tsparticles/engine';
 import { motion } from 'framer-motion';
@@ -236,7 +236,7 @@ export function NewEmergencyFormContent() {
       setSuccessModalVisible(true);
 
       window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({
+      pushAnalyticsEvent({
         event: 'EmergencyPatientLead',
       });
 

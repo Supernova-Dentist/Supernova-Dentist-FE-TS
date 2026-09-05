@@ -84,6 +84,16 @@ const nextConfig = {
         destination: '/careers/associate-dentist-bridgwater-somerset',
         permanent: true,
       },
+      {
+        source: '/our-journey',
+        destination: '/practice',
+        permanent: true,
+      },
+      {
+        source: '/team/dr-jacqueline-amarin',
+        destination: '/team',
+        permanent: true,
+      },
     ];
   },
 };

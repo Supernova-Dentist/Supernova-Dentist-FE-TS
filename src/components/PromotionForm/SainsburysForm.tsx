@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking } from '@/lib/tracking';
+import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -101,7 +101,7 @@ export default function ImplantPromotionForm() {
       const eventName = responseData.alreadyExists ? 'ExistingImplantLead' : 'NewImplantLead';
 
       // Push event to dataLayer
-      window.dataLayer.push({ event: eventName });
+      pushAnalyticsEvent({ event: eventName });
 
       // Push event to Facebook Pixel
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
@@ -279,7 +279,12 @@ export default function ImplantPromotionForm() {
                   </div>
 
                   {/* CTA */}
-                  <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
+                  <Button
+                    type='submit'
+                    disabled={form.formState.isSubmitting}
+                    aria-busy={form.formState.isSubmitting}
+                    className='w-full bg-gold hover:bg-lightGold text-lg py-3'
+                  >
                     {form.formState.isSubmitting ? <BarLoader /> : 'Book Your Consultation'}
                   </Button>
 

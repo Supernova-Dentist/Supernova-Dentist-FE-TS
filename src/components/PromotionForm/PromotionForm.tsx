@@ -6,7 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking } from '@/lib/tracking';
+import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -105,7 +105,7 @@ export default function PromotionForm() {
       const eventName = responseData.alreadyExists ? 'ExistingPatientLead' : 'NewPatientLead';
 
       // Push event to dataLayer
-      window.dataLayer.push({ event: eventName });
+      pushAnalyticsEvent({ event: eventName });
 
       // Push event to Facebook Pixel
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {

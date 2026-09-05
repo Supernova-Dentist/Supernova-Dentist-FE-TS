@@ -16,6 +16,7 @@ export default function InvisalignReferral() {
   return (
     <div className='min-h-screen flex  justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
+        <h1 className='sr-only'>Invisalign Referral</h1>
         <HighlightCard
           title='Invisalign Referral'
           description='Use the form below to refer your patient for Invisalign treatment with our experienced dental team at Supernova Dental.'

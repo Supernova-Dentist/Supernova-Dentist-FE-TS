@@ -42,7 +42,7 @@ export default function MembershipPlansContent() {
           <video
             className='absolute top-0 left-0 w-full h-full rounded-lg'
             controls
-            preload='metadata'
+            preload='none'
             poster={videoThumbnailSrc}
           >
             <source src={videoSrc} type='video/mp4' />

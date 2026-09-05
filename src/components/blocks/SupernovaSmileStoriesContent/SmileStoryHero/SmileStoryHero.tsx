@@ -52,9 +52,9 @@ export function SmileStoryHero() {
             transition={{ duration: 0.6 }}
             className='z-40 flex flex-col justify-center items-center'
           >
-            <motion.h1 className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 mb-4'>
+            <motion.p className='font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 mb-4'>
               Supernova Smile Stories <br /> <br /> <FlipWords words={words} /> 
-            </motion.h1>
+            </motion.p>
             <ScrollToPromotionFormMotionButton
               style={{ border, boxShadow }}
               whileHover={{ scale: 1.015 }}

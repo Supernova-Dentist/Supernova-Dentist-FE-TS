@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import ConsultationPromotionForm from './ConsultationPromotionForm';
 import GeneralPromotionForm from './GeneralPromotionForm';
 import ImplantPromotionForm from './ImplantPromotionForm';
+import { ANALYTICS_CONSENT_KEY } from '@/lib/tracking';
 
 vi.mock('next/navigation', () => ({
   usePathname: () => '/test-consultation-route',
@@ -14,6 +15,7 @@ vi.mock('react-intersection-observer', () => ({
 
 beforeEach(() => {
   process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL = 'https://example.test';
+  localStorage.clear();
   window.dataLayer = [];
   window.gtag = vi.fn();
   window.fbq = Object.assign(vi.fn(), {
@@ -57,6 +59,7 @@ describe('consultation enquiry forms', () => {
   });
 
   it.each(formCases)('handles a synthetic successful %s submission without a production conversion', async (_variant, FormComponent, buttonName, eventName) => {
+    localStorage.setItem(ANALYTICS_CONSENT_KEY, 'granted');
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
       json: async () => ({ alreadyExists: false }),

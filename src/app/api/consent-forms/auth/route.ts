@@ -18,7 +18,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Invalid request.' }, { status: 400 });
   }
 
-  if (!isConsentFormsPasscodeValid(passcode)) {
+  let isValid = false;
+  try {
+    isValid = isConsentFormsPasscodeValid(passcode);
+  } catch {
+    return NextResponse.json({ message: 'Consent forms are not configured.' }, { status: 503 });
+  }
+
+  if (!isValid) {
     await new Promise((resolve) => setTimeout(resolve, 350));
     return NextResponse.json({ message: 'Incorrect passcode.' }, { status: 401 });
   }

@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
+import { pushAnalyticsEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -104,7 +105,7 @@ export default function InvisalignOpenDayForm({
       const updatedEventType = `${responseData.alreadyExists === true ? 'Existing' : 'New'}${'InvisalignOpenDayLead'}`;
 
       // Push event to dataLayer including source
-      window.dataLayer.push({
+      pushAnalyticsEvent({
         event: updatedEventType,
       });
 

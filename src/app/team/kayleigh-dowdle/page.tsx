@@ -13,7 +13,8 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Kayleigh Dowdle',
-  image: 'https://www.supernovadental.co.uk/assets/images/Headshots/kayleigh.jpg',
+  image:
+    'https://www.supernovadental.co.uk/assets/images/Headshots/kayleigh-dowdle-dental-therapist-supernova-dental-bridgwater.webp',
   url: 'https://www.supernovadental.co.uk/team/kayleigh-dowdle',
   jobTitle: 'Dental Therapist',
   worksFor: {

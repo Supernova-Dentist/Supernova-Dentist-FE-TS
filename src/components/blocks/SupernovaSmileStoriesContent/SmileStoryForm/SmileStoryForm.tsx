@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
+import { pushAnalyticsEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -101,7 +102,7 @@ export default function SmileStoryForm({
       // Update event name to SmileStoryLead
       const updatedEventType = `${responseData.alreadyExists === true ? 'Existing' : 'New'}SmileStoryLead`;
 
-      window.dataLayer.push({
+      pushAnalyticsEvent({
         event: updatedEventType,
       });
 
@@ -252,7 +253,12 @@ export default function SmileStoryForm({
                   </Button>
                 </CardContent>
                 <CardFooter>
-                  <Button type='submit' className='w-full bg-gold hover:bg-lightGold text-lg py-3'>
+                  <Button
+                    type='submit'
+                    disabled={isSubmitting}
+                    aria-busy={isSubmitting}
+                    className='w-full bg-gold hover:bg-lightGold text-lg py-3'
+                  >
                     {isSubmitting ? <BarLoader /> : 'Start Your Story'}
                   </Button>
                 </CardFooter>

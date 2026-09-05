@@ -16,6 +16,7 @@ export default function OralSurgeryReferral() {
   return (
     <div className='min-h-screen flex  justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
+        <h1 className='sr-only'>Oral Surgery Referral</h1>
         <HighlightCard
           title='Oral Surgery Referral'
           description='Complete the referral form below to refer your patient for oral surgery at Supernova Dental.'

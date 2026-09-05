@@ -16,6 +16,7 @@ export default function ImplantReferral() {
   return (
     <div className='min-h-screen flex  justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
+        <h1 className='sr-only'>Dental Implant Referral</h1>
         <HighlightCard
           title='Dental Implant Referral'
           description='Complete the referral form below to refer your patient for dental implant treatment at Supernova Dental.'

@@ -17,6 +17,7 @@ export default function PrivacyPolicyPage() {
     <div className='min-h-screen bg-gray-100'>
       {/* Page Header */}
       <div className='bg-grey py-24 flex flex-col items-center justify-end'>
+        <h1 className='sr-only'>Privacy Policy</h1>
         <Image src={logo} alt='logo' className='w-16 h-16 object-cover mt-2' />
         <SectionTitle title='Privacy Policy' className='text-2xl' />
       </div>

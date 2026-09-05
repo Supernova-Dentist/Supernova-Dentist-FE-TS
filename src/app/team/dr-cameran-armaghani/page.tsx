@@ -13,8 +13,9 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Dr. Cameran',
-  image: 'https://www.supernovadental.co.uk/assets/images/Headshots/cameran.jpg',
-  url: 'https://www.supernovadental.co.uk/team/dr-cameran',
+  image:
+    'https://www.supernovadental.co.uk/assets/images/Headshots/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp',
+  url: 'https://www.supernovadental.co.uk/team/dr-cameran-armaghani',
   jobTitle: 'Implantologist',
   worksFor: {
     '@type': 'Organization',

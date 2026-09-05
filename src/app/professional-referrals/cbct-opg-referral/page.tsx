@@ -16,6 +16,7 @@ export default function CBCTOPGReferral() {
   return (
     <div className='min-h-screen flex  justify-center align-middle'>
       <div className='container mx-auto py-24 px-8'>
+        <h1 className='sr-only'>CBCT and OPG Referral</h1>
         <HighlightCard
           title='CBCT & OPG Referral'
           description='Complete the referral form below to refer your patient for CBCT or OPG imaging at Supernova Dental.'

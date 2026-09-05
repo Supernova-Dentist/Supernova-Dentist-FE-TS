@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
+import { pushAnalyticsEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -84,7 +85,7 @@ export default function OurJourneyForm({
       }
 
       window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({ event: 'InvisalignOpenDayLead' });
+      pushAnalyticsEvent({ event: 'InvisalignOpenDayLead' });
 
       // Trigger Google Ads conversion tracking
       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {

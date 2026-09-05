@@ -5,7 +5,7 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking } from '@/lib/tracking';
+import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
 import useDisableBodyScroll from '@/hooks/useDisableBodyScroll';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
@@ -106,7 +106,7 @@ export default function ConsultationPromotionForm() {
       const eventName = alreadyExists ? 'ExistingCosmeticPatientLead' : 'NewCosmeticPatientLead';
 
       // Push event to dataLayer
-      window.dataLayer.push({ event: eventName });
+      pushAnalyticsEvent({ event: eventName });
 
       // Push event to Facebook Pixel
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {

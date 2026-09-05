@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import PatientToggleSection from '@/components/ui/toggle';
 import { DentallyPortal } from '@/lib/constants';
+import { pushAnalyticsEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -116,7 +117,7 @@ export default function ReferAFriendForm({
       const updatedEventType = `${responseData.alreadyExists === true ? 'Existing' : 'New'}ReferAFriendSubmission`;
 
       // Push event to dataLayer including source
-      window.dataLayer.push({
+      pushAnalyticsEvent({
         event: updatedEventType,
       });
 

@@ -487,7 +487,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
         }
       });
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPERNOVA_BE_URL}/consent`, {
+      const response = await fetch('/api/consent-forms/submit', {
         method: 'POST',
         body: formData,
       });

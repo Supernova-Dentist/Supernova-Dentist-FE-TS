@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { DentallyPortal } from '@/lib/constants';
-import { getTracking } from '@/lib/tracking';
+import { getTracking, pushAnalyticsEvent } from '@/lib/tracking';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -130,7 +130,7 @@ export function EnquiryFormContent() {
       // }
 
       window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({ event: 'NewEnquiryForm' });
+      pushAnalyticsEvent({ event: 'NewEnquiryForm' });
 
       // Trigger Google Ads conversion tracking
       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {

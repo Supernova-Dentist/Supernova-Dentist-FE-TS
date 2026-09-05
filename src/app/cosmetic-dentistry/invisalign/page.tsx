@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Invisalign | Clear Aligners & Invisible Braces | Supernova Dental',
   description:
     'Invisalign in Bridgwater, Somerset. Straighten your teeth with clear aligners at Supernova Dental. Book your free Invisalign consultation today.',
+  alternates: { canonical: '/cosmetic-dentistry/invisalign' },
   keywords:
     'Invisalign Bridgwater, Invisalign Somerset, clear aligners Bridgwater, invisible braces Bridgwater, Invisalign cost Bridgwater, teeth straightening Bridgwater, adult braces Somerset, orthodontic treatment Bridgwater, private Invisalign dentist Bridgwater, Invisalign near Taunton, Invisalign Taunton, invisible braces Taunton, clear aligners Taunton',
 };

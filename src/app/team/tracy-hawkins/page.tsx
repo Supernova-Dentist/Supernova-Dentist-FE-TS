@@ -13,7 +13,8 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Tracy Hawkins',
-  image: 'https://www.supernovadental.co.uk/assets/images/Headshots/tracy.jpg',
+  image:
+    'https://www.supernovadental.co.uk/assets/images/Headshots/tracy-hawkins-dental-hygienist-supernova-dental-bridgwater.webp',
   url: 'https://www.supernovadental.co.uk/team/tracy-hawkins',
   jobTitle: 'Dental Hygienist',
   worksFor: {

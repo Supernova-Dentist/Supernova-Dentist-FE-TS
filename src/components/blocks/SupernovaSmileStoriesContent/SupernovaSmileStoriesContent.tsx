@@ -36,6 +36,7 @@ const pricing = [
 export const SupernovaSmileStoriesContent = () => {
   return (
     <div className='bg-cream'>
+      <h1 className='sr-only'>Supernova Smile Stories</h1>
       <SmileStoryHero />
       <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
         <SmileStoryForm
@@ -62,7 +63,7 @@ export const SupernovaSmileStoriesContent = () => {
               <video
                 className='w-full h-full object-fit rounded-lg lg:mt-8'
                 controls
-                preload='metadata'
+                preload='none'
                 src='/assets/videos/why_supernova.mp4'
                 poster='/assets/images/video_thumbnail.png'
               />
@@ -84,7 +85,7 @@ export const SupernovaSmileStoriesContent = () => {
             <video
               className='w-full h-full object-fit rounded-lg lg:mt-8'
               controls
-              preload='metadata'
+              preload='none'
               src='/assets/videos/Supernova_Smile_Story.mp4'
               poster='/assets/images/Supernova_Smile_Story_Poster.png'
             />

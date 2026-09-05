@@ -1,6 +1,7 @@
 import MotionPreferences from '@/components/MotionPreferences/MotionPreferences';
 import RouteAwareSiteShell from '@/components/RouteAwareSiteShell/RouteAwareSiteShell';
 import TrackingProvider from '@/components/TrackingProvider/TrackingProvider';
+import CookieConsentBridge from '@/components/CookieConsentBridge/CookieConsentBridge';
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
@@ -99,34 +100,33 @@ export default function RootLayout({
     <html lang='en'>
       <head>
         {/* Cookiebot */}
-        {/* <Script
+        <Script
           id='Cookiebot'
           src='https://consent.cookiebot.com/uc.js'
           data-cbid='aced3b94-7f1a-4ccd-a22f-90b2c1d4bf6b'
           data-blockingmode='auto'
           type='text/javascript'
-        /> */}
+        />
 
         {/* Google Analytics */}
         {/* <Script async src='https://www.googletagmanager.com/gtag/js?id=G-8M5WQJ7R5Z' /> */}
         <Script id='google-analytics'>
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            function gtag(){
+              if (arguments[0] === 'event' && localStorage.getItem('sn_analytics_consent') !== 'granted') return;
+              dataLayer.push(arguments);
+            }
+            gtag('consent', 'default', {
+              analytics_storage: 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 500
+            });
             gtag('js', new Date());
             gtag('config', 'G-8M5WQJ7R5Z');
             gtag('config', 'AW-16737398524');
-          `}
-        </Script>
-
-        {/* Google Tag Manager */}
-        <Script id='gtm-script' strategy='afterInteractive'>
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-5Q5NWLHG');
           `}
         </Script>
 
@@ -184,6 +184,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${playfair.variable} ${ibmPlex.variable}`}>
+        <CookieConsentBridge />
         <MotionPreferences>
           <TrackingProvider>
             <RouteAwareSiteShell>{children}</RouteAwareSiteShell>

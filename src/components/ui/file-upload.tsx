@@ -44,6 +44,15 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
       <div {...getRootProps()} className='w-full'>
         <motion.div
           onClick={handleClick}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              handleClick();
+            }
+          }}
+          role='button'
+          tabIndex={0}
+          aria-label='Upload JPG or PDF files'
           whileHover={{ scale: 1.02 }}
           className={`
             p-8 border-2 border-dashed rounded-lg cursor-pointer text-center transition
@@ -58,7 +67,7 @@ export const FileUpload = ({ onChange }: { onChange?: (files: File[]) => void })
             {...getInputProps()}
             ref={fileInputRef}
             onChange={(e) => handleFileChange(Array.from(e.target.files ?? []).slice(0, 3))}
-            className='hidden'
+            className='sr-only'
           />
           <IconUpload className='mx-auto h-6 w-6 text-gray-500 dark:text-gray-400 mb-2' />
           <p className='text-sm text-gray-600 dark:text-gray-300'>
