@@ -635,7 +635,7 @@ export default function MapboxMap() {
   return (
     <div className='bg-obsidian text-ivory'>
       <div
-        className='relative isolate h-[390px] w-full overflow-hidden bg-deep-navy sm:h-[480px] lg:h-[610px]'
+        className='relative isolate h-[430px] w-full overflow-hidden bg-deep-navy lg:h-[610px]'
         aria-busy={mapState === 'loading'}
       >
         <div
@@ -722,6 +722,17 @@ export default function MapboxMap() {
               Get directions
             </Link>
           </div>
+        </div>
+        <div className='mt-4 border-t border-white/10 pt-3'>
+          <Link
+            href={practiceLocation.stationWalkingDirectionsUrl}
+            target='_blank'
+            rel='noreferrer'
+            className='inline-flex min-h-11 items-center rounded-sm py-2 text-sm leading-6 text-ivory/75 underline decoration-champagne/50 underline-offset-4 hover:text-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne'
+          >
+            <span>Walk from Bridgwater station -
+              approximately 1.5 miles <span aria-hidden='true'>↗</span><span className='sr-only'> (opens Google Maps in a new tab)</span></span>
+          </Link>
         </div>
       </div>
     </div>

@@ -112,6 +112,8 @@ export const practiceLocation = {
     latitude: 51.10966,
   },
   directionsUrl: 'https://www.google.com/maps/search/?api=1&query=51.10966%2C-2.9934',
+  stationWalkingDirectionsUrl:
+    'https://www.google.com/maps/dir/?api=1&origin=Bridgwater+railway+station%2C+Somerset&destination=Supernova+Dental%2C+Supernova+Building%2C+Marsh+Lane%2C+Huntworth+Gate%2C+Bridgwater%2C+Somerset%2C+TA6+6LQ&travelmode=walking',
   openingHours: [
     { day: 'Monday-Friday', hours: '08:15-18:15' },
     { day: 'Saturday', hours: '09:00-13:00' },

@@ -31,14 +31,26 @@ export default function MapFallbackCard() {
             Email the practice
           </a>
         </div>
-        <Link
-          href={practiceLocation.directionsUrl}
-          target='_blank'
-          rel='noreferrer'
-          className='mt-7 inline-flex min-h-11 items-center justify-center rounded-full border border-champagne bg-champagne px-6 py-3 text-sm font-semibold text-obsidian transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
-        >
-          Get directions
-        </Link>
+        <div className='mt-7 flex flex-wrap justify-center gap-3'>
+          <Link
+            href={practiceLocation.directionsUrl}
+            target='_blank'
+            rel='noreferrer'
+            className='inline-flex min-h-11 items-center justify-center rounded-full border border-champagne bg-champagne px-6 py-3 text-sm font-semibold text-obsidian transition-colors hover:bg-lightGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian'
+          >
+            Get directions
+          </Link>
+        </div>
+        <div className='mt-4 border-t border-white/10 pt-3'>
+          <Link
+            href={practiceLocation.stationWalkingDirectionsUrl}
+            target='_blank'
+            rel='noreferrer'
+            className='inline-flex min-h-11 items-center rounded-sm py-2 text-sm leading-6 text-ivory/75 underline decoration-champagne/50 underline-offset-4 hover:text-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne'
+          >
+            <span>Walk from Bridgwater station — approximately 1.5 miles <span aria-hidden='true'>↗</span><span className='sr-only'> (opens Google Maps in a new tab)</span></span>
+          </Link>
+        </div>
       </div>
     </div>
   );

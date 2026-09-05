@@ -30,6 +30,8 @@ describe('Practice map data', () => {
     expect(practiceLocation.map.junction24Route.coordinates.length).toBeGreaterThan(80);
     expect(practiceLocation.map.junction24Route.coordinates.at(-1)).toEqual(practiceCoordinates);
     expect(practiceLocation.directionsUrl).toContain('51.10966%2C-2.9934');
+    expect(practiceLocation.stationWalkingDirectionsUrl).toContain('origin=Bridgwater+railway+station%2C+Somerset');
+    expect(practiceLocation.stationWalkingDirectionsUrl).toContain('travelmode=walking');
   });
 
   it('places patient parking opposite the practice and keeps Brainwave north of it', () => {
@@ -50,6 +52,11 @@ describe('Map fallback', () => {
     expect(getByText(/Supernova Building, Marsh Lane/)).toBeInTheDocument();
     expect(getByRole('link', { name: 'Call 01278 228665' })).toHaveAttribute('href', 'tel:+441278228665');
     expect(getByRole('link', { name: 'Get directions' })).toHaveAttribute('href');
+    expect(getByRole('link', { name: /Walk from Bridgwater station/ })).toHaveAttribute(
+      'href',
+      practiceLocation.stationWalkingDirectionsUrl
+    );
+    expect(getByRole('link', { name: /Walk from Bridgwater station/ })).toHaveTextContent('approximately 1.5 miles');
   });
 
   it('renders the same useful fallback when the public token is missing', () => {
