@@ -434,8 +434,26 @@ export default function MapboxMap() {
             paint: {
               'circle-radius': ['match', ['get', 'id'], 'patient-parking', 5, 3.5],
               'circle-color': ['match', ['get', 'id'], 'patient-parking', '#c6a15b', '#f7f2e9'],
+              'circle-opacity': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                16.2,
+                ['match', ['get', 'id'], 'patient-parking', 0, 1],
+                16.8,
+                1,
+              ],
               'circle-stroke-color': '#0b1218',
               'circle-stroke-width': 2,
+              'circle-stroke-opacity': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                16.2,
+                ['match', ['get', 'id'], 'patient-parking', 0, 1],
+                16.8,
+                1,
+              ],
             },
           });
           map.addLayer({
@@ -446,13 +464,23 @@ export default function MapboxMap() {
             layout: {
               'text-field': ['get', 'label'],
               'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
-              'text-size': 12,
-              'text-anchor': ['match', ['get', 'id'], 'brainwave-centre', 'bottom', 'top'],
+              'text-size': ['match', ['get', 'id'], 'patient-parking', 14, 12],
+              'text-anchor': [
+                'match',
+                ['get', 'id'],
+                'brainwave-centre',
+                'bottom',
+                'patient-parking',
+                'bottom',
+                'top',
+              ],
               'text-offset': [
                 'match',
                 ['get', 'id'],
                 'brainwave-centre',
                 ['literal', [0, -1.8]],
+                'patient-parking',
+                ['literal', [0, -1.15]],
                 ['literal', [0, 0.9]],
               ],
               'text-max-width': 12,
@@ -461,6 +489,15 @@ export default function MapboxMap() {
               'text-color': '#f7f2e9',
               'text-halo-color': '#0b1218',
               'text-halo-width': 1.5,
+              'text-opacity': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                16.6,
+                ['match', ['get', 'id'], 'patient-parking', 0, 1],
+                17.1,
+                1,
+              ],
             },
           });
 
@@ -490,9 +527,9 @@ export default function MapboxMap() {
             layout: {
               'text-field': 'Supernova Dental',
               'text-font': ['DIN Pro Bold', 'Arial Unicode MS Bold'],
-              'text-size': ['interpolate', ['linear'], ['zoom'], 11, 13, 17, 17],
+              'text-size': ['interpolate', ['linear'], ['zoom'], 11, 15, 17, 19],
               'text-anchor': 'top',
-              'text-offset': [0, 0.7],
+              'text-offset': [0, 0.9],
               'text-allow-overlap': true,
               'text-ignore-placement': true,
             },

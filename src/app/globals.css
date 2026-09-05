@@ -347,26 +347,44 @@
 
 /* Find Us map: brand Mapbox's DOM without changing its required attribution. */
 .supernova-map-marker {
+  position: relative;
   display: grid;
   width: 48px;
   height: 48px;
   place-items: center;
   border: 2px solid var(--ivory);
-  border-radius: 9999px 9999px 9999px 0;
+  border-radius: 9999px;
   background: var(--obsidian);
   box-shadow: 0 12px 28px rgba(11, 18, 24, 0.38);
-  transform: rotate(-45deg);
   cursor: pointer;
 }
 
+.supernova-map-marker::after {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid var(--ivory);
+  border-bottom: 2px solid var(--ivory);
+  background: var(--obsidian);
+  content: '';
+  transform: translateX(-50%) rotate(45deg);
+}
+
 .supernova-map-marker > img {
+  position: relative;
+  z-index: 1;
   width: 34px;
   height: 34px;
   object-fit: contain;
-  transform: rotate(45deg);
 }
 
 .supernova-map-marker:hover {
+  background: var(--deep-navy);
+}
+
+.supernova-map-marker:hover::after {
   background: var(--deep-navy);
 }
 

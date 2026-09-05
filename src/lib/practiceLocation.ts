@@ -95,7 +95,7 @@ const routeCoordinates = [
   [-2.992716, 51.109313],
   [-2.99309, 51.10963],
   [-2.99321, 51.109725],
-  [-2.99336, 51.10969],
+  [-2.9934, 51.10966],
 ] as const satisfies readonly MapCoordinate[];
 
 export const practiceLocation = {
@@ -108,10 +108,10 @@ export const practiceLocation = {
   whatsappHref: 'https://wa.me/447863338815',
   email: 'enquiries@supernovadental.co.uk',
   coordinates: {
-    longitude: -2.99336,
-    latitude: 51.10969,
+    longitude: -2.9934,
+    latitude: 51.10966,
   },
-  directionsUrl: 'https://www.google.com/maps/search/?api=1&query=51.10969%2C-2.99336',
+  directionsUrl: 'https://www.google.com/maps/search/?api=1&query=51.10966%2C-2.9934',
   openingHours: [
     { day: 'Monday-Friday', hours: '08:15-18:15' },
     { day: 'Saturday', hours: '09:00-13:00' },
@@ -127,7 +127,7 @@ export const practiceLocation = {
       pitch: 18,
     },
     closeView: {
-      center: [-2.99336, 51.10969] as MapCoordinate,
+      center: [-2.9934, 51.10966] as MapCoordinate,
       zoom: 17.7,
       pitch: 28,
     },
@@ -156,14 +156,14 @@ export const practiceLocation = {
         name: 'Reserved patient parking',
         mapLabel: 'Patient parking',
         description: 'Clearly signposted reserved spaces directly opposite the building.',
-        coordinates: [-2.99304, 51.10988],
+        coordinates: [-2.99324, 51.10978],
       },
       {
         id: 'brainwave-centre',
         name: 'Brainwave Centre South West',
         mapLabel: 'Brainwave Centre SW',
         description: 'The neighbouring Brainwave centre, north of the practice.',
-        coordinates: [-2.99358, 51.10976],
+        coordinates: [-2.99354, 51.1097],
       },
       {
         id: 'bridgwater',
