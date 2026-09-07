@@ -29,7 +29,7 @@ export default function CancellationsPage() {
       <div className='mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16'>
         <div className='border-l-2 border-champagne bg-white p-6 sm:p-8'>
           <h2 className='text-2xl'>At a glance</h2>
-          <p className='mt-4 leading-7'>Please give at least <strong>two working days’ notice</strong> to cancel or rearrange.</p>
+          <p className='mt-4 leading-7'>Please give at least <strong>two working days’ notice</strong> to cancel or rearrange. For this policy, working days are Monday to Saturday, excluding bank holidays.</p>
           <p className='mt-3 leading-7'>
             For short-notice cancellations and missed appointments, the fee is <strong>£200 per hour of booked
             appointment time or the cost of the appointment, whichever is lower</strong>.
