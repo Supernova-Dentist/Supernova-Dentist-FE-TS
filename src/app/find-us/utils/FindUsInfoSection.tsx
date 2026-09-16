@@ -63,7 +63,7 @@ export default function FindUsInfoSection() {
               <video
                 className='aspect-video w-full object-cover'
                 controls
-                preload='metadata'
+                preload='none'
                 playsInline
                 aria-label='Supernova Dental reserved patient parking information video'
               >
