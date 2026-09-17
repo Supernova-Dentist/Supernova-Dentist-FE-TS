@@ -7,6 +7,7 @@ import amyImage from '../../public/assets/images/Headshots/amy-skinner-front-of-
 import cameranImage from '../../public/assets/images/Headshots/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp';
 import scottImage from '../../public/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp';
 import souadImage from '../../public/assets/images/Headshots/dr-souad-maddi-dentist-supernova-dental-bridgwater.webp';
+import geriImage from '../../public/assets/images/Headshots/geri-warren-treatment-coordinator-supernova-dental-bridgwater.webp';
 import kayleighImage from '../../public/assets/images/Headshots/kayleigh-dowdle-dental-therapist-supernova-dental-bridgwater.webp';
 import marianaImage from '../../public/assets/images/Headshots/mariana-barbu-lead-dental-nurse-supernova-dental-bridgwater.webp';
 import miaImage from '../../public/assets/images/Headshots/mia-coakley-lead-front-house-supernova-dental-bridgwater.webp';
@@ -19,8 +20,9 @@ export type TeamGroup =
   | 'Dentists'
   | 'Therapists & Hygienists'
   | 'Practice Leadership & Operations'
+  | 'Treatment Coordinators'
   | 'Nursing Team'
-  | 'Patient Experience';
+  | 'Front of House';
 
 export interface TeamTestimonial {
   description: string;
@@ -134,7 +136,11 @@ export const teamMembers: TeamMember[] = [
     ],
     bookHref: DentallyPortal,
     expertiseHeading: 'How Scott Can Transform Your Smile',
-    expertise: [{ title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' }, { title: 'Composite Bonding', href: '/cosmetic-dentistry/composite-bonding' }, { title: 'Teeth Whitening', href: '/cosmetic-dentistry/teeth-whitening' },],
+    expertise: [
+      { title: 'Invisalign', href: '/cosmetic-dentistry/invisalign' },
+      { title: 'Composite Bonding', href: '/cosmetic-dentistry/composite-bonding' },
+      { title: 'Teeth Whitening', href: '/cosmetic-dentistry/teeth-whitening' },
+    ],
     video: {
       heading: 'Hear from Scott',
       description: 'Get to know Dr. Scott Young, his journey, and his passion for aesthetics and dentistry.',
@@ -277,7 +283,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Teagan Ruby',
     firstName: 'Teagan',
     role: 'Treatment Coordinator',
-    group: 'Patient Experience',
+    group: 'Treatment Coordinators',
     image: teaganImage,
     alt: 'Teagan Ruby, Treatment Coordinator at Supernova Dental in Bridgwater, Somerset',
     gdc: '303942',
@@ -285,6 +291,22 @@ export const teamMembers: TeamMember[] = [
       'Alongside my role, I’m also a qualified dental nurse and have been part of the dental industry since 2019.',
       'I love supporting patients throughout their dental journey, from the very first consultation through to the final result. It’s really rewarding helping patients understand their treatment options, feel comfortable with their decisions, and watching their confidence grow along the way.',
       'Being part of each patient’s journey and seeing their transformation is what I enjoy most about my role.',
+    ],
+  },
+  {
+    slug: 'geri-warren',
+    name: 'Geri Warren',
+    firstName: 'Geri',
+    role: 'Treatment Coordinator',
+    group: 'Treatment Coordinators',
+    image: geriImage,
+    alt: 'Geri Warren, Treatment Coordinator at Supernova Dental in Bridgwater, Somerset',
+    gdc: '216578',
+    biography: [
+      'With 18 years of experience in the dental industry, I have developed a genuine passion for delivering exceptional patient care and ensuring every individual feels comfortable, informed, and supported throughout their treatment journey. ',
+      'Alongside my clinical experience, I have undertaken additional training in areas including oral health education and have previously held lead roles, giving me a broad understanding of both patient care and the wider dental experience.',
+      'As one of our Dental Treatment Coordinators, I am here to provide a calm and reassuring point of contact, helping to explain treatment options, answer any questions, and support you with appointments and payment plans.',
+      'I particularly enjoy building lasting relationships with our patients and helping to make every stage of their journey feel seamless, personal, and positive.',
     ],
   },
   {
@@ -306,7 +328,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Mia Coakley',
     firstName: 'Mia',
     role: 'Lead Front of House',
-    group: 'Patient Experience',
+    group: 'Front of House',
     image: miaImage,
     alt: 'Mia Coakley, Lead Front of House at Supernova Dental in Bridgwater, Somerset',
     biography: [
@@ -318,10 +340,10 @@ export const teamMembers: TeamMember[] = [
     slug: 'amy-skinner',
     name: 'Amy Skinner',
     firstName: 'Amy',
-    role: 'Receptionist',
-    group: 'Patient Experience',
+    role: 'Front of House',
+    group: 'Front of House',
     image: amyImage,
-    alt: 'Amy Skinner, Receptionist at Supernova Dental in Bridgwater, Somerset',
+    alt: 'Amy Skinner, Front of House at Supernova Dental in Bridgwater, Somerset',
     biography: [
       'It’s been so lovely getting to know our patients, I really enjoy being part of a team that’s so friendly and focused on giving people the best experience.',
     ],
@@ -332,8 +354,9 @@ export const teamGroups: TeamGroup[] = [
   'Dentists',
   'Therapists & Hygienists',
   'Practice Leadership & Operations',
+  'Treatment Coordinators',
   'Nursing Team',
-  'Patient Experience',
+  'Front of House',
 ];
 
 export const getTeamMember = (slug: string) => {

@@ -34,7 +34,7 @@ const teamMembers = [
   { name: 'Victoria Hands', title: 'Practice Manager/Dental Nurse', image: victoriaImage, slug: 'victoria-hands' },
   { name: 'Mariana Barbu', title: 'Lead Dental Nurse', image: marianaImage, slug: 'mariana-barbu' },
   { name: 'Mia Coakley', title: 'Lead Front of House', image: miaImage, slug: 'mia-coakley' },
-  { name: 'Amy Skinner', title: 'Receptionist', image: amyImage, slug: 'amy-skinner' },
+  { name: 'Amy Skinner', title: 'Front of House', image: amyImage, slug: 'amy-skinner' },
   { name: 'Vanessa Speier', title: 'Trainee Dental Nurse', image: vanessaImage, slug: 'vanessa-speier' },
 ];
 

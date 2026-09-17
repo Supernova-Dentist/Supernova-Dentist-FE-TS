@@ -16,7 +16,7 @@ const AmyWaterDropHero = () => {
           <Reveal>
             <>
               <h2 className='pointer-events-auto my-2 text-2xl text-cream md:my-4 md:text-4xl'>
-                I&apos;m a <span className='font-semibold text-lightGold'>Receptionist</span> at Supernova Dental
+                I&apos;m a <span className='font-semibold text-lightGold'>Front of House</span> at Supernova Dental
               </h2>
             </>
           </Reveal>
@@ -40,7 +40,7 @@ const AmyWaterDropHero = () => {
           <Reveal>
             <Image
               src={amyImage}
-              alt='Amy Skinner, Receptionist at Supernova Dental in Bridgwater, Somerset'
+              alt='Amy Skinner, Front of House at Supernova Dental in Bridgwater, Somerset'
               width={1800}
               height={2700}
               quality={75}
