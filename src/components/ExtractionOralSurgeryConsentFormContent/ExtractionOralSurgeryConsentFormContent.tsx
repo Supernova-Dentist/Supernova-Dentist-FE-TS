@@ -45,7 +45,7 @@ const CLINICIAN_GROUPS = [
   },
 ] as const;
 
-const PASSCODE_LENGTH = 4;
+const PASSCODE_LENGTH = 6;
 const KEYPAD_DIGITS = ['1', '2', '3', '4', '5', '6', '7', '8', '9'] as const;
 
 function getLocalDateAndTime() {
@@ -1396,7 +1396,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                     <div className='rounded-2xl border border-blue-200 bg-blue-50 p-6 text-center'>
                       <h2 className='text-lg font-semibold'>Finished signing?</h2>
                       <p className='mx-auto mt-2 max-w-lg text-sm leading-6 text-muted-foreground'>
-                        Tap below and return the device to the clinician. The four-digit passcode will be required to
+                        Tap below and return the device to the clinician. The six-digit passcode will be required to
                         continue.
                       </p>
                       <Button type='button' className='mt-5' onClick={handleFinishPatientSigning}>
@@ -1744,9 +1744,9 @@ export function ExtractionOralSurgeryConsentFormContent() {
             <div className='mx-auto mt-6 max-w-xs'>
               <div
                 className='flex h-8 items-center justify-center gap-4'
-                aria-label={`${passcodeEntry.length} of 4 digits entered`}
+                aria-label={`${passcodeEntry.length} of ${PASSCODE_LENGTH} digits entered`}
               >
-                {[0, 1, 2, 3].map((index) => (
+                {Array.from({ length: PASSCODE_LENGTH }, (_, index) => (
                   <span
                     key={index}
                     aria-hidden='true'
@@ -1758,7 +1758,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
               </div>
 
               <p className='mt-1 text-center text-sm font-medium text-muted-foreground' aria-live='polite'>
-                {passcodeEntry.length} of 4 digits entered
+                {passcodeEntry.length} of {PASSCODE_LENGTH} digits entered
               </p>
 
               <p

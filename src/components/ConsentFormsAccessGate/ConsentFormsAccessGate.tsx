@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const PASSCODE_LENGTH = 4;
+const PASSCODE_LENGTH = 6;
 const KEYPAD_DIGITS = ['1', '2', '3', '4', '5', '6', '7', '8', '9'] as const;
 
 interface ConsentFormsAccessGateProps {
@@ -77,16 +77,16 @@ export default function ConsentFormsAccessGate({ redirectTo }: ConsentFormsAcces
             Consent forms
           </h1>
           <p className='mt-2 text-sm leading-6 text-muted-foreground'>
-            Enter the four-digit staff passcode to continue.
+            Enter the six-digit staff passcode to continue.
           </p>
         </div>
 
         <div className='mx-auto mt-2 max-w-xs'>
           <div
             className='flex h-8 items-center justify-center gap-4'
-            aria-label={`${passcodeEntry.length} of 4 digits entered`}
+            aria-label={`${passcodeEntry.length} of ${PASSCODE_LENGTH} digits entered`}
           >
-            {[0, 1, 2, 3].map((index) => (
+            {Array.from({ length: PASSCODE_LENGTH }, (_, index) => (
               <span
                 key={index}
                 aria-hidden='true'
@@ -98,7 +98,7 @@ export default function ConsentFormsAccessGate({ redirectTo }: ConsentFormsAcces
           </div>
 
           <p className='mt-1 text-center text-sm font-medium text-muted-foreground' aria-live='polite'>
-            {passcodeEntry.length} of 4 digits entered
+            {passcodeEntry.length} of {PASSCODE_LENGTH} digits entered
           </p>
           <p role='alert' className='mt-2 min-h-5 text-center text-sm font-semibold text-destructive'>
             {isChecking ? 'Checking passcode…' : passcodeError}
