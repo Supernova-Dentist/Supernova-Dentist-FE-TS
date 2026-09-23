@@ -9,6 +9,7 @@ import scottImage from '../../public/assets/images/Headshots/dr-scott-young-prin
 import souadImage from '../../public/assets/images/Headshots/dr-souad-maddi-dentist-supernova-dental-bridgwater.webp';
 import geriImage from '../../public/assets/images/Headshots/geri-warren-treatment-coordinator-supernova-dental-bridgwater.webp';
 import kayleighImage from '../../public/assets/images/Headshots/kayleigh-dowdle-dental-therapist-supernova-dental-bridgwater.webp';
+import evaImage from '../../public/assets/images/Headshots/eva-reeves-dental-therapist-supernova-dental-bridgwater.webp';
 import marianaImage from '../../public/assets/images/Headshots/mariana-barbu-lead-dental-nurse-supernova-dental-bridgwater.webp';
 import miaImage from '../../public/assets/images/Headshots/mia-coakley-lead-front-house-supernova-dental-bridgwater.webp';
 import teaganImage from '../../public/assets/images/Headshots/teagan-ruby-treatment-coordinator-supernova-dental-bridgwater.webp';
@@ -216,6 +217,28 @@ export const teamMembers: TeamMember[] = [
     testimonials: kayleighTestimonials,
     testimonialIntro:
       'Discover why patients consistently praise Kayleigh Dowdle for her exceptional care, including dental hygiene services and emergency dentistry.',
+  },
+  {
+    slug: 'eva-reeves',
+    name: 'Eva Reeves',
+    firstName: 'Eva',
+    role: 'Dental Therapist',
+    group: 'Therapists & Hygienists',
+    image: evaImage,
+    alt: 'Eva Reeves, Dental Therapist at Supernova Dental in Bridgwater, Somerset',
+    qualifications: 'BSc (Hons) Dental Hygiene & Therapy',
+    gdc: '327118',
+    biography: [
+      'Eva’s calm and gentle manner helps her patients feel relaxed and supported. With a strong focus on prevention, she aims to help patients feel confident in their care and maintain healthy smiles at home.',
+      'Having recently completed a postgraduate foundation year in Special Care and Community Dental Services, Eva is committed to continuous learning and development to provide a high standard of care.',
+      'In her spare time, Eva enjoys being outdoors, practising yoga and spending time with family and friends.',
+    ],
+    bookHref: DentallyPortal,
+    expertiseHeading: 'How Eva Can Brighten Your Smile',
+    expertise: [
+      { title: 'Dental Therapist', href: '/general-dentistry/dental-therapist' },
+      { title: 'Dental Hygiene', href: '/general-dentistry/dental-hygiene' },
+    ],
   },
   {
     slug: 'tracy-hawkins',
