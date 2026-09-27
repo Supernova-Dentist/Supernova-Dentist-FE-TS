@@ -32,7 +32,7 @@ const CLINICIAN_GROUPS = [
   {
     label: 'Dentists & Oral Surgeons',
     clinicians: [
-      'Dr. Alex Rawlings',
+      'Dr. Alex Rawlins',
       'Dr. Scott Young',
       'Dr. Cameran Armaghani',
       'Dr. Souad Maddi',

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import type { StaticImageData } from 'next/image';
 
 import adamImage from '../../public/assets/images/Headshots/adam-young-operations-director-supernova-dental-bridgwater.webp';
+import alexImage from '../../public/assets/images/Headshots/dr-alexandra-rawlins-dentist-supernova-dental-bridgwater.webp';
 import amyImage from '../../public/assets/images/Headshots/amy-skinner-front-of-house-supernova-dental-bridgwater.webp';
 import cameranImage from '../../public/assets/images/Headshots/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp';
 import scottImage from '../../public/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp';
@@ -190,6 +191,23 @@ export const teamMembers: TeamMember[] = [
       "I also speak English, Arabic, French, and Spanish, and I'm happy to provide dental care in the language you feel most comfortable with.",
     ],
     bookHref: DentallyPortal,
+  },
+  {
+    slug: 'dr-alexandra-rawlins',
+    name: 'Dr Alexandra Rawlins',
+    firstName: 'Alex',
+    role: 'Dentist with a special interest in minor oral surgery',
+    group: 'Dentists',
+    image: alexImage,
+    alt: 'Dr Alexandra Rawlins, dentist at Supernova Dental in Bridgwater',
+    qualifications: 'BDS (Hons) Cardiff 2019, MFDS RCPS(Glasg) 2021, PGCert 2023',
+    biography: [
+      'Alex’s area of expertise is Minor Oral Surgery, which includes treating impacted wisdom teeth, complex extractions and minor surgery on the soft tissues of the mouth.',
+      'She particularly enjoys helping patients who may feel nervous about having a surgical procedure. She aims to provide a calm and reassuring environment, taking time to explain treatment options and ensure patients feel comfortable and well informed before and after their dental treatment.',
+      'Alex graduated with a BDS in Dental Surgery from Cardiff University in 2019, and has since completed several further training programmes in Oral Surgery and Oral & Maxillofacial Surgery across South Wales. She is currently undertaking registrar training to become a Specialist in Oral Surgery.',
+      'Alongside her clinical work, Alex has a strong interest in improving the quality and safety of patient care. She has undertaken an NHS Clinical Leadership Fellowship and has led award-winning quality improvement work on patient safety.',
+      'Outside of dentistry, Alex enjoys running, baking and gardening.',
+    ],
   },
   {
     slug: 'kayleigh-dowdle',

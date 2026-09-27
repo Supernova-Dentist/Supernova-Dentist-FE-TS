@@ -16,14 +16,14 @@ import generalDentistryImage from '../../public/assets/images/supernova_dental_b
 export const metadata: Metadata = {
   title: 'Private Dentist in Bridgwater, Somerset | Supernova Dental',
   description:
-    'Discover private dental care at Supernova Dental in Bridgwater, Somerset, including general and cosmetic dentistry, Invisalign, dental implants and hygiene care.',
+    'Private dentist in Bridgwater, Somerset. Supernova Dental offers general and cosmetic dentistry, Invisalign, dental implants and hygiene care.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Private Dentist in Bridgwater, Somerset | Supernova Dental',
     description:
-      'Modern, personal private dental care in Bridgwater, including general and cosmetic dentistry, Invisalign, dental implants and hygiene care.',
+      'Private dental care in Bridgwater, including general and cosmetic dentistry, Invisalign, dental implants and hygiene care.',
     url: '/',
     type: 'website',
     images: [
