@@ -175,6 +175,7 @@ year`,
   {
     title: 'Root Canal Treatment',
     products: [
+      { description: 'Root canal consultation', price: 100 },
       { description: 'Single rooted tooth', priceDescriptionBefore: 'from', price: 599 },
       { description: 'Premolar tooth', priceDescriptionBefore: 'from', price: 649 },
       { description: 'Molar root canal treatment', priceDescriptionBefore: 'from', price: 749 },
@@ -182,8 +183,9 @@ year`,
     ],
   },
   {
-    title: 'Tooth Removal',
+    title: 'Tooth Removal & Oral Surgery',
     products: [
+      { description: 'Oral surgery consultation', price: 100 },
       {
         description: `Including therapeutic procedures in an effort to reduce post-operative complications and
 discomfort.`,
@@ -231,7 +233,6 @@ discomfort.`,
       { isHeader: true, description: 'Retainers:' },
 
       { description: 'Invisalign Vivera retainers (3 sets included)', price: 399 },
-      { description: 'Essix retainers', price: 199 },
       { description: 'Fixed/bonded wire retainer', price: 250, priceDescription: 'per arch' },
     ],
   },
@@ -240,7 +241,7 @@ discomfort.`,
     products: [
       {
         description: 'Implant Consultation',
-        priceDescription: 'Included in new patient examination',
+        price: 100,
       },
       {
         description: 'Implant Retained Dentures',
