@@ -5,6 +5,7 @@ import DesktopNav from '@/components/DesktopNav/DesktopNav';
 import ConsultationLandingPageMobileNavigation from '@/components/MobileNavigation/ConsultationLandingPageMobileNavigation';
 import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
 import { usePathname } from 'next/navigation';
+import { isLocalReachPage } from '@/lib/localreach';
 // import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -42,7 +43,7 @@ const MainNav = () => {
   const showConsultationLandingPage =
     pathname === '/smile-makeover-consultation' ||
     pathname === '/book-appointment' ||
-    pathname === '/implant-consultation';
+    pathname === '/implant-consultation' || isLocalReachPage(pathname);
 
   // Check banner visibility from localStorage
   /* useEffect(() => {

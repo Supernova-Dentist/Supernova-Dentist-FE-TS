@@ -1,6 +1,7 @@
 'use client';
 
 import { DentallyPortal } from '@/lib/constants';
+import { isLocalReachPage } from '@/lib/localreach';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -26,7 +27,7 @@ export default function FloatingMenu() {
     return () => window.removeEventListener('scroll', updateVisibility);
   }, []);
 
-  if (consultationRoutes.has(pathname)) return null;
+  if (consultationRoutes.has(pathname) || isLocalReachPage(pathname)) return null;
 
   const tabIndex = isQuickActionsVisible ? undefined : -1;
 

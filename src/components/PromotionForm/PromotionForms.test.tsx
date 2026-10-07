@@ -4,9 +4,12 @@ import ConsultationPromotionForm from './ConsultationPromotionForm';
 import GeneralPromotionForm from './GeneralPromotionForm';
 import ImplantPromotionForm from './ImplantPromotionForm';
 import { ANALYTICS_CONSENT_KEY, CONSENT_READY_KEY } from '@/lib/tracking';
+import { localReachEditions } from '@/lib/localreach';
+
+const route = vi.hoisted(() => ({ pathname: '/test-consultation-route' }));
 
 vi.mock('next/navigation', () => ({
-  usePathname: () => '/test-consultation-route',
+  usePathname: () => route.pathname,
 }));
 
 vi.mock('react-intersection-observer', () => ({
@@ -14,6 +17,7 @@ vi.mock('react-intersection-observer', () => ({
 }));
 
 beforeEach(() => {
+  route.pathname = '/test-consultation-route';
   vi.stubGlobal('ResizeObserver', class {
     observe() {}
     unobserve() {}
@@ -50,6 +54,43 @@ function completeValidForm() {
 }
 
 describe('consultation enquiry forms', () => {
+  it.each(Object.keys(localReachEditions))('preserves edition attribution on a mocked successful %s submission', async (edition) => {
+    route.pathname = `/${edition}`;
+    window.history.replaceState({}, '', route.pathname);
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ alreadyExists: false }) });
+    vi.stubGlobal('fetch', fetchMock);
+    render(<GeneralPromotionForm />);
+    completeValidForm();
+    fireEvent.click(screen.getByRole('button', { name: 'Send Appointment Enquiry' }));
+    expect(await screen.findByRole('dialog', { name: /Thank you, Test Patient/ })).toBeInTheDocument();
+    const request = fetchMock.mock.calls[0]?.[1] as RequestInit;
+    const payload = JSON.parse(String(request.body)) as { source: string; tracking: { service: string; conversionPage: { pagePath: string } } };
+    expect(payload.source).toBe(edition);
+    expect(payload.tracking.service).toBe(edition);
+    expect(payload.tracking.conversionPage.pagePath).toBe(route.pathname);
+    fireEvent.click(screen.getByRole('button', { name: 'Wait For A Call' }));
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+
+  it.each(Object.keys(localReachEditions))('allows retry after a mocked failed %s submission', async (edition) => {
+    route.pathname = `/${edition}`;
+    window.history.replaceState({}, '', route.pathname);
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce({ ok: false, json: async () => ({ message: 'Synthetic server error' }) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ alreadyExists: false }) });
+    vi.stubGlobal('fetch', fetchMock);
+    render(<GeneralPromotionForm />);
+    completeValidForm();
+    fireEvent.click(screen.getByRole('button', { name: 'Send Appointment Enquiry' }));
+    expect(await screen.findByRole('alertdialog', { name: 'Submission Failed' })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Close error message' }));
+    expect(screen.getByLabelText('Full Name')).toHaveValue('Test Patient');
+    fireEvent.click(screen.getByRole('button', { name: 'Send Appointment Enquiry' }));
+    expect(await screen.findByRole('dialog', { name: /Thank you, Test Patient/ })).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    fireEvent.click(screen.getByRole('button', { name: 'Wait For A Call' }));
+  });
+
   it.each(formCases)('connects visible validation errors to fields and focuses the first error for %s', async (_variant, FormComponent, buttonName) => {
     render(<FormComponent />);
 

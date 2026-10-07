@@ -13,10 +13,13 @@ describe('scrollToPromotionForm', () => {
       callback(performance.now());
       return 1;
     };
+    window.history.replaceState({}, '', '/localreach-bridgwater');
+    const originalUrl = window.location.href;
 
     scrollToPromotionForm();
 
     expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto', block: 'start' });
     expect(document.querySelector('input')).toHaveFocus();
+    expect(window.location.href).toBe(originalUrl);
   });
 });

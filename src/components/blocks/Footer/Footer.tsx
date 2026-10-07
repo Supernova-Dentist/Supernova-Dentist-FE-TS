@@ -5,6 +5,7 @@ import { practiceLocation } from '@/lib/practiceLocation';
 import { socialIcons } from '@/lib/constants';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { isLocalReachPage } from '@/lib/localreach';
 import FooterLink from '../FooterLink/FooterLink';
 
 const patientCareLinks = [
@@ -36,7 +37,7 @@ export default function Footer() {
   const isConsultationPage =
     pathname === '/smile-makeover-consultation' ||
     pathname === '/book-appointment' ||
-    pathname === '/implant-consultation';
+    pathname === '/implant-consultation' || isLocalReachPage(pathname);
 
   return (
     <footer className={`bg-grey ${isConsultationPage ? '' : 'pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0'}`}>
