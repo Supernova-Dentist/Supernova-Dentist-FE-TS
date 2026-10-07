@@ -48,7 +48,11 @@ export const CornerNav = ({
 
 const LinksOverlay = () => {
   return (
-    <nav id='mobile-navigation-panel' aria-label='Mobile site navigation' className='relative mx-auto top-4 z-51 h-[calc(100vh)] w-[calc(100vw)] overflow-y-scroll'>
+    <nav
+      id='mobile-navigation-panel'
+      aria-label='Mobile site navigation'
+      className='relative mx-auto top-4 z-51 h-[calc(100vh)] w-[calc(100vw)] overflow-y-scroll'
+    >
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{
@@ -152,7 +156,11 @@ const NavLink = ({
         <motion.button
           type='button'
           initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0, transition: { delay: Math.min(idx * 0.02, 0.08), duration: 0.18, ease: 'easeOut' } }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: Math.min(idx * 0.02, 0.08), duration: 0.18, ease: 'easeOut' },
+          }}
           exit={{ opacity: 0, y: -8 }}
           onClick={onClick}
           aria-expanded={isActive}
@@ -175,7 +183,11 @@ const NavLink = ({
         <motion.a
           href={href}
           initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0, transition: { delay: Math.min(idx * 0.02, 0.08), duration: 0.18, ease: 'easeOut' } }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: Math.min(idx * 0.02, 0.08), duration: 0.18, ease: 'easeOut' },
+          }}
           exit={{ opacity: 0, y: -8 }}
           className='flex min-h-12 items-center rounded-sm text-lg font-semibold capitalize text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-dark md:text-3xl'
         >
@@ -377,7 +389,6 @@ const LINKS = [
       { title: 'Find us', href: '/find-us' },
       // { title: 'Social', href: '/social' },
       { title: 'Pricing', href: '/pricing' },
-      { title: 'Cancellations', href: '/cancellations' },
       {
         title: 'Enquiry',
         href: '/enquiry',
@@ -386,6 +397,7 @@ const LINKS = [
         title: 'Careers',
         href: '/careers',
       },
+      { title: 'Cancellations', href: '/cancellations' },
     ],
   },
   {
