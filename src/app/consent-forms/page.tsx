@@ -14,6 +14,12 @@ export const metadata: Metadata = {
 
 const consentForms = [
   {
+    title: 'Wisdom Tooth Removal / Oral Surgery',
+    description: 'Record the wisdom teeth, imaging findings, procedure and individual risks before collecting patient and clinician signatures.',
+    href: '/consent-forms/wisdom-tooth-removal',
+    status: 'Available',
+  },
+  {
     title: 'Dental Extraction / Oral Surgery',
     description:
       'Prepare the treatment details, review the risks and alternatives with the patient, and collect all required signatures.',
@@ -71,7 +77,7 @@ export default function ConsentFormsPage({ searchParams }: ConsentFormsPageProps
               <p className='mt-1 text-sm text-muted-foreground'>Choose the appropriate procedure.</p>
             </div>
             <span className='shrink-0 rounded-full border bg-white px-3 py-1 text-xs font-semibold text-muted-foreground'>
-              {consentForms.length} form
+              {consentForms.length} forms
             </span>
           </div>
 

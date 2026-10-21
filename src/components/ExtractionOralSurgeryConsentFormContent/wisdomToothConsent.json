@@ -1,0 +1,452 @@
+{
+  "title": "Wisdom Tooth Removal / Oral Surgery Consent",
+  "sections": [
+    {
+      "title": "Wisdom Tooth / Teeth to be Treated",
+      "paragraphs": [],
+      "fields": [
+        {
+          "kind": "choices",
+          "id": "tooth",
+          "label": "Wisdom Tooth / Teeth to be Treated",
+          "options": [
+            {
+              "id": "tooth0",
+              "label": "Upper Right (UR8)"
+            },
+            {
+              "id": "tooth1",
+              "label": "Upper Left (UL8)"
+            },
+            {
+              "id": "tooth2",
+              "label": "Lower Right (LR8)"
+            },
+            {
+              "id": "tooth3",
+              "label": "Lower Left (LL8)"
+            }
+          ],
+          "required": true,
+          "exclusive": false
+        }
+      ],
+      "after": []
+    },
+    {
+      "title": "Planned Procedure",
+      "paragraphs": [],
+      "fields": [
+        {
+          "kind": "choices",
+          "id": "procedure",
+          "label": "Planned Procedure",
+          "options": [
+            {
+              "id": "procedure0",
+              "label": "Simple extraction"
+            },
+            {
+              "id": "procedure1",
+              "label": "Surgical extraction"
+            },
+            {
+              "id": "procedure2",
+              "label": "Coronectomy"
+            },
+            {
+              "id": "procedure3",
+              "label": "Other"
+            }
+          ],
+          "required": true,
+          "exclusive": false
+        },
+        {
+          "kind": "text",
+          "id": "procedureOther",
+          "label": "Other procedure details",
+          "required": false
+        },
+        {
+          "kind": "choices",
+          "id": "imaging",
+          "label": "Relevant Imaging",
+          "options": [
+            {
+              "id": "imaging0",
+              "label": "OPG"
+            },
+            {
+              "id": "imaging1",
+              "label": "CBCT"
+            },
+            {
+              "id": "imaging2",
+              "label": "Other"
+            }
+          ],
+          "required": false,
+          "exclusive": false
+        },
+        {
+          "kind": "text",
+          "id": "imagingOther",
+          "label": "Other imaging details",
+          "required": false
+        },
+        {
+          "kind": "text",
+          "id": "imagingFindings",
+          "label": "Relevant imaging findings / proximity to anatomical structures:",
+          "required": false
+        }
+      ],
+      "after": []
+    },
+    {
+      "title": "Reason for Treatment",
+      "paragraphs": [
+        "The reason for recommending treatment has been discussed with me, including where applicable:"
+      ],
+      "fields": [
+        {
+          "kind": "choices",
+          "id": "reason",
+          "label": "Reason for Treatment",
+          "options": [
+            {
+              "id": "reason0",
+              "label": "Recurrent infection / pericoronitis"
+            },
+            {
+              "id": "reason1",
+              "label": "Dental decay"
+            },
+            {
+              "id": "reason2",
+              "label": "Gum/periodontal disease"
+            },
+            {
+              "id": "reason3",
+              "label": "Pain or other symptoms"
+            },
+            {
+              "id": "reason4",
+              "label": "Damage/risk to adjacent tooth"
+            },
+            {
+              "id": "reason5",
+              "label": "Cyst or other pathology"
+            },
+            {
+              "id": "reason6",
+              "label": "Other"
+            }
+          ],
+          "required": false,
+          "exclusive": false
+        },
+        {
+          "kind": "text",
+          "id": "reasonOther",
+          "label": "Other reason",
+          "required": false
+        }
+      ],
+      "after": []
+    },
+    {
+      "title": "General Risks and Possible Complications",
+      "paragraphs": [
+        "I understand that wisdom tooth removal is a surgical procedure and that possible risks and complications include:"
+      ],
+      "fields": [
+        {
+          "kind": "choices",
+          "id": "risk",
+          "label": "General Risks and Possible Complications",
+          "options": [
+            {
+              "id": "risk0",
+              "label": "Pain and tenderness following surgery"
+            },
+            {
+              "id": "risk1",
+              "label": "Swelling and bruising"
+            },
+            {
+              "id": "risk2",
+              "label": "Bleeding"
+            },
+            {
+              "id": "risk3",
+              "label": "Infection"
+            },
+            {
+              "id": "risk4",
+              "label": "Dry socket (alveolar osteitis)"
+            },
+            {
+              "id": "risk5",
+              "label": "Delayed or impaired healing"
+            },
+            {
+              "id": "risk6",
+              "label": "Difficulty opening the mouth (trismus)"
+            },
+            {
+              "id": "risk7",
+              "label": "Jaw stiffness"
+            },
+            {
+              "id": "risk8",
+              "label": "Damage to adjacent teeth, fillings, crowns or other dental work"
+            },
+            {
+              "id": "risk9",
+              "label": "Fracture of the tooth or root during removal"
+            },
+            {
+              "id": "risk10",
+              "label": "Retention of a small root fragment where removal would present a greater risk"
+            },
+            {
+              "id": "risk11",
+              "label": "Damage to surrounding gum, bone or soft tissues"
+            },
+            {
+              "id": "risk12",
+              "label": "Need for stitches/sutures"
+            },
+            {
+              "id": "risk13",
+              "label": "Need for further treatment, review or referral if complications occur"
+            },
+            {
+              "id": "risk14",
+              "label": "Rare risk of jaw fracture, particularly in complex cases"
+            }
+          ],
+          "required": false,
+          "exclusive": false
+        }
+      ],
+      "after": []
+    },
+    {
+      "title": "Lower Wisdom Teeth – Nerve Injury",
+      "paragraphs": [
+        "I understand that the roots of lower wisdom teeth can be close to important nerves, particularly the inferior alveolar nerve (IAN) and lingual nerve.",
+        "Injury or irritation to these nerves can result in altered sensation, numbness, tingling, burning or other sensory changes affecting areas including the:",
+        "Lower lip",
+        "Chin",
+        "Lower teeth and gums",
+        "Tongue",
+        "I understand that these changes may be temporary or, in some cases, prolonged or permanent.",
+        "Where relevant, my clinician has discussed the relationship between my wisdom tooth/teeth and the nerve as seen on my X-rays and/or CBCT scan."
+      ],
+      "fields": [
+        {
+          "kind": "choices",
+          "id": "nerve",
+          "label": "Nerve risk",
+          "options": [
+            {
+              "id": "nerve0",
+              "label": "Discussed / Applicable"
+            },
+            {
+              "id": "nerve1",
+              "label": "Not applicable"
+            }
+          ],
+          "required": true,
+          "exclusive": true
+        },
+        {
+          "kind": "text",
+          "id": "nerveFindings",
+          "label": "Individual nerve-risk/imaging findings:",
+          "required": false
+        }
+      ],
+      "after": []
+    },
+    {
+      "title": "Coronectomy",
+      "paragraphs": [
+        "Where a lower wisdom tooth is considered to be in close proximity to the inferior alveolar nerve, a coronectomy may be discussed as an alternative to complete removal.",
+        "I understand that a coronectomy involves removing the crown of the tooth while intentionally leaving the roots in place to reduce the risk of nerve injury.",
+        "I understand that retained roots may move, become exposed, become infected or require further treatment/removal at a later date."
+      ],
+      "fields": [
+        {
+          "kind": "choices",
+          "id": "coronectomy",
+          "label": "Coronectomy",
+          "options": [
+            {
+              "id": "coronectomy0",
+              "label": "Coronectomy discussed"
+            },
+            {
+              "id": "coronectomy1",
+              "label": "Coronectomy planned"
+            },
+            {
+              "id": "coronectomy2",
+              "label": "Not applicable"
+            }
+          ],
+          "required": true,
+          "exclusive": false
+        }
+      ],
+      "after": []
+    },
+    {
+      "title": "Upper Wisdom Teeth – Sinus Risks",
+      "paragraphs": [
+        "I understand that upper wisdom teeth may be situated close to the maxillary sinus.",
+        "Removal can occasionally result in an opening between the mouth and sinus (oro-antral communication), which may require additional treatment or surgical repair.",
+        "There is also a small risk of a tooth or root fragment being displaced into the sinus or surrounding tissues, which may require further treatment or referral."
+      ],
+      "fields": [
+        {
+          "kind": "choices",
+          "id": "sinus",
+          "label": "Sinus risk",
+          "options": [
+            {
+              "id": "sinus0",
+              "label": "Discussed / Applicable"
+            },
+            {
+              "id": "sinus1",
+              "label": "Not applicable"
+            }
+          ],
+          "required": true,
+          "exclusive": true
+        }
+      ],
+      "after": []
+    },
+    {
+      "title": "Patient-Specific / Additional Risks",
+      "paragraphs": [
+        "The following risks or considerations specific to my treatment have been discussed:"
+      ],
+      "fields": [
+        {
+          "kind": "text",
+          "id": "additionalRisks",
+          "label": "Patient-specific / additional risks",
+          "required": false
+        }
+      ],
+      "after": []
+    },
+    {
+      "title": "Alternatives to Treatment",
+      "paragraphs": [
+        "I understand that reasonable alternatives have been discussed with me where appropriate, which may include:"
+      ],
+      "fields": [
+        {
+          "kind": "choices",
+          "id": "alternative",
+          "label": "Alternatives to Treatment",
+          "options": [
+            {
+              "id": "alternative0",
+              "label": "No treatment / continued monitoring"
+            },
+            {
+              "id": "alternative1",
+              "label": "Treatment of symptoms/infection where appropriate"
+            },
+            {
+              "id": "alternative2",
+              "label": "Coronectomy instead of complete removal"
+            },
+            {
+              "id": "alternative3",
+              "label": "Referral for further assessment/specialist treatment"
+            },
+            {
+              "id": "alternative4",
+              "label": "Other"
+            }
+          ],
+          "required": false,
+          "exclusive": false
+        },
+        {
+          "kind": "text",
+          "id": "alternativeOther",
+          "label": "Other alternative details",
+          "required": false
+        }
+      ],
+      "after": [
+        "I understand the possible consequences of choosing not to proceed with the recommended treatment have also been explained to me."
+      ]
+    },
+    {
+      "title": "Anaesthetic / Sedation",
+      "paragraphs": [
+        "Planned anaesthesia:"
+      ],
+      "fields": [
+        {
+          "kind": "choices",
+          "id": "anaesthesia",
+          "label": "Planned anaesthesia",
+          "options": [
+            {
+              "id": "anaesthesia0",
+              "label": "Local anaesthetic"
+            },
+            {
+              "id": "anaesthesia1",
+              "label": "Local anaesthetic with sedation"
+            },
+            {
+              "id": "anaesthesia2",
+              "label": "Other"
+            }
+          ],
+          "required": true,
+          "exclusive": true
+        },
+        {
+          "kind": "text",
+          "id": "anaesthesiaOther",
+          "label": "Other anaesthetic details",
+          "required": false
+        }
+      ],
+      "after": [
+        "Where sedation is being provided, any additional consent and pre-operative requirements will be completed separately as appropriate."
+      ]
+    }
+  ],
+  "consentStatements": [
+    "The proposed procedure and reason for treatment have been explained to me.",
+    "I have been given information about the expected benefits, material risks and reasonable alternatives relevant to me.",
+    "I have had the opportunity to ask questions and these have been answered to my satisfaction.",
+    "Relevant X-rays/CBCT findings have been discussed with me where appropriate.",
+    "I have informed the clinician of my current medical conditions, medications, allergies and any changes to my medical history.",
+    "I understand that no guarantee can be given regarding the outcome of treatment.",
+    "I understand that unexpected findings during surgery may require the treatment plan to be altered where clinically necessary and appropriate.",
+    "I understand that I may withdraw my consent at any time before the procedure.",
+    "I voluntarily consent to the wisdom tooth procedure described above."
+  ],
+  "clinicianDeclaration": [
+    "I confirm that I have discussed the proposed procedure with the patient, including the reason for treatment, expected benefits, material and patient-specific risks, reasonable alternatives and the consequences of declining treatment.",
+    "Where appropriate, relevant imaging findings and the relationship of the tooth/teeth to the inferior alveolar nerve, lingual nerve and/or maxillary sinus have been discussed.",
+    "The patient has been given the opportunity to ask questions and has indicated that they understand the information provided."
+  ]
+}

@@ -27,6 +27,9 @@ import { useForm } from 'react-hook-form';
 import { FaTimes } from 'react-icons/fa';
 import { z } from 'zod';
 import SignatureField from '../SignatureField/SignatureField';
+import WisdomToothClinicalDetails, { WisdomTextField } from './WisdomToothClinicalDetails';
+import wisdomDefinition from './wisdomToothConsent.json';
+import { validateWisdomDetails } from './wisdomValidation';
 
 const CLINICIAN_GROUPS = [
   {
@@ -59,6 +62,7 @@ function getLocalDateAndTime() {
 }
 
 const formSchema = z.object({
+  wisdom: z.record(z.union([z.string(), z.boolean()])).default({}),
   // Patient & Procedure Details
   patientName: z.string().min(2, { message: 'Please provide the patient’s name.' }),
 
@@ -163,7 +167,7 @@ const formSchema = z.object({
   interpreterWitnessTime: z.string().optional(),
 });
 
-type FormValues = z.infer<typeof formSchema>;
+export type FormValues = z.infer<typeof formSchema>;
 type FormMode = 'clinicianPrep' | 'patientSigning' | 'clinicianReauth' | 'clinicianFinal';
 
 const PREPARATION_FIELDS: Array<keyof FormValues> = [
@@ -237,7 +241,11 @@ const PATIENT_FIELDS: Array<keyof FormValues> = [
 //   path: ['report1', 'report2'],
 // });
 
-export function ExtractionOralSurgeryConsentFormContent() {
+export function ExtractionOralSurgeryConsentFormContent({ formType = 'extraction' }: { formType?: 'extraction' | 'wisdom-tooth' }) {
+  const isWisdomTooth = formType === 'wisdom-tooth';
+  const schema = isWisdomTooth ? formSchema.superRefine((data, ctx) => {
+    validateWisdomDetails(data.wisdom).forEach(({ field, message }) => ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['wisdom', field], message }));
+  }) : formSchema;
   const router = useRouter();
   const [successModalVisible, setSuccessModalVisible] = useState(false);
   const [errorModalVisible, setErrorModalVisible] = useState(false);
@@ -251,8 +259,14 @@ export function ExtractionOralSurgeryConsentFormContent() {
   const clinicianSectionRef = useRef<HTMLElement | null>(null);
 
   const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
+      wisdom: isWisdomTooth ? Object.fromEntries([
+        ['treatingGdc', ''], ['clinicianGdc', ''],
+        ...wisdomDefinition.sections.flatMap((section) => section.fields.flatMap((field) =>
+          field.kind === 'choices' ? (field.options ?? []).map((option) => [option.id, false]) : [[field.id, '']]
+        )),
+      ]) : {},
       // Patient & Procedure Details
       patientName: '',
       dateOfBirth: '',
@@ -388,7 +402,8 @@ export function ExtractionOralSurgeryConsentFormContent() {
   };
 
   const handleBeginPatientMode = async () => {
-    const preparationIsValid = await form.trigger(PREPARATION_FIELDS, { shouldFocus: true });
+    if (isWisdomTooth) setValue('wisdom.clinicianGdc', form.getValues('wisdom.treatingGdc'));
+    const preparationIsValid = await form.trigger(isWisdomTooth ? [...PREPARATION_FIELDS, 'wisdom'] : PREPARATION_FIELDS, { shouldFocus: true });
 
     if (!preparationIsValid) return;
 
@@ -480,10 +495,11 @@ export function ExtractionOralSurgeryConsentFormContent() {
 
     try {
       const formData = new FormData();
+      formData.append('formType', formType);
 
       Object.entries(data).forEach(([key, value]) => {
         if (value !== undefined && value !== null) {
-          formData.append(key, String(value));
+          formData.append(key, key === 'wisdom' ? JSON.stringify(value) : String(value));
         }
       });
 
@@ -544,13 +560,13 @@ export function ExtractionOralSurgeryConsentFormContent() {
       <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
         <div className='container mx-auto pt-6 md:px-6'>
           <motion.div
-            className='mx-auto max-w-2xl space-y-6 bg-white p-8 md:p-12 rounded-lg shadow-lg'
+            className={`mx-auto max-w-2xl space-y-6 bg-white rounded-lg shadow-lg ${isWisdomTooth ? 'w-full min-w-0 p-4 sm:p-8 md:p-12 [&_*]:min-w-0' : 'p-8 md:p-12'}`}
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
             <Form {...form}>
-              <form id='extraction-oral-surgery-consent-form' onSubmit={handleFormSubmit} className='space-y-8'>
+              <form id={isWisdomTooth ? 'wisdom-tooth-consent-form' : 'extraction-oral-surgery-consent-form'} onSubmit={handleFormSubmit} className='space-y-8'>
                 <div
                   role='status'
                   className={`rounded-2xl border p-2 ${
@@ -710,6 +726,8 @@ export function ExtractionOralSurgeryConsentFormContent() {
                       </div>
                     </section>
 
+                    {isWisdomTooth && <WisdomTextField form={form} name='treatingGdc' label='Treating clinician GDC Number' />}
+                    {isWisdomTooth ? <WisdomToothClinicalDetails form={form} /> : <>
                     {/* Proposed Treatment */}
                     <section className='rounded-2xl border bg-card p-2 shadow-sm '>
                       <div className='mb-6 border-b pb-5'>
@@ -1203,6 +1221,8 @@ export function ExtractionOralSurgeryConsentFormContent() {
                       </section>
                     </div>
 
+                    </>}
+
                     {formMode === 'clinicianPrep' && (
                       <div className='rounded-2xl border border-primary/20 bg-primary/5 p-6 text-center'>
                         <h2 className='text-lg font-semibold'>Ready to hand over?</h2>
@@ -1227,7 +1247,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
 
                       <div className='rounded-xl border bg-muted/20 p-2'>
                         <ul className='space-y-4'>
-                          {[
+                          {(isWisdomTooth ? wisdomDefinition.consentStatements : [
                             'The proposed procedure has been explained to me in a way that I understand.',
                             'I have had the opportunity to discuss the benefits, material risks and reasonable alternatives to the proposed treatment.',
                             'I have had the opportunity to ask questions and these have been answered to my satisfaction.',
@@ -1236,7 +1256,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                             'I understand that unexpected findings during the procedure may require the treatment plan to be altered where clinically necessary and appropriate.',
                             'I understand that I may withdraw my consent at any time before the procedure.',
                             'I voluntarily consent to the extraction/oral surgical procedure described above.',
-                          ].map((statement, index) => (
+                          ]).map((statement, index) => (
                             <li key={index} className='flex items-start gap-3 text-sm leading-6'>
                               <span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground' />
                               <span>{statement}</span>
@@ -1416,9 +1436,10 @@ export function ExtractionOralSurgeryConsentFormContent() {
                           <h2 className='text-xl font-semibold tracking-tight'>Clinician Declaration</h2>
 
                           <p className='mt-2 text-sm leading-6 text-muted-foreground'>
-                            I confirm that I have discussed the proposed procedure with the patient, including its
+                            {isWisdomTooth ? wisdomDefinition.clinicianDeclaration.join(' ') : <>                            I confirm that I have discussed the proposed procedure with the patient, including its
                             purpose, expected benefits, material risks, reasonable alternatives and the consequences of
                             declining treatment. The patient has been given an opportunity to ask questions.
+                            </>}
                           </p>
                         </div>
 
@@ -1478,6 +1499,7 @@ export function ExtractionOralSurgeryConsentFormContent() {
                             )}
                           />
 
+                          {isWisdomTooth && <WisdomTextField form={form} name='clinicianGdc' label='Clinician GDC Number' />}
                           {/* Signature */}
                           <FormField
                             control={form.control}
