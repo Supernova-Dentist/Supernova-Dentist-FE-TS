@@ -1,5 +1,5 @@
 import { ExtractionOralSurgeryConsentFormContent } from '@/components/ExtractionOralSurgeryConsentFormContent/ExtractionOralSurgeryConsentFormContent';
-import { getTeamMember, teamMembers } from '@/data/team';
+import { getConsentClinicianGdcNumbers } from '@/data/consentClinicians';
 import { CONSENT_FORMS_SESSION_COOKIE, isConsentFormsSessionValid } from '@/lib/consentFormsAuth';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
@@ -27,11 +27,7 @@ export default function WisdomToothConsentFormPage() {
 
       <ExtractionOralSurgeryConsentFormContent
         formType='wisdom-tooth'
-        clinicianGdcNumbers={Object.fromEntries([
-          ...teamMembers.map((member) => [member.name, member.gdc ?? '']),
-          ['Dr. Alex Rawlins', getTeamMember('dr-alexandra-rawlins')?.gdc ?? ''],
-          ['Dr. Ashley Saredi', '284523'],
-        ])}
+        clinicianGdcNumbers={getConsentClinicianGdcNumbers()}
       />
     </div>
   );

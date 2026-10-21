@@ -29,7 +29,7 @@ import { z } from 'zod';
 import SignatureField from '../SignatureField/SignatureField';
 import WisdomToothClinicalDetails, { WisdomTextField } from './WisdomToothClinicalDetails';
 import wisdomDefinition from './wisdomToothConsent.json';
-import { validateWisdomDetails } from './wisdomValidation';
+import { validateClinicianGdcDetails, validateWisdomDetails } from './wisdomValidation';
 
 const CLINICIAN_GROUPS = [
   {
@@ -246,9 +246,10 @@ export function ExtractionOralSurgeryConsentFormContent({ formType = 'extraction
   clinicianGdcNumbers?: Record<string, string>;
 }) {
   const isWisdomTooth = formType === 'wisdom-tooth';
-  const schema = isWisdomTooth ? formSchema.superRefine((data, ctx) => {
-    validateWisdomDetails(data.wisdom).forEach(({ field, message }) => ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['wisdom', field], message }));
-  }) : formSchema;
+  const schema = formSchema.superRefine((data, ctx) => {
+    const errors = isWisdomTooth ? validateWisdomDetails(data.wisdom) : validateClinicianGdcDetails(data.wisdom);
+    errors.forEach(({ field, message }) => ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['wisdom', field], message }));
+  });
   const router = useRouter();
   const [successModalVisible, setSuccessModalVisible] = useState(false);
   const [errorModalVisible, setErrorModalVisible] = useState(false);
@@ -269,7 +270,7 @@ export function ExtractionOralSurgeryConsentFormContent({ formType = 'extraction
         ...wisdomDefinition.sections.flatMap((section) => section.fields.flatMap((field) =>
           field.kind === 'choices' ? (field.options ?? []).map((option) => [option.id, false]) : [[field.id, '']]
         )),
-      ]) : {},
+      ]) : { treatingGdc: '', clinicianGdc: '' },
       // Patient & Procedure Details
       patientName: '',
       dateOfBirth: '',
@@ -405,8 +406,8 @@ export function ExtractionOralSurgeryConsentFormContent({ formType = 'extraction
   };
 
   const handleBeginPatientMode = async () => {
-    if (isWisdomTooth) setValue('wisdom.clinicianGdc', form.getValues('wisdom.treatingGdc'));
-    const preparationIsValid = await form.trigger(isWisdomTooth ? [...PREPARATION_FIELDS, 'wisdom'] : PREPARATION_FIELDS, { shouldFocus: true });
+    setValue('wisdom.clinicianGdc', form.getValues('wisdom.treatingGdc'));
+    const preparationIsValid = await form.trigger([...PREPARATION_FIELDS, 'wisdom'], { shouldFocus: true });
 
     if (!preparationIsValid) return;
 
@@ -701,10 +702,8 @@ export function ExtractionOralSurgeryConsentFormContent({ formType = 'extraction
                                   onValueChange={(value) => {
                                     field.onChange(value);
                                     setValue('clinicianName', value);
-                                    if (isWisdomTooth) {
-                                      setValue('wisdom.treatingGdc', clinicianGdcNumbers[value] ?? '', { shouldValidate: true });
-                                      setValue('wisdom.clinicianGdc', clinicianGdcNumbers[value] ?? '');
-                                    }
+                                    setValue('wisdom.treatingGdc', clinicianGdcNumbers[value] ?? '', { shouldValidate: true });
+                                    setValue('wisdom.clinicianGdc', clinicianGdcNumbers[value] ?? '');
                                   }}
                                 >
                                   <FormControl>
@@ -733,7 +732,7 @@ export function ExtractionOralSurgeryConsentFormContent({ formType = 'extraction
                       </div>
                     </section>
 
-                    {isWisdomTooth && <WisdomTextField form={form} name='treatingGdc' label='Treating clinician GDC Number' readOnly={(clinicianGdcNumbers[form.watch('treatingClinician')] ?? '') !== ''} />}
+                    <WisdomTextField form={form} name='treatingGdc' label='Treating clinician GDC Number' readOnly={(clinicianGdcNumbers[form.watch('treatingClinician')] ?? '') !== ''} />
                     {isWisdomTooth ? <WisdomToothClinicalDetails form={form} /> : <>
                     {/* Proposed Treatment */}
                     <section className='rounded-2xl border bg-card p-2 shadow-sm '>
@@ -1483,7 +1482,7 @@ export function ExtractionOralSurgeryConsentFormContent({ formType = 'extraction
 
                                 <Select value={field.value} onValueChange={(value) => {
                                   field.onChange(value);
-                                  if (isWisdomTooth) setValue('wisdom.clinicianGdc', clinicianGdcNumbers[value] ?? '', { shouldValidate: true });
+                                  setValue('wisdom.clinicianGdc', clinicianGdcNumbers[value] ?? '', { shouldValidate: true });
                                 }}>
                                   <FormControl>
                                     <SelectTrigger className='h-12 text-base'>
@@ -1509,7 +1508,7 @@ export function ExtractionOralSurgeryConsentFormContent({ formType = 'extraction
                             )}
                           />
 
-                          {isWisdomTooth && <WisdomTextField form={form} name='clinicianGdc' label='Clinician GDC Number' readOnly={(clinicianGdcNumbers[form.watch('clinicianName')] ?? '') !== ''} />}
+                          <WisdomTextField form={form} name='clinicianGdc' label='Clinician GDC Number' readOnly={(clinicianGdcNumbers[form.watch('clinicianName')] ?? '') !== ''} />
                           {/* Signature */}
                           <FormField
                             control={form.control}

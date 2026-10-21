@@ -1,4 +1,5 @@
 import { ExtractionOralSurgeryConsentFormContent } from '@/components/ExtractionOralSurgeryConsentFormContent/ExtractionOralSurgeryConsentFormContent';
+import { getConsentClinicianGdcNumbers } from '@/data/consentClinicians';
 import { CONSENT_FORMS_SESSION_COOKIE, isConsentFormsSessionValid } from '@/lib/consentFormsAuth';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
@@ -24,7 +25,7 @@ export default function ExtractionOralSurgeryConsentFormPage() {
       <h1 className='text-3xl font-bold text-center mt-8'>SUPERNOVA DENTAL PRACTICE</h1>
       <h2 className='text-2xl font-semibold text-center mt-4'>CONSENT FOR DENTAL EXTRACTION / ORAL SURGERY</h2>
 
-      <ExtractionOralSurgeryConsentFormContent />
+      <ExtractionOralSurgeryConsentFormContent clinicianGdcNumbers={getConsentClinicianGdcNumbers()} />
     </div>
   );
 }
