@@ -200,6 +200,7 @@ export const teamMembers: TeamMember[] = [
     group: 'Dentists',
     image: alexImage,
     alt: 'Dr Alexandra Rawlins, dentist at Supernova Dental in Bridgwater',
+    gdc: '284505',
     qualifications: 'BDS (Hons) Cardiff 2019, MFDS RCPS(Glasg) 2021, PGCert 2023',
     biography: [
       'Alex’s area of expertise is Minor Oral Surgery, which includes treating impacted wisdom teeth, complex extractions and minor surgery on the soft tissues of the mouth.',
