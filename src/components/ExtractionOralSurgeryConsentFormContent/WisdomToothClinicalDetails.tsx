@@ -8,15 +8,17 @@ import type { UseFormReturn } from 'react-hook-form';
 import type { FormValues } from './ExtractionOralSurgeryConsentFormContent';
 import definition from './wisdomToothConsent.json';
 
-export function WisdomTextField({ form, name, label }: {
+export function WisdomTextField({ form, name, label, readOnly = false }: {
   form: UseFormReturn<FormValues>;
   name: string;
   label: string;
+  readOnly?: boolean;
 }) {
   return <FormField control={form.control} name={`wisdom.${name}`} render={({ field }) => (
     <FormItem>
       <FormLabel>{label}</FormLabel>
-      <FormControl><Input {...field} value={String(field.value ?? '')} className='h-12' /></FormControl>
+      <FormControl><Input {...field} value={String(field.value ?? '')} readOnly={readOnly} className={`h-12 ${readOnly ? 'bg-muted/40' : ''}`} /></FormControl>
+      <p className='text-xs text-muted-foreground'>{readOnly ? 'Filled automatically from the clinician’s team profile.' : 'Enter the clinician’s GDC number if it has not been filled automatically.'}</p>
       <FormMessage />
     </FormItem>
   )} />;
