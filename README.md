@@ -9,10 +9,14 @@ in this directory to use the version in `.nvmrc` locally.
 
 On Vercel, `engines.node` selects the 24.x release line; Vercel controls the
 exact patch version. Deploy the updated commit (or allow Git auto-deploy),
-and verify the deployed runtime is at least 24.22.1. Use `node -v` in the
-build command to check the build runtime and `process.version` in server logs
-to verify the running function runtime. A local version change alone does
-not confirm production is patched.
+and verify the deployed runtime is at least 24.22.1. The build command prints
+`[node-version:build] v...` in Build Logs. The instrumentation hook prints
+`[node-version:runtime] v...` when each Node.js server instance starts.
+After deployment, visit a server-rendered route such as `/consent-forms` and
+search Vercel Runtime Logs for `node-version:runtime`. Static pages may not
+start a server instance. The runtime entry confirms the serving process;
+the build entry only confirms the build machine. A local version change
+alone does not confirm production is patched.
 
 ## Pages Overview
 
