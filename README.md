@@ -1,5 +1,19 @@
 # Supernova Dental Website
 
+## Node.js runtime
+
+Use Node.js 24.22.1 or a later 24.x patch. Version 24.22.1 fixes the
+[October 2026 security vulnerabilities](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases),
+including CVE-2026-111497 in the Brotli decoder. Run `nvm install` and `nvm use`
+in this directory to use the version in `.nvmrc` locally.
+
+On Vercel, `engines.node` selects the 24.x release line; Vercel controls the
+exact patch version. Deploy the updated commit (or allow Git auto-deploy),
+and verify the deployed runtime is at least 24.22.1. Use `node -v` in the
+build command to check the build runtime and `process.version` in server logs
+to verify the running function runtime. A local version change alone does
+not confirm production is patched.
+
 ## Pages Overview
 
 ### **Home Page**
