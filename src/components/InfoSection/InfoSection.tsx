@@ -20,6 +20,7 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
     useCaseData,
     videoSrc,
     treatmentCasesVideoSrc,
+    treatmentCasesVideoPoster,
     treatmentCasesDescription,
   } = data;
 
@@ -83,6 +84,8 @@ export default function InfoSection({ data, id }: { data: any; id?: string }) {
                       className='mt-8 h-full w-full rounded-[1.25rem] border border-stone object-cover'
                       controls
                       preload='none'
+                      playsInline
+                      poster={treatmentCasesVideoPoster}
                       src={treatmentCasesVideoSrc}
                     />
                   </div>

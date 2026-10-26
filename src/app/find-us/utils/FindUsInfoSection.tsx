@@ -64,6 +64,7 @@ export default function FindUsInfoSection() {
                 className='aspect-video w-full object-cover'
                 controls
                 preload='none'
+                poster='/assets/images/supernova-parking-poster.webp'
                 playsInline
                 aria-label='Supernova Dental reserved patient parking information video'
               >

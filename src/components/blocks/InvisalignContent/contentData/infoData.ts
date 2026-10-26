@@ -18,6 +18,7 @@ export default {
     },
   ],
   treatmentCasesVideoSrc: '/assets/videos/invisalign_treatment_cases.mp4',
+  treatmentCasesVideoPoster: '/assets/images/invisalign-treatment-cases-poster.webp',
   treatmentCasesDescription:
     'See some example cases and the results that can be achieved with Invisalign below. Clear aligners can straighten teeth, close gaps, and improve bite alignment.',
 };
