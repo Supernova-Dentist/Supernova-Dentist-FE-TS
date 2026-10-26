@@ -30,10 +30,10 @@ const facilities = [
 
 export default function PracticeExperience() {
   return (
-    <main className='bg-porcelain text-obsidian mt-20'>
+    <main className='bg-porcelain text-obsidian'>
       <section className='relative isolate overflow-hidden bg-obsidian text-ivory'>
         <div aria-hidden='true' className='luxury-hero-glow absolute inset-0 -z-10' />
-        <div className='mx-auto max-w-7xl px-4 pb-16 pt-6 sm:px-6 md:pb-24 md:pt-10 lg:px-8'>
+        <div className='mx-auto max-w-7xl breadcrumb-hero-start px-4 pb-16 sm:px-6 md:pb-24 lg:px-8'>
           <BreadCrumb tone='dark' />
           <div className='grid gap-12 pt-14 md:pt-20 lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.75fr)] lg:items-center lg:gap-20'>
             <div>

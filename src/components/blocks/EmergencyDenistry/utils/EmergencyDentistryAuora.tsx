@@ -17,7 +17,7 @@ const actionClassName =
 
 const AuroraHero = () => {
   return (
-    <section className='relative isolate overflow-hidden bg-obsidian px-4 pb-16 pt-6 text-ivory sm:px-6 md:pb-24 lg:px-8'>
+    <section className='relative isolate overflow-hidden bg-obsidian breadcrumb-hero-start px-4 pb-16 text-ivory sm:px-6 md:pb-24 lg:px-8'>
       <div aria-hidden='true' className='luxury-hero-glow absolute inset-0 -z-10' />
       <div className='mx-auto max-w-7xl'>
         <BreadCrumb tone='dark' />

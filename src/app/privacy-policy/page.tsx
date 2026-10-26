@@ -1,4 +1,5 @@
 import SectionSpacing from '@/components/SectionSpacing/SectionSpacing';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import SubHeader from '@/components/SubHeader/SubHeader';
 import Image from 'next/image';
@@ -16,7 +17,10 @@ export default function PrivacyPolicyPage() {
   return (
     <div className='min-h-screen bg-gray-100'>
       {/* Page Header */}
-      <div className='bg-grey py-24 flex flex-col items-center justify-end'>
+      <div className='breadcrumb-hero-start bg-grey pb-16 flex flex-col items-center justify-end'>
+        <div className='mx-auto mb-10 w-full max-w-screen-lg px-8'>
+          <BreadCrumb tone='dark' />
+        </div>
         <h1 className='sr-only'>Privacy Policy</h1>
         <Image src={logo} alt='logo' className='w-16 h-16 object-cover mt-2' />
         <SectionTitle title='Privacy Policy' className='text-2xl' />

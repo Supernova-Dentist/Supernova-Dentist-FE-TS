@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 
 export default function Pricing() {
   return (
-    <main className='mt-12 min-w-0 overflow-x-clip bg-porcelain text-obsidian'>
+    <main className='min-w-0 overflow-x-clip bg-porcelain text-obsidian'>
       <section className='relative overflow-hidden bg-obsidian text-ivory'>
         <div className='absolute inset-0 luxury-hero-glow' aria-hidden='true' />
-        <div className='relative mx-auto max-w-7xl px-6 pb-16 pt-8 sm:px-8 lg:px-12 lg:pb-20'>
+        <div className='relative mx-auto max-w-7xl breadcrumb-hero-start px-6 pb-16 sm:px-8 lg:px-12 lg:pb-20'>
           <BreadCrumb tone='dark' />
           <div className='mt-14 max-w-3xl'>
             <p className='text-xs font-semibold uppercase tracking-[0.22em] text-gold-text-dark'>Supernova Dental</p>

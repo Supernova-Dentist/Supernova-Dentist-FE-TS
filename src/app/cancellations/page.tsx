@@ -1,4 +1,5 @@
 import { practiceLocation } from '@/lib/practiceLocation';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -11,9 +12,10 @@ export const metadata: Metadata = {
 
 export default function CancellationsPage() {
   return (
-    <main className='mt-20 bg-porcelain text-obsidian'>
+    <main className='bg-porcelain text-obsidian'>
       <header className='bg-obsidian text-ivory'>
-        <div className='mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-20'>
+        <div className='breadcrumb-hero-start mx-auto max-w-5xl px-5 pb-14 sm:px-8 sm:pb-20'>
+          <div className='mb-8'><BreadCrumb tone='dark' /></div>
           <Link href='/practice' className='inline-flex min-h-11 items-center text-sm text-ivory/75 underline underline-offset-4 hover:text-champagne'>
             About Supernova Dental
           </Link>

@@ -1,6 +1,7 @@
 'use client';
 
 import PricingCards from '@/components/Pricing/PricingCards';
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import PromotionForm from '@/components/PromotionForm/PromotionForm';
 import ServiceForm from '@/components/ServiceForm/ServiceForm';
 import SmileTransformations from '@/components/SmileTransformations/SmileTransformations';
@@ -37,6 +38,9 @@ export const SupernovaSmileStoriesContent = () => {
   return (
     <div className='bg-cream'>
       <h1 className='sr-only'>Supernova Smile Stories</h1>
+      <div className='breadcrumb-hero-start bg-obsidian px-5 pb-5 sm:px-8'>
+        <div className='mx-auto max-w-7xl'><BreadCrumb tone='dark' /></div>
+      </div>
       <SmileStoryHero />
       <div className='p-4 md:p-12 min-h-screen flex flex-col justify-center items-center'>
         <SmileStoryForm

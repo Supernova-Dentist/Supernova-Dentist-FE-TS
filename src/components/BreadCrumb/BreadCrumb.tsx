@@ -1,6 +1,5 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Fragment, useMemo } from 'react';
@@ -24,7 +23,6 @@ const formatName = (segment: string) =>
 const BreadCrumb = ({ tone = 'light' }: { tone?: 'light' | 'dark' }) => {
   const pathname = usePathname();
   const pathNames = pathname.split('/').filter(Boolean);
-  const reduceMotion = useReducedMotion();
   const isDark = tone === 'dark';
 
   const breadcrumbSchema = useMemo(() => {
@@ -60,13 +58,9 @@ const BreadCrumb = ({ tone = 'light' }: { tone?: 'light' | 'dark' }) => {
         }}
       />
 
-      <motion.div
-        initial={reduceMotion === true ? false : { opacity: 0.92, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2, ease: 'easeOut' }}
-      >
+      <div className='relative'>
         <Breadcrumb>
-          <BreadcrumbList className={isDark ? 'text-ivory/60' : 'text-taupe'}>
+          <BreadcrumbList className={`text-[0.9375rem] leading-6 ${isDark ? 'text-ivory/80' : 'text-taupe'}`}>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
                 <Link
@@ -116,7 +110,7 @@ const BreadCrumb = ({ tone = 'light' }: { tone?: 'light' | 'dark' }) => {
             })}
           </BreadcrumbList>
         </Breadcrumb>
-      </motion.div>
+      </div>
     </>
   );
 };

@@ -54,7 +54,7 @@ export const metadata = {
 export default function DentalFinance() {
   return (
     <>
-      <main className='bg-porcelain px-4 pb-12 pt-6 text-left sm:px-6 md:pb-20 lg:px-8'>
+      <main className='bg-porcelain breadcrumb-hero-start px-4 pb-12 text-left sm:px-6 md:pb-20 lg:px-8'>
         <section className='mx-auto flex max-w-7xl flex-col items-center rounded-[1.5rem] bg-obsidian px-5 pb-14 pt-6 text-center text-ivory shadow-[0_24px_70px_rgba(11,18,24,0.16)] sm:px-8 md:pb-20'>
           <div className='w-full text-left'>
             <BreadCrumb tone='dark' />

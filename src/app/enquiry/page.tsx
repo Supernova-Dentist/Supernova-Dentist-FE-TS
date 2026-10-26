@@ -22,10 +22,10 @@ const contactLinks = [
 
 export default function EnquiryForm() {
   return (
-    <main className='mt-12 min-w-0 overflow-x-clip bg-porcelain text-obsidian'>
+    <main className='min-w-0 overflow-x-clip bg-porcelain text-obsidian'>
       <section className='relative overflow-hidden bg-obsidian text-ivory'>
         <div className='absolute inset-0 luxury-hero-glow' aria-hidden='true' />
-        <div className='relative mx-auto max-w-7xl px-6 pb-16 pt-8 sm:px-8 lg:px-12 lg:pb-24'>
+        <div className='relative mx-auto max-w-7xl breadcrumb-hero-start px-6 pb-16 sm:px-8 lg:px-12 lg:pb-24'>
           <BreadCrumb tone='dark' />
           <div className='mt-12 grid gap-10 lg:grid-cols-[minmax(16rem,0.72fr)_minmax(0,1.28fr)] lg:gap-x-16'>
             <div className='max-w-xl lg:pt-6'>

@@ -30,6 +30,17 @@
 }
 
 @layer components {
+  /* Clear the fixed navigation before the breadcrumb row on page heroes. */
+  .breadcrumb-hero-start {
+    padding-top: 7rem;
+  }
+
+  @media (min-width: 1025px) {
+    .breadcrumb-hero-start {
+      padding-top: 8rem;
+    }
+  }
+
   .underline-animation {
     position: relative;
     overflow: hidden;

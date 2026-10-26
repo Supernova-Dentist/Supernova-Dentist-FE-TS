@@ -12,7 +12,7 @@ export default function FindUsInfoSection() {
           <h2 id='visit-information-heading' className='text-3xl leading-tight sm:text-4xl'>Everything you need before you arrive</h2>
         </div>
 
-        <div className='grid gap-6 lg:grid-cols-[0.82fr_1.18fr]'>
+        <div className='grid items-start gap-6 lg:grid-cols-[0.82fr_1.18fr]'>
           <div className='rounded-[1.25rem] border border-stone bg-porcelain p-6 sm:p-8'>
             <h3 className='text-2xl'>Opening hours</h3>
             <dl className='mt-5 divide-y divide-stone text-taupe'>
@@ -61,7 +61,7 @@ export default function FindUsInfoSection() {
             <p className='mt-4 max-w-xl leading-7 text-ivory/75'>{practiceLocation.parking}</p>
             <div className='mt-7 overflow-hidden rounded-xl border border-champagne/30 bg-deep-navy'>
               <video
-                className='aspect-video w-full object-cover'
+                className='block aspect-video w-full object-cover'
                 controls
                 preload='none'
                 poster='/assets/images/supernova-parking-poster.webp'

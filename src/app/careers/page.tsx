@@ -1,3 +1,4 @@
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { CareersOutlineCards } from '@/components/OutlineCards/CareersOutlineCards';
 import { type Metadata } from 'next';
 import Image from 'next/image';
@@ -39,12 +40,15 @@ const careersSchema = {
 
 export default function CareersPage() {
   return (
-    <main className='mt-20 bg-porcelain text-obsidian'>
+    <main className='bg-porcelain text-obsidian'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(careersSchema) }} />
 
       <section className='relative isolate overflow-hidden bg-obsidian text-ivory'>
         <div aria-hidden='true' className='luxury-hero-glow absolute inset-0 -z-10' />
-        <div className='mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-6 sm:px-6 md:pb-24 md:pt-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.75fr)] lg:items-center lg:gap-20 lg:px-8'>
+        <div className='breadcrumb-hero-start mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+          <BreadCrumb tone='dark' />
+        </div>
+        <div className='mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-10 sm:px-6 md:pb-24 md:pt-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,0.75fr)] lg:items-center lg:gap-20 lg:px-8'>
           <div>
             <p className='mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-champagne sm:text-sm'>
               Careers at Supernova Dental
