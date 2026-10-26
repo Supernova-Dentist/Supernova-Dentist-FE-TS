@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -45,9 +45,7 @@ export default function CompositeBondingIntroSection() {
           carefully repairs chipped teeth, closes small gaps, and improves tooth shape to create a natural-looking,
           radiant smile.
         </p>
-        <Link href={`/enquiry?ref=${encodeURIComponent('cosmetic-dentistry/composite-bonding')}`}>
-          <Button className='mt-6 w-fit p-6'>Book Your Consultation</Button>
-        </Link>
+        <ServiceEnquiryLink referringPage='cosmetic-dentistry/composite-bonding' className='mt-6' />
       </motion.div>
 
       {/* Image Section */}

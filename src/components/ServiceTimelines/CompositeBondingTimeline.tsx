@@ -1,7 +1,7 @@
 'use client';
 
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Link from 'next/link';
 import React, { useRef } from 'react';
 
 interface TimelineEntry {
@@ -68,11 +68,7 @@ export const CompositeBondingTimeline = ({ data }: TimelineProps) => {
       </div>
 
       <div className='flex justify-center mb-6 py-6'>
-        <Link href={`/enquiry?ref=${encodeURIComponent('cosmetic-dentistry/composite-bonding')}`}>
-          <button className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'>
-            Begin Your Composite Bonding Journey!
-          </button>
-        </Link>
+        <ServiceEnquiryLink referringPage='cosmetic-dentistry/composite-bonding' className='mt-6' />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -49,9 +49,7 @@ export default function TeethWhiteningIntroSection() {
           provides dentist-supervised whitening using trusted formulas to gently remove stains and reveal a naturally
           whiter smile.
         </p>
-        <Link href={`/enquiry?ref=${encodeURIComponent('cosmetic-dentistry/teeth-whitening')}`}>
-          <Button className='mt-6 w-fit p-6'>Book Your Consultation</Button>
-        </Link>
+        <ServiceEnquiryLink referringPage='cosmetic-dentistry/teeth-whitening' className='mt-6' />
       </motion.div>
 
       {/* Image Section */}

@@ -4,6 +4,8 @@ import { DentallyPortal } from '@/lib/constants';
 import { isLocalReachPage } from '@/lib/localreach';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { getServiceAction } from '@/lib/serviceActions';
+import ServiceActions from './ServiceActions';
 
 const consultationRoutes = new Set(['/smile-makeover-consultation', '/book-appointment', '/implant-consultation']);
 
@@ -28,6 +30,7 @@ export default function FloatingMenu() {
   }, []);
 
   if (consultationRoutes.has(pathname) || isLocalReachPage(pathname)) return null;
+  if (getServiceAction(pathname) !== undefined) return <ServiceActions key={pathname} pathname={pathname} />;
 
   const tabIndex = isQuickActionsVisible ? undefined : -1;
 

@@ -1,9 +1,8 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import camImage from '../../../../../public/assets/images/Headshots/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp';
@@ -45,9 +44,7 @@ export default function DentalImplantsIntroSection() {
           implantologist provides personalised care using modern techniques to deliver strong, natural-looking results
           that can last for many years.
         </p>
-        <Link href={`/enquiry?ref=${encodeURIComponent('cosmetic-dentistry/dental-implants')}`}>
-          <Button className='mt-6 w-fit p-6'>Book Your Consultation</Button>
-        </Link>
+        <ServiceEnquiryLink referringPage='cosmetic-dentistry/dental-implants' className='mt-6' />
       </motion.div>
 
       {/* Image Section */}

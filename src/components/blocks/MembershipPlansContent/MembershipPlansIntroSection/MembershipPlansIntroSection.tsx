@@ -1,9 +1,8 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 import membershipPlansImage from '../../../../../public/assets/images/supernova-dental-bridgwater-reception-new-patients.webp';
 import OverallGoogleRating from '../../OverallGoogleRating/OverallGoogleRating';
@@ -50,9 +49,7 @@ export default function MembershipPlansIntroSection() {
           make looking after your teeth straightforward and predictable.
         </p>
 
-        <Link href={`/enquiry?ref=${encodeURIComponent('general-dentistry/dental-membership-plans')}`}>
-          <Button className='mt-6 w-fit p-6'>Ask About Our Membership Plans</Button>
-        </Link>
+        <ServiceEnquiryLink referringPage='general-dentistry/dental-membership-plans' className='mt-6' />
       </motion.div>
 
       {/* Image Section */}

@@ -1,7 +1,7 @@
 'use client';
 
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Link from 'next/link';
 import React, { useRef } from 'react';
 
 interface TimelineEntry {
@@ -86,11 +86,7 @@ export const NewPatientTimeline = ({ data }: TimelineProps) => {
 
       {/* CTA Button */}
       <div className='flex justify-center pb-6'>
-        <Link href={`/enquiry?ref=${encodeURIComponent('general-dentistry/new-patient-examination')}`}>
-          <button className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'>
-            Book Your New Patient Exam
-          </button>
-        </Link>
+        <ServiceEnquiryLink referringPage='general-dentistry/new-patient-examination' className='mt-6' />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -44,9 +44,7 @@ export default function NewPatientIntroSection() {
           will assess your oral health, review your dental history, and create a personalised plan for your teeth and
           gums. We make sure every new patient leaves with a clear understanding of their dental health and next steps.
         </p>
-        <Link href={`/enquiry?ref=${encodeURIComponent('general-dentistry/new-patient-examination')}`}>
-          <Button className='mt-6 w-fit p-6'>Book Your New Patient Exam</Button>
-        </Link>
+        <ServiceEnquiryLink referringPage='general-dentistry/new-patient-examination' className='mt-6' />
       </motion.div>
 
       {/* Image Section */}

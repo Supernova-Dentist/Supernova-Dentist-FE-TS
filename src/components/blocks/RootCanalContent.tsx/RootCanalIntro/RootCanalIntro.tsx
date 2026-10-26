@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -48,9 +48,7 @@ export default function RootCanalIntroSection() {
           confidence again. We focus on making the treatment as comfortable and stress-free as possible.
         </p>
 
-        <Link href={`/enquiry?ref=${encodeURIComponent('general-dentistry/root-canal-treatment')}`}>
-          <Button className='mt-6 w-fit p-6'>Register Now!</Button>
-        </Link>
+        <ServiceEnquiryLink referringPage='general-dentistry/root-canal-treatment' className='mt-6' />
       </motion.div>
 
       {/* Image Section */}

@@ -309,7 +309,7 @@ export default function ServiceForm({
               )}
             </div>
             <Card className='service-form-card m-auto flex max-h-[52rem] w-full max-w-lg items-center justify-center rounded-[1.5rem] border border-champagne/25 bg-porcelain p-2 text-obsidian shadow-[0_24px_70px_rgba(0,0,0,0.28)] md:p-4'>
-              <form id={formId} onSubmit={handleSubmit(onSubmit)}>
+              <form id={formId} tabIndex={-1} aria-label={formTitle} className='scroll-mt-28 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne' onSubmit={handleSubmit(onSubmit)}>
                 <CardHeader className='text-center mb-2'>
                   <h2 className='text-2xl font-semibold leading-none tracking-tight md:text-3xl'>{formTitle}</h2>
                   <CardDescription className='text-md text-taupe md:text-lg'>{formDescription}</CardDescription>
@@ -382,7 +382,7 @@ export default function ServiceForm({
                     )}
                   </div>
                   <span className='flex items-center gap-1'>
-                    <span className='text-sm'>By signing up, you agree to our</span>
+                    <span className='text-sm'>By sending an enquiry, you agree to our</span>
                     <Button
                       type='button'
                       variant='link'
@@ -400,7 +400,7 @@ export default function ServiceForm({
                     aria-busy={isSubmitting}
                     className='min-h-11 w-full bg-champagne py-3 text-lg text-obsidian hover:bg-lightGold focus-visible:ring-champagne'
                   >
-                    {isSubmitting ? <BarLoader /> : 'Register'}
+                    {isSubmitting ? <BarLoader /> : 'Send enquiry'}
                   </Button>
                 </CardFooter>
               </form>

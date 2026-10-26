@@ -5,6 +5,7 @@ import MainNav from '@/components/blocks/MainNav/MainNav';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import { type ReactNode, useEffect } from 'react';
+import { getServiceAction } from '@/lib/serviceActions';
 
 const FloatingMenu = dynamic(async () => await import('@/components/FloatingMenu/FloatingMenu'), { ssr: false });
 
@@ -27,7 +28,7 @@ export default function RouteAwareSiteShell({ children }: RouteAwareSiteShellPro
   }
 
   return (
-    <div className='flex min-h-[100dvh] flex-col'>
+    <div className={`flex min-h-[100dvh] flex-col ${getServiceAction(pathname) !== undefined ? 'pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0' : ''}`}>
       <MainNav />
       <div className='flex-1'>{children}</div>
       <FloatingMenu />

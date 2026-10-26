@@ -1,7 +1,7 @@
 'use client';
 
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Link from 'next/link';
 import React, { useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -98,11 +98,7 @@ export const DentalImplantTimeline = ({ data }: TimelineProps) => {
         </div>
 
         <div className='flex justify-center pb-6'>
-          <Link href={`/enquiry?ref=${encodeURIComponent('cosmetic-dentistry/dental-implants')}`}>
-            <button className='bg-gold text-white px-8 py-4 rounded-lg text-lg font-semibold'>
-              Begin Your Journey!
-            </button>
-          </Link>
+          <ServiceEnquiryLink referringPage='cosmetic-dentistry/dental-implants' className='mt-6' />
         </div>
       </motion.div>
     </div>

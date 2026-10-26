@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { ServiceEnquiryLink } from '@/components/EnquiryButton/EnquiryButton';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -48,9 +48,7 @@ export default function DenturesIntro() {
           secure and natural-looking.
         </p>
 
-        <Link href={`/enquiry?ref=${encodeURIComponent('general-dentistry/dentures')}`}>
-          <Button className='mt-6 w-fit p-6'>Book Your Consultation</Button>
-        </Link>
+        <ServiceEnquiryLink referringPage='general-dentistry/dentures' className='mt-6' />
       </motion.div>
 
       {/* Image Section */}
