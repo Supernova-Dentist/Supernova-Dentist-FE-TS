@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node -e \"console.info('[node-version:build]', process.version)\" && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
@@ -94,5 +94,8 @@
     "typescript": "*",
     "vitest": "^2.1.9"
   },
-  "packageManager": "yarn@4.12.0"
+  "packageManager": "yarn@4.12.0",
+  "engines": {
+    "node": ">=24.22.1 <25"
+  }
 }
