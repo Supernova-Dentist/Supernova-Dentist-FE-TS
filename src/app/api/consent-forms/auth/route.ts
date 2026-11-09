@@ -19,8 +19,10 @@ export async function POST(request: Request) {
   }
 
   let isValid = false;
+  let sessionToken = '';
   try {
     isValid = isConsentFormsPasscodeValid(passcode);
+    if (isValid) sessionToken = createConsentFormsSessionToken();
   } catch {
     return NextResponse.json({ message: 'Consent forms are not configured.' }, { status: 503 });
   }
@@ -33,7 +35,7 @@ export async function POST(request: Request) {
   const response = NextResponse.json({ authenticated: true });
   response.cookies.set({
     name: CONSENT_FORMS_SESSION_COOKIE,
-    value: createConsentFormsSessionToken(),
+    value: sessionToken,
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'strict',

@@ -17,7 +17,7 @@ export default function ExtractionOralSurgeryConsentFormPage() {
   const sessionToken = cookies().get(CONSENT_FORMS_SESSION_COOKIE)?.value;
 
   if (!isConsentFormsSessionValid(sessionToken)) {
-    redirect('/consent-forms?next=/consent-forms/extraction-oral-surgery');
+    redirect('/admin/consent-forms?next=/admin/consent-forms/extraction-oral-surgery');
   }
 
   return (

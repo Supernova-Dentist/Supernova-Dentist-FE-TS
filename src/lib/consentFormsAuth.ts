@@ -3,7 +3,6 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 export const CONSENT_FORMS_SESSION_COOKIE = 'consent_forms_session';
 
 const SESSION_DURATION_MS = 30 * 60 * 1000;
-const DEFAULT_DEVELOPMENT_PASSCODE = '2024';
 const DEFAULT_DEVELOPMENT_SECRET = 'supernova-consent-forms-development-secret';
 
 function getSessionSecret() {
@@ -25,16 +24,9 @@ function safelyCompare(left: string, right: string) {
 }
 
 export function isConsentFormsPasscodeValid(passcode: string) {
-  const configuredPasscode = process.env.CONSENT_FORMS_PASSCODE;
-  const expectedPasscode =
-    configuredPasscode !== undefined && configuredPasscode.length >= 6
-      ? configuredPasscode
-      : process.env.NODE_ENV !== 'production'
-        ? DEFAULT_DEVELOPMENT_PASSCODE
-        : undefined;
-
-  if (expectedPasscode === undefined) {
-    throw new Error('CONSENT_FORMS_PASSCODE must be configured in production.');
+  const expectedPasscode = process.env.CONSENT_FORMS_PASSCODE;
+  if (expectedPasscode === undefined || !/^\d{6}$/.test(expectedPasscode)) {
+    throw new Error('CONSENT_FORMS_PASSCODE must be configured as a six-digit code.');
   }
 
   return safelyCompare(passcode, expectedPasscode);

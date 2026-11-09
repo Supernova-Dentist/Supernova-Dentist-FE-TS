@@ -7,6 +7,7 @@ import { useEffect, type PropsWithChildren } from 'react';
 export default function TrackingProvider({ children }: PropsWithChildren) {
   const pathname = usePathname();
   useEffect(() => {
+    if (pathname === '/admin' || pathname.startsWith('/admin/')) return;
     const capture = () => {
       if (hasAnalyticsConsent()) saveTracking();
     };
@@ -16,6 +17,7 @@ export default function TrackingProvider({ children }: PropsWithChildren) {
   }, [pathname]);
 
   useEffect(() => {
+    if (pathname === '/admin' || pathname.startsWith('/admin/')) return;
     const pageUrl = window.location.href;
     let activeSince = document.visibilityState === 'visible' ? performance.now() : null;
     const flush = () => {

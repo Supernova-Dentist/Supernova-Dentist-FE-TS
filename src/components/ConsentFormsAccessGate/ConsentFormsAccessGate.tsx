@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const PASSCODE_LENGTH = 6;
@@ -8,10 +7,10 @@ const KEYPAD_DIGITS = ['1', '2', '3', '4', '5', '6', '7', '8', '9'] as const;
 
 interface ConsentFormsAccessGateProps {
   redirectTo: string;
+  title?: string;
 }
 
-export default function ConsentFormsAccessGate({ redirectTo }: ConsentFormsAccessGateProps) {
-  const router = useRouter();
+export default function ConsentFormsAccessGate({ redirectTo, title = 'Consent forms' }: ConsentFormsAccessGateProps) {
   const [passcodeEntry, setPasscodeEntry] = useState('');
   const [passcodeError, setPasscodeError] = useState('');
   const [isChecking, setIsChecking] = useState(false);
@@ -24,20 +23,25 @@ export default function ConsentFormsAccessGate({ redirectTo }: ConsentFormsAcces
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ passcode }),
+        signal: AbortSignal.timeout(15_000),
       });
 
       if (!response.ok) {
-        setPasscodeEntry('');
-        setPasscodeError('Incorrect passcode. Please try again.');
+        if (response.status === 503) {
+          setPasscodeError('Staff access is not configured in this environment.');
+        } else {
+          setPasscodeError(response.status === 401 ? 'Incorrect passcode. Please try again.' : 'Unable to check the passcode. Please try again.');
+        }
         return;
       }
 
-      router.replace(redirectTo);
-      router.refresh();
+      // Request a fresh page so the server sees the new session cookie, even
+      // when the destination is the page that displayed the keypad.
+      window.location.replace(redirectTo);
     } catch {
-      setPasscodeEntry('');
       setPasscodeError('Unable to check the passcode. Please try again.');
     } finally {
+      setPasscodeEntry('');
       setIsChecking(false);
     }
   };
@@ -74,7 +78,7 @@ export default function ConsentFormsAccessGate({ redirectTo }: ConsentFormsAcces
           </div>
           <p className='mt-2 text-xs font-bold uppercase tracking-[0.2em] text-gold'>Supernova Dental Practice</p>
           <h1 id='access-title' className='mt-2 text-2xl font-bold tracking-tight'>
-            Consent forms
+            {title}
           </h1>
           <p className='mt-2 text-sm leading-6 text-muted-foreground'>
             Enter the six-digit staff passcode to continue.

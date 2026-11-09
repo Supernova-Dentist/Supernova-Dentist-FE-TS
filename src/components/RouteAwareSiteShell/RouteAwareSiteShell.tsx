@@ -15,15 +15,15 @@ interface RouteAwareSiteShellProps {
 
 export default function RouteAwareSiteShell({ children }: RouteAwareSiteShellProps) {
   const pathname = usePathname();
-  const isConsentFormsRoute = pathname === '/consent-forms' || pathname.startsWith('/consent-forms/');
+  const isStaffRoute = pathname === '/admin' || pathname.startsWith('/admin/');
 
   useEffect(() => {
-    document.body.classList.toggle('consent-forms-route', isConsentFormsRoute);
+    document.body.classList.toggle('consent-forms-route', isStaffRoute);
 
     return () => document.body.classList.remove('consent-forms-route');
-  }, [isConsentFormsRoute]);
+  }, [isStaffRoute]);
 
-  if (isConsentFormsRoute) {
+  if (isStaffRoute) {
     return <div className='min-h-[100dvh]'>{children}</div>;
   }
 

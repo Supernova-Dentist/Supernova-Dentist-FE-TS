@@ -17,7 +17,7 @@ export default function WisdomToothConsentFormPage() {
   const sessionToken = cookies().get(CONSENT_FORMS_SESSION_COOKIE)?.value;
 
   if (!isConsentFormsSessionValid(sessionToken)) {
-    redirect('/consent-forms?next=/consent-forms/wisdom-tooth-removal');
+    redirect('/admin/consent-forms?next=/admin/consent-forms/wisdom-tooth-removal');
   }
 
   return (

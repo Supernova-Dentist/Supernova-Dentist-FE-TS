@@ -37,6 +37,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/consent-forms/:path*',
+        destination: '/admin/consent-forms/:path*',
+        permanent: false,
+      },
+      {
         source: '/invisalign',
         destination: '/cosmetic-dentistry/invisalign',
         permanent: true,

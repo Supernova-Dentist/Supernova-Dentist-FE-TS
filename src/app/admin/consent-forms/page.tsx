@@ -16,14 +16,14 @@ const consentForms = [
   {
     title: 'Wisdom Tooth Removal / Oral Surgery',
     description: 'Record the wisdom teeth, imaging findings, procedure and individual risks before collecting patient and clinician signatures.',
-    href: '/consent-forms/wisdom-tooth-removal',
+    href: '/admin/consent-forms/wisdom-tooth-removal',
     status: 'Available',
   },
   {
     title: 'Dental Extraction / Oral Surgery',
     description:
       'Prepare the treatment details, review the risks and alternatives with the patient, and collect all required signatures.',
-    href: '/consent-forms/extraction-oral-surgery',
+    href: '/admin/consent-forms/extraction-oral-surgery',
     status: 'Available',
   },
 ] as const;
@@ -36,8 +36,10 @@ interface ConsentFormsPageProps {
 
 export default function ConsentFormsPage({ searchParams }: ConsentFormsPageProps) {
   const sessionToken = cookies().get(CONSENT_FORMS_SESSION_COOKIE)?.value;
-  const requestedPath = typeof searchParams?.next === 'string' ? searchParams.next : '/consent-forms';
-  const redirectTo = requestedPath.startsWith('/') && !requestedPath.startsWith('//') ? requestedPath : '/consent-forms';
+  const requestedPath = typeof searchParams?.next === 'string'
+    ? searchParams.next.replace(/^\/consent-forms\//, '/admin/consent-forms/')
+    : undefined;
+  const redirectTo = consentForms.find((form) => form.href === requestedPath)?.href ?? '/admin/consent-forms';
 
   if (!isConsentFormsSessionValid(sessionToken)) {
     return <ConsentFormsAccessGate redirectTo={redirectTo} />;
@@ -46,6 +48,7 @@ export default function ConsentFormsPage({ searchParams }: ConsentFormsPageProps
   return (
     <main className='min-h-[100dvh] bg-gradient-to-b from-cream/60 via-white to-white px-5 py-8 sm:px-8 sm:py-20'>
       <div className='mx-auto max-w-5xl'>
+        <Link href='/admin' className='inline-flex min-h-11 items-center text-sm font-semibold underline underline-offset-4'>← Admin hub</Link>
         <header className='mx-auto max-w-2xl text-center'>
           <div className='mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gold/10 text-gold'>
             <svg

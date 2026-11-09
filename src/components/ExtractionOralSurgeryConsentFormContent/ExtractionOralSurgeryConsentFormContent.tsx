@@ -543,7 +543,7 @@ export function ExtractionOralSurgeryConsentFormContent({ formType = 'extraction
     setSubmittedData(null);
     resetPasscodeEntry();
     form.reset();
-    router.replace('/consent-forms');
+    router.replace('/admin/consent-forms');
   }
 
   const handleSubmit = async (data: FormValues) => {
