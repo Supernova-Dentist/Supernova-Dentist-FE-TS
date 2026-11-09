@@ -18,6 +18,10 @@ use the existing endpoints.
    email service. The confirmation offers a PDF download and an email retry if
    delivery is unconfirmed.
 
+If you are taking cash yourself, select **Taking cash directly from the till**,
+enter the amount, select Adam, Scott or **Other team member**, and sign once.
+The PDF records you as the collector and is emailed to the same inbox.
+
 ## Deployment settings
 
 Deploy the enquiry backend before the frontend. Set these values in the

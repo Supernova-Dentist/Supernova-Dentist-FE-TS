@@ -22,9 +22,11 @@ interface SavedHandover {
   id: string;
   amountPence: number;
   emailStatus: 'sent' | 'pending' | 'untracked';
+  directCollection?: boolean;
 }
 
 const initialValues = {
+  directCollection: false,
   staffName: '', staffOther: '', handoverAt: '', recipientName: '', recipientOther: '', recipientAt: '',
   amount: '', handoverSignature: '', recipientSignature: '',
 };
@@ -82,6 +84,8 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
   const [error, setError] = useState<unknown>(null);
   const [saved, setSaved] = useState<SavedHandover | null>(null);
   const [retrying, setRetrying] = useState(false);
+  const directCollection = watch('directCollection');
+  const handoverNames = directCollection ? usualRecipients : staffNames;
   const staffSigned = watch('handoverSignature') !== '';
   const recipientSigned = watch('recipientSignature') !== '';
 
@@ -96,6 +100,12 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
     resetRecipient();
   };
 
+  const changeCollectionMode = () => {
+    setValue('staffName', '');
+    setValue('staffOther', '');
+    resetSignatures();
+  };
+
   const submit = handleSubmit(async (data) => {
     setError(null);
     const amount = /^(\d{1,6})(?:\.(\d{1,2}))?$/.exec(data.amount.trim());
@@ -104,14 +114,14 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
       setError(new BankingError('Enter the cash amount in pounds, for example 250.00.'));
       return;
     }
-    if (data.handoverSignature === '' || data.recipientSignature === '') {
-      setError(new BankingError('Both people must sign the handover.'));
+    if (data.handoverSignature === '' || (!data.directCollection && data.recipientSignature === '')) {
+      setError(new BankingError(data.directCollection ? 'Sign to confirm you collected the cash.' : 'Both people must sign the handover.'));
       return;
     }
     const staffName = (data.staffName === otherName ? data.staffOther : data.staffName).trim();
     const recipientName = (data.recipientName === otherName ? data.recipientOther : data.recipientName).trim();
-    if (staffName.toLowerCase() === recipientName.toLowerCase()) {
-      setError(new BankingError('Select two different people for the handover.'));
+    if (!data.directCollection && staffName.toLowerCase() === recipientName.toLowerCase()) {
+      setError(new BankingError('Select two different people, or choose “Taking cash directly from the till” if you collected it yourself.'));
       return;
     }
     try {
@@ -123,12 +133,15 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
           id: id.current,
           amountPence,
           reference: 'Reception till',
+          directCollection: data.directCollection,
           staffName,
-          recipientName,
           handoverAt: data.handoverAt,
-          recipientAt: data.recipientAt,
           handoverSignature: data.handoverSignature,
-          recipientSignature: data.recipientSignature,
+          ...(!data.directCollection && {
+            recipientName,
+            recipientAt: data.recipientAt,
+            recipientSignature: data.recipientSignature,
+          }),
         }),
       });
       id.current = undefined;
@@ -156,7 +169,7 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
       <h2 id='new-handover' className='text-xl font-bold'>New cash handover</h2>
       {saved !== null ? (
         <div className='mt-4 rounded-xl bg-emerald-50 p-4'>
-          <p role='status' className='font-semibold text-emerald-900'>Signed handover saved for {formatAmount.format(saved.amountPence / 100)}.</p>
+          <p role='status' className='font-semibold text-emerald-900'>{saved.directCollection === true ? 'Signed collection' : 'Signed handover'} saved for {formatAmount.format(saved.amountPence / 100)}.</p>
           <p role='status' className='mt-1 text-sm'>{saved.emailStatus === 'sent'
             ? 'The signed PDF was emailed to enquiries@supernovadental.co.uk.'
             : 'Email delivery is unconfirmed. You can retry it here or download the PDF.'}</p>
@@ -167,7 +180,7 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
                 {retrying ? 'Checking email delivery…' : 'Retry sending PDF'}
               </Button>
             )}
-            <Button type='button' variant='outline' disabled={retrying} onClick={() => { setSaved(null); setError(null); }}>Start another handover</Button>
+            <Button type='button' variant='outline' disabled={retrying} onClick={() => { setSaved(null); setError(null); }}>Start a new record</Button>
           </div>
           <ErrorMessage error={error} />
         </div>
@@ -175,21 +188,27 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
         <Form {...form}>
           <form onSubmit={(event) => { void submit(event); }} className='mt-5'>
             <fieldset disabled={busy} className='space-y-5'>
+              <label className='flex min-h-11 items-center gap-3 text-sm font-semibold'>
+                <input type='checkbox' className='h-5 w-5 shrink-0 accent-primary' {...register('directCollection', { onChange: changeCollectionMode })} />
+                Taking cash directly from the till
+              </label>
               <label className='block max-w-xs text-sm font-semibold'>
                 Cash counted (£)
                 <input className={inputStyle} inputMode='decimal' placeholder='0.00' maxLength={9} required {...register('amount', { onChange: resetSignatures })} />
               </label>
               <p className='text-sm text-muted-foreground'>
-                Both people should count the cash, together or separately. If your totals differ, recount and agree the amount before signing.
+                {directCollection
+                  ? 'Count the cash yourself and enter the amount before signing.'
+                  : 'Both people should count the cash, together or separately. If your totals differ, recount and agree the amount before signing.'}
               </p>
               <div className='space-y-3 border-t pt-5'>
-                <h3 className='text-lg font-bold'>1. Handed over by</h3>
+                <h3 className='text-lg font-bold'>{directCollection ? 'Collected by' : '1. Handed over by'}</h3>
                 <div className='grid gap-4 sm:grid-cols-2'>
                   <label className='block text-sm font-semibold'>
                     Name
                     <select className={inputStyle} required {...register('staffName', { onChange: resetSignatures })}>
                       <option value=''>Select a team member</option>
-                      {staffNames.map((name) => <option key={name} value={name}>{name}</option>)}
+                      {handoverNames.map((name) => <option key={name} value={name}>{name}</option>)}
                       <option value={otherName}>Other team member</option>
                     </select>
                   </label>
@@ -200,9 +219,11 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
                     </label>
                   )}
                 </div>
-                <p className='text-sm'>I confirm that I have counted and handed over the cash shown above.</p>
+                <p className='text-sm'>{directCollection
+                  ? 'I confirm that I have counted and taken the cash shown above from the reception till. I accept responsibility for keeping it safe and for depositing it or arranging for it to be deposited.'
+                  : 'I confirm that I have counted and handed over the cash shown above.'}</p>
                 <FormField control={control} name='handoverSignature' render={({ field }) => (
-                  <SignatureField label='Staff handover signature' value={field.value} disabled={busy} onChange={(value) => {
+                  <SignatureField label={directCollection ? 'Collector signature' : 'Staff handover signature'} value={field.value} disabled={busy} onChange={(value) => {
                     field.onChange(value);
                     setValue('handoverAt', value === '' ? '' : captureSigningTime());
                     resetRecipient();
@@ -210,7 +231,7 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
                 )} />
                 <SigningTime value={watch('handoverAt')} />
               </div>
-              <div className='space-y-4 border-t pt-5'>
+              {!directCollection && <div className='space-y-4 border-t pt-5'>
                 <h3 className='text-lg font-bold'>2. Received by</h3>
                 <div className='grid gap-4 sm:grid-cols-2'>
                   <label className='block text-sm font-semibold'>
@@ -237,9 +258,9 @@ export default function BankingWorkspace({ staffNames }: { staffNames: string[] 
                   }} />
                 )} />
                 <SigningTime value={watch('recipientAt')} />
-              </div>
+              </div>}
               <ErrorMessage error={error} />
-              <Button type='submit' disabled={busy || !staffSigned || !recipientSigned}>{busy ? 'Saving and emailing…' : 'Save and email signed PDF'}</Button>
+              <Button type='submit' disabled={busy || !staffSigned || (!directCollection && !recipientSigned)}>{busy ? 'Saving and emailing…' : 'Save and email signed PDF'}</Button>
             </fieldset>
           </form>
         </Form>

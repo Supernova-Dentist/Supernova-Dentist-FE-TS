@@ -26,7 +26,7 @@ export default function BankingPage() {
         <header className='mb-8 mt-4'>
           <p className='text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground'>Supernova Dental Practice</p>
           <h1 className='mt-2 text-3xl font-bold tracking-tight sm:text-4xl'>Cash handover &amp; banking</h1>
-          <p className='mt-3 max-w-xl text-muted-foreground'>Record the cash, then have both people sign at the handover. The date and time are recorded automatically, and the signed PDF is emailed to enquiries@supernovadental.co.uk.</p>
+          <p className='mt-3 max-w-xl text-muted-foreground'>Record a cash handover or cash you take directly from the till. Signing records the date and time automatically, and the signed PDF is emailed to enquiries@supernovadental.co.uk.</p>
         </header>
         <BankingWorkspace staffNames={staffNames} />
       </div>
