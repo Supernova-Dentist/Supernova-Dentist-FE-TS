@@ -4,6 +4,7 @@ import type { StaticImageData } from 'next/image';
 
 import adamImage from '../../public/assets/images/Headshots/adam-young-operations-director-supernova-dental-bridgwater.webp';
 import alexImage from '../../public/assets/images/Headshots/dr-alexandra-rawlins-dentist-supernova-dental-bridgwater.webp';
+import charlesImage from '../../public/assets/images/Headshots/dr-charles-blanchard-dentist-supernova-dental-bridgwater.webp';
 import amyImage from '../../public/assets/images/Headshots/amy-skinner-front-of-house-supernova-dental-bridgwater.webp';
 import cameranImage from '../../public/assets/images/Headshots/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp';
 import scottImage from '../../public/assets/images/Headshots/dr-scott-young-principal-dentist-supernova-dental-bridgwater.webp';
@@ -178,7 +179,7 @@ export const teamMembers: TeamMember[] = [
     slug: 'dr-souad-maddi',
     name: 'Dr. Souad Maddi',
     firstName: 'Souad',
-    role: 'Dentist with Special Interest in Restorative Dentistry',
+    role: 'Dentist with a special interest in restorative dentistry',
     group: 'Dentists',
     image: souadImage,
     alt: 'Dr Souad Maddi, General and Restorative Dentist at Supernova Dental in Bridgwater, Somerset',
@@ -209,6 +210,24 @@ export const teamMembers: TeamMember[] = [
       'Alongside her clinical work, Alex has a strong interest in improving the quality and safety of patient care. She has undertaken an NHS Clinical Leadership Fellowship and has led award-winning quality improvement work on patient safety.',
       'Outside of dentistry, Alex enjoys running, baking and gardening.',
     ],
+  },
+  {
+    slug: 'dr-charles-blanchard',
+    name: 'Dr Charles Blanchard',
+    firstName: 'Charles',
+    role: 'Dentist with a special interest in endodontics',
+    group: 'Dentists',
+    image: charlesImage,
+    alt: 'Dr Charles Blanchard profile',
+    qualifications: 'BChD Dip.MJDF MCGDent',
+    gdc: '258593',
+    biography: [
+      'Charles has worked as a dentist for over 10 years. He has a special interest in endodontics and provides root canal treatment here at the practice.',
+      'Through his work in private practice, Charles has helped many patients who have felt nervous about visiting the dentist. He takes time to explain treatment options clearly and help patients feel informed and at ease.',
+      'Charles graduated from the University of Leeds in 2015 and continued his training in Edinburgh before settling in Somerset. In 2016, he gained his MJDF diploma from the Royal College of Surgeons of England. Charles is expanding his expertise through a postgraduate master’s degree in root canal treatment.',
+    ],
+    expertiseHeading: 'Root canal treatment with Charles',
+    expertise: [{ title: 'Root Canal Treatment', href: '/general-dentistry/root-canal-treatment' }],
   },
   {
     slug: 'kayleigh-dowdle',

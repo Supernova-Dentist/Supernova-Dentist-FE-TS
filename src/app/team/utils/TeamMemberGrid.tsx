@@ -23,7 +23,7 @@ const teamMembers = [
   { name: 'Dr. Cameran Armaghani', title: 'Implantologist', image: cameranImage, slug: 'dr-cameran-armaghani' },
   {
     name: 'Dr. Souad Maddi',
-    title: 'Dentist with Special Interest in Restorative Dentistry',
+    title: 'Dentist with a special interest in restorative dentistry',
     image: souadImage,
     slug: 'dr-souad-maddi',
   },
