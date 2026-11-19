@@ -6,6 +6,7 @@ import ConsultationLandingPageMobileNavigation from '@/components/MobileNavigati
 import MobileNavigation from '@/components/MobileNavigation/MobileNavigation';
 import { usePathname } from 'next/navigation';
 import { isLocalReachPage } from '@/lib/localreach';
+import { HygieneAvailabilityBanner } from '@/components/StickyBanner/HygieneAvailabilityBanner';
 // import { OpenDayBanner } from '@/components/StickyBanner/OpenDayBanner';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -147,6 +148,9 @@ const MainNav = () => {
         ) : (
           <DesktopNav />
         )}
+        {!showConsultationLandingPage &&
+          !mobileMenuOpen &&
+          pathname !== '/general-dentistry/emergency-dentistry' && <HygieneAvailabilityBanner />}
       </header>
     </>
   );

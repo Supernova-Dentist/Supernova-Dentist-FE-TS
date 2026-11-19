@@ -8,28 +8,32 @@ export const StickyBanner = ({
   className,
   children,
   hideOnScroll = false,
+  rememberDismissal = true,
 }: {
   onDismiss?: () => void;
   className?: string;
   children: React.ReactNode;
   hideOnScroll?: boolean;
+  rememberDismissal?: boolean;
 }) => {
   const [open, setOpen] = useState(true);
   const { scrollY } = useScroll();
 
   // ✅ Check localStorage on mount
   useEffect(() => {
+    if (!rememberDismissal) return;
     const dismissed = localStorage.getItem('bannerDismissed');
     if (dismissed === 'true') {
       setOpen(false);
     }
-  }, []);
+  }, [rememberDismissal]);
 
   // ✅ Handle scroll hide/show if enabled
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    if (hideOnScroll && latest > 40) {
+    if (!hideOnScroll) return;
+    if (latest > 40) {
       setOpen(false);
-    } else if (!localStorage.getItem('bannerDismissed')) {
+    } else if (!rememberDismissal || (localStorage.getItem('bannerDismissed') ?? '') === '') {
       setOpen(true);
     }
   });
@@ -37,14 +41,14 @@ export const StickyBanner = ({
   // ✅ Handle close (and notify parent)
   const handleClose = () => {
     setOpen(false);
-    localStorage.setItem('bannerDismissed', 'true');
-    if (onDismiss) onDismiss(); // ← this is the missing piece
+    if (rememberDismissal) localStorage.setItem('bannerDismissed', 'true');
+    onDismiss?.();
   };
 
   return (
     <motion.div
       className={cn(
-        'sticky inset-x-0 top-0 z-40 flex h-20 md:h-28 w-full items-center justify-center bg-transparent px-4 py-1 cursor-pointer',
+        'sticky inset-x-0 top-0 z-40 flex h-20 md:h-28 w-full items-center justify-center bg-transparent px-4 py-1 cursor-pointer text-white',
         className
       )}
       initial={{ y: -100, opacity: 0 }}
@@ -56,11 +60,12 @@ export const StickyBanner = ({
       <motion.button
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        className='absolute right-2 cursor-pointer flex items-center justify-center'
+        type='button'
+        className='absolute right-1 flex size-11 cursor-pointer items-center justify-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current'
         onClick={handleClose}
         aria-label='Close banner'
       >
-        <CloseIcon className='h-5 w-5 text-white' />
+        <CloseIcon className='h-5 w-5' />
       </motion.button>
     </motion.div>
   );

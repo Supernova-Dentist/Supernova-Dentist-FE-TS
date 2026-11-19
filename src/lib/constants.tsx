@@ -224,7 +224,7 @@ export const socialIcons = [
   },
 ];
 
-export const DentallyPortal = 'https://supernova.dentr.net';
+export const DentallyPortal = 'https://supernova.portal.dental';
 
 export const pricing = [
   {
