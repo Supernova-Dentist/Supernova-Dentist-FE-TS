@@ -4,6 +4,7 @@ import type { StaticImageData } from 'next/image';
 
 import adamImage from '../../public/assets/images/Headshots/adam-young-operations-director-supernova-dental-bridgwater.webp';
 import alexImage from '../../public/assets/images/Headshots/dr-alexandra-rawlins-dentist-supernova-dental-bridgwater.webp';
+import ashleyImage from '../../public/assets/images/Headshots/dr-ashley-saredi-dentist-supernova-dental-bridgwater.webp';
 import charlesImage from '../../public/assets/images/Headshots/dr-charles-blanchard-dentist-supernova-dental-bridgwater.webp';
 import amyImage from '../../public/assets/images/Headshots/amy-skinner-front-of-house-supernova-dental-bridgwater.webp';
 import cameranImage from '../../public/assets/images/Headshots/dr-cameran-armaghani-implantologist-supernova-dental-bridgwater.webp';
@@ -228,6 +229,17 @@ export const teamMembers: TeamMember[] = [
     ],
     expertiseHeading: 'Root canal treatment with Charles',
     expertise: [{ title: 'Root Canal Treatment', href: '/general-dentistry/root-canal-treatment' }],
+  },
+  {
+    slug: 'dr-ashley-saredi',
+    name: 'Dr. Ashley Saredi',
+    firstName: 'Ashley',
+    role: 'Dentist',
+    group: 'Dentists',
+    image: ashleyImage,
+    alt: 'Dr Ashley Saredi',
+    gdc: '284523',
+    biography: [],
   },
   {
     slug: 'kayleigh-dowdle',

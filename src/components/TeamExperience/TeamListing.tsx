@@ -1,6 +1,7 @@
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import { teamGroups, teamMembers, type TeamMember } from '@/data/team';
 import { DentallyPortal } from '@/lib/constants';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowRight, FiPhone } from 'react-icons/fi';
@@ -54,34 +55,34 @@ function TeamHero() {
 }
 
 function TeamCard({ member }: { member: TeamMember }) {
-  return (
-    <article className='team-card group relative overflow-hidden rounded-[1.5rem] border border-obsidian/10 bg-porcelain shadow-[0_18px_50px_rgba(11,18,24,0.07)] transition-[border-color,box-shadow,transform] duration-200 hover:border-champagne/80 hover:shadow-[0_22px_60px_rgba(11,18,24,0.12)] focus-within:border-gold-text-light focus-within:ring-2 focus-within:ring-focus-light focus-within:ring-offset-4'>
-      <Link
-        href={`/team/${member.slug}`}
-        className='block rounded-[1.5rem] focus-visible:outline-none'
-        aria-label={`View ${member.name}'s profile`}
-      >
-        <div className='relative aspect-[4/5] overflow-hidden bg-stone'>
-          <Image
-            src={member.image}
-            alt={member.alt}
-            fill
-            sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-            quality={82}
-            placeholder='blur'
-            className='object-cover transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none md:group-hover:scale-[1.018]'
-          />
-          <div
-            aria-hidden='true'
-            className='absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-obsidian/20 to-transparent'
-          />
+  const hasProfile = member.biography.length > 0;
+  const content = (
+    <>
+      <div className='relative aspect-[4/5] overflow-hidden bg-stone'>
+        <Image
+          src={member.image}
+          alt={member.alt}
+          fill
+          sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+          quality={82}
+          placeholder='blur'
+          className='object-cover transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none md:group-hover:scale-[1.018]'
+        />
+        <div
+          aria-hidden='true'
+          className='absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-obsidian/20 to-transparent'
+        />
+      </div>
+      <div className='min-h-44 px-6 pb-6 pt-5'>
+        <p className='text-xs font-semibold uppercase tracking-[0.2em] text-bronze-ink'>{member.group}</p>
+        <h3 className='mt-2 text-balance text-3xl font-normal leading-tight tracking-[-0.02em] text-obsidian'>
+          {member.name}
+        </h3>
+        <div className='mt-2 min-h-[4.5rem] text-sm leading-6 text-taupe'>
+          <p>{member.role}</p>
+          {Boolean(member.gdc) && <p>GDC {member.gdc}</p>}
         </div>
-        <div className='min-h-44 px-6 pb-6 pt-5'>
-          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-bronze-ink'>{member.group}</p>
-          <h3 className='mt-2 text-balance text-3xl font-normal leading-tight tracking-[-0.02em] text-obsidian'>
-            {member.name}
-          </h3>
-          <p className='mt-2 min-h-12 text-sm leading-6 text-taupe'>{member.role}</p>
+        {hasProfile && (
           <span className='mt-5 inline-flex items-center gap-2 text-sm font-semibold text-obsidian underline decoration-champagne/60 underline-offset-4'>
             Meet {member.firstName}
             <FiArrowRight
@@ -89,8 +90,28 @@ function TeamCard({ member }: { member: TeamMember }) {
               className='size-4 transition-transform duration-200 group-hover:translate-x-1'
             />
           </span>
-        </div>
-      </Link>
+        )}
+      </div>
+    </>
+  );
+
+  return (
+    <article
+      className={cn(
+        'relative overflow-hidden rounded-[1.5rem] border border-obsidian/10 bg-porcelain shadow-[0_18px_50px_rgba(11,18,24,0.07)]',
+        hasProfile &&
+          'team-card group transition-[border-color,box-shadow,transform] duration-200 hover:border-champagne/80 hover:shadow-[0_22px_60px_rgba(11,18,24,0.12)] focus-within:border-gold-text-light focus-within:ring-2 focus-within:ring-focus-light focus-within:ring-offset-4'
+      )}
+    >
+      {hasProfile ? (
+        <Link
+          href={`/team/${member.slug}`}
+          className='block rounded-[1.5rem] focus-visible:outline-none'
+          aria-label={`View ${member.name}'s profile`}
+        >
+          {content}
+        </Link>
+      ) : content}
     </article>
   );
 }

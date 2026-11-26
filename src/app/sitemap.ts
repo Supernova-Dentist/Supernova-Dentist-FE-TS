@@ -40,7 +40,8 @@ const indexableRoutes = [
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [...indexableRoutes, ...teamMembers.map(({ slug }) => `/team/${slug}`)];
+  const profileRoutes = teamMembers.filter(({ biography }) => biography.length > 0).map(({ slug }) => `/team/${slug}`);
+  const routes = [...indexableRoutes, ...profileRoutes];
 
   return routes.map((route) => ({ url: new URL(route, SITE_URL).toString() }));
 }
